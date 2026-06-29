@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Подбор камеры — умный помощник</title>
     <style>
-        /* Все стили остаются без изменений */
+        /* ===== Стили (те же, что были, но можно оставить как есть) ===== */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -29,7 +29,6 @@
             padding: 2rem 1.5rem;
             border-radius: 24px;
             box-shadow: 0 8px 40px rgba(0, 0, 0, 0.07);
-            transition: opacity .3s ease;
             width: 100%;
         }
         .progress {
@@ -56,7 +55,6 @@
             color: #999;
             margin-bottom: 1rem;
             min-height: 20px;
-            letter-spacing: .02em;
         }
         .step-label {
             font-size: 11px;
@@ -85,7 +83,7 @@
             border-radius: 12px;
             padding: .875rem 1rem;
             cursor: pointer;
-            transition: border-color .2s, background .2s, transform .1s;
+            transition: border-color .2s, background .2s;
             background: #fff;
             user-select: none;
         }
@@ -140,18 +138,16 @@
             font-size: 17px;
             font-weight: 600;
             cursor: pointer;
-            transition: opacity .2s, transform .1s, background .2s;
+            transition: opacity .2s;
             min-width: 200px;
             text-align: center;
         }
         .btn-next:disabled {
             opacity: 0.4;
             cursor: not-allowed;
-            transform: none;
         }
         .btn-next:hover:not(:disabled) {
             opacity: 0.85;
-            transform: scale(1.02);
         }
         .btn-back {
             background: transparent;
@@ -161,7 +157,7 @@
             font-size: 14px;
             color: #555;
             cursor: pointer;
-            transition: border-color .2s, background .2s;
+            transition: border-color .2s;
         }
         .btn-back:hover {
             border-color: #888;
@@ -185,11 +181,10 @@
             background: #fff;
             display: flex;
             flex-direction: column;
-            transition: box-shadow .2s, transform .2s;
+            transition: box-shadow .2s;
         }
         .cam-card:hover {
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-            transform: translateY(-2px);
         }
         .cam-card.primary {
             border-color: #1a1a1a;
@@ -255,7 +250,6 @@
             font-size: 14px;
             font-weight: 500;
             color: #555;
-            letter-spacing: .01em;
         }
         .cam-body {
             padding: .75rem 1rem 1rem;
@@ -302,19 +296,6 @@
             border-top: 1px solid #f0f0f0;
             margin-top: .3rem;
             line-height: 1.6;
-        }
-        .cam-coverage span {
-            display: inline-block;
-            background: #f0f0f0;
-            padding: 1px 8px;
-            border-radius: 4px;
-            margin: 2px 4px 2px 0;
-            font-size: 10px;
-            font-weight: 500;
-        }
-        .cam-coverage .miss {
-            opacity: .4;
-            text-decoration: line-through;
         }
         .cam-note {
             font-size: 12px;
@@ -370,7 +351,7 @@
             border-radius: 8px;
             padding: .45rem 1.5rem;
             cursor: pointer;
-            transition: border-color .2s, background .2s;
+            transition: border-color .2s;
         }
         .reset-btn:hover,
         .back-btn:hover {
@@ -379,9 +360,6 @@
         }
         .back-btn {
             background: #f0f0f0;
-        }
-        .hidden {
-            display: none !important;
         }
         .fade-in {
             animation: fadeIn .35s ease forwards;
@@ -395,15 +373,6 @@
                 opacity: 1;
                 transform: translateY(0);
             }
-        }
-        .score-badge {
-            font-size: 11px;
-            color: #888;
-            margin-left: auto;
-            background: #f0f0f0;
-            padding: 2px 10px;
-            border-radius: 12px;
-            font-weight: 500;
         }
         .not-found {
             text-align: center;
@@ -422,21 +391,29 @@
             max-width: 400px;
             margin: 0 auto 1.5rem;
         }
+        .loading {
+            text-align: center;
+            padding: 3rem 1rem;
+            font-size: 18px;
+            color: #888;
+        }
     </style>
 </head>
 <body>
     <div class="wrap" id="app">
         <div class="progress" id="progressBar"></div>
         <div class="breadcrumb" id="breadcrumb"></div>
-        <div id="screen" class="fade-in"></div>
+        <div id="screen" class="fade-in">
+            <div class="loading">⏳ Загрузка базы камер...</div>
+        </div>
     </div>
 
     <script>
-        // Весь код обёрнут в IIFE, чтобы избежать глобальных конфликтов
+        // ─── ВСЯ ЛОГИКА ВНУТРИ IIFE, ЧТОБЫ НЕ КОНФЛИКТОВАТЬ ──────
         (function() {
             "use strict";
 
-            // ─── КОНСТАНТЫ ──────────────────────────────────────────────
+            // ─── КОНСТАНТЫ (метки, списки) ──────────────────────────
             const GENRE_LABELS = {
                 portrait: 'Портрет',
                 landscape: 'Пейзаж',
@@ -477,340 +454,7 @@
 
             const BUDGET_RANGES = ['low', 'mid', 'high', 'very-high', 'premium'];
 
-            // ─── ДАННЫЕ КАМЕР ──────────────────────────────────────────
-            const entryLevelCameras = [
-                { id: 'canon-m50', name: 'Canon EOS M50', price: '$200–350', badge: 'badge-bu', badgeText: 'Б/У',
-                    system: 'canon', weight: 'critical', goals: ['photo', 'video', 'blog', 'travel'],
-                    genres: ['portrait', 'street', 'vlog', 'family'], budgetRange: ['low', 'mid'],
-                    sensor: 'APS-C 24 Мп', stabilization: 'нет', af: 'Dual Pixel AF', video: '4K',
-                    interchangeable: true, dualSlot: false,
-                    checkpoints: ['APS-C 24 Мп', 'Dual Pixel AF', 'откидной экран', 'поворотный экран'],
-                    note: 'Фаворит для входа в фотографию. Простое меню, отличный JPG.' },
-                { id: 'canon-700d', name: 'Canon EOS 700D', price: '$200–320', badge: 'badge-bu', badgeText: 'Б/У',
-                    system: 'canon', weight: 'moderate', goals: ['photo', 'video'], genres: ['portrait', 'landscape',
-                        'family'
-                    ], budgetRange: ['low'], sensor: 'APS-C 18 Мп', stabilization: 'нет', af: '9 точек',
-                    video: 'Full HD', interchangeable: true, dualSlot: false,
-                    checkpoints: ['APS-C 18 Мп', 'сенсорный экран', 'поворотный экран'],
-                    note: 'Самый доступный вход, если денег совсем нет.' },
-                { id: 'canon-750d', name: 'Canon EOS 750D', price: '$250–380', badge: 'badge-bu', badgeText: 'Б/У',
-                    system: 'canon', weight: 'moderate', goals: ['photo'], genres: ['portrait', 'landscape',
-                        'family'
-                    ], budgetRange: ['low', 'mid'], sensor: 'APS-C 24 Мп', stabilization: 'нет', af: '19 точек',
-                    video: 'Full HD', interchangeable: true, dualSlot: false,
-                    checkpoints: ['APS-C 24 Мп', 'Wi-Fi', 'поворотный экран'],
-                    note: 'Чуть дороже 700D, но с лучшим сенсором.' },
-                { id: 'canon-800d', name: 'Canon EOS 800D', price: '$300–450', badge: 'badge-bu', badgeText: 'Б/У',
-                    system: 'canon', weight: 'moderate', goals: ['photo', 'video'], genres: ['portrait', 'landscape',
-                        'family'
-                    ], budgetRange: ['low', 'mid'], sensor: 'APS-C 24 Мп', stabilization: 'нет',
-                    af: 'Dual Pixel AF', video: 'Full HD', interchangeable: true, dualSlot: false,
-                    checkpoints: ['APS-C 24 Мп', 'Dual Pixel AF', 'Wi-Fi/Bluetooth'],
-                    note: 'Уже с Dual Pixel AF, хороший старт.' }
-            ];
-
-            const universalCameras = [
-                { id: 'canon-m50', name: 'Canon EOS M50', price: '$200–350', badge: 'badge-bu', badgeText: 'Б/У',
-                    system: 'canon', weight: 'critical', goals: ['photo', 'video', 'blog', 'travel'],
-                    genres: ['portrait', 'street', 'vlog', 'family'], budgetRange: ['low', 'mid'],
-                    sensor: 'APS-C 24 Мп', stabilization: 'нет', af: 'Dual Pixel AF', video: '4K',
-                    interchangeable: true, dualSlot: false,
-                    checkpoints: ['APS-C 24 Мп', 'Dual Pixel AF', 'откидной экран'],
-                    note: 'Лучший универсал для старта.' },
-                { id: 'fuji-xt5', name: 'Fujifilm X-T5', price: '$1 800', badge: 'badge-new', badgeText: 'Новая',
-                    system: 'fujifilm', weight: 'critical', goals: ['photo', 'video', 'travel', 'studio'],
-                    genres: ['portrait', 'landscape', 'street', 'architecture', 'wedding', 'family', 'nude'],
-                    budgetRange: ['very-high', 'premium'], sensor: 'APS-C 40 Мп X-Trans',
-                    stabilization: 'IBIS 7 стопов',
-                    af: 'AI AF', video: '6.2K', interchangeable: true, dualSlot: true,
-                    checkpoints: ['APS-C 40 Мп X-Trans', 'IBIS 7 стопов', '6.2K видео', 'плёночные симуляции'],
-                    note: 'Топовый универсал для фото и видео.' },
-                { id: 'canon-5d4', name: 'Canon 5D Mark IV', price: '$1 500–2 000', badge: 'badge-bu',
-                    badgeText: 'Б/У',
-                    system: 'canon', weight: 'moderate', goals: ['photo', 'video', 'studio'],
-                    genres: ['portrait', 'landscape', 'reportage', 'wedding', 'family', 'nude'],
-                    budgetRange: ['high', 'very-high'], sensor: 'Full frame 30 Мп', stabilization: 'нет',
-                    af: '61 точек', video: '4K', interchangeable: true, dualSlot: true,
-                    checkpoints: ['Full frame 30 Мп', '61 точек AF', 'профессиональная эргономика'],
-                    note: 'Золотой стандарт для профессионалов.' },
-                { id: 'canon-r6', name: 'Canon EOS R6', price: '$2 500', badge: 'badge-new', badgeText: 'Новая',
-                    system: 'canon', weight: 'moderate', goals: ['photo', 'video', 'studio'],
-                    genres: ['portrait', 'landscape', 'reportage', 'wedding', 'family', 'nude'],
-                    budgetRange: ['very-high', 'premium'], sensor: 'Full frame 20 Мп',
-                    stabilization: 'IBIS 8 стопов', af: 'AF', video: '4K 60p', interchangeable: true,
-                    dualSlot: true, checkpoints: ['Full frame 20 Мп', '4K 60p', 'IBIS 8 стопов', 'AF'],
-                    note: 'Универсал для любых задач.' },
-                { id: 'canon-r6iii', name: 'Canon R6 Mark III', price: '$3 200', badge: 'badge-new',
-                    badgeText: 'Новая',
-                    system: 'canon', weight: 'moderate', goals: ['photo', 'video', 'studio', 'sport'],
-                    genres: ['portrait', 'landscape', 'reportage', 'sport', 'wedding', 'family', 'nude'],
-                    budgetRange: ['premium'], sensor: 'Full frame 24 Мп', stabilization: 'IBIS 8.5 стопов',
-                    af: 'AI AF', video: '6K', interchangeable: true, dualSlot: true,
-                    checkpoints: ['Full frame 24 Мп', '50 к/с', '6K видео', 'IBIS'],
-                    note: 'Топовый универсал.' },
-                { id: 'nikon-d750', name: 'Nikon D750', price: '$700–900', badge: 'badge-bu', badgeText: 'Б/У',
-                    system: 'nikon', weight: 'moderate', goals: ['photo', 'video'],
-                    genres: ['portrait', 'landscape', 'reportage', 'wedding', 'family'],
-                    budgetRange: ['high', 'very-high'], sensor: 'Full frame 24 Мп', stabilization: 'нет',
-                    af: '51 точек', video: 'Full HD', interchangeable: true, dualSlot: true,
-                    checkpoints: ['Full frame 24 Мп', '6.5 к/с', 'отличный динамический диапазон'],
-                    note: 'Популярный полный кадр.' },
-                { id: 'nikon-d850', name: 'Nikon D850', price: '$1 800–2 200', badge: 'badge-bu', badgeText: 'Б/У',
-                    system: 'nikon', weight: 'moderate', goals: ['photo', 'studio'],
-                    genres: ['portrait', 'landscape', 'architecture', 'wedding', 'family', 'nude'],
-                    budgetRange: ['very-high', 'premium'], sensor: 'Full frame 45.7 Мп', stabilization: 'нет',
-                    af: '153 точек', video: '4K', interchangeable: true, dualSlot: true,
-                    checkpoints: ['Full frame 45.7 Мп', '7 к/с', '4K', 'прочный корпус'],
-                    note: 'Одна из лучших зеркалок.' },
-                { id: 'sony-a7iii', name: 'Sony A7 III', price: '$1 200–1 500', badge: 'badge-bu', badgeText: 'Б/У',
-                    system: 'sony', weight: 'moderate', goals: ['photo', 'video', 'studio'],
-                    genres: ['portrait', 'landscape', 'reportage', 'wedding', 'family', 'nude'],
-                    budgetRange: ['high', 'very-high'], sensor: 'Full frame 24 Мп', stabilization: 'IBIS',
-                    af: '693 точек', video: '4K 30p, S-Log3', interchangeable: true, dualSlot: true,
-                    checkpoints: ['Full frame 24 Мп', '4K 30p, S-Log3', '693 точек AF'],
-                    note: 'Легендарный гибрид.' }
-            ];
-
-            const streetCameras = [
-                { id: 'ricoh-gr3', name: 'Ricoh GR III', price: '$900–1100', badge: 'badge-compact',
-                    badgeText: 'Компакт',
-                    system: 'other', weight: 'critical', goals: ['photo', 'travel', 'street'],
-                    genres: ['street', 'landscape', 'portrait'], budgetRange: ['high', 'very-high', 'premium'],
-                    sensor: 'APS-C 24 Мп', stabilization: 'IBIS', af: 'AF', video: 'Full HD',
-                    interchangeable: false, dualSlot: false,
-                    checkpoints: ['APS-C 24 Мп', 'IBIS', '28mm f/2.8', 'карманный'],
-                    note: 'Легендарный карманный стрит.' },
-                { id: 'ricoh-gr4', name: 'Ricoh GR IV', price: '$1 200', badge: 'badge-new', badgeText: 'Новая',
-                    system: 'other', weight: 'critical', goals: ['photo', 'travel', 'street'],
-                    genres: ['street', 'landscape', 'portrait'], budgetRange: ['very-high', 'premium'],
-                    sensor: 'APS-C 26 Мп', stabilization: 'IBIS', af: 'AI AF', video: '4K',
-                    interchangeable: false, dualSlot: false,
-                    checkpoints: ['APS-C 26 Мп', 'IBIS', 'AI AF', 'компактный'],
-                    note: 'Новейший GR — идеальный стрит.' },
-                { id: 'fuji-xt30', name: 'Fujifilm X-T30', price: '$550–750', badge: 'badge-bu', badgeText: 'Б/У',
-                    system: 'fujifilm', weight: 'critical', goals: ['photo', 'travel', 'street'],
-                    genres: ['street', 'portrait', 'landscape', 'family'], budgetRange: ['mid', 'high'],
-                    sensor: 'APS-C 26 Мп X-Trans', stabilization: 'нет', af: 'AF', video: '4K 30p',
-                    interchangeable: true, dualSlot: false,
-                    checkpoints: ['APS-C 26 Мп X-Trans', 'компактный', 'плёночные симуляции', '4K 30p'],
-                    note: 'Компактная беззеркалка Fuji для стрита и путешествий.' },
-                { id: 'fuji-xt30ii', name: 'Fujifilm X-T30 II', price: '$700–900', badge: 'badge-new',
-                    badgeText: 'Новая',
-                    system: 'fujifilm', weight: 'critical', goals: ['photo', 'travel', 'street'],
-                    genres: ['street', 'portrait', 'landscape', 'family'], budgetRange: ['mid', 'high',
-                        'very-high'
-                    ],
-                    sensor: 'APS-C 26 Мп X-Trans', stabilization: 'нет', af: 'AF (улучшенный)', video: '4K 30p',
-                    interchangeable: true, dualSlot: false,
-                    checkpoints: ['APS-C 26 Мп X-Trans', 'компактный', 'улучшенный AF', 'плёночные симуляции'],
-                    note: 'Обновлённая версия X-T30 с лучшим автофокусом.' },
-                { id: 'fuji-x100v', name: 'Fujifilm X100V', price: '$1 400', badge: 'badge-new', badgeText: 'Новая',
-                    system: 'fujifilm', weight: 'critical', goals: ['photo', 'travel', 'street'],
-                    genres: ['street', 'portrait', 'landscape', 'family'], budgetRange: ['very-high', 'premium'],
-                    sensor: 'APS-C 26 Мп X-Trans', stabilization: 'нет', af: 'AF', video: '4K',
-                    interchangeable: false, dualSlot: false,
-                    checkpoints: ['APS-C 26 Мп X-Trans', '23mm f/2', 'гибридный видоискатель',
-                        'плёночные симуляции'
-                    ],
-                    note: 'Культовый стрит с отличным JPG.' },
-                { id: 'fuji-x100vi', name: 'Fujifilm X100VI', price: '$1 600', badge: 'badge-new',
-                    badgeText: 'Новая',
-                    system: 'fujifilm', weight: 'critical', goals: ['photo', 'travel', 'street'],
-                    genres: ['street', 'portrait', 'landscape', 'family'], budgetRange: ['very-high', 'premium'],
-                    sensor: 'APS-C 40 Мп X-Trans', stabilization: 'IBIS', af: 'AI AF', video: '4K',
-                    interchangeable: false, dualSlot: false,
-                    checkpoints: ['APS-C 40 Мп X-Trans', 'IBIS', '23mm f/2', 'AI AF'],
-                    note: 'Новое поколение X100 с IBIS.' },
-                { id: 'leica-q2', name: 'Leica Q2', price: '$5 000', badge: 'badge-premium', badgeText: 'Премиум',
-                    system: 'leica', weight: 'critical', goals: ['photo', 'travel', 'street'],
-                    genres: ['street', 'portrait', 'landscape'], budgetRange: ['premium'],
-                    sensor: 'Full frame 47 Мп', stabilization: 'нет', af: 'AF', video: '4K',
-                    interchangeable: false, dualSlot: false,
-                    checkpoints: ['Full frame 47 Мп', '28mm f/1.7', 'погодозащита'],
-                    note: 'Компактный полнокадровый премиум.' },
-                { id: 'leica-q3', name: 'Leica Q3', price: '$6 000', badge: 'badge-premium', badgeText: 'Премиум',
-                    system: 'leica', weight: 'critical', goals: ['photo', 'travel', 'street'],
-                    genres: ['street', 'portrait', 'landscape'], budgetRange: ['premium'],
-                    sensor: 'Full frame 60 Мп', stabilization: 'нет', af: 'AF', video: '8K',
-                    interchangeable: false, dualSlot: false,
-                    checkpoints: ['Full frame 60 Мп', '28mm f/1.7', '8K видео'],
-                    note: 'Новый флагман компактных Leica.' },
-                { id: 'leica-m11', name: 'Leica M11', price: '$8 000', badge: 'badge-premium', badgeText: 'Премиум',
-                    system: 'leica', weight: 'moderate', goals: ['photo', 'street'],
-                    genres: ['street', 'portrait', 'reportage'], budgetRange: ['premium'],
-                    sensor: 'Full frame 60 Мп', stabilization: 'нет', af: 'ручной', video: 'нет',
-                    interchangeable: true, dualSlot: false,
-                    checkpoints: ['Full frame 60 Мп', 'дальномер', 'компактный'],
-                    note: 'Классическая дальномерная Leica.' },
-                { id: 'iphone-16pro', name: 'iPhone 16 Pro (Dazz Cam + Blackmagic)', price: '$1 200',
-                    badge: 'badge-compact', badgeText: 'Смартфон', system: 'other', weight: 'critical',
-                    goals: ['photo', 'video', 'blog', 'travel'], genres: ['street', 'portrait', 'landscape',
-                        'family', 'vlog'
-                    ], budgetRange: ['very-high', 'premium'], sensor: '48 Мп', stabilization: 'IBIS',
-                    af: 'AF', video: '4K 120p ProRes', interchangeable: false, dualSlot: false,
-                    checkpoints: ['48 Мп', '4K 120p ProRes', 'Dazz Cam', 'Blackmagic'],
-                    note: 'Смартфон с профессиональными приложениями.' }
-            ];
-
-            const studioCameras = [
-                { id: 'canon-r5', name: 'Canon EOS R5', price: '$3 900', badge: 'badge-new', badgeText: 'Новая',
-                    system: 'canon', weight: 'moderate', goals: ['photo', 'video', 'studio'],
-                    genres: ['portrait', 'landscape', 'reportage', 'architecture', 'wedding', 'family', 'nude'],
-                    budgetRange: ['premium'], sensor: 'Full frame 45 Мп', stabilization: 'IBIS 8 стопов',
-                    af: 'AI AF', video: '8K RAW', interchangeable: true, dualSlot: true,
-                    checkpoints: ['Full frame 45 Мп', '8K RAW', 'IBIS 8 стопов', 'AI AF'],
-                    note: 'Универсальный флагман для студии.' },
-                { id: 'canon-r5ii', name: 'Canon EOS R5 Mark II', price: '$4 500', badge: 'badge-new',
-                    badgeText: 'Новая',
-                    system: 'canon', weight: 'moderate', goals: ['photo', 'video', 'studio', 'sport'],
-                    genres: ['portrait', 'landscape', 'reportage', 'sport', 'wedding', 'family', 'nude'],
-                    budgetRange: ['premium'], sensor: 'Full frame 45 Мп', stabilization: 'IBIS 8.5 стопов',
-                    af: 'AI AF', video: '8K 60p', interchangeable: true, dualSlot: true,
-                    checkpoints: ['Full frame 45 Мп', '8K 60p', 'IBIS 8.5 стопов', 'AI AF'],
-                    note: 'Новый флагман с улучшенным видео.' },
-                { id: 'sony-a7rv', name: 'Sony Alpha A7R V', price: '$3 900', badge: 'badge-new', badgeText: 'Новая',
-                    system: 'sony', weight: 'moderate', goals: ['photo', 'studio'],
-                    genres: ['portrait', 'landscape', 'architecture', 'nude'], budgetRange: ['premium'],
-                    sensor: 'Full frame 61 Мп', stabilization: 'IBIS', af: 'AI AF', video: '8K',
-                    interchangeable: true, dualSlot: true,
-                    checkpoints: ['Full frame 61 Мп', '8K', 'AI AF', 'IBIS'],
-                    note: 'Король разрешения для студии.' },
-                { id: 'nikon-z8', name: 'Nikon Z8', price: '$4 000', badge: 'badge-new', badgeText: 'Новая',
-                    system: 'nikon', weight: 'moderate', goals: ['photo', 'video', 'studio', 'sport'],
-                    genres: ['portrait', 'landscape', 'reportage', 'sport', 'wedding', 'family', 'nude'],
-                    budgetRange: ['premium'], sensor: 'Full frame 45.7 Мп', stabilization: 'IBIS',
-                    af: 'AI AF', video: '8K 60p RAW', interchangeable: true, dualSlot: true,
-                    checkpoints: ['Full frame 45.7 Мп', '8K 60p RAW', '20 к/с', 'AI AF'],
-                    note: 'Компактный флагман Nikon.' },
-                { id: 'fuji-gfx100sii', name: 'Fujifilm GFX100S II', price: '$6 500', badge: 'badge-new',
-                    badgeText: 'Новая', system: 'fujifilm', weight: 'critical', goals: ['photo', 'studio',
-                        'travel'
-                    ], genres: ['portrait', 'landscape', 'architecture', 'nude'], budgetRange: ['premium'],
-                    sensor: 'Средний формат 102 Мп', stabilization: 'IBIS', af: 'AI AF', video: '4K',
-                    interchangeable: true, dualSlot: true,
-                    checkpoints: ['Средний формат 102 Мп', 'IBIS', 'компактный'],
-                    note: 'Компактный среднеформат Fuji.' },
-                { id: 'hasselblad-x2d', name: 'Hasselblad X2D 100C', price: '$8 000', badge: 'badge-premium',
-                    badgeText: 'Премиум', system: 'hasselblad', weight: 'moderate', goals: ['photo', 'studio'],
-                    genres: ['portrait', 'landscape', 'architecture', 'nude'], budgetRange: ['premium'],
-                    sensor: 'Средний формат 100 Мп', stabilization: 'IBIS', af: 'AF', video: 'нет',
-                    interchangeable: true, dualSlot: true,
-                    checkpoints: ['Средний формат 100 Мп', 'IBIS', 'натуральные цвета'],
-                    note: 'Флагман среднего формата.' }
-            ];
-
-            const videoCameras = [
-                { id: 'dji-pocket3', name: 'DJI Osmo Pocket 3', price: '$500', badge: 'badge-video',
-                    badgeText: 'Видео',
-                    system: 'other', weight: 'critical', goals: ['video', 'blog', 'travel'],
-                    genres: ['vlog', 'street'], budgetRange: ['mid', 'high', 'very-high'],
-                    sensor: '1" 10 Мп', stabilization: 'IBIS', af: 'AF', video: '4K 120p',
-                    interchangeable: false, dualSlot: false,
-                    checkpoints: ['стабилизатор', '1" сенсор', '4K 120p', 'автофокус'],
-                    note: 'Идеален для влогов.' },
-                { id: 'canon-m50', name: 'Canon EOS M50 Mark II', price: '$250–350', badge: 'badge-bu',
-                    badgeText: 'Б/У', system: 'canon', weight: 'critical', goals: ['photo', 'video', 'blog',
-                        'travel'
-                    ], genres: ['portrait', 'street', 'vlog', 'family'], budgetRange: ['low', 'mid'],
-                    sensor: 'APS-C 24 Мп', stabilization: 'нет', af: 'Dual Pixel AF', video: '4K',
-                    interchangeable: true, dualSlot: false,
-                    checkpoints: ['APS-C 24 Мп', 'Dual Pixel AF', 'откидной экран'],
-                    note: 'Отличный старт для блогов.' },
-                { id: 'sony-zve10', name: 'Sony ZV-E10 II', price: '$700', badge: 'badge-new', badgeText: 'Новая',
-                    system: 'sony', weight: 'critical', goals: ['video', 'blog', 'travel'],
-                    genres: ['vlog', 'portrait', 'street', 'family'], budgetRange: ['mid', 'high'],
-                    sensor: 'APS-C 24 Мп', stabilization: 'нет', af: 'AF', video: '4K',
-                    interchangeable: true, dualSlot: false,
-                    checkpoints: ['APS-C 24 Мп', '4K', 'откидной экран', 'микрофон'],
-                    note: 'Специально для блогеров.' },
-                { id: 'canon-r50v', name: 'Canon EOS R50 V', price: '$750', badge: 'badge-new', badgeText: 'Новая',
-                    system: 'canon', weight: 'critical', goals: ['video', 'blog', 'travel'],
-                    genres: ['vlog', 'street', 'portrait', 'family'], budgetRange: ['mid', 'high'],
-                    sensor: 'APS-C 24 Мп', stabilization: 'нет', af: 'AF', video: '4K 60p',
-                    interchangeable: true, dualSlot: false,
-                    checkpoints: ['APS-C 24 Мп', '4K 60p', 'откидной экран', 'стриминг'],
-                    note: 'Видео-версия R50 для блогеров.' },
-                { id: 'sony-a7cii', name: 'Sony A7C II', price: '$2 200', badge: 'badge-new', badgeText: 'Новая',
-                    system: 'sony', weight: 'critical', goals: ['photo', 'video', 'travel', 'blog'],
-                    genres: ['portrait', 'street', 'family'], budgetRange: ['very-high', 'premium'],
-                    sensor: 'Full frame 33 Мп', stabilization: 'IBIS', af: 'AF', video: '4K 60p',
-                    interchangeable: true, dualSlot: true,
-                    checkpoints: ['Full frame 33 Мп', 'IBIS', '4K 60p', 'компактный'],
-                    note: 'Компактный полный кадр для блогов.' },
-                { id: 'fuji-xs20', name: 'Fujifilm X-S20', price: '$1 300', badge: 'badge-new', badgeText: 'Новая',
-                    system: 'fujifilm', weight: 'critical', goals: ['photo', 'video', 'travel', 'blog'],
-                    genres: ['portrait', 'landscape', 'street', 'vlog', 'family'], budgetRange: ['very-high'],
-                    sensor: 'APS-C 26 Мп X-Trans', stabilization: 'IBIS', af: 'AI AF', video: '6.2K',
-                    interchangeable: true, dualSlot: true,
-                    checkpoints: ['APS-C 26 Мп X-Trans', 'IBIS', '6.2K', 'AI AF'],
-                    note: 'Современный гибрид для блогов.' },
-                { id: 'pana-gh6', name: 'Panasonic Lumix GH6', price: '$2 200', badge: 'badge-new',
-                    badgeText: 'Новая',
-                    system: 'panasonic', weight: 'moderate', goals: ['video', 'studio'],
-                    genres: ['documentary', 'reportage'], budgetRange: ['very-high', 'premium'],
-                    sensor: 'MFT 25 Мп', stabilization: 'IBIS', af: 'AF', video: '5.7K 60p, ProRes',
-                    interchangeable: true, dualSlot: true,
-                    checkpoints: ['MFT 25 Мп', '5.7K 60p, ProRes', 'IBIS', 'вентилятор'],
-                    note: 'Видео-флагман для профессионалов.' },
-                { id: 'pana-gh5', name: 'Panasonic Lumix GH5', price: '$800–1100', badge: 'badge-bu',
-                    badgeText: 'Б/У',
-                    system: 'panasonic', weight: 'moderate', goals: ['video', 'studio'],
-                    genres: ['reportage', 'documentary'], budgetRange: ['high', 'very-high'],
-                    sensor: 'MFT 20 Мп', stabilization: 'IBIS', af: 'AF', video: '4K 60p, V-Log',
-                    interchangeable: true, dualSlot: true,
-                    checkpoints: ['MFT 20 Мп', '4K 60p, V-Log', 'IBIS', 'прочный корпус'],
-                    note: 'Легендарная видео-камера.' }
-            ];
-
-            const premiumCameras = [
-                { id: 'leica-q2', name: 'Leica Q2', price: '$5 000', badge: 'badge-premium', badgeText: 'Премиум',
-                    system: 'leica', weight: 'critical', goals: ['photo', 'travel', 'street'],
-                    genres: ['street', 'portrait', 'landscape'], budgetRange: ['premium'],
-                    sensor: 'Full frame 47 Мп', stabilization: 'нет', af: 'AF', video: '4K',
-                    interchangeable: false, dualSlot: false,
-                    checkpoints: ['Full frame 47 Мп', '28mm f/1.7', 'погодозащита'],
-                    note: 'Компактный полнокадровый премиум.' },
-                { id: 'leica-q3', name: 'Leica Q3', price: '$6 000', badge: 'badge-premium', badgeText: 'Премиум',
-                    system: 'leica', weight: 'critical', goals: ['photo', 'travel', 'street'],
-                    genres: ['street', 'portrait', 'landscape'], budgetRange: ['premium'],
-                    sensor: 'Full frame 60 Мп', stabilization: 'нет', af: 'AF', video: '8K',
-                    interchangeable: false, dualSlot: false,
-                    checkpoints: ['Full frame 60 Мп', '28mm f/1.7', '8K видео'],
-                    note: 'Новый флагман компактных Leica.' },
-                { id: 'leica-m11', name: 'Leica M11', price: '$8 000', badge: 'badge-premium', badgeText: 'Премиум',
-                    system: 'leica', weight: 'moderate', goals: ['photo', 'street'],
-                    genres: ['street', 'portrait', 'reportage'], budgetRange: ['premium'],
-                    sensor: 'Full frame 60 Мп', stabilization: 'нет', af: 'ручной', video: 'нет',
-                    interchangeable: true, dualSlot: false,
-                    checkpoints: ['Full frame 60 Мп', 'дальномер', 'компактный'],
-                    note: 'Классическая дальномерная Leica.' },
-                { id: 'hasselblad-x2d', name: 'Hasselblad X2D 100C', price: '$8 000', badge: 'badge-premium',
-                    badgeText: 'Премиум', system: 'hasselblad', weight: 'moderate', goals: ['photo', 'studio'],
-                    genres: ['portrait', 'landscape', 'architecture', 'nude'], budgetRange: ['premium'],
-                    sensor: 'Средний формат 100 Мп', stabilization: 'IBIS', af: 'AF', video: 'нет',
-                    interchangeable: true, dualSlot: true,
-                    checkpoints: ['Средний формат 100 Мп', 'IBIS', 'натуральные цвета'],
-                    note: 'Флагман среднего формата.' },
-                { id: 'hasselblad-x1dii', name: 'Hasselblad X1D II 50C', price: '$6 000', badge: 'badge-premium',
-                    badgeText: 'Премиум', system: 'hasselblad', weight: 'critical', goals: ['photo', 'studio',
-                        'travel'
-                    ], genres: ['portrait', 'landscape', 'architecture', 'nude'], budgetRange: ['premium'],
-                    sensor: 'Средний формат 50 Мп', stabilization: 'нет', af: 'AF', video: 'нет',
-                    interchangeable: true, dualSlot: true,
-                    checkpoints: ['Средний формат 50 Мп', 'компактный', 'цвет'],
-                    note: 'Компактный среднеформат.' }
-            ];
-
-            const allCameras = [
-                ...entryLevelCameras,
-                ...universalCameras,
-                ...streetCameras,
-                ...studioCameras,
-                ...videoCameras,
-                ...premiumCameras
-            ];
-
-            // ─── ШАГИ ──────────────────────────────────────────────────
+            // ─── ШАГИ ОПРОСНИКА ──────────────────────────────────────
             const STEP_DEFS = [{
                 id: 'level',
                 label: 'Шаг 1 из ?',
@@ -978,8 +622,31 @@
             };
 
             let currentStepIdx = 0;
+            let allCameras = []; // сюда загрузим из JSON
 
-            // ─── ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ─────────────────────────────
+            // ─── ЗАГРУЗКА БАЗЫ КАМЕР ──────────────────────────────────
+            async function loadCameras() {
+                try {
+                    const url = 'https://raw.githubusercontent.com/alexeynovopashin-lab/CameraChange/main/cameras.json';
+                    const response = await fetch(url);
+                    if (!response.ok) throw new Error('Ошибка загрузки JSON');
+                    const data = await response.json();
+                    allCameras = data.cameras || [];
+                    renderStep(); // после загрузки запускаем опросник
+                } catch (e) {
+                    console.error('Не удалось загрузить базу камер:', e);
+                    document.getElementById('screen').innerHTML = `
+                        <div class="not-found">
+                            <div class="emoji">⚠️</div>
+                            <h3>Не удалось загрузить базу камер</h3>
+                            <p>Проверьте интернет или обновите страницу.</p>
+                            <button class="btn-back" onclick="location.reload()">Обновить</button>
+                        </div>
+                    `;
+                }
+            }
+
+            // ─── ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ДЛЯ ВИДИМОСТИ ШАГОВ ────────
             function getVisibleSteps() {
                 return STEP_DEFS.filter(st => {
                     if (st.visibility) return st.visibility(state);
@@ -1023,8 +690,9 @@
                 return !!val;
             }
 
-            // ─── СКОРИНГ ──────────────────────────────────────────────
+            // ─── СКОРИНГ (ВЗВЕШЕННЫЙ) ─────────────────────────────────
 
+            // Оценка бюджета: точное попадание 10, соседний 7, через один 4, дальше 1
             function getBudgetScore(camBudgetRanges, userBudget) {
                 if (!userBudget) return 5;
                 const idx = BUDGET_RANGES.indexOf(userBudget);
@@ -1042,6 +710,7 @@
                 return best;
             }
 
+            // Совпадение целей или жанров: процент совпадения * 10
             function getMatchScore(camItems, userItems) {
                 if (!userItems || userItems.length === 0) return 5;
                 if (!camItems || camItems.length === 0) return 0;
@@ -1050,6 +719,7 @@
                 return (matches / total) * 10;
             }
 
+            // Оценка по весу
             function getWeightScore(camWeight, userWeight) {
                 if (!userWeight) return 5;
                 if (userWeight === 'critical') {
@@ -1061,19 +731,21 @@
                     if (camWeight === 'moderate' || camWeight === 'critical') return 8;
                     return 4;
                 }
-                return 10;
+                return 10; // вес не важен
             }
 
+            // Оценка по системе
             function getSystemScore(camSystem, userSystem, proIntent, level) {
                 if (!userSystem || userSystem === 'other') return 5;
                 if (camSystem === userSystem) {
-                    if (level === 'pro' && proIntent === 'replace') return 0;
+                    if (level === 'pro' && proIntent === 'replace') return 0; // штраф
                     return 10;
                 } else {
                     return 5;
                 }
             }
 
+            // Оценка по уровню пользователя
             function getLevelScore(cam, level) {
                 if (level === 'beginner') {
                     let score = 5;
@@ -1111,6 +783,7 @@
                 return Math.min(10, Math.max(0, score));
             }
 
+            // Оценка дополнительных требований (RAW, видео, условия)
             function getExtrasScore(cam, state) {
                 let score = 5;
                 const { additional1, additional2, additional3, goals } = state;
@@ -1156,6 +829,7 @@
                 return Math.min(10, Math.max(0, score));
             }
 
+            // Динамические веса критериев в зависимости от состояния
             function getWeights(state) {
                 let w = {
                     budget: 0.20,
@@ -1237,6 +911,7 @@
                     w.level *= scale;
                 }
 
+                // Нормализация (сумма должна быть 1)
                 const sum = Object.values(w).reduce((a, b) => a + b, 0);
                 for (const key in w) {
                     w[key] /= sum;
@@ -1244,6 +919,7 @@
                 return w;
             }
 
+            // Главная функция скоринга
             function computeScore(cam) {
                 const weights = getWeights(state);
                 const scores = {
@@ -1262,14 +938,15 @@
                 return total;
             }
 
+            // Получить отсортированный список камер с баллами
             function getScoredCameras() {
                 const scored = allCameras.map(cam => ({
                     ...cam,
                     score: computeScore(cam)
                 }));
-
                 scored.sort((a, b) => b.score - a.score);
 
+                // Уникальные по id (на всякий случай)
                 const unique = [];
                 const seen = new Set();
                 for (const cam of scored) {
@@ -1279,28 +956,18 @@
                     }
                 }
 
+                // Если профи и замена системы – исключаем камеры той же системы, если есть альтернативы
                 if (state.level === 'pro' && state.proIntent === 'replace' && state.system) {
                     const altPositive = unique.filter(c => c.system !== state.system && c.score > 0);
                     if (altPositive.length >= 4) {
                         return unique.filter(c => c.system !== state.system);
                     }
                 }
-
                 return unique;
             }
 
-            // ─── РЕНДЕРИНГ ─────────────────────────────────────────────
-            function renderProgress(cur, total) {
-                const bar = document.getElementById('progressBar');
-                let html = '';
-                for (let i = 0; i < total; i++) {
-                    const cls = i < cur ? 'done' : (i === cur ? 'active' : '');
-                    html += `<div class="progress-step ${cls}"></div>`;
-                }
-                bar.innerHTML = html;
-            }
+            // ─── НАВИГАЦИЯ И РЕНДЕРИНГ ──────────────────────────────
 
-            // Объявим функции навигации заранее (они будут использоваться в обработчиках)
             function goForward() {
                 const visible = getVisibleSteps();
                 const cur = visible.findIndex(s => s.id === STEP_DEFS[currentStepIdx].id);
@@ -1341,7 +1008,6 @@
                 }
             }
 
-            // Функции выбора (используются в обработчиках)
             function selectSingle(field, val) {
                 state[field] = val;
                 renderStep();
@@ -1356,7 +1022,16 @@
                 renderStep();
             }
 
-            // Основной рендер шага
+            function renderProgress(cur, total) {
+                const bar = document.getElementById('progressBar');
+                let html = '';
+                for (let i = 0; i < total; i++) {
+                    const cls = i < cur ? 'done' : (i === cur ? 'active' : '');
+                    html += `<div class="progress-step ${cls}"></div>`;
+                }
+                bar.innerHTML = html;
+            }
+
             function renderStep() {
                 const screen = document.getElementById('screen');
                 const visible = getVisibleSteps();
@@ -1407,33 +1082,33 @@
                 }
                 document.getElementById('breadcrumb').textContent = crumbs.join(' › ');
 
-                // Построение HTML
+                // Построение HTML опций
                 let optsHtml = '';
                 if (isMulti) {
                     optsHtml = opts.map(o => {
                         const checked = (state[step.id] || []).includes(o.val) ? 'checked' : '';
                         return `
-                                <div class="opt" data-field="${step.id}" data-val="${o.val}" data-multi="true">
-                                    <input type="checkbox" ${checked}>
-                                    <div class="opt-icon">${o.icon}</div>
-                                    <div class="opt-text">
-                                        <div class="opt-title">${o.title}</div>
-                                    </div>
+                            <div class="opt" data-field="${step.id}" data-val="${o.val}" data-multi="true">
+                                <input type="checkbox" ${checked}>
+                                <div class="opt-icon">${o.icon}</div>
+                                <div class="opt-text">
+                                    <div class="opt-title">${o.title}</div>
                                 </div>
-                            `;
+                            </div>
+                        `;
                     }).join('');
                 } else {
                     optsHtml = opts.map(o => {
                         const sel = state[step.id] === o.val ? 'selected' : '';
                         return `
-                                <div class="opt ${sel}" data-field="${step.id}" data-val="${o.val}" data-multi="false">
-                                    <div class="opt-icon">${o.icon}</div>
-                                    <div class="opt-text">
-                                        <div class="opt-title">${o.title}</div>
-                                        ${o.sub ? `<div class="opt-sub">${o.sub}</div>` : ''}
-                                    </div>
+                            <div class="opt ${sel}" data-field="${step.id}" data-val="${o.val}" data-multi="false">
+                                <div class="opt-icon">${o.icon}</div>
+                                <div class="opt-text">
+                                    <div class="opt-title">${o.title}</div>
+                                    ${o.sub ? `<div class="opt-sub">${o.sub}</div>` : ''}
                                 </div>
-                            `;
+                            </div>
+                        `;
                     }).join('');
                 }
 
@@ -1442,20 +1117,19 @@
                 const isLast = !nextVisible;
 
                 screen.innerHTML = `
-                        <div class="step-label">Шаг ${curIdx + 1} из ${total}</div>
-                        <div class="step-title">${label}</div>
-                        <div class="options">${optsHtml}</div>
-                        <div class="flex-row">
-                            ${prevVisible ? `<button class="btn-back" id="btnBack">← Назад</button>` : ''}
-                            ${isLast ? 
-                                `<button class="btn-next" id="btnNext" ${!completed ? 'disabled' : ''}>Показать результат</button>` :
-                                `<button class="btn-next" id="btnNext" ${!completed ? 'disabled' : ''}>Далее →</button>`
-                            }
-                        </div>
-                    `;
+                    <div class="step-label">Шаг ${curIdx + 1} из ${total}</div>
+                    <div class="step-title">${label}</div>
+                    <div class="options">${optsHtml}</div>
+                    <div class="flex-row">
+                        ${prevVisible ? `<button class="btn-back" id="btnBack">← Назад</button>` : ''}
+                        ${isLast ? 
+                            `<button class="btn-next" id="btnNext" ${!completed ? 'disabled' : ''}>Показать результат</button>` :
+                            `<button class="btn-next" id="btnNext" ${!completed ? 'disabled' : ''}>Далее →</button>`
+                        }
+                    </div>
+                `;
 
-                // Назначение обработчиков событий
-                // 1. Клики по опциям
+                // Назначение обработчиков на опции
                 document.querySelectorAll('.opt').forEach(el => {
                     el.addEventListener('click', function(e) {
                         const field = this.dataset.field;
@@ -1469,11 +1143,9 @@
                     });
                 });
 
-                // 2. Кнопка "Назад"
                 const backBtn = document.getElementById('btnBack');
                 if (backBtn) backBtn.addEventListener('click', goBack);
 
-                // 3. Кнопка "Далее" / "Результат"
                 const nextBtn = document.getElementById('btnNext');
                 if (nextBtn) {
                     nextBtn.addEventListener('click', function() {
@@ -1486,7 +1158,6 @@
                     });
                 }
 
-                // Анимация
                 screen.classList.remove('fade-in');
                 void screen.offsetWidth;
                 screen.classList.add('fade-in');
@@ -1503,13 +1174,13 @@
 
                 if (top.length === 0) {
                     screen.innerHTML = `
-                            <div class="not-found fade-in">
-                                <div class="emoji">🔍</div>
-                                <h3>К сожалению, подходящих камер не найдено</h3>
-                                <p>Попробуйте изменить параметры (бюджет, цели или жанры).</p>
-                                <button class="btn-back" id="backToQuestions" style="font-size:15px;padding:0.7rem 2rem;">← Вернуться к вопросам</button>
-                            </div>
-                        `;
+                        <div class="not-found fade-in">
+                            <div class="emoji">🔍</div>
+                            <h3>К сожалению, подходящих камер не найдено</h3>
+                            <p>Попробуйте изменить параметры (бюджет, цели или жанры).</p>
+                            <button class="btn-back" id="backToQuestions" style="font-size:15px;padding:0.7rem 2rem;">← Вернуться к вопросам</button>
+                        </div>
+                    `;
                     document.getElementById('backToQuestions').addEventListener('click', goBackToQuestions);
                     return;
                 }
@@ -1575,34 +1246,34 @@
                     const coverage = coverageHtml(cam);
 
                     return `
-                            <div class="cam-card ${isPrimary ? 'primary' : ''}">
-                                <div class="card-category">${isPrimary ? 'Основная рекомендация' : 'Альтернатива'}</div>
-                                <div class="cam-badge-wrap">${badgePrimary}${marketBadge}</div>
-                                <div class="cam-img-wrap">📷 ${cam.name}</div>
-                                <div class="cam-body">
-                                    <div class="cam-model">${cam.name}</div>
-                                    <div class="cam-price">${cam.price}</div>
-                                    ${checkpoints ? `<ul class="cam-checkpoints">${checkpoints}</ul>` : ''}
-                                    ${coverage ? `<div class="cam-coverage">${coverage}</div>` : ''}
-                                    ${cam.note ? `<div class="cam-note">${cam.note}</div>` : ''}
-                                    <a href="${avitoUrl}" target="_blank" class="avito-btn">Найти на Avito</a>
-                                </div>
+                        <div class="cam-card ${isPrimary ? 'primary' : ''}">
+                            <div class="card-category">${isPrimary ? 'Основная рекомендация' : 'Альтернатива'}</div>
+                            <div class="cam-badge-wrap">${badgePrimary}${marketBadge}</div>
+                            <div class="cam-img-wrap">📷 ${cam.name}</div>
+                            <div class="cam-body">
+                                <div class="cam-model">${cam.name}</div>
+                                <div class="cam-price">${cam.price}</div>
+                                ${checkpoints ? `<ul class="cam-checkpoints">${checkpoints}</ul>` : ''}
+                                ${coverage ? `<div class="cam-coverage">${coverage}</div>` : ''}
+                                ${cam.note ? `<div class="cam-note">${cam.note}</div>` : ''}
+                                <a href="${avitoUrl}" target="_blank" class="avito-btn">Найти на Avito</a>
                             </div>
-                        `;
+                        </div>
+                    `;
                 }
 
                 screen.innerHTML = `
-                        <div class="step-label">Результат</div>
-                        <div class="step-title" style="font-size:17px;margin-bottom:0.5rem">Вот что я рекомендую</div>
-                        <div class="result-summary">${summary}</div>
-                        <div class="results-grid">
-                            ${top.map((cam, i) => cardHtml(cam, i)).join('')}
-                        </div>
-                        <div class="buttons-row">
-                            <button class="back-btn" id="backToQuestions">← Вернуться к вопросам</button>
-                            <button class="reset-btn" id="resetAll">Начать заново</button>
-                        </div>
-                    `;
+                    <div class="step-label">Результат</div>
+                    <div class="step-title" style="font-size:17px;margin-bottom:0.5rem">Вот что я рекомендую</div>
+                    <div class="result-summary">${summary}</div>
+                    <div class="results-grid">
+                        ${top.map((cam, i) => cardHtml(cam, i)).join('')}
+                    </div>
+                    <div class="buttons-row">
+                        <button class="back-btn" id="backToQuestions">← Вернуться к вопросам</button>
+                        <button class="reset-btn" id="resetAll">Начать заново</button>
+                    </div>
+                `;
 
                 document.getElementById('backToQuestions').addEventListener('click', goBackToQuestions);
                 document.getElementById('resetAll').addEventListener('click', resetAll);
@@ -1612,8 +1283,9 @@
                 screen.classList.add('fade-in');
             }
 
-            // ─── ЗАПУСК ──────────────────────────────────────────────────
-            renderStep();
+            // ─── СТАРТ ──────────────────────────────────────────────────
+            // Загружаем камеры, после загрузки автоматически запустится renderStep()
+            loadCameras();
 
         })(); // конец IIFE
     </script>
