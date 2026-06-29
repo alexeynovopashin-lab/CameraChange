@@ -172,6 +172,14 @@
             align-items: center;
             gap: 0.3rem;
         }
+        .image-preview {
+            max-width: 100px;
+            max-height: 60px;
+            object-fit: contain;
+            border-radius: 4px;
+            border: 1px solid #eee;
+            padding: 2px;
+        }
     </style>
 </head>
 <body>
@@ -183,7 +191,6 @@
         </div>
     </div>
 
-    <!-- Форма добавления / редактирования -->
     <div class="form-grid" id="formContainer">
         <label>ID (уникальный, латиница, без пробелов)
             <input type="text" id="id" placeholder="canon-r5" required>
@@ -239,6 +246,11 @@
         <label>Примечание
             <textarea id="note" placeholder="Универсальный флагман"></textarea>
         </label>
+        <!-- НОВОЕ ПОЛЕ ДЛЯ ИЗОБРАЖЕНИЯ -->
+        <label>Ссылка на изображение (прямая URL)
+            <input type="text" id="image" placeholder="https://example.com/camera.jpg">
+            <div style="font-size:0.8rem; color:#888; margin-top:0.2rem;">Используйте прямые ссылки (например, с Imgur или сайта производителя)</div>
+        </label>
         <div class="form-actions">
             <button class="btn btn-success" id="saveBtn">💾 Сохранить (добавить / обновить)</button>
             <button class="btn btn-danger" id="deleteBtn" style="display:none;">🗑️ Удалить выбранную</button>
@@ -246,7 +258,6 @@
         </div>
     </div>
 
-    <!-- Таблица камер -->
     <table>
         <thead>
             <tr>
@@ -277,11 +288,9 @@
             if (token) sessionStorage.setItem('gh_token', token);
         }
 
-        // ─── СОСТОЯНИЕ ──────────────────────────────────────────────
         let cameras = [];
         let editingId = null;
 
-        // ─── ЗАГРУЗКА СПИСКА КАМЕР ──────────────────────────────────
         async function loadCameras() {
             try {
                 const url = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/${FILE_PATH}`;
@@ -299,7 +308,6 @@
             }
         }
 
-        // ─── ОТОБРАЖЕНИЕ ТАБЛИЦЫ ────────────────────────────────────
         function renderTable() {
             const tbody = document.getElementById('cameraTableBody');
             if (cameras.length === 0) {
@@ -319,7 +327,6 @@
                 </tr>
             `).join('');
 
-            // Навешиваем события на кнопки (чтобы не использовать onclick в HTML)
             document.querySelectorAll('.edit-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     editCam(this.dataset.id);
@@ -332,7 +339,6 @@
             });
         }
 
-        // ─── ЗАПОЛНИТЬ ФОРМУ ДЛЯ РЕДАКТИРОВАНИЯ ─────────────────────
         function editCam(id) {
             const cam = cameras.find(c => c.id === id);
             if (!cam) return;
@@ -352,19 +358,16 @@
             document.getElementById('stabilization').value = cam.stabilization || '';
             document.getElementById('af').value = cam.af || '';
             document.getElementById('video').value = cam.video || '';
-            document.getElementById('interchangeable').value = cam.interchangeable !== undefined ? String(cam
-            .interchangeable) : '';
+            document.getElementById('interchangeable').value = cam.interchangeable !== undefined ? String(cam.interchangeable) : '';
             document.getElementById('dualSlot').value = cam.dualSlot !== undefined ? String(cam.dualSlot) : '';
             document.getElementById('checkpoints').value = (cam.checkpoints || []).join('\n');
             document.getElementById('note').value = cam.note || '';
+            document.getElementById('image').value = cam.image || ''; // новое поле
             document.getElementById('deleteBtn').style.display = 'inline-flex';
             document.getElementById('saveBtn').textContent = '💾 Обновить камеру';
-
-            // Плавная прокрутка к форме
             document.getElementById('formContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
-        // ─── ОТМЕНА РЕДАКТИРОВАНИЯ ──────────────────────────────────
         function cancelEdit() {
             editingId = null;
             document.getElementById('id').disabled = false;
@@ -386,11 +389,11 @@
             document.getElementById('dualSlot').value = '';
             document.getElementById('checkpoints').value = '';
             document.getElementById('note').value = '';
+            document.getElementById('image').value = '';
             document.getElementById('deleteBtn').style.display = 'none';
             document.getElementById('saveBtn').textContent = '💾 Сохранить (добавить / обновить)';
         }
 
-        // ─── УДАЛЕНИЕ ────────────────────────────────────────────────
         function deleteCam(id) {
             if (!confirm(`Удалить камеру ${id}?`)) return;
             cameras = cameras.filter(c => c.id !== id);
@@ -398,7 +401,6 @@
             saveToGitHub();
         }
 
-        // ─── СОХРАНЕНИЕ В GITHUB ────────────────────────────────────
         async function saveToGitHub() {
             if (!token) {
                 alert('Токен не задан. Перезагрузите страницу и введите токен.');
@@ -450,7 +452,6 @@
             }
         }
 
-        // ─── СОБРАТЬ ДАННЫЕ ИЗ ФОРМЫ ─────────────────────────────────
         function collectFormData() {
             const id = document.getElementById('id').value.trim();
             if (!id) { alert('ID обязателен'); return null; }
@@ -473,6 +474,7 @@
             const dualSlot = document.getElementById('dualSlot').value.trim().toLowerCase() === 'true';
             const checkpoints = document.getElementById('checkpoints').value.split('\n').map(s => s.trim()).filter(Boolean);
             const note = document.getElementById('note').value.trim();
+            const image = document.getElementById('image').value.trim(); // новое поле
 
             return {
                 id,
@@ -492,11 +494,11 @@
                 interchangeable,
                 dualSlot,
                 checkpoints,
-                note
+                note,
+                image
             };
         }
 
-        // ─── ОБРАБОТЧИКИ ──────────────────────────────────────────────
         document.getElementById('saveBtn').addEventListener('click', function() {
             const data = collectFormData();
             if (!data) return;
@@ -521,19 +523,16 @@
         });
 
         document.getElementById('cancelBtn').addEventListener('click', cancelEdit);
-
         document.getElementById('deleteBtn').addEventListener('click', function() {
             if (editingId) {
                 deleteCam(editingId);
             }
         });
-
         document.getElementById('refreshBtn').addEventListener('click', function() {
             loadCameras();
             showToast('🔄 Данные обновлены');
         });
 
-        // ─── TOAST ──────────────────────────────────────────────────
         function showToast(msg) {
             const toast = document.getElementById('toast');
             toast.textContent = msg;
@@ -545,7 +544,6 @@
             }, 3000);
         }
 
-        // ─── СТАРТ ──────────────────────────────────────────────────
         loadCameras();
     </script>
 </body>
