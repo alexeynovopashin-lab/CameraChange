@@ -39,6 +39,10 @@
         .toast.hidden { opacity: 0; pointer-events: none; }
         .toast.show { opacity: 1; }
         @media (max-width: 700px) { .form-grid { grid-template-columns: 1fr; } .header-row { flex-direction: column; align-items: stretch; gap: 0.5rem; } }
+        .thumb-img { max-width: 80px; max-height: 50px; object-fit: contain; border-radius: 4px; border: 1px solid #eee; padding: 2px; background: #fff; }
+        .gateway-section { margin-top: 2rem; background: #fff; padding: 1.5rem; border-radius: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+        .gateway-section textarea { width: 100%; height: 150px; font-family: monospace; padding: 0.8rem; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9rem; }
+        .gateway-actions { display: flex; gap: 1rem; margin-top: 0.5rem; flex-wrap: wrap; }
     </style>
 </head>
 <body>
@@ -47,9 +51,11 @@
         <div id="status">Загрузка...</div>
         <div>
             <button class="btn btn-outline btn-sm" id="refreshBtn">🔄 Обновить данные</button>
+            <button class="btn btn-find btn-sm" id="massFindBtn">🔍 Найти картинки для всех</button>
         </div>
     </div>
 
+    <!-- Форма добавления / редактирования -->
     <div class="form-grid" id="formContainer">
         <label>ID (уникальный, латиница, без пробелов)
             <input type="text" id="id" placeholder="canon-r5" required>
@@ -119,9 +125,11 @@
         </div>
     </div>
 
+    <!-- Таблица камер с миниатюрами -->
     <table>
         <thead>
             <tr>
+                <th>Фото</th>
                 <th>ID</th>
                 <th>Название</th>
                 <th>Цена</th>
@@ -130,9 +138,20 @@
             </tr>
         </thead>
         <tbody id="cameraTableBody">
-            <tr><td colspan="5" style="text-align:center; color:#888;">Загрузка...</td></tr>
+            <tr><td colspan="6" style="text-align:center; color:#888;">Загрузка...</td></tr>
         </tbody>
     </table>
+
+    <!-- Шлюз для массового импорта -->
+    <div class="gateway-section">
+        <h2 style="font-size:1.2rem; margin-bottom:0.5rem;">🚪 Шлюз — быстрый импорт камер</h2>
+        <p style="color:#888; font-size:0.9rem;">Вставьте JSON-шаблон одной камеры или массив камер и нажмите «Добавить».</p>
+        <textarea id="gatewayInput" placeholder='{"id":"sony-a6000","name":"Sony Alpha A6000","price":"$400-600","image":"","badge":"badge-bu","badgeText":"Б/У","system":"sony","weight":"critical","goals":["photo","video"],"genres":["portrait","street"],"budgetRange":["mid"],"sensor":"APS-C 24 Мп","stabilization":"нет","af":"179 точек","video":"Full HD","interchangeable":true,"dualSlot":false,"checkpoints":["APS-C 24 Мп","11 к/с","компактный"],"note":"Популярная беззеркалка для начинающих.","categories":["entry"]}'></textarea>
+        <div class="gateway-actions">
+            <button class="btn btn-success" id="gatewayAddBtn">➕ Добавить камеру(ы) из шаблона</button>
+            <button class="btn btn-outline" id="gatewayClearBtn">🧹 Очистить поле</button>
+        </div>
+    </div>
 
     <div id="toast" class="toast hidden">Готово</div>
 
@@ -152,7 +171,7 @@
         let cameras = [];
         let editingId = null;
 
-        // ─── ЗАГРУЗКА СПИСКА КАМЕР ──────────────────────────────────
+        // ─── ЗАГРУЗКА ──────────────────────────────────────────────────
         async function loadCameras() {
             try {
                 const url = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/${FILE_PATH}`;
@@ -166,19 +185,20 @@
                 console.error(e);
                 document.getElementById('status').textContent = '⚠️ Ошибка загрузки: ' + e.message;
                 document.getElementById('cameraTableBody').innerHTML =
-                    `<tr><td colspan="5" style="text-align:center;color:#888;">${e.message}</td></tr>`;
+                    `<tr><td colspan="6" style="text-align:center;color:#888;">${e.message}</td></tr>`;
             }
         }
 
-        // ─── ОТОБРАЖЕНИЕ ТАБЛИЦЫ ────────────────────────────────────
+        // ─── ОТОБРАЖЕНИЕ ТАБЛИЦЫ (С МИНИАТЮРАМИ) ──────────────────
         function renderTable() {
             const tbody = document.getElementById('cameraTableBody');
             if (cameras.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;color:#888;">Нет камер</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:#888;">Нет камер</td></tr>`;
                 return;
             }
             tbody.innerHTML = cameras.map(c => `
                 <tr>
+                    <td>${c.image ? `<img src="${c.image}" alt="${c.name}" class="thumb-img" onerror="this.style.display='none'">` : '—'}</td>
                     <td><code>${c.id}</code></td>
                     <td><strong>${c.name}</strong></td>
                     <td>${c.price}</td>
@@ -232,7 +252,6 @@
             document.getElementById('formContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
-        // ─── ОТМЕНА ──────────────────────────────────────────────────
         function cancelEdit() {
             editingId = null;
             document.getElementById('id').disabled = false;
@@ -259,7 +278,6 @@
             document.getElementById('saveBtn').textContent = '💾 Сохранить (добавить / обновить)';
         }
 
-        // ─── УДАЛЕНИЕ ────────────────────────────────────────────────
         function deleteCam(id) {
             if (!confirm(`Удалить камеру ${id}?`)) return;
             cameras = cameras.filter(c => c.id !== id);
@@ -267,7 +285,7 @@
             saveToGitHub();
         }
 
-        // ─── СОХРАНЕНИЕ В GITHUB ────────────────────────────────────
+        // ─── СОХРАНЕНИЕ ──────────────────────────────────────────────
         async function saveToGitHub() {
             if (!token) {
                 alert('Токен не задан. Перезагрузите страницу и введите токен.');
@@ -319,7 +337,228 @@
             }
         }
 
-        // ─── СОБРАТЬ ДАННЫЕ ИЗ ФОРМЫ ─────────────────────────────────
+        // ─── ПОИСК ИЗОБРАЖЕНИЯ (ОДНА КАМЕРА) ──────────────────────
+        async function findImageOnWikimedia() {
+            const nameInput = document.getElementById('name');
+            const imageInput = document.getElementById('image');
+            const cameraName = nameInput.value.trim();
+
+            if (!cameraName) {
+                showToast('⚠️ Сначала введите название камеры');
+                return;
+            }
+
+            showToast('🔍 Ищем изображение...');
+
+            try {
+                const searchUrl = `https://commons.wikimedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(cameraName)}&srnamespace=6&srlimit=1&format=json&origin=*`;
+                const searchRes = await fetch(searchUrl);
+                if (!searchRes.ok) throw new Error('Ошибка поиска');
+                const searchData = await searchRes.json();
+
+                const results = searchData.query?.search || [];
+                if (results.length === 0) {
+                    showToast('❌ Ничего не найдено. Попробуйте изменить запрос.');
+                    return;
+                }
+
+                const title = results[0].title;
+                const infoUrl = `https://commons.wikimedia.org/w/api.php?action=query&titles=${encodeURIComponent(title)}&prop=imageinfo&iiprop=url&format=json&origin=*`;
+                const infoRes = await fetch(infoUrl);
+                if (!infoRes.ok) throw new Error('Ошибка получения ссылки');
+                const infoData = await infoRes.json();
+
+                const pages = infoData.query?.pages || {};
+                const pageId = Object.keys(pages)[0];
+                if (!pageId || pageId === '-1') {
+                    showToast('❌ Не удалось получить ссылку на файл');
+                    return;
+                }
+
+                const imageUrl = pages[pageId].imageinfo?.[0]?.url;
+                if (!imageUrl) {
+                    showToast('❌ Не удалось получить ссылку на файл');
+                    return;
+                }
+
+                imageInput.value = imageUrl;
+                showToast('✅ Изображение найдено! Ссылка вставлена.');
+
+            } catch (e) {
+                console.error(e);
+                showToast('❌ Ошибка: ' + e.message);
+            }
+        }
+
+        // ─── МАССОВЫЙ ПОИСК КАРТИНОК ДЛЯ ВСЕХ КАМЕР ───────────────
+        async function massFindImages() {
+            const withoutImage = cameras.filter(c => !c.image || c.image.trim() === '');
+            if (withoutImage.length === 0) {
+                showToast('✅ У всех камер уже есть изображения!');
+                return;
+            }
+
+            showToast(`🔍 Начинаю поиск для ${withoutImage.length} камер...`);
+            let found = 0;
+
+            for (const cam of withoutImage) {
+                const cameraName = cam.name;
+                if (!cameraName) continue;
+
+                try {
+                    const searchUrl = `https://commons.wikimedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(cameraName)}&srnamespace=6&srlimit=1&format=json&origin=*`;
+                    const searchRes = await fetch(searchUrl);
+                    if (!searchRes.ok) continue;
+                    const searchData = await searchRes.json();
+
+                    const results = searchData.query?.search || [];
+                    if (results.length === 0) continue;
+
+                    const title = results[0].title;
+                    const infoUrl = `https://commons.wikimedia.org/w/api.php?action=query&titles=${encodeURIComponent(title)}&prop=imageinfo&iiprop=url&format=json&origin=*`;
+                    const infoRes = await fetch(infoUrl);
+                    if (!infoRes.ok) continue;
+                    const infoData = await infoRes.json();
+
+                    const pages = infoData.query?.pages || {};
+                    const pageId = Object.keys(pages)[0];
+                    if (!pageId || pageId === '-1') continue;
+
+                    const imageUrl = pages[pageId].imageinfo?.[0]?.url;
+                    if (imageUrl) {
+                        cam.image = imageUrl;
+                        found++;
+                    }
+                } catch (e) {
+                    console.warn('Ошибка для ' + cameraName, e);
+                }
+                // Небольшая задержка, чтобы не перегружать API
+                await new Promise(r => setTimeout(r, 200));
+            }
+
+            if (found > 0) {
+                showToast(`✅ Найдено изображений: ${found} из ${withoutImage.length}`);
+                await saveToGitHub(); // сохраняем изменения
+                loadCameras();
+            } else {
+                showToast('❌ Не найдено ни одного изображения. Попробуйте уточнить названия.');
+            }
+        }
+
+        // ─── ИМПОРТ ИЗ ШЛЮЗА ─────────────────────────────────────────
+        function importFromGateway() {
+            const input = document.getElementById('gatewayInput');
+            const raw = input.value.trim();
+            if (!raw) {
+                showToast('⚠️ Поле шаблона пустое');
+                return;
+            }
+
+            let data;
+            try {
+                data = JSON.parse(raw);
+            } catch (e) {
+                showToast('❌ Ошибка JSON: ' + e.message);
+                return;
+            }
+
+            // Если пришёл массив — обрабатываем каждый объект
+            let items = Array.isArray(data) ? data : [data];
+
+            let added = 0;
+            let skipped = 0;
+            for (const item of items) {
+                // Проверяем наличие обязательных полей
+                if (!item.id || !item.name) {
+                    skipped++;
+                    continue;
+                }
+                // Проверяем дубликат ID
+                if (cameras.some(c => c.id === item.id)) {
+                    skipped++;
+                    continue;
+                }
+                // Добавляем недостающие поля со значениями по умолчанию
+                const newCam = {
+                    id: item.id,
+                    name: item.name,
+                    price: item.price || '',
+                    image: item.image || '',
+                    badge: item.badge || '',
+                    badgeText: item.badgeText || '',
+                    system: item.system || '',
+                    weight: item.weight || 'moderate',
+                    goals: item.goals || [],
+                    genres: item.genres || [],
+                    budgetRange: item.budgetRange || ['mid'],
+                    sensor: item.sensor || '',
+                    stabilization: item.stabilization || '',
+                    af: item.af || '',
+                    video: item.video || '',
+                    interchangeable: item.interchangeable !== undefined ? item.interchangeable : true,
+                    dualSlot: item.dualSlot !== undefined ? item.dualSlot : false,
+                    checkpoints: item.checkpoints || [],
+                    note: item.note || '',
+                    categories: item.categories || []
+                };
+                cameras.push(newCam);
+                added++;
+            }
+
+            if (added === 0) {
+                showToast(`⚠️ Добавлено 0 камер. Проверьте ID (возможно, дубликаты).`);
+                return;
+            }
+
+            showToast(`✅ Добавлено ${added} камер, пропущено ${skipped}`);
+            saveToGitHub();
+            input.value = '';
+        }
+
+        // ─── ОБРАБОТЧИКИ ──────────────────────────────────────────────
+        document.getElementById('saveBtn').addEventListener('click', function() {
+            const data = collectFormData();
+            if (!data) return;
+
+            if (!editingId && cameras.some(c => c.id === data.id)) {
+                alert('Камера с таким ID уже существует. Используйте редактирование.');
+                return;
+            }
+
+            if (editingId) {
+                const index = cameras.findIndex(c => c.id === editingId);
+                if (index !== -1) {
+                    cameras[index] = { ...data };
+                } else {
+                    alert('Ошибка: камера не найдена');
+                    return;
+                }
+            } else {
+                cameras.push(data);
+            }
+            saveToGitHub();
+        });
+
+        document.getElementById('cancelBtn').addEventListener('click', cancelEdit);
+        document.getElementById('deleteBtn').addEventListener('click', function() {
+            if (editingId) {
+                deleteCam(editingId);
+            }
+        });
+        document.getElementById('refreshBtn').addEventListener('click', function() {
+            loadCameras();
+            showToast('🔄 Данные обновлены');
+        });
+
+        document.getElementById('findImageBtn').addEventListener('click', findImageOnWikimedia);
+        document.getElementById('massFindBtn').addEventListener('click', massFindImages);
+
+        document.getElementById('gatewayAddBtn').addEventListener('click', importFromGateway);
+        document.getElementById('gatewayClearBtn').addEventListener('click', function() {
+            document.getElementById('gatewayInput').value = '';
+        });
+
+        // ─── ВСПОМОГАТЕЛЬНАЯ ФУНКЦИЯ ДЛЯ СБОРА ДАННЫХ ──────────────
         function collectFormData() {
             const id = document.getElementById('id').value.trim();
             if (!id) { alert('ID обязателен'); return null; }
@@ -366,101 +605,6 @@
                 image
             };
         }
-
-        // ─── ПОИСК ИЗОБРАЖЕНИЯ НА ВИКИСКЛАДЕ ──────────────────────
-        async function findImageOnWikimedia() {
-            const nameInput = document.getElementById('name');
-            const imageInput = document.getElementById('image');
-            const cameraName = nameInput.value.trim();
-
-            if (!cameraName) {
-                showToast('⚠️ Сначала введите название камеры');
-                return;
-            }
-
-            showToast('🔍 Ищем изображение...');
-
-            try {
-                // 1. Поиск файлов
-                const searchUrl = `https://commons.wikimedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(cameraName)}&srnamespace=6&srlimit=1&format=json&origin=*`;
-                const searchRes = await fetch(searchUrl);
-                if (!searchRes.ok) throw new Error('Ошибка поиска');
-                const searchData = await searchRes.json();
-
-                const results = searchData.query?.search || [];
-                if (results.length === 0) {
-                    showToast('❌ Ничего не найдено. Попробуйте изменить запрос.');
-                    return;
-                }
-
-                const title = results[0].title; // например, "File:Canon EOS R5.jpg"
-
-                // 2. Получение прямой ссылки на файл
-                const infoUrl = `https://commons.wikimedia.org/w/api.php?action=query&titles=${encodeURIComponent(title)}&prop=imageinfo&iiprop=url&format=json&origin=*`;
-                const infoRes = await fetch(infoUrl);
-                if (!infoRes.ok) throw new Error('Ошибка получения ссылки');
-                const infoData = await infoRes.json();
-
-                const pages = infoData.query?.pages || {};
-                const pageId = Object.keys(pages)[0];
-                if (!pageId || pageId === '-1') {
-                    showToast('❌ Не удалось получить ссылку на файл');
-                    return;
-                }
-
-                const imageUrl = pages[pageId].imageinfo?.[0]?.url;
-                if (!imageUrl) {
-                    showToast('❌ Не удалось получить ссылку на файл');
-                    return;
-                }
-
-                // Вставляем ссылку в поле
-                imageInput.value = imageUrl;
-                showToast('✅ Изображение найдено! Ссылка вставлена.');
-
-            } catch (e) {
-                console.error(e);
-                showToast('❌ Ошибка: ' + e.message);
-            }
-        }
-
-        // ─── ОБРАБОТЧИКИ ──────────────────────────────────────────────
-        document.getElementById('saveBtn').addEventListener('click', function() {
-            const data = collectFormData();
-            if (!data) return;
-
-            if (!editingId && cameras.some(c => c.id === data.id)) {
-                alert('Камера с таким ID уже существует. Используйте редактирование.');
-                return;
-            }
-
-            if (editingId) {
-                const index = cameras.findIndex(c => c.id === editingId);
-                if (index !== -1) {
-                    cameras[index] = { ...data };
-                } else {
-                    alert('Ошибка: камера не найдена');
-                    return;
-                }
-            } else {
-                cameras.push(data);
-            }
-            saveToGitHub();
-        });
-
-        document.getElementById('cancelBtn').addEventListener('click', cancelEdit);
-        document.getElementById('deleteBtn').addEventListener('click', function() {
-            if (editingId) {
-                deleteCam(editingId);
-            }
-        });
-        document.getElementById('refreshBtn').addEventListener('click', function() {
-            loadCameras();
-            showToast('🔄 Данные обновлены');
-        });
-
-        // Обработчик кнопки поиска изображения
-        document.getElementById('findImageBtn').addEventListener('click', findImageOnWikimedia);
 
         // ─── TOAST ──────────────────────────────────────────────────
         function showToast(msg) {
