@@ -197,11 +197,10 @@
       "id": "canon-5d4",
       "name": "Canon 5D Mark IV",
       "price": "$1 500–2 000",
-      "image": "",
-      "badge": "badge-bu",
-      "badgeText": "Б/У",
       "system": "canon",
       "weight": "moderate",
+      "badge": "badge-bu",
+      "badgeText": "Б/У",
       "goals": [
         "photo",
         "video",
@@ -231,9 +230,7 @@
         "профессиональная эргономика"
       ],
       "note": "Золотой стандарт для профессионалов.",
-      "categories": [
-        "universal"
-      ]
+      "image": "https://upload.wikimedia.org/wikipedia/commons/7/70/Canon_EOS_5D_Mark_IV_%28Front%29%2C_1803241116%2C_ako.jpg"
     },
     {
       "id": "canon-r6",
