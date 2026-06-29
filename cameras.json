@@ -3,11 +3,11 @@
     {
       "id": "canon-m50",
       "name": "Canon EOS M50",
-      "price": "$210–350",
-      "system": "canon",
-      "weight": "critical",
+      "price": "$200–350",
       "badge": "badge-bu",
       "badgeText": "Б/У",
+      "system": "canon",
+      "weight": "critical",
       "goals": [
         "photo",
         "video",
@@ -36,7 +36,12 @@
         "откидной экран",
         "поворотный экран"
       ],
-      "note": "Фаворит для входа в фотографию. Простое меню, отличный JPG."
+      "note": "Фаворит для входа в фотографию. Простое меню, отличный JPG.",
+      "categories": [
+        "entry",
+        "universal",
+        "video"
+      ]
     },
     {
       "id": "canon-700d",
@@ -836,11 +841,11 @@
     {
       "id": "canon-r5",
       "name": "Canon EOS R5",
-      "price": "$3 900",
-      "badge": "badge-new",
-      "badgeText": "Новая",
+      "price": "$3 000",
       "system": "canon",
       "weight": "moderate",
+      "badge": "badge-new",
+      "badgeText": "Новая",
       "goals": [
         "photo",
         "video",
@@ -870,10 +875,7 @@
         "IBIS 8 стопов",
         "AI AF"
       ],
-      "note": "Универсальный флагман для студии.",
-      "categories": [
-        "studio"
-      ]
+      "note": "Универсальный флагман для студии."
     },
     {
       "id": "canon-r5ii",
