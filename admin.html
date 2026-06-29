@@ -5,28 +5,183 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Админка — база камер</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: system-ui, sans-serif; background: #f5f5f5; padding: 2rem; max-width: 1200px; margin: 0 auto; }
-        h1 { font-size: 2rem; margin-bottom: 1rem; }
-        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; background: #fff; padding: 2rem; border-radius: 16px; margin-bottom: 2rem; }
-        .form-grid label { font-weight: 600; }
-        .form-grid input, .form-grid select, .form-grid textarea { padding: 0.5rem; border: 1px solid #ddd; border-radius: 8px; width: 100%; }
-        .form-grid textarea { height: 80px; }
-        .btn { background: #1a1a1a; color: #fff; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; cursor: pointer; font-weight: 600; }
-        .btn:hover { opacity: 0.8; }
-        .btn-danger { background: #c62828; }
-        .btn-success { background: #2e7d32; }
-        table { width: 100%; background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
-        th, td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid #eee; }
-        th { background: #f0f0f0; font-weight: 600; }
-        .actions button { margin-right: 0.5rem; }
-        .hidden { display: none; }
-        .toast { position: fixed; bottom: 2rem; right: 2rem; background: #323232; color: #fff; padding: 1rem 2rem; border-radius: 8px; z-index: 1000; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: system-ui, sans-serif;
+            background: #f5f5f5;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 1.2rem;
+        }
+        #status {
+            color: #888;
+            font-size: 0.95rem;
+        }
+        .btn {
+            background: #1a1a1a;
+            color: #fff;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: opacity .2s, transform .1s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .btn:hover {
+            opacity: 0.8;
+            transform: scale(1.02);
+        }
+        .btn-danger {
+            background: #c62828;
+        }
+        .btn-danger:hover {
+            background: #b71c1c;
+        }
+        .btn-success {
+            background: #2e7d32;
+        }
+        .btn-success:hover {
+            background: #1b5e20;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid #ccc;
+            color: #555;
+        }
+        .btn-outline:hover {
+            border-color: #888;
+            background: #f0f0f0;
+        }
+        .btn-sm {
+            padding: 0.3rem 0.7rem;
+            font-size: 0.8rem;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+        .form-grid label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+        .form-grid input,
+        .form-grid select,
+        .form-grid textarea {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 100%;
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+        .form-grid textarea {
+            height: 70px;
+            resize: vertical;
+        }
+        .form-actions {
+            grid-column: 1 / -1;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+        table {
+            width: 100%;
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            border-collapse: collapse;
+        }
+        th,
+        td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        th {
+            background: #f0f0f0;
+            font-weight: 600;
+        }
+        .actions button {
+            margin-right: 0.3rem;
+        }
+        .hidden {
+            display: none !important;
+        }
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #323232;
+            color: #fff;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            font-weight: 500;
+            transition: opacity .3s;
+        }
+        .toast.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .toast.show {
+            opacity: 1;
+        }
+        @media (max-width: 700px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .header-row {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.5rem;
+            }
+        }
+        .icon-text {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
     </style>
 </head>
 <body>
     <h1>📷 Админка базы камер</h1>
-    <div id="status" style="margin-bottom:1rem; color:#888;"></div>
+    <div class="header-row">
+        <div id="status">Загрузка...</div>
+        <div>
+            <button class="btn btn-outline btn-sm" id="refreshBtn">🔄 Обновить данные</button>
+        </div>
+    </div>
 
     <!-- Форма добавления / редактирования -->
     <div class="form-grid" id="formContainer">
@@ -84,10 +239,10 @@
         <label>Примечание
             <textarea id="note" placeholder="Универсальный флагман"></textarea>
         </label>
-        <div style="grid-column: 1 / -1; display: flex; gap: 1rem;">
-            <button class="btn btn-success" id="saveBtn">Сохранить (добавить / обновить)</button>
-            <button class="btn btn-danger" id="deleteBtn" style="display:none;">Удалить выбранную</button>
-            <button class="btn" id="cancelBtn">Отменить редактирование</button>
+        <div class="form-actions">
+            <button class="btn btn-success" id="saveBtn">💾 Сохранить (добавить / обновить)</button>
+            <button class="btn btn-danger" id="deleteBtn" style="display:none;">🗑️ Удалить выбранную</button>
+            <button class="btn btn-outline" id="cancelBtn">✖ Отменить редактирование</button>
         </div>
     </div>
 
@@ -102,7 +257,9 @@
                 <th>Действия</th>
             </tr>
         </thead>
-        <tbody id="cameraTableBody"></tbody>
+        <tbody id="cameraTableBody">
+            <tr><td colspan="5" style="text-align:center; color:#888;">Загрузка...</td></tr>
+        </tbody>
     </table>
 
     <div id="toast" class="toast hidden">Готово</div>
@@ -114,7 +271,6 @@
         const FILE_PATH = 'cameras.json';
         const BRANCH = 'main';
 
-        // Токен будем запрашивать при загрузке (храним в sessionStorage)
         let token = sessionStorage.getItem('gh_token');
         if (!token) {
             token = prompt('Введите ваш GitHub Personal Access Token (с доступом repo):');
@@ -123,7 +279,7 @@
 
         // ─── СОСТОЯНИЕ ──────────────────────────────────────────────
         let cameras = [];
-        let editingId = null; // ID редактируемой камеры
+        let editingId = null;
 
         // ─── ЗАГРУЗКА СПИСКА КАМЕР ──────────────────────────────────
         async function loadCameras() {
@@ -134,28 +290,46 @@
                 const data = await res.json();
                 cameras = data.cameras || [];
                 renderTable();
-                document.getElementById('status').textContent = `Загружено ${cameras.length} камер`;
+                document.getElementById('status').textContent = `📸 Загружено ${cameras.length} камер`;
             } catch (e) {
                 console.error(e);
-                document.getElementById('status').textContent = 'Ошибка загрузки: ' + e.message;
+                document.getElementById('status').textContent = '⚠️ Ошибка загрузки: ' + e.message;
+                document.getElementById('cameraTableBody').innerHTML =
+                    `<tr><td colspan="5" style="text-align:center;color:#888;">${e.message}</td></tr>`;
             }
         }
 
         // ─── ОТОБРАЖЕНИЕ ТАБЛИЦЫ ────────────────────────────────────
         function renderTable() {
             const tbody = document.getElementById('cameraTableBody');
+            if (cameras.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;color:#888;">Нет камер</td></tr>`;
+                return;
+            }
             tbody.innerHTML = cameras.map(c => `
                 <tr>
-                    <td>${c.id}</td>
-                    <td>${c.name}</td>
+                    <td><code>${c.id}</code></td>
+                    <td><strong>${c.name}</strong></td>
                     <td>${c.price}</td>
                     <td>${c.system}</td>
                     <td class="actions">
-                        <button class="btn" onclick="editCam('${c.id}')">✏️</button>
-                        <button class="btn btn-danger" onclick="deleteCam('${c.id}')">🗑️</button>
+                        <button class="btn btn-outline btn-sm edit-btn" data-id="${c.id}">✏️ Редактировать</button>
+                        <button class="btn btn-danger btn-sm delete-btn" data-id="${c.id}">🗑️</button>
                     </td>
                 </tr>
             `).join('');
+
+            // Навешиваем события на кнопки (чтобы не использовать onclick в HTML)
+            document.querySelectorAll('.edit-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    editCam(this.dataset.id);
+                });
+            });
+            document.querySelectorAll('.delete-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    deleteCam(this.dataset.id);
+                });
+            });
         }
 
         // ─── ЗАПОЛНИТЬ ФОРМУ ДЛЯ РЕДАКТИРОВАНИЯ ─────────────────────
@@ -163,9 +337,8 @@
             const cam = cameras.find(c => c.id === id);
             if (!cam) return;
             editingId = id;
-            // Заполняем поля
             document.getElementById('id').value = cam.id;
-            document.getElementById('id').disabled = true; // ID не редактируем
+            document.getElementById('id').disabled = true;
             document.getElementById('name').value = cam.name || '';
             document.getElementById('price').value = cam.price || '';
             document.getElementById('system').value = cam.system || '';
@@ -179,12 +352,16 @@
             document.getElementById('stabilization').value = cam.stabilization || '';
             document.getElementById('af').value = cam.af || '';
             document.getElementById('video').value = cam.video || '';
-            document.getElementById('interchangeable').value = cam.interchangeable !== undefined ? String(cam.interchangeable) : '';
+            document.getElementById('interchangeable').value = cam.interchangeable !== undefined ? String(cam
+            .interchangeable) : '';
             document.getElementById('dualSlot').value = cam.dualSlot !== undefined ? String(cam.dualSlot) : '';
             document.getElementById('checkpoints').value = (cam.checkpoints || []).join('\n');
             document.getElementById('note').value = cam.note || '';
-            document.getElementById('deleteBtn').style.display = 'inline-block';
-            document.getElementById('saveBtn').textContent = 'Обновить камеру';
+            document.getElementById('deleteBtn').style.display = 'inline-flex';
+            document.getElementById('saveBtn').textContent = '💾 Обновить камеру';
+
+            // Плавная прокрутка к форме
+            document.getElementById('formContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
         // ─── ОТМЕНА РЕДАКТИРОВАНИЯ ──────────────────────────────────
@@ -210,7 +387,7 @@
             document.getElementById('checkpoints').value = '';
             document.getElementById('note').value = '';
             document.getElementById('deleteBtn').style.display = 'none';
-            document.getElementById('saveBtn').textContent = 'Сохранить (добавить / обновить)';
+            document.getElementById('saveBtn').textContent = '💾 Сохранить (добавить / обновить)';
         }
 
         // ─── УДАЛЕНИЕ ────────────────────────────────────────────────
@@ -228,7 +405,6 @@
                 return;
             }
             try {
-                // 1. Получаем текущий sha файла
                 const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`;
                 const res = await fetch(url, {
                     headers: { 'Authorization': `token ${token}` }
@@ -241,11 +417,9 @@
                     throw new Error('Ошибка получения sha: ' + res.status);
                 }
 
-                // 2. Подготавливаем контент
                 const content = JSON.stringify({ cameras }, null, 2);
-                const encoded = btoa(unescape(encodeURIComponent(content))); // base64
+                const encoded = btoa(unescape(encodeURIComponent(content)));
 
-                // 3. Отправляем commit
                 const payload = {
                     message: `Обновление базы камер (${new Date().toISOString()})`,
                     content: encoded,
@@ -269,7 +443,7 @@
 
                 showToast('✅ Изменения сохранены!');
                 cancelEdit();
-                loadCameras(); // перезагружаем список
+                loadCameras();
             } catch (e) {
                 console.error(e);
                 showToast('❌ Ошибка: ' + e.message);
@@ -322,19 +496,17 @@
             };
         }
 
-        // ─── ОБРАБОТЧИК СОХРАНЕНИЯ ──────────────────────────────────
+        // ─── ОБРАБОТЧИКИ ──────────────────────────────────────────────
         document.getElementById('saveBtn').addEventListener('click', function() {
             const data = collectFormData();
             if (!data) return;
 
-            // Проверяем на дубликат ID (если не редактируем)
             if (!editingId && cameras.some(c => c.id === data.id)) {
                 alert('Камера с таким ID уже существует. Используйте редактирование.');
                 return;
             }
 
             if (editingId) {
-                // Обновляем существующую
                 const index = cameras.findIndex(c => c.id === editingId);
                 if (index !== -1) {
                     cameras[index] = { ...data };
@@ -343,21 +515,22 @@
                     return;
                 }
             } else {
-                // Добавляем новую
                 cameras.push(data);
             }
-
             saveToGitHub();
         });
 
-        // ─── ОТМЕНА ──────────────────────────────────────────────────
         document.getElementById('cancelBtn').addEventListener('click', cancelEdit);
 
-        // ─── УДАЛЕНИЕ ИЗ ФОРМЫ ──────────────────────────────────────
         document.getElementById('deleteBtn').addEventListener('click', function() {
             if (editingId) {
                 deleteCam(editingId);
             }
+        });
+
+        document.getElementById('refreshBtn').addEventListener('click', function() {
+            loadCameras();
+            showToast('🔄 Данные обновлены');
         });
 
         // ─── TOAST ──────────────────────────────────────────────────
@@ -365,10 +538,14 @@
             const toast = document.getElementById('toast');
             toast.textContent = msg;
             toast.classList.remove('hidden');
-            setTimeout(() => toast.classList.add('hidden'), 3000);
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+                toast.classList.add('hidden');
+            }, 3000);
         }
 
-        // ─── ЗАГРУЗКА ПРИ СТАРТЕ ──────────────────────────────────
+        // ─── СТАРТ ──────────────────────────────────────────────────
         loadCameras();
     </script>
 </body>
