@@ -43,11 +43,10 @@
       "id": "canon-700d",
       "name": "Canon EOS 700D",
       "price": "$200–320",
-      "image": "",
-      "badge": "badge-bu",
-      "badgeText": "Б/У",
       "system": "canon",
       "weight": "moderate",
+      "badge": "badge-bu",
+      "badgeText": "Б/У",
       "goals": [
         "photo",
         "video"
@@ -72,9 +71,7 @@
         "поворотный экран"
       ],
       "note": "Самый доступный вход, если денег совсем нет.",
-      "categories": [
-        "entry"
-      ]
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Panoramakopf_mit_Canon_EOS_700D_IMG_4886.jpg"
     },
     {
       "id": "canon-750d",
