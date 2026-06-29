@@ -1004,11 +1004,11 @@
     {
       "id": "fuji-gfx100sii",
       "name": "Fujifilm GFX100S II",
-      "price": "$6 500",
-      "badge": "badge-new",
-      "badgeText": "Новая",
+      "price": "$6 400",
       "system": "fujifilm",
       "weight": "critical",
+      "badge": "badge-new",
+      "badgeText": "Новая",
       "goals": [
         "photo",
         "studio",
@@ -1034,10 +1034,7 @@
         "IBIS",
         "компактный"
       ],
-      "note": "Компактный среднеформат Fuji.",
-      "categories": [
-        "studio"
-      ]
+      "note": "Компактный среднеформат Fuji."
     },
     {
       "id": "hasselblad-x2d",
