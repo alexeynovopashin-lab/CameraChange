@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админка — база камер</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: system-ui, sans-serif; background: #f5f5f5; padding: 2rem; max-width: 1200px; margin: 0 auto; }
+        h1 { font-size: 2rem; margin-bottom: 1rem; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; background: #fff; padding: 2rem; border-radius: 16px; margin-bottom: 2rem; }
+        .form-grid label { font-weight: 600; }
+        .form-grid input, .form-grid select, .form-grid textarea { padding: 0.5rem; border: 1px solid #ddd; border-radius: 8px; width: 100%; }
+        .form-grid textarea { height: 80px; }
+        .btn { background: #1a1a1a; color: #fff; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; cursor: pointer; font-weight: 600; }
+        .btn:hover { opacity: 0.8; }
+        .btn-danger { background: #c62828; }
+        .btn-success { background: #2e7d32; }
+        table { width: 100%; background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+        th, td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid #eee; }
+        th { background: #f0f0f0; font-weight: 600; }
+        .actions button { margin-right: 0.5rem; }
+        .hidden { display: none; }
+        .toast { position: fixed; bottom: 2rem; right: 2rem; background: #323232; color: #fff; padding: 1rem 2rem; border-radius: 8px; z-index: 1000; }
+    </style>
+</head>
+<body>
+    <h1>📷 Админка базы камер</h1>
+    <div id="status" style="margin-bottom:1rem; color:#888;"></div>
+
+    <!-- Форма добавления / редактирования -->
+    <div class="form-grid" id="formContainer">
+        <label>ID (уникальный, латиница, без пробелов)
+            <input type="text" id="id" placeholder="canon-r5" required>
+        </label>
+        <label>Название
+            <input type="text" id="name" placeholder="Canon EOS R5">
+        </label>
+        <label>Цена (строка)
+            <input type="text" id="price" placeholder="$3 900">
+        </label>
+        <label>Система (canon, nikon, sony, fujifilm, panasonic, hasselblad, leica, other)
+            <input type="text" id="system" placeholder="canon">
+        </label>
+        <label>Вес (critical, moderate, not-critical)
+            <input type="text" id="weight" placeholder="moderate">
+        </label>
+        <label>Бейдж (badge-new, badge-bu, badge-compact, badge-video, badge-premium)
+            <input type="text" id="badge" placeholder="badge-new">
+        </label>
+        <label>Текст бейджа
+            <input type="text" id="badgeText" placeholder="Новая">
+        </label>
+        <label>Цели (через запятую: photo, video, blog, travel, studio, sport)
+            <input type="text" id="goals" placeholder="photo, video">
+        </label>
+        <label>Жанры (через запятую: portrait, landscape, street, reportage, wedding, family, nude, commercial, architecture, vlog, documentary)
+            <input type="text" id="genres" placeholder="portrait, landscape">
+        </label>
+        <label>Бюджетные диапазоны (через запятую: low, mid, high, very-high, premium)
+            <input type="text" id="budgetRange" placeholder="premium">
+        </label>
+        <label>Сенсор
+            <input type="text" id="sensor" placeholder="Full frame 45 Мп">
+        </label>
+        <label>Стабилизация
+            <input type="text" id="stabilization" placeholder="IBIS 8 стопов">
+        </label>
+        <label>Автофокус
+            <input type="text" id="af" placeholder="AI AF">
+        </label>
+        <label>Видео
+            <input type="text" id="video" placeholder="8K RAW">
+        </label>
+        <label>Сменные объективы (true/false)
+            <input type="text" id="interchangeable" placeholder="true">
+        </label>
+        <label>Два слота (true/false)
+            <input type="text" id="dualSlot" placeholder="true">
+        </label>
+        <label>Чекпоинты (каждый с новой строки)
+            <textarea id="checkpoints" placeholder="Full frame 45 Мп&#10;8K RAW"></textarea>
+        </label>
+        <label>Примечание
+            <textarea id="note" placeholder="Универсальный флагман"></textarea>
+        </label>
+        <div style="grid-column: 1 / -1; display: flex; gap: 1rem;">
+            <button class="btn btn-success" id="saveBtn">Сохранить (добавить / обновить)</button>
+            <button class="btn btn-danger" id="deleteBtn" style="display:none;">Удалить выбранную</button>
+            <button class="btn" id="cancelBtn">Отменить редактирование</button>
+        </div>
+    </div>
+
+    <!-- Таблица камер -->
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Название</th>
+                <th>Цена</th>
+                <th>Система</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody id="cameraTableBody"></tbody>
+    </table>
+
+    <div id="toast" class="toast hidden">Готово</div>
+
+    <script>
+        // ─── КОНФИГУРАЦИЯ ──────────────────────────────────────────
+        const REPO_OWNER = 'alexeynovopashin-lab';
+        const REPO_NAME = 'CameraChange';
+        const FILE_PATH = 'cameras.json';
+        const BRANCH = 'main';
+
+        // Токен будем запрашивать при загрузке (храним в sessionStorage)
+        let token = sessionStorage.getItem('gh_token');
+        if (!token) {
+            token = prompt('Введите ваш GitHub Personal Access Token (с доступом repo):');
+            if (token) sessionStorage.setItem('gh_token', token);
+        }
+
+        // ─── СОСТОЯНИЕ ──────────────────────────────────────────────
+        let cameras = [];
+        let editingId = null; // ID редактируемой камеры
+
+        // ─── ЗАГРУЗКА СПИСКА КАМЕР ──────────────────────────────────
+        async function loadCameras() {
+            try {
+                const url = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/${FILE_PATH}`;
+                const res = await fetch(url);
+                if (!res.ok) throw new Error('Не удалось загрузить файл');
+                const data = await res.json();
+                cameras = data.cameras || [];
+                renderTable();
+                document.getElementById('status').textContent = `Загружено ${cameras.length} камер`;
+            } catch (e) {
+                console.error(e);
+                document.getElementById('status').textContent = 'Ошибка загрузки: ' + e.message;
+            }
+        }
+
+        // ─── ОТОБРАЖЕНИЕ ТАБЛИЦЫ ────────────────────────────────────
+        function renderTable() {
+            const tbody = document.getElementById('cameraTableBody');
+            tbody.innerHTML = cameras.map(c => `
+                <tr>
+                    <td>${c.id}</td>
+                    <td>${c.name}</td>
+                    <td>${c.price}</td>
+                    <td>${c.system}</td>
+                    <td class="actions">
+                        <button class="btn" onclick="editCam('${c.id}')">✏️</button>
+                        <button class="btn btn-danger" onclick="deleteCam('${c.id}')">🗑️</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        // ─── ЗАПОЛНИТЬ ФОРМУ ДЛЯ РЕДАКТИРОВАНИЯ ─────────────────────
+        function editCam(id) {
+            const cam = cameras.find(c => c.id === id);
+            if (!cam) return;
+            editingId = id;
+            // Заполняем поля
+            document.getElementById('id').value = cam.id;
+            document.getElementById('id').disabled = true; // ID не редактируем
+            document.getElementById('name').value = cam.name || '';
+            document.getElementById('price').value = cam.price || '';
+            document.getElementById('system').value = cam.system || '';
+            document.getElementById('weight').value = cam.weight || '';
+            document.getElementById('badge').value = cam.badge || '';
+            document.getElementById('badgeText').value = cam.badgeText || '';
+            document.getElementById('goals').value = (cam.goals || []).join(', ');
+            document.getElementById('genres').value = (cam.genres || []).join(', ');
+            document.getElementById('budgetRange').value = (cam.budgetRange || []).join(', ');
+            document.getElementById('sensor').value = cam.sensor || '';
+            document.getElementById('stabilization').value = cam.stabilization || '';
+            document.getElementById('af').value = cam.af || '';
+            document.getElementById('video').value = cam.video || '';
+            document.getElementById('interchangeable').value = cam.interchangeable !== undefined ? String(cam.interchangeable) : '';
+            document.getElementById('dualSlot').value = cam.dualSlot !== undefined ? String(cam.dualSlot) : '';
+            document.getElementById('checkpoints').value = (cam.checkpoints || []).join('\n');
+            document.getElementById('note').value = cam.note || '';
+            document.getElementById('deleteBtn').style.display = 'inline-block';
+            document.getElementById('saveBtn').textContent = 'Обновить камеру';
+        }
+
+        // ─── ОТМЕНА РЕДАКТИРОВАНИЯ ──────────────────────────────────
+        function cancelEdit() {
+            editingId = null;
+            document.getElementById('id').disabled = false;
+            document.getElementById('id').value = '';
+            document.getElementById('name').value = '';
+            document.getElementById('price').value = '';
+            document.getElementById('system').value = '';
+            document.getElementById('weight').value = '';
+            document.getElementById('badge').value = '';
+            document.getElementById('badgeText').value = '';
+            document.getElementById('goals').value = '';
+            document.getElementById('genres').value = '';
+            document.getElementById('budgetRange').value = '';
+            document.getElementById('sensor').value = '';
+            document.getElementById('stabilization').value = '';
+            document.getElementById('af').value = '';
+            document.getElementById('video').value = '';
+            document.getElementById('interchangeable').value = '';
+            document.getElementById('dualSlot').value = '';
+            document.getElementById('checkpoints').value = '';
+            document.getElementById('note').value = '';
+            document.getElementById('deleteBtn').style.display = 'none';
+            document.getElementById('saveBtn').textContent = 'Сохранить (добавить / обновить)';
+        }
+
+        // ─── УДАЛЕНИЕ ────────────────────────────────────────────────
+        function deleteCam(id) {
+            if (!confirm(`Удалить камеру ${id}?`)) return;
+            cameras = cameras.filter(c => c.id !== id);
+            if (editingId === id) cancelEdit();
+            saveToGitHub();
+        }
+
+        // ─── СОХРАНЕНИЕ В GITHUB ────────────────────────────────────
+        async function saveToGitHub() {
+            if (!token) {
+                alert('Токен не задан. Перезагрузите страницу и введите токен.');
+                return;
+            }
+            try {
+                // 1. Получаем текущий sha файла
+                const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`;
+                const res = await fetch(url, {
+                    headers: { 'Authorization': `token ${token}` }
+                });
+                let sha = null;
+                if (res.ok) {
+                    const data = await res.json();
+                    sha = data.sha;
+                } else if (res.status !== 404) {
+                    throw new Error('Ошибка получения sha: ' + res.status);
+                }
+
+                // 2. Подготавливаем контент
+                const content = JSON.stringify({ cameras }, null, 2);
+                const encoded = btoa(unescape(encodeURIComponent(content))); // base64
+
+                // 3. Отправляем commit
+                const payload = {
+                    message: `Обновление базы камер (${new Date().toISOString()})`,
+                    content: encoded,
+                    branch: BRANCH
+                };
+                if (sha) payload.sha = sha;
+
+                const commitRes = await fetch(url, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `token ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!commitRes.ok) {
+                    const err = await commitRes.json();
+                    throw new Error(err.message || 'Ошибка сохранения');
+                }
+
+                showToast('✅ Изменения сохранены!');
+                cancelEdit();
+                loadCameras(); // перезагружаем список
+            } catch (e) {
+                console.error(e);
+                showToast('❌ Ошибка: ' + e.message);
+            }
+        }
+
+        // ─── СОБРАТЬ ДАННЫЕ ИЗ ФОРМЫ ─────────────────────────────────
+        function collectFormData() {
+            const id = document.getElementById('id').value.trim();
+            if (!id) { alert('ID обязателен'); return null; }
+            if (!/^[a-z0-9-]+$/.test(id)) { alert('ID только латиница, цифры и дефис'); return null; }
+
+            const name = document.getElementById('name').value.trim();
+            const price = document.getElementById('price').value.trim();
+            const system = document.getElementById('system').value.trim();
+            const weight = document.getElementById('weight').value.trim();
+            const badge = document.getElementById('badge').value.trim();
+            const badgeText = document.getElementById('badgeText').value.trim();
+            const goals = document.getElementById('goals').value.split(',').map(s => s.trim()).filter(Boolean);
+            const genres = document.getElementById('genres').value.split(',').map(s => s.trim()).filter(Boolean);
+            const budgetRange = document.getElementById('budgetRange').value.split(',').map(s => s.trim()).filter(Boolean);
+            const sensor = document.getElementById('sensor').value.trim();
+            const stabilization = document.getElementById('stabilization').value.trim();
+            const af = document.getElementById('af').value.trim();
+            const video = document.getElementById('video').value.trim();
+            const interchangeable = document.getElementById('interchangeable').value.trim().toLowerCase() === 'true';
+            const dualSlot = document.getElementById('dualSlot').value.trim().toLowerCase() === 'true';
+            const checkpoints = document.getElementById('checkpoints').value.split('\n').map(s => s.trim()).filter(Boolean);
+            const note = document.getElementById('note').value.trim();
+
+            return {
+                id,
+                name,
+                price,
+                system,
+                weight,
+                badge,
+                badgeText,
+                goals,
+                genres,
+                budgetRange,
+                sensor,
+                stabilization,
+                af,
+                video,
+                interchangeable,
+                dualSlot,
+                checkpoints,
+                note
+            };
+        }
+
+        // ─── ОБРАБОТЧИК СОХРАНЕНИЯ ──────────────────────────────────
+        document.getElementById('saveBtn').addEventListener('click', function() {
+            const data = collectFormData();
+            if (!data) return;
+
+            // Проверяем на дубликат ID (если не редактируем)
+            if (!editingId && cameras.some(c => c.id === data.id)) {
+                alert('Камера с таким ID уже существует. Используйте редактирование.');
+                return;
+            }
+
+            if (editingId) {
+                // Обновляем существующую
+                const index = cameras.findIndex(c => c.id === editingId);
+                if (index !== -1) {
+                    cameras[index] = { ...data };
+                } else {
+                    alert('Ошибка: камера не найдена');
+                    return;
+                }
+            } else {
+                // Добавляем новую
+                cameras.push(data);
+            }
+
+            saveToGitHub();
+        });
+
+        // ─── ОТМЕНА ──────────────────────────────────────────────────
+        document.getElementById('cancelBtn').addEventListener('click', cancelEdit);
+
+        // ─── УДАЛЕНИЕ ИЗ ФОРМЫ ──────────────────────────────────────
+        document.getElementById('deleteBtn').addEventListener('click', function() {
+            if (editingId) {
+                deleteCam(editingId);
+            }
+        });
+
+        // ─── TOAST ──────────────────────────────────────────────────
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.classList.remove('hidden');
+            setTimeout(() => toast.classList.add('hidden'), 3000);
+        }
+
+        // ─── ЗАГРУЗКА ПРИ СТАРТЕ ──────────────────────────────────
+        loadCameras();
+    </script>
+</body>
+</html>
