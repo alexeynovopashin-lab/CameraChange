@@ -1251,12 +1251,10 @@
       "id": "canon-r50v",
       "name": "Canon EOS R50 V",
       "price": "$750",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Breda_beeld_van_een_heilige_-_Sint-Antoniuskathedraal_2024-09-17.jpg",
-      "bonus": 0,
-      "badge": "badge-new",
-      "badgeText": "Новая",
       "system": "canon",
       "weight": "critical",
+      "badge": "badge-new",
+      "badgeText": "Новая",
       "goals": [
         "video",
         "blog",
@@ -1285,9 +1283,8 @@
         "стриминг"
       ],
       "note": "Видео-версия R50 для блогеров.",
-      "categories": [
-        "video"
-      ]
+      "image": "https://www.canon.com.au/-/media/images/canon/products/mirrorless-cameras/eos-r50-v/carousel-2-eosr50v-1400x960.jpg",
+      "bonus": 0
     },
     {
       "id": "sony-a7cii",
