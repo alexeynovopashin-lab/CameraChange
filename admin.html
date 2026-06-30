@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Админка — база камер</title>
     <style>
+        /* ─── ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ ─────────────────────────────── */
         :root {
             --bg: #f4f6f9;
             --card-bg: #ffffff;
@@ -23,11 +24,7 @@
             --shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
             --transition: 0.2s ease;
         }
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: system-ui, -apple-system, sans-serif;
             background: var(--bg);
@@ -71,35 +68,18 @@
             background: var(--primary);
             color: #fff;
         }
-        .btn:hover {
-            transform: scale(1.02);
-            opacity: 0.9;
-        }
+        .btn:hover { transform: scale(1.02); opacity: 0.9; }
         .btn-outline {
             background: transparent;
             border: 1.5px solid var(--border);
             color: var(--text);
         }
-        .btn-outline:hover {
-            background: #f1f5f9;
-            border-color: #94a3b8;
-        }
-        .btn-success {
-            background: var(--success);
-        }
-        .btn-success:hover {
-            background: var(--success-hover);
-        }
-        .btn-danger {
-            background: var(--danger);
-        }
-        .btn-danger:hover {
-            background: var(--danger-hover);
-        }
-        .btn-sm {
-            padding: 0.3rem 0.8rem;
-            font-size: 0.8rem;
-        }
+        .btn-outline:hover { background: #f1f5f9; border-color: #94a3b8; }
+        .btn-success { background: var(--success); }
+        .btn-success:hover { background: var(--success-hover); }
+        .btn-danger { background: var(--danger); }
+        .btn-danger:hover { background: var(--danger-hover); }
+        .btn-sm { padding: 0.3rem 0.8rem; font-size: 0.8rem; }
         .btn-find {
             background: var(--accent);
             color: #fff;
@@ -111,9 +91,18 @@
             cursor: pointer;
             transition: background var(--transition);
         }
-        .btn-find:hover {
-            background: var(--accent-hover);
+        .btn-find:hover { background: var(--accent-hover); }
+        .btn-add-checkpoint {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 0.2rem 0.8rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
         }
+        .btn-add-checkpoint:hover { background: var(--accent-hover); }
+
         .form-card {
             background: var(--card-bg);
             border-radius: var(--radius);
@@ -124,9 +113,7 @@
         .form-section {
             margin-bottom: 1.8rem;
         }
-        .form-section:last-of-type {
-            margin-bottom: 1.5rem;
-        }
+        .form-section:last-of-type { margin-bottom: 1.5rem; }
         .form-section-title {
             font-weight: 600;
             font-size: 1.1rem;
@@ -174,6 +161,17 @@
             height: 70px;
             resize: vertical;
         }
+        .form-grid select[multiple] {
+            height: auto;
+            min-height: 80px;
+        }
+        .form-grid .invalid {
+            border-color: var(--danger) !important;
+            background-color: #fee2e2;
+        }
+        .form-grid .invalid:focus {
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
+        }
         .form-actions {
             grid-column: 1 / -1;
             display: flex;
@@ -188,12 +186,41 @@
             gap: 0.5rem;
             align-items: center;
         }
-        .image-input-group input {
-            flex: 1;
-        }
+        .image-input-group input { flex: 1; }
         .bonus-input {
             width: 100px !important;
         }
+        .checkpoint-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            margin-top: 0.3rem;
+        }
+        .checkpoint-row {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        .checkpoint-row input {
+            flex: 1;
+        }
+        .checkpoint-row .btn-remove {
+            background: transparent;
+            border: none;
+            color: var(--danger);
+            font-size: 1.2rem;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0 0.3rem;
+        }
+        .checkpoint-row .btn-remove:hover {
+            color: var(--danger-hover);
+        }
+        .checkpoint-list .btn-add-checkpoint {
+            align-self: flex-start;
+            margin-top: 0.3rem;
+        }
+
         .table-wrap {
             background: var(--card-bg);
             border-radius: var(--radius);
@@ -205,8 +232,7 @@
             width: 100%;
             border-collapse: collapse;
         }
-        th,
-        td {
+        th, td {
             padding: 0.75rem 1rem;
             text-align: left;
             border-bottom: 1px solid var(--border);
@@ -220,17 +246,13 @@
             user-select: none;
             transition: background var(--transition);
         }
-        th:hover {
-            background: #f1f5f9;
-        }
+        th:hover { background: #f1f5f9; }
         th .sort-arrow {
             margin-left: 6px;
             font-size: 0.7rem;
             opacity: 0.4;
         }
-        th .sort-arrow.active {
-            opacity: 1;
-        }
+        th .sort-arrow.active { opacity: 1; }
         .thumb-img {
             max-width: 80px;
             max-height: 50px;
@@ -240,9 +262,7 @@
             padding: 2px;
             background: #fff;
         }
-        .actions button {
-            margin-right: 0.3rem;
-        }
+        .actions button { margin-right: 0.3rem; }
         .btn-delete {
             background: #fff;
             color: var(--danger);
@@ -257,6 +277,10 @@
         .btn-delete:hover {
             background: var(--danger);
             color: #fff;
+        }
+        .warning-icon {
+            color: #eab308;
+            margin-right: 4px;
         }
         .gateway-section {
             background: var(--card-bg);
@@ -302,31 +326,102 @@
             transform: translateY(0);
             pointer-events: auto;
         }
+        .toast.error {
+            background: var(--danger);
+        }
         @media (max-width: 768px) {
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-            .header-row {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            body {
-                padding: 1rem;
-            }
-            .form-card {
-                padding: 1rem;
-            }
-            .gateway-section {
-                padding: 1rem;
-            }
+            .form-grid { grid-template-columns: 1fr; }
+            .header-row { flex-direction: column; align-items: stretch; }
+            body { padding: 1rem; }
+            .form-card { padding: 1rem; }
+            .gateway-section { padding: 1rem; }
         }
-        .hidden {
-            display: none !important;
-        }
+        .hidden { display: none !important; }
         .text-muted {
             color: var(--text-muted);
             font-size: 0.75rem;
             margin-top: 0.2rem;
+        }
+
+        /* ─── Превью массового поиска ─────────────────────────────── */
+        .preview-modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.4);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .preview-modal {
+            background: #fff;
+            border-radius: var(--radius);
+            max-width: 900px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        .preview-modal h2 {
+            margin-bottom: 0.5rem;
+        }
+        .preview-modal .close-modal {
+            float: right;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+        .preview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .preview-item {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+        .preview-item img {
+            max-width: 100%;
+            max-height: 100px;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+        .preview-item label {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .preview-item .found-title {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            word-break: break-all;
+        }
+        .preview-item .open-original {
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-decoration: none;
+        }
+        .preview-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            justify-content: flex-end;
+        }
+        @media (max-width: 600px) {
+            .preview-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -351,22 +446,22 @@
                     <input type="text" id="id" placeholder="canon-r5" required>
                 </label>
                 <label>Название
-                    <input type="text" id="name" placeholder="Canon EOS R5">
+                    <input type="text" id="name" placeholder="Canon EOS R5" required>
                 </label>
                 <label>Цена (строка)
-                    <input type="text" id="price" placeholder="$3 900">
+                    <input type="text" id="price" placeholder="$3 900" required>
                 </label>
-                <label>Система (canon, nikon, sony, fujifilm, panasonic, hasselblad, leica, other)
-                    <input type="text" id="system" placeholder="canon">
+                <label>Система
+                    <select id="system"></select>
                 </label>
-                <label>Вес (critical, moderate, not-critical)
-                    <input type="text" id="weight" placeholder="moderate">
+                <label>Вес
+                    <select id="weight"></select>
                 </label>
-                <label>Бейдж (badge-new, badge-bu, badge-compact, badge-video, badge-premium)
-                    <input type="text" id="badge" placeholder="badge-new">
+                <label>Бейдж
+                    <select id="badge"></select>
                 </label>
                 <label>Текст бейджа
-                    <input type="text" id="badgeText" placeholder="Новая">
+                    <select id="badgeText"></select>
                 </label>
             </div>
         </div>
@@ -375,11 +470,11 @@
         <div class="form-section">
             <div class="form-section-title">🎯 Цели и жанры</div>
             <div class="form-grid">
-                <label>Цели (через запятую: photo, video, blog, travel, studio, sport)
-                    <input type="text" id="goals" placeholder="photo, video">
+                <label>Цели (выберите хотя бы одну)
+                    <select id="goals" multiple></select>
                 </label>
-                <label>Жанры (через запятую: portrait, landscape, street, reportage, wedding, family, nude, commercial, architecture, vlog, documentary)
-                    <input type="text" id="genres" placeholder="portrait, landscape">
+                <label>Жанры (выберите хотя бы один)
+                    <select id="genres" multiple></select>
                 </label>
             </div>
         </div>
@@ -388,8 +483,8 @@
         <div class="form-section">
             <div class="form-section-title">⚙️ Бюджет и характеристики</div>
             <div class="form-grid">
-                <label>Бюджетные диапазоны (через запятую: low, mid, high, very-high, premium)
-                    <input type="text" id="budgetRange" placeholder="premium">
+                <label>Бюджетные диапазоны (выберите хотя бы один)
+                    <select id="budgetRange" multiple></select>
                 </label>
                 <label>Сенсор
                     <input type="text" id="sensor" placeholder="Full frame 45 Мп">
@@ -416,8 +511,9 @@
                 <label>Два слота (true/false)
                     <input type="text" id="dualSlot" placeholder="true">
                 </label>
-                <label style="grid-column: 1 / -1;">Чекпоинты (каждый с новой строки)
-                    <textarea id="checkpoints" placeholder="Full frame 45 Мп&#10;8K RAW"></textarea>
+                <label style="grid-column: 1 / -1;">Чекпоинты (характеристики)
+                    <div class="checkpoint-list" id="checkpointsList"></div>
+                    <button class="btn-add-checkpoint" id="addCheckpointBtn">+ Добавить характеристику</button>
                 </label>
                 <label style="grid-column: 1 / -1;">Примечание
                     <textarea id="note" placeholder="Универсальный флагман"></textarea>
@@ -436,9 +532,11 @@
                     </div>
                     <span class="text-muted">Поиск по названию камеры</span>
                 </label>
-                <label>Бонус (авторский приоритет, целое число, может быть отрицательным)
+                <label>Бонус (авторский приоритет)
                     <input type="number" id="bonus" class="bonus-input" value="0" step="1">
-                    <span class="text-muted">Добавляется к итоговому баллу камеры</span>
+                    <span class="text-muted">
+                        Бонус добавляется напрямую к итоговому баллу (0–100). +10 — заметный сдвиг вверх, +30 и выше может перекрыть реальные критерии. Рекомендуемый диапазон: –10 … +15.
+                    </span>
                 </label>
             </div>
         </div>
@@ -471,7 +569,7 @@
         </table>
     </div>
 
-    <!-- ─── ШЛЮЗ (АККУРАТНЫЙ) ────────────────────────────────────── -->
+    <!-- ─── ШЛЮЗ ────────────────────────────────────────────────────── -->
     <div class="gateway-section">
         <h2 style="font-size:1.2rem; margin-bottom:0.5rem;">🚪 Шлюз — быстрый импорт камер</h2>
         <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:0.8rem;">Вставьте JSON-шаблон одной камеры или массив камер и нажмите «Добавить».</p>
@@ -487,7 +585,26 @@
 
     <!-- ─── СКРИПТЫ ────────────────────────────────────────────────── -->
     <script>
+        // ─── КОНСТАНТЫ ДЛЯ КОНТРОЛИРУЕМЫХ СЛОВАРЕЙ ────────────────
+        const SYSTEMS = ['canon', 'nikon', 'sony', 'fujifilm', 'panasonic', 'hasselblad', 'leica', 'other'];
+        const WEIGHTS = ['critical', 'moderate', 'not-critical'];
+        const BADGES = ['badge-new', 'badge-bu', 'badge-compact', 'badge-video', 'badge-premium'];
+        const BADGE_TEXT_MAP = {
+            'badge-new': 'Новая',
+            'badge-bu': 'Б/У',
+            'badge-compact': 'Компакт',
+            'badge-video': 'Видео',
+            'badge-premium': 'Премиум'
+        };
+        const BUDGET_RANGES = ['low', 'mid', 'high', 'very-high', 'premium'];
+        const GOALS_LIST = ['photo', 'video', 'blog', 'travel', 'studio', 'sport'];
+        const GENRES_LIST = ['portrait', 'landscape', 'street', 'reportage', 'wedding', 'family', 'nude', 'commercial', 'architecture', 'vlog', 'documentary'];
+
+        // Константа для задержки между запросами к Wikimedia
+        const WIKIMEDIA_REQUEST_DELAY_MS = 200;
+
         // ─── ЗАЩИТА ПАРОЛЕМ ──────────────────────────────────────────
+        // ВНИМАНИЕ: Пароль и токен в открытом виде — рекомендуется сменить их в ближайшее время.
         const ADMIN_PASSWORD = '11259375*Camera';
 
         (function checkAuth() {
@@ -561,6 +678,127 @@
             renderTable();
         }
 
+        // ─── ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ДЛЯ SELECT-ПОЛЕЙ ──────────────
+        function populateSelect(selectId, options, selectedValue) {
+            const select = document.getElementById(selectId);
+            if (!select) return;
+            select.innerHTML = '';
+            options.forEach(opt => {
+                const option = document.createElement('option');
+                option.value = opt;
+                option.textContent = opt;
+                if (selectedValue !== undefined && selectedValue === opt) {
+                    option.selected = true;
+                }
+                select.appendChild(option);
+            });
+            // Если selectedValue не найдено, выбираем первый элемент
+            if (selectedValue !== undefined && !options.includes(selectedValue)) {
+                console.warn(`⚠️ Значение "${selectedValue}" недопустимо для поля "${selectId}", выбран fallback.`);
+                if (select.options.length > 0) select.options[0].selected = true;
+            }
+        }
+
+        function populateMultiSelect(selectId, options, selectedValues) {
+            const select = document.getElementById(selectId);
+            if (!select) return;
+            select.innerHTML = '';
+            options.forEach(opt => {
+                const option = document.createElement('option');
+                option.value = opt;
+                option.textContent = opt;
+                if (selectedValues && selectedValues.includes(opt)) {
+                    option.selected = true;
+                }
+                select.appendChild(option);
+            });
+        }
+
+        // ─── ЗАПОЛНЕНИЕ ВСЕХ SELECT-ПОЛЕЙ ПРИ ЗАГРУЗКЕ ──────────────
+        function initSelectFields() {
+            populateSelect('system', SYSTEMS);
+            populateSelect('weight', WEIGHTS);
+            populateSelect('badge', BADGES);
+            // badgeText — синхронизируется с badge через обработчик, но тоже заполним
+            populateSelect('badgeText', Object.values(BADGE_TEXT_MAP));
+            populateMultiSelect('budgetRange', BUDGET_RANGES);
+            populateMultiSelect('goals', GOALS_LIST);
+            populateMultiSelect('genres', GENRES_LIST);
+
+            // Синхронизация badge → badgeText
+            document.getElementById('badge').addEventListener('change', function() {
+                const selectedBadge = this.value;
+                const text = BADGE_TEXT_MAP[selectedBadge] || '';
+                const badgeTextSelect = document.getElementById('badgeText');
+                // Устанавливаем значение, если оно есть в списке
+                const options = Array.from(badgeTextSelect.options);
+                const found = options.find(opt => opt.value === text);
+                if (found) {
+                    badgeTextSelect.value = text;
+                } else {
+                    // если нет, добавляем временно
+                    const opt = document.createElement('option');
+                    opt.value = text;
+                    opt.textContent = text;
+                    opt.selected = true;
+                    badgeTextSelect.appendChild(opt);
+                }
+            });
+        }
+        initSelectFields();
+
+        // ─── ДИНАМИЧЕСКИЙ СПИСОК ЧЕКПОИНТОВ ────────────────────────
+        function renderCheckpoints(checkpoints) {
+            const container = document.getElementById('checkpointsList');
+            container.innerHTML = '';
+            if (!checkpoints || checkpoints.length === 0) {
+                // Показываем один пустой инпут
+                addCheckpointRow('');
+                return;
+            }
+            checkpoints.forEach(cp => addCheckpointRow(cp));
+        }
+
+        function addCheckpointRow(value) {
+            const container = document.getElementById('checkpointsList');
+            const row = document.createElement('div');
+            row.className = 'checkpoint-row';
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.className = 'checkpoint-input';
+            input.placeholder = 'Введите характеристику';
+            input.value = value || '';
+            const removeBtn = document.createElement('button');
+            removeBtn.type = 'button';
+            removeBtn.className = 'btn-remove';
+            removeBtn.innerHTML = '✕';
+            removeBtn.addEventListener('click', function() {
+                if (container.children.length > 1) {
+                    container.removeChild(row);
+                } else {
+                    // Если последний — очищаем значение
+                    input.value = '';
+                }
+            });
+            row.appendChild(input);
+            row.appendChild(removeBtn);
+            container.appendChild(row);
+        }
+
+        document.getElementById('addCheckpointBtn').addEventListener('click', function() {
+            addCheckpointRow('');
+        });
+
+        function getCheckpointsFromUI() {
+            const inputs = document.querySelectorAll('.checkpoint-input');
+            const values = [];
+            inputs.forEach(inp => {
+                const val = inp.value.trim();
+                if (val) values.push(val);
+            });
+            return values;
+        }
+
         // ─── ЗАГРУЗКА ──────────────────────────────────────────────────
         async function loadCameras() {
             try {
@@ -579,7 +817,7 @@
             }
         }
 
-        // ─── ОТОБРАЖЕНИЕ ТАБЛИЦЫ ──────────────────────────────────
+        // ─── ОТОБРАЖЕНИЕ ТАБЛИЦЫ (с предупреждениями) ──────────────
         function renderTable() {
             const tbody = document.getElementById('cameraTableBody');
             let sorted = [...cameras];
@@ -597,20 +835,32 @@
                 tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;color:#888;">Нет камер</td></tr>`;
                 return;
             }
-            tbody.innerHTML = sorted.map(c => `
+            tbody.innerHTML = sorted.map(c => {
+                // Проверяем обязательные поля на пустоту
+                const missing = [];
+                if (!c.name) missing.push('название');
+                if (!c.price) missing.push('цена');
+                if (!c.system || !SYSTEMS.includes(c.system)) missing.push('система');
+                if (!c.goals || c.goals.length === 0) missing.push('цели');
+                if (!c.genres || c.genres.length === 0) missing.push('жанры');
+                if (!c.budgetRange || c.budgetRange.length === 0) missing.push('бюджет');
+                const hasWarning = missing.length > 0;
+                const warningIcon = hasWarning ? `<span class="warning-icon" title="Не заполнено: ${missing.join(', ')}">⚠️</span>` : '';
+
+                return `
                 <tr>
                     <td>${c.image ? `<img src="${c.image}" alt="${c.name}" class="thumb-img" onerror="this.style.display='none'">` : '—'}</td>
-                    <td><code>${c.id}</code></td>
-                    <td><strong>${c.name}</strong></td>
-                    <td>${c.price}</td>
-                    <td>${c.system}</td>
+                    <td><code>${warningIcon}${c.id}</code></td>
+                    <td><strong>${c.name || '(пусто)'}</strong></td>
+                    <td>${c.price || '(пусто)'}</td>
+                    <td>${c.system || '(пусто)'}</td>
                     <td>${c.bonus ?? 0}</td>
                     <td class="actions">
                         <button class="btn btn-outline btn-sm edit-btn" data-id="${c.id}">✏️</button>
                         <button class="btn btn-delete btn-sm delete-btn" data-id="${c.id}">✕</button>
                     </td>
                 </tr>
-            `).join('');
+            `}).join('');
 
             document.querySelectorAll('.edit-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
@@ -633,23 +883,34 @@
             document.getElementById('id').disabled = true;
             document.getElementById('name').value = cam.name || '';
             document.getElementById('price').value = cam.price || '';
-            document.getElementById('system').value = cam.system || '';
-            document.getElementById('weight').value = cam.weight || '';
-            document.getElementById('badge').value = cam.badge || '';
-            document.getElementById('badgeText').value = cam.badgeText || '';
-            document.getElementById('goals').value = (cam.goals || []).join(', ');
-            document.getElementById('genres').value = (cam.genres || []).join(', ');
-            document.getElementById('budgetRange').value = (cam.budgetRange || []).join(', ');
+
+            // system
+            populateSelect('system', SYSTEMS, cam.system);
+            // weight
+            populateSelect('weight', WEIGHTS, cam.weight);
+            // badge
+            populateSelect('badge', BADGES, cam.badge);
+            // badgeText
+            const badgeText = cam.badgeText || BADGE_TEXT_MAP[cam.badge] || '';
+            populateSelect('badgeText', Object.values(BADGE_TEXT_MAP), badgeText);
+
+            // goals, genres, budgetRange (multiselect)
+            populateMultiSelect('goals', GOALS_LIST, cam.goals || []);
+            populateMultiSelect('genres', GENRES_LIST, cam.genres || []);
+            populateMultiSelect('budgetRange', BUDGET_RANGES, cam.budgetRange || []);
+
             document.getElementById('sensor').value = cam.sensor || '';
             document.getElementById('stabilization').value = cam.stabilization || '';
             document.getElementById('af').value = cam.af || '';
             document.getElementById('video').value = cam.video || '';
             document.getElementById('interchangeable').value = cam.interchangeable !== undefined ? String(cam.interchangeable) : '';
             document.getElementById('dualSlot').value = cam.dualSlot !== undefined ? String(cam.dualSlot) : '';
-            document.getElementById('checkpoints').value = (cam.checkpoints || []).join('\n');
             document.getElementById('note').value = cam.note || '';
             document.getElementById('image').value = cam.image || '';
             document.getElementById('bonus').value = cam.bonus ?? 0;
+            // checkpoints
+            renderCheckpoints(cam.checkpoints || []);
+
             document.getElementById('deleteBtn').style.display = 'inline-flex';
             document.getElementById('saveBtn').textContent = '💾 Обновить камеру';
             document.getElementById('formContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -661,13 +922,14 @@
             document.getElementById('id').value = '';
             document.getElementById('name').value = '';
             document.getElementById('price').value = '';
-            document.getElementById('system').value = '';
-            document.getElementById('weight').value = '';
-            document.getElementById('badge').value = '';
-            document.getElementById('badgeText').value = '';
-            document.getElementById('goals').value = '';
-            document.getElementById('genres').value = '';
-            document.getElementById('budgetRange').value = '';
+            // reset selects to first options
+            populateSelect('system', SYSTEMS);
+            populateSelect('weight', WEIGHTS);
+            populateSelect('badge', BADGES);
+            populateSelect('badgeText', Object.values(BADGE_TEXT_MAP));
+            populateMultiSelect('goals', GOALS_LIST);
+            populateMultiSelect('genres', GENRES_LIST);
+            populateMultiSelect('budgetRange', BUDGET_RANGES);
             document.getElementById('sensor').value = '';
             document.getElementById('stabilization').value = '';
             document.getElementById('af').value = '';
@@ -678,8 +940,10 @@
             document.getElementById('note').value = '';
             document.getElementById('image').value = '';
             document.getElementById('bonus').value = '0';
+            renderCheckpoints([]);
             document.getElementById('deleteBtn').style.display = 'none';
             document.getElementById('saveBtn').textContent = '💾 Сохранить (добавить / обновить)';
+            clearInvalidStyles();
         }
 
         function deleteCam(id) {
@@ -687,6 +951,51 @@
             cameras = cameras.filter(c => c.id !== id);
             if (editingId === id) cancelEdit();
             saveToGitHub();
+        }
+
+        // ─── ВАЛИДАЦИЯ И ПОДСВЕТКА ──────────────────────────────────
+        function clearInvalidStyles() {
+            document.querySelectorAll('.form-grid .invalid').forEach(el => el.classList.remove('invalid'));
+        }
+
+        function markInvalid(fieldId) {
+            const el = document.getElementById(fieldId);
+            if (el) el.classList.add('invalid');
+        }
+
+        function validateForm() {
+            clearInvalidStyles();
+            const errors = [];
+
+            const name = document.getElementById('name').value.trim();
+            if (!name) { errors.push('Название'); markInvalid('name'); }
+
+            const price = document.getElementById('price').value.trim();
+            if (!price) { errors.push('Цена'); markInvalid('price'); }
+
+            const system = document.getElementById('system').value;
+            if (!system || !SYSTEMS.includes(system)) { errors.push('Система'); markInvalid('system'); }
+
+            const goalsSelect = document.getElementById('goals');
+            const goals = Array.from(goalsSelect.selectedOptions).map(o => o.value);
+            if (goals.length === 0) { errors.push('Цели (выберите хотя бы одну)'); markInvalid('goals'); }
+
+            const genresSelect = document.getElementById('genres');
+            const genres = Array.from(genresSelect.selectedOptions).map(o => o.value);
+            if (genres.length === 0) { errors.push('Жанры (выберите хотя бы один)'); markInvalid('genres'); }
+
+            const budgetSelect = document.getElementById('budgetRange');
+            const budgetRange = Array.from(budgetSelect.selectedOptions).map(o => o.value);
+            if (budgetRange.length === 0) { errors.push('Бюджетные диапазоны (выберите хотя бы один)'); markInvalid('budgetRange'); }
+
+            // Дополнительно: проверка ID (уже есть)
+            const id = document.getElementById('id').value.trim();
+            if (!id || !/^[a-z0-9-]+$/.test(id)) {
+                errors.push('ID (латиница, цифры, дефис)');
+                markInvalid('id');
+            }
+
+            return { valid: errors.length === 0, errors };
         }
 
         // ─── СОХРАНЕНИЕ ──────────────────────────────────────────────
@@ -712,7 +1021,7 @@
                 } else {
                     const errText = await res.text();
                     console.error('❌ Ошибка получения sha:', res.status, errText);
-                    showToast(`❌ Ошибка получения sha: ${res.status} ${errText}`);
+                    showToast(`❌ Ошибка получения sha: ${res.status} ${errText}`, true);
                     return;
                 }
 
@@ -763,11 +1072,70 @@
 
             } catch (e) {
                 console.error('❌ Ошибка сохранения:', e);
-                showToast('❌ Ошибка: ' + e.message);
+                showToast('❌ Ошибка: ' + e.message, true);
             }
         }
 
-        // ─── ПОИСК ИЗОБРАЖЕНИЯ ──────────────────────────────────────
+        // ─── СБОР ДАННЫХ ИЗ ФОРМЫ (С ВАЛИДАЦИЕЙ) ──────────────────
+        function collectFormData() {
+            const validation = validateForm();
+            if (!validation.valid) {
+                showToast('❌ Заполните обязательные поля: ' + validation.errors.join(', '), true);
+                return null;
+            }
+
+            const id = document.getElementById('id').value.trim();
+            const name = document.getElementById('name').value.trim();
+            const price = document.getElementById('price').value.trim();
+            const system = document.getElementById('system').value;
+            const weight = document.getElementById('weight').value;
+            const badge = document.getElementById('badge').value;
+            const badgeText = document.getElementById('badgeText').value;
+
+            const goalsSelect = document.getElementById('goals');
+            const goals = Array.from(goalsSelect.selectedOptions).map(o => o.value);
+            const genresSelect = document.getElementById('genres');
+            const genres = Array.from(genresSelect.selectedOptions).map(o => o.value);
+            const budgetSelect = document.getElementById('budgetRange');
+            const budgetRange = Array.from(budgetSelect.selectedOptions).map(o => o.value);
+
+            const sensor = document.getElementById('sensor').value.trim();
+            const stabilization = document.getElementById('stabilization').value.trim();
+            const af = document.getElementById('af').value.trim();
+            const video = document.getElementById('video').value.trim();
+            const interchangeable = document.getElementById('interchangeable').value.trim().toLowerCase() === 'true';
+            const dualSlot = document.getElementById('dualSlot').value.trim().toLowerCase() === 'true';
+            const checkpoints = getCheckpointsFromUI();
+            const note = document.getElementById('note').value.trim();
+            const image = document.getElementById('image').value.trim();
+            const bonus = parseInt(document.getElementById('bonus').value) || 0;
+
+            return {
+                id,
+                name,
+                price,
+                system,
+                weight,
+                badge,
+                badgeText,
+                goals,
+                genres,
+                budgetRange,
+                sensor,
+                stabilization,
+                af,
+                video,
+                interchangeable,
+                dualSlot,
+                checkpoints,
+                note,
+                image,
+                bonus,
+                categories: ['premium'] // для совместимости, но можно динамически
+            };
+        }
+
+        // ─── ПОИСК ИЗОБРАЖЕНИЯ (ОДНА КАМЕРА) ──────────────────────
         async function findImageOnWikimedia() {
             const nameInput = document.getElementById('name');
             const imageInput = document.getElementById('image');
@@ -816,11 +1184,13 @@
 
             } catch (e) {
                 console.error(e);
-                showToast('❌ Ошибка: ' + e.message);
+                showToast('❌ Ошибка: ' + e.message, true);
             }
         }
 
-        // ─── МАССОВЫЙ ПОИСК ──────────────────────────────────────────
+        // ─── МАССОВЫЙ ПОИСК С ПРЕВЬЮ (TASK-4) ──────────────────────
+        let pendingImageResults = [];
+
         async function massFindImages() {
             await loadCameras();
             const withoutImage = cameras.filter(c => !c.image || c.image.trim() === '');
@@ -829,52 +1199,124 @@
                 return;
             }
 
-            showToast(`🔍 Начинаю поиск для ${withoutImage.length} камер...`);
-            let found = 0;
-
+            showToast(`🔍 Поиск для ${withoutImage.length} камер...`);
+            const results = [];
             for (const cam of withoutImage) {
                 const cameraName = cam.name;
                 if (!cameraName) continue;
-
                 try {
                     const searchUrl = `https://commons.wikimedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(cameraName)}&srnamespace=6&srlimit=1&format=json&origin=*`;
                     const searchRes = await fetch(searchUrl);
                     if (!searchRes.ok) continue;
                     const searchData = await searchRes.json();
-
-                    const results = searchData.query?.search || [];
-                    if (results.length === 0) continue;
-
-                    const title = results[0].title;
+                    const found = searchData.query?.search || [];
+                    if (found.length === 0) continue;
+                    const title = found[0].title;
                     const infoUrl = `https://commons.wikimedia.org/w/api.php?action=query&titles=${encodeURIComponent(title)}&prop=imageinfo&iiprop=url&format=json&origin=*`;
                     const infoRes = await fetch(infoUrl);
                     if (!infoRes.ok) continue;
                     const infoData = await infoRes.json();
-
                     const pages = infoData.query?.pages || {};
                     const pageId = Object.keys(pages)[0];
                     if (!pageId || pageId === '-1') continue;
-
                     const imageUrl = pages[pageId].imageinfo?.[0]?.url;
                     if (imageUrl) {
-                        cam.image = imageUrl;
-                        found++;
+                        results.push({
+                            cameraId: cam.id,
+                            cameraName: cam.name,
+                            foundImageUrl: imageUrl,
+                            foundTitle: title,
+                            checked: true
+                        });
                     }
                 } catch (e) {
                     console.warn('Ошибка для ' + cameraName, e);
                 }
-                await new Promise(r => setTimeout(r, 200));
+                await new Promise(r => setTimeout(r, WIKIMEDIA_REQUEST_DELAY_MS));
             }
 
-            if (found > 0) {
-                showToast(`✅ Найдено изображений: ${found} из ${withoutImage.length}`);
-                await saveToGitHub();
-                await loadCameras();
-                renderTable();
-                showToast(`✅ Добавлено ${found} изображений!`);
-            } else {
+            if (results.length === 0) {
                 showToast('❌ Не найдено ни одного изображения. Попробуйте уточнить названия.');
+                return;
             }
+
+            pendingImageResults = results;
+            renderPreviewModal(results);
+        }
+
+        function renderPreviewModal(results) {
+            // Удаляем старый модал, если есть
+            const old = document.querySelector('.preview-modal-overlay');
+            if (old) old.remove();
+
+            const overlay = document.createElement('div');
+            overlay.className = 'preview-modal-overlay';
+            overlay.innerHTML = `
+                <div class="preview-modal">
+                    <button class="close-modal" id="closePreviewModal">&times;</button>
+                    <h2>🔍 Предпросмотр найденных изображений</h2>
+                    <p>Отметьте подходящие изображения и нажмите «Применить выбранные».</p>
+                    <div class="preview-grid" id="previewGrid"></div>
+                    <div class="preview-actions">
+                        <button class="btn btn-outline" id="cancelPreviewBtn">Отменить</button>
+                        <button class="btn btn-success" id="applyPreviewBtn">✓ Применить выбранные</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(overlay);
+
+            const grid = overlay.querySelector('#previewGrid');
+            results.forEach((res, index) => {
+                const item = document.createElement('div');
+                item.className = 'preview-item';
+                item.innerHTML = `
+                    <label>
+                        <input type="checkbox" class="preview-checkbox" data-index="${index}" ${res.checked ? 'checked' : ''}>
+                        <strong>${res.cameraName}</strong>
+                    </label>
+                    <img src="${res.foundImageUrl}" alt="${res.cameraName}" loading="lazy">
+                    <div class="found-title">${res.foundTitle}</div>
+                    <a href="https://commons.wikimedia.org/wiki/${encodeURIComponent(res.foundTitle)}" target="_blank" class="open-original">Открыть оригинал</a>
+                `;
+                grid.appendChild(item);
+            });
+
+            overlay.querySelector('#closePreviewModal').addEventListener('click', function() {
+                overlay.remove();
+            });
+            overlay.querySelector('#cancelPreviewBtn').addEventListener('click', function() {
+                overlay.remove();
+                showToast('Отменено');
+            });
+            overlay.querySelector('#applyPreviewBtn').addEventListener('click', function() {
+                const checkboxes = overlay.querySelectorAll('.preview-checkbox');
+                const selected = [];
+                checkboxes.forEach(cb => {
+                    if (cb.checked) {
+                        const idx = parseInt(cb.dataset.index);
+                        selected.push(results[idx]);
+                    }
+                });
+                if (selected.length === 0) {
+                    showToast('⚠️ Не выбрано ни одного изображения.', true);
+                    return;
+                }
+                // Применяем выбранные
+                selected.forEach(res => {
+                    const cam = cameras.find(c => c.id === res.cameraId);
+                    if (cam) cam.image = res.foundImageUrl;
+                });
+                overlay.remove();
+                showToast(`✅ Добавлено ${selected.length} изображений. Сохранение...`);
+                saveToGitHub();
+            });
+
+            // Обновляем статус чекбоксов при изменении
+            overlay.querySelectorAll('.preview-checkbox').forEach(cb => {
+                cb.addEventListener('change', function() {
+                    // ничего особого не делаем
+                });
+            });
         }
 
         // ─── ИМПОРТ ИЗ ШЛЮЗА ─────────────────────────────────────────
@@ -890,7 +1332,7 @@
             try {
                 data = JSON.parse(raw);
             } catch (e) {
-                showToast('❌ Ошибка JSON: ' + e.message);
+                showToast('❌ Ошибка JSON: ' + e.message, true);
                 return;
             }
 
@@ -980,62 +1422,15 @@
             document.getElementById('gatewayInput').value = '';
         });
 
-        // ─── СБОР ДАННЫХ ИЗ ФОРМЫ ──────────────────────────────────
-        function collectFormData() {
-            const id = document.getElementById('id').value.trim();
-            if (!id) { alert('ID обязателен'); return null; }
-            if (!/^[a-z0-9-]+$/.test(id)) { alert('ID только латиница, цифры и дефис'); return null; }
-
-            const name = document.getElementById('name').value.trim();
-            const price = document.getElementById('price').value.trim();
-            const system = document.getElementById('system').value.trim();
-            const weight = document.getElementById('weight').value.trim();
-            const badge = document.getElementById('badge').value.trim();
-            const badgeText = document.getElementById('badgeText').value.trim();
-            const goals = document.getElementById('goals').value.split(',').map(s => s.trim()).filter(Boolean);
-            const genres = document.getElementById('genres').value.split(',').map(s => s.trim()).filter(Boolean);
-            const budgetRange = document.getElementById('budgetRange').value.split(',').map(s => s.trim()).filter(Boolean);
-            const sensor = document.getElementById('sensor').value.trim();
-            const stabilization = document.getElementById('stabilization').value.trim();
-            const af = document.getElementById('af').value.trim();
-            const video = document.getElementById('video').value.trim();
-            const interchangeable = document.getElementById('interchangeable').value.trim().toLowerCase() === 'true';
-            const dualSlot = document.getElementById('dualSlot').value.trim().toLowerCase() === 'true';
-            const checkpoints = document.getElementById('checkpoints').value.split('\n').map(s => s.trim()).filter(Boolean);
-            const note = document.getElementById('note').value.trim();
-            const image = document.getElementById('image').value.trim();
-            const bonus = parseInt(document.getElementById('bonus').value) || 0;
-
-            return {
-                id,
-                name,
-                price,
-                system,
-                weight,
-                badge,
-                badgeText,
-                goals,
-                genres,
-                budgetRange,
-                sensor,
-                stabilization,
-                af,
-                video,
-                interchangeable,
-                dualSlot,
-                checkpoints,
-                note,
-                image,
-                bonus
-            };
-        }
-
         // ─── TOAST ──────────────────────────────────────────────────
-        function showToast(msg) {
+        function showToast(msg, isError = false) {
             const toast = document.getElementById('toast');
             toast.textContent = msg;
+            toast.classList.remove('error');
+            if (isError) toast.classList.add('error');
             toast.classList.add('show');
-            setTimeout(() => {
+            clearTimeout(toast._hideTimeout);
+            toast._hideTimeout = setTimeout(() => {
                 toast.classList.remove('show');
             }, 4000);
         }
