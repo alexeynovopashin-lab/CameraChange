@@ -3,7 +3,7 @@
     {
       "id": "canon-m50",
       "name": "Canon EOS M50",
-      "price": "$190–300",
+      "price": "$200–300",
       "system": "canon",
       "weight": "critical",
       "badge": "badge-bu",
@@ -1448,6 +1448,530 @@
       "categories": [
         "video"
       ]
+    },
+    {
+      "id": "canon-eos-r1",
+      "name": "Canon EOS R1",
+      "price": "$6,799",
+      "image": "",
+      "badge": "badge-new",
+      "badgeText": "Новая",
+      "system": "canon",
+      "weight": "moderate",
+      "goals": [
+        "photo",
+        "video",
+        "sport"
+      ],
+      "genres": [
+        "reportage",
+        "sport",
+        "wildlife"
+      ],
+      "budgetRange": [
+        "premium"
+      ],
+      "sensor": "Full frame 24.2 Мп",
+      "stabilization": "IBIS",
+      "af": "AI AF",
+      "video": "6K 60p",
+      "interchangeable": true,
+      "dualSlot": true,
+      "checkpoints": [
+        "24.2 Мп",
+        "6K 60p",
+        "40 к/с",
+        "прочный корпус"
+      ],
+      "note": "Флагманская камера для спорта и репортажей.",
+      "categories": [
+        "premium"
+      ],
+      "bonus": 0
+    },
+    {
+      "id": "canon-eos-r5-ii",
+      "name": "Canon EOS R5 II",
+      "price": "$4,500",
+      "image": "",
+      "badge": "badge-new",
+      "badgeText": "Новая",
+      "system": "canon",
+      "weight": "moderate",
+      "goals": [
+        "photo",
+        "video",
+        "studio"
+      ],
+      "genres": [
+        "portrait",
+        "landscape",
+        "architecture",
+        "wedding",
+        "nude"
+      ],
+      "budgetRange": [
+        "premium"
+      ],
+      "sensor": "Full frame 45 Мп",
+      "stabilization": "IBIS 8.5 стопов",
+      "af": "AI AF",
+      "video": "8K 60p",
+      "interchangeable": true,
+      "dualSlot": true,
+      "checkpoints": [
+        "45 Мп",
+        "8K 60p",
+        "30 к/с",
+        "IBIS"
+      ],
+      "note": "Универсальный флагман для фото и видео.",
+      "categories": [
+        "premium"
+      ],
+      "bonus": 0
+    },
+    {
+      "id": "nikon-z9",
+      "name": "Nikon Z9",
+      "price": "$5,497",
+      "image": "",
+      "badge": "badge-new",
+      "badgeText": "Новая",
+      "system": "nikon",
+      "weight": "moderate",
+      "goals": [
+        "photo",
+        "video",
+        "sport"
+      ],
+      "genres": [
+        "reportage",
+        "sport",
+        "wildlife"
+      ],
+      "budgetRange": [
+        "premium"
+      ],
+      "sensor": "Full frame 45.7 Мп",
+      "stabilization": "IBIS",
+      "af": "AI AF",
+      "video": "8K",
+      "interchangeable": true,
+      "dualSlot": true,
+      "checkpoints": [
+        "45.7 Мп",
+        "8K",
+        "120 к/с",
+        "прочный корпус"
+      ],
+      "note": "Флагман Nikon без механического затвора.",
+      "categories": [
+        "premium"
+      ],
+      "bonus": 0
+    },
+    {
+      "id": "sony-a1-ii",
+      "name": "Sony a1 II",
+      "price": "$6,500",
+      "image": "",
+      "badge": "badge-new",
+      "badgeText": "Новая",
+      "system": "sony",
+      "weight": "moderate",
+      "goals": [
+        "photo",
+        "video",
+        "sport"
+      ],
+      "genres": [
+        "portrait",
+        "landscape",
+        "reportage",
+        "sport"
+      ],
+      "budgetRange": [
+        "premium"
+      ],
+      "sensor": "Full frame 50 Мп",
+      "stabilization": "IBIS",
+      "af": "AI AF",
+      "video": "8K 30p, 4K 120p",
+      "interchangeable": true,
+      "dualSlot": true,
+      "checkpoints": [
+        "50 Мп",
+        "8K 30p",
+        "30 к/с",
+        "AI AF"
+      ],
+      "note": "Флагманский гибрид Sony.",
+      "categories": [
+        "premium"
+      ],
+      "bonus": 0
+    },
+    {
+      "id": "sony-a7r-vi",
+      "name": "Sony a7R VI",
+      "price": "$4,499.99",
+      "image": "",
+      "badge": "badge-new",
+      "badgeText": "Новая",
+      "system": "sony",
+      "weight": "moderate",
+      "goals": [
+        "photo",
+        "studio"
+      ],
+      "genres": [
+        "portrait",
+        "landscape",
+        "architecture",
+        "nude"
+      ],
+      "budgetRange": [
+        "premium"
+      ],
+      "sensor": "Full frame 66.8 Мп",
+      "stabilization": "IBIS 8.5 стопов",
+      "af": "AI AF",
+      "video": "8K",
+      "interchangeable": true,
+      "dualSlot": true,
+      "checkpoints": [
+        "66.8 Мп",
+        "8K",
+        "30 к/с",
+        "IBIS 8.5 стопов"
+      ],
+      "note": "Король разрешения для студии и пейзажей.",
+      "categories": [
+        "premium"
+      ],
+      "bonus": 0
+    },
+    {
+      "id": "sony-a7-v",
+      "name": "Sony a7 V",
+      "price": "$5,346",
+      "image": "",
+      "badge": "badge-new",
+      "badgeText": "Новая",
+      "system": "sony",
+      "weight": "moderate",
+      "goals": [
+        "photo",
+        "video"
+      ],
+      "genres": [
+        "portrait",
+        "landscape",
+        "reportage"
+      ],
+      "budgetRange": [
+        "premium"
+      ],
+      "sensor": "Full frame 33 Мп",
+      "stabilization": "IBIS",
+      "af": "AI AF",
+      "video": "4K",
+      "interchangeable": true,
+      "dualSlot": true,
+      "checkpoints": [
+        "33 Мп",
+        "AI AF",
+        "IBIS",
+        "универсальность"
+      ],
+      "note": "Новейший универсал Sony.",
+      "categories": [
+        "premium"
+      ],
+      "bonus": 0
+    },
+    {
+      "id": "sony-a9-iii",
+      "name": "Sony a9 III",
+      "price": "$5,998",
+      "image": "",
+      "badge": "badge-new",
+      "badgeText": "Новая",
+      "system": "sony",
+      "weight": "moderate",
+      "goals": [
+        "photo",
+        "sport"
+      ],
+      "genres": [
+        "sport",
+        "reportage",
+        "wildlife"
+      ],
+      "budgetRange": [
+        "premium"
+      ],
+      "sensor": "Full frame 24.6 Мп",
+      "stabilization": "IBIS",
+      "af": "AI AF",
+      "video": "4K 120p",
+      "interchangeable": true,
+      "dualSlot": true,
+      "checkpoints": [
+        "глобальный затвор",
+        "120 к/с",
+        "AI AF",
+        "без чёрного экрана"
+      ],
+      "note": "Камера с глобальным затвором для бескомпромиссной скорости.",
+      "categories": [
+        "premium"
+      ],
+      "bonus": 0
+    },
+    {
+      "id": "leica-sl3",
+      "name": "Leica SL3",
+      "price": "$6,950",
+      "image": "",
+      "badge": "badge-premium",
+      "badgeText": "Премиум",
+      "system": "leica",
+      "weight": "moderate",
+      "goals": [
+        "photo",
+        "video",
+        "studio"
+      ],
+      "genres": [
+        "portrait",
+        "landscape",
+        "architecture",
+        "nude"
+      ],
+      "budgetRange": [
+        "premium"
+      ],
+      "sensor": "Full frame 60 Мп",
+      "stabilization": "IBIS",
+      "af": "AF",
+      "video": "8K",
+      "interchangeable": true,
+      "dualSlot": true,
+      "checkpoints": [
+        "60 Мп",
+        "8K",
+        "IBIS",
+        "элегантный дизайн"
+      ],
+      "note": "Профессиональная полнокадровая камера Leica.",
+      "categories": [
+        "premium"
+      ],
+      "bonus": 0
+    },
+    {
+      "id": "leica-sl3-s",
+      "name": "Leica SL3-S",
+      "price": "$5,190",
+      "image": "",
+      "badge": "badge-premium",
+      "badgeText": "Премиум",
+      "system": "leica",
+      "weight": "moderate",
+      "goals": [
+        "photo",
+        "video",
+        "sport"
+      ],
+      "genres": [
+        "reportage",
+        "sport",
+        "street"
+      ],
+      "budgetRange": [
+        "premium"
+      ],
+      "sensor": "Full frame 24 Мп",
+      "stabilization": "IBIS",
+      "af": "AF",
+      "video": "ProRes",
+      "interchangeable": true,
+      "dualSlot": true,
+      "checkpoints": [
+        "24 Мп",
+        "ProRes видео",
+        "IBIS",
+        "скорость"
+      ],
+      "note": "Скоростная версия SL3 с отличным видео.",
+      "categories": [
+        "premium"
+      ],
+      "bonus": 0
+    },
+    {
+      "id": "leica-m11-p",
+      "name": "Leica M11-P",
+      "price": "$9,395",
+      "image": "",
+      "badge": "badge-premium",
+      "badgeText": "Премиум",
+      "system": "leica",
+      "weight": "moderate",
+      "goals": [
+        "photo",
+        "street"
+      ],
+      "genres": [
+        "street",
+        "portrait",
+        "reportage"
+      ],
+      "budgetRange": [
+        "premium"
+      ],
+      "sensor": "Full frame 60 Мп",
+      "stabilization": "нет",
+      "af": "ручной",
+      "video": "нет",
+      "interchangeable": true,
+      "dualSlot": false,
+      "checkpoints": [
+        "60 Мп",
+        "дальномер",
+        "компактный",
+        "Content Credentials"
+      ],
+      "note": "Версия M11 с сертификацией подлинности контента.",
+      "categories": [
+        "premium"
+      ],
+      "bonus": 0
+    },
+    {
+      "id": "fujifilm-gfx100-ii",
+      "name": "Fujifilm GFX100 II",
+      "price": "$8,299",
+      "image": "",
+      "badge": "badge-new",
+      "badgeText": "Новая",
+      "system": "fujifilm",
+      "weight": "critical",
+      "goals": [
+        "photo",
+        "studio",
+        "travel"
+      ],
+      "genres": [
+        "portrait",
+        "landscape",
+        "architecture",
+        "nude"
+      ],
+      "budgetRange": [
+        "premium"
+      ],
+      "sensor": "Средний формат 102 Мп",
+      "stabilization": "IBIS",
+      "af": "AI AF",
+      "video": "4K",
+      "interchangeable": true,
+      "dualSlot": true,
+      "checkpoints": [
+        "102 Мп",
+        "IBIS",
+        "AI AF",
+        "8 к/с"
+      ],
+      "note": "Флагман среднего формата для максимального качества.",
+      "categories": [
+        "premium"
+      ],
+      "bonus": 0
+    },
+    {
+      "id": "fujifilm-gfx100s-ii",
+      "name": "Fujifilm GFX100S II",
+      "price": "$6,500",
+      "image": "",
+      "badge": "badge-new",
+      "badgeText": "Новая",
+      "system": "fujifilm",
+      "weight": "critical",
+      "goals": [
+        "photo",
+        "studio",
+        "travel"
+      ],
+      "genres": [
+        "portrait",
+        "landscape",
+        "architecture",
+        "nude"
+      ],
+      "budgetRange": [
+        "premium"
+      ],
+      "sensor": "Средний формат 102 Мп",
+      "stabilization": "IBIS",
+      "af": "AI AF",
+      "video": "4K",
+      "interchangeable": true,
+      "dualSlot": true,
+      "checkpoints": [
+        "102 Мп",
+        "IBIS",
+        "компактный",
+        "AI AF"
+      ],
+      "note": "Компактный среднеформат Fuji.",
+      "categories": [
+        "premium"
+      ],
+      "bonus": 0
+    },
+    {
+      "id": "fujifilm-gfx-50s-ii",
+      "name": "Fujifilm GFX 50S II",
+      "price": "$3,499",
+      "image": "",
+      "badge": "badge-new",
+      "badgeText": "Новая",
+      "system": "fujifilm",
+      "weight": "critical",
+      "goals": [
+        "photo",
+        "studio",
+        "travel"
+      ],
+      "genres": [
+        "portrait",
+        "landscape",
+        "architecture",
+        "nude"
+      ],
+      "budgetRange": [
+        "premium"
+      ],
+      "sensor": "Средний формат 51.4 Мп",
+      "stabilization": "IBIS",
+      "af": "AF",
+      "video": "Full HD",
+      "interchangeable": true,
+      "dualSlot": true,
+      "checkpoints": [
+        "51.4 Мп",
+        "IBIS",
+        "компактный",
+        "доступный средний формат"
+      ],
+      "note": "Самый доступный вход в мир среднего формата.",
+      "categories": [
+        "premium"
+      ],
+      "bonus": 0
     }
   ]
 }
