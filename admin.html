@@ -196,7 +196,7 @@
 
         // ─── СОРТИРОВКА ──────────────────────────────────────────────
         let sortField = null;
-        let sortOrder = 'asc'; // 'asc' или 'desc'
+        let sortOrder = 'asc';
 
         function getSortValue(cam, field) {
             if (field === 'image') return cam.image ? 1 : 0;
@@ -246,7 +246,7 @@
             }
         }
 
-        // ─── ОТОБРАЖЕНИЕ ТАБЛИЦЫ (с сортировкой) ──────────────────
+        // ─── ОТОБРАЖЕНИЕ ТАБЛИЦЫ ──────────────────────────────────
         function renderTable() {
             const tbody = document.getElementById('cameraTableBody');
             let sorted = [...cameras];
@@ -356,7 +356,7 @@
             saveToGitHub();
         }
 
-        // ─── СОХРАНЕНИЕ ──────────────────────────────────────────────
+        // ─── СОХРАНЕНИЕ (С ДИАГНОСТИКОЙ) ────────────────────────────
         async function saveToGitHub() {
             if (!token) {
                 alert('Токен не задан. Перезагрузите страницу и введите токен.');
@@ -364,6 +364,9 @@
             }
             try {
                 const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`;
+                console.log('📤 Отправка запроса к GitHub API...');
+
+                // Получаем текущий sha
                 const res = await fetch(url, {
                     headers: { 'Authorization': `token ${token}` }
                 });
@@ -371,10 +374,17 @@
                 if (res.ok) {
                     const data = await res.json();
                     sha = data.sha;
-                } else if (res.status !== 404) {
-                    throw new Error('Ошибка получения sha: ' + res.status);
+                    console.log('✅ Получен sha:', sha);
+                } else if (res.status === 404) {
+                    console.log('ℹ️ Файл не найден, будет создан новый');
+                } else {
+                    const errText = await res.text();
+                    console.error('❌ Ошибка получения sha:', res.status, errText);
+                    showToast(`❌ Ошибка получения sha: ${res.status} ${errText}`);
+                    return;
                 }
 
+                // Подготовка контента
                 const content = JSON.stringify({ cameras }, null, 2);
                 const encoded = btoa(unescape(encodeURIComponent(content)));
 
@@ -385,6 +395,9 @@
                 };
                 if (sha) payload.sha = sha;
 
+                console.log('📦 Payload:', { ...payload, content: '...' });
+
+                // Отправка
                 const commitRes = await fetch(url, {
                     method: 'PUT',
                     headers: {
@@ -394,16 +407,30 @@
                     body: JSON.stringify(payload)
                 });
 
+                // Читаем тело ответа (может быть JSON или текст)
+                let responseBody;
+                const contentType = commitRes.headers.get('content-type');
+                if (contentType && contentType.includes('application/json')) {
+                    responseBody = await commitRes.json();
+                } else {
+                    responseBody = await commitRes.text();
+                }
+
+                console.log('📨 Ответ GitHub (статус):', commitRes.status);
+                console.log('📨 Тело ответа:', responseBody);
+
                 if (!commitRes.ok) {
-                    const err = await commitRes.json();
-                    throw new Error(err.message || 'Ошибка сохранения');
+                    const errorMsg = typeof responseBody === 'object' && responseBody.message
+                        ? responseBody.message
+                        : String(responseBody);
+                    throw new Error(`Ошибка сохранения (${commitRes.status}): ${errorMsg}`);
                 }
 
                 showToast('✅ Изменения сохранены!');
                 cancelEdit();
                 loadCameras();
             } catch (e) {
-                console.error(e);
+                console.error('❌ Ошибка сохранения:', e);
                 showToast('❌ Ошибка: ' + e.message);
             }
         }
