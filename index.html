@@ -489,7 +489,7 @@
     (function() {
         "use strict";
 
-        // ─── КОНСТАНТЫ (из старого кода) ──────────────────────────
+        // ─── КОНСТАНТЫ ──────────────────────────────────────────
         const GENRE_LABELS = {
             portrait: 'Портрет', landscape: 'Пейзаж', street: 'Стрит',
             reportage: 'Репортаж', wedding: 'Свадьбы', family: 'Семьи',
@@ -507,7 +507,7 @@
         };
         const BUDGET_RANGES = ['low', 'mid', 'high', 'very-high', 'premium'];
 
-        // ─── ШАГИ ОПРОСНИКА (полностью из старого кода) ──────────
+        // ─── ШАГИ ОПРОСНИКА ──────────────────────────────────────
         const STEP_DEFS = [
             { id: 'level', label: 'Шаг 1 из ?', title: 'Как ты себя оцениваешь?', type: 'single', opts: [
                     { val: 'beginner', icon: '🌱', title: 'Новичок' },
@@ -628,7 +628,7 @@
             }
         }
 
-        // ─── ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ (из старого кода) ────────────
+        // ─── ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ──────────────────────────────
         function getVisibleSteps() {
             return STEP_DEFS.filter(st => st.visibility ? st.visibility(state) : true);
         }
@@ -680,7 +680,7 @@
             return levels[userBudget] || ['low', 'mid', 'high', 'very-high', 'premium'];
         }
 
-        // ─── СКОРИНГ (полностью из старого кода) ──────────────────
+        // ─── СКОРИНГ ─────────────────────────────────────────────────
         function getBudgetScore(camBudgetRanges, userBudget) {
             if (!userBudget) return 5;
             const idx = BUDGET_RANGES.indexOf(userBudget);
@@ -933,7 +933,7 @@
                 </div>`;
         }
 
-        // ─── RENDER STEP (С ИСПРАВЛЕНИЕМ ЧЕКБОКСОВ) ──────────────
+        // ─── RENDER STEP (ИСПРАВЛЕННАЯ ВЕРСИЯ) ────────────────────
         function renderStep() {
             const screen = document.getElementById('screen');
             const visible = getVisibleSteps();
@@ -970,11 +970,14 @@
             }
             document.getElementById('hdrMeta').textContent = crumbs.join(' › ');
 
+            // ─── ГЕНЕРАЦИЯ ОПЦИЙ (С ИСПРАВЛЕНИЕМ) ──────────────────
             let optsHtml = '';
             if (isMulti) {
                 optsHtml = opts.map(o => {
-                    const checked = (state[step.id] || []).includes(o.val) ? 'checked' : '';
-                    return `<div class="opt" data-field="${step.id}" data-val="${o.val}" data-multi="true">
+                    const isChecked = (state[step.id] || []).includes(o.val);
+                    const checked = isChecked ? 'checked' : '';
+                    const sel = isChecked ? 'selected' : '';
+                    return `<div class="opt ${sel}" data-field="${step.id}" data-val="${o.val}" data-multi="true">
                                 <input type="checkbox" ${checked}>
                                 <div class="opt-icon">${o.icon}</div>
                                 <div class="opt-body">
@@ -1017,14 +1020,13 @@
                     </div>
                 </div>`;
 
-            // Обработчики
+            // Обработчики кликов (без изменений)
             document.querySelectorAll('.opt').forEach(el => {
                 el.addEventListener('click', function(e) {
                     const field = this.dataset.field;
                     const val = this.dataset.val;
                     const multi = this.dataset.multi === 'true';
                     if (multi) {
-                        // Переключаем чекбокс
                         const checkbox = this.querySelector('input[type="checkbox"]');
                         if (checkbox) {
                             checkbox.checked = !checkbox.checked;
