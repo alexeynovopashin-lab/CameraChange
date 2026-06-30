@@ -933,7 +933,7 @@
                 </div>`;
         }
 
-        // ─── RENDER STEP ────────────────────────────────────────────
+        // ─── RENDER STEP (С ИСПРАВЛЕНИЕМ ЧЕКБОКСОВ) ──────────────
         function renderStep() {
             const screen = document.getElementById('screen');
             const visible = getVisibleSteps();
@@ -1020,12 +1020,19 @@
             // Обработчики
             document.querySelectorAll('.opt').forEach(el => {
                 el.addEventListener('click', function(e) {
-                    // Если клик по чекбоксу не мешаем
                     const field = this.dataset.field;
                     const val = this.dataset.val;
                     const multi = this.dataset.multi === 'true';
-                    if (multi) toggleMulti(field, val);
-                    else selectSingle(field, val);
+                    if (multi) {
+                        // Переключаем чекбокс
+                        const checkbox = this.querySelector('input[type="checkbox"]');
+                        if (checkbox) {
+                            checkbox.checked = !checkbox.checked;
+                        }
+                        toggleMulti(field, val);
+                    } else {
+                        selectSingle(field, val);
+                    }
                 });
             });
 
