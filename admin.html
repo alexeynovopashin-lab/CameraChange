@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Админка — база камер</title>
     <style>
-        /* ─── ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ ─────────────────────────────── */
         :root {
             --bg: #f4f6f9;
             --card-bg: #ffffff;
@@ -343,7 +342,6 @@
             margin-top: 0.2rem;
         }
 
-        /* ─── Превью массового поиска ─────────────────────────────── */
         .preview-modal-overlay {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
@@ -585,7 +583,7 @@
 
     <!-- ─── СКРИПТЫ ────────────────────────────────────────────────── -->
     <script>
-        // ─── КОНСТАНТЫ ДЛЯ КОНТРОЛИРУЕМЫХ СЛОВАРЕЙ ────────────────
+        // ─── КОНСТАНТЫ ──────────────────────────────────────────────
         const SYSTEMS = ['canon', 'nikon', 'sony', 'fujifilm', 'panasonic', 'hasselblad', 'leica', 'other'];
         const WEIGHTS = ['critical', 'moderate', 'not-critical'];
         const BADGES = ['badge-new', 'badge-bu', 'badge-compact', 'badge-video', 'badge-premium'];
@@ -599,13 +597,10 @@
         const BUDGET_RANGES = ['low', 'mid', 'high', 'very-high', 'premium'];
         const GOALS_LIST = ['photo', 'video', 'blog', 'travel', 'studio', 'sport'];
         const GENRES_LIST = ['portrait', 'landscape', 'street', 'reportage', 'wedding', 'family', 'nude', 'commercial', 'architecture', 'vlog', 'documentary'];
-
-        // Константа для задержки между запросами к Wikimedia
         const WIKIMEDIA_REQUEST_DELAY_MS = 200;
 
         // ─── ЗАЩИТА ПАРОЛЕМ ──────────────────────────────────────────
-        // ВНИМАНИЕ: Пароль и токен в открытом виде — рекомендуется сменить их в ближайшее время.
-        const ADMIN_PASSWORD = '11259375*Camera';
+        const ADMIN_PASSWORD = '11259375*Camera'; // Рекомендуется сменить!
 
         (function checkAuth() {
             if (sessionStorage.getItem('admin_authenticated') === 'true') return;
@@ -644,7 +639,7 @@
             return btoa(binary);
         }
 
-        // ─── СОРТИРОВКА ──────────────────────────────────────────────
+        // ─── СОРТИРОВКА (С ИСПРАВЛЕННОЙ ФУНКЦИЕЙ ЦЕНЫ) ──────────────
         let sortField = null;
         let sortOrder = 'asc';
 
@@ -652,7 +647,9 @@
             if (field === 'image') return cam.image ? 1 : 0;
             if (field === 'bonus') return cam.bonus ?? 0;
             if (field === 'price') {
-                const match = String(cam.price).match(/\d+/);
+                // Убираем все пробелы (включая неразрывные) перед извлечением числа
+                const cleaned = String(cam.price).replace(/[\s\u00A0]/g, '');
+                const match = cleaned.match(/\d+/);
                 return match ? parseInt(match[0]) : 0;
             }
             return String(cam[field] || '').toLowerCase();
@@ -678,7 +675,20 @@
             renderTable();
         }
 
-        // ─── ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ДЛЯ SELECT-ПОЛЕЙ ──────────────
+        // ─── ПРИВЯЗКА ОБРАБОТЧИКОВ К ЗАГОЛОВКАМ ────────────────────
+        function bindSortHeaders() {
+            document.querySelectorAll('#tableHead th[data-sort]').forEach(th => {
+                th.removeEventListener('click', th._sortHandler);
+                const handler = function() {
+                    if (this.dataset.sort === 'actions') return;
+                    sortCameras(this.dataset.sort);
+                };
+                th._sortHandler = handler;
+                th.addEventListener('click', handler);
+            });
+        }
+
+        // ─── ЗАПОЛНЕНИЕ SELECT-ПОЛЕЙ ──────────────────────────────
         function populateSelect(selectId, options, selectedValue) {
             const select = document.getElementById(selectId);
             if (!select) return;
@@ -692,7 +702,6 @@
                 }
                 select.appendChild(option);
             });
-            // Если selectedValue не найдено, выбираем первый элемент
             if (selectedValue !== undefined && !options.includes(selectedValue)) {
                 console.warn(`⚠️ Значение "${selectedValue}" недопустимо для поля "${selectId}", выбран fallback.`);
                 if (select.options.length > 0) select.options[0].selected = true;
@@ -714,29 +723,24 @@
             });
         }
 
-        // ─── ЗАПОЛНЕНИЕ ВСЕХ SELECT-ПОЛЕЙ ПРИ ЗАГРУЗКЕ ──────────────
         function initSelectFields() {
             populateSelect('system', SYSTEMS);
             populateSelect('weight', WEIGHTS);
             populateSelect('badge', BADGES);
-            // badgeText — синхронизируется с badge через обработчик, но тоже заполним
             populateSelect('badgeText', Object.values(BADGE_TEXT_MAP));
             populateMultiSelect('budgetRange', BUDGET_RANGES);
             populateMultiSelect('goals', GOALS_LIST);
             populateMultiSelect('genres', GENRES_LIST);
 
-            // Синхронизация badge → badgeText
             document.getElementById('badge').addEventListener('change', function() {
                 const selectedBadge = this.value;
                 const text = BADGE_TEXT_MAP[selectedBadge] || '';
                 const badgeTextSelect = document.getElementById('badgeText');
-                // Устанавливаем значение, если оно есть в списке
                 const options = Array.from(badgeTextSelect.options);
                 const found = options.find(opt => opt.value === text);
                 if (found) {
                     badgeTextSelect.value = text;
                 } else {
-                    // если нет, добавляем временно
                     const opt = document.createElement('option');
                     opt.value = text;
                     opt.textContent = text;
@@ -747,12 +751,11 @@
         }
         initSelectFields();
 
-        // ─── ДИНАМИЧЕСКИЙ СПИСОК ЧЕКПОИНТОВ ────────────────────────
+        // ─── ДИНАМИЧЕСКИЕ ЧЕКПОИНТЫ ──────────────────────────────────
         function renderCheckpoints(checkpoints) {
             const container = document.getElementById('checkpointsList');
             container.innerHTML = '';
             if (!checkpoints || checkpoints.length === 0) {
-                // Показываем один пустой инпут
                 addCheckpointRow('');
                 return;
             }
@@ -776,7 +779,6 @@
                 if (container.children.length > 1) {
                     container.removeChild(row);
                 } else {
-                    // Если последний — очищаем значение
                     input.value = '';
                 }
             });
@@ -817,7 +819,7 @@
             }
         }
 
-        // ─── ОТОБРАЖЕНИЕ ТАБЛИЦЫ (с предупреждениями) ──────────────
+        // ─── ОТОБРАЖЕНИЕ ТАБЛИЦЫ ──────────────────────────────────
         function renderTable() {
             const tbody = document.getElementById('cameraTableBody');
             let sorted = [...cameras];
@@ -833,10 +835,10 @@
 
             if (sorted.length === 0) {
                 tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;color:#888;">Нет камер</td></tr>`;
+                bindSortHeaders();
                 return;
             }
             tbody.innerHTML = sorted.map(c => {
-                // Проверяем обязательные поля на пустоту
                 const missing = [];
                 if (!c.name) missing.push('название');
                 if (!c.price) missing.push('цена');
@@ -872,6 +874,8 @@
                     deleteCam(this.dataset.id);
                 });
             });
+
+            bindSortHeaders();
         }
 
         // ─── РЕДАКТИРОВАНИЕ ─────────────────────────────────────────
@@ -884,17 +888,12 @@
             document.getElementById('name').value = cam.name || '';
             document.getElementById('price').value = cam.price || '';
 
-            // system
             populateSelect('system', SYSTEMS, cam.system);
-            // weight
             populateSelect('weight', WEIGHTS, cam.weight);
-            // badge
             populateSelect('badge', BADGES, cam.badge);
-            // badgeText
             const badgeText = cam.badgeText || BADGE_TEXT_MAP[cam.badge] || '';
             populateSelect('badgeText', Object.values(BADGE_TEXT_MAP), badgeText);
 
-            // goals, genres, budgetRange (multiselect)
             populateMultiSelect('goals', GOALS_LIST, cam.goals || []);
             populateMultiSelect('genres', GENRES_LIST, cam.genres || []);
             populateMultiSelect('budgetRange', BUDGET_RANGES, cam.budgetRange || []);
@@ -908,7 +907,6 @@
             document.getElementById('note').value = cam.note || '';
             document.getElementById('image').value = cam.image || '';
             document.getElementById('bonus').value = cam.bonus ?? 0;
-            // checkpoints
             renderCheckpoints(cam.checkpoints || []);
 
             document.getElementById('deleteBtn').style.display = 'inline-flex';
@@ -922,7 +920,6 @@
             document.getElementById('id').value = '';
             document.getElementById('name').value = '';
             document.getElementById('price').value = '';
-            // reset selects to first options
             populateSelect('system', SYSTEMS);
             populateSelect('weight', WEIGHTS);
             populateSelect('badge', BADGES);
@@ -936,7 +933,6 @@
             document.getElementById('video').value = '';
             document.getElementById('interchangeable').value = '';
             document.getElementById('dualSlot').value = '';
-            document.getElementById('checkpoints').value = '';
             document.getElementById('note').value = '';
             document.getElementById('image').value = '';
             document.getElementById('bonus').value = '0';
@@ -953,7 +949,7 @@
             saveToGitHub();
         }
 
-        // ─── ВАЛИДАЦИЯ И ПОДСВЕТКА ──────────────────────────────────
+        // ─── ВАЛИДАЦИЯ ──────────────────────────────────────────────
         function clearInvalidStyles() {
             document.querySelectorAll('.form-grid .invalid').forEach(el => el.classList.remove('invalid'));
         }
@@ -988,7 +984,6 @@
             const budgetRange = Array.from(budgetSelect.selectedOptions).map(o => o.value);
             if (budgetRange.length === 0) { errors.push('Бюджетные диапазоны (выберите хотя бы один)'); markInvalid('budgetRange'); }
 
-            // Дополнительно: проверка ID (уже есть)
             const id = document.getElementById('id').value.trim();
             if (!id || !/^[a-z0-9-]+$/.test(id)) {
                 errors.push('ID (латиница, цифры, дефис)');
@@ -1076,7 +1071,7 @@
             }
         }
 
-        // ─── СБОР ДАННЫХ ИЗ ФОРМЫ (С ВАЛИДАЦИЕЙ) ──────────────────
+        // ─── СБОР ДАННЫХ ИЗ ФОРМЫ ──────────────────────────────────
         function collectFormData() {
             const validation = validateForm();
             if (!validation.valid) {
@@ -1131,7 +1126,7 @@
                 note,
                 image,
                 bonus,
-                categories: ['premium'] // для совместимости, но можно динамически
+                categories: ['premium']
             };
         }
 
@@ -1188,7 +1183,7 @@
             }
         }
 
-        // ─── МАССОВЫЙ ПОИСК С ПРЕВЬЮ (TASK-4) ──────────────────────
+        // ─── МАССОВЫЙ ПОИСК С ПРЕВЬЮ ──────────────────────────────
         let pendingImageResults = [];
 
         async function massFindImages() {
@@ -1245,7 +1240,6 @@
         }
 
         function renderPreviewModal(results) {
-            // Удаляем старый модал, если есть
             const old = document.querySelector('.preview-modal-overlay');
             if (old) old.remove();
 
@@ -1301,7 +1295,6 @@
                     showToast('⚠️ Не выбрано ни одного изображения.', true);
                     return;
                 }
-                // Применяем выбранные
                 selected.forEach(res => {
                     const cam = cameras.find(c => c.id === res.cameraId);
                     if (cam) cam.image = res.foundImageUrl;
@@ -1309,13 +1302,6 @@
                 overlay.remove();
                 showToast(`✅ Добавлено ${selected.length} изображений. Сохранение...`);
                 saveToGitHub();
-            });
-
-            // Обновляем статус чекбоксов при изменении
-            overlay.querySelectorAll('.preview-checkbox').forEach(cb => {
-                cb.addEventListener('change', function() {
-                    // ничего особого не делаем
-                });
             });
         }
 
@@ -1434,14 +1420,6 @@
                 toast.classList.remove('show');
             }, 4000);
         }
-
-        // ─── СОРТИРОВКА (клики) ──────────────────────────────────────
-        document.querySelectorAll('#tableHead th[data-sort]').forEach(th => {
-            th.addEventListener('click', function() {
-                if (this.dataset.sort === 'actions') return;
-                sortCameras(this.dataset.sort);
-            });
-        });
 
         // ─── СТАРТ ──────────────────────────────────────────────────
         loadCameras();
