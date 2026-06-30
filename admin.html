@@ -194,6 +194,17 @@
         let cameras = [];
         let editingId = null;
 
+        // ─── ВСПОМОГАТЕЛЬНАЯ ФУНКЦИЯ ДЛЯ BASE64 (НАДЁЖНАЯ) ──────
+        function base64Encode(str) {
+            const encoder = new TextEncoder();
+            const data = encoder.encode(str);
+            let binary = '';
+            for (let i = 0; i < data.length; i++) {
+                binary += String.fromCharCode(data[i]);
+            }
+            return btoa(binary);
+        }
+
         // ─── СОРТИРОВКА ──────────────────────────────────────────────
         let sortField = null;
         let sortOrder = 'asc';
@@ -356,7 +367,7 @@
             saveToGitHub();
         }
 
-        // ─── СОХРАНЕНИЕ (С ДИАГНОСТИКОЙ) ────────────────────────────
+        // ─── СОХРАНЕНИЕ (С ИСПРАВЛЕННОЙ КОДИРОВКОЙ) ────────────────
         async function saveToGitHub() {
             if (!token) {
                 alert('Токен не задан. Перезагрузите страницу и введите токен.');
@@ -384,9 +395,9 @@
                     return;
                 }
 
-                // Подготовка контента
+                // Подготовка контента (используем надёжную base64)
                 const content = JSON.stringify({ cameras }, null, 2);
-                const encoded = btoa(unescape(encodeURIComponent(content)));
+                const encoded = base64Encode(content);
 
                 const payload = {
                     message: `Обновление базы камер (${new Date().toISOString()})`,
@@ -395,7 +406,7 @@
                 };
                 if (sha) payload.sha = sha;
 
-                console.log('📦 Payload:', { ...payload, content: '...' });
+                console.log('📦 Payload отправлен (content закодирован)');
 
                 // Отправка
                 const commitRes = await fetch(url, {
@@ -407,7 +418,7 @@
                     body: JSON.stringify(payload)
                 });
 
-                // Читаем тело ответа (может быть JSON или текст)
+                // Читаем ответ
                 let responseBody;
                 const contentType = commitRes.headers.get('content-type');
                 if (contentType && contentType.includes('application/json')) {
