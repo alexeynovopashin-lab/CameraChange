@@ -439,7 +439,9 @@
 
                 showToast('✅ Изменения сохранены!');
                 cancelEdit();
-                loadCameras();
+                setTimeout(() => {
+                    location.reload();
+                }, 500);
             } catch (e) {
                 console.error('❌ Ошибка сохранения:', e);
                 showToast('❌ Ошибка: ' + e.message);
