@@ -256,8 +256,19 @@
             return !!val;
         }
 
-        // ─── СКОРИНГ (ВЗВЕШЕННЫЙ) ─────────────────────────────────
+        // ─── ДОПУСТИМЫЕ УРОВНИ БЮДЖЕТА ──────────────────────────────
+        function getAllowedBudgetLevels(userBudget) {
+            const levels = {
+                'low': ['low', 'mid', 'high', 'very-high', 'premium'],
+                'mid': ['mid', 'high', 'very-high', 'premium'],
+                'high': ['high', 'very-high', 'premium'],
+                'very-high': ['very-high', 'premium'],
+                'premium': ['premium']
+            };
+            return levels[userBudget] || ['low', 'mid', 'high', 'very-high', 'premium'];
+        }
 
+        // ─── СКОРИНГ ─────────────────────────────────────────────────
         function getBudgetScore(camBudgetRanges, userBudget) {
             if (!userBudget) return 5;
             const idx = BUDGET_RANGES.indexOf(userBudget);
@@ -413,19 +424,29 @@
             };
             let total = 0;
             for (const key in scores) total += scores[key] * weights[key];
-            // Добавляем авторский бонус (может быть отрицательным)
+            // Добавляем авторский бонус
             total += (cam.bonus || 0);
             return total;
         }
 
+        // ─── ПОЛУЧЕНИЕ ОТСОРТИРОВАННЫХ КАМЕР С ФИЛЬТРОМ ──────────
         function getScoredCameras() {
-            const scored = allCameras.map(cam => ({ ...cam, score: computeScore(cam) }));
+            // 1. Фильтр по бюджету
+            const allowedBudgets = getAllowedBudgetLevels(state.budget);
+            let filtered = allCameras.filter(cam => cam.budgetRange.some(b => allowedBudgets.includes(b)));
+
+            // 2. Скоринг
+            const scored = filtered.map(cam => ({ ...cam, score: computeScore(cam) }));
             scored.sort((a, b) => b.score - a.score);
+
+            // 3. Уникальные
             const unique = [];
             const seen = new Set();
             for (const cam of scored) {
                 if (!seen.has(cam.id)) { unique.push(cam); seen.add(cam.id); }
             }
+
+            // 4. Замена системы (штраф за старую систему)
             if (state.level === 'pro' && state.proIntent === 'replace' && state.system) {
                 const altPositive = unique.filter(c => c.system !== state.system && c.score > 0);
                 if (altPositive.length >= 4) return unique.filter(c => c.system !== state.system);
@@ -589,7 +610,6 @@
                     });
                 }
 
-                // После рендеринга включаем fade-in
                 screen.classList.remove('fade-out');
                 screen.classList.add('fade-in');
             }, 150);
