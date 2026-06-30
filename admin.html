@@ -5,127 +5,491 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Админка — база камер</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: system-ui, sans-serif; background: #f5f5f5; padding: 2rem; max-width: 1200px; margin: 0 auto; }
-        h1 { font-size: 2rem; margin-bottom: 1rem; }
-        .header-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 1.2rem; }
-        #status { color: #888; font-size: 0.95rem; }
-        .btn { background: #1a1a1a; color: #fff; border: none; padding: 0.6rem 1.2rem; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 0.9rem; transition: opacity .2s, transform .1s; display: inline-flex; align-items: center; gap: 0.4rem; }
-        .btn:hover { opacity: 0.8; transform: scale(1.02); }
-        .btn-danger { background: #c62828; }
-        .btn-danger:hover { background: #b71c1c; }
-        .btn-success { background: #2e7d32; }
-        .btn-success:hover { background: #1b5e20; }
-        .btn-outline { background: transparent; border: 1.5px solid #ccc; color: #555; }
-        .btn-outline:hover { border-color: #888; background: #f0f0f0; }
-        .btn-delete { background: #fff; color: #c62828; border: 1.5px solid #c62828; padding: 0.3rem 0.7rem; font-size: 0.9rem; font-weight: 700; border-radius: 8px; cursor: pointer; transition: background .2s, color .2s; }
-        .btn-delete:hover { background: #c62828; color: #fff; }
-        .btn-sm { padding: 0.3rem 0.7rem; font-size: 0.8rem; }
-        .btn-find { background: #1a73e8; color: #fff; border: none; padding: 0.3rem 0.8rem; border-radius: 8px; cursor: pointer; font-weight: 500; font-size: 0.8rem; }
-        .btn-find:hover { background: #1557b0; }
-        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; background: #fff; padding: 2rem; border-radius: 16px; margin-bottom: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-        .form-grid label { font-weight: 600; font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.2rem; }
-        .form-grid input, .form-grid select, .form-grid textarea { padding: 0.5rem; border: 1px solid #ddd; border-radius: 8px; width: 100%; font-family: inherit; font-size: 0.95rem; }
-        .form-grid textarea { height: 70px; resize: vertical; }
-        .form-actions { grid-column: 1 / -1; display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem; }
-        .image-input-group { display: flex; gap: 0.5rem; align-items: center; }
-        .image-input-group input { flex: 1; }
-        table { width: 100%; background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); border-collapse: collapse; }
-        th, td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid #eee; }
-        th { background: #f0f0f0; font-weight: 600; cursor: pointer; user-select: none; transition: background .2s; }
-        th:hover { background: #e0e0e0; }
-        th .sort-arrow { margin-left: 6px; font-size: 0.7rem; opacity: 0.5; }
-        th .sort-arrow.active { opacity: 1; }
-        .actions button { margin-right: 0.3rem; }
-        .hidden { display: none !important; }
-        .toast { position: fixed; bottom: 2rem; right: 2rem; background: #323232; color: #fff; padding: 1rem 2rem; border-radius: 8px; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.15); font-weight: 500; transition: opacity .3s; }
-        .toast.hidden { opacity: 0; pointer-events: none; }
-        .toast.show { opacity: 1; }
-        @media (max-width: 700px) { .form-grid { grid-template-columns: 1fr; } .header-row { flex-direction: column; align-items: stretch; gap: 0.5rem; } }
-        .thumb-img { max-width: 80px; max-height: 50px; object-fit: contain; border-radius: 4px; border: 1px solid #eee; padding: 2px; background: #fff; }
-        .gateway-section { margin-top: 2rem; background: #fff; padding: 1.5rem; border-radius: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-        .gateway-section textarea { width: 100%; height: 150px; font-family: monospace; padding: 0.8rem; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9rem; }
-        .gateway-actions { display: flex; gap: 1rem; margin-top: 0.5rem; flex-wrap: wrap; }
-        .bonus-input { width: 80px !important; }
+        /* ─── ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ ─────────────────────────────── */
+        :root {
+            --bg: #f4f6f9;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --primary: #0f172a;
+            --primary-hover: #1e293b;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --danger: #dc2626;
+            --danger-hover: #b91c1c;
+            --success: #16a34a;
+            --success-hover: #15803d;
+            --radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            --transition: 0.2s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            padding: 2rem 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            gap: 0.8rem;
+        }
+
+        #status {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background var(--transition), transform 0.1s;
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .btn:hover {
+            transform: scale(1.02);
+            opacity: 0.9;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid var(--border);
+            color: var(--text);
+        }
+        .btn-outline:hover {
+            background: #f1f5f9;
+            border-color: #94a3b8;
+        }
+
+        .btn-success {
+            background: var(--success);
+        }
+        .btn-success:hover {
+            background: var(--success-hover);
+        }
+
+        .btn-danger {
+            background: var(--danger);
+        }
+        .btn-danger:hover {
+            background: var(--danger-hover);
+        }
+
+        .btn-sm {
+            padding: 0.3rem 0.8rem;
+            font-size: 0.8rem;
+        }
+
+        .btn-find {
+            background: var(--accent);
+            color: #fff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            border: none;
+            font-weight: 500;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: background var(--transition);
+        }
+        .btn-find:hover {
+            background: var(--accent-hover);
+        }
+
+        /* ─── КАРТОЧКА ФОРМЫ ──────────────────────────────────────── */
+        .form-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 1.5rem 2rem 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-section {
+            margin-bottom: 1.8rem;
+        }
+        .form-section:last-of-type {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-section-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem 1.8rem;
+        }
+
+        .form-grid label {
+            display: flex;
+            flex-direction: column;
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: var(--text);
+            gap: 0.2rem;
+        }
+
+        .form-grid input,
+        .form-grid select,
+        .form-grid textarea {
+            padding: 0.5rem 0.7rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            background: #fff;
+            transition: border-color var(--transition);
+            width: 100%;
+        }
+
+        .form-grid input:focus,
+        .form-grid select:focus,
+        .form-grid textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-grid textarea {
+            height: 70px;
+            resize: vertical;
+        }
+
+        .form-actions {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 0.5rem;
+            padding-top: 0.8rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .image-input-group {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        .image-input-group input {
+            flex: 1;
+        }
+
+        .bonus-input {
+            width: 100px !important;
+        }
+
+        /* ─── ТАБЛИЦА ──────────────────────────────────────────────── */
+        .table-wrap {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: #f8fafc;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            user-select: none;
+            transition: background var(--transition);
+        }
+
+        th:hover {
+            background: #f1f5f9;
+        }
+
+        th .sort-arrow {
+            margin-left: 6px;
+            font-size: 0.7rem;
+            opacity: 0.4;
+        }
+        th .sort-arrow.active {
+            opacity: 1;
+        }
+
+        .thumb-img {
+            max-width: 80px;
+            max-height: 50px;
+            object-fit: contain;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            padding: 2px;
+            background: #fff;
+        }
+
+        .actions button {
+            margin-right: 0.3rem;
+        }
+
+        .btn-delete {
+            background: #fff;
+            color: var(--danger);
+            border: 1.5px solid var(--danger);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: background var(--transition), color var(--transition);
+        }
+        .btn-delete:hover {
+            background: var(--danger);
+            color: #fff;
+        }
+
+        /* ─── ШЛЮЗ ──────────────────────────────────────────────────── */
+        .gateway-section {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 1.5rem 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .gateway-section textarea {
+            width: 100%;
+            height: 140px;
+            font-family: monospace;
+            padding: 0.8rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            resize: vertical;
+        }
+
+        .gateway-actions {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        /* ─── TOAST ──────────────────────────────────────────────────── */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #1e293b;
+            color: #fff;
+            padding: 0.8rem 1.8rem;
+            border-radius: 10px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            font-weight: 500;
+            transition: opacity 0.3s, transform 0.3s;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(20px);
+            z-index: 1000;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        /* ─── АДАПТИВ ───────────────────────────────────────────────── */
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .header-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            body {
+                padding: 1rem;
+            }
+            .form-card {
+                padding: 1rem;
+            }
+            .gateway-section {
+                padding: 1rem;
+            }
+        }
+
+        /* ─── ВСПОМОГАТЕЛЬНОЕ ────────────────────────────────────── */
+        .hidden {
+            display: none !important;
+        }
+        .text-muted {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            margin-top: 0.2rem;
+        }
     </style>
 </head>
 <body>
     <h1>📷 Админка базы камер</h1>
+
     <div class="header-row">
         <div id="status">Загрузка...</div>
-        <div>
+        <div style="display:flex; gap:0.6rem; flex-wrap:wrap;">
             <button class="btn btn-outline btn-sm" id="refreshBtn">🔄 Обновить данные</button>
             <button class="btn btn-find btn-sm" id="massFindBtn">🔍 Найти картинки для всех</button>
         </div>
     </div>
 
-    <!-- Форма добавления / редактирования -->
-    <div class="form-grid" id="formContainer">
-        <label>ID (уникальный, латиница, без пробелов)
-            <input type="text" id="id" placeholder="canon-r5" required>
-        </label>
-        <label>Название
-            <input type="text" id="name" placeholder="Canon EOS R5">
-        </label>
-        <label>Цена (строка)
-            <input type="text" id="price" placeholder="$3 900">
-        </label>
-        <label>Система (canon, nikon, sony, fujifilm, panasonic, hasselblad, leica, other)
-            <input type="text" id="system" placeholder="canon">
-        </label>
-        <label>Вес (critical, moderate, not-critical)
-            <input type="text" id="weight" placeholder="moderate">
-        </label>
-        <label>Бейдж (badge-new, badge-bu, badge-compact, badge-video, badge-premium)
-            <input type="text" id="badge" placeholder="badge-new">
-        </label>
-        <label>Текст бейджа
-            <input type="text" id="badgeText" placeholder="Новая">
-        </label>
-        <label>Цели (через запятую: photo, video, blog, travel, studio, sport)
-            <input type="text" id="goals" placeholder="photo, video">
-        </label>
-        <label>Жанры (через запятую: portrait, landscape, street, reportage, wedding, family, nude, commercial, architecture, vlog, documentary)
-            <input type="text" id="genres" placeholder="portrait, landscape">
-        </label>
-        <label>Бюджетные диапазоны (через запятую: low, mid, high, very-high, premium)
-            <input type="text" id="budgetRange" placeholder="premium">
-        </label>
-        <label>Сенсор
-            <input type="text" id="sensor" placeholder="Full frame 45 Мп">
-        </label>
-        <label>Стабилизация
-            <input type="text" id="stabilization" placeholder="IBIS 8 стопов">
-        </label>
-        <label>Автофокус
-            <input type="text" id="af" placeholder="AI AF">
-        </label>
-        <label>Видео
-            <input type="text" id="video" placeholder="8K RAW">
-        </label>
-        <label>Сменные объективы (true/false)
-            <input type="text" id="interchangeable" placeholder="true">
-        </label>
-        <label>Два слота (true/false)
-            <input type="text" id="dualSlot" placeholder="true">
-        </label>
-        <label>Чекпоинты (каждый с новой строки)
-            <textarea id="checkpoints" placeholder="Full frame 45 Мп&#10;8K RAW"></textarea>
-        </label>
-        <label>Примечание
-            <textarea id="note" placeholder="Универсальный флагман"></textarea>
-        </label>
-        <label>Ссылка на изображение (прямая URL)
-            <div class="image-input-group">
-                <input type="text" id="image" placeholder="https://example.com/camera.jpg">
-                <button class="btn-find" id="findImageBtn">🔍 Найти на Викискладе</button>
+    <!-- ─── КАРТОЧКА ФОРМЫ ─────────────────────────────────────────── -->
+    <div class="form-card" id="formContainer">
+        <!-- Блок 1: Основная информация -->
+        <div class="form-section">
+            <div class="form-section-title">📋 Основная информация</div>
+            <div class="form-grid">
+                <label>ID (уникальный, латиница, без пробелов)
+                    <input type="text" id="id" placeholder="canon-r5" required>
+                </label>
+                <label>Название
+                    <input type="text" id="name" placeholder="Canon EOS R5">
+                </label>
+                <label>Цена (строка)
+                    <input type="text" id="price" placeholder="$3 900">
+                </label>
+                <label>Система (canon, nikon, sony, fujifilm, panasonic, hasselblad, leica, other)
+                    <input type="text" id="system" placeholder="canon">
+                </label>
+                <label>Вес (critical, moderate, not-critical)
+                    <input type="text" id="weight" placeholder="moderate">
+                </label>
+                <label>Бейдж (badge-new, badge-bu, badge-compact, badge-video, badge-premium)
+                    <input type="text" id="badge" placeholder="badge-new">
+                </label>
+                <label>Текст бейджа
+                    <input type="text" id="badgeText" placeholder="Новая">
+                </label>
             </div>
-            <div style="font-size:0.8rem; color:#888; margin-top:0.2rem;">Поиск по названию камеры</div>
-        </label>
-        <label>Бонус (авторский приоритет, целое число, может быть отрицательным)
-            <input type="number" id="bonus" class="bonus-input" value="0" step="1">
-            <div style="font-size:0.8rem; color:#888; margin-top:0.2rem;">Добавляется к итоговому баллу камеры</div>
-        </label>
+        </div>
+
+        <!-- Блок 2: Цели и жанры -->
+        <div class="form-section">
+            <div class="form-section-title">🎯 Цели и жанры</div>
+            <div class="form-grid">
+                <label>Цели (через запятую: photo, video, blog, travel, studio, sport)
+                    <input type="text" id="goals" placeholder="photo, video">
+                </label>
+                <label>Жанры (через запятую: portrait, landscape, street, reportage, wedding, family, nude, commercial, architecture, vlog, documentary)
+                    <input type="text" id="genres" placeholder="portrait, landscape">
+                </label>
+            </div>
+        </div>
+
+        <!-- Блок 3: Бюджет и характеристики -->
+        <div class="form-section">
+            <div class="form-section-title">⚙️ Бюджет и характеристики</div>
+            <div class="form-grid">
+                <label>Бюджетные диапазоны (через запятую: low, mid, high, very-high, premium)
+                    <input type="text" id="budgetRange" placeholder="premium">
+                </label>
+                <label>Сенсор
+                    <input type="text" id="sensor" placeholder="Full frame 45 Мп">
+                </label>
+                <label>Стабилизация
+                    <input type="text" id="stabilization" placeholder="IBIS 8 стопов">
+                </label>
+                <label>Автофокус
+                    <input type="text" id="af" placeholder="AI AF">
+                </label>
+                <label>Видео
+                    <input type="text" id="video" placeholder="8K RAW">
+                </label>
+            </div>
+        </div>
+
+        <!-- Блок 4: Дополнительные параметры -->
+        <div class="form-section">
+            <div class="form-section-title">🔧 Дополнительно</div>
+            <div class="form-grid">
+                <label>Сменные объективы (true/false)
+                    <input type="text" id="interchangeable" placeholder="true">
+                </label>
+                <label>Два слота (true/false)
+                    <input type="text" id="dualSlot" placeholder="true">
+                </label>
+                <label style="grid-column: 1 / -1;">Чекпоинты (каждый с новой строки)
+                    <textarea id="checkpoints" placeholder="Full frame 45 Мп&#10;8K RAW"></textarea>
+                </label>
+                <label style="grid-column: 1 / -1;">Примечание
+                    <textarea id="note" placeholder="Универсальный флагман"></textarea>
+                </label>
+            </div>
+        </div>
+
+        <!-- Блок 5: Изображение и бонус -->
+        <div class="form-section">
+            <div class="form-section-title">🖼️ Изображение и бонус</div>
+            <div class="form-grid">
+                <label style="grid-column: 1 / -1;">Ссылка на изображение (прямая URL)
+                    <div class="image-input-group">
+                        <input type="text" id="image" placeholder="https://example.com/camera.jpg">
+                        <button class="btn-find" id="findImageBtn">🔍 Найти на Викискладе</button>
+                    </div>
+                    <span class="text-muted">Поиск по названию камеры</span>
+                </label>
+                <label>Бонус (авторский приоритет, целое число, может быть отрицательным)
+                    <input type="number" id="bonus" class="bonus-input" value="0" step="1">
+                    <span class="text-muted">Добавляется к итоговому баллу камеры</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Кнопки формы -->
         <div class="form-actions">
             <button class="btn btn-success" id="saveBtn">💾 Сохранить (добавить / обновить)</button>
             <button class="btn btn-danger" id="deleteBtn" style="display:none;">🗑️ Удалить выбранную</button>
@@ -133,28 +497,30 @@
         </div>
     </div>
 
-    <!-- Таблица с сортировкой -->
-    <table>
-        <thead id="tableHead">
-            <tr>
-                <th data-sort="image">Фото <span class="sort-arrow">↕</span></th>
-                <th data-sort="id">ID <span class="sort-arrow">↕</span></th>
-                <th data-sort="name">Название <span class="sort-arrow">↕</span></th>
-                <th data-sort="price">Цена <span class="sort-arrow">↕</span></th>
-                <th data-sort="system">Система <span class="sort-arrow">↕</span></th>
-                <th data-sort="bonus">Бонус <span class="sort-arrow">↕</span></th>
-                <th data-sort="actions" style="cursor:default;">Действия</th>
-            </tr>
-        </thead>
-        <tbody id="cameraTableBody">
-            <tr><td colspan="7" style="text-align:center; color:#888;">Загрузка...</td></tr>
-        </tbody>
-    </table>
+    <!-- ─── ТАБЛИЦА ─────────────────────────────────────────────────── -->
+    <div class="table-wrap">
+        <table>
+            <thead id="tableHead">
+                <tr>
+                    <th data-sort="image">Фото <span class="sort-arrow">↕</span></th>
+                    <th data-sort="id">ID <span class="sort-arrow">↕</span></th>
+                    <th data-sort="name">Название <span class="sort-arrow">↕</span></th>
+                    <th data-sort="price">Цена <span class="sort-arrow">↕</span></th>
+                    <th data-sort="system">Система <span class="sort-arrow">↕</span></th>
+                    <th data-sort="bonus">Бонус <span class="sort-arrow">↕</span></th>
+                    <th data-sort="actions" style="cursor:default;">Действия</th>
+                </tr>
+            </thead>
+            <tbody id="cameraTableBody">
+                <tr><td colspan="7" style="text-align:center; color:#888;">Загрузка...</td></tr>
+            </tbody>
+        </table>
+    </div>
 
-    <!-- Шлюз -->
+    <!-- ─── ШЛЮЗ ────────────────────────────────────────────────────── -->
     <div class="gateway-section">
         <h2 style="font-size:1.2rem; margin-bottom:0.5rem;">🚪 Шлюз — быстрый импорт камер</h2>
-        <p style="color:#888; font-size:0.9rem;">Вставьте JSON-шаблон одной камеры или массив камер и нажмите «Добавить».</p>
+        <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:0.8rem;">Вставьте JSON-шаблон одной камеры или массив камер и нажмите «Добавить».</p>
         <textarea id="gatewayInput" placeholder='{"id":"sony-a6000","name":"Sony Alpha A6000","price":"$400-600","image":"","badge":"badge-bu","badgeText":"Б/У","system":"sony","weight":"critical","goals":["photo","video"],"genres":["portrait","street"],"budgetRange":["mid"],"sensor":"APS-C 24 Мп","stabilization":"нет","af":"179 точек","video":"Full HD","interchangeable":true,"dualSlot":false,"checkpoints":["APS-C 24 Мп","11 к/с","компактный"],"note":"Популярная беззеркалка для начинающих.","categories":["entry"],"bonus":0}'></textarea>
         <div class="gateway-actions">
             <button class="btn btn-success" id="gatewayAddBtn">➕ Добавить камеру(ы) из шаблона</button>
@@ -162,8 +528,10 @@
         </div>
     </div>
 
-    <div id="toast" class="toast hidden">Готово</div>
+    <!-- ─── TOAST ───────────────────────────────────────────────────── -->
+    <div id="toast" class="toast">Готово</div>
 
+    <!-- ─── СКРИПТЫ ────────────────────────────────────────────────── -->
     <script>
         // ─── ЗАЩИТА ПАРОЛЕМ ──────────────────────────────────────────
         const ADMIN_PASSWORD = '11259375*Camera';
@@ -194,7 +562,7 @@
         let cameras = [];
         let editingId = null;
 
-        // ─── ВСПОМОГАТЕЛЬНАЯ ФУНКЦИЯ ДЛЯ BASE64 (НАДЁЖНАЯ) ──────
+        // ─── BASE64 ──────────────────────────────────────────────────
         function base64Encode(str) {
             const encoder = new TextEncoder();
             const data = encoder.encode(str);
@@ -242,7 +610,6 @@
         // ─── ЗАГРУЗКА ──────────────────────────────────────────────────
         async function loadCameras() {
             try {
-                // Добавляем антикеш-параметр
                 const url = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/${FILE_PATH}?t=${Date.now()}`;
                 const res = await fetch(url);
                 if (!res.ok) throw new Error('Не удалось загрузить файл');
@@ -368,7 +735,7 @@
             saveToGitHub();
         }
 
-        // ─── СОХРАНЕНИЕ (С ИСПРАВЛЕННОЙ КОДИРОВКОЙ) ────────────────
+        // ─── СОХРАНЕНИЕ ──────────────────────────────────────────────
         async function saveToGitHub() {
             if (!token) {
                 alert('Токен не задан. Перезагрузите страницу и введите токен.');
@@ -436,7 +803,6 @@
 
                 showToast('✅ Изменения сохранены!');
                 cancelEdit();
-                // Обновляем таблицу без перезагрузки, чтобы видеть консоль
                 setTimeout(() => {
                     loadCameras();
                 }, 300);
@@ -447,7 +813,7 @@
             }
         }
 
-        // ─── ПОИСК ИЗОБРАЖЕНИЯ (ОДНА КАМЕРА) ──────────────────────
+        // ─── ПОИСК ИЗОБРАЖЕНИЯ ──────────────────────────────────────
         async function findImageOnWikimedia() {
             const nameInput = document.getElementById('name');
             const imageInput = document.getElementById('image');
@@ -714,689 +1080,13 @@
         function showToast(msg) {
             const toast = document.getElementById('toast');
             toast.textContent = msg;
-            toast.classList.remove('hidden');
             toast.classList.add('show');
             setTimeout(() => {
                 toast.classList.remove('show');
-                toast.classList.add('hidden');
             }, 4000);
         }
 
-        // ─── ОБРАБОТЧИКИ СОРТИРОВКИ ──────────────────────────────────
-        document.querySelectorAll('#tableHead th[data-sort]').forEach(th => {
-            th.addEventListener('click', function() {
-                if (this.dataset.sort === 'actions') return;
-                sortCameras(this.dataset.sort);
-            });
-        });
-
-        // ─── СТАРТ ──────────────────────────────────────────────────
-        loadCameras();
-    </script>
-</body>
-</html>        <label>ID (уникальный, латиница, без пробелов)
-            <input type="text" id="id" placeholder="canon-r5" required>
-        </label>
-        <label>Название
-            <input type="text" id="name" placeholder="Canon EOS R5">
-        </label>
-        <label>Цена (строка)
-            <input type="text" id="price" placeholder="$3 900">
-        </label>
-        <label>Система (canon, nikon, sony, fujifilm, panasonic, hasselblad, leica, other)
-            <input type="text" id="system" placeholder="canon">
-        </label>
-        <label>Вес (critical, moderate, not-critical)
-            <input type="text" id="weight" placeholder="moderate">
-        </label>
-        <label>Бейдж (badge-new, badge-bu, badge-compact, badge-video, badge-premium)
-            <input type="text" id="badge" placeholder="badge-new">
-        </label>
-        <label>Текст бейджа
-            <input type="text" id="badgeText" placeholder="Новая">
-        </label>
-        <label>Цели (через запятую: photo, video, blog, travel, studio, sport)
-            <input type="text" id="goals" placeholder="photo, video">
-        </label>
-        <label>Жанры (через запятую: portrait, landscape, street, reportage, wedding, family, nude, commercial, architecture, vlog, documentary)
-            <input type="text" id="genres" placeholder="portrait, landscape">
-        </label>
-        <label>Бюджетные диапазоны (через запятую: low, mid, high, very-high, premium)
-            <input type="text" id="budgetRange" placeholder="premium">
-        </label>
-        <label>Сенсор
-            <input type="text" id="sensor" placeholder="Full frame 45 Мп">
-        </label>
-        <label>Стабилизация
-            <input type="text" id="stabilization" placeholder="IBIS 8 стопов">
-        </label>
-        <label>Автофокус
-            <input type="text" id="af" placeholder="AI AF">
-        </label>
-        <label>Видео
-            <input type="text" id="video" placeholder="8K RAW">
-        </label>
-        <label>Сменные объективы (true/false)
-            <input type="text" id="interchangeable" placeholder="true">
-        </label>
-        <label>Два слота (true/false)
-            <input type="text" id="dualSlot" placeholder="true">
-        </label>
-        <label>Чекпоинты (каждый с новой строки)
-            <textarea id="checkpoints" placeholder="Full frame 45 Мп&#10;8K RAW"></textarea>
-        </label>
-        <label>Примечание
-            <textarea id="note" placeholder="Универсальный флагман"></textarea>
-        </label>
-        <label>Ссылка на изображение (прямая URL)
-            <div class="image-input-group">
-                <input type="text" id="image" placeholder="https://example.com/camera.jpg">
-                <button class="btn-find" id="findImageBtn">🔍 Найти на Викискладе</button>
-            </div>
-            <div style="font-size:0.8rem; color:#888; margin-top:0.2rem;">Поиск по названию камеры</div>
-        </label>
-        <label>Бонус (авторский приоритет, целое число, может быть отрицательным)
-            <input type="number" id="bonus" class="bonus-input" value="0" step="1">
-            <div style="font-size:0.8rem; color:#888; margin-top:0.2rem;">Добавляется к итоговому баллу камеры</div>
-        </label>
-        <div class="form-actions">
-            <button class="btn btn-success" id="saveBtn">💾 Сохранить (добавить / обновить)</button>
-            <button class="btn btn-danger" id="deleteBtn" style="display:none;">🗑️ Удалить выбранную</button>
-            <button class="btn btn-outline" id="cancelBtn">✖ Отменить редактирование</button>
-        </div>
-    </div>
-
-    <!-- Таблица с сортировкой -->
-    <table>
-        <thead id="tableHead">
-            <tr>
-                <th data-sort="image">Фото <span class="sort-arrow">↕</span></th>
-                <th data-sort="id">ID <span class="sort-arrow">↕</span></th>
-                <th data-sort="name">Название <span class="sort-arrow">↕</span></th>
-                <th data-sort="price">Цена <span class="sort-arrow">↕</span></th>
-                <th data-sort="system">Система <span class="sort-arrow">↕</span></th>
-                <th data-sort="bonus">Бонус <span class="sort-arrow">↕</span></th>
-                <th data-sort="actions" style="cursor:default;">Действия</th>
-            </tr>
-        </thead>
-        <tbody id="cameraTableBody">
-            <tr><td colspan="7" style="text-align:center; color:#888;">Загрузка...</td></tr>
-        </tbody>
-    </table>
-
-    <!-- Шлюз -->
-    <div class="gateway-section">
-        <h2 style="font-size:1.2rem; margin-bottom:0.5rem;">🚪 Шлюз — быстрый импорт камер</h2>
-        <p style="color:#888; font-size:0.9rem;">Вставьте JSON-шаблон одной камеры или массив камер и нажмите «Добавить».</p>
-        <textarea id="gatewayInput" placeholder='{"id":"sony-a6000","name":"Sony Alpha A6000","price":"$400-600","image":"","badge":"badge-bu","badgeText":"Б/У","system":"sony","weight":"critical","goals":["photo","video"],"genres":["portrait","street"],"budgetRange":["mid"],"sensor":"APS-C 24 Мп","stabilization":"нет","af":"179 точек","video":"Full HD","interchangeable":true,"dualSlot":false,"checkpoints":["APS-C 24 Мп","11 к/с","компактный"],"note":"Популярная беззеркалка для начинающих.","categories":["entry"],"bonus":0}'></textarea>
-        <div class="gateway-actions">
-            <button class="btn btn-success" id="gatewayAddBtn">➕ Добавить камеру(ы) из шаблона</button>
-            <button class="btn btn-outline" id="gatewayClearBtn">🧹 Очистить поле</button>
-        </div>
-    </div>
-
-    <div id="toast" class="toast hidden">Готово</div>
-
-    <script>
-        // ─── ЗАЩИТА ПАРОЛЕМ ──────────────────────────────────────────
-        const ADMIN_PASSWORD = '11259375*Camera';
-
-        (function checkAuth() {
-            if (sessionStorage.getItem('admin_authenticated') === 'true') return;
-            const entered = prompt('Введите пароль для доступа к админке:');
-            if (entered === ADMIN_PASSWORD) {
-                sessionStorage.setItem('admin_authenticated', 'true');
-            } else {
-                document.body.innerHTML = '<h1 style="text-align:center; margin-top:4rem;">⛔ Доступ запрещён. Неверный пароль.</h1>';
-                throw new Error('Неверный пароль');
-            }
-        })();
-
-        // ─── КОНФИГУРАЦИЯ ──────────────────────────────────────────
-        const REPO_OWNER = 'alexeynovopashin-lab';
-        const REPO_NAME = 'CameraChange';
-        const FILE_PATH = 'cameras.json';
-        const BRANCH = 'main';
-
-        let token = sessionStorage.getItem('gh_token');
-        if (!token) {
-            token = prompt('Введите ваш GitHub Personal Access Token (с доступом repo):');
-            if (token) sessionStorage.setItem('gh_token', token);
-        }
-
-        let cameras = [];
-        let editingId = null;
-
-        // ─── ВСПОМОГАТЕЛЬНАЯ ФУНКЦИЯ ДЛЯ BASE64 (НАДЁЖНАЯ) ──────
-        function base64Encode(str) {
-            const encoder = new TextEncoder();
-            const data = encoder.encode(str);
-            let binary = '';
-            for (let i = 0; i < data.length; i++) {
-                binary += String.fromCharCode(data[i]);
-            }
-            return btoa(binary);
-        }
-
-        // ─── СОРТИРОВКА ──────────────────────────────────────────────
-        let sortField = null;
-        let sortOrder = 'asc';
-
-        function getSortValue(cam, field) {
-            if (field === 'image') return cam.image ? 1 : 0;
-            if (field === 'bonus') return cam.bonus ?? 0;
-            if (field === 'price') {
-                const match = String(cam.price).match(/\d+/);
-                return match ? parseInt(match[0]) : 0;
-            }
-            return String(cam[field] || '').toLowerCase();
-        }
-
-        function sortCameras(field) {
-            if (sortField === field) {
-                sortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
-            } else {
-                sortField = field;
-                sortOrder = 'asc';
-            }
-            document.querySelectorAll('#tableHead th[data-sort]').forEach(th => {
-                const arrow = th.querySelector('.sort-arrow');
-                if (th.dataset.sort === field) {
-                    arrow.textContent = sortOrder === 'asc' ? '↑' : '↓';
-                    arrow.classList.add('active');
-                } else {
-                    arrow.textContent = '↕';
-                    arrow.classList.remove('active');
-                }
-            });
-            renderTable();
-        }
-
-        // ─── ЗАГРУЗКА ──────────────────────────────────────────────────
-        async function loadCameras() {
-            try {
-                const url = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/${FILE_PATH}?t=${Date.now()}`;
-                const res = await fetch(url);
-                if (!res.ok) throw new Error('Не удалось загрузить файл');
-                const data = await res.json();
-                cameras = data.cameras || [];
-                renderTable();
-                document.getElementById('status').textContent = `📸 Загружено ${cameras.length} камер`;
-            } catch (e) {
-                console.error(e);
-                document.getElementById('status').textContent = '⚠️ Ошибка загрузки: ' + e.message;
-                document.getElementById('cameraTableBody').innerHTML =
-                    `<tr><td colspan="7" style="text-align:center;color:#888;">${e.message}</td></tr>`;
-            }
-        }
-
-        // ─── ОТОБРАЖЕНИЕ ТАБЛИЦЫ ──────────────────────────────────
-        function renderTable() {
-            const tbody = document.getElementById('cameraTableBody');
-            let sorted = [...cameras];
-            if (sortField && sortField !== 'actions') {
-                sorted.sort((a, b) => {
-                    let va = getSortValue(a, sortField);
-                    let vb = getSortValue(b, sortField);
-                    if (va < vb) return sortOrder === 'asc' ? -1 : 1;
-                    if (va > vb) return sortOrder === 'asc' ? 1 : -1;
-                    return 0;
-                });
-            }
-
-            if (sorted.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;color:#888;">Нет камер</td></tr>`;
-                return;
-            }
-            tbody.innerHTML = sorted.map(c => `
-                <tr>
-                    <td>${c.image ? `<img src="${c.image}" alt="${c.name}" class="thumb-img" onerror="this.style.display='none'">` : '—'}</td>
-                    <td><code>${c.id}</code></td>
-                    <td><strong>${c.name}</strong></td>
-                    <td>${c.price}</td>
-                    <td>${c.system}</td>
-                    <td>${c.bonus ?? 0}</td>
-                    <td class="actions">
-                        <button class="btn btn-outline btn-sm edit-btn" data-id="${c.id}">✏️</button>
-                        <button class="btn btn-delete btn-sm delete-btn" data-id="${c.id}">✕</button>
-                    </td>
-                </tr>
-            `).join('');
-
-            document.querySelectorAll('.edit-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    editCam(this.dataset.id);
-                });
-            });
-            document.querySelectorAll('.delete-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    deleteCam(this.dataset.id);
-                });
-            });
-        }
-
-        // ─── РЕДАКТИРОВАНИЕ ─────────────────────────────────────────
-        function editCam(id) {
-            const cam = cameras.find(c => c.id === id);
-            if (!cam) return;
-            editingId = id;
-            document.getElementById('id').value = cam.id;
-            document.getElementById('id').disabled = true;
-            document.getElementById('name').value = cam.name || '';
-            document.getElementById('price').value = cam.price || '';
-            document.getElementById('system').value = cam.system || '';
-            document.getElementById('weight').value = cam.weight || '';
-            document.getElementById('badge').value = cam.badge || '';
-            document.getElementById('badgeText').value = cam.badgeText || '';
-            document.getElementById('goals').value = (cam.goals || []).join(', ');
-            document.getElementById('genres').value = (cam.genres || []).join(', ');
-            document.getElementById('budgetRange').value = (cam.budgetRange || []).join(', ');
-            document.getElementById('sensor').value = cam.sensor || '';
-            document.getElementById('stabilization').value = cam.stabilization || '';
-            document.getElementById('af').value = cam.af || '';
-            document.getElementById('video').value = cam.video || '';
-            document.getElementById('interchangeable').value = cam.interchangeable !== undefined ? String(cam.interchangeable) : '';
-            document.getElementById('dualSlot').value = cam.dualSlot !== undefined ? String(cam.dualSlot) : '';
-            document.getElementById('checkpoints').value = (cam.checkpoints || []).join('\n');
-            document.getElementById('note').value = cam.note || '';
-            document.getElementById('image').value = cam.image || '';
-            document.getElementById('bonus').value = cam.bonus ?? 0;
-            document.getElementById('deleteBtn').style.display = 'inline-flex';
-            document.getElementById('saveBtn').textContent = '💾 Обновить камеру';
-            document.getElementById('formContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-
-        function cancelEdit() {
-            editingId = null;
-            document.getElementById('id').disabled = false;
-            document.getElementById('id').value = '';
-            document.getElementById('name').value = '';
-            document.getElementById('price').value = '';
-            document.getElementById('system').value = '';
-            document.getElementById('weight').value = '';
-            document.getElementById('badge').value = '';
-            document.getElementById('badgeText').value = '';
-            document.getElementById('goals').value = '';
-            document.getElementById('genres').value = '';
-            document.getElementById('budgetRange').value = '';
-            document.getElementById('sensor').value = '';
-            document.getElementById('stabilization').value = '';
-            document.getElementById('af').value = '';
-            document.getElementById('video').value = '';
-            document.getElementById('interchangeable').value = '';
-            document.getElementById('dualSlot').value = '';
-            document.getElementById('checkpoints').value = '';
-            document.getElementById('note').value = '';
-            document.getElementById('image').value = '';
-            document.getElementById('bonus').value = '0';
-            document.getElementById('deleteBtn').style.display = 'none';
-            document.getElementById('saveBtn').textContent = '💾 Сохранить (добавить / обновить)';
-        }
-
-        function deleteCam(id) {
-            if (!confirm(`Удалить камеру ${id}?`)) return;
-            cameras = cameras.filter(c => c.id !== id);
-            if (editingId === id) cancelEdit();
-            saveToGitHub();
-        }
-
-        // ─── СОХРАНЕНИЕ (С ИСПРАВЛЕННОЙ КОДИРОВКОЙ) ────────────────
-        async function saveToGitHub() {
-            if (!token) {
-                alert('Токен не задан. Перезагрузите страницу и введите токен.');
-                return;
-            }
-            try {
-                const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`;
-                console.log('📤 Отправка запроса к GitHub API...');
-
-                // Получаем текущий sha
-                const res = await fetch(url, {
-                    headers: { 'Authorization': `token ${token}` }
-                });
-                let sha = null;
-                if (res.ok) {
-                    const data = await res.json();
-                    sha = data.sha;
-                    console.log('✅ Получен sha:', sha);
-                } else if (res.status === 404) {
-                    console.log('ℹ️ Файл не найден, будет создан новый');
-                } else {
-                    const errText = await res.text();
-                    console.error('❌ Ошибка получения sha:', res.status, errText);
-                    showToast(`❌ Ошибка получения sha: ${res.status} ${errText}`);
-                    return;
-                }
-
-                // Подготовка контента (используем надёжную base64)
-                const content = JSON.stringify({ cameras }, null, 2);
-                const encoded = base64Encode(content);
-
-                const payload = {
-                    message: `Обновление базы камер (${new Date().toISOString()})`,
-                    content: encoded,
-                    branch: BRANCH
-                };
-                if (sha) payload.sha = sha;
-
-                console.log('📦 Payload отправлен (content закодирован)');
-
-                // Отправка
-                const commitRes = await fetch(url, {
-                    method: 'PUT',
-                    headers: {
-                        'Authorization': `token ${token}`,
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(payload)
-                });
-
-                // Читаем ответ
-                let responseBody;
-                const contentType = commitRes.headers.get('content-type');
-                if (contentType && contentType.includes('application/json')) {
-                    responseBody = await commitRes.json();
-                } else {
-                    responseBody = await commitRes.text();
-                }
-
-                console.log('📨 Ответ GitHub (статус):', commitRes.status);
-                console.log('📨 Тело ответа:', responseBody);
-
-                if (!commitRes.ok) {
-                    const errorMsg = typeof responseBody === 'object' && responseBody.message
-                        ? responseBody.message
-                        : String(responseBody);
-                    throw new Error(`Ошибка сохранения (${commitRes.status}): ${errorMsg}`);
-                }
-
-                showToast('✅ Изменения сохранены!');
-                cancelEdit();
-                setTimeout(() => {
-                loadCameras();
-                    }, 300);
-            } catch (e) {
-                console.error('❌ Ошибка сохранения:', e);
-                showToast('❌ Ошибка: ' + e.message);
-            }
-        }
-
-        // ─── ПОИСК ИЗОБРАЖЕНИЯ (ОДНА КАМЕРА) ──────────────────────
-        async function findImageOnWikimedia() {
-            const nameInput = document.getElementById('name');
-            const imageInput = document.getElementById('image');
-            const cameraName = nameInput.value.trim();
-
-            if (!cameraName) {
-                showToast('⚠️ Сначала введите название камеры');
-                return;
-            }
-
-            showToast('🔍 Ищем изображение...');
-
-            try {
-                const searchUrl = `https://commons.wikimedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(cameraName)}&srnamespace=6&srlimit=1&format=json&origin=*`;
-                const searchRes = await fetch(searchUrl);
-                if (!searchRes.ok) throw new Error('Ошибка поиска');
-                const searchData = await searchRes.json();
-
-                const results = searchData.query?.search || [];
-                if (results.length === 0) {
-                    showToast('❌ Ничего не найдено. Попробуйте изменить запрос.');
-                    return;
-                }
-
-                const title = results[0].title;
-                const infoUrl = `https://commons.wikimedia.org/w/api.php?action=query&titles=${encodeURIComponent(title)}&prop=imageinfo&iiprop=url&format=json&origin=*`;
-                const infoRes = await fetch(infoUrl);
-                if (!infoRes.ok) throw new Error('Ошибка получения ссылки');
-                const infoData = await infoRes.json();
-
-                const pages = infoData.query?.pages || {};
-                const pageId = Object.keys(pages)[0];
-                if (!pageId || pageId === '-1') {
-                    showToast('❌ Не удалось получить ссылку на файл');
-                    return;
-                }
-
-                const imageUrl = pages[pageId].imageinfo?.[0]?.url;
-                if (!imageUrl) {
-                    showToast('❌ Не удалось получить ссылку на файл');
-                    return;
-                }
-
-                imageInput.value = imageUrl;
-                showToast('✅ Изображение найдено! Ссылка вставлена.');
-
-            } catch (e) {
-                console.error(e);
-                showToast('❌ Ошибка: ' + e.message);
-            }
-        }
-
-        // ─── МАССОВЫЙ ПОИСК ──────────────────────────────────────────
-        async function massFindImages() {
-            await loadCameras();
-            const withoutImage = cameras.filter(c => !c.image || c.image.trim() === '');
-            if (withoutImage.length === 0) {
-                showToast('✅ У всех камер уже есть изображения!');
-                return;
-            }
-
-            showToast(`🔍 Начинаю поиск для ${withoutImage.length} камер...`);
-            let found = 0;
-
-            for (const cam of withoutImage) {
-                const cameraName = cam.name;
-                if (!cameraName) continue;
-
-                try {
-                    const searchUrl = `https://commons.wikimedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(cameraName)}&srnamespace=6&srlimit=1&format=json&origin=*`;
-                    const searchRes = await fetch(searchUrl);
-                    if (!searchRes.ok) continue;
-                    const searchData = await searchRes.json();
-
-                    const results = searchData.query?.search || [];
-                    if (results.length === 0) continue;
-
-                    const title = results[0].title;
-                    const infoUrl = `https://commons.wikimedia.org/w/api.php?action=query&titles=${encodeURIComponent(title)}&prop=imageinfo&iiprop=url&format=json&origin=*`;
-                    const infoRes = await fetch(infoUrl);
-                    if (!infoRes.ok) continue;
-                    const infoData = await infoRes.json();
-
-                    const pages = infoData.query?.pages || {};
-                    const pageId = Object.keys(pages)[0];
-                    if (!pageId || pageId === '-1') continue;
-
-                    const imageUrl = pages[pageId].imageinfo?.[0]?.url;
-                    if (imageUrl) {
-                        cam.image = imageUrl;
-                        found++;
-                    }
-                } catch (e) {
-                    console.warn('Ошибка для ' + cameraName, e);
-                }
-                await new Promise(r => setTimeout(r, 200));
-            }
-
-            if (found > 0) {
-                showToast(`✅ Найдено изображений: ${found} из ${withoutImage.length}`);
-                await saveToGitHub();
-                await loadCameras();
-                renderTable();
-                showToast(`✅ Добавлено ${found} изображений!`);
-            } else {
-                showToast('❌ Не найдено ни одного изображения. Попробуйте уточнить названия.');
-            }
-        }
-
-        // ─── ИМПОРТ ИЗ ШЛЮЗА ─────────────────────────────────────────
-        function importFromGateway() {
-            const input = document.getElementById('gatewayInput');
-            const raw = input.value.trim();
-            if (!raw) {
-                showToast('⚠️ Поле шаблона пустое');
-                return;
-            }
-
-            let data;
-            try {
-                data = JSON.parse(raw);
-            } catch (e) {
-                showToast('❌ Ошибка JSON: ' + e.message);
-                return;
-            }
-
-            let items = Array.isArray(data) ? data : [data];
-            let added = 0;
-            let skipped = 0;
-            for (const item of items) {
-                if (!item.id || !item.name) { skipped++; continue; }
-                if (cameras.some(c => c.id === item.id)) { skipped++; continue; }
-                const newCam = {
-                    id: item.id,
-                    name: item.name,
-                    price: item.price || '',
-                    image: item.image || '',
-                    badge: item.badge || '',
-                    badgeText: item.badgeText || '',
-                    system: item.system || '',
-                    weight: item.weight || 'moderate',
-                    goals: item.goals || [],
-                    genres: item.genres || [],
-                    budgetRange: item.budgetRange || ['mid'],
-                    sensor: item.sensor || '',
-                    stabilization: item.stabilization || '',
-                    af: item.af || '',
-                    video: item.video || '',
-                    interchangeable: item.interchangeable !== undefined ? item.interchangeable : true,
-                    dualSlot: item.dualSlot !== undefined ? item.dualSlot : false,
-                    checkpoints: item.checkpoints || [],
-                    note: item.note || '',
-                    categories: item.categories || [],
-                    bonus: item.bonus ?? 0
-                };
-                cameras.push(newCam);
-                added++;
-            }
-
-            if (added === 0) {
-                showToast(`⚠️ Добавлено 0 камер. Проверьте ID (возможно, дубликаты).`);
-                return;
-            }
-
-            showToast(`✅ Добавлено ${added} камер, пропущено ${skipped}`);
-            saveToGitHub();
-            input.value = '';
-        }
-
-        // ─── ОБРАБОТЧИКИ ──────────────────────────────────────────────
-        document.getElementById('saveBtn').addEventListener('click', function() {
-            const data = collectFormData();
-            if (!data) return;
-
-            if (!editingId && cameras.some(c => c.id === data.id)) {
-                alert('Камера с таким ID уже существует. Используйте редактирование.');
-                return;
-            }
-
-            if (editingId) {
-                const index = cameras.findIndex(c => c.id === editingId);
-                if (index !== -1) {
-                    cameras[index] = { ...data };
-                } else {
-                    alert('Ошибка: камера не найдена');
-                    return;
-                }
-            } else {
-                cameras.push(data);
-            }
-            saveToGitHub();
-        });
-
-        document.getElementById('cancelBtn').addEventListener('click', cancelEdit);
-        document.getElementById('deleteBtn').addEventListener('click', function() {
-            if (editingId) {
-                deleteCam(editingId);
-            }
-        });
-        document.getElementById('refreshBtn').addEventListener('click', function() {
-            loadCameras();
-            showToast('🔄 Данные обновлены');
-        });
-
-        document.getElementById('findImageBtn').addEventListener('click', findImageOnWikimedia);
-        document.getElementById('massFindBtn').addEventListener('click', massFindImages);
-
-        document.getElementById('gatewayAddBtn').addEventListener('click', importFromGateway);
-        document.getElementById('gatewayClearBtn').addEventListener('click', function() {
-            document.getElementById('gatewayInput').value = '';
-        });
-
-        // ─── СБОР ДАННЫХ ИЗ ФОРМЫ ──────────────────────────────────
-        function collectFormData() {
-            const id = document.getElementById('id').value.trim();
-            if (!id) { alert('ID обязателен'); return null; }
-            if (!/^[a-z0-9-]+$/.test(id)) { alert('ID только латиница, цифры и дефис'); return null; }
-
-            const name = document.getElementById('name').value.trim();
-            const price = document.getElementById('price').value.trim();
-            const system = document.getElementById('system').value.trim();
-            const weight = document.getElementById('weight').value.trim();
-            const badge = document.getElementById('badge').value.trim();
-            const badgeText = document.getElementById('badgeText').value.trim();
-            const goals = document.getElementById('goals').value.split(',').map(s => s.trim()).filter(Boolean);
-            const genres = document.getElementById('genres').value.split(',').map(s => s.trim()).filter(Boolean);
-            const budgetRange = document.getElementById('budgetRange').value.split(',').map(s => s.trim()).filter(Boolean);
-            const sensor = document.getElementById('sensor').value.trim();
-            const stabilization = document.getElementById('stabilization').value.trim();
-            const af = document.getElementById('af').value.trim();
-            const video = document.getElementById('video').value.trim();
-            const interchangeable = document.getElementById('interchangeable').value.trim().toLowerCase() === 'true';
-            const dualSlot = document.getElementById('dualSlot').value.trim().toLowerCase() === 'true';
-            const checkpoints = document.getElementById('checkpoints').value.split('\n').map(s => s.trim()).filter(Boolean);
-            const note = document.getElementById('note').value.trim();
-            const image = document.getElementById('image').value.trim();
-            const bonus = parseInt(document.getElementById('bonus').value) || 0;
-
-            return {
-                id,
-                name,
-                price,
-                system,
-                weight,
-                badge,
-                badgeText,
-                goals,
-                genres,
-                budgetRange,
-                sensor,
-                stabilization,
-                af,
-                video,
-                interchangeable,
-                dualSlot,
-                checkpoints,
-                note,
-                image,
-                bonus
-            };
-        }
-
-        // ─── TOAST ──────────────────────────────────────────────────
-        function showToast(msg) {
-            const toast = document.getElementById('toast');
-            toast.textContent = msg;
-            toast.classList.remove('hidden');
-            toast.classList.add('show');
-            setTimeout(() => {
-                toast.classList.remove('show');
-                toast.classList.add('hidden');
-            }, 4000);
-        }
-
-        // ─── ОБРАБОТЧИКИ СОРТИРОВКИ ──────────────────────────────────
+        // ─── СОРТИРОВКА (клики) ──────────────────────────────────────
         document.querySelectorAll('#tableHead th[data-sort]').forEach(th => {
             th.addEventListener('click', function() {
                 if (this.dataset.sort === 'actions') return;
