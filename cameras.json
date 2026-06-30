@@ -872,13 +872,11 @@
     {
       "id": "canon-r5",
       "name": "Canon EOS R5",
-      "price": "$3 900",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/8/88/Canon_EOS_R5.jpg",
-      "bonus": 0,
-      "badge": "badge-new",
-      "badgeText": "Новая",
+      "price": "$2250",
       "system": "canon",
       "weight": "moderate",
+      "badge": "badge-new",
+      "badgeText": "Новая",
       "goals": [
         "photo",
         "video",
@@ -909,9 +907,8 @@
         "AI AF"
       ],
       "note": "Универсальный флагман для студии.",
-      "categories": [
-        "studio"
-      ]
+      "image": "https://upload.wikimedia.org/wikipedia/commons/8/88/Canon_EOS_R5.jpg",
+      "bonus": 0
     },
     {
       "id": "canon-r5ii",
@@ -1251,10 +1248,12 @@
       "id": "canon-r50v",
       "name": "Canon EOS R50 V",
       "price": "$750",
-      "system": "canon",
-      "weight": "critical",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Breda_beeld_van_een_heilige_-_Sint-Antoniuskathedraal_2024-09-17.jpg",
+      "bonus": 0,
       "badge": "badge-new",
       "badgeText": "Новая",
+      "system": "canon",
+      "weight": "critical",
       "goals": [
         "video",
         "blog",
@@ -1283,8 +1282,9 @@
         "стриминг"
       ],
       "note": "Видео-версия R50 для блогеров.",
-      "image": "https://www.canon.com.au/-/media/images/canon/products/mirrorless-cameras/eos-r50-v/carousel-2-eosr50v-1400x960.jpg",
-      "bonus": 0
+      "categories": [
+        "video"
+      ]
     },
     {
       "id": "sony-a7cii",
