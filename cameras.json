@@ -880,13 +880,11 @@
     {
       "id": "canon-r5",
       "name": "Canon EOS R5",
-      "price": "$3 900",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/8/88/Canon_EOS_R5.jpg",
-      "bonus": 0,
-      "badge": "badge-new",
-      "badgeText": "Новая",
+      "price": "$3 250",
       "system": "canon",
       "weight": "moderate",
+      "badge": "badge-new",
+      "badgeText": "Новая",
       "goals": [
         "photo",
         "video",
@@ -917,9 +915,8 @@
         "AI AF"
       ],
       "note": "Универсальный флагман для студии.",
-      "categories": [
-        "studio"
-      ]
+      "image": "https://upload.wikimedia.org/wikipedia/commons/8/88/Canon_EOS_R5.jpg",
+      "bonus": 0
     },
     {
       "id": "canon-r5ii",
