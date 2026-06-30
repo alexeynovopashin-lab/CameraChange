@@ -37,7 +37,8 @@
         "поворотный экран"
       ],
       "note": "Фаворит для входа в фотографию. Простое меню, отличный JPG.",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Canon_Eos_Kiss_M_29_mar_2018d.jpg"
+      "image": "https://cdn.media.amplience.net/i/canon/eos-m50-fsl_800x500_d13b2840a8db43368af689aea7e1c913?$prod-gallery-1by1$",
+      "bonus": 0
     },
     {
       "id": "canon-700d",
@@ -1058,10 +1059,11 @@
       "id": "hasselblad-x2d",
       "name": "Hasselblad X2D 100C",
       "price": "$8 000",
-      "system": "hasselblad",
-      "weight": "moderate",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/5/51/IceCube_Neutrino_Observatory_in_2023_02.jpg",
       "badge": "badge-premium",
       "badgeText": "Премиум",
+      "system": "hasselblad",
+      "weight": "moderate",
       "goals": [
         "photo",
         "studio"
@@ -1087,8 +1089,10 @@
         "натуральные цвета"
       ],
       "note": "Флагман среднего формата.",
-      "image": "https://cdn.hasselblad.com/f/77891/1280x640/e233711803/buy-now.png",
-      "bonus": 0
+      "categories": [
+        "studio",
+        "premium"
+      ]
     },
     {
       "id": "hasselblad-x1dii",
