@@ -1058,11 +1058,10 @@
       "id": "hasselblad-x2d",
       "name": "Hasselblad X2D 100C",
       "price": "$8 000",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/5/51/IceCube_Neutrino_Observatory_in_2023_02.jpg",
-      "badge": "badge-premium",
-      "badgeText": "Премиум",
       "system": "hasselblad",
       "weight": "moderate",
+      "badge": "badge-premium",
+      "badgeText": "Премиум",
       "goals": [
         "photo",
         "studio"
@@ -1088,10 +1087,8 @@
         "натуральные цвета"
       ],
       "note": "Флагман среднего формата.",
-      "categories": [
-        "studio",
-        "premium"
-      ]
+      "image": "https://cdn.hasselblad.com/f/77891/1280x640/e233711803/buy-now.png",
+      "bonus": 0
     },
     {
       "id": "hasselblad-x1dii",
