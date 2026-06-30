@@ -242,7 +242,7 @@
         // ─── ЗАГРУЗКА ──────────────────────────────────────────────────
         async function loadCameras() {
             try {
-                const url = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/${FILE_PATH}`;
+                const url = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/${FILE_PATH}?t=${Date.now()}`;
                 const res = await fetch(url);
                 if (!res.ok) throw new Error('Не удалось загрузить файл');
                 const data = await res.json();
