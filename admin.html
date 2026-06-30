@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Админка — база камер</title>
     <style>
+        /* Стили такие же, как в предыдущей версии — не меняются */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: system-ui, sans-serif; background: #f5f5f5; padding: 2rem; max-width: 1200px; margin: 0 auto; }
         h1 { font-size: 2rem; margin-bottom: 1rem; }
@@ -181,11 +182,14 @@
                 cameras = data.cameras || [];
                 renderTable();
                 document.getElementById('status').textContent = `📸 Загружено ${cameras.length} камер`;
+                console.log('📥 Загружено камер:', cameras.length);
+                return cameras;
             } catch (e) {
                 console.error(e);
                 document.getElementById('status').textContent = '⚠️ Ошибка загрузки: ' + e.message;
                 document.getElementById('cameraTableBody').innerHTML =
                     `<tr><td colspan="6" style="text-align:center;color:#888;">${e.message}</td></tr>`;
+                return [];
             }
         }
 
@@ -314,6 +318,7 @@
                 };
                 if (sha) payload.sha = sha;
 
+                console.log('💾 Сохраняем в GitHub, камер:', cameras.length);
                 const commitRes = await fetch(url, {
                     method: 'PUT',
                     headers: {
@@ -328,11 +333,13 @@
                     throw new Error(err.message || 'Ошибка сохранения');
                 }
 
+                console.log('✅ Сохранение успешно');
                 showToast('✅ Изменения сохранены!');
                 cancelEdit();
-                loadCameras();
+                // Перезагружаем данные после сохранения, чтобы обновить таблицу
+                await loadCameras();
             } catch (e) {
-                console.error(e);
+                console.error('❌ Ошибка сохранения:', e);
                 showToast('❌ Ошибка: ' + e.message);
             }
         }
@@ -392,6 +399,9 @@
 
         // ─── МАССОВЫЙ ПОИСК КАРТИНОК ДЛЯ ВСЕХ КАМЕР ───────────────
         async function massFindImages() {
+            // Сначала перезагружаем свежие данные
+            await loadCameras();
+
             const withoutImage = cameras.filter(c => !c.image || c.image.trim() === '');
             if (withoutImage.length === 0) {
                 showToast('✅ У всех камер уже есть изображения!');
@@ -399,6 +409,7 @@
             }
 
             showToast(`🔍 Начинаю поиск для ${withoutImage.length} камер...`);
+            console.log(`🔍 Начинаю поиск для ${withoutImage.length} камер`);
             let found = 0;
 
             for (const cam of withoutImage) {
@@ -428,18 +439,27 @@
                     if (imageUrl) {
                         cam.image = imageUrl;
                         found++;
+                        console.log(`✅ Найдено для ${cameraName}: ${imageUrl}`);
                     }
                 } catch (e) {
-                    console.warn('Ошибка для ' + cameraName, e);
+                    console.warn('⚠️ Ошибка для ' + cameraName, e);
                 }
                 // Небольшая задержка, чтобы не перегружать API
                 await new Promise(r => setTimeout(r, 200));
             }
 
+            console.log(`🔍 Найдено изображений: ${found} из ${withoutImage.length}`);
+
             if (found > 0) {
                 showToast(`✅ Найдено изображений: ${found} из ${withoutImage.length}`);
-                await saveToGitHub(); // сохраняем изменения
-                loadCameras();
+                // Сохраняем изменения
+                await saveToGitHub();
+                // После сохранения loadCameras() уже вызвана внутри saveToGitHub,
+                // но на всякий случай перезагрузим ещё раз
+                await loadCameras();
+                // Показываем обновлённую таблицу
+                renderTable();
+                showToast(`✅ Добавлено ${found} изображений!`);
             } else {
                 showToast('❌ Не найдено ни одного изображения. Попробуйте уточнить названия.');
             }
