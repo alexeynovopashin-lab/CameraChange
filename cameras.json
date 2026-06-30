@@ -10,18 +10,40 @@
       "badgeText": "Б/У",
       "system": "canon",
       "weight": "critical",
-      "goals": ["photo", "video", "blog", "travel"],
-      "genres": ["portrait", "street", "vlog", "family"],
-      "budgetRange": ["low", "mid"],
+      "goals": [
+        "photo",
+        "video",
+        "blog",
+        "travel"
+      ],
+      "genres": [
+        "portrait",
+        "street",
+        "vlog",
+        "family"
+      ],
+      "budgetRange": [
+        "low",
+        "mid"
+      ],
       "sensor": "APS-C 24 Мп",
       "stabilization": "нет",
       "af": "Dual Pixel AF",
       "video": "4K",
       "interchangeable": true,
       "dualSlot": false,
-      "checkpoints": ["APS-C 24 Мп", "Dual Pixel AF", "откидной экран", "поворотный экран"],
+      "checkpoints": [
+        "APS-C 24 Мп",
+        "Dual Pixel AF",
+        "откидной экран",
+        "поворотный экран"
+      ],
       "note": "Фаворит для входа в фотографию. Простое меню, отличный JPG.",
-      "categories": ["entry", "universal", "video"]
+      "categories": [
+        "entry",
+        "universal",
+        "video"
+      ]
     },
     {
       "id": "canon-700d",
@@ -33,18 +55,33 @@
       "badgeText": "Б/У",
       "system": "canon",
       "weight": "moderate",
-      "goals": ["photo", "video"],
-      "genres": ["portrait", "landscape", "family"],
-      "budgetRange": ["low"],
+      "goals": [
+        "photo",
+        "video"
+      ],
+      "genres": [
+        "portrait",
+        "landscape",
+        "family"
+      ],
+      "budgetRange": [
+        "low"
+      ],
       "sensor": "APS-C 18 Мп",
       "stabilization": "нет",
       "af": "9 точек",
       "video": "Full HD",
       "interchangeable": true,
       "dualSlot": false,
-      "checkpoints": ["APS-C 18 Мп", "сенсорный экран", "поворотный экран"],
+      "checkpoints": [
+        "APS-C 18 Мп",
+        "сенсорный экран",
+        "поворотный экран"
+      ],
       "note": "Самый доступный вход, если денег совсем нет.",
-      "categories": ["entry"]
+      "categories": [
+        "entry"
+      ]
     },
     {
       "id": "canon-750d",
@@ -56,18 +93,33 @@
       "badgeText": "Б/У",
       "system": "canon",
       "weight": "moderate",
-      "goals": ["photo"],
-      "genres": ["portrait", "landscape", "family"],
-      "budgetRange": ["low", "mid"],
+      "goals": [
+        "photo"
+      ],
+      "genres": [
+        "portrait",
+        "landscape",
+        "family"
+      ],
+      "budgetRange": [
+        "low",
+        "mid"
+      ],
       "sensor": "APS-C 24 Мп",
       "stabilization": "нет",
       "af": "19 точек",
       "video": "Full HD",
       "interchangeable": true,
       "dualSlot": false,
-      "checkpoints": ["APS-C 24 Мп", "Wi-Fi", "поворотный экран"],
+      "checkpoints": [
+        "APS-C 24 Мп",
+        "Wi-Fi",
+        "поворотный экран"
+      ],
       "note": "Чуть дороже 700D, но с лучшим сенсором.",
-      "categories": ["entry"]
+      "categories": [
+        "entry"
+      ]
     },
     {
       "id": "canon-800d",
@@ -79,18 +131,34 @@
       "badgeText": "Б/У",
       "system": "canon",
       "weight": "moderate",
-      "goals": ["photo", "video"],
-      "genres": ["portrait", "landscape", "family"],
-      "budgetRange": ["low", "mid"],
+      "goals": [
+        "photo",
+        "video"
+      ],
+      "genres": [
+        "portrait",
+        "landscape",
+        "family"
+      ],
+      "budgetRange": [
+        "low",
+        "mid"
+      ],
       "sensor": "APS-C 24 Мп",
       "stabilization": "нет",
       "af": "Dual Pixel AF",
       "video": "Full HD",
       "interchangeable": true,
       "dualSlot": false,
-      "checkpoints": ["APS-C 24 Мп", "Dual Pixel AF", "Wi-Fi/Bluetooth"],
+      "checkpoints": [
+        "APS-C 24 Мп",
+        "Dual Pixel AF",
+        "Wi-Fi/Bluetooth"
+      ],
       "note": "Уже с Dual Pixel AF, хороший старт.",
-      "categories": ["entry"]
+      "categories": [
+        "entry"
+      ]
     },
     {
       "id": "fuji-xt5",
@@ -102,18 +170,40 @@
       "badgeText": "Новая",
       "system": "fujifilm",
       "weight": "critical",
-      "goals": ["photo", "video", "travel", "studio"],
-      "genres": ["portrait", "landscape", "street", "architecture", "wedding", "family", "nude"],
-      "budgetRange": ["very-high"],
+      "goals": [
+        "photo",
+        "video",
+        "travel",
+        "studio"
+      ],
+      "genres": [
+        "portrait",
+        "landscape",
+        "street",
+        "architecture",
+        "wedding",
+        "family",
+        "nude"
+      ],
+      "budgetRange": [
+        "very-high"
+      ],
       "sensor": "APS-C 40 Мп X-Trans",
       "stabilization": "IBIS 7 стопов",
       "af": "AI AF",
       "video": "6.2K",
       "interchangeable": true,
       "dualSlot": true,
-      "checkpoints": ["APS-C 40 Мп X-Trans", "IBIS 7 стопов", "6.2K видео", "плёночные симуляции"],
+      "checkpoints": [
+        "APS-C 40 Мп X-Trans",
+        "IBIS 7 стопов",
+        "6.2K видео",
+        "плёночные симуляции"
+      ],
       "note": "Топовый универсал для фото и видео.",
-      "categories": ["universal"]
+      "categories": [
+        "universal"
+      ]
     },
     {
       "id": "canon-5d4",
@@ -125,18 +215,38 @@
       "badgeText": "Б/У",
       "system": "canon",
       "weight": "moderate",
-      "goals": ["photo", "video", "studio"],
-      "genres": ["portrait", "landscape", "reportage", "wedding", "family", "nude"],
-      "budgetRange": ["high", "very-high"],
+      "goals": [
+        "photo",
+        "video",
+        "studio"
+      ],
+      "genres": [
+        "portrait",
+        "landscape",
+        "reportage",
+        "wedding",
+        "family",
+        "nude"
+      ],
+      "budgetRange": [
+        "high",
+        "very-high"
+      ],
       "sensor": "Full frame 30 Мп",
       "stabilization": "нет",
       "af": "61 точек",
       "video": "4K",
       "interchangeable": true,
       "dualSlot": true,
-      "checkpoints": ["Full frame 30 Мп", "61 точек AF", "профессиональная эргономика"],
+      "checkpoints": [
+        "Full frame 30 Мп",
+        "61 точек AF",
+        "профессиональная эргономика"
+      ],
       "note": "Золотой стандарт для профессионалов.",
-      "categories": ["universal"]
+      "categories": [
+        "universal"
+      ]
     },
     {
       "id": "canon-r6",
@@ -148,18 +258,38 @@
       "badgeText": "Новая",
       "system": "canon",
       "weight": "moderate",
-      "goals": ["photo", "video", "studio"],
-      "genres": ["portrait", "landscape", "reportage", "wedding", "family", "nude"],
-      "budgetRange": ["very-high"],
+      "goals": [
+        "photo",
+        "video",
+        "studio"
+      ],
+      "genres": [
+        "portrait",
+        "landscape",
+        "reportage",
+        "wedding",
+        "family",
+        "nude"
+      ],
+      "budgetRange": [
+        "very-high"
+      ],
       "sensor": "Full frame 20 Мп",
       "stabilization": "IBIS 8 стопов",
       "af": "AF",
       "video": "4K 60p",
       "interchangeable": true,
       "dualSlot": true,
-      "checkpoints": ["Full frame 20 Мп", "4K 60p", "IBIS 8 стопов", "AF"],
+      "checkpoints": [
+        "Full frame 20 Мп",
+        "4K 60p",
+        "IBIS 8 стопов",
+        "AF"
+      ],
       "note": "Универсал для любых задач.",
-      "categories": ["universal"]
+      "categories": [
+        "universal"
+      ]
     },
     {
       "id": "canon-r6iii",
@@ -171,18 +301,40 @@
       "badgeText": "Новая",
       "system": "canon",
       "weight": "moderate",
-      "goals": ["photo", "video", "studio", "sport"],
-      "genres": ["portrait", "landscape", "reportage", "sport", "wedding", "family", "nude"],
-      "budgetRange": ["very-high"],
+      "goals": [
+        "photo",
+        "video",
+        "studio",
+        "sport"
+      ],
+      "genres": [
+        "portrait",
+        "landscape",
+        "reportage",
+        "sport",
+        "wedding",
+        "family",
+        "nude"
+      ],
+      "budgetRange": [
+        "very-high"
+      ],
       "sensor": "Full frame 24 Мп",
       "stabilization": "IBIS 8.5 стопов",
       "af": "AI AF",
       "video": "6K",
       "interchangeable": true,
       "dualSlot": true,
-      "checkpoints": ["Full frame 24 Мп", "50 к/с", "6K видео", "IBIS"],
+      "checkpoints": [
+        "Full frame 24 Мп",
+        "50 к/с",
+        "6K видео",
+        "IBIS"
+      ],
       "note": "Топовый универсал.",
-      "categories": ["universal"]
+      "categories": [
+        "universal"
+      ]
     },
     {
       "id": "nikon-d750",
@@ -194,18 +346,36 @@
       "badgeText": "Б/У",
       "system": "nikon",
       "weight": "moderate",
-      "goals": ["photo", "video"],
-      "genres": ["portrait", "landscape", "reportage", "wedding", "family"],
-      "budgetRange": ["high", "very-high"],
+      "goals": [
+        "photo",
+        "video"
+      ],
+      "genres": [
+        "portrait",
+        "landscape",
+        "reportage",
+        "wedding",
+        "family"
+      ],
+      "budgetRange": [
+        "high",
+        "very-high"
+      ],
       "sensor": "Full frame 24 Мп",
       "stabilization": "нет",
       "af": "51 точек",
       "video": "Full HD",
       "interchangeable": true,
       "dualSlot": true,
-      "checkpoints": ["Full frame 24 Мп", "6.5 к/с", "отличный динамический диапазон"],
+      "checkpoints": [
+        "Full frame 24 Мп",
+        "6.5 к/с",
+        "отличный динамический диапазон"
+      ],
       "note": "Популярный полный кадр.",
-      "categories": ["universal"]
+      "categories": [
+        "universal"
+      ]
     },
     {
       "id": "nikon-d850",
@@ -217,18 +387,37 @@
       "badgeText": "Б/У",
       "system": "nikon",
       "weight": "moderate",
-      "goals": ["photo", "studio"],
-      "genres": ["portrait", "landscape", "architecture", "wedding", "family", "nude"],
-      "budgetRange": ["very-high"],
+      "goals": [
+        "photo",
+        "studio"
+      ],
+      "genres": [
+        "portrait",
+        "landscape",
+        "architecture",
+        "wedding",
+        "family",
+        "nude"
+      ],
+      "budgetRange": [
+        "very-high"
+      ],
       "sensor": "Full frame 45.7 Мп",
       "stabilization": "нет",
       "af": "153 точек",
       "video": "4K",
       "interchangeable": true,
       "dualSlot": true,
-      "checkpoints": ["Full frame 45.7 Мп", "7 к/с", "4K", "прочный корпус"],
+      "checkpoints": [
+        "Full frame 45.7 Мп",
+        "7 к/с",
+        "4K",
+        "прочный корпус"
+      ],
       "note": "Одна из лучших зеркалок.",
-      "categories": ["universal"]
+      "categories": [
+        "universal"
+      ]
     },
     {
       "id": "sony-a7iii",
@@ -240,18 +429,38 @@
       "badgeText": "Б/У",
       "system": "sony",
       "weight": "moderate",
-      "goals": ["photo", "video", "studio"],
-      "genres": ["portrait", "landscape", "reportage", "wedding", "family", "nude"],
-      "budgetRange": ["high", "very-high"],
+      "goals": [
+        "photo",
+        "video",
+        "studio"
+      ],
+      "genres": [
+        "portrait",
+        "landscape",
+        "reportage",
+        "wedding",
+        "family",
+        "nude"
+      ],
+      "budgetRange": [
+        "high",
+        "very-high"
+      ],
       "sensor": "Full frame 24 Мп",
       "stabilization": "IBIS",
       "af": "693 точек",
       "video": "4K 30p, S-Log3",
       "interchangeable": true,
       "dualSlot": true,
-      "checkpoints": ["Full frame 24 Мп", "4K 30p, S-Log3", "693 точек AF"],
+      "checkpoints": [
+        "Full frame 24 Мп",
+        "4K 30p, S-Log3",
+        "693 точек AF"
+      ],
       "note": "Легендарный гибрид.",
-      "categories": ["universal"]
+      "categories": [
+        "universal"
+      ]
     },
     {
       "id": "ricoh-gr3",
@@ -263,18 +472,37 @@
       "badgeText": "Компакт",
       "system": "other",
       "weight": "critical",
-      "goals": ["photo", "travel", "street"],
-      "genres": ["street", "landscape", "portrait"],
-      "budgetRange": ["high", "very-high", "premium"],
+      "goals": [
+        "photo",
+        "travel",
+        "street"
+      ],
+      "genres": [
+        "street",
+        "landscape",
+        "portrait"
+      ],
+      "budgetRange": [
+        "high",
+        "very-high",
+        "premium"
+      ],
       "sensor": "APS-C 24 Мп",
       "stabilization": "IBIS",
       "af": "AF",
       "video": "Full HD",
       "interchangeable": false,
       "dualSlot": false,
-      "checkpoints": ["APS-C 24 Мп", "IBIS", "28mm f/2.8", "карманный"],
+      "checkpoints": [
+        "APS-C 24 Мп",
+        "IBIS",
+        "28mm f/2.8",
+        "карманный"
+      ],
       "note": "Легендарный карманный стрит.",
-      "categories": ["street"]
+      "categories": [
+        "street"
+      ]
     },
     {
       "id": "ricoh-gr4",
@@ -286,18 +514,36 @@
       "badgeText": "Новая",
       "system": "other",
       "weight": "critical",
-      "goals": ["photo", "travel", "street"],
-      "genres": ["street", "landscape", "portrait"],
-      "budgetRange": ["very-high", "premium"],
+      "goals": [
+        "photo",
+        "travel",
+        "street"
+      ],
+      "genres": [
+        "street",
+        "landscape",
+        "portrait"
+      ],
+      "budgetRange": [
+        "very-high",
+        "premium"
+      ],
       "sensor": "APS-C 26 Мп",
       "stabilization": "IBIS",
       "af": "AI AF",
       "video": "4K",
       "interchangeable": false,
       "dualSlot": false,
-      "checkpoints": ["APS-C 26 Мп", "IBIS", "AI AF", "компактный"],
+      "checkpoints": [
+        "APS-C 26 Мп",
+        "IBIS",
+        "AI AF",
+        "компактный"
+      ],
       "note": "Новейший GR — идеальный стрит.",
-      "categories": ["street"]
+      "categories": [
+        "street"
+      ]
     },
     {
       "id": "fuji-xt30",
@@ -309,18 +555,37 @@
       "badgeText": "Б/У",
       "system": "fujifilm",
       "weight": "critical",
-      "goals": ["photo", "travel", "street"],
-      "genres": ["street", "portrait", "landscape", "family"],
-      "budgetRange": ["mid", "high"],
+      "goals": [
+        "photo",
+        "travel",
+        "street"
+      ],
+      "genres": [
+        "street",
+        "portrait",
+        "landscape",
+        "family"
+      ],
+      "budgetRange": [
+        "mid",
+        "high"
+      ],
       "sensor": "APS-C 26 Мп X-Trans",
       "stabilization": "нет",
       "af": "AF",
       "video": "4K 30p",
       "interchangeable": true,
       "dualSlot": false,
-      "checkpoints": ["APS-C 26 Мп X-Trans", "компактный", "плёночные симуляции", "4K 30p"],
+      "checkpoints": [
+        "APS-C 26 Мп X-Trans",
+        "компактный",
+        "плёночные симуляции",
+        "4K 30p"
+      ],
       "note": "Компактная беззеркалка Fuji для стрита и путешествий.",
-      "categories": ["street"]
+      "categories": [
+        "street"
+      ]
     },
     {
       "id": "fuji-xt30ii",
@@ -332,18 +597,38 @@
       "badgeText": "Новая",
       "system": "fujifilm",
       "weight": "critical",
-      "goals": ["photo", "travel", "street"],
-      "genres": ["street", "portrait", "landscape", "family"],
-      "budgetRange": ["mid", "high", "very-high"],
+      "goals": [
+        "photo",
+        "travel",
+        "street"
+      ],
+      "genres": [
+        "street",
+        "portrait",
+        "landscape",
+        "family"
+      ],
+      "budgetRange": [
+        "mid",
+        "high",
+        "very-high"
+      ],
       "sensor": "APS-C 26 Мп X-Trans",
       "stabilization": "нет",
       "af": "AF (улучшенный)",
       "video": "4K 30p",
       "interchangeable": true,
       "dualSlot": false,
-      "checkpoints": ["APS-C 26 Мп X-Trans", "компактный", "улучшенный AF", "плёночные симуляции"],
+      "checkpoints": [
+        "APS-C 26 Мп X-Trans",
+        "компактный",
+        "улучшенный AF",
+        "плёночные симуляции"
+      ],
       "note": "Обновлённая версия X-T30 с лучшим автофокусом.",
-      "categories": ["street"]
+      "categories": [
+        "street"
+      ]
     },
     {
       "id": "fuji-x100v",
@@ -355,18 +640,37 @@
       "badgeText": "Новая",
       "system": "fujifilm",
       "weight": "critical",
-      "goals": ["photo", "travel", "street"],
-      "genres": ["street", "portrait", "landscape", "family"],
-      "budgetRange": ["very-high", "premium"],
+      "goals": [
+        "photo",
+        "travel",
+        "street"
+      ],
+      "genres": [
+        "street",
+        "portrait",
+        "landscape",
+        "family"
+      ],
+      "budgetRange": [
+        "very-high",
+        "premium"
+      ],
       "sensor": "APS-C 26 Мп X-Trans",
       "stabilization": "нет",
       "af": "AF",
       "video": "4K",
       "interchangeable": false,
       "dualSlot": false,
-      "checkpoints": ["APS-C 26 Мп X-Trans", "23mm f/2", "гибридный видоискатель", "плёночные симуляции"],
+      "checkpoints": [
+        "APS-C 26 Мп X-Trans",
+        "23mm f/2",
+        "гибридный видоискатель",
+        "плёночные симуляции"
+      ],
       "note": "Культовый стрит с отличным JPG.",
-      "categories": ["street"]
+      "categories": [
+        "street"
+      ]
     },
     {
       "id": "fuji-x100vi",
@@ -378,18 +682,37 @@
       "badgeText": "Новая",
       "system": "fujifilm",
       "weight": "critical",
-      "goals": ["photo", "travel", "street"],
-      "genres": ["street", "portrait", "landscape", "family"],
-      "budgetRange": ["very-high", "premium"],
+      "goals": [
+        "photo",
+        "travel",
+        "street"
+      ],
+      "genres": [
+        "street",
+        "portrait",
+        "landscape",
+        "family"
+      ],
+      "budgetRange": [
+        "very-high",
+        "premium"
+      ],
       "sensor": "APS-C 40 Мп X-Trans",
       "stabilization": "IBIS",
       "af": "AI AF",
       "video": "4K",
       "interchangeable": false,
       "dualSlot": false,
-      "checkpoints": ["APS-C 40 Мп X-Trans", "IBIS", "23mm f/2", "AI AF"],
+      "checkpoints": [
+        "APS-C 40 Мп X-Trans",
+        "IBIS",
+        "23mm f/2",
+        "AI AF"
+      ],
       "note": "Новое поколение X100 с IBIS.",
-      "categories": ["street"]
+      "categories": [
+        "street"
+      ]
     },
     {
       "id": "leica-q2",
@@ -401,18 +724,35 @@
       "badgeText": "Премиум",
       "system": "leica",
       "weight": "critical",
-      "goals": ["photo", "travel", "street"],
-      "genres": ["street", "portrait", "landscape"],
-      "budgetRange": ["premium"],
+      "goals": [
+        "photo",
+        "travel",
+        "street"
+      ],
+      "genres": [
+        "street",
+        "portrait",
+        "landscape"
+      ],
+      "budgetRange": [
+        "premium"
+      ],
       "sensor": "Full frame 47 Мп",
       "stabilization": "нет",
       "af": "AF",
       "video": "4K",
       "interchangeable": false,
       "dualSlot": false,
-      "checkpoints": ["Full frame 47 Мп", "28mm f/1.7", "погодозащита"],
+      "checkpoints": [
+        "Full frame 47 Мп",
+        "28mm f/1.7",
+        "погодозащита"
+      ],
       "note": "Компактный полнокадровый премиум.",
-      "categories": ["street", "premium"]
+      "categories": [
+        "street",
+        "premium"
+      ]
     },
     {
       "id": "leica-q3",
@@ -424,18 +764,35 @@
       "badgeText": "Премиум",
       "system": "leica",
       "weight": "critical",
-      "goals": ["photo", "travel", "street"],
-      "genres": ["street", "portrait", "landscape"],
-      "budgetRange": ["premium"],
+      "goals": [
+        "photo",
+        "travel",
+        "street"
+      ],
+      "genres": [
+        "street",
+        "portrait",
+        "landscape"
+      ],
+      "budgetRange": [
+        "premium"
+      ],
       "sensor": "Full frame 60 Мп",
       "stabilization": "нет",
       "af": "AF",
       "video": "8K",
       "interchangeable": false,
       "dualSlot": false,
-      "checkpoints": ["Full frame 60 Мп", "28mm f/1.7", "8K видео"],
+      "checkpoints": [
+        "Full frame 60 Мп",
+        "28mm f/1.7",
+        "8K видео"
+      ],
       "note": "Новый флагман компактных Leica.",
-      "categories": ["street", "premium"]
+      "categories": [
+        "street",
+        "premium"
+      ]
     },
     {
       "id": "leica-m11",
@@ -447,18 +804,34 @@
       "badgeText": "Премиум",
       "system": "leica",
       "weight": "moderate",
-      "goals": ["photo", "street"],
-      "genres": ["street", "portrait", "reportage"],
-      "budgetRange": ["premium"],
+      "goals": [
+        "photo",
+        "street"
+      ],
+      "genres": [
+        "street",
+        "portrait",
+        "reportage"
+      ],
+      "budgetRange": [
+        "premium"
+      ],
       "sensor": "Full frame 60 Мп",
       "stabilization": "нет",
       "af": "ручной",
       "video": "нет",
       "interchangeable": true,
       "dualSlot": false,
-      "checkpoints": ["Full frame 60 Мп", "дальномер", "компактный"],
+      "checkpoints": [
+        "Full frame 60 Мп",
+        "дальномер",
+        "компактный"
+      ],
       "note": "Классическая дальномерная Leica.",
-      "categories": ["street", "premium"]
+      "categories": [
+        "street",
+        "premium"
+      ]
     },
     {
       "id": "iphone-16pro",
@@ -470,41 +843,80 @@
       "badgeText": "Смартфон",
       "system": "other",
       "weight": "critical",
-      "goals": ["photo", "video", "blog", "travel"],
-      "genres": ["street", "portrait", "landscape", "family", "vlog"],
-      "budgetRange": ["very-high", "premium"],
+      "goals": [
+        "photo",
+        "video",
+        "blog",
+        "travel"
+      ],
+      "genres": [
+        "street",
+        "portrait",
+        "landscape",
+        "family",
+        "vlog"
+      ],
+      "budgetRange": [
+        "very-high",
+        "premium"
+      ],
       "sensor": "48 Мп",
       "stabilization": "IBIS",
       "af": "AF",
       "video": "4K 120p ProRes",
       "interchangeable": false,
       "dualSlot": false,
-      "checkpoints": ["48 Мп", "4K 120p ProRes", "Dazz Cam", "Blackmagic"],
+      "checkpoints": [
+        "48 Мп",
+        "4K 120p ProRes",
+        "Dazz Cam",
+        "Blackmagic"
+      ],
       "note": "Смартфон с профессиональными приложениями.",
-      "categories": ["street"]
+      "categories": [
+        "street"
+      ]
     },
     {
       "id": "canon-r5",
       "name": "Canon EOS R5",
-      "price": "$3 900",
-      "image": "",
-      "bonus": 0,
-      "badge": "badge-new",
-      "badgeText": "Новая",
+      "price": "$3 215",
       "system": "canon",
       "weight": "moderate",
-      "goals": ["photo", "video", "studio"],
-      "genres": ["portrait", "landscape", "reportage", "architecture", "wedding", "family", "nude"],
-      "budgetRange": ["premium"],
+      "badge": "badge-bu",
+      "badgeText": "Новая",
+      "goals": [
+        "photo",
+        "video",
+        "studio"
+      ],
+      "genres": [
+        "portrait",
+        "landscape",
+        "reportage",
+        "architecture",
+        "wedding",
+        "family",
+        "nude"
+      ],
+      "budgetRange": [
+        "premium"
+      ],
       "sensor": "Full frame 45 Мп",
       "stabilization": "IBIS 8 стопов",
       "af": "AI AF",
       "video": "8K RAW",
       "interchangeable": true,
       "dualSlot": true,
-      "checkpoints": ["Full frame 45 Мп", "8K RAW", "IBIS 8 стопов", "AI AF"],
+      "checkpoints": [
+        "Full frame 45 Мп",
+        "8K RAW",
+        "IBIS 8 стопов",
+        "AI AF"
+      ],
       "note": "Универсальный флагман для студии.",
-      "categories": ["studio"]
+      "image": "https://upload.wikimedia.org/wikipedia/commons/8/88/Canon_EOS_R5.jpg",
+      "bonus": 0
     },
     {
       "id": "canon-r5ii",
@@ -516,18 +928,40 @@
       "badgeText": "Новая",
       "system": "canon",
       "weight": "moderate",
-      "goals": ["photo", "video", "studio", "sport"],
-      "genres": ["portrait", "landscape", "reportage", "sport", "wedding", "family", "nude"],
-      "budgetRange": ["premium"],
+      "goals": [
+        "photo",
+        "video",
+        "studio",
+        "sport"
+      ],
+      "genres": [
+        "portrait",
+        "landscape",
+        "reportage",
+        "sport",
+        "wedding",
+        "family",
+        "nude"
+      ],
+      "budgetRange": [
+        "premium"
+      ],
       "sensor": "Full frame 45 Мп",
       "stabilization": "IBIS 8.5 стопов",
       "af": "AI AF",
       "video": "8K 60p",
       "interchangeable": true,
       "dualSlot": true,
-      "checkpoints": ["Full frame 45 Мп", "8K 60p", "IBIS 8.5 стопов", "AI AF"],
+      "checkpoints": [
+        "Full frame 45 Мп",
+        "8K 60p",
+        "IBIS 8.5 стопов",
+        "AI AF"
+      ],
       "note": "Новый флагман с улучшенным видео.",
-      "categories": ["studio"]
+      "categories": [
+        "studio"
+      ]
     },
     {
       "id": "sony-a7rv",
@@ -539,18 +973,35 @@
       "badgeText": "Новая",
       "system": "sony",
       "weight": "moderate",
-      "goals": ["photo", "studio"],
-      "genres": ["portrait", "landscape", "architecture", "nude"],
-      "budgetRange": ["premium"],
+      "goals": [
+        "photo",
+        "studio"
+      ],
+      "genres": [
+        "portrait",
+        "landscape",
+        "architecture",
+        "nude"
+      ],
+      "budgetRange": [
+        "premium"
+      ],
       "sensor": "Full frame 61 Мп",
       "stabilization": "IBIS",
       "af": "AI AF",
       "video": "8K",
       "interchangeable": true,
       "dualSlot": true,
-      "checkpoints": ["Full frame 61 Мп", "8K", "AI AF", "IBIS"],
+      "checkpoints": [
+        "Full frame 61 Мп",
+        "8K",
+        "AI AF",
+        "IBIS"
+      ],
       "note": "Король разрешения для студии.",
-      "categories": ["studio"]
+      "categories": [
+        "studio"
+      ]
     },
     {
       "id": "nikon-z8",
@@ -562,18 +1013,40 @@
       "badgeText": "Новая",
       "system": "nikon",
       "weight": "moderate",
-      "goals": ["photo", "video", "studio", "sport"],
-      "genres": ["portrait", "landscape", "reportage", "sport", "wedding", "family", "nude"],
-      "budgetRange": ["premium"],
+      "goals": [
+        "photo",
+        "video",
+        "studio",
+        "sport"
+      ],
+      "genres": [
+        "portrait",
+        "landscape",
+        "reportage",
+        "sport",
+        "wedding",
+        "family",
+        "nude"
+      ],
+      "budgetRange": [
+        "premium"
+      ],
       "sensor": "Full frame 45.7 Мп",
       "stabilization": "IBIS",
       "af": "AI AF",
       "video": "8K 60p RAW",
       "interchangeable": true,
       "dualSlot": true,
-      "checkpoints": ["Full frame 45.7 Мп", "8K 60p RAW", "20 к/с", "AI AF"],
+      "checkpoints": [
+        "Full frame 45.7 Мп",
+        "8K 60p RAW",
+        "20 к/с",
+        "AI AF"
+      ],
       "note": "Компактный флагман Nikon.",
-      "categories": ["studio"]
+      "categories": [
+        "studio"
+      ]
     },
     {
       "id": "fuji-gfx100sii",
@@ -585,18 +1058,35 @@
       "badgeText": "Новая",
       "system": "fujifilm",
       "weight": "critical",
-      "goals": ["photo", "studio", "travel"],
-      "genres": ["portrait", "landscape", "architecture", "nude"],
-      "budgetRange": ["premium"],
+      "goals": [
+        "photo",
+        "studio",
+        "travel"
+      ],
+      "genres": [
+        "portrait",
+        "landscape",
+        "architecture",
+        "nude"
+      ],
+      "budgetRange": [
+        "premium"
+      ],
       "sensor": "Средний формат 102 Мп",
       "stabilization": "IBIS",
       "af": "AI AF",
       "video": "4K",
       "interchangeable": true,
       "dualSlot": true,
-      "checkpoints": ["Средний формат 102 Мп", "IBIS", "компактный"],
+      "checkpoints": [
+        "Средний формат 102 Мп",
+        "IBIS",
+        "компактный"
+      ],
       "note": "Компактный среднеформат Fuji.",
-      "categories": ["studio"]
+      "categories": [
+        "studio"
+      ]
     },
     {
       "id": "hasselblad-x2d",
@@ -608,18 +1098,35 @@
       "badgeText": "Премиум",
       "system": "hasselblad",
       "weight": "moderate",
-      "goals": ["photo", "studio"],
-      "genres": ["portrait", "landscape", "architecture", "nude"],
-      "budgetRange": ["premium"],
+      "goals": [
+        "photo",
+        "studio"
+      ],
+      "genres": [
+        "portrait",
+        "landscape",
+        "architecture",
+        "nude"
+      ],
+      "budgetRange": [
+        "premium"
+      ],
       "sensor": "Средний формат 100 Мп",
       "stabilization": "IBIS",
       "af": "AF",
       "video": "нет",
       "interchangeable": true,
       "dualSlot": true,
-      "checkpoints": ["Средний формат 100 Мп", "IBIS", "натуральные цвета"],
+      "checkpoints": [
+        "Средний формат 100 Мп",
+        "IBIS",
+        "натуральные цвета"
+      ],
       "note": "Флагман среднего формата.",
-      "categories": ["studio", "premium"]
+      "categories": [
+        "studio",
+        "premium"
+      ]
     },
     {
       "id": "hasselblad-x1dii",
@@ -631,18 +1138,36 @@
       "badgeText": "Премиум",
       "system": "hasselblad",
       "weight": "critical",
-      "goals": ["photo", "studio", "travel"],
-      "genres": ["portrait", "landscape", "architecture", "nude"],
-      "budgetRange": ["premium"],
+      "goals": [
+        "photo",
+        "studio",
+        "travel"
+      ],
+      "genres": [
+        "portrait",
+        "landscape",
+        "architecture",
+        "nude"
+      ],
+      "budgetRange": [
+        "premium"
+      ],
       "sensor": "Средний формат 50 Мп",
       "stabilization": "нет",
       "af": "AF",
       "video": "нет",
       "interchangeable": true,
       "dualSlot": true,
-      "checkpoints": ["Средний формат 50 Мп", "компактный", "цвет"],
+      "checkpoints": [
+        "Средний формат 50 Мп",
+        "компактный",
+        "цвет"
+      ],
       "note": "Компактный среднеформат.",
-      "categories": ["studio", "premium"]
+      "categories": [
+        "studio",
+        "premium"
+      ]
     },
     {
       "id": "dji-pocket3",
@@ -654,18 +1179,36 @@
       "badgeText": "Видео",
       "system": "other",
       "weight": "critical",
-      "goals": ["video", "blog", "travel"],
-      "genres": ["vlog", "street"],
-      "budgetRange": ["mid", "high", "very-high"],
+      "goals": [
+        "video",
+        "blog",
+        "travel"
+      ],
+      "genres": [
+        "vlog",
+        "street"
+      ],
+      "budgetRange": [
+        "mid",
+        "high",
+        "very-high"
+      ],
       "sensor": "1\" 10 Мп",
       "stabilization": "IBIS",
       "af": "AF",
       "video": "4K 120p",
       "interchangeable": false,
       "dualSlot": false,
-      "checkpoints": ["стабилизатор", "1\" сенсор", "4K 120p", "автофокус"],
+      "checkpoints": [
+        "стабилизатор",
+        "1\" сенсор",
+        "4K 120p",
+        "автофокус"
+      ],
       "note": "Идеален для влогов.",
-      "categories": ["video"]
+      "categories": [
+        "video"
+      ]
     },
     {
       "id": "sony-zve10",
@@ -677,18 +1220,37 @@
       "badgeText": "Новая",
       "system": "sony",
       "weight": "critical",
-      "goals": ["video", "blog", "travel"],
-      "genres": ["vlog", "portrait", "street", "family"],
-      "budgetRange": ["mid", "high"],
+      "goals": [
+        "video",
+        "blog",
+        "travel"
+      ],
+      "genres": [
+        "vlog",
+        "portrait",
+        "street",
+        "family"
+      ],
+      "budgetRange": [
+        "mid",
+        "high"
+      ],
       "sensor": "APS-C 24 Мп",
       "stabilization": "нет",
       "af": "AF",
       "video": "4K",
       "interchangeable": true,
       "dualSlot": false,
-      "checkpoints": ["APS-C 24 Мп", "4K", "откидной экран", "микрофон"],
+      "checkpoints": [
+        "APS-C 24 Мп",
+        "4K",
+        "откидной экран",
+        "микрофон"
+      ],
       "note": "Специально для блогеров.",
-      "categories": ["video"]
+      "categories": [
+        "video"
+      ]
     },
     {
       "id": "canon-r50v",
@@ -700,18 +1262,37 @@
       "badgeText": "Новая",
       "system": "canon",
       "weight": "critical",
-      "goals": ["video", "blog", "travel"],
-      "genres": ["vlog", "street", "portrait", "family"],
-      "budgetRange": ["mid", "high"],
+      "goals": [
+        "video",
+        "blog",
+        "travel"
+      ],
+      "genres": [
+        "vlog",
+        "street",
+        "portrait",
+        "family"
+      ],
+      "budgetRange": [
+        "mid",
+        "high"
+      ],
       "sensor": "APS-C 24 Мп",
       "stabilization": "нет",
       "af": "AF",
       "video": "4K 60p",
       "interchangeable": true,
       "dualSlot": false,
-      "checkpoints": ["APS-C 24 Мп", "4K 60p", "откидной экран", "стриминг"],
+      "checkpoints": [
+        "APS-C 24 Мп",
+        "4K 60p",
+        "откидной экран",
+        "стриминг"
+      ],
       "note": "Видео-версия R50 для блогеров.",
-      "categories": ["video"]
+      "categories": [
+        "video"
+      ]
     },
     {
       "id": "sony-a7cii",
@@ -723,18 +1304,37 @@
       "badgeText": "Новая",
       "system": "sony",
       "weight": "critical",
-      "goals": ["photo", "video", "travel", "blog"],
-      "genres": ["portrait", "street", "family"],
-      "budgetRange": ["very-high", "premium"],
+      "goals": [
+        "photo",
+        "video",
+        "travel",
+        "blog"
+      ],
+      "genres": [
+        "portrait",
+        "street",
+        "family"
+      ],
+      "budgetRange": [
+        "very-high",
+        "premium"
+      ],
       "sensor": "Full frame 33 Мп",
       "stabilization": "IBIS",
       "af": "AF",
       "video": "4K 60p",
       "interchangeable": true,
       "dualSlot": true,
-      "checkpoints": ["Full frame 33 Мп", "IBIS", "4K 60p", "компактный"],
+      "checkpoints": [
+        "Full frame 33 Мп",
+        "IBIS",
+        "4K 60p",
+        "компактный"
+      ],
       "note": "Компактный полный кадр для блогов.",
-      "categories": ["video"]
+      "categories": [
+        "video"
+      ]
     },
     {
       "id": "fuji-xs20",
@@ -746,18 +1346,38 @@
       "badgeText": "Новая",
       "system": "fujifilm",
       "weight": "critical",
-      "goals": ["photo", "video", "travel", "blog"],
-      "genres": ["portrait", "landscape", "street", "vlog", "family"],
-      "budgetRange": ["very-high"],
+      "goals": [
+        "photo",
+        "video",
+        "travel",
+        "blog"
+      ],
+      "genres": [
+        "portrait",
+        "landscape",
+        "street",
+        "vlog",
+        "family"
+      ],
+      "budgetRange": [
+        "very-high"
+      ],
       "sensor": "APS-C 26 Мп X-Trans",
       "stabilization": "IBIS",
       "af": "AI AF",
       "video": "6.2K",
       "interchangeable": true,
       "dualSlot": true,
-      "checkpoints": ["APS-C 26 Мп X-Trans", "IBIS", "6.2K", "AI AF"],
+      "checkpoints": [
+        "APS-C 26 Мп X-Trans",
+        "IBIS",
+        "6.2K",
+        "AI AF"
+      ],
       "note": "Современный гибрид для блогов.",
-      "categories": ["video"]
+      "categories": [
+        "video"
+      ]
     },
     {
       "id": "pana-gh6",
@@ -769,18 +1389,34 @@
       "badgeText": "Новая",
       "system": "panasonic",
       "weight": "moderate",
-      "goals": ["video", "studio"],
-      "genres": ["documentary", "reportage"],
-      "budgetRange": ["very-high", "premium"],
+      "goals": [
+        "video",
+        "studio"
+      ],
+      "genres": [
+        "documentary",
+        "reportage"
+      ],
+      "budgetRange": [
+        "very-high",
+        "premium"
+      ],
       "sensor": "MFT 25 Мп",
       "stabilization": "IBIS",
       "af": "AF",
       "video": "5.7K 60p, ProRes",
       "interchangeable": true,
       "dualSlot": true,
-      "checkpoints": ["MFT 25 Мп", "5.7K 60p, ProRes", "IBIS", "вентилятор"],
+      "checkpoints": [
+        "MFT 25 Мп",
+        "5.7K 60p, ProRes",
+        "IBIS",
+        "вентилятор"
+      ],
       "note": "Видео-флагман для профессионалов.",
-      "categories": ["video"]
+      "categories": [
+        "video"
+      ]
     },
     {
       "id": "pana-gh5",
@@ -792,18 +1428,34 @@
       "badgeText": "Б/У",
       "system": "panasonic",
       "weight": "moderate",
-      "goals": ["video", "studio"],
-      "genres": ["reportage", "documentary"],
-      "budgetRange": ["high", "very-high"],
+      "goals": [
+        "video",
+        "studio"
+      ],
+      "genres": [
+        "reportage",
+        "documentary"
+      ],
+      "budgetRange": [
+        "high",
+        "very-high"
+      ],
       "sensor": "MFT 20 Мп",
       "stabilization": "IBIS",
       "af": "AF",
       "video": "4K 60p, V-Log",
       "interchangeable": true,
       "dualSlot": true,
-      "checkpoints": ["MFT 20 Мп", "4K 60p, V-Log", "IBIS", "прочный корпус"],
+      "checkpoints": [
+        "MFT 20 Мп",
+        "4K 60p, V-Log",
+        "IBIS",
+        "прочный корпус"
+      ],
       "note": "Легендарная видео-камера.",
-      "categories": ["video"]
+      "categories": [
+        "video"
+      ]
     }
   ]
 }
