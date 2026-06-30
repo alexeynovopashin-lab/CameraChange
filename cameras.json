@@ -3,13 +3,11 @@
     {
       "id": "canon-m50",
       "name": "Canon EOS M50",
-      "price": "$200–350",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Canon_Eos_Kiss_M_29_mar_2018d.jpg",
-      "bonus": 0,
-      "badge": "badge-bu",
-      "badgeText": "Б/У",
+      "price": "$200–300",
       "system": "canon",
       "weight": "critical",
+      "badge": "badge-bu",
+      "badgeText": "Б/У",
       "goals": [
         "photo",
         "video",
@@ -39,11 +37,8 @@
         "поворотный экран"
       ],
       "note": "Фаворит для входа в фотографию. Простое меню, отличный JPG.",
-      "categories": [
-        "entry",
-        "universal",
-        "video"
-      ]
+      "image": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Canon_Eos_Kiss_M_29_mar_2018d.jpg",
+      "bonus": 0
     },
     {
       "id": "canon-700d",
