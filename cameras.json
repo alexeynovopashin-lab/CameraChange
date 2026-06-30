@@ -48,13 +48,11 @@
     {
       "id": "canon-700d",
       "name": "Canon EOS 700D",
-      "price": "$200–320",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Panoramakopf_mit_Canon_EOS_700D_IMG_4886.jpg",
-      "bonus": 0,
-      "badge": "badge-bu",
-      "badgeText": "Б/У",
+      "price": "$200–300",
       "system": "canon",
       "weight": "moderate",
+      "badge": "badge-bu",
+      "badgeText": "Б/У",
       "goals": [
         "photo",
         "video"
@@ -79,9 +77,8 @@
         "поворотный экран"
       ],
       "note": "Самый доступный вход, если денег совсем нет.",
-      "categories": [
-        "entry"
-      ]
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Panoramakopf_mit_Canon_EOS_700D_IMG_4886.jpg",
+      "bonus": 0
     },
     {
       "id": "canon-750d",
@@ -880,11 +877,13 @@
     {
       "id": "canon-r5",
       "name": "Canon EOS R5",
-      "price": "$3 250",
-      "system": "canon",
-      "weight": "moderate",
+      "price": "$3 900",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/8/88/Canon_EOS_R5.jpg",
+      "bonus": 0,
       "badge": "badge-new",
       "badgeText": "Новая",
+      "system": "canon",
+      "weight": "moderate",
       "goals": [
         "photo",
         "video",
@@ -915,8 +914,9 @@
         "AI AF"
       ],
       "note": "Универсальный флагман для студии.",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/8/88/Canon_EOS_R5.jpg",
-      "bonus": 0
+      "categories": [
+        "studio"
+      ]
     },
     {
       "id": "canon-r5ii",
