@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Админка — база камер</title>
     <style>
-        /* Стили такие же, как в предыдущей версии — не меняются */
+        /* Стили такие же, как в предыдущей версии — я их не меняю, только добавляю поле bonus */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: system-ui, sans-serif; background: #f5f5f5; padding: 2rem; max-width: 1200px; margin: 0 auto; }
         h1 { font-size: 2rem; margin-bottom: 1rem; }
@@ -44,6 +44,7 @@
         .gateway-section { margin-top: 2rem; background: #fff; padding: 1.5rem; border-radius: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
         .gateway-section textarea { width: 100%; height: 150px; font-family: monospace; padding: 0.8rem; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9rem; }
         .gateway-actions { display: flex; gap: 1rem; margin-top: 0.5rem; flex-wrap: wrap; }
+        .bonus-input { width: 80px !important; }
     </style>
 </head>
 <body>
@@ -119,6 +120,11 @@
             </div>
             <div style="font-size:0.8rem; color:#888; margin-top:0.2rem;">Поиск по названию камеры</div>
         </label>
+        <!-- НОВОЕ ПОЛЕ: БОНУС (авторский приоритет) -->
+        <label>Бонус (авторский приоритет, целое число, может быть отрицательным)
+            <input type="number" id="bonus" class="bonus-input" value="0" step="1">
+            <div style="font-size:0.8rem; color:#888; margin-top:0.2rem;">Добавляется к итоговому баллу камеры</div>
+        </label>
         <div class="form-actions">
             <button class="btn btn-success" id="saveBtn">💾 Сохранить (добавить / обновить)</button>
             <button class="btn btn-danger" id="deleteBtn" style="display:none;">🗑️ Удалить выбранную</button>
@@ -135,11 +141,12 @@
                 <th>Название</th>
                 <th>Цена</th>
                 <th>Система</th>
+                <th>Бонус</th>
                 <th>Действия</th>
             </tr>
         </thead>
         <tbody id="cameraTableBody">
-            <tr><td colspan="6" style="text-align:center; color:#888;">Загрузка...</td></tr>
+            <tr><td colspan="7" style="text-align:center; color:#888;">Загрузка...</td></tr>
         </tbody>
     </table>
 
@@ -147,7 +154,7 @@
     <div class="gateway-section">
         <h2 style="font-size:1.2rem; margin-bottom:0.5rem;">🚪 Шлюз — быстрый импорт камер</h2>
         <p style="color:#888; font-size:0.9rem;">Вставьте JSON-шаблон одной камеры или массив камер и нажмите «Добавить».</p>
-        <textarea id="gatewayInput" placeholder='{"id":"sony-a6000","name":"Sony Alpha A6000","price":"$400-600","image":"","badge":"badge-bu","badgeText":"Б/У","system":"sony","weight":"critical","goals":["photo","video"],"genres":["portrait","street"],"budgetRange":["mid"],"sensor":"APS-C 24 Мп","stabilization":"нет","af":"179 точек","video":"Full HD","interchangeable":true,"dualSlot":false,"checkpoints":["APS-C 24 Мп","11 к/с","компактный"],"note":"Популярная беззеркалка для начинающих.","categories":["entry"]}'></textarea>
+        <textarea id="gatewayInput" placeholder='{"id":"sony-a6000","name":"Sony Alpha A6000","price":"$400-600","image":"","badge":"badge-bu","badgeText":"Б/У","system":"sony","weight":"critical","goals":["photo","video"],"genres":["portrait","street"],"budgetRange":["mid"],"sensor":"APS-C 24 Мп","stabilization":"нет","af":"179 точек","video":"Full HD","interchangeable":true,"dualSlot":false,"checkpoints":["APS-C 24 Мп","11 к/с","компактный"],"note":"Популярная беззеркалка для начинающих.","categories":["entry"],"bonus":0}'></textarea>
         <div class="gateway-actions">
             <button class="btn btn-success" id="gatewayAddBtn">➕ Добавить камеру(ы) из шаблона</button>
             <button class="btn btn-outline" id="gatewayClearBtn">🧹 Очистить поле</button>
@@ -157,6 +164,20 @@
     <div id="toast" class="toast hidden">Готово</div>
 
     <script>
+        // ─── ЗАЩИТА АДМИНКИ ПАРОЛЕМ ──────────────────────────────────
+        const ADMIN_PASSWORD = '11259375*Camera';
+
+        (function checkAuth() {
+            if (sessionStorage.getItem('admin_authenticated') === 'true') return;
+            const entered = prompt('Введите пароль для доступа к админке:');
+            if (entered === ADMIN_PASSWORD) {
+                sessionStorage.setItem('admin_authenticated', 'true');
+            } else {
+                document.body.innerHTML = '<h1 style="text-align:center; margin-top:4rem;">⛔ Доступ запрещён. Неверный пароль.</h1>';
+                throw new Error('Неверный пароль');
+            }
+        })();
+
         // ─── КОНФИГУРАЦИЯ ──────────────────────────────────────────
         const REPO_OWNER = 'alexeynovopashin-lab';
         const REPO_NAME = 'CameraChange';
@@ -182,22 +203,19 @@
                 cameras = data.cameras || [];
                 renderTable();
                 document.getElementById('status').textContent = `📸 Загружено ${cameras.length} камер`;
-                console.log('📥 Загружено камер:', cameras.length);
-                return cameras;
             } catch (e) {
                 console.error(e);
                 document.getElementById('status').textContent = '⚠️ Ошибка загрузки: ' + e.message;
                 document.getElementById('cameraTableBody').innerHTML =
-                    `<tr><td colspan="6" style="text-align:center;color:#888;">${e.message}</td></tr>`;
-                return [];
+                    `<tr><td colspan="7" style="text-align:center;color:#888;">${e.message}</td></tr>`;
             }
         }
 
-        // ─── ОТОБРАЖЕНИЕ ТАБЛИЦЫ (С МИНИАТЮРАМИ) ──────────────────
+        // ─── ОТОБРАЖЕНИЕ ТАБЛИЦЫ (С БОНУСОМ) ──────────────────────
         function renderTable() {
             const tbody = document.getElementById('cameraTableBody');
             if (cameras.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:#888;">Нет камер</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;color:#888;">Нет камер</td></tr>`;
                 return;
             }
             tbody.innerHTML = cameras.map(c => `
@@ -207,6 +225,7 @@
                     <td><strong>${c.name}</strong></td>
                     <td>${c.price}</td>
                     <td>${c.system}</td>
+                    <td>${c.bonus ?? 0}</td>
                     <td class="actions">
                         <button class="btn btn-outline btn-sm edit-btn" data-id="${c.id}">✏️</button>
                         <button class="btn btn-delete btn-sm delete-btn" data-id="${c.id}">✕</button>
@@ -251,6 +270,7 @@
             document.getElementById('checkpoints').value = (cam.checkpoints || []).join('\n');
             document.getElementById('note').value = cam.note || '';
             document.getElementById('image').value = cam.image || '';
+            document.getElementById('bonus').value = cam.bonus ?? 0;
             document.getElementById('deleteBtn').style.display = 'inline-flex';
             document.getElementById('saveBtn').textContent = '💾 Обновить камеру';
             document.getElementById('formContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -278,6 +298,7 @@
             document.getElementById('checkpoints').value = '';
             document.getElementById('note').value = '';
             document.getElementById('image').value = '';
+            document.getElementById('bonus').value = '0';
             document.getElementById('deleteBtn').style.display = 'none';
             document.getElementById('saveBtn').textContent = '💾 Сохранить (добавить / обновить)';
         }
@@ -318,7 +339,6 @@
                 };
                 if (sha) payload.sha = sha;
 
-                console.log('💾 Сохраняем в GitHub, камер:', cameras.length);
                 const commitRes = await fetch(url, {
                     method: 'PUT',
                     headers: {
@@ -333,13 +353,11 @@
                     throw new Error(err.message || 'Ошибка сохранения');
                 }
 
-                console.log('✅ Сохранение успешно');
                 showToast('✅ Изменения сохранены!');
                 cancelEdit();
-                // Перезагружаем данные после сохранения, чтобы обновить таблицу
-                await loadCameras();
+                loadCameras();
             } catch (e) {
-                console.error('❌ Ошибка сохранения:', e);
+                console.error(e);
                 showToast('❌ Ошибка: ' + e.message);
             }
         }
@@ -397,11 +415,9 @@
             }
         }
 
-        // ─── МАССОВЫЙ ПОИСК КАРТИНОК ДЛЯ ВСЕХ КАМЕР ───────────────
+        // ─── МАССОВЫЙ ПОИСК КАРТИНОК ───────────────────────────────
         async function massFindImages() {
-            // Сначала перезагружаем свежие данные
             await loadCameras();
-
             const withoutImage = cameras.filter(c => !c.image || c.image.trim() === '');
             if (withoutImage.length === 0) {
                 showToast('✅ У всех камер уже есть изображения!');
@@ -409,7 +425,6 @@
             }
 
             showToast(`🔍 Начинаю поиск для ${withoutImage.length} камер...`);
-            console.log(`🔍 Начинаю поиск для ${withoutImage.length} камер`);
             let found = 0;
 
             for (const cam of withoutImage) {
@@ -439,25 +454,17 @@
                     if (imageUrl) {
                         cam.image = imageUrl;
                         found++;
-                        console.log(`✅ Найдено для ${cameraName}: ${imageUrl}`);
                     }
                 } catch (e) {
-                    console.warn('⚠️ Ошибка для ' + cameraName, e);
+                    console.warn('Ошибка для ' + cameraName, e);
                 }
-                // Небольшая задержка, чтобы не перегружать API
                 await new Promise(r => setTimeout(r, 200));
             }
 
-            console.log(`🔍 Найдено изображений: ${found} из ${withoutImage.length}`);
-
             if (found > 0) {
                 showToast(`✅ Найдено изображений: ${found} из ${withoutImage.length}`);
-                // Сохраняем изменения
                 await saveToGitHub();
-                // После сохранения loadCameras() уже вызвана внутри saveToGitHub,
-                // но на всякий случай перезагрузим ещё раз
                 await loadCameras();
-                // Показываем обновлённую таблицу
                 renderTable();
                 showToast(`✅ Добавлено ${found} изображений!`);
             } else {
@@ -482,23 +489,12 @@
                 return;
             }
 
-            // Если пришёл массив — обрабатываем каждый объект
             let items = Array.isArray(data) ? data : [data];
-
             let added = 0;
             let skipped = 0;
             for (const item of items) {
-                // Проверяем наличие обязательных полей
-                if (!item.id || !item.name) {
-                    skipped++;
-                    continue;
-                }
-                // Проверяем дубликат ID
-                if (cameras.some(c => c.id === item.id)) {
-                    skipped++;
-                    continue;
-                }
-                // Добавляем недостающие поля со значениями по умолчанию
+                if (!item.id || !item.name) { skipped++; continue; }
+                if (cameras.some(c => c.id === item.id)) { skipped++; continue; }
                 const newCam = {
                     id: item.id,
                     name: item.name,
@@ -519,7 +515,8 @@
                     dualSlot: item.dualSlot !== undefined ? item.dualSlot : false,
                     checkpoints: item.checkpoints || [],
                     note: item.note || '',
-                    categories: item.categories || []
+                    categories: item.categories || [],
+                    bonus: item.bonus ?? 0
                 };
                 cameras.push(newCam);
                 added++;
@@ -578,7 +575,7 @@
             document.getElementById('gatewayInput').value = '';
         });
 
-        // ─── ВСПОМОГАТЕЛЬНАЯ ФУНКЦИЯ ДЛЯ СБОРА ДАННЫХ ──────────────
+        // ─── СБОР ДАННЫХ ИЗ ФОРМЫ (с бонусом) ──────────────────────
         function collectFormData() {
             const id = document.getElementById('id').value.trim();
             if (!id) { alert('ID обязателен'); return null; }
@@ -602,6 +599,7 @@
             const checkpoints = document.getElementById('checkpoints').value.split('\n').map(s => s.trim()).filter(Boolean);
             const note = document.getElementById('note').value.trim();
             const image = document.getElementById('image').value.trim();
+            const bonus = parseInt(document.getElementById('bonus').value) || 0;
 
             return {
                 id,
@@ -622,7 +620,8 @@
                 dualSlot,
                 checkpoints,
                 note,
-                image
+                image,
+                bonus
             };
         }
 
