@@ -3,93 +3,493 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Подбор камеры — умный помощник</title>
+    <title>Подбор камеры</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        /* ===== Стили (полные) ===== */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: system-ui, -apple-system, sans-serif; background: #f5f5f5; color: #1a1a1a; font-size: 15px; padding: 20px; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
-        .wrap { max-width: 820px; margin: 0 auto; background: #fff; padding: 2rem 1.5rem; border-radius: 24px; box-shadow: 0 8px 40px rgba(0, 0, 0, 0.07); width: 100%; }
-        .progress { display: flex; gap: 6px; margin-bottom: 1.5rem; flex-wrap: wrap; }
-        .progress-step { height: 4px; flex: 1 0 6%; background: #e5e5e5; border-radius: 2px; transition: background .4s ease; }
-        .progress-step.done { background: #1a1a1a; }
-        .progress-step.active { background: #888; }
-        .breadcrumb { font-size: 12px; color: #999; margin-bottom: 1rem; min-height: 20px; }
-        .step-label { font-size: 11px; font-weight: 600; color: #999; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .4rem; }
-        .step-title { font-size: 20px; font-weight: 600; margin-bottom: 1.25rem; line-height: 1.3; }
-        .options { display: flex; flex-direction: column; gap: .5rem; }
-        .opt { display: flex; align-items: flex-start; gap: .875rem; border: 1.5px solid #e5e5e5; border-radius: 12px; padding: .875rem 1rem; cursor: pointer; transition: border-color .2s, background .2s; background: #fff; user-select: none; }
-        .opt:hover { border-color: #bbb; background: #fafafa; }
-        .opt.selected { border-color: #1a1a1a; background: #f0f0f0; }
-        .opt-icon { font-size: 22px; flex-shrink: 0; line-height: 1.2; }
-        .opt-text { flex: 1; }
-        .opt-title { font-size: 14px; font-weight: 500; }
-        .opt-sub { font-size: 12px; color: #888; margin-top: 2px; }
-        .opt input[type="checkbox"] { margin-top: 4px; width: 18px; height: 18px; cursor: pointer; flex-shrink: 0; accent-color: #1a1a1a; }
-        .flex-row { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.8rem; width: 100%; }
-        .btn-next { background: #1a1a1a; color: #fff; border: none; border-radius: 12px; padding: 0.9rem 2.5rem; font-size: 17px; font-weight: 600; cursor: pointer; transition: opacity .2s; min-width: 200px; text-align: center; }
-        .btn-next:disabled { opacity: 0.4; cursor: not-allowed; }
-        .btn-next:hover:not(:disabled) { opacity: 0.85; }
-        .btn-back { background: transparent; border: 1.5px solid #ccc; border-radius: 10px; padding: 0.6rem 1.5rem; font-size: 14px; color: #555; cursor: pointer; transition: border-color .2s; }
-        .btn-back:hover { border-color: #888; background: #f5f5f5; }
-        .results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
-        @media (max-width: 640px) { .results-grid { grid-template-columns: 1fr; } }
-        .cam-card { border: 1.5px solid #e5e5e5; border-radius: 14px; overflow: hidden; background: #fff; display: flex; flex-direction: column; transition: box-shadow .2s; }
-        .cam-card:hover { box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06); }
-        .cam-card.primary { border-color: #1a1a1a; border-width: 2px; }
-        .card-category { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: #888; padding: .5rem .75rem 0; }
-        .cam-card.primary .card-category { color: #1a1a1a; }
-        .cam-badge-wrap { padding: .25rem .75rem .25rem; display: flex; gap: .375rem; flex-wrap: wrap; }
-        .cam-badge { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 5px; text-transform: uppercase; letter-spacing: .04em; }
-        .badge-rec { background: #1a1a1a; color: #fff; }
-        .badge-alt { background: #f0f0f0; color: #555; }
-        .badge-bu { background: #fff3cd; color: #856404; }
-        .badge-new { background: #d6f0ff; color: #0a5a8a; }
-        .badge-compact { background: #e6f7e6; color: #2b7a2b; }
-        .badge-video { background: #fce4ec; color: #c62828; }
-        .badge-premium { background: #f3e5f5; color: #6a1b9a; }
-        .cam-img-wrap { background: #f7f7f7; padding: .8rem; text-align: center; font-size: 14px; font-weight: 500; color: #555; }
-        .cam-img-wrap img { max-width: 100%; max-height: 120px; object-fit: contain; border-radius: 8px; }
-        .cam-body { padding: .75rem 1rem 1rem; flex: 1; display: flex; flex-direction: column; }
-        .cam-model { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
-        .cam-price { font-size: 13px; color: #888; margin-bottom: .5rem; }
-        .cam-checkpoints { list-style: none; margin: 0 0 .4rem 0; padding: 0; display: flex; flex-direction: column; gap: .15rem; }
-        .cam-checkpoints li { font-size: 12px; color: #333; display: flex; gap: .4rem; line-height: 1.4; align-items: baseline; }
-        .cam-checkpoints li::before { content: "✔️"; font-size: 11px; color: #2b7a2b; flex-shrink: 0; }
-        .cam-coverage { font-size: 11px; color: #666; padding: .4rem 0 .2rem; border-top: 1px solid #f0f0f0; margin-top: .3rem; line-height: 1.6; }
-        .cam-note { font-size: 12px; color: #555; margin-top: auto; padding-top: .6rem; border-top: 1px solid #f0f0f0; line-height: 1.4; }
-        .avito-btn { display: inline-block; margin-top: 0.75rem; padding: 0.5rem 1rem; background: #41A7E4; color: #fff; border: none; border-radius: 8px; font-size: 13px; font-weight: 500; text-align: center; text-decoration: none; cursor: pointer; transition: background .2s; }
-        .avito-btn:hover { background: #3596c7; }
-        .result-summary { background: #f5f5f5; border-radius: 12px; padding: 1rem 1.2rem; margin-bottom: 1.5rem; font-size: 14px; line-height: 1.6; color: #333; }
-        .result-summary strong { color: #1a1a1a; }
-        .buttons-row { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; }
-        .reset-btn, .back-btn { font-size: 13px; color: #555; background: none; border: 1.5px solid #e5e5e5; border-radius: 8px; padding: .45rem 1.5rem; cursor: pointer; transition: border-color .2s; }
-        .reset-btn:hover, .back-btn:hover { border-color: #aaa; background: #f8f8f8; }
-        .back-btn { background: #f0f0f0; }
-        .fade-in { animation: fadeIn 0.4s ease forwards; }
-        .fade-out { animation: fadeOut 0.2s ease forwards; }
-        @keyframes fadeIn { 0% { opacity: 0; transform: translateY(12px); } 100% { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeOut { 0% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(-8px); } }
-        .not-found { text-align: center; padding: 2rem 1rem; }
-        .not-found .emoji { font-size: 48px; margin-bottom: 1rem; }
-        .not-found h3 { font-size: 20px; margin-bottom: .5rem; }
-        .not-found p { color: #666; max-width: 400px; margin: 0 auto 1.5rem; }
-        .loading { text-align: center; padding: 3rem 1rem; font-size: 18px; color: #888; }
+        /* ─── ПЕРЕМЕННЫЕ ───────────────────────────────────────────── */
+        :root {
+            --ink: #15171A;
+            --ink-soft: #1C1F23;
+            --surface: #2A2D31;
+            --surface-raised: #313438;
+            --border: #3A3D42;
+            --border-soft: #2F3236;
+            --paper: #F5F3EE;
+            --paper-dim: #9A9690;
+            --paper-faint: #6B6862;
+            --signal: #E8470C;
+            --signal-dim: #B83A0C;
+            --signal-soft: rgba(232, 71, 12, 0.14);
+            --font-display: 'Fraunces', Georgia, serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --ease: cubic-bezier(.25,.8,.25,1);
+        }
+        [data-theme="light"] {
+            --ink: #F5F3EE;
+            --ink-soft: #EBE7DE;
+            --surface: #E2DDD2;
+            --surface-raised: #D6D0C2;
+            --border: #C5BFB0;
+            --border-soft: #D2CCC0;
+            --paper: #1C1F23;
+            --paper-dim: #6B6862;
+            --paper-faint: #9A9690;
+            --signal: #E8470C;
+            --signal-dim: #B83A0C;
+            --signal-soft: rgba(232, 71, 12, 0.14);
+        }
+
+        /* ─── БАЗА ──────────────────────────────────────────────────── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: var(--font-body);
+            background: var(--ink);
+            color: var(--paper);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px 60px;
+            line-height: 1.5;
+            transition: background .3s, color .3s;
+        }
+        .shell { width: 100%; max-width: 600px; }
+
+        /* ─── HEADER ────────────────────────────────────────────────── */
+        .hdr {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 36px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid var(--border);
+        }
+        .hdr-left {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+        }
+        .hdr-mark {
+            font-family: var(--font-display);
+            font-size: 19px;
+            font-weight: 500;
+            letter-spacing: -.01em;
+        }
+        .hdr-mark span { color: var(--signal); }
+        .hdr-meta {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--paper-faint);
+            letter-spacing: .02em;
+        }
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--paper-faint);
+            cursor: pointer;
+            padding: 6px;
+            transition: color .2s;
+            font-size: 20px;
+        }
+        .theme-toggle:hover { color: var(--paper); }
+
+        /* ─── APERTURE PROGRESS ───────────────────────────────────── */
+        .aperture-wrap {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 40px;
+        }
+        .aperture-svg { flex-shrink: 0; }
+        .aperture-blade {
+            transition: transform .5s var(--ease);
+            transform-origin: 50px 50px;
+        }
+        .aperture-track { flex: 1; }
+        .aperture-step-label {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--paper-faint);
+            letter-spacing: .04em;
+            margin-bottom: 6px;
+        }
+        .aperture-bar {
+            height: 1px;
+            background: var(--border);
+            position: relative;
+        }
+        .aperture-bar-fill {
+            position: absolute;
+            top: 0; left: 0; height: 1px;
+            background: var(--signal);
+            transition: width .45s var(--ease);
+        }
+
+        /* ─── QUESTION BLOCK ───────────────────────────────────────── */
+        .q-block { animation: rise .4s var(--ease) both; }
+        @keyframes rise {
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .q-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--signal);
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+        .q-title {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 500;
+            line-height: 1.22;
+            letter-spacing: -.01em;
+            margin-bottom: 8px;
+            max-width: 480px;
+        }
+        .q-sub {
+            font-size: 14px;
+            color: var(--paper-dim);
+            margin-bottom: 32px;
+        }
+
+        /* ─── OPTIONS ──────────────────────────────────────────────── */
+        .opts { display: flex; flex-direction: column; }
+        .opt {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 18px 4px;
+            border-bottom: 1px solid var(--border-soft);
+            cursor: pointer;
+            transition: padding-left .25s var(--ease);
+            user-select: none;
+        }
+        .opt:first-child { border-top: 1px solid var(--border-soft); }
+        .opt:hover { padding-left: 10px; }
+
+        .opt-index {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--paper-faint);
+            width: 20px;
+            flex-shrink: 0;
+            transition: color .2s;
+        }
+        .opt.selected .opt-index { color: var(--signal); }
+
+        .opt-body { flex: 1; min-width: 0; }
+        .opt-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--paper);
+            transition: color .2s;
+        }
+        .opt-hint {
+            font-size: 13px;
+            color: var(--paper-faint);
+            margin-top: 2px;
+        }
+        .opt-icon {
+            font-size: 22px;
+            flex-shrink: 0;
+            line-height: 1.2;
+        }
+
+        .opt-mark {
+            width: 16px; height: 16px;
+            border: 1px solid var(--paper-faint);
+            border-radius: 50%;
+            flex-shrink: 0;
+            position: relative;
+            transition: border-color .2s;
+        }
+        .opt.selected .opt-mark { border-color: var(--signal); }
+        .opt.selected .opt-mark::after {
+            content: '';
+            position: absolute;
+            top: 3px; left: 3px;
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: var(--signal);
+        }
+        .opt-mark.square { border-radius: 3px; }
+        .opt-mark.square::after { border-radius: 1px; }
+
+        .opt input[type="checkbox"] {
+            display: none; /* скрываем, используем свой маркер */
+        }
+
+        /* ─── ACTIONS ──────────────────────────────────────────────── */
+        .actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 36px;
+        }
+        .btn-text {
+            background: none;
+            border: none;
+            font-family: var(--font-body);
+            font-size: 13px;
+            color: var(--paper-faint);
+            cursor: pointer;
+            padding: 8px 0;
+            transition: color .2s;
+        }
+        .btn-text:hover:not(:disabled) { color: var(--paper); }
+        .btn-text:disabled { opacity: .25; cursor: default; }
+
+        .btn-shutter {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--paper);
+            color: var(--ink);
+            border: none;
+            border-radius: 2px;
+            padding: 13px 26px;
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background .2s, transform .15s;
+        }
+        .btn-shutter:hover:not(:disabled) { background: #fff; transform: translateX(2px); }
+        .btn-shutter:disabled { opacity: .25; cursor: default; transform: none; }
+        .btn-shutter svg { transition: transform .2s; }
+        .btn-shutter:hover svg { transform: translateX(3px); }
+
+        .skip-note {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--paper-faint);
+        }
+
+        /* ─── RESULTS ──────────────────────────────────────────────── */
+        .r-head { margin-bottom: 32px; }
+        .r-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--signal);
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .r-title {
+            font-family: var(--font-display);
+            font-size: 30px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        .r-sub { font-size: 14px; color: var(--paper-dim); }
+
+        .cam-list { display: flex; flex-direction: column; gap: 1px; }
+
+        .cam-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 24px;
+            display: grid;
+            grid-template-columns: 64px 1fr;
+            gap: 20px;
+            position: relative;
+            transition: background .2s;
+        }
+        .cam-card + .cam-card { margin-top: 14px; }
+        .cam-card.top { border-color: var(--signal-dim); background: var(--surface-raised); }
+
+        .score-ring-wrap { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+        .score-ring { transform: rotate(-90deg); }
+        .score-ring-bg { fill: none; stroke: var(--border); stroke-width: 3; }
+        .score-ring-fill {
+            fill: none;
+            stroke: var(--paper-faint);
+            stroke-width: 3;
+            stroke-linecap: round;
+            transition: stroke-dashoffset 1.2s var(--ease);
+        }
+        .cam-card.top .score-ring-fill { stroke: var(--signal); }
+        .score-num {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--paper-dim);
+        }
+        .cam-card.top .score-num { color: var(--signal); }
+
+        .cam-main { min-width: 0; }
+
+        .cam-row1 {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 4px;
+        }
+        .cam-name {
+            font-family: var(--font-display);
+            font-size: 19px;
+            font-weight: 500;
+            letter-spacing: -.005em;
+        }
+        .cam-price {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--paper-dim);
+            white-space: nowrap;
+        }
+
+        .cam-tagrow { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+        .cam-tag {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: .03em;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border: 1px solid var(--border);
+            color: var(--paper-faint);
+        }
+        .cam-tag.pick {
+            border-color: var(--signal-dim);
+            color: var(--signal);
+            background: var(--signal-soft);
+        }
+
+        .cam-reasons { display: flex; flex-direction: column; gap: 5px; margin-bottom: 14px; }
+        .reason {
+            font-size: 13px;
+            color: var(--paper);
+            display: flex;
+            gap: 8px;
+        }
+        .reason::before {
+            content: '—';
+            color: var(--signal);
+            flex-shrink: 0;
+        }
+
+        .cam-specs { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-bottom: 14px; }
+        .spec {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--paper-faint);
+        }
+
+        .cam-note {
+            font-size: 13px;
+            color: var(--paper-dim);
+            line-height: 1.55;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-soft);
+            margin-bottom: 14px;
+        }
+
+        .cam-foot {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .avito-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--ink);
+            background: var(--paper);
+            padding: 9px 16px;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: background .2s;
+        }
+        .avito-link:hover { background: #fff; }
+
+        .fb-group { display: flex; align-items: center; gap: 10px; }
+        .fb-label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--paper-faint);
+            text-transform: uppercase;
+            letter-spacing: .03em;
+        }
+        .fb-btn {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--paper-faint);
+            width: 32px; height: 32px;
+            border-radius: 2px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: border-color .2s, color .2s;
+        }
+        .fb-btn:hover { border-color: var(--paper-dim); color: var(--paper); }
+        .fb-btn.active.up { border-color: #4D8C5C; color: #4D8C5C; }
+        .fb-btn.active.down { border-color: var(--signal); color: var(--signal); }
+        .fb-btn.dimmed { opacity: .3; pointer-events: none; }
+
+        .r-foot {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            margin-top: 36px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+        .link-btn {
+            background: none;
+            border: none;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--paper-faint);
+            letter-spacing: .02em;
+            cursor: pointer;
+            transition: color .2s;
+        }
+        .link-btn:hover { color: var(--paper); }
+
+        .not-found { text-align: center; padding: 60px 20px; }
+        .not-found .nf-mark { font-family: var(--font-display); font-size: 40px; color: var(--border); margin-bottom: 20px; }
+        .not-found h3 { font-family: var(--font-display); font-size: 22px; font-weight: 500; margin-bottom: 10px; }
+        .not-found p { color: var(--paper-dim); font-size: 14px; max-width: 360px; margin: 0 auto 24px; }
+
+        .loading { text-align: center; padding: 3rem 1rem; font-size: 18px; color: var(--paper-faint); }
+
+        @media (max-width: 480px) {
+            .cam-card { grid-template-columns: 1fr; }
+            .score-ring-wrap { flex-direction: row; justify-content: flex-start; }
+            .q-title { font-size: 23px; }
+        }
     </style>
 </head>
 <body>
-<div class="wrap" id="app">
-    <div class="progress" id="progressBar"></div>
-    <div class="breadcrumb" id="breadcrumb"></div>
-    <div id="screen" class="fade-in">
-        <div class="loading">⏳ Загрузка базы камер...</div>
+<div class="shell">
+    <div class="hdr">
+        <div class="hdr-left">
+            <div class="hdr-mark">подбор<span>·</span>камеры</div>
+            <div class="hdr-meta" id="hdrMeta"></div>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">☀️</button>
     </div>
+
+    <div class="aperture-wrap" id="apertureWrap"></div>
+
+    <div id="screen"><div class="loading">⏳ Загрузка базы камер...</div></div>
 </div>
 
 <script>
     (function() {
         "use strict";
 
-        // ─── КОНСТАНТЫ ──────────────────────────────────────────
+        // ─── КОНСТАНТЫ (из старого кода) ──────────────────────────
         const GENRE_LABELS = {
             portrait: 'Портрет', landscape: 'Пейзаж', street: 'Стрит',
             reportage: 'Репортаж', wedding: 'Свадьбы', family: 'Семьи',
@@ -107,7 +507,7 @@
         };
         const BUDGET_RANGES = ['low', 'mid', 'high', 'very-high', 'premium'];
 
-        // ─── ШАГИ ОПРОСНИКА ──────────────────────────────────────
+        // ─── ШАГИ ОПРОСНИКА (полностью из старого кода) ──────────
         const STEP_DEFS = [
             { id: 'level', label: 'Шаг 1 из ?', title: 'Как ты себя оцениваешь?', type: 'single', opts: [
                     { val: 'beginner', icon: '🌱', title: 'Новичок' },
@@ -194,6 +594,18 @@
         let currentStepIdx = 0;
         let allCameras = [];
 
+        // ─── ТЕМА ────────────────────────────────────────────────────
+        let currentTheme = localStorage.getItem('camTheme') || 'dark';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+        themeToggle.addEventListener('click', () => {
+            const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('camTheme', newTheme);
+            themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        });
+
         // ─── ЗАГРУЗКА БАЗЫ ──────────────────────────────────────────
         async function loadCameras() {
             try {
@@ -207,16 +619,16 @@
                 console.error(e);
                 document.getElementById('screen').innerHTML = `
                     <div class="not-found">
-                        <div class="emoji">⚠️</div>
+                        <div class="nf-mark">⚠️</div>
                         <h3>Не удалось загрузить базу камер</h3>
                         <p>Проверьте интернет или обновите страницу.</p>
-                        <button class="btn-back" onclick="location.reload()">Обновить</button>
+                        <button class="btn-shutter" onclick="location.reload()">Обновить</button>
                     </div>
                 `;
             }
         }
 
-        // ─── ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ──────────────────────────────
+        // ─── ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ (из старого кода) ────────────
         function getVisibleSteps() {
             return STEP_DEFS.filter(st => st.visibility ? st.visibility(state) : true);
         }
@@ -268,7 +680,7 @@
             return levels[userBudget] || ['low', 'mid', 'high', 'very-high', 'premium'];
         }
 
-        // ─── СКОРИНГ ─────────────────────────────────────────────────
+        // ─── СКОРИНГ (полностью из старого кода) ──────────────────
         function getBudgetScore(camBudgetRanges, userBudget) {
             if (!userBudget) return 5;
             const idx = BUDGET_RANGES.indexOf(userBudget);
@@ -345,7 +757,6 @@
                 if (cam.video && cam.video.includes('4K')) score += 2;
                 return Math.min(10, Math.max(0, score));
             }
-            // enthusiast
             let score = 5;
             if (cam.goals && cam.goals.includes('photo') && cam.goals.includes('video')) score += 2;
             if (cam.sensor && cam.sensor.includes('APS-C')) score += 1;
@@ -424,29 +835,21 @@
             };
             let total = 0;
             for (const key in scores) total += scores[key] * weights[key];
-            // Добавляем авторский бонус
             total += (cam.bonus || 0);
             return total;
         }
 
-        // ─── ПОЛУЧЕНИЕ ОТСОРТИРОВАННЫХ КАМЕР С ФИЛЬТРОМ ──────────
+        // ─── ПОЛУЧЕНИЕ ОТСОРТИРОВАННЫХ КАМЕР ──────────────────────
         function getScoredCameras() {
-            // 1. Фильтр по бюджету
             const allowedBudgets = getAllowedBudgetLevels(state.budget);
             let filtered = allCameras.filter(cam => cam.budgetRange.some(b => allowedBudgets.includes(b)));
-
-            // 2. Скоринг
             const scored = filtered.map(cam => ({ ...cam, score: computeScore(cam) }));
             scored.sort((a, b) => b.score - a.score);
-
-            // 3. Уникальные
             const unique = [];
             const seen = new Set();
             for (const cam of scored) {
                 if (!seen.has(cam.id)) { unique.push(cam); seen.add(cam.id); }
             }
-
-            // 4. Замена системы (штраф за старую систему)
             if (state.level === 'pro' && state.proIntent === 'replace' && state.system) {
                 const altPositive = unique.filter(c => c.system !== state.system && c.score > 0);
                 if (altPositive.length >= 4) return unique.filter(c => c.system !== state.system);
@@ -454,8 +857,7 @@
             return unique;
         }
 
-        // ─── НАВИГАЦИЯ И РЕНДЕРИНГ (с анимацией) ──────────────────
-
+        // ─── НАВИГАЦИЯ ──────────────────────────────────────────────
         function goForward() {
             const visible = getVisibleSteps();
             const cur = visible.findIndex(s => s.id === STEP_DEFS[currentStepIdx].id);
@@ -479,7 +881,7 @@
         function resetAll() {
             Object.keys(state).forEach(k => { if (Array.isArray(state[k])) state[k] = []; else state[k] = null; });
             currentStepIdx = 0;
-            document.getElementById('breadcrumb').textContent = '';
+            document.getElementById('hdrMeta').textContent = '';
             renderStep();
         }
 
@@ -501,234 +903,278 @@
             renderStep();
         }
 
-        function renderProgress(cur, total) {
-            const bar = document.getElementById('progressBar');
-            let html = '';
-            for (let i = 0; i < total; i++) {
-                const cls = i < cur ? 'done' : (i === cur ? 'active' : '');
-                html += `<div class="progress-step ${cls}"></div>`;
+        // ─── APERTURE SVG ──────────────────────────────────────────
+        function apertureSVG(openness) {
+            const blades = 6;
+            const cx = 50, cy = 50;
+            let paths = '';
+            for (let i = 0; i < blades; i++) {
+                const angle = (360 / blades) * i;
+                const scale = 1 - openness * 0.62;
+                paths += `<g class="aperture-blade" style="transform: rotate(${angle}deg) scale(${scale})">
+                    <path d="M 50 50 L 50 4 A 46 46 0 0 1 88 26 Z" fill="var(--surface)" stroke="var(--border)" stroke-width="1"/>
+                </g>`;
             }
-            bar.innerHTML = html;
+            return `<svg class="aperture-svg" width="60" height="60" viewBox="0 0 100 100">
+                <circle cx="${cx}" cy="${cy}" r="42" fill="none" stroke="var(--border)" stroke-width="1"/>
+                ${paths}
+                <circle cx="${cx}" cy="${cy}" r="${4 + openness * 14}" fill="var(--ink)" />
+            </svg>`;
         }
 
+        function renderAperture(stepIdx, total) {
+            const openness = stepIdx / total;
+            const apertureWrap = document.getElementById('apertureWrap');
+            apertureWrap.innerHTML = `
+                ${apertureSVG(openness)}
+                <div class="aperture-track">
+                    <div class="aperture-step-label">f/${(1.4 + openness * 20).toFixed(1)} · шаг ${Math.min(stepIdx+1, total)} из ${total}</div>
+                    <div class="aperture-bar"><div class="aperture-bar-fill" style="width:${(stepIdx/total)*100}%"></div></div>
+                </div>`;
+        }
+
+        // ─── RENDER STEP ────────────────────────────────────────────
         function renderStep() {
             const screen = document.getElementById('screen');
-            // Анимация: fade-out, затем рендеринг, затем fade-in
-            screen.classList.remove('fade-in');
-            screen.classList.add('fade-out');
-            setTimeout(() => {
-                const visible = getVisibleSteps();
-                if (visible.length === 0) return;
-                let step = STEP_DEFS[currentStepIdx];
-                if (!step || !visible.includes(step)) {
-                    currentStepIdx = STEP_DEFS.indexOf(visible[0]);
-                    step = visible[0];
-                }
-                const total = visible.length;
-                const curIdx = visible.indexOf(step);
-                renderProgress(curIdx, total);
+            const visible = getVisibleSteps();
+            if (visible.length === 0) return;
+            let step = STEP_DEFS[currentStepIdx];
+            if (!step || !visible.includes(step)) {
+                currentStepIdx = STEP_DEFS.indexOf(visible[0]);
+                step = visible[0];
+            }
+            const total = visible.length;
+            const curIdx = visible.indexOf(step);
+            renderAperture(curIdx, total);
 
-                const label = step.id === 'additional1' || step.id === 'additional2' ?
-                    getStepLabel(step.id) : step.title;
-                const opts = getDynamicOpts(step.id);
-                const isMulti = step.type === 'multi';
-                const completed = isStepComplete(step.id);
+            const label = step.id === 'additional1' || step.id === 'additional2' ?
+                getStepLabel(step.id) : step.title;
+            const opts = getDynamicOpts(step.id);
+            const isMulti = step.type === 'multi';
+            const completed = isStepComplete(step.id);
 
-                // Хлебные крошки
-                const labels = {
-                    level: 'Уровень', firstCamera: 'Первая камера', proIntent: 'Замена или вторая',
-                    system: 'Система', goals: 'Цели', genres: 'Жанры', weight: 'Вес', budget: 'Бюджет',
-                    experience: 'Опыт', lenses: 'Объективы',
-                    additional1: (state.level === 'beginner') ? 'Редактирование' : (state.level === 'pro' ? 'RAW' :
-                        ((state.goals || []).includes('video') || (state.goals || []).includes('blog') ? 'Log' : 'RAW')),
-                    additional2: (state.level === 'beginner') ? 'Видео' : (state.level === 'pro' ? 'JPG' : ((state.goals || []).includes('video') || (state.goals || []).includes('blog') ? '4K' : 'Печать')),
-                    additional3: 'Условия'
-                };
-                const crumbs = [];
-                for (let i = 0; i <= curIdx; i++) {
-                    const st = visible[i];
-                    if (st) crumbs.push(labels[st.id] || st.id);
-                }
-                document.getElementById('breadcrumb').textContent = crumbs.join(' › ');
+            // Хлебные крошки
+            const labels = {
+                level: 'Уровень', firstCamera: 'Первая камера', proIntent: 'Замена или вторая',
+                system: 'Система', goals: 'Цели', genres: 'Жанры', weight: 'Вес', budget: 'Бюджет',
+                experience: 'Опыт', lenses: 'Объективы',
+                additional1: (state.level === 'beginner') ? 'Редактирование' : (state.level === 'pro' ? 'RAW' :
+                    ((state.goals || []).includes('video') || (state.goals || []).includes('blog') ? 'Log' : 'RAW')),
+                additional2: (state.level === 'beginner') ? 'Видео' : (state.level === 'pro' ? 'JPG' : ((state.goals || []).includes('video') || (state.goals || []).includes('blog') ? '4K' : 'Печать')),
+                additional3: 'Условия'
+            };
+            const crumbs = [];
+            for (let i = 0; i <= curIdx; i++) {
+                const st = visible[i];
+                if (st) crumbs.push(labels[st.id] || st.id);
+            }
+            document.getElementById('hdrMeta').textContent = crumbs.join(' › ');
 
-                let optsHtml = '';
-                if (isMulti) {
-                    optsHtml = opts.map(o => {
-                        const checked = (state[step.id] || []).includes(o.val) ? 'checked' : '';
-                        return `<div class="opt" data-field="${step.id}" data-val="${o.val}" data-multi="true">
+            let optsHtml = '';
+            if (isMulti) {
+                optsHtml = opts.map(o => {
+                    const checked = (state[step.id] || []).includes(o.val) ? 'checked' : '';
+                    return `<div class="opt" data-field="${step.id}" data-val="${o.val}" data-multi="true">
                                 <input type="checkbox" ${checked}>
                                 <div class="opt-icon">${o.icon}</div>
-                                <div class="opt-text"><div class="opt-title">${o.title}</div></div>
-                            </div>`;
-                    }).join('');
-                } else {
-                    optsHtml = opts.map(o => {
-                        const sel = state[step.id] === o.val ? 'selected' : '';
-                        return `<div class="opt ${sel}" data-field="${step.id}" data-val="${o.val}" data-multi="false">
-                                <div class="opt-icon">${o.icon}</div>
-                                <div class="opt-text">
+                                <div class="opt-body">
                                     <div class="opt-title">${o.title}</div>
-                                    ${o.sub ? `<div class="opt-sub">${o.sub}</div>` : ''}
                                 </div>
+                                <div class="opt-mark square"></div>
                             </div>`;
-                    }).join('');
-                }
+                }).join('');
+            } else {
+                optsHtml = opts.map(o => {
+                    const sel = state[step.id] === o.val ? 'selected' : '';
+                    return `<div class="opt ${sel}" data-field="${step.id}" data-val="${o.val}" data-multi="false">
+                                <div class="opt-icon">${o.icon}</div>
+                                <div class="opt-body">
+                                    <div class="opt-title">${o.title}</div>
+                                    ${o.sub ? `<div class="opt-hint">${o.sub}</div>` : ''}
+                                </div>
+                                <div class="opt-mark"></div>
+                            </div>`;
+                }).join('');
+            }
 
-                const nextVisible = visible[curIdx + 1] || null;
-                const prevVisible = curIdx > 0 ? visible[curIdx - 1] : null;
-                const isLast = !nextVisible;
+            const nextVisible = visible[curIdx + 1] || null;
+            const prevVisible = curIdx > 0 ? visible[curIdx - 1] : null;
+            const isLast = !nextVisible;
 
-                screen.innerHTML = `
-                    <div class="step-label">Шаг ${curIdx + 1} из ${total}</div>
-                    <div class="step-title">${label}</div>
-                    <div class="options">${optsHtml}</div>
-                    <div class="flex-row">
-                        ${prevVisible ? `<button class="btn-back" id="btnBack">← Назад</button>` : ''}
-                        ${isLast ? `<button class="btn-next" id="btnNext" ${!completed ? 'disabled' : ''}>Показать результат</button>` :
-                                  `<button class="btn-next" id="btnNext" ${!completed ? 'disabled' : ''}>Далее →</button>`}
+            screen.innerHTML = `
+                <div class="q-block">
+                    <div class="q-eyebrow">${step.label}</div>
+                    <div class="q-title">${label}</div>
+                    ${step.title ? `<div class="q-sub">${step.title}</div>` : ''}
+                    <div class="opts" id="opts">${optsHtml}</div>
+                    <div class="actions">
+                        <button class="btn-text" id="btnBack" ${!prevVisible ? 'disabled' : ''}>← назад</button>
+                        <span></span>
+                        <button class="btn-shutter" id="btnNext" ${!completed ? 'disabled' : ''}>
+                            ${isLast ? 'Показать камеры' : 'Далее'}
+                            <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5h11M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.4"/></svg>
+                        </button>
                     </div>
-                `;
+                </div>`;
 
-                // Обработчики
-                document.querySelectorAll('.opt').forEach(el => {
-                    el.addEventListener('click', function() {
-                        const field = this.dataset.field;
-                        const val = this.dataset.val;
-                        const multi = this.dataset.multi === 'true';
-                        if (multi) toggleMulti(field, val);
-                        else selectSingle(field, val);
-                    });
+            // Обработчики
+            document.querySelectorAll('.opt').forEach(el => {
+                el.addEventListener('click', function(e) {
+                    // Если клик по чекбоксу не мешаем
+                    const field = this.dataset.field;
+                    const val = this.dataset.val;
+                    const multi = this.dataset.multi === 'true';
+                    if (multi) toggleMulti(field, val);
+                    else selectSingle(field, val);
                 });
-                const backBtn = document.getElementById('btnBack');
-                if (backBtn) backBtn.addEventListener('click', goBack);
-                const nextBtn = document.getElementById('btnNext');
-                if (nextBtn) {
-                    nextBtn.addEventListener('click', function() {
-                        if (this.disabled) return;
-                        if (isLast) finish();
-                        else goForward();
-                    });
-                }
+            });
 
-                screen.classList.remove('fade-out');
-                screen.classList.add('fade-in');
-            }, 150);
+            document.getElementById('btnBack').addEventListener('click', goBack);
+            document.getElementById('btnNext').addEventListener('click', function() {
+                if (this.disabled) return;
+                if (isLast) finish();
+                else goForward();
+            });
+        }
+
+        // ─── RENDER RESULTS ─────────────────────────────────────────
+        function ringSVG(score, isTop) {
+            const r = 24, circumference = 2 * Math.PI * r;
+            const offset = circumference * (1 - score / 100);
+            return `<svg class="score-ring" width="64" height="64" viewBox="0 0 64 64">
+                <circle class="score-ring-bg" cx="32" cy="32" r="${r}"/>
+                <circle class="score-ring-fill" cx="32" cy="32" r="${r}"
+                    stroke-dasharray="${circumference}" stroke-dashoffset="${circumference}"
+                    data-final-offset="${offset}"/>
+            </svg>`;
         }
 
         function renderResult() {
             const screen = document.getElementById('screen');
-            screen.classList.remove('fade-in');
-            screen.classList.add('fade-out');
-            setTimeout(() => {
-                const visible = getVisibleSteps();
-                renderProgress(visible.length, visible.length);
-                document.getElementById('breadcrumb').textContent = 'Результат';
+            const visible = getVisibleSteps();
+            renderAperture(visible.length, visible.length);
+            document.getElementById('hdrMeta').textContent = 'результат';
 
-                const scored = getScoredCameras();
-                const top = scored.slice(0, 4);
+            const scored = getScoredCameras();
+            const top = scored.slice(0, 4);
 
-                if (top.length === 0) {
-                    screen.innerHTML = `
-                        <div class="not-found">
-                            <div class="emoji">🔍</div>
-                            <h3>К сожалению, подходящих камер не найдено</h3>
-                            <p>Попробуйте изменить параметры (бюджет, цели или жанры).</p>
-                            <button class="btn-back" id="backToQuestions" style="font-size:15px;padding:0.7rem 2rem;">← Вернуться к вопросам</button>
-                        </div>
-                    `;
-                    document.getElementById('backToQuestions').addEventListener('click', goBackToQuestions);
-                    screen.classList.remove('fade-out');
-                    screen.classList.add('fade-in');
-                    return;
-                }
-
-                const levelName = LEVEL_LABELS[state.level] || state.level;
-                const budgetName = BUDGET_LABELS[state.budget] || state.budget;
-                const goalList = (state.goals || []).map(g => GOAL_LABELS[g] || g).join(', ') || 'не указаны';
-                const genreList = (state.genres || []).map(g => GENRE_LABELS[g] || g).join(', ') || 'не указаны';
-                let summary = `Подобрано для <strong>${levelName}</strong>`;
-                if (state.budget) summary += ` с <strong>${budgetName}</strong>`;
-                if (state.system && state.system !== 'other') {
-                    if (state.level === 'pro' && state.proIntent === 'replace') {
-                        summary += `, который хочет сменить систему <strong>${state.system.toUpperCase()}</strong> на другую`;
-                    } else {
-                        summary += `, который уже имеет систему <strong>${state.system.toUpperCase()}</strong>`;
-                    }
-                }
-                summary += `. Цели: <strong>${goalList}</strong>. Жанры: <strong>${genreList}</strong>.`;
-
-                function getAvitoUrl(camName) {
-                    const clean = camName.replace(/\s*\([^)]*\)/g, '').trim();
-                    return `https://www.avito.ru/all?q=${encodeURIComponent(clean)}`;
-                }
-
-                function coverageHtml(cam) {
-                    const userGoals = state.goals || [];
-                    const userGenres = state.genres || [];
-                    let parts = [];
-                    if (userGoals.length) {
-                        const covered = userGoals.filter(g => cam.goals && cam.goals.includes(g));
-                        const missed = userGoals.filter(g => !cam.goals || !cam.goals.includes(g));
-                        const coveredStr = covered.map(g => GOAL_LABELS[g] || g).join(', ');
-                        const missedStr = missed.map(g => GOAL_LABELS[g] || g).join(', ');
-                        if (coveredStr) parts.push(`✅ ${coveredStr}`);
-                        if (missedStr) parts.push(`❌ ${missedStr}`);
-                    }
-                    if (userGenres.length) {
-                        const covered = userGenres.filter(g => cam.genres && cam.genres.includes(g));
-                        const missed = userGenres.filter(g => !cam.genres || !cam.genres.includes(g));
-                        const coveredStr = covered.map(g => GENRE_LABELS[g] || g).join(', ');
-                        const missedStr = missed.map(g => GENRE_LABELS[g] || g).join(', ');
-                        if (coveredStr) parts.push(`🎯 ${coveredStr}`);
-                        if (missedStr) parts.push(`⛔ ${missedStr}`);
-                    }
-                    return parts.length ? parts.join(' · ') : '—';
-                }
-
-                function cardHtml(cam, idx) {
-                    const isPrimary = idx === 0;
-                    const badgePrimary = isPrimary ? `<span class="cam-badge badge-rec">Рекомендую</span>` :
-                        `<span class="cam-badge badge-alt">Вариант ${idx + 1}</span>`;
-                    const marketBadge = cam.badge ? `<span class="cam-badge ${cam.badge}">${cam.badgeText || ''}</span>` : '';
-                    const checkpoints = cam.checkpoints ? cam.checkpoints.map(cp => `<li>${cp}</li>`).join('') : '';
-                    const avitoUrl = getAvitoUrl(cam.name);
-                    const coverage = coverageHtml(cam);
-
-                    return `
-                        <div class="cam-card ${isPrimary ? 'primary' : ''}">
-                            <div class="card-category">${isPrimary ? 'Основная рекомендация' : 'Альтернатива'}</div>
-                            <div class="cam-badge-wrap">${badgePrimary}${marketBadge}</div>
-                            <div class="cam-img-wrap">
-                                ${cam.image ? `<img src="${cam.image}" alt="${cam.name}">` : '📷'}
-                            </div>
-                            <div class="cam-body">
-                                <div class="cam-model">${cam.name}</div>
-                                <div class="cam-price">${cam.price}</div>
-                                ${checkpoints ? `<ul class="cam-checkpoints">${checkpoints}</ul>` : ''}
-                                ${coverage ? `<div class="cam-coverage">${coverage}</div>` : ''}
-                                ${cam.note ? `<div class="cam-note">${cam.note}</div>` : ''}
-                                <a href="${avitoUrl}" target="_blank" class="avito-btn">Найти на Avito</a>
-                            </div>
-                        </div>
-                    `;
-                }
-
+            if (top.length === 0) {
                 screen.innerHTML = `
-                    <div class="step-label">Результат</div>
-                    <div class="step-title" style="font-size:17px;margin-bottom:0.5rem">Вот что я рекомендую</div>
-                    <div class="result-summary">${summary}</div>
-                    <div class="results-grid">${top.map((cam, i) => cardHtml(cam, i)).join('')}</div>
-                    <div class="buttons-row">
-                        <button class="back-btn" id="backToQuestions">← Вернуться к вопросам</button>
-                        <button class="reset-btn" id="resetAll">Начать заново</button>
+                    <div class="not-found">
+                        <div class="nf-mark">∅</div>
+                        <h3>К сожалению, подходящих камер не найдено</h3>
+                        <p>Попробуйте изменить параметры (бюджет, цели или жанры).</p>
+                        <button class="btn-shutter" id="backToQuestions" style="font-size:15px;padding:0.7rem 2rem;">← Вернуться к вопросам</button>
                     </div>
                 `;
                 document.getElementById('backToQuestions').addEventListener('click', goBackToQuestions);
-                document.getElementById('resetAll').addEventListener('click', resetAll);
+                return;
+            }
 
-                screen.classList.remove('fade-out');
-                screen.classList.add('fade-in');
-            }, 150);
+            const levelName = LEVEL_LABELS[state.level] || state.level;
+            const budgetName = BUDGET_LABELS[state.budget] || state.budget;
+            const goalList = (state.goals || []).map(g => GOAL_LABELS[g] || g).join(', ') || 'не указаны';
+            const genreList = (state.genres || []).map(g => GENRE_LABELS[g] || g).join(', ') || 'не указаны';
+            let summary = `Подобрано для <strong>${levelName}</strong>`;
+            if (state.budget) summary += ` с <strong>${budgetName}</strong>`;
+            if (state.system && state.system !== 'other') {
+                if (state.level === 'pro' && state.proIntent === 'replace') {
+                    summary += `, который хочет сменить систему <strong>${state.system.toUpperCase()}</strong> на другую`;
+                } else {
+                    summary += `, который уже имеет систему <strong>${state.system.toUpperCase()}</strong>`;
+                }
+            }
+            summary += `. Цели: <strong>${goalList}</strong>. Жанры: <strong>${genreList}</strong>.`;
+
+            function getAvitoUrl(camName) {
+                const clean = camName.replace(/\s*\([^)]*\)/g, '').trim();
+                return `https://www.avito.ru/all?q=${encodeURIComponent(clean)}`;
+            }
+
+            function coverageHtml(cam) {
+                const userGoals = state.goals || [];
+                const userGenres = state.genres || [];
+                let parts = [];
+                if (userGoals.length) {
+                    const covered = userGoals.filter(g => cam.goals && cam.goals.includes(g));
+                    const missed = userGoals.filter(g => !cam.goals || !cam.goals.includes(g));
+                    const coveredStr = covered.map(g => GOAL_LABELS[g] || g).join(', ');
+                    const missedStr = missed.map(g => GOAL_LABELS[g] || g).join(', ');
+                    if (coveredStr) parts.push(`✅ ${coveredStr}`);
+                    if (missedStr) parts.push(`❌ ${missedStr}`);
+                }
+                if (userGenres.length) {
+                    const covered = userGenres.filter(g => cam.genres && cam.genres.includes(g));
+                    const missed = userGenres.filter(g => !cam.genres || !cam.genres.includes(g));
+                    const coveredStr = covered.map(g => GENRE_LABELS[g] || g).join(', ');
+                    const missedStr = missed.map(g => GENRE_LABELS[g] || g).join(', ');
+                    if (coveredStr) parts.push(`🎯 ${coveredStr}`);
+                    if (missedStr) parts.push(`⛔ ${missedStr}`);
+                }
+                return parts.length ? parts.join(' · ') : '—';
+            }
+
+            function cardHtml(cam, idx) {
+                const isPrimary = idx === 0;
+                const pct = Math.round(cam.score);
+                const badgePrimary = isPrimary ? `<span class="cam-tag pick">рекомендуем</span>` : '';
+                const marketBadge = cam.badge ? `<span class="cam-tag">${cam.badgeText || cam.badge}</span>` : '';
+                const checkpoints = cam.checkpoints ? cam.checkpoints.map(cp => `<span class="spec">${cp}</span>`).join('') : '';
+                const avitoUrl = getAvitoUrl(cam.name);
+                const coverage = coverageHtml(cam);
+
+                return `
+                    <div class="cam-card${isPrimary ? ' top' : ''}">
+                        <div class="score-ring-wrap">
+                            ${ringSVG(pct, isPrimary)}
+                            <span class="score-num">${pct}%</span>
+                        </div>
+                        <div class="cam-main">
+                            <div class="cam-row1">
+                                <span class="cam-name">${cam.name}</span>
+                                <span class="cam-price">${cam.price}</span>
+                            </div>
+                            <div class="cam-tagrow">
+                                ${marketBadge}
+                                ${badgePrimary}
+                            </div>
+                            <div class="cam-reasons">
+                                ${isPrimary ? '<div class="reason">Лучший выбор по вашим критериям</div>' : ''}
+                            </div>
+                            <div class="cam-specs">${checkpoints}</div>
+                            <div class="cam-note">${cam.note || ''}</div>
+                            <div class="cam-foot">
+                                <a class="avito-link" href="${avitoUrl}" target="_blank" rel="noopener">найти на авито</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            screen.innerHTML = `
+                <div class="r-head">
+                    <div class="r-eyebrow">выдержка зафиксирована</div>
+                    <div class="r-title">Топ-4 камеры для вас</div>
+                    <div class="r-sub">${summary}</div>
+                </div>
+                <div class="cam-list">${top.map((cam, i) => cardHtml(cam, i)).join('')}</div>
+                <div class="r-foot">
+                    <button class="link-btn" id="backToQuestions">← изменить ответы</button>
+                    <button class="link-btn" id="resetAll">начать заново</button>
+                </div>
+            `;
+
+            // Анимация колец
+            requestAnimationFrame(() => {
+                document.querySelectorAll('.score-ring-fill').forEach((el, index) => {
+                    setTimeout(() => {
+                        el.style.strokeDashoffset = el.dataset.finalOffset;
+                    }, 50 + index * 150);
+                });
+            });
+
+            document.getElementById('backToQuestions').addEventListener('click', goBackToQuestions);
+            document.getElementById('resetAll').addEventListener('click', resetAll);
         }
 
         // ─── СТАРТ ──────────────────────────────────────────────────
