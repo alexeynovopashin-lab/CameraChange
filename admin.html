@@ -3,67 +3,698 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Подбор камеры</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <title>Админка камер</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* ===== Стили (твой дизайн) ===== */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       background: #0b0b0b;
       color: #eaeaea;
       font-family: 'Inter', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px;
+      padding: 40px 20px;
     }
-
-    .widget {
-      max-width: 720px;
-      width: 100%;
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #f0ece6;
+    }
+    .sub {
+      color: #888;
+      margin-bottom: 30px;
+    }
+    .toolbar {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+      align-items: center;
+    }
+    .toolbar input, .toolbar select, .toolbar button {
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: 1px solid #2a2a2a;
+      background: #1a1a1a;
+      color: #eaeaea;
+      font-size: 14px;
+    }
+    .toolbar button {
+      background: #d4a373;
+      color: #0b0b0b;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .toolbar button:hover {
+      background: #c4905f;
+    }
+    .table-wrap {
+      overflow-x: auto;
       background: #141414;
-      border-radius: 32px;
-      padding: 40px 32px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
-      position: relative;
+      border-radius: 16px;
+      padding: 16px;
       border: 1px solid #2a2a2a;
     }
-
-    .ring-container {
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th {
+      text-align: left;
+      padding: 12px 8px;
+      color: #aaa;
+      font-weight: 600;
+      border-bottom: 1px solid #2a2a2a;
+      white-space: nowrap;
+    }
+    td {
+      padding: 10px 8px;
+      border-bottom: 1px solid #1e1e1e;
+      vertical-align: middle;
+    }
+    tr:hover td {
+      background: #1a1a1a;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .badge-true { background: #1e3a2a; color: #7ed4a0; }
+    .badge-false { background: #3a1e1e; color: #d47a7a; }
+    .badge-unknown { background: #2a2a2a; color: #aaa; }
+    .actions button {
+      background: none;
+      border: none;
+      color: #d4a373;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 0 4px;
+    }
+    .actions button:hover { color: #fff; }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal.active { display: flex; }
+    .modal-content {
+      background: #141414;
+      border-radius: 24px;
+      padding: 32px;
+      max-width: 700px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      border: 1px solid #2a2a2a;
+    }
+    .modal-content h2 {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .form-group label {
+      font-size: 13px;
+      color: #aaa;
+      font-weight: 600;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid #2a2a2a;
+      background: #1a1a1a;
+      color: #eaeaea;
+      font-size: 14px;
+    }
+    .form-group textarea { height: 60px; resize: vertical; }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .modal-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+      justify-content: flex-end;
+    }
+    .modal-actions button {
+      padding: 10px 24px;
+      border-radius: 40px;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-save { background: #d4a373; color: #0b0b0b; }
+    .btn-cancel { background: #2a2a2a; color: #aaa; }
+    .btn-save:hover { background: #c4905f; }
+    .btn-cancel:hover { background: #3a3a3a; color: #fff; }
+    .search-highlight { background: #d4a37333; }
+    .empty { color: #666; text-align: center; padding: 40px; }
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .checkbox-group label {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      margin-bottom: 32px;
+      gap: 6px;
+      font-size: 13px;
+      color: #ccc;
     }
-
-    .ring {
-      position: relative;
-      width: 72px;
-      height: 72px;
-      flex-shrink: 0;
+    .checkbox-group input[type="checkbox"] {
+      accent-color: #d4a373;
+      width: 16px;
+      height: 16px;
     }
-
-    .ring svg {
-      transform: rotate(-90deg);
-      width: 72px;
-      height: 72px;
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
     }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>📷 Управление камерами</h1>
+  <div class="sub">Редактирование базы камер с новыми полями (скоринг)</div>
 
-    .ring .bg {
-      fill: none;
-      stroke: #2a2a2a;
-      stroke-width: 4;
+  <div class="toolbar">
+    <input type="text" id="searchInput" placeholder="Поиск по бренду или модели..." />
+    <button id="addBtn">➕ Добавить камеру</button>
+    <button id="importBtn">📥 Импорт из JSON</button>
+    <button id="exportBtn">📤 Экспорт JSON</button>
+    <button id="massImageBtn">🖼️ Массовый поиск картинок</button>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Бренд</th>
+          <th>Модель</th>
+          <th>Цена (₽)</th>
+          <th>Тип</th>
+          <th>Сенсор</th>
+          <th>FullFrame</th>
+          <th>Кроп</th>
+          <th>Беззеркалка</th>
+          <th>Стабилизация</th>
+          <th>Поворотный экран</th>
+          <th>Для новичков</th>
+          <th>Проф.</th>
+          <th>Сложность меню</th>
+          <th>Цвет (Fuji)</th>
+          <th>Байонет</th>
+          <th>Действия</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <!-- строки будут вставлены JS -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Модальное окно редактирования -->
+<div class="modal" id="editModal">
+  <div class="modal-content">
+    <h2 id="modalTitle">Редактирование камеры</h2>
+    <form id="editForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Бренд</label>
+          <input type="text" id="fBrand" required />
+        </div>
+        <div class="form-group">
+          <label>Модель</label>
+          <input type="text" id="fModel" required />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Тип (DSLR / Mirrorless / Compact)</label>
+          <input type="text" id="fType" />
+        </div>
+        <div class="form-group">
+          <label>Размер сенсора</label>
+          <input type="text" id="fSensorSize" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Разрешение (МП)</label>
+          <input type="number" id="fResolution" step="0.1" />
+        </div>
+        <div class="form-group">
+          <label>Цена (₽)</label>
+          <input type="number" id="fPrice" step="1000" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Вес (г)</label>
+          <input type="number" id="fWeight" step="10" />
+        </div>
+        <div class="form-group">
+          <label>Видео (макс. разрешение)</label>
+          <input type="text" id="fVideo" placeholder="4K, 1080p..." />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Автофокус (точек)</label>
+          <input type="number" id="fAutofocus" step="1" />
+        </div>
+        <div class="form-group">
+          <label>Стабилизация (да/нет)</label>
+          <select id="fImageStabilization"><option value="">—</option><option value="true">Да</option><option value="false">Нет</option></select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Тип экрана</label>
+          <input type="text" id="fScreenType" placeholder="fixed, articulating, tilting..." />
+        </div>
+        <div class="form-group">
+          <label>Вход для микрофона</label>
+          <select id="fMicrophoneInput"><option value="">—</option><option value="true">Да</option><option value="false">Нет</option></select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>LOG-профиль</label>
+          <select id="fLogProfile"><option value="">—</option><option value="true">Да</option><option value="false">Нет</option></select>
+        </div>
+        <div class="form-group">
+          <label>Битность RAW</label>
+          <input type="number" id="fBitDepth" step="1" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Слотов карт</label>
+          <input type="number" id="fCardSlots" step="1" />
+        </div>
+        <div class="form-group">
+          <label>Сложность меню</label>
+          <select id="fMenuComplexity">
+            <option value="simple">simple</option>
+            <option value="intermediate">intermediate</option>
+            <option value="complex">complex</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Цветопередача (Fuji/Leica)</label>
+          <select id="fColorScience"><option value="">—</option><option value="true">Да</option><option value="false">Нет</option></select>
+        </div>
+        <div class="form-group">
+          <label>Байонет</label>
+          <input type="text" id="fLensMount" placeholder="Canon EF, Sony E..." />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Защита от пыли/влаги</label>
+          <select id="fWeatherSealing"><option value="">—</option><option value="true">Да</option><option value="false">Нет</option></select>
+        </div>
+        <div class="form-group">
+          <label>Ёмкость аккумулятора (снимков)</label>
+          <input type="number" id="fBatteryLife" step="10" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Подключения (через запятую)</label>
+        <input type="text" id="fConnectivity" placeholder="WiFi, Bluetooth, USB-C" />
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Точек фокусировки</label>
+          <input type="number" id="fFocusPoints" step="1" />
+        </div>
+        <div class="form-group">
+          <label>Глубина буфера (кадров)</label>
+          <input type="number" id="fBurstBuffer" step="1" />
+        </div>
+      </div>
+      <!-- Булевы флаги -->
+      <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(150px,1fr)); gap:6px; margin-top:10px;">
+        <label><input type="checkbox" id="fFullFrame" /> Full Frame</label>
+        <label><input type="checkbox" id="fCrop" /> Кроп</label>
+        <label><input type="checkbox" id="fMediumFormat" /> Средний формат</label>
+        <label><input type="checkbox" id="fMirrorless" /> Беззеркалка</label>
+        <label><input type="checkbox" id="fDslr" /> Зеркалка</label>
+        <label><input type="checkbox" id="fCompact" /> Компактная</label>
+        <label><input type="checkbox" id="fRotatingScreen" /> Поворотный экран</label>
+        <label><input type="checkbox" id="fViewfinder" /> Видоискатель</label>
+        <label><input type="checkbox" id="fHighResolution" /> Высокое разрешение (>30МП)</label>
+        <label><input type="checkbox" id="fForBeginners" /> Для новичков</label>
+        <label><input type="checkbox" id="fSemiProfessional" /> Полупроф.</label>
+        <label><input type="checkbox" id="fProfessional" /> Профессиональная</label>
+        <label><input type="checkbox" id="fForBloggers" /> Для блогеров</label>
+        <label><input type="checkbox" id="fRawVideo" /> RAW видео</label>
+        <label><input type="checkbox" id="fTwoCardSlots" /> 2 слота</label>
+        <label><input type="checkbox" id="fStackedSensor" /> Stacked сенсор</label>
+        <label><input type="checkbox" id="fRangefinder" /> Дальномерная</label>
+        <label><input type="checkbox" id="fMonochrome" /> Монохромная</label>
+        <label><input type="checkbox" id="fHeadphoneJack" /> Разъём для наушников</label>
+        <label><input type="checkbox" id="fHdmi" /> HDMI</label>
+        <label><input type="checkbox" id="fBuiltinFlash" /> Встроенная вспышка</label>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn-cancel" id="cancelBtn">Отмена</button>
+        <button type="submit" class="btn-save" id="saveBtn">Сохранить</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  // ============================================================
+  //  АДМИНКА — полная логика с новыми полями
+  // ============================================================
+  let cameras = [];
+  let editingIndex = -1;
+
+  // Загрузка данных
+  async function loadData() {
+    try {
+      const res = await fetch('cameras.json');
+      cameras = await res.json();
+    } catch (e) {
+      cameras = [];
     }
+    renderTable();
+  }
 
-    .ring .progress {
-      fill: none;
-      stroke: #d4a373;
+  // Сохранение
+  async function saveData() {
+    const json = JSON.stringify(cameras, null, 2);
+    // В реальности сохраняем на сервер — здесь просто скачиваем для демонстрации
+    // Для локальной разработки можно предложить скачать файл
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'cameras.json';
+    a.click();
+    URL.revokeObjectURL(url);
+    // Также сохраняем в localStorage для удобства
+    localStorage.setItem('cameras_backup', json);
+    renderTable();
+  }
+
+  // Рендер таблицы
+  function renderTable() {
+    const tbody = document.getElementById('tableBody');
+    const search = document.getElementById('searchInput').value.toLowerCase();
+    let filtered = cameras;
+    if (search) {
+      filtered = cameras.filter(c => 
+        c.brand?.toLowerCase().includes(search) || 
+        c.model?.toLowerCase().includes(search)
+      );
+    }
+    if (!filtered.length) {
+      tbody.innerHTML = `<tr><td colspan="17" class="empty">Нет камер</td></tr>`;
+      return;
+    }
+    let html = '';
+    filtered.forEach((cam, idx) => {
+      const realIdx = cameras.indexOf(cam);
+      html += `<tr>
+        <td>${realIdx+1}</td>
+        <td>${cam.brand || ''}</td>
+        <td>${cam.model || ''}</td>
+        <td>${cam.price ? cam.price.toLocaleString() : ''}</td>
+        <td>${cam.type || ''}</td>
+        <td>${cam.sensorSize || ''}</td>
+        <td>${boolBadge(cam.fullFrame)}</td>
+        <td>${boolBadge(cam.crop)}</td>
+        <td>${boolBadge(cam.mirrorless)}</td>
+        <td>${boolBadge(cam.imageStabilization)}</td>
+        <td>${boolBadge(cam.rotatingScreen)}</td>
+        <td>${boolBadge(cam.forBeginners)}</td>
+        <td>${boolBadge(cam.professional)}</td>
+        <td>${cam.menuComplexity || ''}</td>
+        <td>${boolBadge(cam.colorScience)}</td>
+        <td>${cam.lensMount || ''}</td>
+        <td class="actions">
+          <button onclick="editCamera(${realIdx})">✏️</button>
+          <button onclick="deleteCamera(${realIdx})">🗑️</button>
+        </td>
+      </tr>`;
+    });
+    tbody.innerHTML = html;
+  }
+
+  function boolBadge(val) {
+    if (val === true) return '<span class="badge badge-true">Да</span>';
+    if (val === false) return '<span class="badge badge-false">Нет</span>';
+    return '<span class="badge badge-unknown">—</span>';
+  }
+
+  // Редактирование
+  function editCamera(index) {
+    editingIndex = index;
+    const cam = cameras[index];
+    document.getElementById('modalTitle').textContent = 'Редактирование камеры';
+    fillForm(cam);
+    document.getElementById('editModal').classList.add('active');
+  }
+
+  function fillForm(cam) {
+    setVal('fBrand', cam.brand);
+    setVal('fModel', cam.model);
+    setVal('fType', cam.type);
+    setVal('fSensorSize', cam.sensorSize);
+    setVal('fResolution', cam.resolution);
+    setVal('fPrice', cam.price);
+    setVal('fWeight', cam.weight);
+    setVal('fVideo', cam.video);
+    setVal('fAutofocus', cam.autofocus);
+    setSelect('fImageStabilization', cam.imageStabilization);
+    setVal('fScreenType', cam.screenType);
+    setSelect('fMicrophoneInput', cam.microphoneInput);
+    setSelect('fLogProfile', cam.logProfile);
+    setVal('fBitDepth', cam.bitDepth);
+    setVal('fCardSlots', cam.cardSlots);
+    setSelect('fMenuComplexity', cam.menuComplexity || 'intermediate');
+    setSelect('fColorScience', cam.colorScience);
+    setVal('fLensMount', cam.lensMount);
+    setSelect('fWeatherSealing', cam.weatherSealing);
+    setVal('fBatteryLife', cam.batteryLife);
+    setVal('fConnectivity', cam.connectivity ? cam.connectivity.join(', ') : '');
+    setVal('fFocusPoints', cam.focusPoints);
+    setVal('fBurstBuffer', cam.burstBuffer);
+    // Чекбоксы
+    setCheck('fFullFrame', cam.fullFrame);
+    setCheck('fCrop', cam.crop);
+    setCheck('fMediumFormat', cam.mediumFormat);
+    setCheck('fMirrorless', cam.mirrorless);
+    setCheck('fDslr', cam.dslr);
+    setCheck('fCompact', cam.compact);
+    setCheck('fRotatingScreen', cam.rotatingScreen);
+    setCheck('fViewfinder', cam.viewfinder);
+    setCheck('fHighResolution', cam.highResolution);
+    setCheck('fForBeginners', cam.forBeginners);
+    setCheck('fSemiProfessional', cam.semiProfessional);
+    setCheck('fProfessional', cam.professional);
+    setCheck('fForBloggers', cam.forBloggers);
+    setCheck('fRawVideo', cam.rawVideo);
+    setCheck('fTwoCardSlots', cam.twoCardSlots);
+    setCheck('fStackedSensor', cam.stackedSensor);
+    setCheck('fRangefinder', cam.rangefinder);
+    setCheck('fMonochrome', cam.monochrome);
+    setCheck('fHeadphoneJack', cam.headphoneJack);
+    setCheck('fHdmi', cam.hdmi);
+    setCheck('fBuiltinFlash', cam.builtinFlash);
+  }
+
+  function setVal(id, val) {
+    document.getElementById(id).value = val || '';
+  }
+  function setSelect(id, val) {
+    const el = document.getElementById(id);
+    if (val === true || val === 'true') el.value = 'true';
+    else if (val === false || val === 'false') el.value = 'false';
+    else if (val) el.value = val;
+    else el.value = '';
+  }
+  function setCheck(id, val) {
+    document.getElementById(id).checked = !!val;
+  }
+
+  function getFormData() {
+    const data = {
+      brand: document.getElementById('fBrand').value.trim(),
+      model: document.getElementById('fModel').value.trim(),
+      type: document.getElementById('fType').value.trim(),
+      sensorSize: document.getElementById('fSensorSize').value.trim(),
+      resolution: parseFloat(document.getElementById('fResolution').value) || 0,
+      price: parseInt(document.getElementById('fPrice').value) || 0,
+      weight: parseInt(document.getElementById('fWeight').value) || 0,
+      video: document.getElementById('fVideo').value.trim(),
+      autofocus: parseInt(document.getElementById('fAutofocus').value) || 0,
+      imageStabilization: parseBoolSelect('fImageStabilization'),
+      screenType: document.getElementById('fScreenType').value.trim(),
+      microphoneInput: parseBoolSelect('fMicrophoneInput'),
+      logProfile: parseBoolSelect('fLogProfile'),
+      bitDepth: parseInt(document.getElementById('fBitDepth').value) || 0,
+      cardSlots: parseInt(document.getElementById('fCardSlots').value) || 0,
+      menuComplexity: document.getElementById('fMenuComplexity').value,
+      colorScience: parseBoolSelect('fColorScience'),
+      lensMount: document.getElementById('fLensMount').value.trim(),
+      weatherSealing: parseBoolSelect('fWeatherSealing'),
+      batteryLife: parseInt(document.getElementById('fBatteryLife').value) || 0,
+      connectivity: document.getElementById('fConnectivity').value.split(',').map(s => s.trim()).filter(Boolean),
+      focusPoints: parseInt(document.getElementById('fFocusPoints').value) || 0,
+      burstBuffer: parseInt(document.getElementById('fBurstBuffer').value) || 0,
+      // Чекбоксы
+      fullFrame: document.getElementById('fFullFrame').checked,
+      crop: document.getElementById('fCrop').checked,
+      mediumFormat: document.getElementById('fMediumFormat').checked,
+      mirrorless: document.getElementById('fMirrorless').checked,
+      dslr: document.getElementById('fDslr').checked,
+      compact: document.getElementById('fCompact').checked,
+      rotatingScreen: document.getElementById('fRotatingScreen').checked,
+      viewfinder: document.getElementById('fViewfinder').checked,
+      highResolution: document.getElementById('fHighResolution').checked,
+      forBeginners: document.getElementById('fForBeginners').checked,
+      semiProfessional: document.getElementById('fSemiProfessional').checked,
+      professional: document.getElementById('fProfessional').checked,
+      forBloggers: document.getElementById('fForBloggers').checked,
+      rawVideo: document.getElementById('fRawVideo').checked,
+      twoCardSlots: document.getElementById('fTwoCardSlots').checked,
+      stackedSensor: document.getElementById('fStackedSensor').checked,
+      rangefinder: document.getElementById('fRangefinder').checked,
+      monochrome: document.getElementById('fMonochrome').checked,
+      headphoneJack: document.getElementById('fHeadphoneJack').checked,
+      hdmi: document.getElementById('fHdmi').checked,
+      builtinFlash: document.getElementById('fBuiltinFlash').checked,
+    };
+    return data;
+  }
+
+  function parseBoolSelect(id) {
+    const val = document.getElementById(id).value;
+    if (val === 'true') return true;
+    if (val === 'false') return false;
+    return null;
+  }
+
+  function deleteCamera(index) {
+    if (confirm(`Удалить камеру ${cameras[index].brand} ${cameras[index].model}?`)) {
+      cameras.splice(index, 1);
+      renderTable();
+      saveData();
+    }
+  }
+
+  // Сохранение формы
+  document.getElementById('editForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = getFormData();
+    if (!data.brand || !data.model) {
+      alert('Бренд и модель обязательны');
+      return;
+    }
+    if (editingIndex === -1) {
+      cameras.push(data);
+    } else {
+      cameras[editingIndex] = data;
+    }
+    document.getElementById('editModal').classList.remove('active');
+    renderTable();
+    saveData();
+  });
+
+  document.getElementById('cancelBtn').addEventListener('click', () => {
+    document.getElementById('editModal').classList.remove('active');
+  });
+
+  // Добавить
+  document.getElementById('addBtn').addEventListener('click', () => {
+    editingIndex = -1;
+    document.getElementById('modalTitle').textContent = 'Новая камера';
+    fillForm({});
+    document.getElementById('editModal').classList.add('active');
+  });
+
+  // Поиск
+  document.getElementById('searchInput').addEventListener('input', renderTable);
+
+  // Импорт/экспорт
+  document.getElementById('exportBtn').addEventListener('click', saveData);
+
+  document.getElementById('importBtn').addEventListener('click', () => {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.json';
+    input.onchange = (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        try {
+          const data = JSON.parse(ev.target.result);
+          if (Array.isArray(data)) {
+            cameras = data;
+            renderTable();
+            saveData();
+          } else {
+            alert('Неверный формат: ожидается массив');
+          }
+        } catch (err) {
+          alert('Ошибка парсинга JSON');
+        }
+      };
+      reader.readAsText(file);
+    };
+    input.click();
+  });
+
+  // Массовый поиск картинок (заглушка)
+  document.getElementById('massImageBtn').addEventListener('click', () => {
+    alert('Функция массового поиска картинок пока в разработке.\nВы можете вручную добавить URL изображений в поле "image" в JSON.');
+  });
+
+  // Инициализация
+  loadData();
+
+  // Закрытие модалки по клику вне
+  document.getElementById('editModal').addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) {
+      document.getElementById('editModal').classList.remove('active');
+    }
+  });
+</script>
+</body>
+</html>      stroke: #d4a373;
       stroke-width: 4;
       stroke-linecap: round;
       transition: stroke-dashoffset 0.6s ease;
