@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Админка — база камер</title>
     <style>
-        /* Стили такие же, как в предыдущей версии — я их не меняю, только добавляю поле bonus */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: system-ui, sans-serif; background: #f5f5f5; padding: 2rem; max-width: 1200px; margin: 0 auto; }
         h1 { font-size: 2rem; margin-bottom: 1rem; }
@@ -33,7 +32,10 @@
         .image-input-group input { flex: 1; }
         table { width: 100%; background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); border-collapse: collapse; }
         th, td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid #eee; }
-        th { background: #f0f0f0; font-weight: 600; }
+        th { background: #f0f0f0; font-weight: 600; cursor: pointer; user-select: none; transition: background .2s; }
+        th:hover { background: #e0e0e0; }
+        th .sort-arrow { margin-left: 6px; font-size: 0.7rem; opacity: 0.5; }
+        th .sort-arrow.active { opacity: 1; }
         .actions button { margin-right: 0.3rem; }
         .hidden { display: none !important; }
         .toast { position: fixed; bottom: 2rem; right: 2rem; background: #323232; color: #fff; padding: 1rem 2rem; border-radius: 8px; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.15); font-weight: 500; transition: opacity .3s; }
@@ -120,7 +122,6 @@
             </div>
             <div style="font-size:0.8rem; color:#888; margin-top:0.2rem;">Поиск по названию камеры</div>
         </label>
-        <!-- НОВОЕ ПОЛЕ: БОНУС (авторский приоритет) -->
         <label>Бонус (авторский приоритет, целое число, может быть отрицательным)
             <input type="number" id="bonus" class="bonus-input" value="0" step="1">
             <div style="font-size:0.8rem; color:#888; margin-top:0.2rem;">Добавляется к итоговому баллу камеры</div>
@@ -132,17 +133,17 @@
         </div>
     </div>
 
-    <!-- Таблица камер с миниатюрами -->
+    <!-- Таблица с сортировкой -->
     <table>
-        <thead>
+        <thead id="tableHead">
             <tr>
-                <th>Фото</th>
-                <th>ID</th>
-                <th>Название</th>
-                <th>Цена</th>
-                <th>Система</th>
-                <th>Бонус</th>
-                <th>Действия</th>
+                <th data-sort="image">Фото <span class="sort-arrow">↕</span></th>
+                <th data-sort="id">ID <span class="sort-arrow">↕</span></th>
+                <th data-sort="name">Название <span class="sort-arrow">↕</span></th>
+                <th data-sort="price">Цена <span class="sort-arrow">↕</span></th>
+                <th data-sort="system">Система <span class="sort-arrow">↕</span></th>
+                <th data-sort="bonus">Бонус <span class="sort-arrow">↕</span></th>
+                <th data-sort="actions" style="cursor:default;">Действия</th>
             </tr>
         </thead>
         <tbody id="cameraTableBody">
@@ -150,7 +151,7 @@
         </tbody>
     </table>
 
-    <!-- Шлюз для массового импорта -->
+    <!-- Шлюз -->
     <div class="gateway-section">
         <h2 style="font-size:1.2rem; margin-bottom:0.5rem;">🚪 Шлюз — быстрый импорт камер</h2>
         <p style="color:#888; font-size:0.9rem;">Вставьте JSON-шаблон одной камеры или массив камер и нажмите «Добавить».</p>
@@ -164,7 +165,7 @@
     <div id="toast" class="toast hidden">Готово</div>
 
     <script>
-        // ─── ЗАЩИТА АДМИНКИ ПАРОЛЕМ ──────────────────────────────────
+        // ─── ЗАЩИТА ПАРОЛЕМ ──────────────────────────────────────────
         const ADMIN_PASSWORD = '11259375*Camera';
 
         (function checkAuth() {
@@ -193,6 +194,40 @@
         let cameras = [];
         let editingId = null;
 
+        // ─── СОРТИРОВКА ──────────────────────────────────────────────
+        let sortField = null;
+        let sortOrder = 'asc'; // 'asc' или 'desc'
+
+        function getSortValue(cam, field) {
+            if (field === 'image') return cam.image ? 1 : 0;
+            if (field === 'bonus') return cam.bonus ?? 0;
+            if (field === 'price') {
+                const match = String(cam.price).match(/\d+/);
+                return match ? parseInt(match[0]) : 0;
+            }
+            return String(cam[field] || '').toLowerCase();
+        }
+
+        function sortCameras(field) {
+            if (sortField === field) {
+                sortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
+            } else {
+                sortField = field;
+                sortOrder = 'asc';
+            }
+            document.querySelectorAll('#tableHead th[data-sort]').forEach(th => {
+                const arrow = th.querySelector('.sort-arrow');
+                if (th.dataset.sort === field) {
+                    arrow.textContent = sortOrder === 'asc' ? '↑' : '↓';
+                    arrow.classList.add('active');
+                } else {
+                    arrow.textContent = '↕';
+                    arrow.classList.remove('active');
+                }
+            });
+            renderTable();
+        }
+
         // ─── ЗАГРУЗКА ──────────────────────────────────────────────────
         async function loadCameras() {
             try {
@@ -211,14 +246,25 @@
             }
         }
 
-        // ─── ОТОБРАЖЕНИЕ ТАБЛИЦЫ (С БОНУСОМ) ──────────────────────
+        // ─── ОТОБРАЖЕНИЕ ТАБЛИЦЫ (с сортировкой) ──────────────────
         function renderTable() {
             const tbody = document.getElementById('cameraTableBody');
-            if (cameras.length === 0) {
+            let sorted = [...cameras];
+            if (sortField && sortField !== 'actions') {
+                sorted.sort((a, b) => {
+                    let va = getSortValue(a, sortField);
+                    let vb = getSortValue(b, sortField);
+                    if (va < vb) return sortOrder === 'asc' ? -1 : 1;
+                    if (va > vb) return sortOrder === 'asc' ? 1 : -1;
+                    return 0;
+                });
+            }
+
+            if (sorted.length === 0) {
                 tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;color:#888;">Нет камер</td></tr>`;
                 return;
             }
-            tbody.innerHTML = cameras.map(c => `
+            tbody.innerHTML = sorted.map(c => `
                 <tr>
                     <td>${c.image ? `<img src="${c.image}" alt="${c.name}" class="thumb-img" onerror="this.style.display='none'">` : '—'}</td>
                     <td><code>${c.id}</code></td>
@@ -415,7 +461,7 @@
             }
         }
 
-        // ─── МАССОВЫЙ ПОИСК КАРТИНОК ───────────────────────────────
+        // ─── МАССОВЫЙ ПОИСК ──────────────────────────────────────────
         async function massFindImages() {
             await loadCameras();
             const withoutImage = cameras.filter(c => !c.image || c.image.trim() === '');
@@ -575,7 +621,7 @@
             document.getElementById('gatewayInput').value = '';
         });
 
-        // ─── СБОР ДАННЫХ ИЗ ФОРМЫ (с бонусом) ──────────────────────
+        // ─── СБОР ДАННЫХ ИЗ ФОРМЫ ──────────────────────────────────
         function collectFormData() {
             const id = document.getElementById('id').value.trim();
             if (!id) { alert('ID обязателен'); return null; }
@@ -636,6 +682,14 @@
                 toast.classList.add('hidden');
             }, 4000);
         }
+
+        // ─── ОБРАБОТЧИКИ СОРТИРОВКИ ──────────────────────────────────
+        document.querySelectorAll('#tableHead th[data-sort]').forEach(th => {
+            th.addEventListener('click', function() {
+                if (this.dataset.sort === 'actions') return;
+                sortCameras(this.dataset.sort);
+            });
+        });
 
         // ─── СТАРТ ──────────────────────────────────────────────────
         loadCameras();
