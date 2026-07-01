@@ -1,758 +1,1342 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Подбор камеры</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
-    /* ===== Стили (твой дизайн) ===== */
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { background:#0b0b0b; color:#eaeaea; font-family:'Inter',sans-serif; display:flex; justify-content:center; align-items:center; min-height:100vh; padding:20px; }
-    .widget { max-width:720px; width:100%; background:#141414; border-radius:32px; padding:40px 32px; box-shadow:0 20px 60px rgba(0,0,0,0.8); border:1px solid #2a2a2a; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Подбор камеры</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ===== ВСЕ СТИЛИ ИЗ ПРОТОТИПА (без изменений) ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    .hdr {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      margin-bottom: 36px;
-      padding-bottom: 18px;
-      border-bottom: 1px solid var(--border);
-    }
-    .hdr-mark {
-      font-family: 'Fraunces', serif;
-      font-size: 19px;
-      font-weight: 500;
-      letter-spacing: -.01em;
-      color: #f0ece6;
-    }
-    .hdr-mark span { color: #d4a373; }
-    .hdr-meta {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      color: #6B6862;
-      letter-spacing: .02em;
-    }
+  :root {
+    --ink: #15171A;
+    --ink-soft: #1C1F23;
+    --surface: #2A2D31;
+    --surface-raised: #313438;
+    --border: #3A3D42;
+    --border-soft: #2F3236;
+    --paper: #F5F3EE;
+    --paper-dim: #9A9690;
+    --paper-faint: #6B6862;
+    --signal: #E8470C;
+    --signal-dim: #B83A0C;
+    --signal-soft: rgba(232, 71, 12, 0.14);
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Inter', -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --ease: cubic-bezier(.25,.8,.25,1);
+  }
 
-    .ring-container { display:flex; align-items:center; gap:18px; margin-bottom:40px; }
-    .aperture-svg { flex-shrink:0; }
-    .aperture-blade {
-      transition: transform .5s cubic-bezier(.25,.8,.25,1);
-      transform-origin: 50px 50px;
-    }
-    .aperture-track { flex:1; }
-    .aperture-step-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      color: #6B6862;
-      letter-spacing: .04em;
-      margin-bottom: 6px;
-    }
-    .aperture-bar {
-      height:1px;
-      background:#3A3D42;
-      position:relative;
-    }
-    .aperture-bar-fill {
-      position:absolute;
-      top:0; left:0;
-      height:1px;
-      background:#d4a373;
-      transition:width .45s ease;
-    }
+  body {
+    font-family: var(--font-body);
+    background: var(--ink);
+    color: var(--paper);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px 60px;
+    line-height: 1.5;
+  }
 
-    .question-box { margin:24px 0 32px; }
-    .question-text { font-family:'Fraunces',serif; font-size:24px; font-weight:700; line-height:1.3; margin-bottom:8px; color:#f0ece6; }
-    .question-sub { font-size:14px; color:#9A9690; margin-bottom:32px; }
-    .options { display:flex; flex-direction:column; gap:12px; }
-    .option-btn { background:#1e1e1e; border:1px solid #2e2e2e; border-radius:12px; padding:14px 20px; color:#c8c4bc; font-size:16px; font-weight:500; text-align:left; cursor:pointer; transition:all .2s; font-family:'Inter',sans-serif; display:flex; align-items:center; gap:16px; }
-    .option-btn:hover { background:#282828; border-color:#d4a373; color:#fff; }
-    .option-btn.selected { background:#2a1f14; border-color:#d4a373; color:#d4a373; }
-    .option-btn .opt-index {
-      font-family:'JetBrains Mono',monospace;
-      font-size:12px;
-      color:#6B6862;
-      width:24px;
-      flex-shrink:0;
-    }
-    .option-btn.selected .opt-index { color:#d4a373; }
-    .option-btn .opt-body { flex:1; }
-    .option-btn .opt-title { font-size:16px; font-weight:500; }
-    .option-btn .opt-hint { font-size:13px; color:#9A9690; margin-top:2px; }
-    .option-btn input[type="checkbox"] { margin-right:12px; accent-color:#d4a373; transform:scale(1.2); }
-    .option-btn .opt-mark {
-      width:16px; height:16px;
-      border:1px solid #6B6862;
-      border-radius:50%;
-      flex-shrink:0;
-      position:relative;
-      transition:border-color .2s;
-    }
-    .option-btn.selected .opt-mark { border-color:#d4a373; }
-    .option-btn.selected .opt-mark::after {
-      content:'';
-      position:absolute;
-      top:3px; left:3px;
-      width:8px; height:8px;
-      border-radius:50%;
-      background:#d4a373;
-    }
-    .option-btn .opt-mark.square { border-radius:3px; }
-    .option-btn .opt-mark.square::after { border-radius:1px; }
+  .shell { width: 100%; max-width: 600px; }
 
-    .nav-buttons { display:flex; justify-content:space-between; margin-top:28px; gap:12px; }
-    .nav-btn { background:transparent; border:1px solid #2e2e2e; border-radius:40px; padding:10px 24px; color:#aaa; font-size:15px; cursor:pointer; transition:all .2s; font-weight:500; }
-    .nav-btn:hover:not(:disabled) { background:#1e1e1e; border-color:#d4a373; color:#fff; }
-    .nav-btn:disabled { opacity:0.3; cursor:not-allowed; }
-    .nav-btn.primary { background:#d4a373; border-color:#d4a373; color:#0b0b0b; font-weight:600; }
-    .nav-btn.primary:hover:not(:disabled) { background:#c4905f; border-color:#c4905f; }
+  /* ── HEADER ── */
+  .hdr {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 36px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+  }
+  .hdr-mark {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: -.01em;
+  }
+  .hdr-mark span { color: var(--signal); }
+  .hdr-meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--paper-faint);
+    letter-spacing: .02em;
+  }
 
-    .results { margin-top:32px; display:none; }
-    .results.visible { display:block; }
-    .result-card { background:#1a1a1a; border-radius:16px; padding:20px 24px; margin-bottom:16px; border-left:4px solid #d4a373; display:flex; justify-content:space-between; align-items:flex-start; gap:16px; }
-    .result-card .info { flex:1; }
-    .result-card .info h3 { font-family:'Fraunces',serif; font-size:20px; color:#f0ece6; margin-bottom:4px; }
-    .result-card .info .sub { font-size:14px; color:#888; margin-top:2px; }
-    .result-card .info .note { font-size:14px; color:#aaa; margin:8px 0 10px; line-height:1.4; }
-    .result-card .info .avito-link { display:inline-block; margin-top:4px; padding:6px 14px; background:#d4a373; color:#0b0b0b; font-weight:600; text-decoration:none; border-radius:6px; font-size:13px; transition:background .2s; }
-    .result-card .info .avito-link:hover { background:#c4905f; }
-    .result-card .score { font-family:'JetBrains Mono',monospace; font-size:18px; color:#d4a373; background:#252525; padding:4px 14px; border-radius:30px; flex-shrink:0; }
+  /* ── APERTURE PROGRESS ── */
+  .aperture-wrap {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 40px;
+  }
+  .aperture-svg { flex-shrink: 0; }
+  .aperture-blade {
+    transition: transform .5s var(--ease);
+    transform-origin: 50px 50px;
+  }
+  .aperture-track { flex: 1; }
+  .aperture-step-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--paper-faint);
+    letter-spacing: .04em;
+    margin-bottom: 6px;
+  }
+  .aperture-bar {
+    height: 1px;
+    background: var(--border);
+    position: relative;
+  }
+  .aperture-bar-fill {
+    position: absolute;
+    top: 0; left: 0; height: 1px;
+    background: var(--signal);
+    transition: width .45s var(--ease);
+  }
 
-    .r-head { margin-bottom:32px; }
-    .r-eyebrow { font-family:'JetBrains Mono',monospace; font-size:11px; color:#d4a373; letter-spacing:.08em; text-transform:uppercase; margin-bottom:12px; }
-    .r-title { font-family:'Fraunces',serif; font-size:30px; font-weight:500; margin-bottom:10px; }
-    .r-sub { font-size:14px; color:#9A9690; }
+  /* ── QUESTION BLOCK ── */
+  .q-block { animation: rise .4s var(--ease) both; }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
 
-    .cam-tagrow { display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap; }
-    .cam-tag { font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.03em; text-transform:uppercase; padding:3px 8px; border:1px solid #3A3D42; color:#6B6862; }
-    .cam-tag.pick { border-color:#B83A0C; color:#d4a373; background:rgba(232,71,12,0.14); }
-    .cam-reasons { display:flex; flex-direction:column; gap:5px; margin-bottom:14px; }
-    .reason { font-size:13px; color:#eaeaea; display:flex; gap:8px; }
-    .reason::before { content:'—'; color:#d4a373; flex-shrink:0; }
-    .cam-specs { display:flex; flex-wrap:wrap; gap:6px 14px; margin-bottom:14px; }
-    .spec { font-family:'JetBrains Mono',monospace; font-size:11px; color:#6B6862; }
-    .cam-note { font-size:13px; color:#9A9690; line-height:1.55; padding-top:12px; border-top:1px solid #2F3236; margin-bottom:14px; }
-    .cam-foot { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
-    .avito-link { display:inline-flex; align-items:center; gap:7px; font-size:13px; font-weight:500; color:#0b0b0b; background:#d4a373; padding:9px 16px; text-decoration:none; border-radius:2px; transition:background .2s; }
-    .avito-link:hover { background:#c4905f; }
-    .fb-group { display:flex; align-items:center; gap:10px; }
-    .fb-label { font-family:'JetBrains Mono',monospace; font-size:10px; color:#6B6862; text-transform:uppercase; letter-spacing:.03em; }
-    .fb-btn { background:none; border:1px solid #3A3D42; color:#6B6862; width:32px; height:32px; border-radius:2px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:border-color .2s,color .2s; }
-    .fb-btn:hover { border-color:#9A9690; color:#eaeaea; }
-    .fb-btn.active.up { border-color:#4D8C5C; color:#4D8C5C; }
-    .fb-btn.active.down { border-color:#d4a373; color:#d4a373; }
-    .fb-btn.dimmed { opacity:.3; pointer-events:none; }
+  .q-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--signal);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .q-title {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.22;
+    letter-spacing: -.01em;
+    margin-bottom: 8px;
+    max-width: 480px;
+  }
+  .q-sub {
+    font-size: 14px;
+    color: var(--paper-dim);
+    margin-bottom: 32px;
+  }
 
-    .r-foot { display:flex; gap:24px; justify-content:center; margin-top:36px; padding-top:24px; border-top:1px solid #3A3D42; }
-    .link-btn { background:none; border:none; font-family:'JetBrains Mono',monospace; font-size:12px; color:#6B6862; letter-spacing:.02em; cursor:pointer; transition:color .2s; }
-    .link-btn:hover { color:#eaeaea; }
+  /* ── OPTIONS ── */
+  .opts { display: flex; flex-direction: column; }
 
-    .not-found { text-align:center; padding:60px 20px; }
-    .not-found .nf-mark { font-family:'Fraunces',serif; font-size:40px; color:#3A3D42; margin-bottom:20px; }
-    .not-found h3 { font-family:'Fraunces',serif; font-size:22px; font-weight:500; margin-bottom:10px; }
-    .not-found p { color:#9A9690; font-size:14px; max-width:360px; margin:0 auto 24px; }
+  .opt {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 4px;
+    border-bottom: 1px solid var(--border-soft);
+    cursor: pointer;
+    transition: padding-left .25s var(--ease);
+    user-select: none;
+  }
+  .opt:first-child { border-top: 1px solid var(--border-soft); }
+  .opt:hover { padding-left: 10px; }
 
-    @media (max-width:480px) {
-      .widget { padding:24px 16px; }
-      .question-text { font-size:20px; }
-      .option-btn { padding:12px 16px; font-size:15px; }
-      .result-card { flex-direction:column; align-items:stretch; }
-      .result-card .score { align-self:flex-start; }
-    }
-  </style>
+  .opt-index {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--paper-faint);
+    width: 20px;
+    flex-shrink: 0;
+    transition: color .2s;
+  }
+  .opt.selected .opt-index { color: var(--signal); }
+
+  .opt-body { flex: 1; min-width: 0; }
+  .opt-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--paper);
+    transition: color .2s;
+  }
+  .opt-hint {
+    font-size: 13px;
+    color: var(--paper-faint);
+    margin-top: 2px;
+  }
+
+  .opt-mark {
+    width: 16px; height: 16px;
+    border: 1px solid var(--paper-faint);
+    border-radius: 50%;
+    flex-shrink: 0;
+    position: relative;
+    transition: border-color .2s;
+  }
+  .opt.selected .opt-mark { border-color: var(--signal); }
+  .opt.selected .opt-mark::after {
+    content: '';
+    position: absolute;
+    top: 3px; left: 3px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--signal);
+  }
+  .opt-mark.square { border-radius: 3px; }
+  .opt-mark.square::after { border-radius: 1px; }
+
+  /* ── ACTIONS ── */
+  .actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 36px;
+  }
+  .btn-text {
+    background: none;
+    border: none;
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--paper-faint);
+    cursor: pointer;
+    padding: 8px 0;
+    transition: color .2s;
+  }
+  .btn-text:hover:not(:disabled) { color: var(--paper); }
+  .btn-text:disabled { opacity: .25; cursor: default; }
+
+  .btn-shutter {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--paper);
+    color: var(--ink);
+    border: none;
+    border-radius: 2px;
+    padding: 13px 26px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s, transform .15s;
+  }
+  .btn-shutter:hover:not(:disabled) { background: #fff; transform: translateX(2px); }
+  .btn-shutter:disabled { opacity: .25; cursor: default; transform: none; }
+  .btn-shutter svg { transition: transform .2s; }
+  .btn-shutter:hover svg { transform: translateX(3px); }
+
+  .skip-note {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--paper-faint);
+  }
+
+  /* ── RESULTS ── */
+  .r-head { margin-bottom: 32px; }
+  .r-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--signal);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .r-title {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .r-sub { font-size: 14px; color: var(--paper-dim); }
+
+  .cam-list { display: flex; flex-direction: column; gap: 1px; }
+
+  .cam-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 20px;
+    position: relative;
+    transition: background .2s;
+  }
+  .cam-card + .cam-card { margin-top: 14px; }
+  .cam-card.top { border-color: var(--signal-dim); background: var(--surface-raised); }
+
+  /* aperture ring score indicator */
+  .score-ring-wrap { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .score-ring { transform: rotate(-90deg); }
+  .score-ring-bg { fill: none; stroke: var(--border); stroke-width: 3; }
+  .score-ring-fill {
+    fill: none;
+    stroke: var(--paper-faint);
+    stroke-width: 3;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1s var(--ease);
+  }
+  .cam-card.top .score-ring-fill { stroke: var(--signal); }
+  .score-num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--paper-dim);
+  }
+  .cam-card.top .score-num { color: var(--signal); }
+
+  .cam-main { min-width: 0; }
+
+  .cam-row1 {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+  .cam-name {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: -.005em;
+  }
+  .cam-price {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--paper-dim);
+    white-space: nowrap;
+  }
+
+  .cam-tagrow { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+  .cam-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border: 1px solid var(--border);
+    color: var(--paper-faint);
+  }
+  .cam-tag.pick {
+    border-color: var(--signal-dim);
+    color: var(--signal);
+    background: var(--signal-soft);
+  }
+
+  .cam-reasons { display: flex; flex-direction: column; gap: 5px; margin-bottom: 14px; }
+  .reason {
+    font-size: 13px;
+    color: var(--paper);
+    display: flex;
+    gap: 8px;
+  }
+  .reason::before {
+    content: '—';
+    color: var(--signal);
+    flex-shrink: 0;
+  }
+
+  .cam-specs { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-bottom: 14px; }
+  .spec {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--paper-faint);
+  }
+
+  .cam-note {
+    font-size: 13px;
+    color: var(--paper-dim);
+    line-height: 1.55;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-soft);
+    margin-bottom: 14px;
+  }
+
+  .cam-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .avito-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    background: var(--paper);
+    padding: 9px 16px;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background .2s;
+  }
+  .avito-link:hover { background: #fff; }
+
+  .fb-group { display: flex; align-items: center; gap: 10px; }
+  .fb-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--paper-faint);
+    text-transform: uppercase;
+    letter-spacing: .03em;
+  }
+  .fb-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--paper-faint);
+    width: 32px; height: 32px;
+    border-radius: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color .2s, color .2s;
+  }
+  .fb-btn:hover { border-color: var(--paper-dim); color: var(--paper); }
+  .fb-btn.active.up { border-color: #4D8C5C; color: #4D8C5C; }
+  .fb-btn.active.down { border-color: var(--signal); color: var(--signal); }
+  .fb-btn.dimmed { opacity: .3; pointer-events: none; }
+
+  .r-foot {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+  .link-btn {
+    background: none;
+    border: none;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--paper-faint);
+    letter-spacing: .02em;
+    cursor: pointer;
+    transition: color .2s;
+  }
+  .link-btn:hover { color: var(--paper); }
+
+  .not-found { text-align: center; padding: 60px 20px; }
+  .not-found .nf-mark { font-family: var(--font-display); font-size: 40px; color: var(--border); margin-bottom: 20px; }
+  .not-found h3 { font-family: var(--font-display); font-size: 22px; font-weight: 500; margin-bottom: 10px; }
+  .not-found p { color: var(--paper-dim); font-size: 14px; max-width: 360px; margin: 0 auto 24px; }
+
+  @media (max-width: 480px) {
+    .cam-card { grid-template-columns: 1fr; }
+    .score-ring-wrap { flex-direction: row; justify-content: flex-start; }
+    .q-title { font-size: 23px; }
+  }
+</style>
 </head>
 <body>
-<div class="widget">
+<div class="shell">
   <div class="hdr">
     <div class="hdr-mark">подбор<span>·</span>камеры</div>
     <div class="hdr-meta" id="hdrMeta"></div>
   </div>
 
-  <div class="ring-container" id="apertureWrap">
-    <!-- сюда рендерится кольцо -->
-  </div>
+  <div class="aperture-wrap" id="apertureWrap"></div>
 
-  <div id="content"></div>
+  <div id="screen"></div>
 </div>
 
 <script>
-  // ============================================================
-  // 1. СОСТОЯНИЕ
-  // ============================================================
-  const state = {
-    level: null,
-    path: null,
-    answers: {},
-    currentStep: 0,
-    totalSteps: 0,
-    questions: [],
-    finished: false
-  };
+// ============================================================
+// 1. СОСТОЯНИЕ (из релиза)
+// ============================================================
+const state = {
+  level: null,
+  path: null,
+  answers: {},
+  currentStep: 0,
+  totalSteps: 0,
+  questions: [],
+  finished: false
+};
 
-  // ============================================================
-  // 2. ДЕРЕВО ВОПРОСОВ (без эмодзи, с подсказками)
-  // ============================================================
-  const questionTree = {
-    beginner: [
-      { id: 'b1', text: 'Какой у вас бюджет на камеру?', sub: 'Стоимость только тела камеры, без объектива.', options: [
-          { label: 'До 20 000 ₽', value: 'budget_1', hint: 'Только б/у, но это нормально' },
-          { label: '20 000 – 35 000 ₽', value: 'budget_2', hint: 'Хороший б/у или базовые новые' },
-          { label: '35 000 – 60 000 ₽', value: 'budget_3', hint: 'Хороший выбор беззеркалок' },
-          { label: '60 000 – 100 000 ₽', value: 'budget_4', hint: 'Топовые APS-C, б/у полный кадр' },
-          { label: 'Больше 100 000 ₽', value: 'budget_5', hint: 'Профессиональный полный кадр' }
+// ============================================================
+// 2. ДЕРЕВО ВОПРОСОВ (из релиза, с исправленными текстами)
+// ============================================================
+const questionTree = {
+  beginner: [
+    { id: 'b1', text: 'Какой у вас бюджет?', sub: 'Стоимость только тела камеры, без объектива.', options: [
+        { label: 'До 15 000 ₽', value: 'budget_1' },
+        { label: '15 000 – 30 000 ₽', value: 'budget_2' },
+        { label: '30 000 – 50 000 ₽', value: 'budget_3' },
+        { label: '50 000 – 80 000 ₽', value: 'budget_4' },
+        { label: 'Больше 80 000 ₽', value: 'budget_5' }
+      ] },
+    { id: 'b2', text: 'Что вы планируете снимать?', sub: '', options: [
+        { label: 'Семью и детей', value: 'family' },
+        { label: 'Путешествия и природу', value: 'travel' },
+        { label: 'Хочу научиться фотографии как хобби', value: 'hobby' },
+        { label: 'Снимать друзей и мероприятия', value: 'events' }
+      ] },
+    { id: 'b3', text: 'Готовы ли купить камеру б/у?', sub: '', options: [
+        { label: 'Да', value: 'yes' },
+        { label: 'Нет', value: 'no' },
+        { label: 'Не знаю', value: 'dont_know' }
+      ] },
+    { id: 'b4', text: 'Насколько важна компактность камеры?', sub: '', options: [
+        { label: 'Должна помещаться в небольшую сумку', value: 'compact_important' },
+        { label: 'Не принципиально, главное — качество', value: 'compact_not_important' }
+      ] },
+    { id: 'b5', text: 'Что вас не устраивает в съёмке на телефон?', sub: '', options: [
+        { label: 'Мало зума', value: 'no_zoom' },
+        { label: 'Плохо снимает в темноте', value: 'low_light' },
+        { label: 'Хочу красивое размытие фона (боке)', value: 'bokeh' },
+        { label: 'Хочу больше контроля над настройками', value: 'control' }
+      ] },
+    { id: 'b6', text: 'Готовы ли вы разбираться в настройках камеры?', sub: '', options: [
+        { label: 'Хочу просто нажать и снять', value: 'auto' },
+        { label: 'Готов немного учиться', value: 'learn' }
+      ] },
+    { id: 'b7', text: 'Планируете ли снимать видео?', sub: '', options: [
+        { label: 'Да', value: 'yes' },
+        { label: 'Нет', value: 'no' }
+      ] },
+    { id: 'b8', text: 'Кто-нибудь поможет вам с выбором или настройкой?', sub: '', options: [
+        { label: 'Да, есть знакомый фотограф', value: 'help' },
+        { label: 'Нет, буду разбираться сам', value: 'alone' }
+      ] }
+  ],
+  enthusiast: {
+    tt: [
+      { id: 'e1', text: 'Что вас больше волнует — характеристики и возможности камеры, или ощущение от процесса съёмки и итоговая картинка?', sub: '', options: [
+          { label: 'Технические характеристики', value: 'tt' },
+          { label: 'Ощущение и картинка', value: 'creative' }
         ] },
-      { id: 'b2', text: 'Что вы планируете снимать?', sub: 'Можно выбрать несколько.', options: [ { label: 'Семью и детей', value: 'family' }, { label: 'Путешествия и природу', value: 'travel' }, { label: 'Хочу научиться фотографии как хобби', value: 'hobby' }, { label: 'Снимать друзей и мероприятия', value: 'events' } ], multiple: true },
-      { id: 'b3', text: 'Готовы ли купить камеру б/у?', sub: '', options: [ { label: 'Да', value: 'yes' }, { label: 'Нет', value: 'no' }, { label: 'Не знаю', value: 'dont_know' } ] },
-      { id: 'b4', text: 'Насколько важна компактность камеры?', sub: '', options: [ { label: 'Должна помещаться в небольшую сумку', value: 'compact_important' }, { label: 'Не принципиально, главное — качество', value: 'compact_not_important' } ] },
-      { id: 'b5', text: 'Что вас не устраивает в съёмке на телефон?', sub: '', options: [ { label: 'Мало зума', value: 'no_zoom' }, { label: 'Плохо снимает в темноте', value: 'low_light' }, { label: 'Хочу красивое размытие фона (боке)', value: 'bokeh' }, { label: 'Хочу больше контроля над настройками', value: 'control' } ] },
-      { id: 'b6', text: 'Готовы ли вы разбираться в настройках камеры?', sub: '', options: [ { label: 'Хочу просто нажать и снять', value: 'auto' }, { label: 'Готов немного учиться', value: 'learn' } ] },
-      { id: 'b7', text: 'Планируете ли снимать видео?', sub: '', options: [ { label: 'Да', value: 'yes' }, { label: 'Нет', value: 'no' } ] },
-      { id: 'b8', text: 'Кто-нибудь поможет вам с выбором или настройкой?', sub: '', options: [ { label: 'Да, есть знакомый фотограф', value: 'help' }, { label: 'Нет, буду разбираться сам', value: 'alone' } ] }
+      { id: 'e2', text: 'Ваш бюджет', sub: 'Стоимость только тела камеры, без объектива.', options: [
+          { label: 'До 30 000 ₽', value: 'budget_1' },
+          { label: '30 000 – 60 000 ₽', value: 'budget_2' },
+          { label: '60 000 – 100 000 ₽', value: 'budget_3' },
+          { label: '100 000 – 200 000 ₽', value: 'budget_4' },
+          { label: 'Больше 200 000 ₽', value: 'budget_5' }
+        ] },
+      { id: 'e3', text: 'Какие жанры вас интересуют?', sub: 'Можно выбрать несколько.', options: [
+          { label: 'Портрет', value: 'portrait' },
+          { label: 'Пейзаж', value: 'landscape' },
+          { label: 'Уличная фотография', value: 'street' },
+          { label: 'Спорт/экшн', value: 'sports' },
+          { label: 'Репортаж/события', value: 'events' }
+        ], multiple: true },
+      { id: 'e4', text: 'Что у вас уже есть из фототехники?', sub: '', options: [
+          { label: 'Ничего', value: 'none' },
+          { label: 'Зеркалка старого образца', value: 'old_dslr' },
+          { label: 'Системная камера', value: 'mirrorless' },
+          { label: 'Компактная камера', value: 'compact' }
+        ] },
+      { id: 'e5_tt', text: 'Насколько важны мегапиксели?', sub: '', options: [
+          { label: 'Очень важны (больше 30 МП)', value: 'high_mp' },
+          { label: 'Средне (20–30 МП)', value: 'mid_mp' },
+          { label: 'Не критично', value: 'low_mp' }
+        ] },
+      { id: 'e6_tt', text: 'Нужна ли быстрая серийная съёмка?', sub: '', options: [
+          { label: 'Да, часто снимаю движение', value: 'fast_burst' },
+          { label: 'Нет, снимаю статику', value: 'slow_burst' }
+        ] },
+      { id: 'e7_tt', text: 'Автофокус критичен для спорта/детей в движении?', sub: '', options: [
+          { label: 'Да, очень важен', value: 'af_critical' },
+          { label: 'Нет, снимаю преимущественно неподвижные объекты', value: 'af_not_critical' }
+        ] }
     ],
-    enthusiast: {
-      tt: [
-        { id: 'e1', text: 'Что вас больше волнует — характеристики и возможности камеры, или ощущение от процесса съёмки и итоговая картинка?', sub: '', options: [ { label: 'Технические характеристики', value: 'tt' }, { label: 'Ощущение и картинка', value: 'creative' } ] },
-        { id: 'e2', text: 'Ваш бюджет', sub: 'Стоимость только тела камеры, без объектива.', options: [ { label: 'До 30 000 ₽', value: 'budget_1', hint: 'Только б/у, но это нормально' }, { label: '30 000 – 60 000 ₽', value: 'budget_2', hint: 'Хороший б/у или базовые новые' }, { label: '60 000 – 100 000 ₽', value: 'budget_3', hint: 'Хороший выбор беззеркалок' }, { label: '100 000 – 200 000 ₽', value: 'budget_4', hint: 'Топовые APS-C, б/у полный кадр' }, { label: 'Больше 200 000 ₽', value: 'budget_5', hint: 'Профессиональный полный кадр' } ] },
-        { id: 'e3', text: 'Какие жанры вас интересуют?', sub: 'Можно выбрать несколько.', options: [ { label: 'Портрет', value: 'portrait' }, { label: 'Пейзаж', value: 'landscape' }, { label: 'Уличная фотография', value: 'street' }, { label: 'Спорт/экшн', value: 'sports' }, { label: 'Репортаж/события', value: 'events' } ], multiple: true },
-        { id: 'e4', text: 'Что у вас уже есть из фототехники?', sub: '', options: [ { label: 'Ничего', value: 'none' }, { label: 'Зеркалка старого образца', value: 'old_dslr' }, { label: 'Системная камера', value: 'mirrorless' }, { label: 'Компактная камера', value: 'compact' } ] },
-        { id: 'e5_tt', text: 'Насколько важны мегапиксели?', sub: '', options: [ { label: 'Очень важны (больше 30 МП)', value: 'high_mp' }, { label: 'Средне (20–30 МП)', value: 'mid_mp' }, { label: 'Не критично', value: 'low_mp' } ] },
-        { id: 'e6_tt', text: 'Нужна ли быстрая серийная съёмка?', sub: '', options: [ { label: 'Да, часто снимаю движение', value: 'fast_burst' }, { label: 'Нет, снимаю статику', value: 'slow_burst' } ] },
-        { id: 'e7_tt', text: 'Автофокус критичен для спорта/детей в движении?', sub: '', options: [ { label: 'Да, очень важен', value: 'af_critical' }, { label: 'Нет, снимаю преимущественно неподвижные объекты', value: 'af_not_critical' } ] }
-      ],
-      creative: [
-        { id: 'e1', text: 'Что вас больше волнует — характеристики и возможности камеры, или ощущение от процесса съёмки и итоговая картинка?', sub: '', options: [ { label: 'Технические характеристики', value: 'tt' }, { label: 'Ощущение и картинка', value: 'creative' } ] },
-        { id: 'e2', text: 'Ваш бюджет', sub: 'Стоимость только тела камеры, без объектива.', options: [ { label: 'До 30 000 ₽', value: 'budget_1', hint: 'Только б/у, но это нормально' }, { label: '30 000 – 60 000 ₽', value: 'budget_2', hint: 'Хороший б/у или базовые новые' }, { label: '60 000 – 100 000 ₽', value: 'budget_3', hint: 'Хороший выбор беззеркалок' }, { label: '100 000 – 200 000 ₽', value: 'budget_4', hint: 'Топовые APS-C, б/у полный кадр' }, { label: 'Больше 200 000 ₽', value: 'budget_5', hint: 'Профессиональный полный кадр' } ] },
-        { id: 'e3', text: 'Какие жанры вас интересуют?', sub: 'Можно выбрать несколько.', options: [ { label: 'Портрет', value: 'portrait' }, { label: 'Пейзаж', value: 'landscape' }, { label: 'Уличная фотография', value: 'street' }, { label: 'Спорт/экшн', value: 'sports' }, { label: 'Репортаж/события', value: 'events' } ], multiple: true },
-        { id: 'e4', text: 'Что у вас уже есть из фототехники?', sub: '', options: [ { label: 'Ничего', value: 'none' }, { label: 'Зеркалка старого образца', value: 'old_dslr' }, { label: 'Системная камера', value: 'mirrorless' }, { label: 'Компактная камера', value: 'compact' } ] },
-        { id: 'e5_creative', text: 'Важна ли цветопередача «из коробки» (например, плёночные симуляции Fujifilm)?', sub: '', options: [ { label: 'Да, это главное', value: 'color_important' }, { label: 'Средне, могу обработать в редакторе', value: 'color_mid' }, { label: 'Не важно', value: 'color_not' } ] },
-        { id: 'e6_creative', text: 'Насколько важен простой и понятный интерфейс меню?', sub: '', options: [ { label: 'Очень важен, хочу быстро настраивать', value: 'menu_simple' }, { label: 'Мне не принципиально', value: 'menu_any' } ] },
-        { id: 'e7_creative', text: 'Эргономика и приятность в руке — важно?', sub: '', options: [ { label: 'Да, камера должна лежать как влитая', value: 'ergo_important' }, { label: 'Не особо', value: 'ergo_not' } ] }
-      ]
-    },
-    pro: [
-      { id: 'p1', text: 'Какой размер сенсора вам нужен?', sub: '', options: [ { label: 'Кроп (APS-C или меньше)', value: 'crop' }, { label: 'Полный кадр (Full Frame)', value: 'fullframe' }, { label: 'Средний формат', value: 'medium' }, { label: 'Не принципиально', value: 'any' } ] },
-      { id: 'p2', text: 'Ваш бюджет (профессиональный уровень)', sub: '', options: [ { label: 'До 100 000 ₽', value: 'budget_1' }, { label: '100 000 – 200 000 ₽', value: 'budget_2' }, { label: '200 000 – 400 000 ₽', value: 'budget_3' }, { label: 'Больше 400 000 ₽', value: 'budget_4' } ] },
-      { id: 'p3', text: 'Насколько критичен вес камеры?', sub: '', options: [ { label: 'Критичен — часто снимаю с рук, нужна лёгкость', value: 'weight_critical' }, { label: 'Умеренно — ношу в рюкзаке, вес имеет значение', value: 'weight_moderate' }, { label: 'Не важен — снимаю со штатива или в студии', value: 'weight_not_important' } ] },
-      { id: 'p4', text: 'Нужен ли автофокус по глазам/животным?', sub: '', options: [ { label: 'Да', value: 'yes' }, { label: 'Нет', value: 'no' }, { label: 'Не снимаю такое', value: 'not_use' } ] },
-      { id: 'p5', text: 'Нужно ли видео в LOG-профиле?', sub: '', options: [ { label: 'Да', value: 'yes' }, { label: 'Нет', value: 'no' }, { label: 'Не снимаю видео', value: 'no_video' } ] },
-      { id: 'p6', text: 'Какая битность RAW вам нужна?', sub: '', options: [ { label: '12-bit', value: '12bit' }, { label: '14-bit', value: '14bit' }, { label: 'Не принципиально', value: 'any' } ] },
-      { id: 'p7', text: 'Вы заменяете систему или покупаете вторую камеру?', sub: '', options: [ { label: 'Заменяю систему — хочу попробовать другой бренд', value: 'replace' }, { label: 'Вторую камеру — можно той же системы, можно другой', value: 'second' } ] },
-      { id: 'p8', text: 'Какая у вас текущая система (бренд)?', sub: '', options: [ { label: 'Canon', value: 'Canon' }, { label: 'Nikon', value: 'Nikon' }, { label: 'Sony', value: 'Sony' }, { label: 'Fujifilm', value: 'Fujifilm' }, { label: 'Hasselblad', value: 'Hasselblad' }, { label: 'Leica', value: 'Leica' }, { label: 'Другая', value: 'other' } ] },
-      { id: 'p9', text: 'Оцените размер вашего парка оптики и значимость стороннего стекла', sub: '', options: [ { label: 'Большой парк родной оптики, стороннее не использую', value: 'native_large' }, { label: 'Средний парк, использую и стороннюю оптику', value: 'mixed' }, { label: 'Мало оптики, активно использую сторонние бренды (Sigma, Tamron и др.)', value: 'third_party' } ] },
-      { id: 'p10', text: 'Отметьте дополнительные важные для вас функции (можно несколько)', sub: '', options: [ { label: 'Два слота для карт памяти', value: 'two_slots' }, { label: 'Автофокус по глазам в видео', value: 'eye_af_video' }, { label: 'Видео в LOG', value: 'log_video' }, { label: 'Пыле-влагозащита', value: 'weather' }, { label: 'Встроенный стабилизатор', value: 'ibis' } ], multiple: true }
-    ],
-    blogger: [
-      { id: 'bl1', text: 'Ваш бюджет', sub: 'Стоимость только тела камеры, без объектива.', options: [ { label: 'До 30 000 ₽', value: 'budget_1', hint: 'Только б/у, но это нормально' }, { label: '30 000 – 60 000 ₽', value: 'budget_2', hint: 'Хороший б/у или базовые новые' }, { label: '60 000 – 100 000 ₽', value: 'budget_3', hint: 'Хороший выбор беззеркалок' }, { label: '100 000 – 200 000 ₽', value: 'budget_4', hint: 'Топовые APS-C, б/у полный кадр' }, { label: 'Больше 200 000 ₽', value: 'budget_5', hint: 'Профессиональный полный кадр' } ] },
-      { id: 'bl2', text: 'На какой платформе вы публикуете основной контент?', sub: '', options: [ { label: 'YouTube (длинные ролики)', value: 'youtube' }, { label: 'Reels, Shorts, TikTok', value: 'shorts' }, { label: 'Стримы', value: 'streams' } ] },
-      { id: 'bl3', text: 'Насколько важна встроенная стабилизация изображения?', sub: '', options: [ { label: 'Очень важна, снимаю с рук', value: 'ibis_critical' }, { label: 'Использую гимбал/штатив', value: 'gimbal' }, { label: 'Не важно', value: 'not_important' } ] },
-      { id: 'bl4', text: 'Нужен ли вход для внешнего микрофона?', sub: '', options: [ { label: 'Да', value: 'yes' }, { label: 'Нет', value: 'no' } ] },
-      { id: 'bl5', text: 'Насколько критичен поворотный/откидной дисплей для съёмки себя?', sub: '', options: [ { label: 'Критичен, снимаю себя в кадре', value: 'critical' }, { label: 'Желателен, но можно и без', value: 'desirable' }, { label: 'Не важен', value: 'not_important' } ] },
-      { id: 'bl6', text: 'Автофокус по лицу/глазам в видеорежиме — критичен?', sub: '', options: [ { label: 'Да, критичен', value: 'critical' }, { label: 'Нет, не критичен', value: 'not_critical' } ] },
-      { id: 'bl7', text: 'Готовы ли вы разбираться в сложном меню или нужен принцип «включил-снял»?', sub: '', options: [ { label: 'Хочу простое меню, минимум настроек', value: 'simple' }, { label: 'Готов разбираться, если это даёт качество', value: 'complex_ok' } ] },
-      { id: 'bl8', text: 'Насколько важны вес и компактность камеры?', sub: '', options: [ { label: 'Очень важно — часто снимаю с рук в движении', value: 'critical' }, { label: 'Средне — ношу в рюкзаке', value: 'moderate' }, { label: 'Не важно', value: 'not_important' } ] }
+    creative: [
+      { id: 'e1', text: 'Что вас больше волнует — характеристики и возможности камеры, или ощущение от процесса съёмки и итоговая картинка?', sub: '', options: [
+          { label: 'Технические характеристики', value: 'tt' },
+          { label: 'Ощущение и картинка', value: 'creative' }
+        ] },
+      { id: 'e2', text: 'Ваш бюджет', sub: 'Стоимость только тела камеры, без объектива.', options: [
+          { label: 'До 30 000 ₽', value: 'budget_1' },
+          { label: '30 000 – 60 000 ₽', value: 'budget_2' },
+          { label: '60 000 – 100 000 ₽', value: 'budget_3' },
+          { label: '100 000 – 200 000 ₽', value: 'budget_4' },
+          { label: 'Больше 200 000 ₽', value: 'budget_5' }
+        ] },
+      { id: 'e3', text: 'Какие жанры вас интересуют?', sub: 'Можно выбрать несколько.', options: [
+          { label: 'Портрет', value: 'portrait' },
+          { label: 'Пейзаж', value: 'landscape' },
+          { label: 'Уличная фотография', value: 'street' },
+          { label: 'Спорт/экшн', value: 'sports' },
+          { label: 'Репортаж/события', value: 'events' }
+        ], multiple: true },
+      { id: 'e4', text: 'Что у вас уже есть из фототехники?', sub: '', options: [
+          { label: 'Ничего', value: 'none' },
+          { label: 'Зеркалка старого образца', value: 'old_dslr' },
+          { label: 'Системная камера', value: 'mirrorless' },
+          { label: 'Компактная камера', value: 'compact' }
+        ] },
+      { id: 'e5_creative', text: 'Важна ли цветопередача «из коробки» (например, плёночные симуляции Fujifilm)?', sub: '', options: [
+          { label: 'Да, это главное', value: 'color_important' },
+          { label: 'Средне, могу обработать в редакторе', value: 'color_mid' },
+          { label: 'Не важно', value: 'color_not' }
+        ] },
+      { id: 'e6_creative', text: 'Насколько важен простой и понятный интерфейс меню?', sub: '', options: [
+          { label: 'Очень важен, хочу быстро настраивать', value: 'menu_simple' },
+          { label: 'Мне не принципиально', value: 'menu_any' }
+        ] },
+      { id: 'e7_creative', text: 'Эргономика и приятность в руке — важно?', sub: '', options: [
+          { label: 'Да, камера должна лежать как влитая', value: 'ergo_important' },
+          { label: 'Не особо', value: 'ergo_not' }
+        ] }
     ]
-  };
+  },
+  pro: [
+    { id: 'p1', text: 'Какой размер сенсора вам нужен?', sub: '', options: [
+        { label: 'Кроп (APS-C или меньше)', value: 'crop' },
+        { label: 'Полный кадр (Full Frame)', value: 'fullframe' },
+        { label: 'Средний формат', value: 'medium' },
+        { label: 'Не принципиально', value: 'any' }
+      ] },
+    { id: 'p2', text: 'Ваш бюджет (профессиональный уровень)', sub: '', options: [
+        { label: 'До 100 000 ₽', value: 'budget_1' },
+        { label: '100 000 – 200 000 ₽', value: 'budget_2' },
+        { label: '200 000 – 400 000 ₽', value: 'budget_3' },
+        { label: 'Больше 400 000 ₽', value: 'budget_4' }
+      ] },
+    { id: 'p3', text: 'Насколько критичен вес камеры?', sub: '', options: [
+        { label: 'Критичен — часто снимаю с рук, нужна лёгкость', value: 'weight_critical' },
+        { label: 'Умеренно — ношу в рюкзаке, вес имеет значение', value: 'weight_moderate' },
+        { label: 'Не важен — снимаю со штатива или в студии', value: 'weight_not_important' }
+      ] },
+    { id: 'p4', text: 'Нужен ли автофокус по глазам/животным?', sub: '', options: [
+        { label: 'Да', value: 'yes' },
+        { label: 'Нет', value: 'no' },
+        { label: 'Не снимаю такое', value: 'not_use' }
+      ] },
+    { id: 'p5', text: 'Нужно ли видео в LOG-профиле?', sub: '', options: [
+        { label: 'Да', value: 'yes' },
+        { label: 'Нет', value: 'no' },
+        { label: 'Не снимаю видео', value: 'no_video' }
+      ] },
+    { id: 'p6', text: 'Какая битность RAW вам нужна?', sub: '', options: [
+        { label: '12-bit', value: '12bit' },
+        { label: '14-bit', value: '14bit' },
+        { label: 'Не принципиально', value: 'any' }
+      ] },
+    { id: 'p7', text: 'Вы заменяете систему или покупаете вторую камеру?', sub: '', options: [
+        { label: 'Заменяю систему — хочу попробовать другой бренд', value: 'replace' },
+        { label: 'Вторую камеру — можно той же системы, можно другой', value: 'second' }
+      ] },
+    { id: 'p8', text: 'Какая у вас текущая система (бренд)?', sub: '', options: [
+        { label: 'Canon', value: 'Canon' },
+        { label: 'Nikon', value: 'Nikon' },
+        { label: 'Sony', value: 'Sony' },
+        { label: 'Fujifilm', value: 'Fujifilm' },
+        { label: 'Hasselblad', value: 'Hasselblad' },
+        { label: 'Leica', value: 'Leica' },
+        { label: 'Другая', value: 'other' }
+      ] },
+    { id: 'p9', text: 'Оцените размер вашего парка оптики и значимость стороннего стекла', sub: '', options: [
+        { label: 'Большой парк родной оптики, стороннее не использую', value: 'native_large' },
+        { label: 'Средний парк, использую и стороннюю оптику', value: 'mixed' },
+        { label: 'Мало оптики, активно использую сторонние бренды (Sigma, Tamron и др.)', value: 'third_party' }
+      ] },
+    { id: 'p10', text: 'Отметьте дополнительные важные для вас функции (можно несколько)', sub: '', options: [
+        { label: 'Два слота для карт памяти', value: 'two_slots' },
+        { label: 'Автофокус по глазам в видео', value: 'eye_af_video' },
+        { label: 'Видео в LOG', value: 'log_video' },
+        { label: 'Пыле-влагозащита', value: 'weather' },
+        { label: 'Встроенный стабилизатор', value: 'ibis' }
+      ], multiple: true }
+  ],
+  blogger: [
+    { id: 'bl1', text: 'Ваш бюджет', sub: 'Стоимость только тела камеры, без объектива.', options: [
+        { label: 'До 30 000 ₽', value: 'budget_1' },
+        { label: '30 000 – 60 000 ₽', value: 'budget_2' },
+        { label: '60 000 – 100 000 ₽', value: 'budget_3' },
+        { label: '100 000 – 200 000 ₽', value: 'budget_4' },
+        { label: 'Больше 200 000 ₽', value: 'budget_5' }
+      ] },
+    { id: 'bl2', text: 'На какой платформе вы публикуете основной контент?', sub: '', options: [
+        { label: 'YouTube (длинные ролики)', value: 'youtube' },
+        { label: 'Reels, Shorts, TikTok', value: 'shorts' },
+        { label: 'Стримы', value: 'streams' }
+      ] },
+    { id: 'bl3', text: 'Насколько важна встроенная стабилизация изображения?', sub: '', options: [
+        { label: 'Очень важна, снимаю с рук', value: 'ibis_critical' },
+        { label: 'Использую гимбал/штатив', value: 'gimbal' },
+        { label: 'Не важно', value: 'not_important' }
+      ] },
+    { id: 'bl4', text: 'Нужен ли вход для внешнего микрофона?', sub: '', options: [
+        { label: 'Да', value: 'yes' },
+        { label: 'Нет', value: 'no' }
+      ] },
+    { id: 'bl5', text: 'Насколько критичен поворотный/откидной дисплей для съёмки себя?', sub: '', options: [
+        { label: 'Критичен, снимаю себя в кадре', value: 'critical' },
+        { label: 'Желателен, но можно и без', value: 'desirable' },
+        { label: 'Не важен', value: 'not_important' }
+      ] },
+    { id: 'bl6', text: 'Автофокус по лицу/глазам в видеорежиме — критичен?', sub: '', options: [
+        { label: 'Да, критичен', value: 'critical' },
+        { label: 'Нет, не критичен', value: 'not_critical' }
+      ] },
+    { id: 'bl7', text: 'Готовы ли вы разбираться в сложном меню или нужен принцип «включил-снял»?', sub: '', options: [
+        { label: 'Хочу простое меню, минимум настроек', value: 'simple' },
+        { label: 'Готов разбираться, если это даёт качество', value: 'complex_ok' }
+      ] },
+    { id: 'bl8', text: 'Насколько важны вес и компактность камеры?', sub: '', options: [
+        { label: 'Очень важно — часто снимаю с рук в движении', value: 'critical' },
+        { label: 'Средне — ношу в рюкзаке', value: 'moderate' },
+        { label: 'Не важно', value: 'not_important' }
+      ] }
+  ]
+};
 
-  // ============================================================
-  // 3. ЛОГИКА ОПРОСНИКА
-  // ============================================================
-  let cameras = [];
+// ============================================================
+// 3. ЛОГИКА ОПРОСНИКА (из релиза, без изменений)
+// ============================================================
+let cameras = [];
 
-  function loadCameras() {
-    const url = 'https://raw.githubusercontent.com/alexeynovopashin-lab/CameraChange/main/cameras.json?t=' + Date.now();
-    return fetch(url)
-      .then(r => r.json())
-      .then(data => { cameras = data; })
-      .catch(() => { cameras = []; });
+function loadCameras() {
+  const url = 'https://raw.githubusercontent.com/alexeynovopashin-lab/CameraChange/main/cameras.json?t=' + Date.now();
+  return fetch(url)
+    .then(r => r.json())
+    .then(data => { cameras = data; })
+    .catch(() => { cameras = []; });
+}
+
+const screen = document.getElementById('screen');
+const apertureWrap = document.getElementById('apertureWrap');
+const hdrMeta = document.getElementById('hdrMeta');
+
+// ============================================================
+// 4. ДИАФРАГМЕННОЕ КОЛЬЦО (из прототипа)
+// ============================================================
+function apertureSVG(openness) {
+  const blades = 6;
+  const cx = 50, cy = 50, r = 38;
+  let paths = '';
+  for (let i = 0; i < blades; i++) {
+    const angle = (360 / blades) * i;
+    const scale = 1 - openness * 0.62;
+    paths += `<g class="aperture-blade" style="transform: rotate(${angle}deg) scale(${scale})">
+      <path d="M 50 50 L 50 4 A 46 46 0 0 1 88 26 Z" fill="var(--surface)" stroke="var(--border)" stroke-width="1"/>
+    </g>`;
   }
+  return `<svg class="aperture-svg" width="60" height="60" viewBox="0 0 100 100">
+    <circle cx="${cx}" cy="${cy}" r="${r+4}" fill="none" stroke="var(--border)" stroke-width="1"/>
+    ${paths}
+    <circle cx="${cx}" cy="${cy}" r="${4 + openness * 14}" fill="var(--ink)" />
+  </svg>`;
+}
 
-  const apertureWrap = document.getElementById('apertureWrap');
-  const content = document.getElementById('content');
-  const hdrMeta = document.getElementById('hdrMeta');
+function renderAperture(stepIdx, total) {
+  const openness = stepIdx / total;
+  apertureWrap.innerHTML = `
+    ${apertureSVG(openness)}
+    <div class="aperture-track">
+      <div class="aperture-step-label">f/${(1.4 + openness * 20).toFixed(1)} · шаг ${Math.min(stepIdx+1, total)} из ${total}</div>
+      <div class="aperture-bar"><div class="aperture-bar-fill" style="width:${(stepIdx/total)*100}%"></div></div>
+    </div>`;
+}
 
-  // ─── ДИАФРАГМЕННОЕ КОЛЬЦО ──────────────────────────────────────
-  function apertureSVG(openness) {
-    const blades = 6;
-    const cx = 50, cy = 50;
-    let paths = '';
-    for (let i = 0; i < blades; i++) {
-      const angle = (360 / blades) * i;
-      const scale = 1 - openness * 0.62;
-      paths += `<g class="aperture-blade" style="transform: rotate(${angle}deg) scale(${scale})">
-        <path d="M 50 50 L 50 4 A 46 46 0 0 1 88 26 Z" fill="var(--surface)" stroke="var(--border)" stroke-width="1"/>
-      </g>`;
-    }
-    return `<svg class="aperture-svg" width="60" height="60" viewBox="0 0 100 100">
-      <circle cx="${cx}" cy="${cy}" r="42" fill="none" stroke="var(--border)" stroke-width="1"/>
-      ${paths}
-      <circle cx="${cx}" cy="${cy}" r="${4 + openness * 14}" fill="var(--ink)" />
-    </svg>`;
-  }
+// ============================================================
+// 5. РЕНДЕР УРОВНЯ (оформление как в прототипе)
+// ============================================================
+function renderLevelSelection() {
+  hdrMeta.textContent = '';
+  renderAperture(0, 1);
 
-  function renderAperture(stepIdx, total) {
-    const openness = stepIdx / total;
-    const f = (1.4 + openness * 20).toFixed(1);
-    apertureWrap.innerHTML = `
-      ${apertureSVG(openness)}
-      <div class="aperture-track">
-        <div class="aperture-step-label">f/${f} · шаг ${Math.min(stepIdx+1, total)} из ${total}</div>
-        <div class="aperture-bar"><div class="aperture-bar-fill" style="width:${(stepIdx/total)*100}%"></div></div>
+  const optionsHtml = [
+    { label: 'Новичок', value: 'beginner', hint: 'Только начинаю, хочу простую камеру' },
+    { label: 'Любитель', value: 'enthusiast', hint: 'Уже снимаю, ищу что-то интересное' },
+    { label: 'Профи', value: 'pro', hint: 'Работаю профессионально, нужны точные параметры' },
+    { label: 'Блогер', value: 'blogger', hint: 'Снимаю контент для соцсетей' }
+  ].map((opt, i) => {
+    const idx = String(i+1).padStart(2, '0');
+    return `
+      <div class="opt" data-value="${opt.value}">
+        <span class="opt-index">${idx}</span>
+        <div class="opt-body">
+          <div class="opt-title">${opt.label}</div>
+          <div class="opt-hint">${opt.hint}</div>
+        </div>
+        <div class="opt-mark"></div>
       </div>
     `;
+  }).join('');
+
+  screen.innerHTML = `
+    <div class="q-block">
+      <div class="q-eyebrow">ПАРАМЕТР 01</div>
+      <div class="q-title">Какой у вас опыт в фотографии?</div>
+      <div class="q-sub">Это влияет на сложность интерфейса камеры в рекомендациях.</div>
+      <div class="opts" id="levelOpts">${optionsHtml}</div>
+      <div class="actions">
+        <span></span>
+        <button class="btn-shutter" id="levelNext" disabled>Далее</button>
+      </div>
+    </div>
+  `;
+
+  let selected = null;
+  document.querySelectorAll('#levelOpts .opt').forEach(el => {
+    el.addEventListener('click', function() {
+      document.querySelectorAll('#levelOpts .opt').forEach(b => b.classList.remove('selected'));
+      this.classList.add('selected');
+      selected = this.dataset.value;
+      document.getElementById('levelNext').disabled = false;
+    });
+  });
+
+  document.getElementById('levelNext').addEventListener('click', () => {
+    if (!selected) return;
+    state.level = selected;
+    state.currentStep = 0;
+    state.answers = {};
+    state.finished = false;
+    state.questions = [];
+    initBranch();
+    render();
+  });
+}
+
+// ============================================================
+// 6. ОСТАЛЬНАЯ ЛОГИКА ИЗ РЕЛИЗА (без изменений)
+// ============================================================
+function initBranch() {
+  const level = state.level;
+  if (level === 'beginner') {
+    state.questions = questionTree.beginner.slice();
+    state.totalSteps = state.questions.length;
+  } else if (level === 'enthusiast') {
+    state.questions = questionTree.enthusiast.tt.slice(0, 4);
+    state.totalSteps = 7;
+  } else if (level === 'pro') {
+    state.questions = questionTree.pro.slice();
+    state.totalSteps = state.questions.length;
+  } else if (level === 'blogger') {
+    state.questions = questionTree.blogger.slice();
+    state.totalSteps = state.questions.length;
   }
+  renderAperture(0, state.totalSteps);
+}
 
-  // ─── РЕНДЕР УРОВНЯ (как обычный вопрос) ──────────────────────
-  function renderLevelSelection() {
-    hdrMeta.textContent = '';
-    renderAperture(0, 1); // показываем кольцо с шагом 0 из 1 (выбор уровня)
+function render() {
+  if (state.finished) { showResults(); return; }
+  if (!state.level) { renderLevelSelection(); return; }
+  if (!state.questions || state.questions.length === 0) {
+    initBranch();
+    if (state.questions.length === 0) { screen.innerHTML = '<p>Ошибка: вопросы не найдены</p>'; return; }
+  }
+  renderQuestion();
+}
 
-    const optionsHtml = [
-      { label: 'Новичок', value: 'beginner', hint: 'Только начинаю, хочу простую камеру' },
-      { label: 'Любитель', value: 'enthusiast', hint: 'Уже снимаю, ищу что-то интересное' },
-      { label: 'Профи', value: 'pro', hint: 'Работаю профессионально, нужны точные параметры' },
-      { label: 'Блогер', value: 'blogger', hint: 'Снимаю контент для соцсетей' }
-    ].map((opt, i) => {
-      const idx = String(i+1).padStart(2, '0');
-      return `
-        <div class="option-btn" data-level="${opt.value}">
-          <span class="opt-index">${idx}</span>
-          <div class="opt-body">
-            <div class="opt-title">${opt.label}</div>
-            <div class="opt-hint">${opt.hint}</div>
-          </div>
-          <div class="opt-mark"></div>
+function renderQuestion() {
+  const q = state.questions[state.currentStep];
+  if (!q) { state.finished = true; render(); return; }
+
+  const isMulti = q.multiple || false;
+  const selected = state.answers[q.id] || (isMulti ? [] : null);
+
+  // Формируем номер шага и общее количество
+  const stepNumber = state.currentStep + 1;
+  const total = state.totalSteps;
+
+  const optionsHtml = q.options.map((opt, i) => {
+    const num = String(i+1).padStart(2, '0');
+    const checked = isMulti ? (selected.includes(opt.value) ? 'checked' : '') : (selected === opt.value ? 'checked' : '');
+    const inputType = isMulti ? 'checkbox' : 'radio';
+    const name = isMulti ? `${q.id}[]` : q.id;
+    return `
+      <div class="opt" data-value="${opt.value}">
+        <span class="opt-index">${num}</span>
+        <div class="opt-body">
+          <div class="opt-title">${opt.label}</div>
+          ${opt.hint ? `<div class="opt-hint">${opt.hint}</div>` : ''}
         </div>
-      `;
-    }).join('');
-
-    content.innerHTML = `
-      <div class="question-box">
-        <div class="question-text">Какой у вас опыт в фотографии?</div>
-        <div class="question-sub">Это влияет на сложность интерфейса камеры в рекомендациях.</div>
-        <div class="options" id="levelOptions">${optionsHtml}</div>
-        <div class="nav-buttons">
-          <span></span>
-          <button class="nav-btn primary" id="levelNext" disabled>Далее</button>
-        </div>
+        <input type="${inputType}" name="${name}" value="${opt.value}" ${checked} style="display:none;" />
+        <div class="opt-mark ${isMulti ? 'square' : ''}"></div>
       </div>
     `;
+  }).join('');
 
-    // Обработчики выбора уровня
-    let selectedLevel = null;
-    document.querySelectorAll('#levelOptions .option-btn').forEach(el => {
-      el.addEventListener('click', function() {
-        document.querySelectorAll('#levelOptions .option-btn').forEach(b => b.classList.remove('selected'));
-        this.classList.add('selected');
-        selectedLevel = this.dataset.level;
-        document.getElementById('levelNext').disabled = false;
-      });
-    });
+  const eyebrow = `ПАРАМЕТР ${String(stepNumber).padStart(2, '0')}`;
 
-    document.getElementById('levelNext').addEventListener('click', () => {
-      if (!selectedLevel) return;
-      state.level = selectedLevel;
-      state.currentStep = 0;
-      state.answers = {};
-      state.finished = false;
-      state.questions = [];
-      initBranch();
-      render();
-    });
-  }
-
-  // ─── ОСТАЛЬНЫЕ ФУНКЦИИ (без изменений) ────────────────────────
-  function initBranch() {
-    const level = state.level;
-    if (level === 'beginner') {
-      state.questions = questionTree.beginner.slice();
-      state.totalSteps = state.questions.length;
-    } else if (level === 'enthusiast') {
-      state.questions = questionTree.enthusiast.tt.slice(0, 4);
-      state.totalSteps = 7;
-    } else if (level === 'pro') {
-      state.questions = questionTree.pro.slice();
-      state.totalSteps = state.questions.length;
-    } else if (level === 'blogger') {
-      state.questions = questionTree.blogger.slice();
-      state.totalSteps = state.questions.length;
-    }
-    renderAperture(0, state.totalSteps);
-  }
-
-  function render() {
-    if (state.finished) { showResults(); return; }
-    if (!state.level) { renderLevelSelection(); return; }
-    if (!state.questions || state.questions.length === 0) {
-      initBranch();
-      if (state.questions.length === 0) { content.innerHTML = '<p>Ошибка: вопросы не найдены</p>'; return; }
-    }
-    renderQuestion();
-  }
-
-  function renderQuestion() {
-    const q = state.questions[state.currentStep];
-    if (!q) { state.finished = true; render(); return; }
-
-    const isMultiple = q.multiple || false;
-    const selected = state.answers[q.id] || (isMultiple ? [] : null);
-
-    const stepNumber = state.currentStep + 1;
-    const total = state.totalSteps;
-
-    let optionsHtml = q.options.map((opt, idx) => {
-      const num = String(idx+1).padStart(2, '0');
-      const checked = isMultiple ? (selected.includes(opt.value) ? 'checked' : '') : (selected === opt.value ? 'checked' : '');
-      const inputType = isMultiple ? 'checkbox' : 'radio';
-      const name = isMultiple ? `${q.id}[]` : q.id;
-      return `
-        <label class="option-btn" style="display:flex; align-items:center; gap:10px;">
-          <span class="opt-index">${num}</span>
-          <input type="${inputType}" name="${name}" value="${opt.value}" ${checked} style="display:none;" />
-          <div class="opt-body">
-            <div class="opt-title">${opt.label}</div>
-            ${opt.hint ? `<div class="opt-hint">${opt.hint}</div>` : ''}
-          </div>
-          <div class="opt-mark ${isMultiple ? 'square' : ''}"></div>
-        </label>
-      `;
-    }).join('');
-
-    content.innerHTML = `
-      <div class="question-box">
-        <div class="question-text">${q.text}</div>
-        ${q.sub ? `<div class="question-sub">${q.sub}</div>` : ''}
-        <div class="options" data-qid="${q.id}" data-multiple="${isMultiple}">${optionsHtml}</div>
-        <div class="nav-buttons">
-          <button class="nav-btn" id="prevBtn" ${state.currentStep === 0 ? 'disabled' : ''}>← назад</button>
-          <button class="nav-btn primary" id="nextBtn">${state.currentStep === state.totalSteps - 1 ? 'Показать результаты' : 'Далее'}</button>
-        </div>
+  screen.innerHTML = `
+    <div class="q-block">
+      <div class="q-eyebrow">${eyebrow}</div>
+      <div class="q-title">${q.text}</div>
+      ${q.sub ? `<div class="q-sub">${q.sub}</div>` : ''}
+      <div class="opts" data-qid="${q.id}" data-multiple="${isMulti}">${optionsHtml}</div>
+      <div class="actions">
+        <button class="btn-text" id="prevBtn" ${state.currentStep === 0 ? 'disabled' : ''}>← назад</button>
+        <span></span>
+        <button class="btn-shutter" id="nextBtn" disabled>${state.currentStep === state.totalSteps - 1 ? 'Показать камеры' : 'Далее'}</button>
       </div>
-    `;
+    </div>
+  `;
 
-    // Обработчики изменения выбора
-    const inputs = content.querySelectorAll('input');
-    inputs.forEach(inp => {
-      inp.addEventListener('change', (e) => {
-        const qid = e.target.closest('.options').dataset.qid;
-        const multiple = e.target.closest('.options').dataset.multiple === 'true';
-        if (multiple) {
-          const checked = content.querySelectorAll(`input[name="${qid}[]"]:checked`);
-          state.answers[qid] = Array.from(checked).map(c => c.value);
-        } else {
-          if (e.target.checked) state.answers[qid] = e.target.value;
-        }
-        // Переключение ветки любителя
-        if (qid === 'e1') {
-          const val = state.answers['e1'];
-          if (val === 'tt') state.questions = questionTree.enthusiast.tt.slice();
-          else if (val === 'creative') state.questions = questionTree.enthusiast.creative.slice();
-          state.totalSteps = state.questions.length;
-          state.currentStep = 1;
-          render();
-          return;
-        }
-      });
-    });
-
-    // Визуальное обновление класса selected для radio/checkbox (синхронизация с состоянием)
-    document.querySelectorAll('.option-btn').forEach(el => {
-      const input = el.querySelector('input');
-      if (input && input.checked) el.classList.add('selected');
-      else el.classList.remove('selected');
-      el.addEventListener('click', function(e) {
-        const inp = this.querySelector('input');
-        if (inp) {
-          if (inp.type === 'checkbox') {
-            inp.checked = !inp.checked;
-          } else {
-            // radio
-            const name = inp.name;
-            const group = document.querySelectorAll(`input[name="${name}"]`);
-            group.forEach(r => r.checked = false);
-            inp.checked = true;
-          }
-          inp.dispatchEvent(new Event('change'));
-        }
-      });
-    });
-
-    document.getElementById('prevBtn').addEventListener('click', () => {
-      if (state.level === 'enthusiast' && state.currentStep === 1) {
-        state.level = null;
-        state.currentStep = 0;
-        state.answers = {};
-        state.questions = [];
-        state.totalSteps = 0;
+  // Обработчики выбора
+  const inputs = screen.querySelectorAll('.opt input');
+  inputs.forEach(inp => {
+    inp.addEventListener('change', (e) => {
+      const qid = e.target.closest('.opts').dataset.qid;
+      const multiple = e.target.closest('.opts').dataset.multiple === 'true';
+      if (multiple) {
+        const checked = screen.querySelectorAll(`.opts input[name="${qid}[]"]:checked`);
+        state.answers[qid] = Array.from(checked).map(c => c.value);
+      } else {
+        if (e.target.checked) state.answers[qid] = e.target.value;
+      }
+      // Обновляем состояние кнопки "Далее"
+      updateNextButtonState();
+      // Переключение ветки любителя
+      if (qid === 'e1') {
+        const val = state.answers['e1'];
+        if (val === 'tt') state.questions = questionTree.enthusiast.tt.slice();
+        else if (val === 'creative') state.questions = questionTree.enthusiast.creative.slice();
+        state.totalSteps = state.questions.length;
+        state.currentStep = 1;
         render();
         return;
       }
-      if (state.currentStep > 0) { state.currentStep--; render(); }
     });
+  });
 
-    document.getElementById('nextBtn').addEventListener('click', () => {
-      const qid = state.questions[state.currentStep].id;
-      const answer = state.answers[qid];
-      if (!answer || (Array.isArray(answer) && answer.length === 0)) {
-        alert('Пожалуйста, выберите вариант ответа');
-        return;
+  // Клик по всей строке для удобства
+  screen.querySelectorAll('.opt').forEach(el => {
+    const inp = el.querySelector('input');
+    el.addEventListener('click', function(e) {
+      if (e.target.tagName === 'INPUT') return;
+      if (inp) {
+        if (inp.type === 'checkbox') {
+          inp.checked = !inp.checked;
+        } else {
+          const name = inp.name;
+          screen.querySelectorAll(`input[name="${name}"]`).forEach(r => r.checked = false);
+          inp.checked = true;
+        }
+        inp.dispatchEvent(new Event('change'));
       }
-      if (state.currentStep === state.totalSteps - 1) { state.finished = true; render(); return; }
-      state.currentStep++;
+    });
+    // Визуальное обновление класса selected
+    if (inp && inp.checked) el.classList.add('selected');
+    else el.classList.remove('selected');
+  });
+
+  // Кнопка "Назад"
+  document.getElementById('prevBtn').addEventListener('click', () => {
+    if (state.level === 'enthusiast' && state.currentStep === 1) {
+      state.level = null;
+      state.currentStep = 0;
+      state.answers = {};
+      state.questions = [];
+      state.totalSteps = 0;
       render();
-    });
-
-    renderAperture(state.currentStep + 1, state.totalSteps);
-    hdrMeta.textContent = `id · ${String(stepNumber).padStart(2,'0')}/${total}`;
-  }
-
-  // ============================================================
-  // 4. СКОРИНГ (без изменений — уже исправлен)
-  // ============================================================
-  function getWeightsBeginner() {
-    return {
-      priceRange: (price) => {
-        const budget = state.answers['b1'];
-        if (budget === 'budget_1') return price <= 20000 ? 1 : 0;
-        if (budget === 'budget_2') return price <= 35000 ? 1 : 0;
-        if (budget === 'budget_3') return price <= 60000 ? 1 : 0;
-        if (budget === 'budget_4') return price <= 100000 ? 1 : 0;
-        if (budget === 'budget_5') return price > 100000 ? 1 : 0;
-        return 0.5;
-      },
-      simpleMenu: (cam) => cam.menuComplexity === 'simple' ? 1 : 0,
-      compact: (cam) => { const needCompact = state.answers['b4'] === 'compact_important'; return needCompact ? (cam.compact || cam.mirrorless ? 1 : 0) : 0.5; },
-      beginnerFriendly: (cam) => cam.forBeginners ? 1 : 0,
-      canonBonus: (cam) => cam.brand === 'Canon' ? 0.2 : 0,
-    };
-  }
-
-  function getWeightsEnthusiast() {
-    const path = state.answers['e1'];
-    const base = {
-      priceRange: (price) => { const budget = state.answers['e2']; if (budget === 'budget_1') return price <= 30000 ? 1 : 0; if (budget === 'budget_2') return price <= 60000 ? 1 : 0; if (budget === 'budget_3') return price <= 100000 ? 1 : 0; if (budget === 'budget_4') return price <= 200000 ? 1 : 0; if (budget === 'budget_5') return price > 200000 ? 1 : 0; return 0.5; },
-    };
-    if (path === 'tt') {
-      return {
-        ...base,
-        highRes: (cam) => { const need = state.answers['e5_tt']; if (need === 'high_mp') return cam.resolution >= 30 ? 1 : 0; if (need === 'mid_mp') return cam.resolution >= 20 && cam.resolution < 30 ? 1 : 0; return 0.5; },
-        burst: (cam) => { const need = state.answers['e6_tt']; return need === 'fast_burst' ? (cam.cardSlots >= 2 ? 1 : 0) : 0.5; },
-        af: (cam) => { const need = state.answers['e7_tt']; return need === 'af_critical' ? (cam.eyeAutofocus === true ? 1 : 0) : 0.5; }
-      };
-    } else {
-      return {
-        ...base,
-        color: (cam) => { const need = state.answers['e5_creative']; return need === 'color_important' ? (cam.colorScience ? 1 : 0) : 0.5; },
-        menuSimple: (cam) => { const need = state.answers['e6_creative']; return need === 'menu_simple' ? (cam.menuComplexity === 'simple' ? 1 : 0) : 0.5; },
-        ergo: (cam) => { const need = state.answers['e7_creative']; return need === 'ergo_important' ? (cam.weight < 600 ? 1 : 0) : 0.5; }
-      };
-    }
-  }
-
-  function getWeightsPro() {
-    return {
-      sensor: (cam) => { const need = state.answers['p1']; if (need === 'crop') return cam.crop ? 1 : 0; if (need === 'fullframe') return cam.fullFrame ? 1 : 0; if (need === 'medium') return cam.mediumFormat ? 1 : 0; return 0.5; },
-      priceRange: (price) => { const budget = state.answers['p2']; if (budget === 'budget_1') return price <= 100000 ? 1 : 0; if (budget === 'budget_2') return price <= 200000 ? 1 : 0; if (budget === 'budget_3') return price <= 400000 ? 1 : 0; if (budget === 'budget_4') return price > 400000 ? 1 : 0; return 0.5; },
-      weight: (cam) => { const need = state.answers['p3']; if (need === 'weight_critical') return cam.weight < 700 ? 1 : 0; if (need === 'weight_moderate') return cam.weight < 1000 ? 1 : 0; return 0.5; },
-      eyeAf: (cam) => { const need = state.answers['p4']; if (need === 'yes') return cam.eyeAutofocus === true ? 1 : 0; if (need === 'not_use') return 0.5; return 0; },
-      log: (cam) => { const need = state.answers['p5']; if (need === 'yes') return cam.logProfile ? 1 : 0; if (need === 'no_video') return 0.5; return 0; },
-      bitDepth: (cam) => { const need = state.answers['p6']; if (need === '12bit') return cam.bitDepth >= 12 ? 1 : 0; if (need === '14bit') return cam.bitDepth >= 14 ? 1 : 0; return 0.5; },
-      replaceOrSecond: (cam) => {
-        const choice = state.answers['p7'];
-        const currentSystem = state.answers['p8'];
-        const lensPark = state.answers['p9'];
-        let systemBonus = 0;
-        if (choice === 'second') { if (cam.brand === currentSystem) systemBonus = 0.3; }
-        else { if (cam.brand !== currentSystem) { systemBonus = 0.2; if (cam.brand === 'Sony') systemBonus += 0.1; } }
-        let lensBonus = 0;
-        if (lensPark === 'third_party' && cam.brand === 'Sony') lensBonus = 0.3;
-        else if (lensPark === 'mixed' && cam.brand === 'Sony') lensBonus = 0.15;
-        const extras = state.answers['p10'] || [];
-        let extraBonus = 0;
-        if (extras.includes('two_slots') && cam.cardSlots >= 2) extraBonus += 0.1;
-        if (extras.includes('eye_af_video') && cam.eyeAutofocus === true) extraBonus += 0.1;
-        if (extras.includes('log_video') && cam.logProfile) extraBonus += 0.1;
-        if (extras.includes('weather') && cam.weatherSealing) extraBonus += 0.1;
-        if (extras.includes('ibis') && cam.imageStabilization) extraBonus += 0.1;
-        return systemBonus + lensBonus + extraBonus;
-      }
-    };
-  }
-
-  function getWeightsBlogger() {
-    return {
-      priceRange: (price) => { const budget = state.answers['bl1']; if (budget === 'budget_1') return price <= 30000 ? 1 : 0; if (budget === 'budget_2') return price <= 60000 ? 1 : 0; if (budget === 'budget_3') return price <= 100000 ? 1 : 0; if (budget === 'budget_4') return price <= 200000 ? 1 : 0; if (budget === 'budget_5') return price > 200000 ? 1 : 0; return 0.5; },
-      platform: (cam) => { const platform = state.answers['bl2']; if (platform === 'youtube') { let s=0; if (cam.video && cam.video.includes('4K')) s+=0.5; if (cam.imageStabilization) s+=0.3; if (cam.microphoneInput) s+=0.2; return s; } else if (platform === 'shorts') { let s=0; if (cam.compact || cam.mirrorless) s+=0.4; if (cam.rotatingScreen) s+=0.3; if (cam.autofocus) s+=0.3; return s; } else if (platform === 'streams') { let s=0; if (cam.video) s+=0.3; if (cam.microphoneInput) s+=0.3; if (cam.imageStabilization) s+=0.2; if (cam.autofocus) s+=0.2; return s; } return 0.5; },
-      ibis: (cam) => { const need = state.answers['bl3']; if (need === 'ibis_critical') return cam.imageStabilization ? 1 : 0; if (need === 'gimbal') return 0.5; return 0.5; },
-      mic: (cam) => { const need = state.answers['bl4']; return need === 'yes' ? (cam.microphoneInput ? 1 : 0) : 0.5; },
-      flipScreen: (cam) => { const need = state.answers['bl5']; if (need === 'critical') return cam.rotatingScreen ? 1 : 0; if (need === 'desirable') return cam.rotatingScreen ? 0.5 : 0; return 0.5; },
-      afVideo: (cam) => { const need = state.answers['bl6']; return need === 'critical' ? (cam.autofocus ? 1 : 0) : 0.5; },
-      menuComplexity: (cam) => { const need = state.answers['bl7']; return need === 'simple' ? (cam.menuComplexity === 'simple' ? 1 : 0) : 0.5; },
-      weightCompact: (cam) => { const need = state.answers['bl8']; if (need === 'critical') return (cam.compact || cam.mirrorless) && cam.weight < 600 ? 1 : 0; if (need === 'moderate') return cam.weight < 800 ? 1 : 0; return 0.5; }
-    };
-  }
-
-  // ============================================================
-  // 5. РАСЧЁТ РЕЗУЛЬТАТОВ С БЮДЖЕТНЫМ ФИЛЬТРОМ
-  // ============================================================
-  function getBudgetLimit(level, answers) {
-    if (level === 'beginner') {
-      const b = answers['b1'];
-      if (b === 'budget_1') return 20000;
-      if (b === 'budget_2') return 35000;
-      if (b === 'budget_3') return 60000;
-      if (b === 'budget_4') return 100000;
-      if (b === 'budget_5') return Infinity;
-    } else if (level === 'enthusiast') {
-      const b = answers['e2'];
-      if (b === 'budget_1') return 30000;
-      if (b === 'budget_2') return 60000;
-      if (b === 'budget_3') return 100000;
-      if (b === 'budget_4') return 200000;
-      if (b === 'budget_5') return Infinity;
-    } else if (level === 'pro') {
-      const b = answers['p2'];
-      if (b === 'budget_1') return 100000;
-      if (b === 'budget_2') return 200000;
-      if (b === 'budget_3') return 400000;
-      if (b === 'budget_4') return Infinity;
-    } else if (level === 'blogger') {
-      const b = answers['bl1'];
-      if (b === 'budget_1') return 30000;
-      if (b === 'budget_2') return 60000;
-      if (b === 'budget_3') return 100000;
-      if (b === 'budget_4') return 200000;
-      if (b === 'budget_5') return Infinity;
-    }
-    return Infinity;
-  }
-
-  function computeScores() {
-    const level = state.level;
-    if (!level) return [];
-
-    let weightsFn;
-    if (level === 'beginner') weightsFn = getWeightsBeginner;
-    else if (level === 'enthusiast') weightsFn = getWeightsEnthusiast;
-    else if (level === 'pro') weightsFn = getWeightsPro;
-    else if (level === 'blogger') weightsFn = getWeightsBlogger;
-    else return [];
-
-    const budgetLimit = getBudgetLimit(level, state.answers);
-    const filteredCameras = cameras.filter(cam => cam.price <= budgetLimit);
-    if (!filteredCameras.length) return [];
-
-    const weights = weightsFn();
-    const keys = Object.keys(weights).filter(k => typeof weights[k] === 'function');
-    const count = keys.length || 1;
-
-    const scored = filteredCameras.map(cam => {
-      let sum = 0;
-      keys.forEach(key => { sum += weights[key](cam); });
-      const normalized = Math.min(1, sum / count);
-      return { ...cam, score: normalized };
-    });
-
-    scored.sort((a, b) => b.score - a.score);
-    return scored.slice(0, 6);
-  }
-
-  // ============================================================
-  // 6. ОТОБРАЖЕНИЕ РЕЗУЛЬТАТОВ
-  // ============================================================
-  function showResults() {
-    const results = computeScores();
-    if (!results.length) {
-      content.innerHTML = `<p>Не удалось подобрать камеры. Попробуйте изменить ответы.</p>`;
       return;
     }
+    if (state.currentStep > 0) { state.currentStep--; render(); }
+  });
 
-    renderAperture(state.totalSteps, state.totalSteps);
-    hdrMeta.textContent = 'результат';
+  // Кнопка "Далее"
+  document.getElementById('nextBtn').addEventListener('click', () => {
+    const qid = state.questions[state.currentStep].id;
+    const answer = state.answers[qid];
+    if (!answer || (Array.isArray(answer) && answer.length === 0)) {
+      alert('Пожалуйста, выберите вариант ответа');
+      return;
+    }
+    if (state.currentStep === state.totalSteps - 1) { state.finished = true; render(); return; }
+    state.currentStep++;
+    render();
+  });
 
-    let html = `<div class="r-head">
-      <div class="r-eyebrow">выдержка зафиксирована</div>
-      <div class="r-title">Топ-4 камеры для вас</div>
-      <div class="r-sub">${getSummary()}</div>
-    </div>
-    <div class="cam-list">`;
+  // Обновляем состояние кнопки "Далее" сразу
+  updateNextButtonState();
+  renderAperture(state.currentStep + 1, state.totalSteps);
+  hdrMeta.textContent = `id · ${String(stepNumber).padStart(2,'0')}/${total}`;
+}
 
-    results.forEach((cam, i) => {
-      const isTop = i === 0;
-      const pct = Math.round(cam.score * 100);
-      const query = cam.avitoQuery || cam.model;
-      const avitoUrl = `https://www.avito.ru/all?q=${encodeURIComponent(query)}`;
-      const note = cam.note || '';
+function updateNextButtonState() {
+  const q = state.questions[state.currentStep];
+  if (!q) return;
+  const answer = state.answers[q.id];
+  const hasAnswer = answer && (Array.isArray(answer) ? answer.length > 0 : true);
+  const nextBtn = document.getElementById('nextBtn');
+  if (nextBtn) nextBtn.disabled = !hasAnswer;
+}
 
-      html += `
-        <div class="cam-card${isTop ? ' top' : ''}">
-          <div class="score-ring-wrap">
-            <svg class="score-ring" width="64" height="64" viewBox="0 0 64 64">
-              <circle class="score-ring-bg" cx="32" cy="32" r="24"/>
-              <circle class="score-ring-fill" cx="32" cy="32" r="24"
-                stroke-dasharray="${2 * Math.PI * 24}" stroke-dashoffset="${2 * Math.PI * 24 * (1 - pct/100)}"/>
-            </svg>
-            <span class="score-num">${pct}%</span>
+// ============================================================
+// 7. СКОРИНГ (из релиза, без изменений)
+// ============================================================
+function getWeightsBeginner() {
+  return {
+    priceRange: (price) => {
+      const budget = state.answers['b1'];
+      if (budget === 'budget_1') return price <= 15000 ? 1 : 0;
+      if (budget === 'budget_2') return price <= 30000 ? 1 : 0;
+      if (budget === 'budget_3') return price <= 50000 ? 1 : 0;
+      if (budget === 'budget_4') return price <= 80000 ? 1 : 0;
+      if (budget === 'budget_5') return price > 80000 ? 1 : 0;
+      return 0.5;
+    },
+    simpleMenu: (cam) => cam.menuComplexity === 'simple' ? 1 : 0,
+    compact: (cam) => { const needCompact = state.answers['b4'] === 'compact_important'; return needCompact ? (cam.compact || cam.mirrorless ? 1 : 0) : 0.5; },
+    beginnerFriendly: (cam) => cam.forBeginners ? 1 : 0,
+    canonBonus: (cam) => cam.brand === 'Canon' ? 0.2 : 0,
+  };
+}
+
+function getWeightsEnthusiast() {
+  const path = state.answers['e1'];
+  const base = {
+    priceRange: (price) => {
+      const budget = state.answers['e2'];
+      if (budget === 'budget_1') return price <= 30000 ? 1 : 0;
+      if (budget === 'budget_2') return price <= 60000 ? 1 : 0;
+      if (budget === 'budget_3') return price <= 100000 ? 1 : 0;
+      if (budget === 'budget_4') return price <= 200000 ? 1 : 0;
+      if (budget === 'budget_5') return price > 200000 ? 1 : 0;
+      return 0.5;
+    },
+  };
+  if (path === 'tt') {
+    return {
+      ...base,
+      highRes: (cam) => {
+        const need = state.answers['e5_tt'];
+        if (need === 'high_mp') return cam.resolution >= 30 ? 1 : 0;
+        if (need === 'mid_mp') return cam.resolution >= 20 && cam.resolution < 30 ? 1 : 0;
+        return 0.5;
+      },
+      burst: (cam) => {
+        const need = state.answers['e6_tt'];
+        return need === 'fast_burst' ? (cam.cardSlots >= 2 ? 1 : 0) : 0.5;
+      },
+      af: (cam) => {
+        const need = state.answers['e7_tt'];
+        return need === 'af_critical' ? (cam.autofocus && cam.autofocus > 100 ? 1 : 0) : 0.5;
+      }
+    };
+  } else {
+    return {
+      ...base,
+      color: (cam) => {
+        const need = state.answers['e5_creative'];
+        return need === 'color_important' ? (cam.colorScience ? 1 : 0) : 0.5;
+      },
+      menuSimple: (cam) => {
+        const need = state.answers['e6_creative'];
+        return need === 'menu_simple' ? (cam.menuComplexity === 'simple' ? 1 : 0) : 0.5;
+      },
+      ergo: (cam) => {
+        const need = state.answers['e7_creative'];
+        return need === 'ergo_important' ? (cam.weight < 600 ? 1 : 0) : 0.5;
+      }
+    };
+  }
+}
+
+function getWeightsPro() {
+  return {
+    sensor: (cam) => {
+      const need = state.answers['p1'];
+      if (need === 'crop') return cam.crop ? 1 : 0;
+      if (need === 'fullframe') return cam.fullFrame ? 1 : 0;
+      if (need === 'medium') return cam.mediumFormat ? 1 : 0;
+      return 0.5;
+    },
+    priceRange: (price) => {
+      const budget = state.answers['p2'];
+      if (budget === 'budget_1') return price <= 100000 ? 1 : 0;
+      if (budget === 'budget_2') return price <= 200000 ? 1 : 0;
+      if (budget === 'budget_3') return price <= 400000 ? 1 : 0;
+      if (budget === 'budget_4') return price > 400000 ? 1 : 0;
+      return 0.5;
+    },
+    weight: (cam) => {
+      const need = state.answers['p3'];
+      if (need === 'weight_critical') return cam.weight < 700 ? 1 : 0;
+      if (need === 'weight_moderate') return cam.weight < 1000 ? 1 : 0;
+      return 0.5;
+    },
+    eyeAf: (cam) => {
+      const need = state.answers['p4'];
+      if (need === 'yes') return cam.autofocus && cam.autofocus > 100 ? 1 : 0;
+      if (need === 'not_use') return 0.5;
+      return 0;
+    },
+    log: (cam) => {
+      const need = state.answers['p5'];
+      if (need === 'yes') return cam.logProfile ? 1 : 0;
+      if (need === 'no_video') return 0.5;
+      return 0;
+    },
+    bitDepth: (cam) => {
+      const need = state.answers['p6'];
+      if (need === '12bit') return cam.bitDepth >= 12 ? 1 : 0;
+      if (need === '14bit') return cam.bitDepth >= 14 ? 1 : 0;
+      return 0.5;
+    },
+    replaceOrSecond: (cam) => {
+      const choice = state.answers['p7'];
+      const currentSystem = state.answers['p8'];
+      const lensPark = state.answers['p9'];
+      let systemBonus = 0;
+      if (choice === 'second') {
+        if (cam.brand === currentSystem) systemBonus = 0.3;
+      } else {
+        if (cam.brand !== currentSystem) {
+          systemBonus = 0.2;
+          if (cam.brand === 'Sony') systemBonus += 0.1;
+        }
+      }
+      let lensBonus = 0;
+      if (lensPark === 'third_party' && cam.brand === 'Sony') lensBonus = 0.3;
+      else if (lensPark === 'mixed' && cam.brand === 'Sony') lensBonus = 0.15;
+      const extras = state.answers['p10'] || [];
+      let extraBonus = 0;
+      if (extras.includes('two_slots') && cam.cardSlots >= 2) extraBonus += 0.1;
+      if (extras.includes('eye_af_video') && cam.autofocus) extraBonus += 0.1;
+      if (extras.includes('log_video') && cam.logProfile) extraBonus += 0.1;
+      if (extras.includes('weather') && cam.weatherSealing) extraBonus += 0.1;
+      if (extras.includes('ibis') && cam.imageStabilization) extraBonus += 0.1;
+      return systemBonus + lensBonus + extraBonus;
+    }
+  };
+}
+
+function getWeightsBlogger() {
+  return {
+    priceRange: (price) => {
+      const budget = state.answers['bl1'];
+      if (budget === 'budget_1') return price <= 30000 ? 1 : 0;
+      if (budget === 'budget_2') return price <= 60000 ? 1 : 0;
+      if (budget === 'budget_3') return price <= 100000 ? 1 : 0;
+      if (budget === 'budget_4') return price <= 200000 ? 1 : 0;
+      if (budget === 'budget_5') return price > 200000 ? 1 : 0;
+      return 0.5;
+    },
+    platform: (cam) => {
+      const platform = state.answers['bl2'];
+      if (platform === 'youtube') {
+        let s=0;
+        if (cam.video && cam.video.includes('4K')) s+=0.5;
+        if (cam.imageStabilization) s+=0.3;
+        if (cam.microphoneInput) s+=0.2;
+        return s;
+      } else if (platform === 'shorts') {
+        let s=0;
+        if (cam.compact || cam.mirrorless) s+=0.4;
+        if (cam.rotatingScreen) s+=0.3;
+        if (cam.autofocus) s+=0.3;
+        return s;
+      } else if (platform === 'streams') {
+        let s=0;
+        if (cam.video) s+=0.3;
+        if (cam.microphoneInput) s+=0.3;
+        if (cam.imageStabilization) s+=0.2;
+        if (cam.autofocus) s+=0.2;
+        return s;
+      }
+      return 0.5;
+    },
+    ibis: (cam) => {
+      const need = state.answers['bl3'];
+      if (need === 'ibis_critical') return cam.imageStabilization ? 1 : 0;
+      if (need === 'gimbal') return 0.5;
+      return 0.5;
+    },
+    mic: (cam) => {
+      const need = state.answers['bl4'];
+      return need === 'yes' ? (cam.microphoneInput ? 1 : 0) : 0.5;
+    },
+    flipScreen: (cam) => {
+      const need = state.answers['bl5'];
+      if (need === 'critical') return cam.rotatingScreen ? 1 : 0;
+      if (need === 'desirable') return cam.rotatingScreen ? 0.5 : 0;
+      return 0.5;
+    },
+    afVideo: (cam) => {
+      const need = state.answers['bl6'];
+      return need === 'critical' ? (cam.autofocus ? 1 : 0) : 0.5;
+    },
+    menuComplexity: (cam) => {
+      const need = state.answers['bl7'];
+      return need === 'simple' ? (cam.menuComplexity === 'simple' ? 1 : 0) : 0.5;
+    },
+    weightCompact: (cam) => {
+      const need = state.answers['bl8'];
+      if (need === 'critical') return (cam.compact || cam.mirrorless) && cam.weight < 600 ? 1 : 0;
+      if (need === 'moderate') return cam.weight < 800 ? 1 : 0;
+      return 0.5;
+    }
+  };
+}
+
+// ============================================================
+// 8. РАСЧЁТ РЕЗУЛЬТАТОВ
+// ============================================================
+function computeScores() {
+  if (!cameras.length) return [];
+  const level = state.level;
+  let weightsFn;
+  if (level === 'beginner') weightsFn = getWeightsBeginner;
+  else if (level === 'enthusiast') weightsFn = getWeightsEnthusiast;
+  else if (level === 'pro') weightsFn = getWeightsPro;
+  else if (level === 'blogger') weightsFn = getWeightsBlogger;
+  else return [];
+
+  const weights = weightsFn();
+  const keys = Object.keys(weights).filter(k => typeof weights[k] === 'function');
+  const count = keys.length || 1;
+
+  const scored = cameras.map(cam => {
+    let sum = 0;
+    keys.forEach(key => { sum += weights[key](cam); });
+    const normalized = Math.min(1, sum / count);
+    return { ...cam, score: normalized };
+  });
+
+  scored.sort((a, b) => b.score - a.score);
+  return scored.slice(0, 6);
+}
+
+function ringSVG(score, isTop) {
+  const r = 24, circumference = 2 * Math.PI * r;
+  const offset = circumference * (1 - score / 100);
+  return `<svg class="score-ring" width="64" height="64" viewBox="0 0 64 64">
+    <circle class="score-ring-bg" cx="32" cy="32" r="${r}"/>
+    <circle class="score-ring-fill" cx="32" cy="32" r="${r}"
+      stroke-dasharray="${circumference}" stroke-dashoffset="${circumference}"
+      data-final-offset="${offset}"/>
+  </svg>`;
+}
+
+// ============================================================
+// 9. ОТОБРАЖЕНИЕ РЕЗУЛЬТАТОВ (из прототипа)
+// ============================================================
+function showResults() {
+  hdrMeta.textContent = 'результат';
+  renderAperture(1, 1); // полное открытие
+
+  const results = computeScores();
+  if (!results.length) {
+    screen.innerHTML = `
+      <div class="not-found">
+        <div class="nf-mark">∅</div>
+        <h3>Ничего не нашли</h3>
+        <p>По вашим критериям не нашлось подходящих камер. Попробуйте изменить бюджет или убрать ограничения по системе.</p>
+        <button class="btn-shutter" id="btnReset">Начать заново</button>
+      </div>`;
+    document.getElementById('btnReset').addEventListener('click', reset);
+    return;
+  }
+
+  const lvlMap = { beginner: 'новичка', enthusiast: 'любителя', pro: 'профессионала', blogger: 'блогера' };
+  const goalMap = { photo:'фото', video:'видео', blog:'блог', travel:'путешествия', studio:'студия', sport:'спорт' };
+  const a = state.answers;
+  const summary = [
+    a.level ? lvlMap[a.level] : null,
+    a.budget ? `бюджет до $${a.budget}` : null,
+    (a.goals && a.goals.length) ? a.goals.map(g => goalMap[g]).filter(Boolean).join(', ') : null,
+  ].filter(Boolean).join(' · ');
+
+  const cardsHtml = results.map((cam, i) => {
+    const isTop = i === 0;
+    const pct = Math.round(cam.score * 100);
+    const reasonsHtml = cam.reasons ? cam.reasons.map(r => `<div class="reason">${r}</div>`).join('') : '';
+    const specsHtml = (cam.specs || cam.checkpoints || []).map(s => `<span class="spec">${s}</span>`).join('');
+    const avitoUrl = `https://www.avito.ru/all?q=${encodeURIComponent(cam.avitoQuery || cam.model)}`;
+    const voted = state.voted[cam.id];
+    const tag = cam.tag || '';
+
+    return `
+      <div class="cam-card${isTop ? ' top' : ''}">
+        <div class="score-ring-wrap">
+          ${ringSVG(pct, isTop)}
+          <span class="score-num">${pct}%</span>
+        </div>
+        <div class="cam-main">
+          <div class="cam-row1">
+            <span class="cam-name">${cam.brand} ${cam.model}</span>
+            <span class="cam-price">${cam.price}</span>
           </div>
-          <div class="cam-main">
-            <div class="cam-row1">
-              <span class="cam-name">${cam.brand} ${cam.model}</span>
-              <span class="cam-price">${cam.price ? cam.price.toLocaleString()+' ₽' : ''}</span>
-            </div>
-            <div class="cam-tagrow">
-              ${cam.badge ? `<span class="cam-tag">${cam.badgeText || cam.badge}</span>` : ''}
-              ${isTop ? '<span class="cam-tag pick">рекомендуем</span>' : ''}
-            </div>
-            ${isTop ? '<div class="reason">Лучший выбор по вашим критериям</div>' : ''}
-            <div class="cam-specs">${(cam.checkpoints || cam.specs || []).map(s => `<span class="spec">${s}</span>`).join('')}</div>
-            <div class="cam-note">${note}</div>
-            <div class="cam-foot">
-              <a class="avito-link" href="${avitoUrl}" target="_blank" rel="noopener">найти на авито</a>
+          <div class="cam-tagrow">
+            ${tag ? `<span class="cam-tag${isTop ? ' pick' : ''}">${tag}</span>` : ''}
+            ${isTop ? '<span class="cam-tag pick">рекомендуем</span>' : ''}
+          </div>
+          ${reasonsHtml ? `<div class="cam-reasons">${reasonsHtml}</div>` : ''}
+          <div class="cam-specs">${specsHtml}</div>
+          <div class="cam-note">${cam.note || ''}</div>
+          <div class="cam-foot">
+            <a class="avito-link" href="${avitoUrl}" target="_blank" rel="noopener">найти на авито</a>
+            <div class="fb-group">
+              <span class="fb-label">подходит?</span>
+              <button class="fb-btn up${voted === 1 ? ' active' : ''}${voted !== undefined ? ' dimmed' : ''}" data-id="${cam.id}" data-vote="1">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 11v10H4a1 1 0 01-1-1v-8a1 1 0 011-1h3zm0 0l5-9a2.5 2.5 0 015 1v4h5.5a2 2 0 011.94 2.49l-1.5 6A2 2 0 0118.04 21H9a2 2 0 01-2-2v-8z" stroke="currentColor" stroke-width="1.5"/></svg>
+              </button>
+              <button class="fb-btn down${voted === -1 ? ' active' : ''}${voted !== undefined ? ' dimmed' : ''}" data-id="${cam.id}" data-vote="-1">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="transform:rotate(180deg)"><path d="M7 11v10H4a1 1 0 01-1-1v-8a1 1 0 011-1h3zm0 0l5-9a2.5 2.5 0 015 1v4h5.5a2 2 0 011.94 2.49l-1.5 6A2 2 0 0118.04 21H9a2 2 0 01-2-2v-8z" stroke="currentColor" stroke-width="1.5"/></svg>
+              </button>
             </div>
           </div>
         </div>
-      `;
-    });
-
-    html += `</div>
-      <div class="r-foot">
-        <button class="link-btn" id="backBtn">изменить ответы</button>
-        <button class="link-btn" id="resetBtn">начать заново</button>
       </div>
     `;
+  }).join('');
 
-    content.innerHTML = html;
+  screen.innerHTML = `
+    <div class="r-head">
+      <div class="r-eyebrow">выдержка зафиксирована</div>
+      <div class="r-title">Топ-4 камеры для вас</div>
+      <div class="r-sub">${summary}</div>
+    </div>
+    <div class="cam-list">${cardsHtml}</div>
+    <div class="r-foot">
+      <button class="link-btn" id="btnBack">изменить ответы</button>
+      <button class="link-btn" id="btnReset">начать заново</button>
+    </div>
+  `;
 
-    document.getElementById('backBtn').addEventListener('click', () => {
-      state.finished = false;
-      state.currentStep = state.totalSteps - 1;
-      render();
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.score-ring-fill').forEach(el => {
+      el.style.strokeDashoffset = el.dataset.finalOffset;
     });
-    document.getElementById('resetBtn').addEventListener('click', () => {
-      state.level = null; state.currentStep = 0; state.answers = {}; state.finished = false; state.questions = []; state.totalSteps = 0;
-      render();
+  });
+
+  document.getElementById('btnReset').addEventListener('click', reset);
+  document.getElementById('btnBack').addEventListener('click', () => {
+    state.finished = false;
+    state.currentStep = state.totalSteps - 1;
+    render();
+  });
+
+  screen.querySelectorAll('.fb-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.id;
+      const vote = Number(btn.dataset.vote);
+      if (state.voted[id] !== undefined) return;
+      state.voted[id] = vote;
+      saveFeedback(id, vote, state.answers);
+      renderResults();
     });
+  });
+}
 
-    // Анимация колец
-    requestAnimationFrame(() => {
-      document.querySelectorAll('.score-ring-fill').forEach(el => {
-        el.style.strokeDashoffset = el.getAttribute('stroke-dashoffset');
-      });
-    });
-  }
+function saveFeedback(cameraId, vote, answers) {
+  try {
+    const key = 'cam_feedback';
+    const existing = JSON.parse(localStorage.getItem(key) || '[]');
+    existing.push({ cameraId, vote, answers: { level: answers.level, budget: answers.budget, goals: answers.goals }, date: new Date().toISOString() });
+    localStorage.setItem(key, JSON.stringify(existing));
+  } catch(e) {}
+}
 
-  function getSummary() {
-    const a = state.answers;
-    const levelMap = { beginner: 'новичка', enthusiast: 'любителя', pro: 'профессионала', blogger: 'блогера' };
-    const parts = [];
-    if (state.level && levelMap[state.level]) parts.push(levelMap[state.level]);
-    // добавить бюджет и жанры/цели (упрощённо)
-    return parts.join(' · ') || '';
-  }
+function reset() {
+  state = { level: null, path: null, answers: {}, currentStep: 0, totalSteps: 0, questions: [], finished: false, voted: {} };
+  render();
+}
 
-  // ============================================================
-  // 7. ЗАПУСК
-  // ============================================================
-  loadCameras().then(() => { render(); });
+// ============================================================
+// 10. ЗАПУСК
+// ============================================================
+loadCameras().then(() => { render(); });
 </script>
 </body>
 </html>
