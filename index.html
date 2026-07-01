@@ -6,7 +6,7 @@
   <title>Подбор камеры</title>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    /* ... стили без изменений (они такие же, как в вашем index3.html) ... */
+    /* ===== Стили (твой дизайн) ===== */
     * { margin:0; padding:0; box-sizing:border-box; }
     body { background:#0b0b0b; color:#eaeaea; font-family:'Inter',sans-serif; display:flex; justify-content:center; align-items:center; min-height:100vh; padding:20px; }
     .widget { max-width:720px; width:100%; background:#141414; border-radius:32px; padding:40px 32px; box-shadow:0 20px 60px rgba(0,0,0,0.8); border:1px solid #2a2a2a; }
@@ -33,15 +33,19 @@
     .nav-btn.primary:hover:not(:disabled) { background:#c4905f; border-color:#c4905f; }
     .results { margin-top:32px; display:none; }
     .results.visible { display:block; }
-    .result-card { background:#1a1a1a; border-radius:16px; padding:20px 24px; margin-bottom:16px; border-left:4px solid #d4a373; display:flex; justify-content:space-between; align-items:center; }
-    .result-card .info h3 { font-family:'Fraunces',serif; font-size:20px; color:#f0ece6; }
+    .result-card { background:#1a1a1a; border-radius:16px; padding:20px 24px; margin-bottom:16px; border-left:4px solid #d4a373; display:flex; justify-content:space-between; align-items:flex-start; gap:16px; }
+    .result-card .info { flex:1; }
+    .result-card .info h3 { font-family:'Fraunces',serif; font-size:20px; color:#f0ece6; margin-bottom:4px; }
     .result-card .info .sub { font-size:14px; color:#888; margin-top:2px; }
-    .result-card .score { font-family:'JetBrains Mono',monospace; font-size:18px; color:#d4a373; background:#252525; padding:4px 14px; border-radius:30px; }
+    .result-card .info .note { font-size:14px; color:#aaa; margin:8px 0 10px; line-height:1.4; }
+    .result-card .info .avito-link { display:inline-block; margin-top:4px; padding:6px 14px; background:#d4a373; color:#0b0b0b; font-weight:600; text-decoration:none; border-radius:6px; font-size:13px; transition:background .2s; }
+    .result-card .info .avito-link:hover { background:#c4905f; }
+    .result-card .score { font-family:'JetBrains Mono',monospace; font-size:18px; color:#d4a373; background:#252525; padding:4px 14px; border-radius:30px; flex-shrink:0; }
     .level-selector { display:flex; flex-direction:column; gap:10px; }
     .level-btn { background:#1a1a1a; border:1px solid #2e2e2e; border-radius:14px; padding:16px 20px; color:#c8c4bc; font-size:18px; font-weight:600; text-align:left; cursor:pointer; transition:all .2s; font-family:'Inter',sans-serif; display:flex; align-items:center; gap:12px; }
     .level-btn:hover { background:#282828; border-color:#d4a373; color:#fff; }
     .level-btn .desc { font-size:14px; font-weight:400; color:#888; margin-left:auto; }
-    @media (max-width:480px) { .widget { padding:24px 16px; } .question-text { font-size:20px; } .option-btn { padding:12px 16px; font-size:15px; } }
+    @media (max-width:480px) { .widget { padding:24px 16px; } .question-text { font-size:20px; } .option-btn { padding:12px 16px; font-size:15px; } .result-card { flex-direction:column; align-items:stretch; } .result-card .score { align-self:flex-start; } }
   </style>
 </head>
 <body>
@@ -74,7 +78,7 @@
   };
 
   // ============================================================
-  // 2. ДЕРЕВО ВОПРОСОВ (без изменений, полностью скопировано из вашего index3.html)
+  // 2. ДЕРЕВО ВОПРОСОВ (полностью скопировано из index3.html)
   // ============================================================
   const questionTree = {
     beginner: [
@@ -137,7 +141,6 @@
   let cameras = [];
 
   function loadCameras() {
-    // ИСПРАВЛЕНО: абсолютный URL с антикешем
     const url = 'https://raw.githubusercontent.com/alexeynovopashin-lab/CameraChange/main/cameras.json?t=' + Date.now();
     return fetch(url)
       .then(r => r.json())
@@ -192,7 +195,7 @@
       state.totalSteps = state.questions.length;
     } else if (level === 'enthusiast') {
       state.questions = questionTree.enthusiast.tt.slice(0, 4);
-      state.totalSteps = 7; // временно, потом уточнится
+      state.totalSteps = 7;
     } else if (level === 'pro') {
       state.questions = questionTree.pro.slice();
       state.totalSteps = state.questions.length;
@@ -231,7 +234,6 @@
       </div>
     `;
 
-    // Обработчики выбора
     const inputs = content.querySelectorAll('input');
     inputs.forEach(inp => {
       inp.addEventListener('change', (e) => {
@@ -243,7 +245,6 @@
         } else {
           if (e.target.checked) state.answers[qid] = e.target.value;
         }
-        // Переключение ветки любителя
         if (qid === 'e1') {
           const val = state.answers['e1'];
           if (val === 'tt') state.questions = questionTree.enthusiast.tt.slice();
@@ -256,9 +257,7 @@
       });
     });
 
-    // Навигация
     document.getElementById('prevBtn').addEventListener('click', () => {
-      // ИСПРАВЛЕНИЕ: для ветки любителя на шаге 1 (e2) возвращаем на выбор уровня, а не на e1
       if (state.level === 'enthusiast' && state.currentStep === 1) {
         state.level = null;
         state.currentStep = 0;
@@ -300,7 +299,7 @@
   }
 
   // ============================================================
-  // 4. СКОРИНГ (нормализация исправлена)
+  // 4. СКОРИНГ (без изменений)
   // ============================================================
   function getWeightsBeginner() {
     return {
@@ -378,7 +377,7 @@
   }
 
   // ============================================================
-  // 5. РАСЧЁТ РЕЗУЛЬТАТОВ (НОРМАЛИЗОВАННЫЙ СКОРИНГ)
+  // 5. РАСЧЁТ РЕЗУЛЬТАТОВ С НОРМАЛИЗАЦИЕЙ
   // ============================================================
   function computeScores() {
     if (!cameras.length) return [];
@@ -392,12 +391,11 @@
 
     const weights = weightsFn();
     const keys = Object.keys(weights).filter(k => typeof weights[k] === 'function');
-    const count = keys.length || 1; // защита от деления на 0
+    const count = keys.length || 1;
 
     const scored = cameras.map(cam => {
       let sum = 0;
       keys.forEach(key => { sum += weights[key](cam); });
-      // ИСПРАВЛЕНИЕ: нормализуем к диапазону 0–1 (каждая функция даёт максимум 1, сумма максимум count)
       const normalized = Math.min(1, sum / count);
       return { ...cam, score: normalized };
     });
@@ -406,20 +404,30 @@
     return scored.slice(0, 6);
   }
 
+  // ============================================================
+  // 6. ОТОБРАЖЕНИЕ РЕЗУЛЬТАТОВ (С НОВЫМИ ПОЛЯМИ)
+  // ============================================================
   function showResults() {
     const results = computeScores();
-    if (!results.length) { content.innerHTML = `<p>Не удалось подобрать камеры. Попробуйте изменить ответы.</p>`; return; }
+    if (!results.length) {
+      content.innerHTML = `<p>Не удалось подобрать камеры. Попробуйте изменить ответы.</p>`;
+      return;
+    }
 
     let html = `<div class="results visible"><h2 style="font-family:'Fraunces',serif; margin-bottom:20px;">Ваши рекомендации</h2>`;
     results.forEach((cam, i) => {
-      // fallback для image и bonus
-      const imageUrl = cam.image || '';
-      const bonus = cam.bonus ?? 0;
+      // Ссылка на Avito: используем поле avitoQuery, если есть, иначе модель
+      const query = cam.avitoQuery || cam.model;
+      const avitoUrl = `https://www.avito.ru/all?q=${encodeURIComponent(query)}`;
+      const note = cam.note || '';
+
       html += `
         <div class="result-card">
           <div class="info">
             <h3>${i+1}. ${cam.brand} ${cam.model}</h3>
             <div class="sub">${cam.price ? cam.price.toLocaleString()+' ₽' : ''} · ${cam.sensorSize} · ${cam.weight ? cam.weight+' г' : ''}</div>
+            ${note ? `<div class="note">${note}</div>` : ''}
+            <a href="${avitoUrl}" target="_blank" rel="noopener" class="avito-link">Найти на Avito</a>
           </div>
           <div class="score">${Math.round(cam.score * 100)}%</div>
         </div>
@@ -439,7 +447,7 @@
   }
 
   // ============================================================
-  // 6. ЗАПУСК
+  // 7. ЗАПУСК
   // ============================================================
   loadCameras().then(() => { render(); });
 </script>
