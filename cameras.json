@@ -43,7 +43,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Canon",
@@ -89,7 +91,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Canon",
@@ -133,9 +137,13 @@
     "lensMount": "Canon EF",
     "weatherSealing": false,
     "batteryLife": 0,
-    "connectivity": ["WiFi"],
+    "connectivity": [
+      "WiFi"
+    ],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Canon",
@@ -179,9 +187,14 @@
     "lensMount": "Canon EF",
     "weatherSealing": false,
     "batteryLife": 0,
-    "connectivity": ["WiFi", "Bluetooth"],
+    "connectivity": [
+      "WiFi",
+      "Bluetooth"
+    ],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Fujifilm",
@@ -227,7 +240,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Canon",
@@ -273,7 +288,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Canon",
@@ -319,7 +336,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Canon",
@@ -365,7 +384,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Nikon",
@@ -411,7 +432,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Nikon",
@@ -457,7 +480,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Sony",
@@ -503,7 +528,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Ricoh",
@@ -549,7 +576,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Ricoh",
@@ -595,7 +624,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Fujifilm",
@@ -641,7 +672,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Fujifilm",
@@ -687,7 +720,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Fujifilm",
@@ -733,7 +768,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Fujifilm",
@@ -779,7 +816,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Leica",
@@ -825,7 +864,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Leica",
@@ -871,7 +912,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Leica",
@@ -917,7 +960,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Apple",
@@ -963,7 +1008,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Canon",
@@ -1009,7 +1056,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Canon",
@@ -1055,7 +1104,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Sony",
@@ -1101,7 +1152,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Nikon",
@@ -1147,7 +1200,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Fujifilm",
@@ -1193,7 +1248,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Hasselblad",
@@ -1239,7 +1296,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Hasselblad",
@@ -1285,7 +1344,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "DJI",
@@ -1331,7 +1392,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Sony",
@@ -1377,7 +1440,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Canon",
@@ -1423,7 +1488,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Sony",
@@ -1469,7 +1536,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Fujifilm",
@@ -1515,7 +1584,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Panasonic",
@@ -1561,7 +1632,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Panasonic",
@@ -1607,7 +1680,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Canon",
@@ -1653,7 +1728,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Nikon",
@@ -1699,7 +1776,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Sony",
@@ -1745,7 +1824,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Sony",
@@ -1791,7 +1872,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Sony",
@@ -1837,7 +1920,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Sony",
@@ -1883,7 +1968,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Leica",
@@ -1929,7 +2016,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Leica",
@@ -1975,7 +2064,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Leica",
@@ -2021,7 +2112,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Fujifilm",
@@ -2067,7 +2160,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Fujifilm",
@@ -2113,7 +2208,9 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   },
   {
     "brand": "Fujifilm",
@@ -2159,6 +2256,8 @@
     "batteryLife": 0,
     "connectivity": [],
     "focusPoints": 0,
-    "burstBuffer": 0
+    "burstBuffer": 0,
+    "image": "",
+    "bonus": 0
   }
 ]
