@@ -8,7 +8,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  /* ===== ВСЕ СТИЛИ ИЗ ПРОТОТИПА (без изменений) ===== */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
@@ -67,40 +66,37 @@
   }
 
   /* ── APERTURE PROGRESS ── */
-.aperture-wrap {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  margin-bottom: 40px;
-}
-.aperture-svg { flex-shrink: 0; }
-.aperture-blade {
-  transition: transform .5s cubic-bezier(.25,.8,.25,1);
-  transform-origin: 50px 50px;
-}
-.aperture-track { flex: 1; }
-.aperture-step-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  color: var(--paper-faint, #6B6862);
-  letter-spacing: .04em;
-  margin-bottom: 6px;
-}
-.aperture-bar {
-  height: 1px;
-  background: var(--border, #3A3D42);
-  position: relative;
-}
-.aperture-bar-fill {
-  position: absolute;
-  top: 0; left: 0; height: 1px;
-  background: var(--signal, #E8470C);
-  transition: width .45s cubic-bezier(.25,.8,.25,1);
-}
-<div class="aperture-wrap" id="apertureWrap">
-  <!-- сюда будет вставляться SVG и полоса прогресса -->
-</div>
-  
+  .aperture-wrap {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 40px;
+  }
+  .aperture-svg { flex-shrink: 0; }
+  .aperture-blade {
+    transition: transform .5s cubic-bezier(.25,.8,.25,1);
+    transform-origin: 50px 50px;
+  }
+  .aperture-track { flex: 1; }
+  .aperture-step-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--paper-faint, #6B6862);
+    letter-spacing: .04em;
+    margin-bottom: 6px;
+  }
+  .aperture-bar {
+    height: 1px;
+    background: var(--border, #3A3D42);
+    position: relative;
+  }
+  .aperture-bar-fill {
+    position: absolute;
+    top: 0; left: 0; height: 1px;
+    background: var(--signal, #E8470C);
+    transition: width .45s cubic-bezier(.25,.8,.25,1);
+  }
+
   /* ── QUESTION BLOCK ── */
   .q-block { animation: rise .4s var(--ease) both; }
   @keyframes rise {
@@ -269,7 +265,6 @@
   .cam-card + .cam-card { margin-top: 14px; }
   .cam-card.top { border-color: var(--signal-dim); background: var(--surface-raised); }
 
-  /* aperture ring score indicator */
   .score-ring-wrap { display: flex; flex-direction: column; align-items: center; gap: 4px; }
   .score-ring { transform: rotate(-90deg); }
   .score-ring-bg { fill: none; stroke: var(--border); stroke-width: 3; }
@@ -449,7 +444,7 @@
 
 <script>
 // ============================================================
-// 1. СОСТОЯНИЕ (из релиза)
+// 1. СОСТОЯНИЕ
 // ============================================================
 const state = {
   level: null,
@@ -463,7 +458,7 @@ const state = {
 };
 
 // ============================================================
-// 2. ДЕРЕВО ВОПРОСОВ (исправленный бюджет для новичка)
+// 2. ДЕРЕВО ВОПРОСОВ
 // ============================================================
 const questionTree = {
   beginner: [
@@ -691,7 +686,7 @@ const questionTree = {
 };
 
 // ============================================================
-// 3. ЛОГИКА ОПРОСНИКА (без изменений)
+// 3. ЗАГРУЗКА КАМЕР
 // ============================================================
 let cameras = [];
 
@@ -708,17 +703,15 @@ const apertureWrap = document.getElementById('apertureWrap');
 const hdrMeta = document.getElementById('hdrMeta');
 
 // ============================================================
-// 4. ДИАФРАГМЕННОЕ КОЛЬЦО (из прототипа)
+// 4. ДИАФРАГМЕННОЕ КОЛЬЦО
 // ============================================================
-// Генерирует SVG диафрагмы
 function apertureSVG(openness) {
-  // openness — число от 0 до 1 (0 – закрыта, 1 – полностью открыта)
   const blades = 6;
   const cx = 50, cy = 50, r = 38;
   let paths = '';
   for (let i = 0; i < blades; i++) {
     const angle = (360 / blades) * i;
-    const scale = 1 - openness * 0.62;   // при openness=1 лепестки сжаты
+    const scale = 1 - openness * 0.62;
     paths += `<g class="aperture-blade" style="transform: rotate(${angle}deg) scale(${scale})">
       <path d="M 50 50 L 50 4 A 46 46 0 0 1 88 26 Z" fill="var(--surface, #2A2D31)" stroke="var(--border, #3A3D42)" stroke-width="1"/>
     </g>`;
@@ -730,12 +723,10 @@ function apertureSVG(openness) {
   </svg>`;
 }
 
-// Рендерит диафрагму и полосу прогресса
 function renderAperture(stepIdx, total) {
-  const openness = stepIdx / total; // 0..1
+  const openness = stepIdx / total;
   const wrap = document.getElementById('apertureWrap');
   if (!wrap) return;
-
   wrap.innerHTML = `
     ${apertureSVG(openness)}
     <div class="aperture-track">
@@ -744,9 +735,8 @@ function renderAperture(stepIdx, total) {
     </div>`;
 }
 
-  
 // ============================================================
-// 5. РЕНДЕР УРОВНЯ (как в прототипе)
+// 5. РЕНДЕР УРОВНЯ
 // ============================================================
 function renderLevelSelection() {
   hdrMeta.textContent = '';
@@ -807,7 +797,7 @@ function renderLevelSelection() {
 }
 
 // ============================================================
-// 6. ОСТАЛЬНАЯ ЛОГИКА (без изменений)
+// 6. ЛОГИКА ОПРОСНИКА
 // ============================================================
 function initBranch() {
   const level = state.level;
@@ -881,6 +871,19 @@ function renderQuestion() {
     </div>
   `;
 
+  // Функция обновления классов selected на основе состояния input
+  function updateSelectedClasses() {
+    const container = document.querySelector('.opts');
+    if (!container) return;
+    container.querySelectorAll('.opt').forEach(opt => {
+      const inp = opt.querySelector('input');
+      if (inp) {
+        if (inp.checked) opt.classList.add('selected');
+        else opt.classList.remove('selected');
+      }
+    });
+  }
+
   // Обработчики выбора
   const inputs = screen.querySelectorAll('.opt input');
   inputs.forEach(inp => {
@@ -893,6 +896,7 @@ function renderQuestion() {
       } else {
         if (e.target.checked) state.answers[qid] = e.target.value;
       }
+      updateSelectedClasses(); // обновляем маркеры
       updateNextButtonState();
       if (qid === 'e1') {
         const val = state.answers['e1'];
@@ -966,7 +970,7 @@ function updateNextButtonState() {
 }
 
 // ============================================================
-// 7. СКОРИНГ (с исправлениями: бюджет новичка, eyeAutofocus)
+// 7. СКОРИНГ
 // ============================================================
 function getBudgetLimit(level, answers) {
   if (level === 'beginner') {
@@ -1206,18 +1210,16 @@ function getWeightsBlogger() {
 }
 
 // ============================================================
-// 8. РАСЧЁТ РЕЗУЛЬТАТОВ (с жёстким бюджетным фильтром)
+// 8. РАСЧЁТ РЕЗУЛЬТАТОВ
 // ============================================================
 function computeScores() {
   const level = state.level;
   if (!level || !cameras.length) return [];
 
-  // 1. Жёсткий бюджетный фильтр
   const budgetLimit = getBudgetLimit(level, state.answers);
   const filteredCameras = cameras.filter(cam => cam.price <= budgetLimit);
   if (!filteredCameras.length) return [];
 
-  // 2. Скоринг
   let weightsFn;
   if (level === 'beginner') weightsFn = getWeightsBeginner;
   else if (level === 'enthusiast') weightsFn = getWeightsEnthusiast;
@@ -1252,7 +1254,7 @@ function ringSVG(score, isTop) {
 }
 
 // ============================================================
-// 9. ОТОБРАЖЕНИЕ РЕЗУЛЬТАТОВ (из прототипа)
+// 9. ОТОБРАЖЕНИЕ РЕЗУЛЬТАТОВ
 // ============================================================
 function showResults() {
   hdrMeta.textContent = 'результат';
@@ -1357,7 +1359,7 @@ function showResults() {
       if (state.voted[id] !== undefined) return;
       state.voted[id] = vote;
       saveFeedback(id, vote, state.answers);
-      renderResults();
+      showResults(); // исправлено: вместо renderResults()
     });
   });
 }
