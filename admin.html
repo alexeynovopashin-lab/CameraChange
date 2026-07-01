@@ -6,7 +6,7 @@
   <title>Админка камер</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* стили без изменений (те же, что в вашем admin3.html) */
+    /* ===== Оригинальные стили (без изменений) ===== */
     * { margin:0; padding:0; box-sizing:border-box; }
     body { background:#0b0b0b; color:#eaeaea; font-family:'Inter',sans-serif; padding:40px 20px; }
     .container { max-width:1400px; margin:0 auto; }
@@ -62,7 +62,7 @@
   <div class="toolbar">
     <input type="text" id="searchInput" placeholder="Поиск по бренду или модели..." />
     <button id="addBtn">➕ Добавить камеру</button>
-    <button id="importBtn">📥 Импорт из JSON</button>
+    <button id="importBtn">📥 Импорт из JSON (добавить)</button>
     <button id="exportBtn">📤 Экспорт JSON</button>
     <button id="massImageBtn">🖼️ Массовый поиск картинок</button>
     <button id="refreshBtn">🔄 Обновить данные</button>
@@ -203,7 +203,7 @@
 
 <script>
   // ============================================================
-  //  АДМИНКА — ИСПРАВЛЕННАЯ ВЕРСИЯ
+  //  АДМИНКА — ИСПРАВЛЕННАЯ ВЕРСИЯ С КОРРЕКТНЫМ ИМПОРТОМ
   // ============================================================
 
   // ── ЗАЩИТА ПАРОЛЕМ ──────────────────────────────────────────────
@@ -372,7 +372,6 @@
     }
     let html = '';
     filtered.forEach((cam, idx) => {
-      // Ищем реальный индекс в оригинальном массиве (надёжнее через findIndex)
       const realIdx = cameras.findIndex(c => c === cam);
       const imageHtml = cam.image ? `<img src="${cam.image}" class="thumb-img" onerror="this.style.display='none'" />` : '—';
       html += `<tr>
@@ -408,7 +407,7 @@
     return '<span class="badge badge-unknown">—</span>';
   }
 
-  // ── РЕДАКТИРОВАНИЕ (с корректным индексом) ──────────────────
+  // ── РЕДАКТИРОВАНИЕ ──────────────────────────────────────────────
   function editCamera(index) {
     editingIndex = index;
     const cam = cameras[index];
@@ -571,13 +570,11 @@
     document.getElementById('editModal').classList.remove('active');
   });
 
-  // ── ДОБАВЛЕНИЕ НОВОЙ КАМЕРЫ (с полным сбросом) ──────────────
+  // ── ДОБАВЛЕНИЕ НОВОЙ КАМЕРЫ ──────────────────────────────
   document.getElementById('addBtn').addEventListener('click', () => {
     editingIndex = -1;
     document.getElementById('modalTitle').textContent = 'Новая камера';
-    // Сбрасываем все поля через fillForm({}), но затем явно сбрасываем чекбоксы
     fillForm({});
-    // Дополнительно прогоняем все чекбоксы, чтобы снять их
     document.querySelectorAll('#editForm input[type="checkbox"]').forEach(cb => cb.checked = false);
     document.getElementById('editModal').classList.add('active');
   });
@@ -597,6 +594,9 @@
     URL.revokeObjectURL(url);
   });
 
+  // ================================================================
+  //  ИСПРАВЛЕННЫЙ ИМПОРТ (ДОБАВЛЯЕТ, А НЕ ПЕРЕЗАПИСЫВАЕТ)
+  // ================================================================
   document.getElementById('importBtn').addEventListener('click', () => {
     const input = document.createElement('input');
     input.type = 'file';
@@ -608,15 +608,35 @@
       reader.onload = (ev) => {
         try {
           const data = JSON.parse(ev.target.result);
-          if (Array.isArray(data)) {
-            cameras = data;
-            renderTable();
-            saveData();
-          } else {
+          if (!Array.isArray(data)) {
             alert('Неверный формат: ожидается массив');
+            return;
           }
+
+          // Считаем сколько было до
+          const before = cameras.length;
+          let added = 0;
+          let skipped = 0;
+
+          // Проходим по каждой камере из импорта
+          data.forEach(newCam => {
+            // Проверяем, есть ли уже такая камера (по brand + model)
+            const exists = cameras.some(c => c.brand === newCam.brand && c.model === newCam.model);
+            if (!exists) {
+              cameras.push(newCam);
+              added++;
+            } else {
+              skipped++;
+            }
+          });
+
+          // После добавления обновляем таблицу и сохраняем
+          renderTable();
+          saveData();
+
+          alert(`✅ Импорт завершён!\nДобавлено: ${added}\nПропущено (дубликаты): ${skipped}\nВсего камер: ${cameras.length}`);
         } catch (err) {
-          alert('Ошибка парсинга JSON');
+          alert('❌ Ошибка парсинга JSON: ' + err.message);
         }
       };
       reader.readAsText(file);
