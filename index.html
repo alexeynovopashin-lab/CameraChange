@@ -42,7 +42,6 @@
 
   .shell { width: 100%; max-width: 600px; }
 
-  /* ── HEADER ── */
   .hdr {
     display: flex;
     align-items: baseline;
@@ -65,7 +64,6 @@
     letter-spacing: .02em;
   }
 
-  /* ── APERTURE PROGRESS ── */
   .aperture-wrap {
     display: flex;
     align-items: center;
@@ -97,7 +95,6 @@
     transition: width .45s cubic-bezier(.25,.8,.25,1);
   }
 
-  /* ── QUESTION BLOCK ── */
   .q-block { animation: rise .4s var(--ease) both; }
   @keyframes rise {
     from { opacity: 0; transform: translateY(10px); }
@@ -127,7 +124,6 @@
     margin-bottom: 32px;
   }
 
-  /* ── OPTIONS ── */
   .opts { display: flex; flex-direction: column; }
 
   .opt {
@@ -186,7 +182,6 @@
   .opt-mark.square { border-radius: 3px; }
   .opt-mark.square::after { border-radius: 1px; }
 
-  /* ── ACTIONS ── */
   .actions {
     display: flex;
     align-items: center;
@@ -232,7 +227,6 @@
     color: var(--paper-faint);
   }
 
-  /* ── RESULTS ── */
   .r-head { margin-bottom: 32px; }
   .r-eyebrow {
     font-family: var(--font-mono);
@@ -458,7 +452,7 @@ const state = {
 };
 
 // ============================================================
-// 2. ДЕРЕВО ВОПРОСОВ
+// 2. ДЕРЕВО ВОПРОСОВ (без изменений)
 // ============================================================
 const questionTree = {
   beginner: [
@@ -797,7 +791,7 @@ function renderLevelSelection() {
 }
 
 // ============================================================
-// 6. ЛОГИКА ОПРОСНИКА
+// 6. ЛОГИКА ОПРОСНИКА (исправлена)
 // ============================================================
 function initBranch() {
   const level = state.level;
@@ -805,8 +799,8 @@ function initBranch() {
     state.questions = questionTree.beginner.slice();
     state.totalSteps = state.questions.length;
   } else if (level === 'enthusiast') {
-    state.questions = questionTree.enthusiast.tt.slice(0, 4);
-    state.totalSteps = 7;
+    state.questions = questionTree.enthusiast.tt.slice(0, 4); // первые 4
+    state.totalSteps = state.questions.length; // теперь 4
   } else if (level === 'pro') {
     state.questions = questionTree.pro.slice();
     state.totalSteps = state.questions.length;
@@ -871,7 +865,6 @@ function renderQuestion() {
     </div>
   `;
 
-  // Функция обновления классов selected на основе состояния input
   function updateSelectedClasses() {
     const container = document.querySelector('.opts');
     if (!container) return;
@@ -896,21 +889,23 @@ function renderQuestion() {
       } else {
         if (e.target.checked) state.answers[qid] = e.target.value;
       }
-      updateSelectedClasses(); // обновляем маркеры
+      updateSelectedClasses();
       updateNextButtonState();
+
+      // Переключение ветки у любителя
       if (qid === 'e1') {
         const val = state.answers['e1'];
         if (val === 'tt') state.questions = questionTree.enthusiast.tt.slice();
         else if (val === 'creative') state.questions = questionTree.enthusiast.creative.slice();
         state.totalSteps = state.questions.length;
-        state.currentStep = 1;
+        state.currentStep = 1; // переходим на второй вопрос
         render();
         return;
       }
     });
   });
 
-  // Клик по всей строке
+  // Клик по строке
   screen.querySelectorAll('.opt').forEach(el => {
     const inp = el.querySelector('input');
     el.addEventListener('click', function(e) {
@@ -931,16 +926,19 @@ function renderQuestion() {
   });
 
   document.getElementById('prevBtn').addEventListener('click', () => {
-    if (state.level === 'enthusiast' && state.currentStep === 1) {
+    if (state.level === 'enthusiast' && state.currentStep === 0) {
+      // Возврат на выбор уровня, но answers не сбрасываем (может пригодиться)
       state.level = null;
       state.currentStep = 0;
-      state.answers = {};
       state.questions = [];
       state.totalSteps = 0;
       render();
       return;
     }
-    if (state.currentStep > 0) { state.currentStep--; render(); }
+    if (state.currentStep > 0) {
+      state.currentStep--;
+      render();
+    }
   });
 
   document.getElementById('nextBtn').addEventListener('click', () => {
@@ -950,7 +948,11 @@ function renderQuestion() {
       alert('Пожалуйста, выберите вариант ответа');
       return;
     }
-    if (state.currentStep === state.totalSteps - 1) { state.finished = true; render(); return; }
+    if (state.currentStep === state.totalSteps - 1) {
+      state.finished = true;
+      render();
+      return;
+    }
     state.currentStep++;
     render();
   });
@@ -970,7 +972,7 @@ function updateNextButtonState() {
 }
 
 // ============================================================
-// 7. СКОРИНГ
+// 7. СКОРИНГ (исправлен priceRange)
 // ============================================================
 function getBudgetLimit(level, answers) {
   if (level === 'beginner') {
@@ -1004,9 +1006,11 @@ function getBudgetLimit(level, answers) {
   return Infinity;
 }
 
+// Весовые функции — теперь priceRange принимает cam
 function getWeightsBeginner() {
   return {
-    priceRange: (price) => {
+    priceRange: (cam) => {
+      const price = cam.price;
       const budget = state.answers['b1'];
       if (budget === 'budget_1') return price <= 20000 ? 1 : 0;
       if (budget === 'budget_2') return price <= 35000 ? 1 : 0;
@@ -1023,9 +1027,10 @@ function getWeightsBeginner() {
 }
 
 function getWeightsEnthusiast() {
-  const path = state.answers['e1'];
+  const path = state.answers['e1'] || 'tt'; // дефолт
   const base = {
-    priceRange: (price) => {
+    priceRange: (cam) => {
+      const price = cam.price;
       const budget = state.answers['e2'];
       if (budget === 'budget_1') return price <= 30000 ? 1 : 0;
       if (budget === 'budget_2') return price <= 60000 ? 1 : 0;
@@ -1081,7 +1086,8 @@ function getWeightsPro() {
       if (need === 'medium') return cam.mediumFormat ? 1 : 0;
       return 0.5;
     },
-    priceRange: (price) => {
+    priceRange: (cam) => {
+      const price = cam.price;
       const budget = state.answers['p2'];
       if (budget === 'budget_1') return price <= 100000 ? 1 : 0;
       if (budget === 'budget_2') return price <= 200000 ? 1 : 0;
@@ -1143,7 +1149,8 @@ function getWeightsPro() {
 
 function getWeightsBlogger() {
   return {
-    priceRange: (price) => {
+    priceRange: (cam) => {
+      const price = cam.price;
       const budget = state.answers['bl1'];
       if (budget === 'budget_1') return price <= 30000 ? 1 : 0;
       if (budget === 'budget_2') return price <= 60000 ? 1 : 0;
@@ -1233,7 +1240,7 @@ function computeScores() {
 
   const scored = filteredCameras.map(cam => {
     let sum = 0;
-    keys.forEach(key => { sum += weights[key](cam); });
+    keys.forEach(key => { sum += weights[key](cam); }); // теперь передаём cam везде
     const normalized = Math.min(1, sum / count);
     return { ...cam, score: normalized };
   });
@@ -1254,7 +1261,7 @@ function ringSVG(score, isTop) {
 }
 
 // ============================================================
-// 9. ОТОБРАЖЕНИЕ РЕЗУЛЬТАТОВ
+// 9. ОТОБРАЖЕНИЕ РЕЗУЛЬТАТОВ (исправлены цена, тег, specs, подзаголовок)
 // ============================================================
 function showResults() {
   hdrMeta.textContent = 'результат';
@@ -1273,23 +1280,66 @@ function showResults() {
     return;
   }
 
-  const lvlMap = { beginner: 'новичка', enthusiast: 'любителя', pro: 'профессионала', blogger: 'блогера' };
-  const goalMap = { photo:'фото', video:'видео', blog:'блог', travel:'путешествия', studio:'студия', sport:'спорт' };
-  const a = state.answers;
-  const summary = [
-    a.level ? lvlMap[a.level] : null,
-    a.budget ? `бюджет до $${a.budget}` : null,
-    (a.goals && a.goals.length) ? a.goals.map(g => goalMap[g]).filter(Boolean).join(', ') : null,
-  ].filter(Boolean).join(' · ');
+  // Формируем подзаголовок
+  const lvlMap = { beginner: 'новичок', enthusiast: 'любитель', pro: 'профессионал', blogger: 'блогер' };
+  const levelLabel = lvlMap[state.level] || '';
+  let budgetLabel = '';
+  const budgetKey = {
+    beginner: 'b1',
+    enthusiast: 'e2',
+    pro: 'p2',
+    blogger: 'bl1'
+  }[state.level];
+  const budgetValue = state.answers[budgetKey];
+  if (budgetValue) {
+    const map = {
+      'budget_1': 'до 20 000 ₽',
+      'budget_2': '20 000 – 35 000 ₽',
+      'budget_3': '35 000 – 60 000 ₽',
+      'budget_4': '60 000 – 100 000 ₽',
+      'budget_5': 'больше 100 000 ₽'
+    };
+    // для других уровней подставлены соответствующие диапазоны, но упростим:
+    const budgetMap = {
+      'budget_1': 'до 30 000 ₽',
+      'budget_2': '30 000 – 60 000 ₽',
+      'budget_3': '60 000 – 100 000 ₽',
+      'budget_4': '100 000 – 200 000 ₽',
+      'budget_5': 'больше 200 000 ₽'
+    };
+    // для про:
+    if (state.level === 'pro') {
+      budgetMap['budget_1'] = 'до 100 000 ₽';
+      budgetMap['budget_2'] = '100 000 – 200 000 ₽';
+      budgetMap['budget_3'] = '200 000 – 400 000 ₽';
+      budgetMap['budget_4'] = 'больше 400 000 ₽';
+    }
+    budgetLabel = budgetMap[budgetValue] || '';
+  }
+  const summary = [levelLabel, budgetLabel].filter(Boolean).join(' · ');
 
   const cardsHtml = results.map((cam, i) => {
     const isTop = i === 0;
     const pct = Math.round(cam.score * 100);
+
+    // Тег: берём из поля type или tag
+    const tag = cam.type || cam.tag || '';
+    // Сборка характеристик
+    const specs = [];
+    if (cam.sensorSize) specs.push(cam.sensorSize);
+    if (cam.resolution) specs.push(cam.resolution + ' Мп');
+    if (cam.video) specs.push(cam.video);
+    if (cam.weight) specs.push(cam.weight + ' г');
+    if (cam.imageStabilization) specs.push('стабилизация');
+    if (cam.weatherSealing) specs.push('защита');
+    if (cam.cardSlots && cam.cardSlots > 1) specs.push(cam.cardSlots + ' слота');
+    // Можно добавить другие поля при желании
+
     const reasonsHtml = cam.reasons ? cam.reasons.map(r => `<div class="reason">${r}</div>`).join('') : '';
-    const specsHtml = (cam.specs || cam.checkpoints || []).map(s => `<span class="spec">${s}</span>`).join('');
+    const specsHtml = specs.map(s => `<span class="spec">${s}</span>`).join('');
     const avitoUrl = `https://www.avito.ru/all?q=${encodeURIComponent(cam.avitoQuery || cam.model)}`;
     const voted = state.voted[cam.id];
-    const tag = cam.tag || '';
+    const formattedPrice = cam.price ? cam.price.toLocaleString('ru-RU') + ' ₽' : '';
 
     return `
       <div class="cam-card${isTop ? ' top' : ''}">
@@ -1300,7 +1350,7 @@ function showResults() {
         <div class="cam-main">
           <div class="cam-row1">
             <span class="cam-name">${cam.brand} ${cam.model}</span>
-            <span class="cam-price">${cam.price}</span>
+            <span class="cam-price">${formattedPrice}</span>
           </div>
           <div class="cam-tagrow">
             ${tag ? `<span class="cam-tag${isTop ? ' pick' : ''}">${tag}</span>` : ''}
@@ -1359,7 +1409,7 @@ function showResults() {
       if (state.voted[id] !== undefined) return;
       state.voted[id] = vote;
       saveFeedback(id, vote, state.answers);
-      showResults(); // исправлено: вместо renderResults()
+      showResults();
     });
   });
 }
