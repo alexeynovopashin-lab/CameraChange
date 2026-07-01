@@ -6,278 +6,42 @@
   <title>Подбор камеры</title>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    /* ===== Стили (твой дизайн) ===== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: #0b0b0b;
-      color: #eaeaea;
-      font-family: 'Inter', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px;
-    }
-
-    .widget {
-      max-width: 720px;
-      width: 100%;
-      background: #141414;
-      border-radius: 32px;
-      padding: 40px 32px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
-      position: relative;
-      border: 1px solid #2a2a2a;
-    }
-
-    .ring-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 32px;
-    }
-
-    .ring {
-      position: relative;
-      width: 72px;
-      height: 72px;
-      flex-shrink: 0;
-    }
-
-    .ring svg {
-      transform: rotate(-90deg);
-      width: 72px;
-      height: 72px;
-    }
-
-    .ring .bg {
-      fill: none;
-      stroke: #2a2a2a;
-      stroke-width: 4;
-    }
-
-    .ring .progress {
-      fill: none;
-      stroke: #d4a373;
-      stroke-width: 4;
-      stroke-linecap: round;
-      transition: stroke-dashoffset 0.6s ease;
-    }
-
-    .ring .label {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 14px;
-      font-weight: 700;
-      color: #d4a373;
-    }
-
-    .step-counter {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 14px;
-      color: #888;
-      letter-spacing: 0.5px;
-    }
-
-    .question-box {
-      margin: 24px 0 32px;
-    }
-
-    .question-text {
-      font-family: 'Fraunces', serif;
-      font-size: 24px;
-      font-weight: 700;
-      line-height: 1.3;
-      margin-bottom: 24px;
-      color: #f0ece6;
-    }
-
-    .options {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .option-btn {
-      background: #1e1e1e;
-      border: 1px solid #2e2e2e;
-      border-radius: 12px;
-      padding: 14px 20px;
-      color: #c8c4bc;
-      font-size: 16px;
-      font-weight: 500;
-      text-align: left;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .option-btn:hover {
-      background: #282828;
-      border-color: #d4a373;
-      color: #fff;
-    }
-
-    .option-btn.selected {
-      background: #2a1f14;
-      border-color: #d4a373;
-      color: #d4a373;
-    }
-
-    .option-btn input[type="checkbox"] {
-      margin-right: 12px;
-      accent-color: #d4a373;
-      transform: scale(1.2);
-    }
-
-    .option-btn .hint {
-      display: block;
-      font-size: 13px;
-      color: #888;
-      margin-top: 4px;
-      font-weight: 400;
-    }
-
-    .nav-buttons {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 28px;
-      gap: 12px;
-    }
-
-    .nav-btn {
-      background: transparent;
-      border: 1px solid #2e2e2e;
-      border-radius: 40px;
-      padding: 10px 24px;
-      color: #aaa;
-      font-size: 15px;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-weight: 500;
-    }
-
-    .nav-btn:hover:not(:disabled) {
-      background: #1e1e1e;
-      border-color: #d4a373;
-      color: #fff;
-    }
-
-    .nav-btn:disabled {
-      opacity: 0.3;
-      cursor: not-allowed;
-    }
-
-    .nav-btn.primary {
-      background: #d4a373;
-      border-color: #d4a373;
-      color: #0b0b0b;
-      font-weight: 600;
-    }
-
-    .nav-btn.primary:hover:not(:disabled) {
-      background: #c4905f;
-      border-color: #c4905f;
-    }
-
-    .results {
-      margin-top: 32px;
-      display: none;
-    }
-
-    .results.visible {
-      display: block;
-    }
-
-    .result-card {
-      background: #1a1a1a;
-      border-radius: 16px;
-      padding: 20px 24px;
-      margin-bottom: 16px;
-      border-left: 4px solid #d4a373;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .result-card .info h3 {
-      font-family: 'Fraunces', serif;
-      font-size: 20px;
-      color: #f0ece6;
-    }
-
-    .result-card .info .sub {
-      font-size: 14px;
-      color: #888;
-      margin-top: 2px;
-    }
-
-    .result-card .score {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 18px;
-      color: #d4a373;
-      background: #252525;
-      padding: 4px 14px;
-      border-radius: 30px;
-    }
-
-    .level-selector {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .level-btn {
-      background: #1a1a1a;
-      border: 1px solid #2e2e2e;
-      border-radius: 14px;
-      padding: 16px 20px;
-      color: #c8c4bc;
-      font-size: 18px;
-      font-weight: 600;
-      text-align: left;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-family: 'Inter', sans-serif;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .level-btn:hover {
-      background: #282828;
-      border-color: #d4a373;
-      color: #fff;
-    }
-
-    .level-btn .desc {
-      font-size: 14px;
-      font-weight: 400;
-      color: #888;
-      margin-left: auto;
-    }
-
-    /* Адаптив */
-    @media (max-width: 480px) {
-      .widget {
-        padding: 24px 16px;
-      }
-      .question-text {
-        font-size: 20px;
-      }
-      .option-btn {
-        padding: 12px 16px;
-        font-size: 15px;
-      }
-    }
+    /* ... стили без изменений (они такие же, как в вашем index3.html) ... */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:#0b0b0b; color:#eaeaea; font-family:'Inter',sans-serif; display:flex; justify-content:center; align-items:center; min-height:100vh; padding:20px; }
+    .widget { max-width:720px; width:100%; background:#141414; border-radius:32px; padding:40px 32px; box-shadow:0 20px 60px rgba(0,0,0,0.8); border:1px solid #2a2a2a; }
+    .ring-container { display:flex; align-items:center; justify-content:space-between; margin-bottom:32px; }
+    .ring { position:relative; width:72px; height:72px; flex-shrink:0; }
+    .ring svg { transform:rotate(-90deg); width:72px; height:72px; }
+    .ring .bg { fill:none; stroke:#2a2a2a; stroke-width:4; }
+    .ring .progress { fill:none; stroke:#d4a373; stroke-width:4; stroke-linecap:round; transition:stroke-dashoffset 0.6s ease; }
+    .ring .label { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:700; color:#d4a373; }
+    .step-counter { font-family:'JetBrains Mono',monospace; font-size:14px; color:#888; letter-spacing:0.5px; }
+    .question-box { margin:24px 0 32px; }
+    .question-text { font-family:'Fraunces',serif; font-size:24px; font-weight:700; line-height:1.3; margin-bottom:24px; color:#f0ece6; }
+    .options { display:flex; flex-direction:column; gap:12px; }
+    .option-btn { background:#1e1e1e; border:1px solid #2e2e2e; border-radius:12px; padding:14px 20px; color:#c8c4bc; font-size:16px; font-weight:500; text-align:left; cursor:pointer; transition:all .2s; font-family:'Inter',sans-serif; }
+    .option-btn:hover { background:#282828; border-color:#d4a373; color:#fff; }
+    .option-btn.selected { background:#2a1f14; border-color:#d4a373; color:#d4a373; }
+    .option-btn input[type="checkbox"] { margin-right:12px; accent-color:#d4a373; transform:scale(1.2); }
+    .option-btn .hint { display:block; font-size:13px; color:#888; margin-top:4px; font-weight:400; }
+    .nav-buttons { display:flex; justify-content:space-between; margin-top:28px; gap:12px; }
+    .nav-btn { background:transparent; border:1px solid #2e2e2e; border-radius:40px; padding:10px 24px; color:#aaa; font-size:15px; cursor:pointer; transition:all .2s; font-weight:500; }
+    .nav-btn:hover:not(:disabled) { background:#1e1e1e; border-color:#d4a373; color:#fff; }
+    .nav-btn:disabled { opacity:0.3; cursor:not-allowed; }
+    .nav-btn.primary { background:#d4a373; border-color:#d4a373; color:#0b0b0b; font-weight:600; }
+    .nav-btn.primary:hover:not(:disabled) { background:#c4905f; border-color:#c4905f; }
+    .results { margin-top:32px; display:none; }
+    .results.visible { display:block; }
+    .result-card { background:#1a1a1a; border-radius:16px; padding:20px 24px; margin-bottom:16px; border-left:4px solid #d4a373; display:flex; justify-content:space-between; align-items:center; }
+    .result-card .info h3 { font-family:'Fraunces',serif; font-size:20px; color:#f0ece6; }
+    .result-card .info .sub { font-size:14px; color:#888; margin-top:2px; }
+    .result-card .score { font-family:'JetBrains Mono',monospace; font-size:18px; color:#d4a373; background:#252525; padding:4px 14px; border-radius:30px; }
+    .level-selector { display:flex; flex-direction:column; gap:10px; }
+    .level-btn { background:#1a1a1a; border:1px solid #2e2e2e; border-radius:14px; padding:16px 20px; color:#c8c4bc; font-size:18px; font-weight:600; text-align:left; cursor:pointer; transition:all .2s; font-family:'Inter',sans-serif; display:flex; align-items:center; gap:12px; }
+    .level-btn:hover { background:#282828; border-color:#d4a373; color:#fff; }
+    .level-btn .desc { font-size:14px; font-weight:400; color:#888; margin-left:auto; }
+    @media (max-width:480px) { .widget { padding:24px 16px; } .question-text { font-size:20px; } .option-btn { padding:12px 16px; font-size:15px; } }
   </style>
 </head>
 <body>
@@ -286,18 +50,13 @@
     <div class="ring">
       <svg viewBox="0 0 72 72">
         <circle class="bg" cx="36" cy="36" r="32" />
-        <circle class="progress" cx="36" cy="36" r="32"
-                stroke-dasharray="201.06"
-                stroke-dashoffset="201.06" />
+        <circle class="progress" cx="36" cy="36" r="32" stroke-dasharray="201.06" stroke-dashoffset="201.06" />
       </svg>
       <div class="label" id="progressLabel">0%</div>
     </div>
     <div class="step-counter" id="stepCounter">Шаг 0 из 0</div>
   </div>
-
-  <div id="content">
-    <!-- Сюда будет рендериться интерфейс -->
-  </div>
+  <div id="content"></div>
 </div>
 
 <script>
@@ -305,437 +64,70 @@
   // 1. СОСТОЯНИЕ
   // ============================================================
   const state = {
-    level: null,          // 'beginner' | 'enthusiast' | 'pro' | 'blogger'
-    path: null,           // для любителя: 'tt' или 'creative'
-    answers: {},          // все ответы по id вопроса
+    level: null,
+    path: null,
+    answers: {},
     currentStep: 0,
     totalSteps: 0,
-    questions: [],        // текущий массив вопросов (плоский)
+    questions: [],
     finished: false
   };
 
   // ============================================================
-  // 2. ДЕРЕВО ВОПРОСОВ
+  // 2. ДЕРЕВО ВОПРОСОВ (без изменений, полностью скопировано из вашего index3.html)
   // ============================================================
   const questionTree = {
-    // --- НОВИЧОК (8 шагов) ---
     beginner: [
-      {
-        id: 'b1',
-        text: 'Какой у вас бюджет на камеру?',
-        options: [
-          { label: 'До 15 000 ₽', value: 'budget_1' },
-          { label: '15 000 – 30 000 ₽', value: 'budget_2' },
-          { label: '30 000 – 50 000 ₽', value: 'budget_3' },
-          { label: '50 000 – 80 000 ₽', value: 'budget_4' },
-          { label: 'Больше 80 000 ₽', value: 'budget_5' }
-        ]
-      },
-      {
-        id: 'b2',
-        text: 'Что вы планируете снимать?',
-        options: [
-          { label: 'Семью и детей', value: 'family' },
-          { label: 'Путешествия и природу', value: 'travel' },
-          { label: 'Хочу научиться фотографии как хобби', value: 'hobby' },
-          { label: 'Снимать друзей и мероприятия', value: 'events' }
-        ]
-      },
-      {
-        id: 'b3',
-        text: 'Готовы ли купить камеру б/у?',
-        options: [
-          { label: 'Да', value: 'yes' },
-          { label: 'Нет', value: 'no' },
-          { label: 'Не знаю', value: 'dont_know' }
-        ]
-      },
-      {
-        id: 'b4',
-        text: 'Насколько важна компактность камеры?',
-        options: [
-          { label: 'Должна помещаться в небольшую сумку', value: 'compact_important' },
-          { label: 'Не принципиально, главное — качество', value: 'compact_not_important' }
-        ]
-      },
-      {
-        id: 'b5',
-        text: 'Что вас не устраивает в съёмке на телефон?',
-        options: [
-          { label: 'Мало зума', value: 'no_zoom' },
-          { label: 'Плохо снимает в темноте', value: 'low_light' },
-          { label: 'Хочу красивое размытие фона (боке)', value: 'bokeh' },
-          { label: 'Хочу больше контроля над настройками', value: 'control' }
-        ]
-      },
-      {
-        id: 'b6',
-        text: 'Готовы ли вы разбираться в настройках камеры?',
-        options: [
-          { label: 'Хочу просто нажать и снять', value: 'auto' },
-          { label: 'Готов немного учиться', value: 'learn' }
-        ]
-      },
-      {
-        id: 'b7',
-        text: 'Планируете ли снимать видео?',
-        options: [
-          { label: 'Да', value: 'yes' },
-          { label: 'Нет', value: 'no' }
-        ]
-      },
-      {
-        id: 'b8',
-        text: 'Кто-нибудь поможет вам с выбором или настройкой?',
-        options: [
-          { label: 'Да, есть знакомый фотограф', value: 'help' },
-          { label: 'Нет, буду разбираться сам', value: 'alone' }
-        ]
-      }
+      { id: 'b1', text: 'Какой у вас бюджет на камеру?', options: [ { label: 'До 15 000 ₽', value: 'budget_1' }, { label: '15 000 – 30 000 ₽', value: 'budget_2' }, { label: '30 000 – 50 000 ₽', value: 'budget_3' }, { label: '50 000 – 80 000 ₽', value: 'budget_4' }, { label: 'Больше 80 000 ₽', value: 'budget_5' } ] },
+      { id: 'b2', text: 'Что вы планируете снимать?', options: [ { label: 'Семью и детей', value: 'family' }, { label: 'Путешествия и природу', value: 'travel' }, { label: 'Хочу научиться фотографии как хобби', value: 'hobby' }, { label: 'Снимать друзей и мероприятия', value: 'events' } ] },
+      { id: 'b3', text: 'Готовы ли купить камеру б/у?', options: [ { label: 'Да', value: 'yes' }, { label: 'Нет', value: 'no' }, { label: 'Не знаю', value: 'dont_know' } ] },
+      { id: 'b4', text: 'Насколько важна компактность камеры?', options: [ { label: 'Должна помещаться в небольшую сумку', value: 'compact_important' }, { label: 'Не принципиально, главное — качество', value: 'compact_not_important' } ] },
+      { id: 'b5', text: 'Что вас не устраивает в съёмке на телефон?', options: [ { label: 'Мало зума', value: 'no_zoom' }, { label: 'Плохо снимает в темноте', value: 'low_light' }, { label: 'Хочу красивое размытие фона (боке)', value: 'bokeh' }, { label: 'Хочу больше контроля над настройками', value: 'control' } ] },
+      { id: 'b6', text: 'Готовы ли вы разбираться в настройках камеры?', options: [ { label: 'Хочу просто нажать и снять', value: 'auto' }, { label: 'Готов немного учиться', value: 'learn' } ] },
+      { id: 'b7', text: 'Планируете ли снимать видео?', options: [ { label: 'Да', value: 'yes' }, { label: 'Нет', value: 'no' } ] },
+      { id: 'b8', text: 'Кто-нибудь поможет вам с выбором или настройкой?', options: [ { label: 'Да, есть знакомый фотограф', value: 'help' }, { label: 'Нет, буду разбираться сам', value: 'alone' } ] }
     ],
-
-    // --- ЛЮБИТЕЛЬ (с подветками) ---
     enthusiast: {
       tt: [
-        {
-          id: 'e1',
-          text: 'Что вас больше волнует — характеристики и возможности камеры, или ощущение от процесса съёмки и итоговая картинка?',
-          options: [
-            { label: 'Технические характеристики', value: 'tt' },
-            { label: 'Ощущение и картинка', value: 'creative' }
-          ]
-        },
-        {
-          id: 'e2',
-          text: 'Ваш бюджет',
-          options: [
-            { label: 'До 30 000 ₽', value: 'budget_1' },
-            { label: '30 000 – 60 000 ₽', value: 'budget_2' },
-            { label: '60 000 – 100 000 ₽', value: 'budget_3' },
-            { label: '100 000 – 200 000 ₽', value: 'budget_4' },
-            { label: 'Больше 200 000 ₽', value: 'budget_5' }
-          ]
-        },
-        {
-          id: 'e3',
-          text: 'Какие жанры вас интересуют?',
-          options: [
-            { label: 'Портрет', value: 'portrait' },
-            { label: 'Пейзаж', value: 'landscape' },
-            { label: 'Уличная фотография', value: 'street' },
-            { label: 'Спорт/экшн', value: 'sports' },
-            { label: 'Репортаж/события', value: 'events' }
-          ]
-        },
-        {
-          id: 'e4',
-          text: 'Что у вас уже есть из фототехники?',
-          options: [
-            { label: 'Ничего', value: 'none' },
-            { label: 'Зеркалка старого образца', value: 'old_dslr' },
-            { label: 'Системная камера', value: 'mirrorless' },
-            { label: 'Компактная камера', value: 'compact' }
-          ]
-        },
-        // Подветка ТТХ (доп. вопросы)
-        {
-          id: 'e5_tt',
-          text: 'Насколько важны мегапиксели?',
-          options: [
-            { label: 'Очень важны (больше 30 МП)', value: 'high_mp' },
-            { label: 'Средне (20–30 МП)', value: 'mid_mp' },
-            { label: 'Не критично', value: 'low_mp' }
-          ]
-        },
-        {
-          id: 'e6_tt',
-          text: 'Нужна ли быстрая серийная съёмка?',
-          options: [
-            { label: 'Да, часто снимаю движение', value: 'fast_burst' },
-            { label: 'Нет, снимаю статику', value: 'slow_burst' }
-          ]
-        },
-        {
-          id: 'e7_tt',
-          text: 'Автофокус критичен для спорта/детей в движении?',
-          options: [
-            { label: 'Да, очень важен', value: 'af_critical' },
-            { label: 'Нет, снимаю преимущественно неподвижные объекты', value: 'af_not_critical' }
-          ]
-        },
-        // Подветка Творческая (доп. вопросы)
-        {
-          id: 'e5_creative',
-          text: 'Важна ли цветопередача «из коробки» (например, плёночные симуляции Fujifilm)?',
-          options: [
-            { label: 'Да, это главное', value: 'color_important' },
-            { label: 'Средне, могу обработать в редакторе', value: 'color_mid' },
-            { label: 'Не важно', value: 'color_not' }
-          ]
-        },
-        {
-          id: 'e6_creative',
-          text: 'Насколько важен простой и понятный интерфейс меню?',
-          options: [
-            { label: 'Очень важен, хочу быстро настраивать', value: 'menu_simple' },
-            { label: 'Мне не принципиально', value: 'menu_any' }
-          ]
-        },
-        {
-          id: 'e7_creative',
-          text: 'Эргономика и приятность в руке — важно?',
-          options: [
-            { label: 'Да, камера должна лежать как влитая', value: 'ergo_important' },
-            { label: 'Не особо', value: 'ergo_not' }
-          ]
-        }
+        { id: 'e1', text: 'Что вас больше волнует — характеристики и возможности камеры, или ощущение от процесса съёмки и итоговая картинка?', options: [ { label: 'Технические характеристики', value: 'tt' }, { label: 'Ощущение и картинка', value: 'creative' } ] },
+        { id: 'e2', text: 'Ваш бюджет', options: [ { label: 'До 30 000 ₽', value: 'budget_1' }, { label: '30 000 – 60 000 ₽', value: 'budget_2' }, { label: '60 000 – 100 000 ₽', value: 'budget_3' }, { label: '100 000 – 200 000 ₽', value: 'budget_4' }, { label: 'Больше 200 000 ₽', value: 'budget_5' } ] },
+        { id: 'e3', text: 'Какие жанры вас интересуют?', options: [ { label: 'Портрет', value: 'portrait' }, { label: 'Пейзаж', value: 'landscape' }, { label: 'Уличная фотография', value: 'street' }, { label: 'Спорт/экшн', value: 'sports' }, { label: 'Репортаж/события', value: 'events' } ] },
+        { id: 'e4', text: 'Что у вас уже есть из фототехники?', options: [ { label: 'Ничего', value: 'none' }, { label: 'Зеркалка старого образца', value: 'old_dslr' }, { label: 'Системная камера', value: 'mirrorless' }, { label: 'Компактная камера', value: 'compact' } ] },
+        { id: 'e5_tt', text: 'Насколько важны мегапиксели?', options: [ { label: 'Очень важны (больше 30 МП)', value: 'high_mp' }, { label: 'Средне (20–30 МП)', value: 'mid_mp' }, { label: 'Не критично', value: 'low_mp' } ] },
+        { id: 'e6_tt', text: 'Нужна ли быстрая серийная съёмка?', options: [ { label: 'Да, часто снимаю движение', value: 'fast_burst' }, { label: 'Нет, снимаю статику', value: 'slow_burst' } ] },
+        { id: 'e7_tt', text: 'Автофокус критичен для спорта/детей в движении?', options: [ { label: 'Да, очень важен', value: 'af_critical' }, { label: 'Нет, снимаю преимущественно неподвижные объекты', value: 'af_not_critical' } ] }
       ],
       creative: [
-        // для творческой подветки первые 4 вопроса такие же (e1-e4), затем свои e5_creative, e6_creative, e7_creative
-        // мы можем использовать общие первые 4, а потом переключаться, но для простоты скопируем полностью
-        {
-          id: 'e1',
-          text: 'Что вас больше волнует — характеристики и возможности камеры, или ощущение от процесса съёмки и итоговая картинка?',
-          options: [
-            { label: 'Технические характеристики', value: 'tt' },
-            { label: 'Ощущение и картинка', value: 'creative' }
-          ]
-        },
-        {
-          id: 'e2',
-          text: 'Ваш бюджет',
-          options: [
-            { label: 'До 30 000 ₽', value: 'budget_1' },
-            { label: '30 000 – 60 000 ₽', value: 'budget_2' },
-            { label: '60 000 – 100 000 ₽', value: 'budget_3' },
-            { label: '100 000 – 200 000 ₽', value: 'budget_4' },
-            { label: 'Больше 200 000 ₽', value: 'budget_5' }
-          ]
-        },
-        {
-          id: 'e3',
-          text: 'Какие жанры вас интересуют?',
-          options: [
-            { label: 'Портрет', value: 'portrait' },
-            { label: 'Пейзаж', value: 'landscape' },
-            { label: 'Уличная фотография', value: 'street' },
-            { label: 'Спорт/экшн', value: 'sports' },
-            { label: 'Репортаж/события', value: 'events' }
-          ]
-        },
-        {
-          id: 'e4',
-          text: 'Что у вас уже есть из фототехники?',
-          options: [
-            { label: 'Ничего', value: 'none' },
-            { label: 'Зеркалка старого образца', value: 'old_dslr' },
-            { label: 'Системная камера', value: 'mirrorless' },
-            { label: 'Компактная камера', value: 'compact' }
-          ]
-        },
-        {
-          id: 'e5_creative',
-          text: 'Важна ли цветопередача «из коробки» (например, плёночные симуляции Fujifilm)?',
-          options: [
-            { label: 'Да, это главное', value: 'color_important' },
-            { label: 'Средне, могу обработать в редакторе', value: 'color_mid' },
-            { label: 'Не важно', value: 'color_not' }
-          ]
-        },
-        {
-          id: 'e6_creative',
-          text: 'Насколько важен простой и понятный интерфейс меню?',
-          options: [
-            { label: 'Очень важен, хочу быстро настраивать', value: 'menu_simple' },
-            { label: 'Мне не принципиально', value: 'menu_any' }
-          ]
-        },
-        {
-          id: 'e7_creative',
-          text: 'Эргономика и приятность в руке — важно?',
-          options: [
-            { label: 'Да, камера должна лежать как влитая', value: 'ergo_important' },
-            { label: 'Не особо', value: 'ergo_not' }
-          ]
-        }
+        { id: 'e1', text: 'Что вас больше волнует — характеристики и возможности камеры, или ощущение от процесса съёмки и итоговая картинка?', options: [ { label: 'Технические характеристики', value: 'tt' }, { label: 'Ощущение и картинка', value: 'creative' } ] },
+        { id: 'e2', text: 'Ваш бюджет', options: [ { label: 'До 30 000 ₽', value: 'budget_1' }, { label: '30 000 – 60 000 ₽', value: 'budget_2' }, { label: '60 000 – 100 000 ₽', value: 'budget_3' }, { label: '100 000 – 200 000 ₽', value: 'budget_4' }, { label: 'Больше 200 000 ₽', value: 'budget_5' } ] },
+        { id: 'e3', text: 'Какие жанры вас интересуют?', options: [ { label: 'Портрет', value: 'portrait' }, { label: 'Пейзаж', value: 'landscape' }, { label: 'Уличная фотография', value: 'street' }, { label: 'Спорт/экшн', value: 'sports' }, { label: 'Репортаж/события', value: 'events' } ] },
+        { id: 'e4', text: 'Что у вас уже есть из фототехники?', options: [ { label: 'Ничего', value: 'none' }, { label: 'Зеркалка старого образца', value: 'old_dslr' }, { label: 'Системная камера', value: 'mirrorless' }, { label: 'Компактная камера', value: 'compact' } ] },
+        { id: 'e5_creative', text: 'Важна ли цветопередача «из коробки» (например, плёночные симуляции Fujifilm)?', options: [ { label: 'Да, это главное', value: 'color_important' }, { label: 'Средне, могу обработать в редакторе', value: 'color_mid' }, { label: 'Не важно', value: 'color_not' } ] },
+        { id: 'e6_creative', text: 'Насколько важен простой и понятный интерфейс меню?', options: [ { label: 'Очень важен, хочу быстро настраивать', value: 'menu_simple' }, { label: 'Мне не принципиально', value: 'menu_any' } ] },
+        { id: 'e7_creative', text: 'Эргономика и приятность в руке — важно?', options: [ { label: 'Да, камера должна лежать как влитая', value: 'ergo_important' }, { label: 'Не особо', value: 'ergo_not' } ] }
       ]
     },
-
-    // --- ПРОФИ (3 блока, всего 10 шагов) ---
     pro: [
-      {
-        id: 'p1',
-        text: 'Какой размер сенсора вам нужен?',
-        options: [
-          { label: 'Кроп (APS-C или меньше)', value: 'crop' },
-          { label: 'Полный кадр (Full Frame)', value: 'fullframe' },
-          { label: 'Средний формат', value: 'medium' },
-          { label: 'Не принципиально', value: 'any' }
-        ]
-      },
-      {
-        id: 'p2',
-        text: 'Ваш бюджет (профессиональный уровень)',
-        options: [
-          { label: 'До 100 000 ₽', value: 'budget_1' },
-          { label: '100 000 – 200 000 ₽', value: 'budget_2' },
-          { label: '200 000 – 400 000 ₽', value: 'budget_3' },
-          { label: 'Больше 400 000 ₽', value: 'budget_4' }
-        ]
-      },
-      {
-        id: 'p3',
-        text: 'Насколько критичен вес камеры?',
-        options: [
-          { label: 'Критичен — часто снимаю с рук, нужна лёгкость', value: 'weight_critical' },
-          { label: 'Умеренно — ношу в рюкзаке, вес имеет значение', value: 'weight_moderate' },
-          { label: 'Не важен — снимаю со штатива или в студии', value: 'weight_not_important' }
-        ]
-      },
-      {
-        id: 'p4',
-        text: 'Нужен ли автофокус по глазам/животным?',
-        options: [
-          { label: 'Да', value: 'yes' },
-          { label: 'Нет', value: 'no' },
-          { label: 'Не снимаю такое', value: 'not_use' }
-        ]
-      },
-      {
-        id: 'p5',
-        text: 'Нужно ли видео в LOG-профиле?',
-        options: [
-          { label: 'Да', value: 'yes' },
-          { label: 'Нет', value: 'no' },
-          { label: 'Не снимаю видео', value: 'no_video' }
-        ]
-      },
-      {
-        id: 'p6',
-        text: 'Какая битность RAW вам нужна?',
-        options: [
-          { label: '12-bit', value: '12bit' },
-          { label: '14-bit', value: '14bit' },
-          { label: 'Не принципиально', value: 'any' }
-        ]
-      },
-      {
-        id: 'p7',
-        text: 'Вы заменяете систему или покупаете вторую камеру?',
-        options: [
-          { label: 'Заменяю систему — хочу попробовать другой бренд', value: 'replace' },
-          { label: 'Вторую камеру — можно той же системы, можно другой', value: 'second' }
-        ]
-      },
-      {
-        id: 'p8',
-        text: 'Какая у вас текущая система (бренд)?',
-        options: [
-          { label: 'Canon', value: 'Canon' },
-          { label: 'Nikon', value: 'Nikon' },
-          { label: 'Sony', value: 'Sony' },
-          { label: 'Fujifilm', value: 'Fujifilm' },
-          { label: 'Hasselblad', value: 'Hasselblad' },
-          { label: 'Leica', value: 'Leica' },
-          { label: 'Другая', value: 'other' }
-        ]
-      },
-      {
-        id: 'p9',
-        text: 'Оцените размер вашего парка оптики и значимость стороннего стекла',
-        options: [
-          { label: 'Большой парк родной оптики, стороннее не использую', value: 'native_large' },
-          { label: 'Средний парк, использую и стороннюю оптику', value: 'mixed' },
-          { label: 'Мало оптики, активно использую сторонние бренды (Sigma, Tamron и др.)', value: 'third_party' }
-        ]
-      },
-      {
-        id: 'p10',
-        text: 'Отметьте дополнительные важные для вас функции (можно несколько)',
-        options: [
-          { label: 'Два слота для карт памяти', value: 'two_slots' },
-          { label: 'Автофокус по глазам в видео', value: 'eye_af_video' },
-          { label: 'Видео в LOG', value: 'log_video' },
-          { label: 'Пыле-влагозащита', value: 'weather' },
-          { label: 'Встроенный стабилизатор', value: 'ibis' }
-        ],
-        multiple: true
-      }
+      { id: 'p1', text: 'Какой размер сенсора вам нужен?', options: [ { label: 'Кроп (APS-C или меньше)', value: 'crop' }, { label: 'Полный кадр (Full Frame)', value: 'fullframe' }, { label: 'Средний формат', value: 'medium' }, { label: 'Не принципиально', value: 'any' } ] },
+      { id: 'p2', text: 'Ваш бюджет (профессиональный уровень)', options: [ { label: 'До 100 000 ₽', value: 'budget_1' }, { label: '100 000 – 200 000 ₽', value: 'budget_2' }, { label: '200 000 – 400 000 ₽', value: 'budget_3' }, { label: 'Больше 400 000 ₽', value: 'budget_4' } ] },
+      { id: 'p3', text: 'Насколько критичен вес камеры?', options: [ { label: 'Критичен — часто снимаю с рук, нужна лёгкость', value: 'weight_critical' }, { label: 'Умеренно — ношу в рюкзаке, вес имеет значение', value: 'weight_moderate' }, { label: 'Не важен — снимаю со штатива или в студии', value: 'weight_not_important' } ] },
+      { id: 'p4', text: 'Нужен ли автофокус по глазам/животным?', options: [ { label: 'Да', value: 'yes' }, { label: 'Нет', value: 'no' }, { label: 'Не снимаю такое', value: 'not_use' } ] },
+      { id: 'p5', text: 'Нужно ли видео в LOG-профиле?', options: [ { label: 'Да', value: 'yes' }, { label: 'Нет', value: 'no' }, { label: 'Не снимаю видео', value: 'no_video' } ] },
+      { id: 'p6', text: 'Какая битность RAW вам нужна?', options: [ { label: '12-bit', value: '12bit' }, { label: '14-bit', value: '14bit' }, { label: 'Не принципиально', value: 'any' } ] },
+      { id: 'p7', text: 'Вы заменяете систему или покупаете вторую камеру?', options: [ { label: 'Заменяю систему — хочу попробовать другой бренд', value: 'replace' }, { label: 'Вторую камеру — можно той же системы, можно другой', value: 'second' } ] },
+      { id: 'p8', text: 'Какая у вас текущая система (бренд)?', options: [ { label: 'Canon', value: 'Canon' }, { label: 'Nikon', value: 'Nikon' }, { label: 'Sony', value: 'Sony' }, { label: 'Fujifilm', value: 'Fujifilm' }, { label: 'Hasselblad', value: 'Hasselblad' }, { label: 'Leica', value: 'Leica' }, { label: 'Другая', value: 'other' } ] },
+      { id: 'p9', text: 'Оцените размер вашего парка оптики и значимость стороннего стекла', options: [ { label: 'Большой парк родной оптики, стороннее не использую', value: 'native_large' }, { label: 'Средний парк, использую и стороннюю оптику', value: 'mixed' }, { label: 'Мало оптики, активно использую сторонние бренды (Sigma, Tamron и др.)', value: 'third_party' } ] },
+      { id: 'p10', text: 'Отметьте дополнительные важные для вас функции (можно несколько)', options: [ { label: 'Два слота для карт памяти', value: 'two_slots' }, { label: 'Автофокус по глазам в видео', value: 'eye_af_video' }, { label: 'Видео в LOG', value: 'log_video' }, { label: 'Пыле-влагозащита', value: 'weather' }, { label: 'Встроенный стабилизатор', value: 'ibis' } ], multiple: true }
     ],
-
-    // --- БЛОГЕР (8 шагов) ---
     blogger: [
-      {
-        id: 'bl1',
-        text: 'Ваш бюджет',
-        options: [
-          { label: 'До 30 000 ₽', value: 'budget_1' },
-          { label: '30 000 – 60 000 ₽', value: 'budget_2' },
-          { label: '60 000 – 100 000 ₽', value: 'budget_3' },
-          { label: '100 000 – 200 000 ₽', value: 'budget_4' },
-          { label: 'Больше 200 000 ₽', value: 'budget_5' }
-        ]
-      },
-      {
-        id: 'bl2',
-        text: 'На какой платформе вы публикуете основной контент?',
-        options: [
-          { label: 'YouTube (длинные ролики)', value: 'youtube' },
-          { label: 'Reels, Shorts, TikTok', value: 'shorts' },
-          { label: 'Стримы', value: 'streams' }
-        ]
-      },
-      {
-        id: 'bl3',
-        text: 'Насколько важна встроенная стабилизация изображения?',
-        options: [
-          { label: 'Очень важна, снимаю с рук', value: 'ibis_critical' },
-          { label: 'Использую гимбал/штатив', value: 'gimbal' },
-          { label: 'Не важно', value: 'not_important' }
-        ]
-      },
-      {
-        id: 'bl4',
-        text: 'Нужен ли вход для внешнего микрофона?',
-        options: [
-          { label: 'Да', value: 'yes' },
-          { label: 'Нет', value: 'no' }
-        ]
-      },
-      {
-        id: 'bl5',
-        text: 'Насколько критичен поворотный/откидной дисплей для съёмки себя?',
-        options: [
-          { label: 'Критичен, снимаю себя в кадре', value: 'critical' },
-          { label: 'Желателен, но можно и без', value: 'desirable' },
-          { label: 'Не важен', value: 'not_important' }
-        ]
-      },
-      {
-        id: 'bl6',
-        text: 'Автофокус по лицу/глазам в видеорежиме — критичен?',
-        options: [
-          { label: 'Да, критичен', value: 'critical' },
-          { label: 'Нет, не критичен', value: 'not_critical' }
-        ]
-      },
-      {
-        id: 'bl7',
-        text: 'Готовы ли вы разбираться в сложном меню или нужен принцип «включил-снял»?',
-        options: [
-          { label: 'Хочу простое меню, минимум настроек', value: 'simple' },
-          { label: 'Готов разбираться, если это даёт качество', value: 'complex_ok' }
-        ]
-      },
-      {
-        id: 'bl8',
-        text: 'Насколько важны вес и компактность камеры?',
-        options: [
-          { label: 'Очень важно — часто снимаю с рук в движении', value: 'critical' },
-          { label: 'Средне — ношу в рюкзаке', value: 'moderate' },
-          { label: 'Не важно', value: 'not_important' }
-        ]
-      }
+      { id: 'bl1', text: 'Ваш бюджет', options: [ { label: 'До 30 000 ₽', value: 'budget_1' }, { label: '30 000 – 60 000 ₽', value: 'budget_2' }, { label: '60 000 – 100 000 ₽', value: 'budget_3' }, { label: '100 000 – 200 000 ₽', value: 'budget_4' }, { label: 'Больше 200 000 ₽', value: 'budget_5' } ] },
+      { id: 'bl2', text: 'На какой платформе вы публикуете основной контент?', options: [ { label: 'YouTube (длинные ролики)', value: 'youtube' }, { label: 'Reels, Shorts, TikTok', value: 'shorts' }, { label: 'Стримы', value: 'streams' } ] },
+      { id: 'bl3', text: 'Насколько важна встроенная стабилизация изображения?', options: [ { label: 'Очень важна, снимаю с рук', value: 'ibis_critical' }, { label: 'Использую гимбал/штатив', value: 'gimbal' }, { label: 'Не важно', value: 'not_important' } ] },
+      { id: 'bl4', text: 'Нужен ли вход для внешнего микрофона?', options: [ { label: 'Да', value: 'yes' }, { label: 'Нет', value: 'no' } ] },
+      { id: 'bl5', text: 'Насколько критичен поворотный/откидной дисплей для съёмки себя?', options: [ { label: 'Критичен, снимаю себя в кадре', value: 'critical' }, { label: 'Желателен, но можно и без', value: 'desirable' }, { label: 'Не важен', value: 'not_important' } ] },
+      { id: 'bl6', text: 'Автофокус по лицу/глазам в видеорежиме — критичен?', options: [ { label: 'Да, критичен', value: 'critical' }, { label: 'Нет, не критичен', value: 'not_critical' } ] },
+      { id: 'bl7', text: 'Готовы ли вы разбираться в сложном меню или нужен принцип «включил-снял»?', options: [ { label: 'Хочу простое меню, минимум настроек', value: 'simple' }, { label: 'Готов разбираться, если это даёт качество', value: 'complex_ok' } ] },
+      { id: 'bl8', text: 'Насколько важны вес и компактность камеры?', options: [ { label: 'Очень важно — часто снимаю с рук в движении', value: 'critical' }, { label: 'Средне — ношу в рюкзаке', value: 'moderate' }, { label: 'Не важно', value: 'not_important' } ] }
     ]
   };
 
@@ -744,44 +136,26 @@
   // ============================================================
   let cameras = [];
 
-  // Загружаем данные камер из JSON (будет подставлено позже)
   function loadCameras() {
-    // В реальности мы будем грузить из внешнего файла, но для простоты встроим данные
-    // Пока что оставляем пустым, заполним позже fetch'ем
-    return fetch('cameras.json')
+    // ИСПРАВЛЕНО: абсолютный URL с антикешем
+    const url = 'https://raw.githubusercontent.com/alexeynovopashin-lab/CameraChange/main/cameras.json?t=' + Date.now();
+    return fetch(url)
       .then(r => r.json())
       .then(data => { cameras = data; })
       .catch(() => { cameras = []; });
   }
 
-  // DOM-элементы
   const content = document.getElementById('content');
   const progressLabel = document.getElementById('progressLabel');
   const stepCounter = document.getElementById('stepCounter');
 
-  // Рендер
   function render() {
-    if (state.finished) {
-      showResults();
-      return;
-    }
-
-    if (!state.level) {
-      renderLevelSelection();
-      return;
-    }
-
-    // Если уровень выбран, но вопросы ещё не загружены
+    if (state.finished) { showResults(); return; }
+    if (!state.level) { renderLevelSelection(); return; }
     if (!state.questions || state.questions.length === 0) {
-      // инициализируем ветку
       initBranch();
-      if (state.questions.length === 0) {
-        // Если почему-то нет вопросов, покажем ошибку
-        content.innerHTML = '<p>Ошибка: вопросы не найдены</p>';
-        return;
-      }
+      if (state.questions.length === 0) { content.innerHTML = '<p>Ошибка: вопросы не найдены</p>'; return; }
     }
-
     renderQuestion();
   }
 
@@ -790,26 +164,13 @@
       <div class="question-box">
         <div class="question-text">Выберите ваш уровень</div>
         <div class="level-selector">
-          <button class="level-btn" data-level="beginner">
-            <span>📷 Новичок</span>
-            <span class="desc">Только начинаю, хочу простую камеру</span>
-          </button>
-          <button class="level-btn" data-level="enthusiast">
-            <span>🎨 Любитель</span>
-            <span class="desc">Уже снимаю, ищу что-то интересное</span>
-          </button>
-          <button class="level-btn" data-level="pro">
-            <span>💼 Профи</span>
-            <span class="desc">Работаю профессионально, нужны точные параметры</span>
-          </button>
-          <button class="level-btn" data-level="blogger">
-            <span>📱 Блогер</span>
-            <span class="desc">Снимаю контент для соцсетей</span>
-          </button>
+          <button class="level-btn" data-level="beginner"><span>📷 Новичок</span><span class="desc">Только начинаю, хочу простую камеру</span></button>
+          <button class="level-btn" data-level="enthusiast"><span>🎨 Любитель</span><span class="desc">Уже снимаю, ищу что-то интересное</span></button>
+          <button class="level-btn" data-level="pro"><span>💼 Профи</span><span class="desc">Работаю профессионально, нужны точные параметры</span></button>
+          <button class="level-btn" data-level="blogger"><span>📱 Блогер</span><span class="desc">Снимаю контент для соцсетей</span></button>
         </div>
       </div>
     `;
-    // Обработчики
     document.querySelectorAll('.level-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const level = e.currentTarget.dataset.level;
@@ -830,13 +191,8 @@
       state.questions = questionTree.beginner.slice();
       state.totalSteps = state.questions.length;
     } else if (level === 'enthusiast') {
-      // Пока не знаем подветку, покажем первый вопрос e1, который определит path
-      // Но мы можем взять общие вопросы (первые 4) из любой подветки, они одинаковы
-      // Используем tt как базовый
-      state.questions = questionTree.enthusiast.tt.slice(0, 4); // первые 4 общих
-      state.totalSteps = 7; // потом будет уточнено
-      // Но нам нужно, чтобы после e1 мы переключили массив
-      // Мы это сделаем в обработчике ответа
+      state.questions = questionTree.enthusiast.tt.slice(0, 4);
+      state.totalSteps = 7; // временно, потом уточнится
     } else if (level === 'pro') {
       state.questions = questionTree.pro.slice();
       state.totalSteps = state.questions.length;
@@ -844,18 +200,12 @@
       state.questions = questionTree.blogger.slice();
       state.totalSteps = state.questions.length;
     }
-    // Обновим прогресс
     updateProgress();
   }
 
   function renderQuestion() {
     const q = state.questions[state.currentStep];
-    if (!q) {
-      // если шаг вышел за пределы, значит завершили
-      state.finished = true;
-      render();
-      return;
-    }
+    if (!q) { state.finished = true; render(); return; }
 
     const isMultiple = q.multiple || false;
     const selected = state.answers[q.id] || (isMultiple ? [] : null);
@@ -864,20 +214,16 @@
       const checked = isMultiple ? (selected.includes(opt.value) ? 'checked' : '') : (selected === opt.value ? 'checked' : '');
       const inputType = isMultiple ? 'checkbox' : 'radio';
       const name = isMultiple ? `${q.id}[]` : q.id;
-      return `
-        <label class="option-btn" style="display:flex; align-items:center; gap:10px;">
-          <input type="${inputType}" name="${name}" value="${opt.value}" ${checked} />
-          <span>${opt.label}</span>
-        </label>
-      `;
+      return `<label class="option-btn" style="display:flex; align-items:center; gap:10px;">
+        <input type="${inputType}" name="${name}" value="${opt.value}" ${checked} />
+        <span>${opt.label}</span>
+      </label>`;
     }).join('');
 
     content.innerHTML = `
       <div class="question-box">
         <div class="question-text">${q.text}</div>
-        <div class="options" data-qid="${q.id}" data-multiple="${isMultiple}">
-          ${optionsHtml}
-        </div>
+        <div class="options" data-qid="${q.id}" data-multiple="${isMultiple}">${optionsHtml}</div>
         <div class="nav-buttons">
           <button class="nav-btn" id="prevBtn" ${state.currentStep === 0 ? 'disabled' : ''}>Назад</button>
           <button class="nav-btn primary" id="nextBtn">${state.currentStep === state.totalSteps - 1 ? 'Показать результаты' : 'Далее'}</button>
@@ -885,39 +231,24 @@
       </div>
     `;
 
-    // Обработчики для изменения выбора
+    // Обработчики выбора
     const inputs = content.querySelectorAll('input');
     inputs.forEach(inp => {
       inp.addEventListener('change', (e) => {
         const qid = e.target.closest('.options').dataset.qid;
         const multiple = e.target.closest('.options').dataset.multiple === 'true';
         if (multiple) {
-          // собираем все выбранные
           const checked = content.querySelectorAll(`input[name="${qid}[]"]:checked`);
-          const values = Array.from(checked).map(c => c.value);
-          state.answers[qid] = values;
+          state.answers[qid] = Array.from(checked).map(c => c.value);
         } else {
-          if (e.target.checked) {
-            state.answers[qid] = e.target.value;
-          }
+          if (e.target.checked) state.answers[qid] = e.target.value;
         }
-        // Если это вопрос e1 (переключатель для любителя), то меняем ветку
+        // Переключение ветки любителя
         if (qid === 'e1') {
           const val = state.answers['e1'];
-          if (val === 'tt') {
-            // загружаем полную ветку TT
-            state.questions = questionTree.enthusiast.tt.slice();
-          } else if (val === 'creative') {
-            state.questions = questionTree.enthusiast.creative.slice();
-          }
+          if (val === 'tt') state.questions = questionTree.enthusiast.tt.slice();
+          else if (val === 'creative') state.questions = questionTree.enthusiast.creative.slice();
           state.totalSteps = state.questions.length;
-          state.currentStep = 0; // начинаем с первого вопроса (e1) фактически уже ответили, но мы перезагрузим
-          // но чтобы не зациклиться, мы перейдём на следующий шаг
-          // лучше просто перерендерить с новым списком и установить currentStep = 1 (пропуская e1)
-          // однако проще: после выбора мы переходим к следующему вопросу автоматически
-          // сделаем так: при смене e1 мы обновим массив и перейдём на шаг 1 (e2)
-          // но текущий шаг 0 — это e1, мы его уже ответили, поэтому перейдём к 1
-          // но нужно учесть, что e1 есть в обоих массивах, поэтому просто переключим и перейдём на 1
           state.currentStep = 1;
           render();
           return;
@@ -925,29 +256,29 @@
       });
     });
 
-    // Кнопки навигации
+    // Навигация
     document.getElementById('prevBtn').addEventListener('click', () => {
-      if (state.currentStep > 0) {
-        state.currentStep--;
+      // ИСПРАВЛЕНИЕ: для ветки любителя на шаге 1 (e2) возвращаем на выбор уровня, а не на e1
+      if (state.level === 'enthusiast' && state.currentStep === 1) {
+        state.level = null;
+        state.currentStep = 0;
+        state.answers = {};
+        state.questions = [];
+        state.totalSteps = 0;
         render();
+        return;
       }
+      if (state.currentStep > 0) { state.currentStep--; render(); }
     });
 
     document.getElementById('nextBtn').addEventListener('click', () => {
-      // Проверяем, что на текущий вопрос ответили
       const qid = state.questions[state.currentStep].id;
       const answer = state.answers[qid];
       if (!answer || (Array.isArray(answer) && answer.length === 0)) {
         alert('Пожалуйста, выберите вариант ответа');
         return;
       }
-      // Если это последний шаг — показать результаты
-      if (state.currentStep === state.totalSteps - 1) {
-        state.finished = true;
-        render();
-        return;
-      }
-      // Иначе следующий шаг
+      if (state.currentStep === state.totalSteps - 1) { state.finished = true; render(); return; }
       state.currentStep++;
       render();
     });
@@ -957,167 +288,70 @@
 
   function updateProgress() {
     let total = state.totalSteps;
-    let current = state.currentStep + 1; // +1 т.к. 0-based
+    let current = state.currentStep + 1;
     if (state.finished) current = total;
     const percent = total > 0 ? Math.round((current / total) * 100) : 0;
     const circumference = 201.06;
     const offset = circumference - (percent / 100) * circumference;
     const circle = document.querySelector('.ring .progress');
-    if (circle) {
-      circle.style.strokeDashoffset = offset;
-    }
+    if (circle) circle.style.strokeDashoffset = offset;
     progressLabel.textContent = percent + '%';
     stepCounter.textContent = `Шаг ${current} из ${total}`;
   }
 
   // ============================================================
-  // 4. СКОРИНГ (отдельные функции для каждой ветки)
+  // 4. СКОРИНГ (нормализация исправлена)
   // ============================================================
-
   function getWeightsBeginner() {
-    // Простые веса: цена, простота, компактность, бренд Canon (бонус)
     return {
-      priceRange: (price) => {
-        const budget = state.answers['b1'];
-        if (budget === 'budget_1') return price <= 15000 ? 1 : 0;
-        if (budget === 'budget_2') return price <= 30000 ? 1 : 0;
-        if (budget === 'budget_3') return price <= 50000 ? 1 : 0;
-        if (budget === 'budget_4') return price <= 80000 ? 1 : 0;
-        if (budget === 'budget_5') return price > 80000 ? 1 : 0;
-        return 0.5;
-      },
+      priceRange: (price) => { const budget = state.answers['b1']; if (budget === 'budget_1') return price <= 15000 ? 1 : 0; if (budget === 'budget_2') return price <= 30000 ? 1 : 0; if (budget === 'budget_3') return price <= 50000 ? 1 : 0; if (budget === 'budget_4') return price <= 80000 ? 1 : 0; if (budget === 'budget_5') return price > 80000 ? 1 : 0; return 0.5; },
       simpleMenu: (cam) => cam.menuComplexity === 'simple' ? 1 : 0,
-      compact: (cam) => {
-        const needCompact = state.answers['b4'] === 'compact_important';
-        return needCompact ? (cam.compact || cam.mirrorless ? 1 : 0) : 0.5;
-      },
+      compact: (cam) => { const needCompact = state.answers['b4'] === 'compact_important'; return needCompact ? (cam.compact || cam.mirrorless ? 1 : 0) : 0.5; },
       beginnerFriendly: (cam) => cam.forBeginners ? 1 : 0,
-      // Бонус за Canon (для 700D и M50)
       canonBonus: (cam) => cam.brand === 'Canon' ? 0.2 : 0,
     };
   }
 
   function getWeightsEnthusiast() {
-    const path = state.answers['e1']; // 'tt' или 'creative'
+    const path = state.answers['e1'];
     const base = {
-      priceRange: (price) => {
-        const budget = state.answers['e2'];
-        if (budget === 'budget_1') return price <= 30000 ? 1 : 0;
-        if (budget === 'budget_2') return price <= 60000 ? 1 : 0;
-        if (budget === 'budget_3') return price <= 100000 ? 1 : 0;
-        if (budget === 'budget_4') return price <= 200000 ? 1 : 0;
-        if (budget === 'budget_5') return price > 200000 ? 1 : 0;
-        return 0.5;
-      },
-      // жанры (для простоты не обрабатываем, можно добавить)
+      priceRange: (price) => { const budget = state.answers['e2']; if (budget === 'budget_1') return price <= 30000 ? 1 : 0; if (budget === 'budget_2') return price <= 60000 ? 1 : 0; if (budget === 'budget_3') return price <= 100000 ? 1 : 0; if (budget === 'budget_4') return price <= 200000 ? 1 : 0; if (budget === 'budget_5') return price > 200000 ? 1 : 0; return 0.5; },
     };
     if (path === 'tt') {
       return {
         ...base,
-        highRes: (cam) => {
-          const need = state.answers['e5_tt'] === 'high_mp';
-          if (need) return cam.resolution >= 30 ? 1 : 0;
-          if (state.answers['e5_tt'] === 'mid_mp') return cam.resolution >= 20 && cam.resolution < 30 ? 1 : 0;
-          return 0.5;
-        },
-        burst: (cam) => {
-          const need = state.answers['e6_tt'] === 'fast_burst';
-          // предположим, что у камер есть поле burstSpeed (добавим позже)
-          // пока используем cardSlots как прокси (чем больше слотов, тем быстрее буфер)
-          return need ? (cam.cardSlots >= 2 ? 1 : 0) : 0.5;
-        },
-        af: (cam) => {
-          const need = state.answers['e7_tt'] === 'af_critical';
-          // используем autofocus точки
-          return need ? (cam.autofocus && cam.autofocus > 100 ? 1 : 0) : 0.5;
-        }
+        highRes: (cam) => { const need = state.answers['e5_tt']; if (need === 'high_mp') return cam.resolution >= 30 ? 1 : 0; if (need === 'mid_mp') return cam.resolution >= 20 && cam.resolution < 30 ? 1 : 0; return 0.5; },
+        burst: (cam) => { const need = state.answers['e6_tt']; return need === 'fast_burst' ? (cam.cardSlots >= 2 ? 1 : 0) : 0.5; },
+        af: (cam) => { const need = state.answers['e7_tt']; return need === 'af_critical' ? (cam.autofocus && cam.autofocus > 100 ? 1 : 0) : 0.5; }
       };
-    } else { // creative
+    } else {
       return {
         ...base,
-        color: (cam) => {
-          const need = state.answers['e5_creative'] === 'color_important';
-          return need ? (cam.colorScience ? 1 : 0) : 0.5;
-        },
-        menuSimple: (cam) => {
-          const need = state.answers['e6_creative'] === 'menu_simple';
-          return need ? (cam.menuComplexity === 'simple' ? 1 : 0) : 0.5;
-        },
-        ergo: (cam) => {
-          const need = state.answers['e7_creative'] === 'ergo_important';
-          // нет прямого поля, используем вес
-          return need ? (cam.weight < 600 ? 1 : 0) : 0.5;
-        }
+        color: (cam) => { const need = state.answers['e5_creative']; return need === 'color_important' ? (cam.colorScience ? 1 : 0) : 0.5; },
+        menuSimple: (cam) => { const need = state.answers['e6_creative']; return need === 'menu_simple' ? (cam.menuComplexity === 'simple' ? 1 : 0) : 0.5; },
+        ergo: (cam) => { const need = state.answers['e7_creative']; return need === 'ergo_important' ? (cam.weight < 600 ? 1 : 0) : 0.5; }
       };
     }
   }
 
   function getWeightsPro() {
     return {
-      sensor: (cam) => {
-        const need = state.answers['p1'];
-        if (need === 'crop') return cam.crop ? 1 : 0;
-        if (need === 'fullframe') return cam.fullFrame ? 1 : 0;
-        if (need === 'medium') return cam.mediumFormat ? 1 : 0;
-        return 0.5;
-      },
-      priceRange: (price) => {
-        const budget = state.answers['p2'];
-        if (budget === 'budget_1') return price <= 100000 ? 1 : 0;
-        if (budget === 'budget_2') return price <= 200000 ? 1 : 0;
-        if (budget === 'budget_3') return price <= 400000 ? 1 : 0;
-        if (budget === 'budget_4') return price > 400000 ? 1 : 0;
-        return 0.5;
-      },
-      weight: (cam) => {
-        const need = state.answers['p3'];
-        if (need === 'weight_critical') return cam.weight < 700 ? 1 : 0;
-        if (need === 'weight_moderate') return cam.weight < 1000 ? 1 : 0;
-        return 0.5;
-      },
-      eyeAf: (cam) => {
-        const need = state.answers['p4'];
-        if (need === 'yes') return cam.autofocus && cam.autofocus > 100 ? 1 : 0;
-        if (need === 'not_use') return 0.5;
-        return 0;
-      },
-      log: (cam) => {
-        const need = state.answers['p5'];
-        if (need === 'yes') return cam.logProfile ? 1 : 0;
-        if (need === 'no_video') return 0.5;
-        return 0;
-      },
-      bitDepth: (cam) => {
-        const need = state.answers['p6'];
-        if (need === '12bit') return cam.bitDepth >= 12 ? 1 : 0;
-        if (need === '14bit') return cam.bitDepth >= 14 ? 1 : 0;
-        return 0.5;
-      },
-      // Блок 3 — экосистема
+      sensor: (cam) => { const need = state.answers['p1']; if (need === 'crop') return cam.crop ? 1 : 0; if (need === 'fullframe') return cam.fullFrame ? 1 : 0; if (need === 'medium') return cam.mediumFormat ? 1 : 0; return 0.5; },
+      priceRange: (price) => { const budget = state.answers['p2']; if (budget === 'budget_1') return price <= 100000 ? 1 : 0; if (budget === 'budget_2') return price <= 200000 ? 1 : 0; if (budget === 'budget_3') return price <= 400000 ? 1 : 0; if (budget === 'budget_4') return price > 400000 ? 1 : 0; return 0.5; },
+      weight: (cam) => { const need = state.answers['p3']; if (need === 'weight_critical') return cam.weight < 700 ? 1 : 0; if (need === 'weight_moderate') return cam.weight < 1000 ? 1 : 0; return 0.5; },
+      eyeAf: (cam) => { const need = state.answers['p4']; if (need === 'yes') return cam.autofocus && cam.autofocus > 100 ? 1 : 0; if (need === 'not_use') return 0.5; return 0; },
+      log: (cam) => { const need = state.answers['p5']; if (need === 'yes') return cam.logProfile ? 1 : 0; if (need === 'no_video') return 0.5; return 0; },
+      bitDepth: (cam) => { const need = state.answers['p6']; if (need === '12bit') return cam.bitDepth >= 12 ? 1 : 0; if (need === '14bit') return cam.bitDepth >= 14 ? 1 : 0; return 0.5; },
       replaceOrSecond: (cam) => {
-        const choice = state.answers['p7']; // 'replace' или 'second'
+        const choice = state.answers['p7'];
         const currentSystem = state.answers['p8'];
         const lensPark = state.answers['p9'];
-        // Бонус за совместимость системы
         let systemBonus = 0;
-        if (choice === 'second') {
-          // Вторая камера — бонус за ту же систему
-          if (cam.brand === currentSystem) systemBonus = 0.3;
-        } else {
-          // Замена — бонус за другие системы (особенно Sony)
-          if (cam.brand !== currentSystem) {
-            systemBonus = 0.2;
-            if (cam.brand === 'Sony') systemBonus += 0.1; // Sony получает доп. бонус
-          }
-        }
-        // Парк оптики: чем больше сторонней оптики, тем лучше для Sony
+        if (choice === 'second') { if (cam.brand === currentSystem) systemBonus = 0.3; }
+        else { if (cam.brand !== currentSystem) { systemBonus = 0.2; if (cam.brand === 'Sony') systemBonus += 0.1; } }
         let lensBonus = 0;
-        if (lensPark === 'third_party' && cam.brand === 'Sony') {
-          lensBonus = 0.3;
-        } else if (lensPark === 'mixed' && cam.brand === 'Sony') {
-          lensBonus = 0.15;
-        }
-        // Дополнительные чекбоксы (p10) — множественный выбор
+        if (lensPark === 'third_party' && cam.brand === 'Sony') lensBonus = 0.3;
+        else if (lensPark === 'mixed' && cam.brand === 'Sony') lensBonus = 0.15;
         const extras = state.answers['p10'] || [];
         let extraBonus = 0;
         if (extras.includes('two_slots') && cam.cardSlots >= 2) extraBonus += 0.1;
@@ -1132,82 +366,20 @@
 
   function getWeightsBlogger() {
     return {
-      priceRange: (price) => {
-        const budget = state.answers['bl1'];
-        if (budget === 'budget_1') return price <= 30000 ? 1 : 0;
-        if (budget === 'budget_2') return price <= 60000 ? 1 : 0;
-        if (budget === 'budget_3') return price <= 100000 ? 1 : 0;
-        if (budget === 'budget_4') return price <= 200000 ? 1 : 0;
-        if (budget === 'budget_5') return price > 200000 ? 1 : 0;
-        return 0.5;
-      },
-      platform: (cam) => {
-        const platform = state.answers['bl2'];
-        if (platform === 'youtube') {
-          // для YouTube важны долгая запись, стабилизация, микрофон
-          let score = 0;
-          if (cam.video && cam.video.includes('4K')) score += 0.5;
-          if (cam.imageStabilization) score += 0.3;
-          if (cam.microphoneInput) score += 0.2;
-          return score;
-        } else if (platform === 'shorts') {
-          // для коротких видео — компактность, поворотный экран, автофокус
-          let score = 0;
-          if (cam.compact || cam.mirrorless) score += 0.4;
-          if (cam.rotatingScreen) score += 0.3;
-          if (cam.autofocus) score += 0.3;
-          return score;
-        } else if (platform === 'streams') {
-          // для стримов — видео, микрофон, стабилизация, автофокус
-          let score = 0;
-          if (cam.video) score += 0.3;
-          if (cam.microphoneInput) score += 0.3;
-          if (cam.imageStabilization) score += 0.2;
-          if (cam.autofocus) score += 0.2;
-          return score;
-        }
-        return 0.5;
-      },
-      ibis: (cam) => {
-        const need = state.answers['bl3'];
-        if (need === 'ibis_critical') return cam.imageStabilization ? 1 : 0;
-        if (need === 'gimbal') return 0.5;
-        return 0.5;
-      },
-      mic: (cam) => {
-        const need = state.answers['bl4'];
-        if (need === 'yes') return cam.microphoneInput ? 1 : 0;
-        return 0.5;
-      },
-      flipScreen: (cam) => {
-        const need = state.answers['bl5'];
-        if (need === 'critical') return cam.rotatingScreen ? 1 : 0;
-        if (need === 'desirable') return cam.rotatingScreen ? 0.5 : 0;
-        return 0.5;
-      },
-      afVideo: (cam) => {
-        const need = state.answers['bl6'];
-        if (need === 'critical') return cam.autofocus ? 1 : 0;
-        return 0.5;
-      },
-      menuComplexity: (cam) => {
-        const need = state.answers['bl7'];
-        if (need === 'simple') return cam.menuComplexity === 'simple' ? 1 : 0;
-        return 0.5;
-      },
-      weightCompact: (cam) => {
-        const need = state.answers['bl8'];
-        if (need === 'critical') return (cam.compact || cam.mirrorless) && cam.weight < 600 ? 1 : 0;
-        if (need === 'moderate') return cam.weight < 800 ? 1 : 0;
-        return 0.5;
-      }
+      priceRange: (price) => { const budget = state.answers['bl1']; if (budget === 'budget_1') return price <= 30000 ? 1 : 0; if (budget === 'budget_2') return price <= 60000 ? 1 : 0; if (budget === 'budget_3') return price <= 100000 ? 1 : 0; if (budget === 'budget_4') return price <= 200000 ? 1 : 0; if (budget === 'budget_5') return price > 200000 ? 1 : 0; return 0.5; },
+      platform: (cam) => { const platform = state.answers['bl2']; if (platform === 'youtube') { let s=0; if (cam.video && cam.video.includes('4K')) s+=0.5; if (cam.imageStabilization) s+=0.3; if (cam.microphoneInput) s+=0.2; return s; } else if (platform === 'shorts') { let s=0; if (cam.compact || cam.mirrorless) s+=0.4; if (cam.rotatingScreen) s+=0.3; if (cam.autofocus) s+=0.3; return s; } else if (platform === 'streams') { let s=0; if (cam.video) s+=0.3; if (cam.microphoneInput) s+=0.3; if (cam.imageStabilization) s+=0.2; if (cam.autofocus) s+=0.2; return s; } return 0.5; },
+      ibis: (cam) => { const need = state.answers['bl3']; if (need === 'ibis_critical') return cam.imageStabilization ? 1 : 0; if (need === 'gimbal') return 0.5; return 0.5; },
+      mic: (cam) => { const need = state.answers['bl4']; return need === 'yes' ? (cam.microphoneInput ? 1 : 0) : 0.5; },
+      flipScreen: (cam) => { const need = state.answers['bl5']; if (need === 'critical') return cam.rotatingScreen ? 1 : 0; if (need === 'desirable') return cam.rotatingScreen ? 0.5 : 0; return 0.5; },
+      afVideo: (cam) => { const need = state.answers['bl6']; return need === 'critical' ? (cam.autofocus ? 1 : 0) : 0.5; },
+      menuComplexity: (cam) => { const need = state.answers['bl7']; return need === 'simple' ? (cam.menuComplexity === 'simple' ? 1 : 0) : 0.5; },
+      weightCompact: (cam) => { const need = state.answers['bl8']; if (need === 'critical') return (cam.compact || cam.mirrorless) && cam.weight < 600 ? 1 : 0; if (need === 'moderate') return cam.weight < 800 ? 1 : 0; return 0.5; }
     };
   }
 
   // ============================================================
-  // 5. РАСЧЁТ РЕЗУЛЬТАТОВ
+  // 5. РАСЧЁТ РЕЗУЛЬТАТОВ (НОРМАЛИЗОВАННЫЙ СКОРИНГ)
   // ============================================================
-
   function computeScores() {
     if (!cameras.length) return [];
     const level = state.level;
@@ -1219,32 +391,30 @@
     else return [];
 
     const weights = weightsFn();
+    const keys = Object.keys(weights).filter(k => typeof weights[k] === 'function');
+    const count = keys.length || 1; // защита от деления на 0
 
     const scored = cameras.map(cam => {
-      let score = 0;
-      // Применяем все функции из weights
-      for (let key in weights) {
-        if (typeof weights[key] === 'function') {
-          score += weights[key](cam) * 0.1; // каждый критерий даёт до 0.1, всего сумма ~1
-        }
-      }
-      // Нормализуем (можно просто оставить)
-      return { ...cam, score };
+      let sum = 0;
+      keys.forEach(key => { sum += weights[key](cam); });
+      // ИСПРАВЛЕНИЕ: нормализуем к диапазону 0–1 (каждая функция даёт максимум 1, сумма максимум count)
+      const normalized = Math.min(1, sum / count);
+      return { ...cam, score: normalized };
     });
 
     scored.sort((a, b) => b.score - a.score);
-    return scored.slice(0, 6); // топ-6
+    return scored.slice(0, 6);
   }
 
   function showResults() {
     const results = computeScores();
-    if (!results.length) {
-      content.innerHTML = `<p>Не удалось подобрать камеры. Попробуйте изменить ответы.</p>`;
-      return;
-    }
+    if (!results.length) { content.innerHTML = `<p>Не удалось подобрать камеры. Попробуйте изменить ответы.</p>`; return; }
 
     let html = `<div class="results visible"><h2 style="font-family:'Fraunces',serif; margin-bottom:20px;">Ваши рекомендации</h2>`;
     results.forEach((cam, i) => {
+      // fallback для image и bonus
+      const imageUrl = cam.image || '';
+      const bonus = cam.bonus ?? 0;
       html += `
         <div class="result-card">
           <div class="info">
@@ -1262,12 +432,7 @@
     </div>`;
     content.innerHTML = html;
     document.getElementById('restartBtn').addEventListener('click', () => {
-      state.level = null;
-      state.currentStep = 0;
-      state.answers = {};
-      state.finished = false;
-      state.questions = [];
-      state.totalSteps = 0;
+      state.level = null; state.currentStep = 0; state.answers = {}; state.finished = false; state.questions = []; state.totalSteps = 0;
       render();
     });
     updateProgress();
@@ -1276,10 +441,7 @@
   // ============================================================
   // 6. ЗАПУСК
   // ============================================================
-
-  loadCameras().then(() => {
-    render();
-  });
+  loadCameras().then(() => { render(); });
 </script>
 </body>
 </html>
