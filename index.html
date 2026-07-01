@@ -78,11 +78,17 @@
   };
 
   // ============================================================
-  // 2. ДЕРЕВО ВОПРОСОВ (полностью скопировано из index3.html)
+  // 2. ДЕРЕВО ВОПРОСОВ (С ИСПРАВЛЕННЫМИ БЮДЖЕТАМИ ДЛЯ НОВИЧКА)
   // ============================================================
   const questionTree = {
     beginner: [
-      { id: 'b1', text: 'Какой у вас бюджет на камеру?', options: [ { label: 'До 15 000 ₽', value: 'budget_1' }, { label: '15 000 – 30 000 ₽', value: 'budget_2' }, { label: '30 000 – 50 000 ₽', value: 'budget_3' }, { label: '50 000 – 80 000 ₽', value: 'budget_4' }, { label: 'Больше 80 000 ₽', value: 'budget_5' } ] },
+      { id: 'b1', text: 'Какой у вас бюджет на камеру?', options: [
+          { label: 'До 20 000 ₽', value: 'budget_1' },
+          { label: '20 000 – 35 000 ₽', value: 'budget_2' },
+          { label: '35 000 – 60 000 ₽', value: 'budget_3' },
+          { label: '60 000 – 100 000 ₽', value: 'budget_4' },
+          { label: 'Больше 100 000 ₽', value: 'budget_5' }
+        ] },
       { id: 'b2', text: 'Что вы планируете снимать?', options: [ { label: 'Семью и детей', value: 'family' }, { label: 'Путешествия и природу', value: 'travel' }, { label: 'Хочу научиться фотографии как хобби', value: 'hobby' }, { label: 'Снимать друзей и мероприятия', value: 'events' } ] },
       { id: 'b3', text: 'Готовы ли купить камеру б/у?', options: [ { label: 'Да', value: 'yes' }, { label: 'Нет', value: 'no' }, { label: 'Не знаю', value: 'dont_know' } ] },
       { id: 'b4', text: 'Насколько важна компактность камеры?', options: [ { label: 'Должна помещаться в небольшую сумку', value: 'compact_important' }, { label: 'Не принципиально, главное — качество', value: 'compact_not_important' } ] },
@@ -299,11 +305,19 @@
   }
 
   // ============================================================
-  // 4. СКОРИНГ (без изменений)
+  // 4. СКОРИНГ (с исправленными бюджетами для новичка и использованием eyeAutofocus)
   // ============================================================
   function getWeightsBeginner() {
     return {
-      priceRange: (price) => { const budget = state.answers['b1']; if (budget === 'budget_1') return price <= 15000 ? 1 : 0; if (budget === 'budget_2') return price <= 30000 ? 1 : 0; if (budget === 'budget_3') return price <= 50000 ? 1 : 0; if (budget === 'budget_4') return price <= 80000 ? 1 : 0; if (budget === 'budget_5') return price > 80000 ? 1 : 0; return 0.5; },
+      priceRange: (price) => {
+        const budget = state.answers['b1'];
+        if (budget === 'budget_1') return price <= 20000 ? 1 : 0;
+        if (budget === 'budget_2') return price <= 35000 ? 1 : 0;
+        if (budget === 'budget_3') return price <= 60000 ? 1 : 0;
+        if (budget === 'budget_4') return price <= 100000 ? 1 : 0;
+        if (budget === 'budget_5') return price > 100000 ? 1 : 0;
+        return 0.5;
+      },
       simpleMenu: (cam) => cam.menuComplexity === 'simple' ? 1 : 0,
       compact: (cam) => { const needCompact = state.answers['b4'] === 'compact_important'; return needCompact ? (cam.compact || cam.mirrorless ? 1 : 0) : 0.5; },
       beginnerFriendly: (cam) => cam.forBeginners ? 1 : 0,
@@ -321,7 +335,7 @@
         ...base,
         highRes: (cam) => { const need = state.answers['e5_tt']; if (need === 'high_mp') return cam.resolution >= 30 ? 1 : 0; if (need === 'mid_mp') return cam.resolution >= 20 && cam.resolution < 30 ? 1 : 0; return 0.5; },
         burst: (cam) => { const need = state.answers['e6_tt']; return need === 'fast_burst' ? (cam.cardSlots >= 2 ? 1 : 0) : 0.5; },
-        af: (cam) => { const need = state.answers['e7_tt']; return need === 'af_critical' ? (cam.autofocus && cam.autofocus > 100 ? 1 : 0) : 0.5; }
+        af: (cam) => { const need = state.answers['e7_tt']; return need === 'af_critical' ? (cam.eyeAutofocus === true ? 1 : 0) : 0.5; }
       };
     } else {
       return {
@@ -338,7 +352,12 @@
       sensor: (cam) => { const need = state.answers['p1']; if (need === 'crop') return cam.crop ? 1 : 0; if (need === 'fullframe') return cam.fullFrame ? 1 : 0; if (need === 'medium') return cam.mediumFormat ? 1 : 0; return 0.5; },
       priceRange: (price) => { const budget = state.answers['p2']; if (budget === 'budget_1') return price <= 100000 ? 1 : 0; if (budget === 'budget_2') return price <= 200000 ? 1 : 0; if (budget === 'budget_3') return price <= 400000 ? 1 : 0; if (budget === 'budget_4') return price > 400000 ? 1 : 0; return 0.5; },
       weight: (cam) => { const need = state.answers['p3']; if (need === 'weight_critical') return cam.weight < 700 ? 1 : 0; if (need === 'weight_moderate') return cam.weight < 1000 ? 1 : 0; return 0.5; },
-      eyeAf: (cam) => { const need = state.answers['p4']; if (need === 'yes') return cam.autofocus && cam.autofocus > 100 ? 1 : 0; if (need === 'not_use') return 0.5; return 0; },
+      eyeAf: (cam) => {
+        const need = state.answers['p4'];
+        if (need === 'yes') return cam.eyeAutofocus === true ? 1 : 0;
+        if (need === 'not_use') return 0.5;
+        return 0;
+      },
       log: (cam) => { const need = state.answers['p5']; if (need === 'yes') return cam.logProfile ? 1 : 0; if (need === 'no_video') return 0.5; return 0; },
       bitDepth: (cam) => { const need = state.answers['p6']; if (need === '12bit') return cam.bitDepth >= 12 ? 1 : 0; if (need === '14bit') return cam.bitDepth >= 14 ? 1 : 0; return 0.5; },
       replaceOrSecond: (cam) => {
@@ -354,7 +373,7 @@
         const extras = state.answers['p10'] || [];
         let extraBonus = 0;
         if (extras.includes('two_slots') && cam.cardSlots >= 2) extraBonus += 0.1;
-        if (extras.includes('eye_af_video') && cam.autofocus) extraBonus += 0.1;
+        if (extras.includes('eye_af_video') && cam.eyeAutofocus === true) extraBonus += 0.1;
         if (extras.includes('log_video') && cam.logProfile) extraBonus += 0.1;
         if (extras.includes('weather') && cam.weatherSealing) extraBonus += 0.1;
         if (extras.includes('ibis') && cam.imageStabilization) extraBonus += 0.1;
@@ -377,11 +396,44 @@
   }
 
   // ============================================================
-  // 5. РАСЧЁТ РЕЗУЛЬТАТОВ С НОРМАЛИЗАЦИЕЙ
+  // 5. РАСЧЁТ РЕЗУЛЬТАТОВ С ЖЁСТКИМ БЮДЖЕТНЫМ ФИЛЬТРОМ
   // ============================================================
+  function getBudgetLimit(level, answers) {
+    if (level === 'beginner') {
+      const b = answers['b1'];
+      if (b === 'budget_1') return 20000;
+      if (b === 'budget_2') return 35000;
+      if (b === 'budget_3') return 60000;
+      if (b === 'budget_4') return 100000;
+      if (b === 'budget_5') return Infinity;
+    } else if (level === 'enthusiast') {
+      const b = answers['e2'];
+      if (b === 'budget_1') return 30000;
+      if (b === 'budget_2') return 60000;
+      if (b === 'budget_3') return 100000;
+      if (b === 'budget_4') return 200000;
+      if (b === 'budget_5') return Infinity;
+    } else if (level === 'pro') {
+      const b = answers['p2'];
+      if (b === 'budget_1') return 100000;
+      if (b === 'budget_2') return 200000;
+      if (b === 'budget_3') return 400000;
+      if (b === 'budget_4') return Infinity;
+    } else if (level === 'blogger') {
+      const b = answers['bl1'];
+      if (b === 'budget_1') return 30000;
+      if (b === 'budget_2') return 60000;
+      if (b === 'budget_3') return 100000;
+      if (b === 'budget_4') return 200000;
+      if (b === 'budget_5') return Infinity;
+    }
+    return Infinity;
+  }
+
   function computeScores() {
-    if (!cameras.length) return [];
     const level = state.level;
+    if (!level) return [];
+
     let weightsFn;
     if (level === 'beginner') weightsFn = getWeightsBeginner;
     else if (level === 'enthusiast') weightsFn = getWeightsEnthusiast;
@@ -389,11 +441,16 @@
     else if (level === 'blogger') weightsFn = getWeightsBlogger;
     else return [];
 
+    // Жёсткий бюджетный фильтр
+    const budgetLimit = getBudgetLimit(level, state.answers);
+    const filteredCameras = cameras.filter(cam => cam.price <= budgetLimit);
+    if (!filteredCameras.length) return [];
+
     const weights = weightsFn();
     const keys = Object.keys(weights).filter(k => typeof weights[k] === 'function');
     const count = keys.length || 1;
 
-    const scored = cameras.map(cam => {
+    const scored = filteredCameras.map(cam => {
       let sum = 0;
       keys.forEach(key => { sum += weights[key](cam); });
       const normalized = Math.min(1, sum / count);
@@ -405,7 +462,7 @@
   }
 
   // ============================================================
-  // 6. ОТОБРАЖЕНИЕ РЕЗУЛЬТАТОВ (С НОВЫМИ ПОЛЯМИ)
+  // 6. ОТОБРАЖЕНИЕ РЕЗУЛЬТАТОВ
   // ============================================================
   function showResults() {
     const results = computeScores();
@@ -416,7 +473,6 @@
 
     let html = `<div class="results visible"><h2 style="font-family:'Fraunces',serif; margin-bottom:20px;">Ваши рекомендации</h2>`;
     results.forEach((cam, i) => {
-      // Ссылка на Avito: используем поле avitoQuery, если есть, иначе модель
       const query = cam.avitoQuery || cam.model;
       const avitoUrl = `https://www.avito.ru/all?q=${encodeURIComponent(query)}`;
       const note = cam.note || '';
