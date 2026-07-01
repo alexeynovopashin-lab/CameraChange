@@ -710,34 +710,42 @@ const hdrMeta = document.getElementById('hdrMeta');
 // ============================================================
 // 4. ДИАФРАГМЕННОЕ КОЛЬЦО (из прототипа)
 // ============================================================
+// Генерирует SVG диафрагмы
 function apertureSVG(openness) {
+  // openness — число от 0 до 1 (0 – закрыта, 1 – полностью открыта)
   const blades = 6;
   const cx = 50, cy = 50, r = 38;
   let paths = '';
   for (let i = 0; i < blades; i++) {
     const angle = (360 / blades) * i;
-    const scale = 1 - openness * 0.62;
+    const scale = 1 - openness * 0.62;   // при openness=1 лепестки сжаты
     paths += `<g class="aperture-blade" style="transform: rotate(${angle}deg) scale(${scale})">
-      <path d="M 50 50 L 50 4 A 46 46 0 0 1 88 26 Z" fill="var(--surface)" stroke="var(--border)" stroke-width="1"/>
+      <path d="M 50 50 L 50 4 A 46 46 0 0 1 88 26 Z" fill="var(--surface, #2A2D31)" stroke="var(--border, #3A3D42)" stroke-width="1"/>
     </g>`;
   }
   return `<svg class="aperture-svg" width="60" height="60" viewBox="0 0 100 100">
-    <circle cx="${cx}" cy="${cy}" r="${r+4}" fill="none" stroke="var(--border)" stroke-width="1"/>
+    <circle cx="${cx}" cy="${cy}" r="${r+4}" fill="none" stroke="var(--border, #3A3D42)" stroke-width="1"/>
     ${paths}
-    <circle cx="${cx}" cy="${cy}" r="${4 + openness * 14}" fill="var(--ink)" />
+    <circle cx="${cx}" cy="${cy}" r="${4 + openness * 14}" fill="var(--ink, #15171A)" />
   </svg>`;
 }
 
+// Рендерит диафрагму и полосу прогресса
 function renderAperture(stepIdx, total) {
-  const openness = stepIdx / total;
-  apertureWrap.innerHTML = `
+  const openness = stepIdx / total; // 0..1
+  const wrap = document.getElementById('apertureWrap');
+  if (!wrap) return;
+
+  wrap.innerHTML = `
     ${apertureSVG(openness)}
     <div class="aperture-track">
       <div class="aperture-step-label">f/${(1.4 + openness * 20).toFixed(1)} · шаг ${Math.min(stepIdx+1, total)} из ${total}</div>
       <div class="aperture-bar"><div class="aperture-bar-fill" style="width:${(stepIdx/total)*100}%"></div></div>
     </div>`;
 }
+}
 
+  
 // ============================================================
 // 5. РЕНДЕР УРОВНЯ (как в прототипе)
 // ============================================================
