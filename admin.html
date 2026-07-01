@@ -6,7 +6,7 @@
   <title>Админка камер</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* ===== Оригинальные стили (без изменений) ===== */
+    /* стили без изменений (те же, что в вашем admin3.html) */
     * { margin:0; padding:0; box-sizing:border-box; }
     body { background:#0b0b0b; color:#eaeaea; font-family:'Inter',sans-serif; padding:40px 20px; }
     .container { max-width:1400px; margin:0 auto; }
@@ -104,136 +104,58 @@
   <div class="modal-content">
     <h2 id="modalTitle">Редактирование камеры</h2>
     <form id="editForm">
+      <!-- ... все поля такие же, как в вашем admin3.html ... -->
       <div class="form-row">
-        <div class="form-group">
-          <label>Бренд</label>
-          <input type="text" id="fBrand" required />
-        </div>
-        <div class="form-group">
-          <label>Модель</label>
-          <input type="text" id="fModel" required />
-        </div>
+        <div class="form-group"><label>Бренд</label><input type="text" id="fBrand" required /></div>
+        <div class="form-group"><label>Модель</label><input type="text" id="fModel" required /></div>
       </div>
       <div class="form-row">
-        <div class="form-group">
-          <label>Тип (DSLR / Mirrorless / Compact)</label>
-          <input type="text" id="fType" />
-        </div>
-        <div class="form-group">
-          <label>Размер сенсора</label>
-          <input type="text" id="fSensorSize" />
-        </div>
+        <div class="form-group"><label>Тип (DSLR / Mirrorless / Compact)</label><input type="text" id="fType" /></div>
+        <div class="form-group"><label>Размер сенсора</label><input type="text" id="fSensorSize" /></div>
       </div>
       <div class="form-row">
-        <div class="form-group">
-          <label>Разрешение (МП)</label>
-          <input type="number" id="fResolution" step="0.1" />
-        </div>
-        <div class="form-group">
-          <label>Цена (₽)</label>
-          <input type="number" id="fPrice" step="1000" />
-        </div>
+        <div class="form-group"><label>Разрешение (МП)</label><input type="number" id="fResolution" step="0.1" /></div>
+        <div class="form-group"><label>Цена (₽)</label><input type="number" id="fPrice" step="1000" /></div>
       </div>
       <div class="form-row">
-        <div class="form-group">
-          <label>Вес (г)</label>
-          <input type="number" id="fWeight" step="10" />
-        </div>
-        <div class="form-group">
-          <label>Видео (макс. разрешение)</label>
-          <input type="text" id="fVideo" placeholder="4K, 1080p..." />
-        </div>
+        <div class="form-group"><label>Вес (г)</label><input type="number" id="fWeight" step="10" /></div>
+        <div class="form-group"><label>Видео (макс. разрешение)</label><input type="text" id="fVideo" placeholder="4K, 1080p..." /></div>
       </div>
       <div class="form-row">
-        <div class="form-group">
-          <label>Автофокус (точек)</label>
-          <input type="number" id="fAutofocus" step="1" />
-        </div>
-        <div class="form-group">
-          <label>Стабилизация (да/нет)</label>
-          <select id="fImageStabilization"><option value="">—</option><option value="true">Да</option><option value="false">Нет</option></select>
-        </div>
+        <div class="form-group"><label>Автофокус (точек)</label><input type="number" id="fAutofocus" step="1" /></div>
+        <div class="form-group"><label>Стабилизация (да/нет)</label><select id="fImageStabilization"><option value="">—</option><option value="true">Да</option><option value="false">Нет</option></select></div>
       </div>
       <div class="form-row">
-        <div class="form-group">
-          <label>Тип экрана</label>
-          <input type="text" id="fScreenType" placeholder="fixed, articulating, tilting..." />
-        </div>
-        <div class="form-group">
-          <label>Вход для микрофона</label>
-          <select id="fMicrophoneInput"><option value="">—</option><option value="true">Да</option><option value="false">Нет</option></select>
-        </div>
+        <div class="form-group"><label>Тип экрана</label><input type="text" id="fScreenType" placeholder="fixed, articulating, tilting..." /></div>
+        <div class="form-group"><label>Вход для микрофона</label><select id="fMicrophoneInput"><option value="">—</option><option value="true">Да</option><option value="false">Нет</option></select></div>
       </div>
       <div class="form-row">
-        <div class="form-group">
-          <label>LOG-профиль</label>
-          <select id="fLogProfile"><option value="">—</option><option value="true">Да</option><option value="false">Нет</option></select>
-        </div>
-        <div class="form-group">
-          <label>Битность RAW</label>
-          <input type="number" id="fBitDepth" step="1" />
-        </div>
+        <div class="form-group"><label>LOG-профиль</label><select id="fLogProfile"><option value="">—</option><option value="true">Да</option><option value="false">Нет</option></select></div>
+        <div class="form-group"><label>Битность RAW</label><input type="number" id="fBitDepth" step="1" /></div>
       </div>
       <div class="form-row">
-        <div class="form-group">
-          <label>Слотов карт</label>
-          <input type="number" id="fCardSlots" step="1" />
-        </div>
-        <div class="form-group">
-          <label>Сложность меню</label>
-          <select id="fMenuComplexity">
-            <option value="simple">simple</option>
-            <option value="intermediate">intermediate</option>
-            <option value="complex">complex</option>
-          </select>
-        </div>
+        <div class="form-group"><label>Слотов карт</label><input type="number" id="fCardSlots" step="1" /></div>
+        <div class="form-group"><label>Сложность меню</label><select id="fMenuComplexity"><option value="simple">simple</option><option value="intermediate">intermediate</option><option value="complex">complex</option></select></div>
       </div>
       <div class="form-row">
-        <div class="form-group">
-          <label>Цветопередача (Fuji/Leica)</label>
-          <select id="fColorScience"><option value="">—</option><option value="true">Да</option><option value="false">Нет</option></select>
-        </div>
-        <div class="form-group">
-          <label>Байонет</label>
-          <input type="text" id="fLensMount" placeholder="Canon EF, Sony E..." />
-        </div>
+        <div class="form-group"><label>Цветопередача (Fuji/Leica)</label><select id="fColorScience"><option value="">—</option><option value="true">Да</option><option value="false">Нет</option></select></div>
+        <div class="form-group"><label>Байонет</label><input type="text" id="fLensMount" placeholder="Canon EF, Sony E..." /></div>
       </div>
       <div class="form-row">
-        <div class="form-group">
-          <label>Защита от пыли/влаги</label>
-          <select id="fWeatherSealing"><option value="">—</option><option value="true">Да</option><option value="false">Нет</option></select>
-        </div>
-        <div class="form-group">
-          <label>Ёмкость аккумулятора (снимков)</label>
-          <input type="number" id="fBatteryLife" step="10" />
-        </div>
+        <div class="form-group"><label>Защита от пыли/влаги</label><select id="fWeatherSealing"><option value="">—</option><option value="true">Да</option><option value="false">Нет</option></select></div>
+        <div class="form-group"><label>Ёмкость аккумулятора (снимков)</label><input type="number" id="fBatteryLife" step="10" /></div>
       </div>
-      <div class="form-group">
-        <label>Подключения (через запятую)</label>
-        <input type="text" id="fConnectivity" placeholder="WiFi, Bluetooth, USB-C" />
-      </div>
+      <div class="form-group"><label>Подключения (через запятую)</label><input type="text" id="fConnectivity" placeholder="WiFi, Bluetooth, USB-C" /></div>
       <div class="form-row">
-        <div class="form-group">
-          <label>Точек фокусировки</label>
-          <input type="number" id="fFocusPoints" step="1" />
-        </div>
-        <div class="form-group">
-          <label>Глубина буфера (кадров)</label>
-          <input type="number" id="fBurstBuffer" step="1" />
-        </div>
+        <div class="form-group"><label>Точек фокусировки</label><input type="number" id="fFocusPoints" step="1" /></div>
+        <div class="form-group"><label>Глубина буфера (кадров)</label><input type="number" id="fBurstBuffer" step="1" /></div>
       </div>
       <!-- ДОБАВЛЕНЫ ПОЛЯ: image и bonus -->
       <div class="form-row">
-        <div class="form-group">
-          <label>Ссылка на изображение</label>
-          <input type="text" id="fImage" placeholder="https://example.com/camera.jpg" />
-        </div>
-        <div class="form-group">
-          <label>Бонус (авторский приоритет)</label>
-          <input type="number" id="fBonus" value="0" step="1" />
-        </div>
+        <div class="form-group"><label>Ссылка на изображение</label><input type="text" id="fImage" placeholder="https://example.com/camera.jpg" /></div>
+        <div class="form-group"><label>Бонус (авторский приоритет)</label><input type="number" id="fBonus" value="0" step="1" /></div>
       </div>
-      <!-- Булевы флаги (без изменений) -->
+      <!-- Булевы флаги -->
       <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(150px,1fr)); gap:6px; margin-top:10px;">
         <label><input type="checkbox" id="fFullFrame" /> Full Frame</label>
         <label><input type="checkbox" id="fCrop" /> Кроп</label>
@@ -281,7 +203,7 @@
 
 <script>
   // ============================================================
-  //  НОВАЯ АДМИНКА + ВОССТАНОВЛЕННЫЙ ФУНКЦИОНАЛ
+  //  АДМИНКА — ИСПРАВЛЕННАЯ ВЕРСИЯ
   // ============================================================
 
   // ── ЗАЩИТА ПАРОЛЕМ ──────────────────────────────────────────────
@@ -303,7 +225,6 @@
   const FILE_PATH = 'cameras.json';
   const BRANCH = 'main';
 
-  // Запрашиваем токен при загрузке
   let token = sessionStorage.getItem('gh_token');
   if (!token) {
     token = prompt('Введите ваш GitHub Personal Access Token (с доступом repo):');
@@ -316,13 +237,16 @@
   let sortField = null;
   let sortOrder = 'asc';
 
-  // ── ЗАГРУЗКА ДАННЫХ (через raw с антикешем) ──────────────────
+  // ── ЗАГРУЗКА ДАННЫХ (ожидаем голый массив) ──────────────────
+  // ВНИМАНИЕ: формат данных — голый массив [] (НЕ объект { cameras: [...] }).
   async function loadData() {
     try {
       const url = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/${FILE_PATH}?t=${Date.now()}`;
       const res = await fetch(url);
       if (!res.ok) throw new Error('Не удалось загрузить файл');
-      cameras = await res.json();
+      const data = await res.json();
+      // data должен быть массивом
+      cameras = Array.isArray(data) ? data : [];
       renderTable();
     } catch (e) {
       console.error(e);
@@ -331,7 +255,7 @@
     }
   }
 
-  // ── СОХРАНЕНИЕ В GITHUB (через API) ───────────────────────────
+  // ── СОХРАНЕНИЕ В GITHUB (сохраняем голый массив) ────────────
   function base64Encode(str) {
     const encoder = new TextEncoder();
     const data = encoder.encode(str);
@@ -349,7 +273,6 @@
     }
     try {
       const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`;
-      // Получить sha
       const res = await fetch(url, { headers: { 'Authorization': `token ${token}` } });
       let sha = null;
       if (res.ok) {
@@ -410,7 +333,6 @@
       sortField = field;
       sortOrder = 'asc';
     }
-    // Обновить стрелки
     document.querySelectorAll('#tableHead th[data-sort]').forEach(th => {
       const arrow = th.querySelector('.sort-arrow');
       if (th.dataset.sort === field) {
@@ -435,7 +357,6 @@
         (c.model || '').toLowerCase().includes(search)
       );
     }
-    // Сортировка
     if (sortField && sortField !== 'actions') {
       filtered.sort((a, b) => {
         let va = getSortValue(a, sortField);
@@ -451,7 +372,8 @@
     }
     let html = '';
     filtered.forEach((cam, idx) => {
-      const realIdx = cameras.indexOf(cam);
+      // Ищем реальный индекс в оригинальном массиве (надёжнее через findIndex)
+      const realIdx = cameras.findIndex(c => c === cam);
       const imageHtml = cam.image ? `<img src="${cam.image}" class="thumb-img" onerror="this.style.display='none'" />` : '—';
       html += `<tr>
         <td>${imageHtml}</td>
@@ -486,10 +408,11 @@
     return '<span class="badge badge-unknown">—</span>';
   }
 
-  // ── РЕДАКТИРОВАНИЕ ──────────────────────────────────────────────
+  // ── РЕДАКТИРОВАНИЕ (с корректным индексом) ──────────────────
   function editCamera(index) {
     editingIndex = index;
     const cam = cameras[index];
+    if (!cam) return;
     document.getElementById('modalTitle').textContent = 'Редактирование камеры';
     fillForm(cam);
     document.getElementById('editModal').classList.add('active');
@@ -519,7 +442,6 @@
     setVal('fConnectivity', cam.connectivity ? cam.connectivity.join(', ') : '');
     setVal('fFocusPoints', cam.focusPoints);
     setVal('fBurstBuffer', cam.burstBuffer);
-    // Новые поля
     setVal('fImage', cam.image || '');
     setVal('fBonus', cam.bonus ?? 0);
     // Чекбоксы
@@ -585,10 +507,8 @@
       connectivity: document.getElementById('fConnectivity').value.split(',').map(s => s.trim()).filter(Boolean),
       focusPoints: parseInt(document.getElementById('fFocusPoints').value) || 0,
       burstBuffer: parseInt(document.getElementById('fBurstBuffer').value) || 0,
-      // Новые поля
       image: document.getElementById('fImage').value.trim(),
       bonus: parseInt(document.getElementById('fBonus').value) || 0,
-      // Чекбоксы
       fullFrame: document.getElementById('fFullFrame').checked,
       crop: document.getElementById('fCrop').checked,
       mediumFormat: document.getElementById('fMediumFormat').checked,
@@ -651,17 +571,21 @@
     document.getElementById('editModal').classList.remove('active');
   });
 
+  // ── ДОБАВЛЕНИЕ НОВОЙ КАМЕРЫ (с полным сбросом) ──────────────
   document.getElementById('addBtn').addEventListener('click', () => {
     editingIndex = -1;
     document.getElementById('modalTitle').textContent = 'Новая камера';
+    // Сбрасываем все поля через fillForm({}), но затем явно сбрасываем чекбоксы
     fillForm({});
+    // Дополнительно прогоняем все чекбоксы, чтобы снять их
+    document.querySelectorAll('#editForm input[type="checkbox"]').forEach(cb => cb.checked = false);
     document.getElementById('editModal').classList.add('active');
   });
 
   // ── ПОИСК ─────────────────────────────────────────────────────────
   document.getElementById('searchInput').addEventListener('input', renderTable);
 
-  // ── ИМПОРТ/ЭКСПОРТ (оставляем для удобства) ────────────────────
+  // ── ИМПОРТ/ЭКСПОРТ ──────────────────────────────────────────────
   document.getElementById('exportBtn').addEventListener('click', () => {
     const json = JSON.stringify(cameras, null, 2);
     const blob = new Blob([json], { type: 'application/json' });
@@ -700,11 +624,11 @@
     input.click();
   });
 
-  // ── МАССОВЫЙ ПОИСК КАРТИНОК (из старой версии) ──────────────────
+  // ── МАССОВЫЙ ПОИСК КАРТИНОК ──────────────────────────────────
   const WIKIMEDIA_REQUEST_DELAY_MS = 200;
 
   async function massFindImages() {
-    await loadData(); // перезагружаем свежие данные
+    await loadData();
     const withoutImage = cameras.filter(c => !c.image || c.image.trim() === '');
     if (withoutImage.length === 0) {
       alert('✅ У всех камер уже есть изображения!');
@@ -732,24 +656,15 @@
         if (!pageId || pageId === '-1') continue;
         const imageUrl = pages[pageId].imageinfo?.[0]?.url;
         if (imageUrl) {
-          results.push({
-            cameraId: cam, // ссылка на объект
-            cameraName: cameraName,
-            foundImageUrl: imageUrl,
-            foundTitle: title,
-            checked: true
-          });
+          results.push({ cameraId: cam, cameraName, foundImageUrl: imageUrl, foundTitle: title, checked: true });
         }
-      } catch (e) {
-        console.warn('Ошибка для ' + cameraName, e);
-      }
+      } catch (e) { console.warn('Ошибка для ' + cameraName, e); }
       await new Promise(r => setTimeout(r, WIKIMEDIA_REQUEST_DELAY_MS));
     }
     if (results.length === 0) {
       alert('❌ Не найдено ни одного изображения. Попробуйте уточнить названия.');
       return;
     }
-    // Показать модалку с превью
     showPreviewModal(results);
   }
 
@@ -773,25 +688,13 @@
     });
     modal.classList.add('active');
 
-    // Обработчики
     document.getElementById('previewCancelBtn').onclick = () => modal.classList.remove('active');
     document.getElementById('previewApplyBtn').onclick = () => {
       const checkboxes = document.querySelectorAll('.preview-checkbox');
       const selected = [];
-      checkboxes.forEach(cb => {
-        if (cb.checked) {
-          const idx = parseInt(cb.dataset.index);
-          selected.push(results[idx]);
-        }
-      });
-      if (selected.length === 0) {
-        alert('⚠️ Не выбрано ни одного изображения.');
-        return;
-      }
-      selected.forEach(res => {
-        const cam = res.cameraId;
-        if (cam) cam.image = res.foundImageUrl;
-      });
+      checkboxes.forEach(cb => { if (cb.checked) { const idx = parseInt(cb.dataset.index); selected.push(results[idx]); } });
+      if (selected.length === 0) { alert('⚠️ Не выбрано ни одного изображения.'); return; }
+      selected.forEach(res => { const cam = res.cameraId; if (cam) cam.image = res.foundImageUrl; });
       modal.classList.remove('active');
       renderTable();
       saveData();
@@ -800,12 +703,10 @@
 
   document.getElementById('massImageBtn').addEventListener('click', massFindImages);
 
-  // ── ОБНОВЛЕНИЕ ДАННЫХ ────────────────────────────────────────────
-  document.getElementById('refreshBtn').addEventListener('click', () => {
-    loadData();
-  });
+  // ── ОБНОВЛЕНИЕ ──────────────────────────────────────────────────
+  document.getElementById('refreshBtn').addEventListener('click', loadData);
 
-  // ── СОРТИРОВКА (клики по заголовкам) ──────────────────────────────
+  // ── СОРТИРОВКА ПО ЗАГОЛОВКАМ ──────────────────────────────────
   document.querySelectorAll('#tableHead th[data-sort]').forEach(th => {
     th.addEventListener('click', function() {
       if (this.dataset.sort === 'actions') return;
@@ -813,16 +714,12 @@
     });
   });
 
-  // ── ЗАКРЫТИЕ МОДАЛКИ ПО КЛИКУ ВНЕ ──────────────────────────────
+  // ── ЗАКРЫТИЕ МОДАЛОК ──────────────────────────────────────────
   document.getElementById('editModal').addEventListener('click', (e) => {
-    if (e.target === e.currentTarget) {
-      document.getElementById('editModal').classList.remove('active');
-    }
+    if (e.target === e.currentTarget) document.getElementById('editModal').classList.remove('active');
   });
   document.getElementById('previewModal').addEventListener('click', (e) => {
-    if (e.target === e.currentTarget) {
-      document.getElementById('previewModal').classList.remove('active');
-    }
+    if (e.target === e.currentTarget) document.getElementById('previewModal').classList.remove('active');
   });
 
   // ── СТАРТ ─────────────────────────────────────────────────────────
