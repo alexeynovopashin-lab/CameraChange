@@ -2,7 +2,7 @@
   {
     "brand": "Canon",
     "model": "EOS M50",
-    "price": 250,
+    "price": 25000,
     "weight": 500,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп",
@@ -46,12 +46,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "Лёгкая беззеркалка с поворотным экраном и Dual Pixel AF. Лучший старт для влогеров и новичков.",
+    "avitoQuery": "Canon EOS M50"
   },
   {
     "brand": "Canon",
     "model": "EOS 700D",
-    "price": 240,
+    "price": 18000,
     "weight": 800,
     "type": "DSLR",
     "sensorSize": "APS-C 18 Мп",
@@ -95,12 +97,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": false
+    "eyeAutofocus": false,
+    "note": "Классическая зеркалка для старта. Простое управление, огромная база б/у оптики Canon EF.",
+    "avitoQuery": "Canon EOS 700D"
   },
   {
     "brand": "Canon",
     "model": "EOS 750D",
-    "price": 315,
+    "price": 22000,
     "weight": 800,
     "type": "DSLR",
     "sensorSize": "APS-C 24 Мп",
@@ -146,12 +150,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": false
+    "eyeAutofocus": false,
+    "note": "Улучшенная 700D с NFC и Wi-Fi. Хороший вариант для первой камеры с небольшим запасом.",
+    "avitoQuery": "Canon EOS 750D"
   },
   {
     "brand": "Canon",
     "model": "EOS 800D",
-    "price": 375,
+    "price": 28000,
     "weight": 800,
     "type": "DSLR",
     "sensorSize": "APS-C 24 Мп",
@@ -198,12 +204,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": false
+    "eyeAutofocus": false,
+    "note": "Лучшая начальная зеркалка Canon: Dual Pixel AF делает видео почти профессиональным.",
+    "avitoQuery": "Canon EOS 800D"
   },
   {
     "brand": "Fujifilm",
     "model": "X-T5",
-    "price": 1800,
+    "price": 165000,
     "weight": 500,
     "type": "Mirrorless",
     "sensorSize": "APS-C 40 Мп X-Trans",
@@ -247,12 +255,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "Флагман Fuji по разрешению: 40 Мп X-Trans, IBIS 7 стопов. Для пейзажа, студии и коммерции.",
+    "avitoQuery": "Fujifilm X-T5"
   },
   {
     "brand": "Canon",
     "model": "5D Mark IV",
-    "price": 1750,
+    "price": 130000,
     "weight": 800,
     "type": "DSLR",
     "sensorSize": "Full frame 30 Мп",
@@ -296,12 +306,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "Легендарная профессиональная зеркалка. Надёжна как АК-47, огромный парк EF-оптики.",
+    "avitoQuery": "Canon 5D Mark IV"
   },
   {
     "brand": "Canon",
     "model": "EOS R6",
-    "price": 2500,
+    "price": 185000,
     "weight": 800,
     "type": "Mirrorless",
     "sensorSize": "Full frame 20 Мп",
@@ -345,12 +357,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "Беззеркалка с полным кадром, IBIS и убийственным AF. Первая ступень в систему Canon R.",
+    "avitoQuery": "Canon EOS R6"
   },
   {
     "brand": "Canon",
     "model": "R6 Mark III",
-    "price": 3200,
+    "price": 270000,
     "weight": 800,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
@@ -394,12 +408,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "Топовый гибрид Canon: 40 к/с, AI AF, 4K 120p. Идеал для спорта и событийной съёмки.",
+    "avitoQuery": "Canon R6 Mark III"
   },
   {
     "brand": "Nikon",
     "model": "D750",
-    "price": 800,
+    "price": 60000,
     "weight": 800,
     "type": "DSLR",
     "sensorSize": "Full frame 24 Мп",
@@ -443,12 +459,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": false
+    "eyeAutofocus": false,
+    "note": "Доступный полный кадр с шикарным динамическим диапазоном. Классика для портрета и репортажа.",
+    "avitoQuery": "Nikon D750"
   },
   {
     "brand": "Nikon",
     "model": "D850",
-    "price": 2000,
+    "price": 165000,
     "weight": 800,
     "type": "DSLR",
     "sensorSize": "Full frame 45.7 Мп",
@@ -492,12 +510,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": false
+    "eyeAutofocus": false,
+    "note": "45 Мп полный кадр — монолит. Лучший выбор для тех, кто не хочет уходить с зеркалок.",
+    "avitoQuery": "Nikon D850"
   },
   {
     "brand": "Sony",
     "model": "A7 III",
-    "price": 1350,
+    "price": 110000,
     "weight": 800,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
@@ -541,12 +561,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "Легенда: полный кадр, IBIS, S-Log3, 693 точки AF. Гибрид фото+видео, не устаревает годами.",
+    "avitoQuery": "Sony A7 III"
   },
   {
     "brand": "Ricoh",
     "model": "GR III",
-    "price": 1000,
+    "price": 85000,
     "weight": 500,
     "type": "Compact",
     "sensorSize": "APS-C 24 Мп",
@@ -590,12 +612,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": false
+    "eyeAutofocus": false,
+    "note": "Карманный APS-C культ стрит-фотографии. 28 Мп в кармане куртки — ничего компактнее нет.",
+    "avitoQuery": "Ricoh GR III"
   },
   {
     "brand": "Ricoh",
     "model": "GR IV",
-    "price": 1200,
+    "price": 100000,
     "weight": 500,
     "type": "Compact",
     "sensorSize": "APS-C 26 Мп",
@@ -639,12 +663,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": false
+    "eyeAutofocus": false,
+    "note": "Обновлённый GR с улучшенным AF и новым процессором. Вершина карманной серьёзной фотографии.",
+    "avitoQuery": "Ricoh GR IV"
   },
   {
     "brand": "Fujifilm",
     "model": "X-T30",
-    "price": 650,
+    "price": 50000,
     "weight": 500,
     "type": "Mirrorless",
     "sensorSize": "APS-C 26 Мп X-Trans",
@@ -688,12 +714,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "Компактный X-T с плёночными симуляциями. Лучший выбор для стрита и путешествий без лишнего веса.",
+    "avitoQuery": "Fujifilm X-T30"
   },
   {
     "brand": "Fujifilm",
     "model": "X-T30 II",
-    "price": 800,
+    "price": 65000,
     "weight": 500,
     "type": "Mirrorless",
     "sensorSize": "APS-C 26 Мп X-Trans",
@@ -737,12 +765,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "X-T30 с обновлённым процессором и улучшенным видео. 26 Мп X-Trans в лёгком корпусе.",
+    "avitoQuery": "Fujifilm X-T30 II"
   },
   {
     "brand": "Fujifilm",
     "model": "X100V",
-    "price": 1400,
+    "price": 110000,
     "weight": 500,
     "type": "Compact",
     "sensorSize": "APS-C 26 Мп X-Trans",
@@ -786,12 +816,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "Культовая фиксфокальная камера с 35mm экв. Для тех, кто снимает одним объективом и думает кадром.",
+    "avitoQuery": "Fujifilm X100V"
   },
   {
     "brand": "Fujifilm",
     "model": "X100VI",
-    "price": 1600,
+    "price": 145000,
     "weight": 500,
     "type": "Compact",
     "sensorSize": "APS-C 40 Мп X-Trans",
@@ -835,12 +867,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "Лучший компакт 2024: 40 Мп, IBIS, AI AF. Ретро-дизайн и плёночные симуляции — мечта стритфотографа.",
+    "avitoQuery": "Fujifilm X100VI"
   },
   {
     "brand": "Leica",
     "model": "Q2",
-    "price": 5000,
+    "price": 430000,
     "weight": 500,
     "type": "Compact",
     "sensorSize": "Full frame 47 Мп",
@@ -884,12 +918,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "Икона компактного полного кадра. 47 Мп, 28mm f/1.7 — для тех, кому важен опыт съёмки.",
+    "avitoQuery": "Leica Q2"
   },
   {
     "brand": "Leica",
     "model": "Q3",
-    "price": 6000,
+    "price": 560000,
     "weight": 500,
     "type": "Compact",
     "sensorSize": "Full frame 60 Мп",
@@ -933,12 +969,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "Новейшая Leica Q с 60 Мп и 8K видео. Флагман компактного полного кадра.",
+    "avitoQuery": "Leica Q3"
   },
   {
     "brand": "Leica",
     "model": "M11",
-    "price": 8000,
+    "price": 700000,
     "weight": 800,
     "type": "Compact",
     "sensorSize": "Full frame 60 Мп",
@@ -982,12 +1020,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": false
+    "eyeAutofocus": false,
+    "note": "Дальномерная легенда с 60 Мп. Для тех, кто превращает съёмку в медитацию.",
+    "avitoQuery": "Leica M11"
   },
   {
     "brand": "Apple",
     "model": "iPhone 16 Pro",
-    "price": 1200,
+    "price": 110000,
     "weight": 500,
     "type": "Compact",
     "sensorSize": "48 Мп",
@@ -1031,12 +1071,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "Лучший смартфон для фото и видео. Если нужна камера всегда в кармане без компромиссов.",
+    "avitoQuery": "Apple iPhone 16 Pro"
   },
   {
     "brand": "Canon",
     "model": "EOS R5",
-    "price": 2250,
+    "price": 200000,
     "weight": 800,
     "type": "Mirrorless",
     "sensorSize": "Full frame 45 Мп",
@@ -1080,12 +1122,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "45 Мп полный кадр с IBIS. Профессиональная студийная и пейзажная камера от Canon.",
+    "avitoQuery": "Canon EOS R5"
   },
   {
     "brand": "Canon",
     "model": "EOS R5 Mark II",
-    "price": 4500,
+    "price": 400000,
     "weight": 800,
     "type": "Mirrorless",
     "sensorSize": "Full frame 45 Мп",
@@ -1129,12 +1173,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "Вершина Canon: 45 Мп, 8K RAW, AI AF, 30 к/с RAW. Для профессионалов без компромиссов.",
+    "avitoQuery": "Canon EOS R5 Mark II"
   },
   {
     "brand": "Sony",
     "model": "Alpha A7R V",
-    "price": 3900,
+    "price": 340000,
     "weight": 800,
     "type": "Mirrorless",
     "sensorSize": "Full frame 61 Мп",
@@ -1178,12 +1224,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "61 Мп с AI AF — монстр детализации. Коммерция, архитектура, пейзаж на высшем уровне.",
+    "avitoQuery": "Sony A7R V"
   },
   {
     "brand": "Nikon",
     "model": "Z8",
-    "price": 4000,
+    "price": 360000,
     "weight": 800,
     "type": "Mirrorless",
     "sensorSize": "Full frame 45.7 Мп",
@@ -1227,12 +1275,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "Z9 в компактном корпусе: 45 Мп, 8K, 20 к/с. Флагман Nikon для тех, кому важен вес.",
+    "avitoQuery": "Nikon Z8"
   },
   {
     "brand": "Fujifilm",
     "model": "GFX100S II",
-    "price": 6500,
+    "price": 580000,
     "weight": 500,
     "type": "Mirrorless",
     "sensorSize": "Средний формат 102 Мп",
@@ -1276,12 +1326,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "102 Мп средний формат в относительно компактном корпусе. Студия и коммерция — высший класс.",
+    "avitoQuery": "Fujifilm GFX100S II"
   },
   {
     "brand": "Hasselblad",
     "model": "X2D 100C",
-    "price": 8000,
+    "price": 720000,
     "weight": 800,
     "type": "Mirrorless",
     "sensorSize": "Средний формат 100 Мп",
@@ -1325,12 +1377,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": false
+    "eyeAutofocus": false,
+    "note": "100 Мп средний формат — абсолютная детализация. Для тех, кто не ищет компромиссов в качестве.",
+    "avitoQuery": "Hasselblad X2D 100C"
   },
   {
     "brand": "Hasselblad",
     "model": "X1D II 50C",
-    "price": 6000,
+    "price": 480000,
     "weight": 500,
     "type": "Mirrorless",
     "sensorSize": "Средний формат 50 Мп",
@@ -1374,12 +1428,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": false
+    "eyeAutofocus": false,
+    "note": "Компактный средний формат 50 Мп. Лёгкий путь в Hasselblad без студийного штатива.",
+    "avitoQuery": "Hasselblad X1D II 50C"
   },
   {
     "brand": "DJI",
     "model": "Osmo Pocket 3",
-    "price": 500,
+    "price": 45000,
     "weight": 500,
     "type": "Compact",
     "sensorSize": "1\" 10 Мп",
@@ -1423,12 +1479,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "Карманная камера с трёхосевым стабилизатором. Идеал для влогов, путешествий и съёмки в движении.",
+    "avitoQuery": "DJI Osmo Pocket 3"
   },
   {
     "brand": "Sony",
     "model": "ZV-E10 II",
-    "price": 700,
+    "price": 65000,
     "weight": 500,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп",
@@ -1472,12 +1530,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "Беззеркалка для контентмейкеров: поворотный экран, вход для микрофона, отличный AF по лицу.",
+    "avitoQuery": "Sony ZV-E10 II"
   },
   {
     "brand": "Canon",
     "model": "EOS R50 V",
-    "price": 750,
+    "price": 70000,
     "weight": 500,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп",
@@ -1521,12 +1581,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "Компактная беззеркалка Canon для блогеров. Простое меню, AI AF, поворотный экран.",
+    "avitoQuery": "Canon EOS R50 V"
   },
   {
     "brand": "Sony",
     "model": "A7C II",
-    "price": 2200,
+    "price": 195000,
     "weight": 500,
     "type": "Mirrorless",
     "sensorSize": "Full frame 33 Мп",
@@ -1570,12 +1632,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "Компактный полный кадр с IBIS и AI AF. Лучший выбор если нужен FF в небольшом корпусе.",
+    "avitoQuery": "Sony A7C II"
   },
   {
     "brand": "Fujifilm",
     "model": "X-S20",
-    "price": 1300,
+    "price": 115000,
     "weight": 500,
     "type": "Mirrorless",
     "sensorSize": "APS-C 26 Мп X-Trans",
@@ -1619,12 +1683,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "Беззеркалка Fuji для блогеров: 6.2K, LOG, поворотный экран, вход для микрофона. Цвет из коробки.",
+    "avitoQuery": "Fujifilm X-S20"
   },
   {
     "brand": "Panasonic",
     "model": "Lumix GH6",
-    "price": 2200,
+    "price": 180000,
     "weight": 800,
     "type": "Mirrorless",
     "sensorSize": "MFT 25 Мп",
@@ -1668,12 +1734,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": false
+    "eyeAutofocus": false,
+    "note": "Видеофлагман Micro 4/3: 5.7K, C4K 120p, 10-бит, V-Log. Лучший в классе для видеографов.",
+    "avitoQuery": "Panasonic Lumix GH6"
   },
   {
     "brand": "Panasonic",
     "model": "Lumix GH5",
-    "price": 950,
+    "price": 70000,
     "weight": 800,
     "type": "Mirrorless",
     "sensorSize": "MFT 20 Мп",
@@ -1717,12 +1785,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": false
+    "eyeAutofocus": false,
+    "note": "Классика гибридной видеосъёмки: 4K 60p, IBIS, V-Log L. Надёжный рабочий инструмент.",
+    "avitoQuery": "Panasonic Lumix GH5"
   },
   {
     "brand": "Canon",
     "model": "EOS R1",
-    "price": 6799,
+    "price": 620000,
     "weight": 800,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24.2 Мп",
@@ -1766,12 +1836,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "Профессиональный флагман Canon: стек сенсора, 40 к/с RAW, AI AF нового поколения.",
+    "avitoQuery": "Canon EOS R1"
   },
   {
     "brand": "Nikon",
     "model": "Z9",
-    "price": 5497,
+    "price": 500000,
     "weight": 800,
     "type": "Mirrorless",
     "sensorSize": "Full frame 45.7 Мп",
@@ -1815,12 +1887,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "Флагман Nikon без механического затвора: 45 Мп, 20 к/с RAW, 8K. Репортаж и спорт.",
+    "avitoQuery": "Nikon Z9"
   },
   {
     "brand": "Sony",
     "model": "a1 II",
-    "price": 6500,
+    "price": 590000,
     "weight": 800,
     "type": "Mirrorless",
     "sensorSize": "Full frame 50 Мп",
@@ -1864,12 +1938,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "Абсолютный флагман Sony: 50 Мп, 30 к/с, 8K, AI AF. Лучшая камера на рынке для профи.",
+    "avitoQuery": "Sony a1 II"
   },
   {
     "brand": "Sony",
     "model": "a7R VI",
-    "price": 4500,
+    "price": 405000,
     "weight": 800,
     "type": "Mirrorless",
     "sensorSize": "Full frame 66.8 Мп",
@@ -1913,12 +1989,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "61 Мп с новым AI процессором. Максимальная детализация Sony с улучшенным видео.",
+    "avitoQuery": "Sony a7R VI"
   },
   {
     "brand": "Sony",
     "model": "a7 V",
-    "price": 5346,
+    "price": 460000,
     "weight": 800,
     "type": "Mirrorless",
     "sensorSize": "Full frame 33 Мп",
@@ -1962,12 +2040,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "Новый A7 V: улучшенный AF, 33 Мп, 8K. Гибрид следующего поколения от Sony.",
+    "avitoQuery": "Sony a7 V"
   },
   {
     "brand": "Sony",
     "model": "a9 III",
-    "price": 5998,
+    "price": 540000,
     "weight": 800,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24.6 Мп",
@@ -2011,12 +2091,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "Первый в мире глобальный затвор: 120 к/с без искажений. Идеал для спорта и дикой природы.",
+    "avitoQuery": "Sony a9 III"
   },
   {
     "brand": "Leica",
     "model": "SL3",
-    "price": 6950,
+    "price": 630000,
     "weight": 800,
     "type": "Mirrorless",
     "sensorSize": "Full frame 60 Мп",
@@ -2060,12 +2142,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "60 Мп полный кадр Leica с AF. Немецкое качество сборки и уникальный опыт использования.",
+    "avitoQuery": "Leica SL3"
   },
   {
     "brand": "Leica",
     "model": "SL3-S",
-    "price": 5190,
+    "price": 470000,
     "weight": 800,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
@@ -2109,12 +2193,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "24 Мп полный кадр с отличным видео. Leica для тех, кому важнее скорость, чем разрешение.",
+    "avitoQuery": "Leica SL3-S"
   },
   {
     "brand": "Leica",
     "model": "M11-P",
-    "price": 9395,
+    "price": 850000,
     "weight": 800,
     "type": "Compact",
     "sensorSize": "Full frame 60 Мп",
@@ -2158,12 +2244,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": false
+    "eyeAutofocus": false,
+    "note": "Дальномерная Leica с Content Credentials. Для коллекционеров и тех, кто снимает как художник.",
+    "avitoQuery": "Leica M11-P"
   },
   {
     "brand": "Fujifilm",
     "model": "GFX100 II",
-    "price": 8299,
+    "price": 750000,
     "weight": 500,
     "type": "Mirrorless",
     "sensorSize": "Средний формат 102 Мп",
@@ -2207,12 +2295,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "102 Мп средний формат с 8K видео. Абсолютный инструмент коммерческого фотографа.",
+    "avitoQuery": "Fujifilm GFX100 II"
   },
   {
     "brand": "Fujifilm",
     "model": "GFX100S II",
-    "price": 6500,
+    "price": 580000,
     "weight": 500,
     "type": "Mirrorless",
     "sensorSize": "Средний формат 102 Мп",
@@ -2256,12 +2346,14 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "102 Мп средний формат в относительно компактном корпусе. Студия и коммерция — высший класс.",
+    "avitoQuery": "Fujifilm GFX100S II"
   },
   {
     "brand": "Fujifilm",
     "model": "GFX 50S II",
-    "price": 3499,
+    "price": 315000,
     "weight": 500,
     "type": "Mirrorless",
     "sensorSize": "Средний формат 51.4 Мп",
@@ -2305,6 +2397,8 @@
     "burstBuffer": 0,
     "image": "",
     "bonus": 0,
-    "eyeAutofocus": true
+    "eyeAutofocus": true,
+    "note": "Доступный вход в средний формат Fuji: 51 Мп, IBIS. Для студии и пейзажа.",
+    "avitoQuery": "Fujifilm GFX 50S II"
   }
 ]
