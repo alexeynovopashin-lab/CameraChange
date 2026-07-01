@@ -11,7 +11,7 @@
     "autofocus": 1,
     "imageStabilization": false,
     "screenType": "",
-    "microphoneInput": false,
+    "microphoneInput": true,
     "logProfile": false,
     "bitDepth": 0,
     "cardSlots": 1,
@@ -24,10 +24,10 @@
     "rotatingScreen": true,
     "viewfinder": true,
     "highResolution": false,
-    "forBeginners": false,
+    "forBeginners": true,
     "semiProfessional": true,
     "professional": false,
-    "forBloggers": false,
+    "forBloggers": true,
     "rawVideo": false,
     "twoCardSlots": false,
     "stackedSensor": false,
@@ -45,7 +45,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Canon",
@@ -59,7 +60,7 @@
     "autofocus": 9,
     "imageStabilization": false,
     "screenType": "",
-    "microphoneInput": false,
+    "microphoneInput": true,
     "logProfile": false,
     "bitDepth": 0,
     "cardSlots": 1,
@@ -93,7 +94,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": false
   },
   {
     "brand": "Canon",
@@ -107,7 +109,7 @@
     "autofocus": 19,
     "imageStabilization": false,
     "screenType": "",
-    "microphoneInput": false,
+    "microphoneInput": true,
     "logProfile": false,
     "bitDepth": 0,
     "cardSlots": 1,
@@ -143,7 +145,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": false
   },
   {
     "brand": "Canon",
@@ -157,7 +160,7 @@
     "autofocus": 1,
     "imageStabilization": false,
     "screenType": "",
-    "microphoneInput": false,
+    "microphoneInput": true,
     "logProfile": false,
     "bitDepth": 0,
     "cardSlots": 1,
@@ -194,7 +197,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": false
   },
   {
     "brand": "Fujifilm",
@@ -208,8 +212,8 @@
     "autofocus": 1,
     "imageStabilization": true,
     "screenType": "",
-    "microphoneInput": false,
-    "logProfile": false,
+    "microphoneInput": true,
+    "logProfile": true,
     "bitDepth": 0,
     "cardSlots": 2,
     "fullFrame": false,
@@ -218,7 +222,7 @@
     "mirrorless": true,
     "dslr": false,
     "compact": false,
-    "rotatingScreen": false,
+    "rotatingScreen": true,
     "viewfinder": true,
     "highResolution": true,
     "forBeginners": false,
@@ -242,7 +246,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Canon",
@@ -256,7 +261,7 @@
     "autofocus": 61,
     "imageStabilization": false,
     "screenType": "",
-    "microphoneInput": false,
+    "microphoneInput": true,
     "logProfile": false,
     "bitDepth": 0,
     "cardSlots": 2,
@@ -290,7 +295,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Canon",
@@ -304,8 +310,8 @@
     "autofocus": 1,
     "imageStabilization": true,
     "screenType": "",
-    "microphoneInput": false,
-    "logProfile": false,
+    "microphoneInput": true,
+    "logProfile": true,
     "bitDepth": 0,
     "cardSlots": 2,
     "fullFrame": true,
@@ -314,13 +320,13 @@
     "mirrorless": true,
     "dslr": false,
     "compact": false,
-    "rotatingScreen": false,
+    "rotatingScreen": true,
     "viewfinder": true,
     "highResolution": false,
     "forBeginners": false,
     "semiProfessional": false,
     "professional": true,
-    "forBloggers": false,
+    "forBloggers": true,
     "rawVideo": false,
     "twoCardSlots": true,
     "stackedSensor": false,
@@ -338,7 +344,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Canon",
@@ -352,8 +359,8 @@
     "autofocus": 1,
     "imageStabilization": true,
     "screenType": "",
-    "microphoneInput": false,
-    "logProfile": false,
+    "microphoneInput": true,
+    "logProfile": true,
     "bitDepth": 0,
     "cardSlots": 2,
     "fullFrame": true,
@@ -362,13 +369,13 @@
     "mirrorless": true,
     "dslr": false,
     "compact": false,
-    "rotatingScreen": false,
+    "rotatingScreen": true,
     "viewfinder": true,
     "highResolution": false,
     "forBeginners": false,
     "semiProfessional": false,
     "professional": true,
-    "forBloggers": false,
+    "forBloggers": true,
     "rawVideo": false,
     "twoCardSlots": true,
     "stackedSensor": false,
@@ -386,7 +393,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Nikon",
@@ -400,7 +408,7 @@
     "autofocus": 51,
     "imageStabilization": false,
     "screenType": "",
-    "microphoneInput": false,
+    "microphoneInput": true,
     "logProfile": false,
     "bitDepth": 0,
     "cardSlots": 2,
@@ -434,7 +442,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": false
   },
   {
     "brand": "Nikon",
@@ -448,7 +457,7 @@
     "autofocus": 153,
     "imageStabilization": false,
     "screenType": "",
-    "microphoneInput": false,
+    "microphoneInput": true,
     "logProfile": false,
     "bitDepth": 0,
     "cardSlots": 2,
@@ -482,7 +491,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": false
   },
   {
     "brand": "Sony",
@@ -496,7 +506,7 @@
     "autofocus": 693,
     "imageStabilization": true,
     "screenType": "",
-    "microphoneInput": false,
+    "microphoneInput": true,
     "logProfile": true,
     "bitDepth": 0,
     "cardSlots": 2,
@@ -530,7 +540,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Ricoh",
@@ -578,7 +589,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": false
   },
   {
     "brand": "Ricoh",
@@ -626,7 +638,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": false
   },
   {
     "brand": "Fujifilm",
@@ -640,7 +653,7 @@
     "autofocus": 1,
     "imageStabilization": false,
     "screenType": "",
-    "microphoneInput": false,
+    "microphoneInput": true,
     "logProfile": false,
     "bitDepth": 0,
     "cardSlots": 1,
@@ -674,7 +687,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Fujifilm",
@@ -688,7 +702,7 @@
     "autofocus": 1,
     "imageStabilization": false,
     "screenType": "",
-    "microphoneInput": false,
+    "microphoneInput": true,
     "logProfile": false,
     "bitDepth": 0,
     "cardSlots": 1,
@@ -722,7 +736,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Fujifilm",
@@ -770,7 +785,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Fujifilm",
@@ -818,7 +834,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Leica",
@@ -866,7 +883,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Leica",
@@ -914,7 +932,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Leica",
@@ -962,7 +981,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": false
   },
   {
     "brand": "Apple",
@@ -986,7 +1006,7 @@
     "mirrorless": false,
     "dslr": false,
     "compact": true,
-    "rotatingScreen": false,
+    "rotatingScreen": true,
     "viewfinder": false,
     "highResolution": true,
     "forBeginners": true,
@@ -1010,7 +1030,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Canon",
@@ -1024,8 +1045,8 @@
     "autofocus": 1,
     "imageStabilization": true,
     "screenType": "",
-    "microphoneInput": false,
-    "logProfile": false,
+    "microphoneInput": true,
+    "logProfile": true,
     "bitDepth": 0,
     "cardSlots": 2,
     "fullFrame": true,
@@ -1034,7 +1055,7 @@
     "mirrorless": true,
     "dslr": false,
     "compact": false,
-    "rotatingScreen": false,
+    "rotatingScreen": true,
     "viewfinder": true,
     "highResolution": true,
     "forBeginners": false,
@@ -1058,7 +1079,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Canon",
@@ -1072,8 +1094,8 @@
     "autofocus": 1,
     "imageStabilization": true,
     "screenType": "",
-    "microphoneInput": false,
-    "logProfile": false,
+    "microphoneInput": true,
+    "logProfile": true,
     "bitDepth": 0,
     "cardSlots": 2,
     "fullFrame": true,
@@ -1082,7 +1104,7 @@
     "mirrorless": true,
     "dslr": false,
     "compact": false,
-    "rotatingScreen": false,
+    "rotatingScreen": true,
     "viewfinder": true,
     "highResolution": true,
     "forBeginners": false,
@@ -1106,7 +1128,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Sony",
@@ -1120,8 +1143,8 @@
     "autofocus": 1,
     "imageStabilization": true,
     "screenType": "",
-    "microphoneInput": false,
-    "logProfile": false,
+    "microphoneInput": true,
+    "logProfile": true,
     "bitDepth": 0,
     "cardSlots": 2,
     "fullFrame": true,
@@ -1130,7 +1153,7 @@
     "mirrorless": true,
     "dslr": false,
     "compact": false,
-    "rotatingScreen": false,
+    "rotatingScreen": true,
     "viewfinder": true,
     "highResolution": true,
     "forBeginners": false,
@@ -1154,7 +1177,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Nikon",
@@ -1168,8 +1192,8 @@
     "autofocus": 1,
     "imageStabilization": true,
     "screenType": "",
-    "microphoneInput": false,
-    "logProfile": false,
+    "microphoneInput": true,
+    "logProfile": true,
     "bitDepth": 0,
     "cardSlots": 2,
     "fullFrame": true,
@@ -1178,7 +1202,7 @@
     "mirrorless": true,
     "dslr": false,
     "compact": false,
-    "rotatingScreen": false,
+    "rotatingScreen": true,
     "viewfinder": true,
     "highResolution": true,
     "forBeginners": false,
@@ -1202,7 +1226,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Fujifilm",
@@ -1250,7 +1275,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Hasselblad",
@@ -1298,7 +1324,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": false
   },
   {
     "brand": "Hasselblad",
@@ -1346,7 +1373,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": false
   },
   {
     "brand": "DJI",
@@ -1360,7 +1388,7 @@
     "autofocus": 1,
     "imageStabilization": true,
     "screenType": "",
-    "microphoneInput": false,
+    "microphoneInput": true,
     "logProfile": false,
     "bitDepth": 0,
     "cardSlots": 1,
@@ -1370,7 +1398,7 @@
     "mirrorless": false,
     "dslr": false,
     "compact": true,
-    "rotatingScreen": false,
+    "rotatingScreen": true,
     "viewfinder": false,
     "highResolution": false,
     "forBeginners": false,
@@ -1394,7 +1422,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Sony",
@@ -1408,8 +1437,8 @@
     "autofocus": 1,
     "imageStabilization": false,
     "screenType": "",
-    "microphoneInput": false,
-    "logProfile": false,
+    "microphoneInput": true,
+    "logProfile": true,
     "bitDepth": 0,
     "cardSlots": 1,
     "fullFrame": false,
@@ -1418,10 +1447,10 @@
     "mirrorless": true,
     "dslr": false,
     "compact": false,
-    "rotatingScreen": false,
+    "rotatingScreen": true,
     "viewfinder": true,
     "highResolution": false,
-    "forBeginners": false,
+    "forBeginners": true,
     "semiProfessional": false,
     "professional": false,
     "forBloggers": true,
@@ -1442,7 +1471,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Canon",
@@ -1456,7 +1486,7 @@
     "autofocus": 1,
     "imageStabilization": false,
     "screenType": "",
-    "microphoneInput": false,
+    "microphoneInput": true,
     "logProfile": false,
     "bitDepth": 0,
     "cardSlots": 1,
@@ -1466,10 +1496,10 @@
     "mirrorless": true,
     "dslr": false,
     "compact": false,
-    "rotatingScreen": false,
+    "rotatingScreen": true,
     "viewfinder": true,
     "highResolution": false,
-    "forBeginners": false,
+    "forBeginners": true,
     "semiProfessional": false,
     "professional": false,
     "forBloggers": true,
@@ -1490,7 +1520,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Sony",
@@ -1504,8 +1535,8 @@
     "autofocus": 1,
     "imageStabilization": true,
     "screenType": "",
-    "microphoneInput": false,
-    "logProfile": false,
+    "microphoneInput": true,
+    "logProfile": true,
     "bitDepth": 0,
     "cardSlots": 2,
     "fullFrame": true,
@@ -1514,13 +1545,13 @@
     "mirrorless": true,
     "dslr": false,
     "compact": false,
-    "rotatingScreen": false,
+    "rotatingScreen": true,
     "viewfinder": true,
     "highResolution": true,
     "forBeginners": false,
     "semiProfessional": false,
     "professional": true,
-    "forBloggers": false,
+    "forBloggers": true,
     "rawVideo": false,
     "twoCardSlots": true,
     "stackedSensor": false,
@@ -1538,7 +1569,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Fujifilm",
@@ -1552,8 +1584,8 @@
     "autofocus": 1,
     "imageStabilization": true,
     "screenType": "",
-    "microphoneInput": false,
-    "logProfile": false,
+    "microphoneInput": true,
+    "logProfile": true,
     "bitDepth": 0,
     "cardSlots": 2,
     "fullFrame": false,
@@ -1562,10 +1594,10 @@
     "mirrorless": true,
     "dslr": false,
     "compact": false,
-    "rotatingScreen": false,
+    "rotatingScreen": true,
     "viewfinder": true,
     "highResolution": false,
-    "forBeginners": false,
+    "forBeginners": true,
     "semiProfessional": false,
     "professional": false,
     "forBloggers": true,
@@ -1586,7 +1618,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Panasonic",
@@ -1600,8 +1633,8 @@
     "autofocus": 1,
     "imageStabilization": true,
     "screenType": "",
-    "microphoneInput": false,
-    "logProfile": false,
+    "microphoneInput": true,
+    "logProfile": true,
     "bitDepth": 0,
     "cardSlots": 2,
     "fullFrame": false,
@@ -1610,13 +1643,13 @@
     "mirrorless": true,
     "dslr": false,
     "compact": false,
-    "rotatingScreen": false,
+    "rotatingScreen": true,
     "viewfinder": true,
     "highResolution": false,
     "forBeginners": false,
     "semiProfessional": false,
     "professional": true,
-    "forBloggers": false,
+    "forBloggers": true,
     "rawVideo": false,
     "twoCardSlots": true,
     "stackedSensor": false,
@@ -1634,7 +1667,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": false
   },
   {
     "brand": "Panasonic",
@@ -1648,7 +1682,7 @@
     "autofocus": 1,
     "imageStabilization": true,
     "screenType": "",
-    "microphoneInput": false,
+    "microphoneInput": true,
     "logProfile": true,
     "bitDepth": 0,
     "cardSlots": 2,
@@ -1658,13 +1692,13 @@
     "mirrorless": true,
     "dslr": false,
     "compact": false,
-    "rotatingScreen": false,
+    "rotatingScreen": true,
     "viewfinder": true,
     "highResolution": false,
     "forBeginners": false,
     "semiProfessional": false,
     "professional": true,
-    "forBloggers": false,
+    "forBloggers": true,
     "rawVideo": false,
     "twoCardSlots": true,
     "stackedSensor": false,
@@ -1682,7 +1716,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": false
   },
   {
     "brand": "Canon",
@@ -1696,8 +1731,8 @@
     "autofocus": 1,
     "imageStabilization": true,
     "screenType": "",
-    "microphoneInput": false,
-    "logProfile": false,
+    "microphoneInput": true,
+    "logProfile": true,
     "bitDepth": 0,
     "cardSlots": 2,
     "fullFrame": true,
@@ -1730,7 +1765,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Nikon",
@@ -1744,8 +1780,8 @@
     "autofocus": 1,
     "imageStabilization": true,
     "screenType": "",
-    "microphoneInput": false,
-    "logProfile": false,
+    "microphoneInput": true,
+    "logProfile": true,
     "bitDepth": 0,
     "cardSlots": 2,
     "fullFrame": true,
@@ -1778,7 +1814,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Sony",
@@ -1792,8 +1829,8 @@
     "autofocus": 1,
     "imageStabilization": true,
     "screenType": "",
-    "microphoneInput": false,
-    "logProfile": false,
+    "microphoneInput": true,
+    "logProfile": true,
     "bitDepth": 0,
     "cardSlots": 2,
     "fullFrame": true,
@@ -1826,7 +1863,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Sony",
@@ -1840,8 +1878,8 @@
     "autofocus": 1,
     "imageStabilization": true,
     "screenType": "",
-    "microphoneInput": false,
-    "logProfile": false,
+    "microphoneInput": true,
+    "logProfile": true,
     "bitDepth": 0,
     "cardSlots": 2,
     "fullFrame": true,
@@ -1850,7 +1888,7 @@
     "mirrorless": true,
     "dslr": false,
     "compact": false,
-    "rotatingScreen": false,
+    "rotatingScreen": true,
     "viewfinder": true,
     "highResolution": true,
     "forBeginners": false,
@@ -1874,7 +1912,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Sony",
@@ -1888,8 +1927,8 @@
     "autofocus": 1,
     "imageStabilization": true,
     "screenType": "",
-    "microphoneInput": false,
-    "logProfile": false,
+    "microphoneInput": true,
+    "logProfile": true,
     "bitDepth": 0,
     "cardSlots": 2,
     "fullFrame": true,
@@ -1898,7 +1937,7 @@
     "mirrorless": true,
     "dslr": false,
     "compact": false,
-    "rotatingScreen": false,
+    "rotatingScreen": true,
     "viewfinder": true,
     "highResolution": true,
     "forBeginners": false,
@@ -1922,7 +1961,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Sony",
@@ -1936,8 +1976,8 @@
     "autofocus": 1,
     "imageStabilization": true,
     "screenType": "",
-    "microphoneInput": false,
-    "logProfile": false,
+    "microphoneInput": true,
+    "logProfile": true,
     "bitDepth": 0,
     "cardSlots": 2,
     "fullFrame": true,
@@ -1970,7 +2010,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Leica",
@@ -1984,8 +2025,8 @@
     "autofocus": 1,
     "imageStabilization": true,
     "screenType": "",
-    "microphoneInput": false,
-    "logProfile": false,
+    "microphoneInput": true,
+    "logProfile": true,
     "bitDepth": 0,
     "cardSlots": 2,
     "fullFrame": true,
@@ -1994,7 +2035,7 @@
     "mirrorless": true,
     "dslr": false,
     "compact": false,
-    "rotatingScreen": false,
+    "rotatingScreen": true,
     "viewfinder": true,
     "highResolution": true,
     "forBeginners": false,
@@ -2018,7 +2059,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Leica",
@@ -2032,8 +2074,8 @@
     "autofocus": 1,
     "imageStabilization": true,
     "screenType": "",
-    "microphoneInput": false,
-    "logProfile": false,
+    "microphoneInput": true,
+    "logProfile": true,
     "bitDepth": 0,
     "cardSlots": 2,
     "fullFrame": true,
@@ -2042,7 +2084,7 @@
     "mirrorless": true,
     "dslr": false,
     "compact": false,
-    "rotatingScreen": false,
+    "rotatingScreen": true,
     "viewfinder": true,
     "highResolution": false,
     "forBeginners": false,
@@ -2066,7 +2108,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Leica",
@@ -2114,7 +2157,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": false
   },
   {
     "brand": "Fujifilm",
@@ -2162,7 +2206,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Fujifilm",
@@ -2210,7 +2255,8 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   },
   {
     "brand": "Fujifilm",
@@ -2258,6 +2304,7 @@
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
-    "bonus": 0
+    "bonus": 0,
+    "eyeAutofocus": true
   }
 ]
