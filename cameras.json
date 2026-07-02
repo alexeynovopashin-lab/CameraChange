@@ -82,7 +82,7 @@
     "image": "",
     "bonus": 0,
     "fullFrame": false,
-    "crop": true,
+    "crop": false,
     "mediumFormat": false,
     "mirrorless": false,
     "dslr": false,
