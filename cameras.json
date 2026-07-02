@@ -17,7 +17,7 @@
     "cardSlots": 0,
     "menuComplexity": "simple",
     "colorScience": true,
-    "lensMount": "",
+    "lensMount": "unknown",
     "weatherSealing": true,
     "batteryLife": 0,
     "connectivity": [
