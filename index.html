@@ -422,6 +422,16 @@
     .score-ring-wrap { flex-direction: row; justify-content: flex-start; }
     .q-title { font-size: 23px; }
   }
+   </style>.cam-thumb {
+  max-width: 100%;
+  max-height: 100px;
+  object-fit: contain;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  background: #1a1a1a;
+  padding: 4px;
+  border: 1px solid var(--border);
+  }
 </style>
 </head>
 <body>
@@ -1263,7 +1273,7 @@ function ringSVG(score, isTop) {
 // ============================================================
 // 9. ОТОБРАЖЕНИЕ РЕЗУЛЬТАТОВ (исправлены цена, тег, specs, подзаголовок)
 // ============================================================
-function showResults() {
+function showResults() {function showResults() {
   hdrMeta.textContent = 'результат';
   renderAperture(1, 1);
 
@@ -1292,23 +1302,20 @@ function showResults() {
   }[state.level];
   const budgetValue = state.answers[budgetKey];
   if (budgetValue) {
-    const map = {
+    const budgetMap = {
       'budget_1': 'до 20 000 ₽',
       'budget_2': '20 000 – 35 000 ₽',
       'budget_3': '35 000 – 60 000 ₽',
       'budget_4': '60 000 – 100 000 ₽',
       'budget_5': 'больше 100 000 ₽'
     };
-    // для других уровней подставлены соответствующие диапазоны, но упростим:
-    const budgetMap = {
-      'budget_1': 'до 30 000 ₽',
-      'budget_2': '30 000 – 60 000 ₽',
-      'budget_3': '60 000 – 100 000 ₽',
-      'budget_4': '100 000 – 200 000 ₽',
-      'budget_5': 'больше 200 000 ₽'
-    };
-    // для про:
-    if (state.level === 'pro') {
+    if (state.level === 'enthusiast' || state.level === 'blogger') {
+      budgetMap['budget_1'] = 'до 30 000 ₽';
+      budgetMap['budget_2'] = '30 000 – 60 000 ₽';
+      budgetMap['budget_3'] = '60 000 – 100 000 ₽';
+      budgetMap['budget_4'] = '100 000 – 200 000 ₽';
+      budgetMap['budget_5'] = 'больше 200 000 ₽';
+    } else if (state.level === 'pro') {
       budgetMap['budget_1'] = 'до 100 000 ₽';
       budgetMap['budget_2'] = '100 000 – 200 000 ₽';
       budgetMap['budget_3'] = '200 000 – 400 000 ₽';
@@ -1322,9 +1329,7 @@ function showResults() {
     const isTop = i === 0;
     const pct = Math.round(cam.score * 100);
 
-    // Тег: берём из поля type или tag
     const tag = cam.type || cam.tag || '';
-    // Сборка характеристик
     const specs = [];
     if (cam.sensorSize) specs.push(cam.sensorSize);
     if (cam.resolution) specs.push(cam.resolution + ' Мп');
@@ -1333,13 +1338,17 @@ function showResults() {
     if (cam.imageStabilization) specs.push('стабилизация');
     if (cam.weatherSealing) specs.push('защита');
     if (cam.cardSlots && cam.cardSlots > 1) specs.push(cam.cardSlots + ' слота');
-    // Можно добавить другие поля при желании
 
     const reasonsHtml = cam.reasons ? cam.reasons.map(r => `<div class="reason">${r}</div>`).join('') : '';
     const specsHtml = specs.map(s => `<span class="spec">${s}</span>`).join('');
     const avitoUrl = `https://www.avito.ru/all?q=${encodeURIComponent(cam.avitoQuery || cam.model)}`;
     const voted = state.voted[cam.id];
     const formattedPrice = cam.price ? cam.price.toLocaleString('ru-RU') + ' ₽' : '';
+
+    // СТРОКА С ИЗОБРАЖЕНИЕМ (ДОБАВЛЕНА)
+    const imageHtml = cam.image
+      ? `<img src="${cam.image}" alt="${cam.brand} ${cam.model}" class="cam-thumb" onerror="this.style.display='none'" />`
+      : '';
 
     return `
       <div class="cam-card${isTop ? ' top' : ''}">
@@ -1348,6 +1357,7 @@ function showResults() {
           <span class="score-num">${pct}%</span>
         </div>
         <div class="cam-main">
+          ${imageHtml}   <!-- 👈 ВСТАВЛЯЕМ ИЗОБРАЖЕНИЕ ЗДЕСЬ -->
           <div class="cam-row1">
             <span class="cam-name">${cam.brand} ${cam.model}</span>
             <span class="cam-price">${formattedPrice}</span>
@@ -1412,20 +1422,6 @@ function showResults() {
       showResults();
     });
   });
-}
-
-function saveFeedback(cameraId, vote, answers) {
-  try {
-    const key = 'cam_feedback';
-    const existing = JSON.parse(localStorage.getItem(key) || '[]');
-    existing.push({ cameraId, vote, answers: { level: answers.level, budget: answers.budget, goals: answers.goals }, date: new Date().toISOString() });
-    localStorage.setItem(key, JSON.stringify(existing));
-  } catch(e) {}
-}
-
-function reset() {
-  state = { level: null, path: null, answers: {}, currentStep: 0, totalSteps: 0, questions: [], finished: false, voted: {} };
-  render();
 }
 
 // ============================================================
