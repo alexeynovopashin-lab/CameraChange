@@ -246,151 +246,190 @@
 
   .cam-list { display: flex; flex-direction: column; gap: 1px; }
 
-  .cam-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    padding: 24px;
-    display: grid;
-    grid-template-columns: 64px 1fr;
-    gap: 20px;
-    position: relative;
-    transition: background .2s;
-  }
-  .cam-card + .cam-card { margin-top: 14px; }
-  .cam-card.top { border-color: var(--signal-dim); background: var(--surface-raised); }
+.cam-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: background .2s;
+}
+.cam-card + .cam-card { margin-top: 14px; }
+.cam-card.top { border-color: var(--signal-dim); background: var(--surface-raised); }
 
-  .score-ring-wrap { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-  .score-ring { transform: rotate(-90deg); }
-  .score-ring-bg { fill: none; stroke: var(--border); stroke-width: 3; }
-  .score-ring-fill {
-    fill: none;
-    stroke: var(--paper-faint);
-    stroke-width: 3;
-    stroke-linecap: round;
-    transition: stroke-dashoffset 1s var(--ease);
-  }
-  .cam-card.top .score-ring-fill { stroke: var(--signal); }
-  .score-num {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    color: var(--paper-dim);
-  }
-  .cam-card.top .score-num { color: var(--signal); }
+/* ── ШАПКА: картинка + название + кольцо ── */
+.cam-header {
+  display: grid;
+  grid-template-columns: 120px 1fr 72px;
+  gap: 0;
+  border-bottom: 1px solid var(--border-soft);
+}
+.cam-img-wrap {
+  background: #1a1c1f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  min-height: 90px;
+}
+.cam-img-wrap img {
+  max-width: 100%;
+  max-height: 70px;
+  object-fit: contain;
+  display: block;
+}
+.cam-img-placeholder {
+  width: 48px;
+  height: 48px;
+  opacity: .15;
+}
+.cam-header-mid {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  min-width: 0;
+}
+.cam-name {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -.01em;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cam-price {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--signal);
+}
+.cam-tagrow {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.cam-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border: 1px solid var(--border);
+  color: var(--paper-faint);
+}
+.cam-tag.pick {
+  border-color: var(--signal-dim);
+  color: var(--signal);
+  background: var(--signal-soft);
+}
+.cam-score-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 14px 10px;
+  border-left: 1px solid var(--border-soft);
+}
+.score-ring { transform: rotate(-90deg); }
+.score-ring-bg { fill: none; stroke: var(--border); stroke-width: 3; }
+.score-ring-fill {
+  fill: none;
+  stroke: var(--paper-faint);
+  stroke-width: 3;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s var(--ease);
+}
+.cam-card.top .score-ring-fill { stroke: var(--signal); }
+.score-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--paper-dim);
+}
+.cam-card.top .score-num { color: var(--signal); }
 
-  .cam-main { min-width: 0; }
+/* ── ТЕЛО КАРТОЧКИ ── */
+.cam-body {
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.cam-specs {
+  display: flex;
+  gap: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--paper-faint);
+  flex-wrap: wrap;
+}
+.cam-specs .spec + .spec::before {
+  content: '·';
+  margin: 0 7px;
+  opacity: .4;
+}
+.cam-note {
+  font-size: 13px;
+  color: var(--paper-dim);
+  line-height: 1.55;
+}
 
-  .cam-row1 {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 12px;
-    margin-bottom: 4px;
-  }
-  .cam-name {
-    font-family: var(--font-display);
-    font-size: 19px;
-    font-weight: 500;
-    letter-spacing: -.005em;
-  }
-  .cam-price {
-    font-family: var(--font-mono);
-    font-size: 13px;
-    color: var(--paper-dim);
-    white-space: nowrap;
-  }
+/* ── ФУТЕР ── */
+.cam-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-soft);
+  flex-wrap: wrap;
+}
+.avito-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  background: var(--paper);
+  padding: 8px 14px;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background .2s;
+}
+.avito-link:hover { background: #fff; }
+.fb-group { display: flex; align-items: center; gap: 8px; }
+.fb-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--paper-faint);
+  text-transform: uppercase;
+  letter-spacing: .03em;
+}
+.fb-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--paper-faint);
+  width: 30px; height: 30px;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color .2s, color .2s;
+}
+.fb-btn:hover { border-color: var(--paper-dim); color: var(--paper); }
+.fb-btn.active.up { border-color: #4D8C5C; color: #4D8C5C; }
+.fb-btn.active.down { border-color: var(--signal); color: var(--signal); }
+.fb-btn.dimmed { opacity: .3; pointer-events: none; }
 
-  .cam-tagrow { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
-  .cam-tag {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: .03em;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    border: 1px solid var(--border);
-    color: var(--paper-faint);
-  }
-  .cam-tag.pick {
-    border-color: var(--signal-dim);
-    color: var(--signal);
-    background: var(--signal-soft);
-  }
-
-  .cam-reasons { display: flex; flex-direction: column; gap: 5px; margin-bottom: 14px; }
-  .reason {
-    font-size: 13px;
-    color: var(--paper);
-    display: flex;
-    gap: 8px;
-  }
-  .reason::before {
-    content: '—';
-    color: var(--signal);
-    flex-shrink: 0;
-  }
-
-  .cam-specs { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-bottom: 14px; }
-  .spec {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--paper-faint);
-  }
-
-  .cam-note {
-    font-size: 13px;
-    color: var(--paper-dim);
-    line-height: 1.55;
-    padding-top: 12px;
-    border-top: 1px solid var(--border-soft);
-    margin-bottom: 14px;
-  }
-
-  .cam-foot {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-
-  .avito-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--ink);
-    background: var(--paper);
-    padding: 9px 16px;
-    text-decoration: none;
-    border-radius: 2px;
-    transition: background .2s;
-  }
-  .avito-link:hover { background: #fff; }
-
-  .fb-group { display: flex; align-items: center; gap: 10px; }
-  .fb-label {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    color: var(--paper-faint);
-    text-transform: uppercase;
-    letter-spacing: .03em;
-  }
-  .fb-btn {
-    background: none;
-    border: 1px solid var(--border);
-    color: var(--paper-faint);
-    width: 32px; height: 32px;
-    border-radius: 2px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: border-color .2s, color .2s;
-  }
-  .fb-btn:hover { border-color: var(--paper-dim); color: var(--paper); }
-  .fb-btn.active.up { border-color: #4D8C5C; color: #4D8C5C; }
-  .fb-btn.active.down { border-color: var(--signal); color: var(--signal); }
-  .fb-btn.dimmed { opacity: .3; pointer-events: none; }
+@media (max-width: 480px) {
+  .cam-header { grid-template-columns: 90px 1fr 60px; }
+  .cam-img-wrap { min-height: 70px; }
+  .cam-name { font-size: 15px; }
+}
 
   .r-foot {
     display: flex;
@@ -1326,65 +1365,76 @@ function showResults() {
   const summary = [levelLabel, budgetLabel].filter(Boolean).join(' · ');
 
   const cardsHtml = results.map((cam, i) => {
-    const isTop = i === 0;
-    const pct = Math.round(cam.score * 100);
+  const isTop = i === 0;
+  const pct = Math.round(cam.score * 100);
 
-    const tag = cam.type || cam.tag || '';
-    const specs = [];
-    if (cam.sensorSize) specs.push(cam.sensorSize);
-    if (cam.resolution) specs.push(cam.resolution + ' Мп');
-    if (cam.video) specs.push(cam.video);
-    if (cam.weight) specs.push(cam.weight + ' г');
-    if (cam.imageStabilization) specs.push('стабилизация');
-    if (cam.weatherSealing) specs.push('защита');
-    if (cam.cardSlots && cam.cardSlots > 1) specs.push(cam.cardSlots + ' слота');
+  // Тег — маппинг type на русский
+  const typeMap = { Mirrorless: 'беззеркальная', DSLR: 'зеркальная', Compact: 'компакт', Smartphone: 'смартфон' };
+  const tag = typeMap[cam.type] || cam.tag || '';
 
-    const reasonsHtml = cam.reasons ? cam.reasons.map(r => `<div class="reason">${r}</div>`).join('') : '';
-    const specsHtml = specs.map(s => `<span class="spec">${s}</span>`).join('');
-    const avitoUrl = `https://www.avito.ru/all?q=${encodeURIComponent(cam.avitoQuery || cam.model)}`;
-    const voted = state.voted[cam.id];
-    const formattedPrice = cam.price ? cam.price.toLocaleString('ru-RU') + ' ₽' : '';
+  // Характеристики — одна строка через точку
+  const specs = [];
+  if (cam.sensorSize) specs.push(cam.sensorSize);
+  if (cam.resolution) specs.push(cam.resolution + ' Мп');
+  if (cam.video) specs.push(cam.video);
+  if (cam.weight) specs.push(cam.weight + ' г');
+  if (cam.imageStabilization) specs.push('IBIS');
+  if (cam.weatherSealing) specs.push('влагозащита');
+  if (cam.twoCardSlots) specs.push('2 слота');
 
-    // СТРОКА С ИЗОБРАЖЕНИЕМ (ДОБАВЛЕНА)
-    const imageHtml = cam.image
-      ? `<img src="${cam.image}" alt="${cam.brand} ${cam.model}" class="cam-thumb" onerror="this.style.display='none'" />`
-      : '';
+  const specsHtml = specs.map(s => `<span class="spec">${s}</span>`).join('');
+  const avitoUrl = `https://www.avito.ru/all?q=${encodeURIComponent(cam.avitoQuery || cam.brand + ' ' + cam.model)}`;
+  const voted = state.voted[cam.id];
+  const formattedPrice = cam.price ? cam.price.toLocaleString('ru-RU') + ' ₽' : '';
 
-    return `
-      <div class="cam-card${isTop ? ' top' : ''}">
-        <div class="score-ring-wrap">
+  // Картинка или плейсхолдер
+  const imgContent = cam.image
+    ? `<img src="${cam.image}" alt="${cam.brand} ${cam.model}" onerror="this.style.display='none'">`
+    : `<svg class="cam-img-placeholder" viewBox="0 0 48 48" fill="none">
+        <rect x="4" y="10" width="40" height="28" rx="3" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="24" cy="24" r="7" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="24" cy="24" r="3" stroke="currentColor" stroke-width="1.5"/>
+        <rect x="16" y="10" width="8" height="4" rx="1" stroke="currentColor" stroke-width="1.5"/>
+      </svg>`;
+
+  return `
+    <div class="cam-card${isTop ? ' top' : ''}">
+
+      <div class="cam-header">
+        <div class="cam-img-wrap">${imgContent}</div>
+        <div class="cam-header-mid">
+          <div class="cam-name">${cam.brand} ${cam.model}</div>
+          <div class="cam-price">${formattedPrice}</div>
+          <div class="cam-tagrow">
+            ${tag ? `<span class="cam-tag">${tag}</span>` : ''}
+            ${isTop ? '<span class="cam-tag pick">рекомендуем</span>' : ''}
+          </div>
+        </div>
+        <div class="cam-score-wrap">
           ${ringSVG(pct, isTop)}
           <span class="score-num">${pct}%</span>
         </div>
-        <div class="cam-main">
-          ${imageHtml}   <!-- 👈 ВСТАВЛЯЕМ ИЗОБРАЖЕНИЕ ЗДЕСЬ -->
-          <div class="cam-row1">
-            <span class="cam-name">${cam.brand} ${cam.model}</span>
-            <span class="cam-price">${formattedPrice}</span>
-          </div>
-          <div class="cam-tagrow">
-            ${tag ? `<span class="cam-tag${isTop ? ' pick' : ''}">${tag}</span>` : ''}
-            ${isTop ? '<span class="cam-tag pick">рекомендуем</span>' : ''}
-          </div>
-          ${reasonsHtml ? `<div class="cam-reasons">${reasonsHtml}</div>` : ''}
-          <div class="cam-specs">${specsHtml}</div>
-          <div class="cam-note">${cam.note || ''}</div>
-          <div class="cam-foot">
-            <a class="avito-link" href="${avitoUrl}" target="_blank" rel="noopener">найти на авито</a>
-            <div class="fb-group">
-              <span class="fb-label">подходит?</span>
-              <button class="fb-btn up${voted === 1 ? ' active' : ''}${voted !== undefined ? ' dimmed' : ''}" data-id="${cam.id}" data-vote="1">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 11v10H4a1 1 0 01-1-1v-8a1 1 0 011-1h3zm0 0l5-9a2.5 2.5 0 015 1v4h5.5a2 2 0 011.94 2.49l-1.5 6A2 2 0 0118.04 21H9a2 2 0 01-2-2v-8z" stroke="currentColor" stroke-width="1.5"/></svg>
-              </button>
-              <button class="fb-btn down${voted === -1 ? ' active' : ''}${voted !== undefined ? ' dimmed' : ''}" data-id="${cam.id}" data-vote="-1">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="transform:rotate(180deg)"><path d="M7 11v10H4a1 1 0 01-1-1v-8a1 1 0 011-1h3zm0 0l5-9a2.5 2.5 0 015 1v4h5.5a2 2 0 011.94 2.49l-1.5 6A2 2 0 0118.04 21H9a2 2 0 01-2-2v-8z" stroke="currentColor" stroke-width="1.5"/></svg>
-              </button>
-            </div>
+      </div>
+
+      <div class="cam-body">
+        <div class="cam-specs">${specsHtml}</div>
+        <div class="cam-note">${cam.note || ''}</div>
+        <div class="cam-foot">
+          <a class="avito-link" href="${avitoUrl}" target="_blank" rel="noopener">найти на авито</a>
+          <div class="fb-group">
+            <span class="fb-label">подходит?</span>
+            <button class="fb-btn up${voted === 1 ? ' active' : ''}${voted !== undefined ? ' dimmed' : ''}" data-id="${cam.id}" data-vote="1">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M7 11v10H4a1 1 0 01-1-1v-8a1 1 0 011-1h3zm0 0l5-9a2.5 2.5 0 015 1v4h5.5a2 2 0 011.94 2.49l-1.5 6A2 2 0 0118.04 21H9a2 2 0 01-2-2v-8z" stroke="currentColor" stroke-width="1.5"/></svg>
+            </button>
+            <button class="fb-btn down${voted === -1 ? ' active' : ''}${voted !== undefined ? ' dimmed' : ''}" data-id="${cam.id}" data-vote="-1">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="transform:rotate(180deg)"><path d="M7 11v10H4a1 1 0 01-1-1v-8a1 1 0 011-1h3zm0 0l5-9a2.5 2.5 0 015 1v4h5.5a2 2 0 011.94 2.49l-1.5 6A2 2 0 0118.04 21H9a2 2 0 01-2-2v-8z" stroke="currentColor" stroke-width="1.5"/></svg>
+            </button>
           </div>
         </div>
       </div>
-    `;
-  }).join('');
+
+    </div>`;
+}).join('');
 
   screen.innerHTML = `
     <div class="r-head">
