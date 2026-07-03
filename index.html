@@ -71,10 +71,6 @@
     margin-bottom: 40px;
   }
   .aperture-svg { flex-shrink: 0; }
-  .aperture-blade {
-    transition: transform .5s cubic-bezier(.25,.8,.25,1);
-    transform-origin: 50px 50px;
-  }
   .aperture-track { flex: 1; }
   .aperture-step-label {
     font-family: 'JetBrains Mono', monospace;
@@ -221,12 +217,6 @@
   .btn-shutter svg { transition: transform .2s; }
   .btn-shutter:hover svg { transform: translateX(3px); }
 
-  .skip-note {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--paper-faint);
-  }
-
   .r-head { margin-bottom: 32px; }
   .r-eyebrow {
     font-family: var(--font-mono);
@@ -246,190 +236,187 @@
 
   .cam-list { display: flex; flex-direction: column; gap: 1px; }
 
-.cam-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 2px;
-  overflow: hidden;
-  transition: background .2s;
-}
-.cam-card + .cam-card { margin-top: 14px; }
-.cam-card.top { border-color: var(--signal-dim); background: var(--surface-raised); }
+  .cam-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    transition: background .2s;
+  }
+  .cam-card + .cam-card { margin-top: 14px; }
+  .cam-card.top { border-color: var(--signal-dim); background: var(--surface-raised); }
 
-/* ── ШАПКА: картинка + название + кольцо ── */
-.cam-header {
-  display: grid;
-  grid-template-columns: 120px 1fr 72px;
-  gap: 0;
-  border-bottom: 1px solid var(--border-soft);
-}
-.cam-img-wrap {
-  background: #1a1c1f;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px;
-  min-height: 90px;
-}
-.cam-img-wrap img {
-  max-width: 100%;
-  max-height: 70px;
-  object-fit: contain;
-  display: block;
-}
-.cam-img-placeholder {
-  width: 48px;
-  height: 48px;
-  opacity: .15;
-}
-.cam-header-mid {
-  padding: 14px 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 6px;
-  min-width: 0;
-}
-.cam-name {
-  font-family: var(--font-display);
-  font-size: 17px;
-  font-weight: 500;
-  letter-spacing: -.01em;
-  line-height: 1.2;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.cam-price {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  color: var(--signal);
-}
-.cam-tagrow {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-}
-.cam-tag {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: .03em;
-  text-transform: uppercase;
-  padding: 2px 7px;
-  border: 1px solid var(--border);
-  color: var(--paper-faint);
-}
-.cam-tag.pick {
-  border-color: var(--signal-dim);
-  color: var(--signal);
-  background: var(--signal-soft);
-}
-.cam-score-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  padding: 14px 10px;
-  border-left: 1px solid var(--border-soft);
-}
-.score-ring { transform: rotate(-90deg); }
-.score-ring-bg { fill: none; stroke: var(--border); stroke-width: 3; }
-.score-ring-fill {
-  fill: none;
-  stroke: var(--paper-faint);
-  stroke-width: 3;
-  stroke-linecap: round;
-  transition: stroke-dashoffset 1s var(--ease);
-}
-.cam-card.top .score-ring-fill { stroke: var(--signal); }
-.score-num {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--paper-dim);
-}
-.cam-card.top .score-num { color: var(--signal); }
+  .cam-header {
+    display: grid;
+    grid-template-columns: 120px 1fr 72px;
+    gap: 0;
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .cam-img-wrap {
+    background: #1a1c1f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    min-height: 90px;
+  }
+  .cam-img-wrap img {
+    max-width: 100%;
+    max-height: 70px;
+    object-fit: contain;
+    display: block;
+  }
+  .cam-img-placeholder {
+    width: 48px;
+    height: 48px;
+    opacity: .15;
+  }
+  .cam-header-mid {
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    min-width: 0;
+  }
+  .cam-name {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: -.01em;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .cam-price {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--signal);
+  }
+  .cam-tagrow {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .cam-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border: 1px solid var(--border);
+    color: var(--paper-faint);
+  }
+  .cam-tag.pick {
+    border-color: var(--signal-dim);
+    color: var(--signal);
+    background: var(--signal-soft);
+  }
+  .cam-score-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 14px 10px;
+    border-left: 1px solid var(--border-soft);
+  }
+  .score-ring { transform: rotate(-90deg); }
+  .score-ring-bg { fill: none; stroke: var(--border); stroke-width: 3; }
+  .score-ring-fill {
+    fill: none;
+    stroke: var(--paper-faint);
+    stroke-width: 3;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1s var(--ease);
+  }
+  .cam-card.top .score-ring-fill { stroke: var(--signal); }
+  .score-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--paper-dim);
+  }
+  .cam-card.top .score-num { color: var(--signal); }
 
-/* ── ТЕЛО КАРТОЧКИ ── */
-.cam-body {
-  padding: 16px 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.cam-specs {
-  display: flex;
-  gap: 0;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--paper-faint);
-  flex-wrap: wrap;
-}
-.cam-specs .spec + .spec::before {
-  content: '·';
-  margin: 0 7px;
-  opacity: .4;
-}
-.cam-note {
-  font-size: 13px;
-  color: var(--paper-dim);
-  line-height: 1.55;
-}
+  .cam-body {
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .cam-specs {
+    display: flex;
+    gap: 0;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--paper-faint);
+    flex-wrap: wrap;
+  }
+  .cam-specs .spec + .spec::before {
+    content: '·';
+    margin: 0 7px;
+    opacity: .4;
+  }
+  .cam-note {
+    font-size: 13px;
+    color: var(--paper-dim);
+    line-height: 1.55;
+  }
 
-/* ── ФУТЕР ── */
-.cam-foot {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding-top: 12px;
-  border-top: 1px solid var(--border-soft);
-  flex-wrap: wrap;
-}
-.avito-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--ink);
-  background: var(--paper);
-  padding: 8px 14px;
-  text-decoration: none;
-  border-radius: 2px;
-  transition: background .2s;
-}
-.avito-link:hover { background: #fff; }
-.fb-group { display: flex; align-items: center; gap: 8px; }
-.fb-label {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--paper-faint);
-  text-transform: uppercase;
-  letter-spacing: .03em;
-}
-.fb-btn {
-  background: none;
-  border: 1px solid var(--border);
-  color: var(--paper-faint);
-  width: 30px; height: 30px;
-  border-radius: 2px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: border-color .2s, color .2s;
-}
-.fb-btn:hover { border-color: var(--paper-dim); color: var(--paper); }
-.fb-btn.active.up { border-color: #4D8C5C; color: #4D8C5C; }
-.fb-btn.active.down { border-color: var(--signal); color: var(--signal); }
-.fb-btn.dimmed { opacity: .3; pointer-events: none; }
+  .cam-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-soft);
+    flex-wrap: wrap;
+  }
+  .avito-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    background: var(--paper);
+    padding: 8px 14px;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background .2s;
+  }
+  .avito-link:hover { background: #fff; }
+  .fb-group { display: flex; align-items: center; gap: 8px; }
+  .fb-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--paper-faint);
+    text-transform: uppercase;
+    letter-spacing: .03em;
+  }
+  .fb-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--paper-faint);
+    width: 30px; height: 30px;
+    border-radius: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color .2s, color .2s;
+  }
+  .fb-btn:hover { border-color: var(--paper-dim); color: var(--paper); }
+  .fb-btn.active.up { border-color: #4D8C5C; color: #4D8C5C; }
+  .fb-btn.active.down { border-color: var(--signal); color: var(--signal); }
+  .fb-btn.dimmed { opacity: .3; pointer-events: none; }
 
-@media (max-width: 480px) {
-  .cam-header { grid-template-columns: 90px 1fr 60px; }
-  .cam-img-wrap { min-height: 70px; }
-  .cam-name { font-size: 15px; }
-}
+  @media (max-width: 480px) {
+    .cam-header { grid-template-columns: 90px 1fr 60px; }
+    .cam-img-wrap { min-height: 70px; }
+    .cam-name { font-size: 15px; }
+  }
 
   .r-foot {
     display: flex;
@@ -455,22 +442,6 @@
   .not-found .nf-mark { font-family: var(--font-display); font-size: 40px; color: var(--border); margin-bottom: 20px; }
   .not-found h3 { font-family: var(--font-display); font-size: 22px; font-weight: 500; margin-bottom: 10px; }
   .not-found p { color: var(--paper-dim); font-size: 14px; max-width: 360px; margin: 0 auto 24px; }
-
-  @media (max-width: 480px) {
-    .cam-card { grid-template-columns: 1fr; }
-    .score-ring-wrap { flex-direction: row; justify-content: flex-start; }
-    .q-title { font-size: 23px; }
-  }
-   .cam-thumb {
-    max-width: 100%;
-    max-height: 100px;
-    object-fit: contain;
-    border-radius: 4px;
-    margin-bottom: 8px;
-    background: #1a1a1a;
-    padding: 4px;
-    border: 1px solid var(--border);
-  }
 </style>
 </head>
 <body>
@@ -746,35 +717,96 @@ const apertureWrap = document.getElementById('apertureWrap');
 const hdrMeta = document.getElementById('hdrMeta');
 
 // ============================================================
-// 4. ДИАФРАГМЕННОЕ КОЛЬЦО
+// 4. ДИАФРАГМЕННОЕ КОЛЬЦО (8 лепестков, серповидные)
 // ============================================================
 function apertureSVG(openness) {
-  const blades = 6;
-  const cx = 50, cy = 50, r = 38;
-  let paths = '';
-  for (let i = 0; i < blades; i++) {
-    const angle = (360 / blades) * i;
-    const scale = 0.38 + (1 - openness) * 0.62;
-    paths += `<g class="aperture-blade" style="transform: rotate(${angle}deg) scale(${scale})">
-      <path d="M 50 50 L 50 4 A 46 46 0 0 1 88 26 Z" fill="var(--surface, #2A2D31)" stroke="var(--border, #3A3D42)" stroke-width="1"/>
-    </g>`;
+  const blades = 8;
+  const cx = 50, cy = 50;
+  const pivotY = 7;
+  const maxOpen = 75;
+  const openAngle = openness * maxOpen;
+
+  const bladeD = `
+    M 0,0
+    C -18,10  -32,35  -22,65
+    C -14,90   -4,105   6,120
+    C  16,105   24,85   20,55
+    C  16,25    8,8     0,0 Z
+  `;
+
+  let groups = '';
+  const drawOrder = [4,5,6,7,0,1,2,3];
+  for (const i of drawOrder) {
+    const fanAngle = (360 / blades) * i;
+    groups += `
+      <g transform="rotate(${fanAngle} ${cx} ${cy})">
+        <g transform="rotate(${openAngle} ${cx} ${pivotY})">
+          <use href="#apBlade" transform="translate(${cx} ${pivotY})" fill="var(--surface, #2A2D31)" />
+          <circle cx="${cx}" cy="${pivotY}" r="1.1" fill="var(--border, #3A3D42)" />
+        </g>
+      </g>`;
   }
-  return `<svg class="aperture-svg" width="60" height="60" viewBox="0 0 100 100">
-    <circle cx="${cx}" cy="${cy}" r="${r+4}" fill="none" stroke="var(--border, #3A3D42)" stroke-width="1"/>
-    ${paths}
-    <circle cx="${cx}" cy="${cy}" r="${18 - openness * 14}" fill="var(--ink, #15171A)" />
+
+  return `<svg class="aperture-svg" width="76" height="76" viewBox="0 0 100 100">
+    <defs>
+      <clipPath id="apClip"><circle cx="${cx}" cy="${cy}" r="40"/></clipPath>
+      <path id="apBlade" d="${bladeD}"/>
+    </defs>
+    <circle cx="${cx}" cy="${cy}" r="48" fill="var(--ink-soft, #1C1F23)"/>
+    <circle cx="${cx}" cy="${cy}" r="40" fill="var(--ink, #15171A)"/>
+    <g clip-path="url(#apClip)">${groups}</g>
+    <circle cx="${cx}" cy="${cy}" r="40" fill="none" stroke="var(--border, #3A3D42)" stroke-width="1"/>
   </svg>`;
 }
 
 function renderAperture(stepIdx, total) {
-  const openness = stepIdx / total;
+  const fStops = [32, 22, 16, 11, 8, 5.6, 4, 2.8, 2, 1.4, 1.2, 1.0];
+  const maxIndex = fStops.length - 1;
+
+  let progress;
+  let openness;
+
+  if (total <= 1) {
+    if (stepIdx === 0) {
+      progress = 0;
+      openness = 0.38; // приоткрыта на экране выбора уровня
+    } else {
+      progress = 1;
+      openness = 1.85; // полностью открыта на результатах
+    }
+  } else {
+    // Прогресс от 0 до 1: первый вопрос → 1/total, последний → 1
+    progress = stepIdx / total;
+
+    // ── НАСТРОЙКА СКОРОСТИ ОТКРЫТИЯ ──
+    // Старт с 0.38, финиш 1.0
+    openness = 0.38 + 0.75 * progress;
+  }
+
+  progress = Math.min(Math.max(progress, 0), 1);
+  openness = Math.min(Math.max(openness, 0), 1.85);
+
+  const idx = Math.round(progress * maxIndex);
+  const fNumber = fStops[idx] !== undefined ? fStops[idx] : fStops[maxIndex];
+  const displayF = Number.isInteger(fNumber) ? fNumber : fNumber.toFixed(1);
+
   const wrap = document.getElementById('apertureWrap');
   if (!wrap) return;
+
+  const displayStep = Math.min(stepIdx, total);
+
+  let label;
+  if (stepIdx === total && total === 1) {
+    label = `f/${displayF} · диафрагма открыта полностью`;
+  } else {
+    label = `f/${displayF} · шаг ${displayStep} из ${total}`;
+  }
+
   wrap.innerHTML = `
     ${apertureSVG(openness)}
     <div class="aperture-track">
-      <div class="aperture-step-label">f/${(1.4 + openness * 20).toFixed(1)} · шаг ${Math.min(stepIdx+1, total)} из ${total}</div>
-      <div class="aperture-bar"><div class="aperture-bar-fill" style="width:${(stepIdx/total)*100}%"></div></div>
+      <div class="aperture-step-label">${label}</div>
+      <div class="aperture-bar"><div class="aperture-bar-fill" style="width:${(stepIdx / total) * 100}%"></div></div>
     </div>`;
 }
 
@@ -840,7 +872,7 @@ function renderLevelSelection() {
 }
 
 // ============================================================
-// 6. ЛОГИКА ОПРОСНИКА (исправлена)
+// 6. ЛОГИКА ОПРОСНИКА
 // ============================================================
 function initBranch() {
   const level = state.level;
@@ -848,8 +880,8 @@ function initBranch() {
     state.questions = questionTree.beginner.slice();
     state.totalSteps = state.questions.length;
   } else if (level === 'enthusiast') {
-    state.questions = questionTree.enthusiast.tt.slice(0, 4); // первые 4
-    state.totalSteps = state.questions.length; // теперь 4
+    state.questions = questionTree.enthusiast.tt.slice(0, 4);
+    state.totalSteps = state.questions.length;
   } else if (level === 'pro') {
     state.questions = questionTree.pro.slice();
     state.totalSteps = state.questions.length;
@@ -926,7 +958,6 @@ function renderQuestion() {
     });
   }
 
-  // Обработчики выбора
   const inputs = screen.querySelectorAll('.opt input');
   inputs.forEach(inp => {
     inp.addEventListener('change', (e) => {
@@ -941,20 +972,18 @@ function renderQuestion() {
       updateSelectedClasses();
       updateNextButtonState();
 
-      // Переключение ветки у любителя
       if (qid === 'e1') {
         const val = state.answers['e1'];
         if (val === 'tt') state.questions = questionTree.enthusiast.tt.slice();
         else if (val === 'creative') state.questions = questionTree.enthusiast.creative.slice();
         state.totalSteps = state.questions.length;
-        state.currentStep = 1; // переходим на второй вопрос
+        state.currentStep = 1;
         render();
         return;
       }
     });
   });
 
-  // Клик по строке
   screen.querySelectorAll('.opt').forEach(el => {
     const inp = el.querySelector('input');
     el.addEventListener('click', function(e) {
@@ -976,7 +1005,6 @@ function renderQuestion() {
 
   document.getElementById('prevBtn').addEventListener('click', () => {
     if (state.level === 'enthusiast' && state.currentStep === 0) {
-      // Возврат на выбор уровня, но answers не сбрасываем (может пригодиться)
       state.level = null;
       state.currentStep = 0;
       state.questions = [];
@@ -1021,7 +1049,7 @@ function updateNextButtonState() {
 }
 
 // ============================================================
-// 7. СКОРИНГ (исправлен priceRange)
+// 7. СКОРИНГ
 // ============================================================
 function getBudgetLimit(level, answers) {
   if (level === 'beginner') {
@@ -1055,7 +1083,6 @@ function getBudgetLimit(level, answers) {
   return Infinity;
 }
 
-// Весовые функции — теперь priceRange принимает cam
 function getWeightsBeginner() {
   return {
     priceRange: (cam) => {
@@ -1076,7 +1103,7 @@ function getWeightsBeginner() {
 }
 
 function getWeightsEnthusiast() {
-  const path = state.answers['e1'] || 'tt'; // дефолт
+  const path = state.answers['e1'] || 'tt';
   const base = {
     priceRange: (cam) => {
       const price = cam.price;
@@ -1289,7 +1316,7 @@ function computeScores() {
 
   const scored = filteredCameras.map(cam => {
     let sum = 0;
-    keys.forEach(key => { sum += weights[key](cam); }); // теперь передаём cam везде
+    keys.forEach(key => { sum += weights[key](cam); });
     const normalized = Math.min(1, sum / count);
     return { ...cam, score: normalized };
   });
@@ -1310,7 +1337,7 @@ function ringSVG(score, isTop) {
 }
 
 // ============================================================
-// 9. ОТОБРАЖЕНИЕ РЕЗУЛЬТАТОВ (исправлены цена, тег, specs, подзаголовок)
+// 9. ОТОБРАЖЕНИЕ РЕЗУЛЬТАТОВ
 // ============================================================
 function showResults() {
   hdrMeta.textContent = 'результат';
@@ -1329,7 +1356,6 @@ function showResults() {
     return;
   }
 
-  // Формируем подзаголовок
   const lvlMap = { beginner: 'новичок', enthusiast: 'любитель', pro: 'профессионал', blogger: 'блогер' };
   const levelLabel = lvlMap[state.level] || '';
   let budgetLabel = '';
@@ -1365,76 +1391,70 @@ function showResults() {
   const summary = [levelLabel, budgetLabel].filter(Boolean).join(' · ');
 
   const cardsHtml = results.map((cam, i) => {
-  const isTop = i === 0;
-  const pct = Math.round(cam.score * 100);
+    const isTop = i === 0;
+    const pct = Math.round(cam.score * 100);
 
-  // Тег — маппинг type на русский
-  const typeMap = { Mirrorless: 'беззеркальная', DSLR: 'зеркальная', Compact: 'компакт', Smartphone: 'смартфон' };
-  const tag = typeMap[cam.type] || cam.tag || '';
+    const typeMap = { Mirrorless: 'беззеркальная', DSLR: 'зеркальная', Compact: 'компакт', Smartphone: 'смартфон' };
+    const tag = typeMap[cam.type] || cam.tag || '';
 
-  // Характеристики — одна строка через точку
-  const specs = [];
-  if (cam.sensorSize) specs.push(cam.sensorSize);
-  if (cam.resolution) specs.push(cam.resolution + ' Мп');
-  if (cam.video) specs.push(cam.video);
-  if (cam.weight) specs.push(cam.weight + ' г');
-  if (cam.imageStabilization) specs.push('IBIS');
-  if (cam.weatherSealing) specs.push('влагозащита');
-  if (cam.twoCardSlots) specs.push('2 слота');
+    const specs = [];
+    if (cam.sensorSize) specs.push(cam.sensorSize);
+    if (cam.resolution) specs.push(cam.resolution + ' Мп');
+    if (cam.video) specs.push(cam.video);
+    if (cam.weight) specs.push(cam.weight + ' г');
+    if (cam.imageStabilization) specs.push('IBIS');
+    if (cam.weatherSealing) specs.push('влагозащита');
+    if (cam.twoCardSlots) specs.push('2 слота');
 
-  const specsHtml = specs.map(s => `<span class="spec">${s}</span>`).join('');
-  const avitoUrl = `https://www.avito.ru/all?q=${encodeURIComponent(cam.avitoQuery || cam.brand + ' ' + cam.model)}`;
-  const voted = state.voted[cam.id];
-  const formattedPrice = cam.price ? cam.price.toLocaleString('ru-RU') + ' ₽' : '';
+    const specsHtml = specs.map(s => `<span class="spec">${s}</span>`).join('');
+    const avitoUrl = `https://www.avito.ru/all?q=${encodeURIComponent(cam.avitoQuery || cam.brand + ' ' + cam.model)}`;
+    const voted = state.voted[cam.id];
+    const formattedPrice = cam.price ? cam.price.toLocaleString('ru-RU') + ' ₽' : '';
 
-  // Картинка или плейсхолдер
-  const imgContent = cam.image
-    ? `<img src="${cam.image}" alt="${cam.brand} ${cam.model}" onerror="this.style.display='none'">`
-    : `<svg class="cam-img-placeholder" viewBox="0 0 48 48" fill="none">
-        <rect x="4" y="10" width="40" height="28" rx="3" stroke="currentColor" stroke-width="1.5"/>
-        <circle cx="24" cy="24" r="7" stroke="currentColor" stroke-width="1.5"/>
-        <circle cx="24" cy="24" r="3" stroke="currentColor" stroke-width="1.5"/>
-        <rect x="16" y="10" width="8" height="4" rx="1" stroke="currentColor" stroke-width="1.5"/>
-      </svg>`;
+    const imgContent = cam.image
+      ? `<img src="${cam.image}" alt="${cam.brand} ${cam.model}" onerror="this.style.display='none'">`
+      : `<svg class="cam-img-placeholder" viewBox="0 0 48 48" fill="none">
+          <rect x="4" y="10" width="40" height="28" rx="3" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="24" cy="24" r="7" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="24" cy="24" r="3" stroke="currentColor" stroke-width="1.5"/>
+          <rect x="16" y="10" width="8" height="4" rx="1" stroke="currentColor" stroke-width="1.5"/>
+        </svg>`;
 
-  return `
-    <div class="cam-card${isTop ? ' top' : ''}">
-
-      <div class="cam-header">
-        <div class="cam-img-wrap">${imgContent}</div>
-        <div class="cam-header-mid">
-          <div class="cam-name">${cam.brand} ${cam.model}</div>
-          <div class="cam-price">${formattedPrice}</div>
-          <div class="cam-tagrow">
-            ${tag ? `<span class="cam-tag">${tag}</span>` : ''}
-            ${isTop ? '<span class="cam-tag pick">рекомендуем</span>' : ''}
+    return `
+      <div class="cam-card${isTop ? ' top' : ''}">
+        <div class="cam-header">
+          <div class="cam-img-wrap">${imgContent}</div>
+          <div class="cam-header-mid">
+            <div class="cam-name">${cam.brand} ${cam.model}</div>
+            <div class="cam-price">${formattedPrice}</div>
+            <div class="cam-tagrow">
+              ${tag ? `<span class="cam-tag">${tag}</span>` : ''}
+              ${isTop ? '<span class="cam-tag pick">рекомендуем</span>' : ''}
+            </div>
+          </div>
+          <div class="cam-score-wrap">
+            ${ringSVG(pct, isTop)}
+            <span class="score-num">${pct}%</span>
           </div>
         </div>
-        <div class="cam-score-wrap">
-          ${ringSVG(pct, isTop)}
-          <span class="score-num">${pct}%</span>
-        </div>
-      </div>
-
-      <div class="cam-body">
-        <div class="cam-specs">${specsHtml}</div>
-        <div class="cam-note">${cam.note || ''}</div>
-        <div class="cam-foot">
-          <a class="avito-link" href="${avitoUrl}" target="_blank" rel="noopener">найти на авито</a>
-          <div class="fb-group">
-            <span class="fb-label">подходит?</span>
-            <button class="fb-btn up${voted === 1 ? ' active' : ''}${voted !== undefined ? ' dimmed' : ''}" data-id="${cam.id}" data-vote="1">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M7 11v10H4a1 1 0 01-1-1v-8a1 1 0 011-1h3zm0 0l5-9a2.5 2.5 0 015 1v4h5.5a2 2 0 011.94 2.49l-1.5 6A2 2 0 0118.04 21H9a2 2 0 01-2-2v-8z" stroke="currentColor" stroke-width="1.5"/></svg>
-            </button>
-            <button class="fb-btn down${voted === -1 ? ' active' : ''}${voted !== undefined ? ' dimmed' : ''}" data-id="${cam.id}" data-vote="-1">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="transform:rotate(180deg)"><path d="M7 11v10H4a1 1 0 01-1-1v-8a1 1 0 011-1h3zm0 0l5-9a2.5 2.5 0 015 1v4h5.5a2 2 0 011.94 2.49l-1.5 6A2 2 0 0118.04 21H9a2 2 0 01-2-2v-8z" stroke="currentColor" stroke-width="1.5"/></svg>
-            </button>
+        <div class="cam-body">
+          <div class="cam-specs">${specsHtml}</div>
+          <div class="cam-note">${cam.note || ''}</div>
+          <div class="cam-foot">
+            <a class="avito-link" href="${avitoUrl}" target="_blank" rel="noopener">найти на авито</a>
+            <div class="fb-group">
+              <span class="fb-label">подходит?</span>
+              <button class="fb-btn up${voted === 1 ? ' active' : ''}${voted !== undefined ? ' dimmed' : ''}" data-id="${cam.id}" data-vote="1">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M7 11v10H4a1 1 0 01-1-1v-8a1 1 0 011-1h3zm0 0l5-9a2.5 2.5 0 015 1v4h5.5a2 2 0 011.94 2.49l-1.5 6A2 2 0 0118.04 21H9a2 2 0 01-2-2v-8z" stroke="currentColor" stroke-width="1.5"/></svg>
+              </button>
+              <button class="fb-btn down${voted === -1 ? ' active' : ''}${voted !== undefined ? ' dimmed' : ''}" data-id="${cam.id}" data-vote="-1">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="transform:rotate(180deg)"><path d="M7 11v10H4a1 1 0 01-1-1v-8a1 1 0 011-1h3zm0 0l5-9a2.5 2.5 0 015 1v4h5.5a2 2 0 011.94 2.49l-1.5 6A2 2 0 0118.04 21H9a2 2 0 01-2-2v-8z" stroke="currentColor" stroke-width="1.5"/></svg>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-
-    </div>`;
-}).join('');
+      </div>`;
+  }).join('');
 
   screen.innerHTML = `
     <div class="r-head">
@@ -1472,6 +1492,20 @@ function showResults() {
       showResults();
     });
   });
+}
+
+function saveFeedback(cameraId, vote, answers) {
+  try {
+    const key = 'cam_feedback';
+    const existing = JSON.parse(localStorage.getItem(key) || '[]');
+    existing.push({ cameraId, vote, answers: { level: answers.level, budget: answers.budget, goals: answers.goals }, date: new Date().toISOString() });
+    localStorage.setItem(key, JSON.stringify(existing));
+  } catch(e) {}
+}
+
+function reset() {
+  Object.assign(state, { level: null, path: null, answers: {}, currentStep: 0, totalSteps: 0, questions: [], finished: false, voted: {} });
+  render();
 }
 
 // ============================================================
