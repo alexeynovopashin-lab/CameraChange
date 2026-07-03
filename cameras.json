@@ -388,7 +388,12 @@
     "lensMount": "Canon EF",
     "weatherSealing": false,
     "batteryLife": 0,
-    "connectivity": [],
+    "connectivity": [
+      "HDMI",
+      "USB-C",
+      "WiFi",
+      "Bluetooth"
+    ],
     "focusPoints": 0,
     "burstBuffer": 0,
     "image": "",
@@ -411,7 +416,7 @@
     "stackedSensor": false,
     "rangefinder": false,
     "monochrome": false,
-    "headphoneJack": false,
+    "headphoneJack": true,
     "hdmi": false,
     "builtinFlash": false
   },
