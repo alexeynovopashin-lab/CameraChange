@@ -4805,7 +4805,7 @@
   {
     "brand": "Nikon",
     "model": "D6",
-    "price": 5500,
+    "price": 450000,
     "weight": 1450,
     "type": "DSLR",
     "sensorSize": "Full frame 20 Мп",
@@ -4867,7 +4867,7 @@
   {
     "brand": "Sony",
     "model": "Alpha A9 III",
-    "price": 5500,
+    "price": 450000,
     "weight": 702,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24.6 Мп",
@@ -4899,7 +4899,7 @@
   {
     "brand": "Canon",
     "model": "1D X Mark II",
-    "price": 5500,
+    "price": 100000,
     "weight": 1340,
     "type": "DSLR",
     "sensorSize": "Full frame 20 Мп",
@@ -5072,7 +5072,7 @@
   {
     "brand": "Sony",
     "model": "Alpha A9",
-    "price": 4500,
+    "price": 150000,
     "weight": 673,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
