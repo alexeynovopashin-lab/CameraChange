@@ -66,6 +66,7 @@
     <button id="exportBtn">📤 Экспорт JSON</button>
     <button id="massImageBtn">🖼️ Массовый поиск картинок</button>
     <button id="refreshBtn">🔄 Обновить данные</button>
+    <button id="generateLinksBtn" style="background:#4a6fa5;">🔗 Сгенерировать ссылки для всех</button>
   </div>
 
   <div class="table-wrap">
@@ -159,6 +160,25 @@
         <label>Описание камеры</label>
         <textarea id="fDescription" rows="4" placeholder="Введите описание камеры..."></textarea>
       </div>
+
+      <!-- НОВЫЕ ПОЛЯ: website, links, manualUrl, firmwareUrl -->
+      <div class="form-group">
+        <label>Официальный сайт</label>
+        <input type="text" id="fWebsite" placeholder="https://example.com" />
+      </div>
+      <div class="form-group">
+        <label>Ссылки (каждая с новой строки в формате: label|url)</label>
+        <textarea id="fLinks" rows="3" placeholder="Обзор на DPreview|https://dpreview.com/..."></textarea>
+      </div>
+      <div class="form-group">
+        <label>Инструкция (PDF)</label>
+        <input type="text" id="fManualUrl" placeholder="https://example.com/manual.pdf" />
+      </div>
+      <div class="form-group">
+        <label>Прошивка</label>
+        <input type="text" id="fFirmwareUrl" placeholder="https://example.com/firmware.zip" />
+      </div>
+
       <!-- Булевы флаги -->
       <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(150px,1fr)); gap:6px; margin-top:10px;">
         <label><input type="checkbox" id="fFullFrame" /> Full Frame</label>
@@ -208,7 +228,7 @@
 
 <script>
   // ============================================================
-  //  АДМИНКА — ИСПРАВЛЕННАЯ ВЕРСИЯ С КОРРЕКТНЫМ ИМПОРТОМ
+  //  АДМИНКА — ФИНАЛЬНАЯ ВЕРСИЯ С НОВЫМИ ПОЛЯМИ
   // ============================================================
 
   // ── ЗАЩИТА ПАРОЛЕМ ──────────────────────────────────────────────
@@ -242,7 +262,7 @@
   let sortField = null;
   let sortOrder = 'asc';
 
-  // ── ЗАГРУЗКА ДАННЫХ (ожидаем голый массив) ──────────────────
+  // ── ЗАГРУЗКА ДАННЫХ ──────────────────────────────────────────
   async function loadData() {
     try {
       const url = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/${FILE_PATH}?t=${Date.now()}`;
@@ -258,7 +278,7 @@
     }
   }
 
-  // ── СОХРАНЕНИЕ В GITHUB (сохраняем голый массив) ────────────
+  // ── СОХРАНЕНИЕ В GITHUB ──────────────────────────────────────
   function base64Encode(str) {
     const encoder = new TextEncoder();
     const data = encoder.encode(str);
@@ -312,7 +332,7 @@
     }
   }
 
-  // ── СОРТИРОВКА ──────────────────────────────────────────────────
+  // ── СОРТИРОВКА ────────────────────────────────────────────────
   function getSortValue(cam, field) {
     if (field === 'image') return cam.image ? 1 : 0;
     if (field === 'bonus') return cam.bonus ?? 0;
@@ -349,7 +369,7 @@
     renderTable();
   }
 
-  // ── РЕНДЕР ТАБЛИЦЫ ──────────────────────────────────────────────
+  // ── РЕНДЕР ТАБЛИЦЫ ────────────────────────────────────────────
   function renderTable() {
     const tbody = document.getElementById('tableBody');
     const search = document.getElementById('searchInput').value.toLowerCase();
@@ -410,7 +430,7 @@
     return '<span class="badge badge-unknown">—</span>';
   }
 
-  // ── РЕДАКТИРОВАНИЕ ──────────────────────────────────────────────
+  // ── РЕДАКТИРОВАНИЕ ────────────────────────────────────────────
   function editCamera(index) {
     editingIndex = index;
     const cam = cameras[index];
@@ -418,7 +438,6 @@
     document.getElementById('modalTitle').textContent = 'Редактирование камеры';
     fillForm(cam);
     document.getElementById('editModal').classList.add('active');
-    // Удалена ошибочная строка description: ...
   }
 
   function fillForm(cam) {
@@ -447,8 +466,12 @@
     setVal('fBurstBuffer', cam.burstBuffer);
     setVal('fImage', cam.image || '');
     setVal('fBonus', cam.bonus ?? 0);
-    // ДОБАВЛЕНО: заполнение поля описания
-    setVal('fDescription', cam.description || '');
+    setVal('fDescription', cam.description || cam.note || '');
+    // Новые поля
+    setVal('fWebsite', cam.website || '');
+    setVal('fLinks', cam.links ? cam.links.map(l => l.label + '|' + l.url).join('\n') : '');
+    setVal('fManualUrl', cam.manualUrl || '');
+    setVal('fFirmwareUrl', cam.firmwareUrl || '');
     // Чекбоксы
     setCheck('fFullFrame', cam.fullFrame);
     setCheck('fCrop', cam.crop);
@@ -514,8 +537,19 @@
       burstBuffer: parseInt(document.getElementById('fBurstBuffer').value) || 0,
       image: document.getElementById('fImage').value.trim(),
       bonus: parseInt(document.getElementById('fBonus').value) || 0,
-      // ДОБАВЛЕНО: сохранение описания
       description: document.getElementById('fDescription').value.trim(),
+      // Новые поля
+      website: document.getElementById('fWebsite').value.trim(),
+      links: document.getElementById('fLinks').value.split('\n')
+        .map(line => line.trim())
+        .filter(Boolean)
+        .map(line => {
+          const [label, url] = line.split('|').map(s => s.trim());
+          return { label: label || url, url: url || label };
+        }),
+      manualUrl: document.getElementById('fManualUrl').value.trim(),
+      firmwareUrl: document.getElementById('fFirmwareUrl').value.trim(),
+      // Булевы флаги
       fullFrame: document.getElementById('fFullFrame').checked,
       crop: document.getElementById('fCrop').checked,
       mediumFormat: document.getElementById('fMediumFormat').checked,
@@ -556,7 +590,7 @@
     }
   }
 
-  // ── ОБРАБОТЧИК ФОРМЫ ────────────────────────────────────────────
+  // ── ОБРАБОТЧИК ФОРМЫ ──────────────────────────────────────────
   document.getElementById('editForm').addEventListener('submit', (e) => {
     e.preventDefault();
     const data = getFormData();
@@ -578,7 +612,7 @@
     document.getElementById('editModal').classList.remove('active');
   });
 
-  // ── ДОБАВЛЕНИЕ НОВОЙ КАМЕРЫ ──────────────────────────────
+  // ── ДОБАВЛЕНИЕ НОВОЙ КАМЕРЫ ────────────────────────────────
   document.getElementById('addBtn').addEventListener('click', () => {
     editingIndex = -1;
     document.getElementById('modalTitle').textContent = 'Новая камера';
@@ -587,10 +621,10 @@
     document.getElementById('editModal').classList.add('active');
   });
 
-  // ── ПОИСК ─────────────────────────────────────────────────────────
+  // ── ПОИСК ───────────────────────────────────────────────────────
   document.getElementById('searchInput').addEventListener('input', renderTable);
 
-  // ── ИМПОРТ/ЭКСПОРТ ──────────────────────────────────────────────
+  // ── ИМПОРТ/ЭКСПОРТ ────────────────────────────────────────────
   document.getElementById('exportBtn').addEventListener('click', () => {
     const json = JSON.stringify(cameras, null, 2);
     const blob = new Blob([json], { type: 'application/json' });
@@ -602,7 +636,7 @@
     URL.revokeObjectURL(url);
   });
 
-  // ── ИСПРАВЛЕННЫЙ ИМПОРТ (ДОБАВЛЯЕТ, А НЕ ПЕРЕЗАПИСЫВАЕТ) ──────
+  // ── ИМПОРТ (ДОБАВЛЯЕТ) ──────────────────────────────────────
   document.getElementById('importBtn').addEventListener('click', () => {
     const input = document.createElement('input');
     input.type = 'file';
@@ -720,7 +754,36 @@
 
   document.getElementById('massImageBtn').addEventListener('click', massFindImages);
 
-  // ── ОБНОВЛЕНИЕ ──────────────────────────────────────────────────
+  // ── ГЕНЕРАЦИЯ ШАБЛОННЫХ ССЫЛОК ДЛЯ ВСЕХ КАМЕР ──────────────
+  function generateLinksForAllCameras() {
+    if (!confirm('Будут добавлены пустые поля (website, links, manualUrl, firmwareUrl) и сгенерированы ссылки на DPreview для камер, у которых их нет. Продолжить?')) return;
+
+    let count = 0;
+    cameras.forEach(cam => {
+      // Добавляем поля, если их нет
+      if (cam.website === undefined) cam.website = '';
+      if (cam.links === undefined || !Array.isArray(cam.links)) cam.links = [];
+      if (cam.manualUrl === undefined) cam.manualUrl = '';
+      if (cam.firmwareUrl === undefined) cam.firmwareUrl = '';
+
+      // Генерируем ссылку на DPreview только если links пуст
+      if (cam.links.length === 0 && cam.brand && cam.model) {
+        const brandSlug = cam.brand.toLowerCase().replace(/[^a-z0-9]/g, '');
+        const modelSlug = cam.model.toLowerCase().replace(/[^a-z0-9-]/g, '-');
+        const dpreviewUrl = `https://www.dpreview.com/products/${brandSlug}/${modelSlug}`;
+        cam.links.push({ label: 'Обзор на DPreview', url: dpreviewUrl });
+        count++;
+      }
+    });
+
+    renderTable();
+    saveData();
+    alert(`✅ Генерация завершена!\nДобавлены ссылки для ${count} камер. Остальные поля (website, manualUrl, firmwareUrl) оставлены пустыми для ручного заполнения.`);
+  }
+
+  document.getElementById('generateLinksBtn').addEventListener('click', generateLinksForAllCameras);
+
+  // ── ОБНОВЛЕНИЕ ────────────────────────────────────────────────
   document.getElementById('refreshBtn').addEventListener('click', loadData);
 
   // ── СОРТИРОВКА ПО ЗАГОЛОВКАМ ──────────────────────────────────
@@ -739,7 +802,7 @@
     if (e.target === e.currentTarget) document.getElementById('previewModal').classList.remove('active');
   });
 
-  // ── СТАРТ ─────────────────────────────────────────────────────────
+  // ── СТАРТ ───────────────────────────────────────────────────────
   loadData();
 </script>
 </body>
