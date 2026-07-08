@@ -154,6 +154,9 @@
       <div class="form-row">
         <div class="form-group"><label>Ссылка на изображение</label><input type="text" id="fImage" placeholder="https://example.com/camera.jpg" /></div>
         <div class="form-group"><label>Бонус (авторский приоритет)</label><input type="number" id="fBonus" value="0" step="1" /></div>
+      <div class="form-group">
+        <label>Описание камеры</label>
+      <textarea id="fDescription" rows="4" placeholder="Введите описание камеры..."></textarea>
       </div>
       <!-- Булевы флаги -->
       <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(150px,1fr)); gap:6px; margin-top:10px;">
@@ -416,6 +419,7 @@
     document.getElementById('modalTitle').textContent = 'Редактирование камеры';
     fillForm(cam);
     document.getElementById('editModal').classList.add('active');
+    description: document.getElementById('fDescription').value.trim(),
   }
 
   function fillForm(cam) {
