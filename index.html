@@ -1433,10 +1433,11 @@ function showResults() {
           <div class="cam-specs">${specsHtml}</div>
           <div class="cam-note">${cam.note || ''}</div>
           <div class="cam-foot">
-          <a class="avito-link" href="${avitoUrl}" target="_blank" rel="noopener">найти на авито</a>
-          <div class="fb-group">...</div>
-              </div>
-              <span class="fb-label">подходит?</span>
+  <a class="avito-link" href="${avitoUrl}" target="_blank" rel="noopener">найти на авито</a>
+  <a href="/katalog-kamer?camera=${cameras.indexOf(cam)}" class="catalog-link" style="display:inline-flex; align-items:center; gap:7px; font-size:13px; font-weight:500; color:var(--paper); background:var(--surface); padding:8px 14px; text-decoration:none; border-radius:2px; transition:background .2s; border:1px solid var(--border);">📖 в каталоге</a>
+  <div class="fb-group">...</div>
+</div>
+          <span class="fb-label">подходит?</span>
               <button class="fb-btn up${voted === 1 ? ' active' : ''}${voted !== undefined ? ' dimmed' : ''}" data-id="${cam.id}" data-vote="1">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M7 11v10H4a1 1 0 01-1-1v-8a1 1 0 011-1h3zm0 0l5-9a2.5 2.5 0 015 1v4h5.5a2 2 0 011.94 2.49l-1.5 6A2 2 0 0118.04 21H9a2 2 0 01-2-2v-8z" stroke="currentColor" stroke-width="1.5"/></svg>
               </button>
