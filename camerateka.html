@@ -474,7 +474,20 @@ function renderGrid() {
     el.addEventListener('click', () => openModal(idx));
   });
 }
-
+// ============================================================
+// ОТКРЫТИЕ КАРТОЧКИ ПО ПАРАМЕТРУ ИЗ URL
+// ============================================================
+function openCameraFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  const idx = params.get('camera');
+  if (idx !== null) {
+    const index = parseInt(idx, 10);
+    if (!isNaN(index) && index >= 0 && index < CAMERAS.length) {
+      // Даём время на рендер сетки, затем открываем модалку
+      setTimeout(() => openModal(index), 300);
+    }
+  }
+}
 // ============================================================
 // 6. МОДАЛЬНОЕ ОКНО
 // ============================================================
@@ -588,6 +601,7 @@ function initApp() {
   document.getElementById('topMeta').textContent = `${CAMERAS.length} камер · ${new Set(CAMERAS.map(c => c.brand)).size} брендов`;
   buildFilters();
   render();
+  openCameraFromUrl(); // <-- добавь эту строку
 }
 
 // ============================================================
