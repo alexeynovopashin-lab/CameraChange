@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Camera Archive — каталог камер</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,680&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #15171A;
+    --ink-soft: #1C1F23;
+    --surface: #202226;
+    --surface-raised: #26282C;
+    --border: #33363B;
+    --border-soft: #2A2C30;
+    --paper: #F5F3EE;
+    --paper-dim: #A9A59E;
+    --paper-faint: #6B6862;
+    --signal: #E8470C;
+    --signal-dim: #B83A0C;
+    --signal-soft: rgba(232, 71, 12, 0.14);
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Inter', -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --ease: cubic-bezier(.25,.8,.25,1);
+  }
+
+  html { background: var(--ink); }
+  body {
+    font-family: var(--font-body);
+    background: var(--ink);
+    color: var(--paper);
+    min-height: 100vh;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- layout ---------- */
+  .shell { max-width: 1240px; margin: 0 auto; padding: 0 28px 100px; }
+
+  .top {
+    position: sticky; top: 0; z-index: 40;
+    background: rgba(21,23,26,.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .top-inner {
+    max-width: 1240px; margin: 0 auto; padding: 22px 28px 18px;
+    display: flex; align-items: baseline; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+  }
+  .brandmark { font-family: var(--font-display); font-size: 21px; font-weight: 500; letter-spacing: -.01em; }
+  .brandmark span { color: var(--signal); }
+  .top-meta { font-family: var(--font-mono); font-size: 11px; color: var(--paper-faint); letter-spacing: .03em; }
+  .nav-link {
+    font-family: var(--font-mono); font-size: 11px; color: var(--paper-faint);
+    text-decoration: none; letter-spacing: .04em; transition: color .2s;
+  }
+  .nav-link:hover { color: var(--paper); }
+
+  /* ---------- hero ---------- */
+  .hero { padding: 56px 0 40px; max-width: 640px; }
+  .hero-eyebrow {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--signal); margin-bottom: 14px;
+  }
+  .hero h1 {
+    font-family: var(--font-display); font-weight: 500; font-size: 40px; line-height: 1.12;
+    letter-spacing: -.015em; margin-bottom: 16px;
+  }
+  .hero p { color: var(--paper-dim); font-size: 15px; max-width: 520px; }
+
+  /* ---------- search ---------- */
+  .searchbar { margin: 34px 0 22px; position: relative; }
+  .searchbar input {
+    width: 100%; background: var(--surface); border: 1px solid var(--border); color: var(--paper);
+    font-family: var(--font-body); font-size: 15px; padding: 15px 18px 15px 44px; border-radius: 2px;
+    transition: border-color .2s;
+  }
+  .searchbar input::placeholder { color: var(--paper-faint); }
+  .searchbar input:focus { outline: none; border-color: var(--signal-dim); }
+  .searchbar svg { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); opacity: .5; pointer-events: none; }
+
+  /* ---------- filters ---------- */
+  .filters { margin-bottom: 8px; }
+  .filter-group { margin-bottom: 18px; }
+  .filter-label {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--paper-faint); margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+  }
+  .filter-label::after { content: ''; flex: 1; height: 1px; background: var(--border-soft); }
+  .pillrow { display: flex; flex-wrap: wrap; gap: 7px; }
+  .pill {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: .02em;
+    padding: 7px 13px; border: 1px solid var(--border); color: var(--paper-dim);
+    background: transparent; cursor: pointer; border-radius: 2px; transition: all .15s var(--ease);
+    white-space: nowrap;
+  }
+  .pill:hover { border-color: var(--paper-faint); color: var(--paper); }
+  .pill.active { border-color: var(--signal-dim); color: var(--signal); background: var(--signal-soft); }
+  .pill .n { opacity: .55; margin-left: 5px; }
+
+  .filter-footer {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    padding: 16px 0 28px; border-bottom: 1px solid var(--border); margin-bottom: 28px;
+  }
+  .result-count { font-family: var(--font-mono); font-size: 12px; color: var(--paper-faint); }
+  .result-count b { color: var(--paper); font-weight: 500; }
+  .rt { display: flex; align-items: center; gap: 12px; }
+  .clear-btn {
+    font-family: var(--font-mono); font-size: 11px; color: var(--signal); background: none; border: none;
+    cursor: pointer; letter-spacing: .03em; opacity: 0; pointer-events: none; transition: opacity .15s;
+  }
+  .clear-btn.show { opacity: 1; pointer-events: auto; }
+  select.sortsel {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: .02em; background: var(--surface);
+    border: 1px solid var(--border); color: var(--paper-dim); padding: 8px 10px; border-radius: 2px; cursor: pointer;
+  }
+
+  /* ---------- grid ---------- */
+  .grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(216px, 1fr)); gap: 1px;
+    background: var(--border-soft); border: 1px solid var(--border-soft);
+  }
+  .card {
+    background: var(--ink); cursor: pointer; display: flex; flex-direction: column;
+    transition: background .2s;
+  }
+  .card:hover { background: var(--ink-soft); }
+  .card:hover .card-name { color: var(--signal); }
+  .card-thumb {
+    aspect-ratio: 1/1; background: var(--surface); display: flex; align-items: center; justify-content: center;
+    padding: 22px; position: relative; overflow: hidden;
+  }
+  .card-thumb img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; transition: transform .3s var(--ease); }
+  .card:hover .card-thumb img { transform: scale(1.04); }
+  .card-thumb .ph { width: 52px; height: 52px; opacity: .12; }
+  .card-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 5px; flex: 1; }
+  .card-brand {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--paper-faint);
+  }
+  .card-name {
+    font-family: var(--font-display); font-size: 16.5px; font-weight: 500; line-height: 1.22;
+    letter-spacing: -.01em; transition: color .15s;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .card-specline {
+    font-family: var(--font-mono); font-size: 10.5px; color: var(--paper-faint); margin-top: 2px;
+  }
+  .card-foot { margin-top: auto; padding-top: 10px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .card-price { font-family: var(--font-mono); font-size: 12.5px; color: var(--paper); }
+  .card-price.na { color: var(--paper-faint); }
+  .card-tags { display: flex; gap: 4px; flex-wrap: wrap; }
+  .card-tag {
+    font-family: var(--font-mono); font-size: 9px; text-transform: uppercase; letter-spacing: .03em;
+    padding: 2px 6px; border: 1px solid var(--border); color: var(--paper-faint);
+  }
+
+  .empty {
+    grid-column: 1 / -1; padding: 90px 20px; text-align: center; background: var(--ink);
+  }
+  .empty .em { font-family: var(--font-display); font-size: 30px; color: var(--border); margin-bottom: 12px; }
+  .empty p { color: var(--paper-faint); font-size: 13px; }
+
+  /* ---------- modal ---------- */
+  .overlay {
+    position: fixed; inset: 0; background: rgba(10,11,13,.82); backdrop-filter: blur(3px);
+    display: flex; align-items: flex-start; justify-content: center; padding: 48px 20px;
+    opacity: 0; pointer-events: none; transition: opacity .25s var(--ease); z-index: 100; overflow-y: auto;
+  }
+  .overlay.open { opacity: 1; pointer-events: auto; }
+  .modal {
+    width: 100%; max-width: 880px; background: var(--ink-soft); border: 1px solid var(--border);
+    transform: translateY(16px); transition: transform .3s var(--ease); margin-bottom: 40px;
+  }
+  .overlay.open .modal { transform: translateY(0); }
+  .modal-close {
+    position: absolute; top: 20px; right: 20px; width: 34px; height: 34px; border: 1px solid var(--border);
+    background: var(--surface); color: var(--paper-dim); cursor: pointer; display: flex; align-items: center;
+    justify-content: center; border-radius: 2px; transition: all .15s;
+  }
+  .modal-close:hover { border-color: var(--signal-dim); color: var(--signal); }
+  .modal-top { position: relative; display: grid; grid-template-columns: 340px 1fr; border-bottom: 1px solid var(--border); }
+  .modal-img { background: var(--surface); display: flex; align-items: center; justify-content: center; padding: 40px; }
+  .modal-img img { max-width: 100%; max-height: 320px; object-fit: contain; }
+  .modal-img .ph { width: 90px; height: 90px; opacity: .12; }
+  .modal-head { padding: 40px 40px 32px; display: flex; flex-direction: column; gap: 14px; }
+  .modal-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--paper-faint); }
+  .modal-title { font-family: var(--font-display); font-size: 30px; font-weight: 500; letter-spacing: -.015em; line-height: 1.1; }
+  .modal-price { font-family: var(--font-mono); font-size: 15px; color: var(--signal); }
+  .modal-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+  .modal-tag {
+    font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: .03em;
+    padding: 4px 9px; border: 1px solid var(--border); color: var(--paper-dim);
+  }
+  .modal-note {
+    padding: 28px 40px; border-bottom: 1px solid var(--border); font-family: var(--font-display);
+    font-size: 18px; font-weight: 400; line-height: 1.5; color: var(--paper); font-style: italic;
+  }
+  .modal-note::before { content: '“'; color: var(--signal); margin-right: 2px; }
+  .modal-note::after { content: '”'; color: var(--signal); margin-left: 2px; }
+  .spec-section { padding: 28px 40px; border-bottom: 1px solid var(--border); }
+  .spec-section:last-child { border-bottom: none; }
+  .spec-h { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--paper-faint); margin-bottom: 16px; }
+  .spec-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 30px; }
+  .spec-row { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--border-soft); font-size: 13px; }
+  .spec-row .k { color: var(--paper-faint); }
+  .spec-row .v { font-family: var(--font-mono); color: var(--paper); text-align: right; }
+  .modal-foot { padding: 26px 40px 34px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .avito-link {
+    display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: var(--ink);
+    background: var(--paper); padding: 12px 20px; text-decoration: none; border-radius: 2px; transition: background .2s;
+  }
+  .avito-link:hover { background: #fff; }
+  .modal-idx { font-family: var(--font-mono); font-size: 11px; color: var(--paper-faint); }
+
+  @media (max-width: 720px) {
+    .modal-top { grid-template-columns: 1fr; }
+    .modal-img { padding: 32px; }
+    .modal-head, .modal-note, .spec-section, .modal-foot { padding-left: 24px; padding-right: 24px; }
+    .spec-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 30px; }
+    .shell { padding: 0 18px 100px; }
+    .top-inner { padding: 18px 18px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="top-inner">
+    <div class="brandmark">Camera<span>Archive</span></div>
+    <div style="display:flex; align-items:center; gap:18px;">
+      <a href="/vybor-kamery" class="nav-link">← подбор камеры</a>
+      <div class="top-meta" id="topMeta">— каталог камер</div>
+    </div>
+  </div>
+</div>
+
+<div class="shell">
+
+  <div class="hero">
+    <div class="hero-eyebrow">Camera Knowledge Base</div>
+    <h1>Каждая камера имеет характер, а не только спецификацию.</h1>
+    <p>Небольшая энциклопедия актуальных камер: формат, характер, кому подходит. Фильтруйте по тегам или ищите модель напрямую.</p>
+  </div>
+
+  <div class="searchbar">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5.5" stroke="#A9A59E" stroke-width="1.3"/><path d="M11.5 11.5L15 15" stroke="#A9A59E" stroke-width="1.3" stroke-linecap="round"/></svg>
+    <input type="text" id="searchInput" placeholder="Поиск по бренду или модели — например «Ricoh GR» или «Leica»" autocomplete="off" />
+  </div>
+
+  <div class="filters" id="filters"></div>
+
+  <div class="filter-footer">
+    <div class="result-count" id="resultCount"></div>
+    <div class="rt">
+      <button class="clear-btn" id="clearBtn">сбросить фильтры</button>
+      <select class="sortsel" id="sortSel">
+        <option value="relevance">по релевантности</option>
+        <option value="priceAsc">цена ↑</option>
+        <option value="priceDesc">цена ↓</option>
+        <option value="nameAsc">название A–Я</option>
+        <option value="resDesc">разрешение ↓</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+</div>
+
+<!-- Модальное окно -->
+<div class="overlay" id="overlay">
+  <div class="modal" id="modal"></div>
+</div>
+
+<script>
+// ============================================================
+// 1. ЗАГРУЗКА КАМЕР
+// ============================================================
+let CAMERAS = [];
+
+async function loadCameras() {
+  const url = 'https://raw.githubusercontent.com/alexeynovopashin-lab/CameraChange/main/cameras.json?t=' + Date.now();
+  try {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('Ошибка загрузки');
+    CAMERAS = await res.json();
+  } catch (e) {
+    console.warn('Не удалось загрузить cameras.json', e);
+    CAMERAS = [];
+  }
+  initApp();
+}
+
+// ============================================================
+// 2. СОСТОЯНИЕ
+// ============================================================
+const state = {
+  search: '',
+  bool: new Set(),       // для фильтров-галочек
+  brand: null,
+  type: null,
+  sort: 'relevance'
+};
+
+const CAMERA_ICON = `<svg class="ph" viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M8 7L9.5 4h5L16 7" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><circle cx="12" cy="14" r="4" stroke="currentColor" stroke-width="1.4"/></svg>`;
+
+// ============================================================
+// 3. ФИЛЬТРЫ
+// ============================================================
+const FILTER_GROUPS = [
+  { key: 'brand', label: 'Бренд', type: 'value', field: 'brand' },
+  { key: 'type', label: 'Тип корпуса', type: 'value', field: 'type' },
+  { key: 'format', label: 'Формат сенсора', type: 'bool', options: [
+      ['fullFrame','Full frame'], ['crop','APS-C / кроп'], ['mediumFormat','Медиум формат']
+    ]},
+  { key: 'level', label: 'Уровень', type: 'bool', options: [
+      ['forBeginners','Новичкам'], ['semiProfessional','Полупрофи'], ['professional','Профессионал'], ['forBloggers','Блогерам']
+    ]},
+  { key: 'features', label: 'Особенности', type: 'bool', options: [
+      ['imageStabilization','Стабилизация'], ['weatherSealing','Влагозащита'], ['viewfinder','Видоискатель'],
+      ['rangefinder','Дальномер'], ['monochrome','Монохром'], ['eyeAutofocus','Eye AF'],
+      ['rawVideo','RAW видео'], ['colorScience','Фирменный цвет']
+    ]}
+];
+
+function buildFilters() {
+  const root = document.getElementById('filters');
+  root.innerHTML = '';
+
+  const brands = {};
+  const types = {};
+  CAMERAS.forEach(c => {
+    if (c.brand) brands[c.brand] = (brands[c.brand] || 0) + 1;
+    if (c.type) types[c.type] = (types[c.type] || 0) + 1;
+  });
+
+  FILTER_GROUPS.forEach(group => {
+    const wrap = document.createElement('div');
+    wrap.className = 'filter-group';
+    const lbl = document.createElement('div');
+    lbl.className = 'filter-label';
+    lbl.textContent = group.label;
+    wrap.appendChild(lbl);
+    const row = document.createElement('div');
+    row.className = 'pillrow';
+
+    if (group.type === 'value' && group.field === 'brand') {
+      Object.keys(brands).sort().forEach(b => {
+        row.appendChild(makePill(b, `${b} <span class="n">${brands[b]}</span>`, () => state.brand === b, () => {
+          state.brand = state.brand === b ? null : b;
+          render();
+        }));
+      });
+    } else if (group.type === 'value' && group.field === 'type') {
+      const typeLabels = { Compact: 'Компакт', Mirrorless: 'Беззеркальная', DSLR: 'Зеркальная' };
+      Object.keys(types).sort().forEach(t => {
+        row.appendChild(makePill(t, `${typeLabels[t] || t} <span class="n">${types[t]}</span>`, () => state.type === t, () => {
+          state.type = state.type === t ? null : t;
+          render();
+        }));
+      });
+    } else if (group.type === 'bool') {
+      group.options.forEach(([field, label]) => {
+        const count = CAMERAS.filter(c => c[field]).length;
+        if (count === 0) return;
+        row.appendChild(makePill(field, `${label} <span class="n">${count}</span>`, () => state.bool.has(field), () => {
+          state.bool.has(field) ? state.bool.delete(field) : state.bool.add(field);
+          render();
+        }));
+      });
+    }
+    wrap.appendChild(row);
+    root.appendChild(wrap);
+  });
+}
+
+function makePill(key, html, isActiveFn, onClick) {
+  const btn = document.createElement('button');
+  btn.className = 'pill';
+  btn.innerHTML = html;
+  btn.dataset.key = key;
+  btn.addEventListener('click', onClick);
+  if (isActiveFn()) btn.classList.add('active');
+  return btn;
+}
+
+function refreshPillStates() {
+  document.querySelectorAll('.pill').forEach(p => {
+    const k = p.dataset.key;
+    const active = state.bool.has(k) || state.brand === k || state.type === k;
+    p.classList.toggle('active', active);
+  });
+}
+
+// ============================================================
+// 4. ФИЛЬТРАЦИЯ И СОРТИРОВКА
+// ============================================================
+function filterCameras() {
+  let list = CAMERAS.filter(c => {
+    if (state.brand && c.brand !== state.brand) return false;
+    if (state.type && c.type !== state.type) return false;
+    for (const f of state.bool) {
+      if (!c[f]) return false;
+    }
+    if (state.search) {
+      const s = state.search.toLowerCase();
+      const hay = `${c.brand || ''} ${c.model || ''} ${c.note || ''}`.toLowerCase();
+      if (!hay.includes(s)) return false;
+    }
+    return true;
+  });
+
+  switch (state.sort) {
+    case 'priceAsc':  list.sort((a,b) => (a.price||1e12) - (b.price||1e12)); break;
+    case 'priceDesc': list.sort((a,b) => (b.price||0) - (a.price||0)); break;
+    case 'nameAsc':   list.sort((a,b) => (a.brand+a.model).localeCompare(b.brand+b.model)); break;
+    case 'resDesc':   list.sort((a,b) => (b.resolution||0) - (a.resolution||0)); break;
+    default: break;
+  }
+  return list;
+}
+
+// ============================================================
+// 5. РЕНДЕР СЕТКИ
+// ============================================================
+function renderGrid() {
+  const grid = document.getElementById('grid');
+  const list = filterCameras();
+  document.getElementById('resultCount').innerHTML = `<b>${list.length}</b> из ${CAMERAS.length} камер`;
+  const anyActive = state.search || state.brand || state.type || state.bool.size;
+  document.getElementById('clearBtn').classList.toggle('show', !!anyActive);
+
+  if (list.length === 0) {
+    grid.innerHTML = `<div class="empty"><div class="em">—</div><p>Ничего не найдено. Попробуйте снять пару фильтров.</p></div>`;
+    return;
+  }
+
+  grid.innerHTML = list.map((cam, idx) => {
+    const price = cam.price ? '₽' + Math.round(cam.price).toLocaleString('ru-RU') : null;
+    const tags = [];
+    if (cam.professional) tags.push('PRO');
+    else if (cam.semiProfessional) tags.push('SEMI-PRO');
+    else if (cam.forBeginners) tags.push('BEGINNER');
+    if (cam.forBloggers) tags.push('VLOG');
+    const sensorShort = cam.mediumFormat ? 'Medium format' : (cam.fullFrame ? 'Full frame' : (cam.crop ? 'APS-C' : '—'));
+    const imgContent = cam.image
+      ? `<img src="${cam.image}" alt="${cam.brand} ${cam.model}" loading="lazy" onerror="this.parentElement.innerHTML='${CAMERA_ICON.replace(/'/g,"\\'")}'" />`
+      : CAMERA_ICON;
+
+    return `
+      <div class="card" data-idx="${idx}">
+        <div class="card-thumb">${imgContent}</div>
+        <div class="card-body">
+          <div class="card-brand">${cam.brand || ''}</div>
+          <div class="card-name">${cam.model || ''}</div>
+          <div class="card-specline">${sensorShort} · ${cam.lensMount && cam.lensMount !== 'unknown' ? cam.lensMount : cam.type || ''}</div>
+          <div class="card-foot">
+            <div class="card-price ${price ? '' : 'na'}">${price || 'цена н/д'}</div>
+            <div class="card-tags">${tags.map(t => `<span class="card-tag">${t}</span>`).join('')}</div>
+          </div>
+        </div>
+      </div>`;
+  }).join('');
+
+  grid.querySelectorAll('.card').forEach(el => {
+    const idx = parseInt(el.dataset.idx, 10);
+    el.addEventListener('click', () => openModal(idx));
+  });
+}
+
+// ============================================================
+// 6. МОДАЛЬНОЕ ОКНО
+// ============================================================
+function openModal(idx) {
+  const cam = CAMERAS[idx];
+  const modal = document.getElementById('modal');
+
+  const tagDefs = [
+    ['fullFrame','Full frame'], ['crop','APS-C'], ['mediumFormat','Medium format'],
+    ['rangefinder','Дальномер'], ['monochrome','Монохром'], ['viewfinder','Видоискатель'],
+    ['imageStabilization','IBIS'], ['weatherSealing','Влагозащита'], ['eyeAutofocus','Eye AF'],
+    ['rawVideo','RAW видео'], ['logProfile','Log'], ['colorScience','Фирменный цвет'],
+    ['professional','Профессионал'], ['semiProfessional','Полупрофи'], ['forBeginners','Новичкам'], ['forBloggers','Блогерам']
+  ];
+  const activeTags = tagDefs.filter(([f]) => cam[f]).map(([,l]) => l);
+  const avitoUrl = `https://www.avito.ru/all?q=${encodeURIComponent(cam.avitoQuery || cam.brand + ' ' + cam.model)}`;
+
+  const imgContent = cam.image
+    ? `<img src="${cam.image}" alt="${cam.brand} ${cam.model}" onerror="this.parentElement.innerHTML='${CAMERA_ICON.replace(/'/g,"\\'")}'" />`
+    : CAMERA_ICON;
+
+  modal.innerHTML = `
+    <div class="modal-top">
+      <button class="modal-close" id="modalClose">✕</button>
+      <div class="modal-img">${imgContent}</div>
+      <div class="modal-head">
+        <div class="modal-eyebrow">${cam.brand || ''}</div>
+        <div class="modal-title">${cam.model || ''}</div>
+        <div class="modal-price">${cam.price ? '₽' + cam.price.toLocaleString('ru-RU') : 'Цена не указана'}</div>
+        <div class="modal-tags">${activeTags.map(t => `<span class="modal-tag">${t}</span>`).join('')}</div>
+      </div>
+    </div>
+    ${cam.note ? `<div class="modal-note">${cam.note}</div>` : ''}
+    <div class="spec-section">
+      <div class="spec-h">Технические данные</div>
+      <div class="spec-grid">
+        ${specRow('Тип', cam.type)}
+        ${specRow('Сенсор', cam.sensorSize)}
+        ${specRow('Разрешение', cam.resolution ? cam.resolution + ' Мп' : '')}
+        ${specRow('Байонет', cam.lensMount && cam.lensMount !== 'unknown' ? cam.lensMount : '')}
+        ${specRow('Видео', cam.video)}
+        ${specRow('Стабилизация', cam.imageStabilization ? 'есть' : '')}
+        ${specRow('Вес', cam.weight ? cam.weight + ' г' : '')}
+        ${specRow('Слоты карт', cam.cardSlots)}
+        ${specRow('Сложность меню', ({simple:'простое', intermediate:'среднее', complex:'сложное'})[cam.menuComplexity] || '')}
+        ${specRow('Влагозащита', cam.weatherSealing ? 'есть' : '')}
+        ${specRow('Автофокус', cam.autofocus ? cam.autofocus + ' точек' : '')}
+        ${specRow('Битность RAW', cam.bitDepth ? cam.bitDepth + '-bit' : '')}
+      </div>
+    </div>
+    <div class="modal-foot">
+      <a class="avito-link" href="${avitoUrl}" target="_blank" rel="noopener">найти на авито →</a>
+      <span class="modal-idx">${idx+1} / ${CAMERAS.length}</span>
+    </div>
+  `;
+
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function specRow(k, v) {
+  if (v === null || v === undefined || v === '' || v === 0 || v === false) return '';
+  return `<div class="spec-row"><span class="k">${k}</span><span class="v">${v}</span></div>`;
+}
+
+function closeModal() {
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ============================================================
+// 7. ОБРАБОТЧИКИ
+// ============================================================
+document.getElementById('overlay').addEventListener('click', (e) => {
+  if (e.target.id === 'overlay') closeModal();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+});
+
+document.getElementById('searchInput').addEventListener('input', (e) => {
+  state.search = e.target.value.trim();
+  render();
+});
+
+document.getElementById('sortSel').addEventListener('change', (e) => {
+  state.sort = e.target.value;
+  renderGrid();
+});
+
+document.getElementById('clearBtn').addEventListener('click', () => {
+  state.search = '';
+  state.bool.clear();
+  state.brand = null;
+  state.type = null;
+  document.getElementById('searchInput').value = '';
+  render();
+});
+
+// ============================================================
+// 8. РЕНДЕР
+// ============================================================
+function render() {
+  refreshPillStates();
+  renderGrid();
+}
+
+function initApp() {
+  // Обновим мету
+  document.getElementById('topMeta').textContent = `${CAMERAS.length} камер · ${new Set(CAMERAS.map(c => c.brand)).size} брендов`;
+  buildFilters();
+  render();
+}
+
+// ============================================================
+// 9. ЗАПУСК
+// ============================================================
+loadCameras();
+</script>
+</body>
+</html>
