@@ -442,32 +442,33 @@ function renderGrid() {
     return;
   }
 
-  grid.innerHTML = list.map((cam, idx) => {
-    const price = cam.price ? '₽' + Math.round(cam.price).toLocaleString('ru-RU') : null;
-    const tags = [];
-    if (cam.professional) tags.push('PRO');
-    else if (cam.semiProfessional) tags.push('SEMI-PRO');
-    else if (cam.forBeginners) tags.push('BEGINNER');
-    if (cam.forBloggers) tags.push('VLOG');
-    const sensorShort = cam.mediumFormat ? 'Medium format' : (cam.fullFrame ? 'Full frame' : (cam.crop ? 'APS-C' : '—'));
-    const imgContent = cam.image
-      ? `<img src="${cam.image}" alt="${cam.brand} ${cam.model}" loading="lazy" onerror="this.parentElement.innerHTML='${CAMERA_ICON.replace(/'/g,"\\'")}'" />`
-      : CAMERA_ICON;
+  grid.innerHTML = list.map((cam) => {
+  const realIdx = CAMERAS.indexOf(cam); // ← настоящий индекс в полной базе
+  const price = cam.price ? '₽' + Math.round(cam.price).toLocaleString('ru-RU') : null;
+  const tags = [];
+  if (cam.professional) tags.push('PRO');
+  else if (cam.semiProfessional) tags.push('SEMI-PRO');
+  else if (cam.forBeginners) tags.push('BEGINNER');
+  if (cam.forBloggers) tags.push('VLOG');
+  const sensorShort = cam.mediumFormat ? 'Medium format' : (cam.fullFrame ? 'Full frame' : (cam.crop ? 'APS-C' : '—'));
+  const imgContent = cam.image
+    ? `<img src="${cam.image}" alt="${cam.brand} ${cam.model}" loading="lazy" onerror="this.parentElement.innerHTML='${CAMERA_ICON.replace(/'/g,"\\'")}'" />`
+    : CAMERA_ICON;
 
-    return `
-      <div class="card" data-idx="${idx}">
-        <div class="card-thumb">${imgContent}</div>
-        <div class="card-body">
-          <div class="card-brand">${cam.brand || ''}</div>
-          <div class="card-name">${cam.model || ''}</div>
-          <div class="card-specline">${sensorShort} · ${cam.lensMount && cam.lensMount !== 'unknown' ? cam.lensMount : cam.type || ''}</div>
-          <div class="card-foot">
-            <div class="card-price ${price ? '' : 'na'}">${price || 'цена н/д'}</div>
-            <div class="card-tags">${tags.map(t => `<span class="card-tag">${t}</span>`).join('')}</div>
-          </div>
+  return `
+    <div class="card" data-idx="${realIdx}">
+      <div class="card-thumb">${imgContent}</div>
+      <div class="card-body">
+        <div class="card-brand">${cam.brand || ''}</div>
+        <div class="card-name">${cam.model || ''}</div>
+        <div class="card-specline">${sensorShort} · ${cam.lensMount && cam.lensMount !== 'unknown' ? cam.lensMount : cam.type || ''}</div>
+        <div class="card-foot">
+          <div class="card-price ${price ? '' : 'na'}">${price || 'цена н/д'}</div>
+          <div class="card-tags">${tags.map(t => `<span class="card-tag">${t}</span>`).join('')}</div>
         </div>
-      </div>`;
-  }).join('');
+      </div>
+    </div>`;
+}).join('');
 
   grid.querySelectorAll('.card').forEach(el => {
     const idx = parseInt(el.dataset.idx, 10);
