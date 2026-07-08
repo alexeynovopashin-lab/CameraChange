@@ -104,7 +104,6 @@
   <div class="modal-content">
     <h2 id="modalTitle">Редактирование камеры</h2>
     <form id="editForm">
-      <!-- ... все поля такие же, как в вашем admin3.html ... -->
       <div class="form-row">
         <div class="form-group"><label>Бренд</label><input type="text" id="fBrand" required /></div>
         <div class="form-group"><label>Модель</label><input type="text" id="fModel" required /></div>
@@ -154,9 +153,11 @@
       <div class="form-row">
         <div class="form-group"><label>Ссылка на изображение</label><input type="text" id="fImage" placeholder="https://example.com/camera.jpg" /></div>
         <div class="form-group"><label>Бонус (авторский приоритет)</label><input type="number" id="fBonus" value="0" step="1" /></div>
+      </div>
+      <!-- Поле описания вынесено отдельно, на всю ширину -->
       <div class="form-group">
         <label>Описание камеры</label>
-      <textarea id="fDescription" rows="4" placeholder="Введите описание камеры..."></textarea>
+        <textarea id="fDescription" rows="4" placeholder="Введите описание камеры..."></textarea>
       </div>
       <!-- Булевы флаги -->
       <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(150px,1fr)); gap:6px; margin-top:10px;">
@@ -242,14 +243,12 @@
   let sortOrder = 'asc';
 
   // ── ЗАГРУЗКА ДАННЫХ (ожидаем голый массив) ──────────────────
-  // ВНИМАНИЕ: формат данных — голый массив [] (НЕ объект { cameras: [...] }).
   async function loadData() {
     try {
       const url = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/${FILE_PATH}?t=${Date.now()}`;
       const res = await fetch(url);
       if (!res.ok) throw new Error('Не удалось загрузить файл');
       const data = await res.json();
-      // data должен быть массивом
       cameras = Array.isArray(data) ? data : [];
       renderTable();
     } catch (e) {
@@ -419,7 +418,7 @@
     document.getElementById('modalTitle').textContent = 'Редактирование камеры';
     fillForm(cam);
     document.getElementById('editModal').classList.add('active');
-    description: document.getElementById('fDescription').value.trim(),
+    // Удалена ошибочная строка description: ...
   }
 
   function fillForm(cam) {
@@ -448,6 +447,8 @@
     setVal('fBurstBuffer', cam.burstBuffer);
     setVal('fImage', cam.image || '');
     setVal('fBonus', cam.bonus ?? 0);
+    // ДОБАВЛЕНО: заполнение поля описания
+    setVal('fDescription', cam.description || '');
     // Чекбоксы
     setCheck('fFullFrame', cam.fullFrame);
     setCheck('fCrop', cam.crop);
@@ -513,6 +514,8 @@
       burstBuffer: parseInt(document.getElementById('fBurstBuffer').value) || 0,
       image: document.getElementById('fImage').value.trim(),
       bonus: parseInt(document.getElementById('fBonus').value) || 0,
+      // ДОБАВЛЕНО: сохранение описания
+      description: document.getElementById('fDescription').value.trim(),
       fullFrame: document.getElementById('fFullFrame').checked,
       crop: document.getElementById('fCrop').checked,
       mediumFormat: document.getElementById('fMediumFormat').checked,
@@ -599,9 +602,7 @@
     URL.revokeObjectURL(url);
   });
 
-  // ================================================================
-  //  ИСПРАВЛЕННЫЙ ИМПОРТ (ДОБАВЛЯЕТ, А НЕ ПЕРЕЗАПИСЫВАЕТ)
-  // ================================================================
+  // ── ИСПРАВЛЕННЫЙ ИМПОРТ (ДОБАВЛЯЕТ, А НЕ ПЕРЕЗАПИСЫВАЕТ) ──────
   document.getElementById('importBtn').addEventListener('click', () => {
     const input = document.createElement('input');
     input.type = 'file';
@@ -617,15 +618,9 @@
             alert('Неверный формат: ожидается массив');
             return;
           }
-
-          // Считаем сколько было до
-          const before = cameras.length;
           let added = 0;
           let skipped = 0;
-
-          // Проходим по каждой камере из импорта
           data.forEach(newCam => {
-            // Проверяем, есть ли уже такая камера (по brand + model)
             const exists = cameras.some(c => c.brand === newCam.brand && c.model === newCam.model);
             if (!exists) {
               cameras.push(newCam);
@@ -634,11 +629,8 @@
               skipped++;
             }
           });
-
-          // После добавления обновляем таблицу и сохраняем
           renderTable();
           saveData();
-
           alert(`✅ Импорт завершён!\nДобавлено: ${added}\nПропущено (дубликаты): ${skipped}\nВсего камер: ${cameras.length}`);
         } catch (err) {
           alert('❌ Ошибка парсинга JSON: ' + err.message);
