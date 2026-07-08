@@ -155,7 +155,8 @@
     "eyeAutofocus": true,
     "note": "Профессиональный флагман Canon: стек сенсора, 40 к/с RAW, AI AF нового поколения.",
     "avitoQuery": "Canon EOS R1",
-    "id": "canon-eos-r1"
+    "id": "canon-eos-r1",
+    "description": "Профессиональный флагман Canon: стек сенсора, 40 к/с RAW, AI AF нового поколения."
   },
   {
     "brand": "Canon",
@@ -311,7 +312,8 @@
     "eyeAutofocus": true,
     "note": "45 Мп полный кадр с IBIS. Профессиональная студийная и пейзажная камера от Canon.",
     "avitoQuery": "Canon EOS R5",
-    "id": "canon-eos-r5"
+    "id": "canon-eos-r5",
+    "description": "45 Мп полный кадр с IBIS. Профессиональная студийная и пейзажная камера от Canon."
   },
   {
     "brand": "Canon",
@@ -735,7 +737,8 @@
     "eyeAutofocus": true,
     "note": "Компактная беззеркалка Canon для блогеров. Простое меню, AI AF, поворотный экран.",
     "avitoQuery": "Canon EOS R50 V",
-    "id": "canon-eos-r50-v"
+    "id": "canon-eos-r50-v",
+    "description": "Компактная беззеркалка Canon для блогеров. Простое меню, AI AF, поворотный экран."
   },
   {
     "brand": "Canon",
@@ -1006,7 +1009,8 @@
     "eyeAutofocus": false,
     "note": "Лучшая начальная зеркалка Canon: Dual Pixel AF делает видео почти профессиональным.",
     "avitoQuery": "Canon EOS 800D",
-    "id": "canon-eos-800d"
+    "id": "canon-eos-800d",
+    "description": "Лучшая начальная зеркалка Canon: Dual Pixel AF делает видео почти профессиональным."
   },
   {
     "brand": "Canon",
@@ -1214,7 +1218,8 @@
     "eyeAutofocus": false,
     "note": "Улучшенная 700D с NFC и Wi-Fi. Хороший вариант для первой камеры с небольшим запасом.",
     "avitoQuery": "Canon EOS 750D",
-    "id": "canon-eos-750d"
+    "id": "canon-eos-750d",
+    "description": "Улучшенная 700D с NFC и Wi-Fi. Хороший вариант для первой камеры с небольшим запасом."
   },
   {
     "brand": "Canon",
@@ -1266,7 +1271,8 @@
     "eyeAutofocus": false,
     "note": "Классическая зеркалка для старта. Простое управление, огромная база б/у оптики Canon EF.",
     "avitoQuery": "Canon EOS 700D",
-    "id": "canon-eos-700d"
+    "id": "canon-eos-700d",
+    "description": "Классическая зеркалка для старта. Простое управление, огромная база б/у оптики Canon EF."
   },
   {
     "brand": "Canon",
@@ -1558,7 +1564,8 @@
       "Ethernet",
       "USB 2.0"
     ],
-    "id": "canon-1d-c"
+    "id": "canon-1d-c",
+    "description": "Кинематографический флагман. 4K видео, прочный корпус, профессиональный инструмент."
   },
   {
     "brand": "Canon",
@@ -1692,7 +1699,8 @@
       "Ethernet",
       "USB 2.0"
     ],
-    "id": "canon-1d-x"
+    "id": "canon-1d-x",
+    "description": "Флагманский репортажный аппарат. 14 к/с, 61 точка AF, прочный корпус. Для самых требовательных."
   },
   {
     "brand": "Canon",
@@ -1724,7 +1732,8 @@
       "Ethernet",
       "WiFi"
     ],
-    "id": "canon-1d-x-mark-iii"
+    "id": "canon-1d-x-mark-iii",
+    "description": "Профессиональный репортажный флагман с 16 к/с и RAW-видео."
   },
   {
     "brand": "Canon",
@@ -1756,7 +1765,8 @@
       "Ethernet",
       "WiFi"
     ],
-    "id": "canon-1d-x-mark-ii"
+    "id": "canon-1d-x-mark-ii",
+    "description": "Профессиональный репортажный флагман с 14 к/с и 4K-видео. Для спорта и дикой природы."
   },
   {
     "brand": "Canon",
@@ -1786,7 +1796,8 @@
       "HDMI",
       "Ethernet"
     ],
-    "id": "canon-1d-mark-iv"
+    "id": "canon-1d-mark-iv",
+    "description": "Профессиональный репортажный флагман. 10 к/с, 45 точек AF, прочный корпус. Для спорта и дикой природы."
   },
   {
     "brand": "Canon",
@@ -1816,7 +1827,8 @@
       "HDMI",
       "USB 3.0"
     ],
-    "id": "canon-5ds-r"
+    "id": "canon-5ds-r",
+    "description": "Версия 5DS без низкочастотного фильтра для максимальной детализации."
   },
   {
     "brand": "Canon",
@@ -1846,7 +1858,8 @@
       "HDMI",
       "USB 3.0"
     ],
-    "id": "canon-5ds"
+    "id": "canon-5ds",
+    "description": "Full frame с рекордным для своего времени разрешением 50 Мп. Для студии и пейзажа."
   },
   {
     "brand": "Canon",
@@ -1876,7 +1889,8 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "canon-5d-mark-iii"
+    "id": "canon-5d-mark-iii",
+    "description": "Профессиональный полный кадр. 61 точка AF, отличная эргономика, надёжность."
   },
   {
     "brand": "Canon",
@@ -1908,7 +1922,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "canon-eos-r"
+    "id": "canon-eos-r",
+    "description": "Первая полнокадровая беззеркалка Canon. Отличный AF, 30 Мп, поворотный экран."
   },
   {
     "brand": "Canon",
@@ -1942,7 +1957,8 @@
       "Bluetooth",
       "GPS"
     ],
-    "id": "canon-6d-mark-ii"
+    "id": "canon-6d-mark-ii",
+    "description": "Полнокадровая зеркалка с поворотным экраном и Dual Pixel AF. Доступный FF для энтузиастов."
   },
   {
     "brand": "Canon",
@@ -1973,7 +1989,8 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "canon-6d"
+    "id": "canon-6d",
+    "description": "Самый доступный полный кадр Canon на тот момент. Отличное соотношение цена/качество."
   },
   {
     "brand": "Canon",
@@ -2003,7 +2020,8 @@
       "HDMI",
       "USB 3.0"
     ],
-    "id": "canon-eos-7d-mark-ii"
+    "id": "canon-eos-7d-mark-ii",
+    "description": "Профессиональная зеркалка для спорта и дикой природы. 10 к/с, 65 точек AF, прочный корпус."
   },
   {
     "brand": "Canon",
@@ -2035,7 +2053,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "canon-eos-m6-mark-ii"
+    "id": "canon-eos-m6-mark-ii",
+    "description": "32 Мп, 4K без кропа, 14 к/с. Лучшая беззеркалка Canon на EF-M."
   },
   {
     "brand": "Canon",
@@ -2067,7 +2086,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "canon-eos-r10"
+    "id": "canon-eos-r10",
+    "description": "Доступная беззеркалка Canon APS-C с 4K, быстрым AF и поворотным экраном."
   },
   {
     "brand": "Canon",
@@ -2098,7 +2118,8 @@
       "USB 2.0",
       "WiFi"
     ],
-    "id": "canon-eos-70d"
+    "id": "canon-eos-70d",
+    "description": "Первая зеркалка Canon с Dual Pixel AF для видео. Отличный гибрид фото+видео."
   },
   {
     "brand": "Canon",
@@ -2131,7 +2152,8 @@
       "NFC",
       "Bluetooth"
     ],
-    "id": "canon-eos-77d"
+    "id": "canon-eos-77d",
+    "description": "Зеркалка с верхним дисплеем и улучшенным управлением. Идеальна для продвинутых любителей."
   },
   {
     "brand": "Canon",
@@ -2163,7 +2185,8 @@
       "WiFi",
       "NFC"
     ],
-    "id": "canon-eos-760d"
+    "id": "canon-eos-760d",
+    "description": "Улучшенная версия 750D с верхним дисплеем и дополнительным колёсиком управления."
   },
   {
     "brand": "Canon",
@@ -2193,7 +2216,8 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "canon-eos-600d"
+    "id": "canon-eos-600d",
+    "description": "Популярная зеркалка для начинающих. Поворотный экран, Full HD видео, отличный старт в фотографию."
   },
   {
     "brand": "Canon",
@@ -2226,7 +2250,8 @@
       "NFC",
       "Bluetooth"
     ],
-    "id": "canon-eos-200d"
+    "id": "canon-eos-200d",
+    "description": "Лёгкая зеркалка для новичков с поворотным экраном и Dual Pixel AF. Отличный старт в фотографию."
   },
   {
     "brand": "DJI",
@@ -2278,7 +2303,8 @@
     "eyeAutofocus": true,
     "note": "Карманная камера с трёхосевым стабилизатором. Идеал для влогов, путешествий и съёмки в движении.",
     "avitoQuery": "DJI Osmo Pocket 3",
-    "id": "dji-osmo-pocket-3"
+    "id": "dji-osmo-pocket-3",
+    "description": "Карманная камера с трёхосевым стабилизатором. Идеал для влогов, путешествий и съёмки в движении."
   },
   {
     "brand": "Fujifilm",
@@ -2330,7 +2356,8 @@
     "eyeAutofocus": true,
     "note": "102 Мп средний формат с 8K видео. Абсолютный инструмент коммерческого фотографа.",
     "avitoQuery": "Fujifilm GFX100 II",
-    "id": "fujifilm-gfx100-ii"
+    "id": "fujifilm-gfx100-ii",
+    "description": "102 Мп средний формат с 8K видео. Абсолютный инструмент коммерческого фотографа."
   },
   {
     "brand": "Fujifilm",
@@ -2431,7 +2458,8 @@
     "eyeAutofocus": true,
     "note": "Доступный вход в средний формат Fuji: 51 Мп, IBIS. Для студии и пейзажа.",
     "avitoQuery": "Fujifilm GFX 50S II",
-    "id": "fujifilm-gfx-50s-ii"
+    "id": "fujifilm-gfx-50s-ii",
+    "description": "Доступный вход в средний формат Fuji: 51 Мп, IBIS. Для студии и пейзажа."
   },
   {
     "brand": "Fujifilm",
@@ -2483,7 +2511,8 @@
     "eyeAutofocus": true,
     "note": "Флагман Fuji по разрешению: 40 Мп X-Trans, IBIS 7 стопов. Для пейзажа, студии и коммерции.",
     "avitoQuery": "Fujifilm X-T5",
-    "id": "fujifilm-x-t5"
+    "id": "fujifilm-x-t5",
+    "description": "Флагман Fuji по разрешению: 40 Мп X-Trans, IBIS 7 стопов. Для пейзажа, студии и коммерции."
   },
   {
     "brand": "Fujifilm",
@@ -2535,7 +2564,8 @@
     "eyeAutofocus": true,
     "note": "Лучший компакт 2024: 40 Мп, IBIS, AI AF. Ретро-дизайн и плёночные симуляции — мечта стритфотографа.",
     "avitoQuery": "Fujifilm X100VI",
-    "id": "fujifilm-x100vi"
+    "id": "fujifilm-x100vi",
+    "description": "Лучший компакт 2024: 40 Мп, IBIS, AI AF. Ретро-дизайн и плёночные симуляции — мечта стритфотографа."
   },
   {
     "brand": "Fujifilm",
@@ -2587,7 +2617,8 @@
     "eyeAutofocus": true,
     "note": "Беззеркалка Fuji для блогеров: 6.2K, LOG, поворотный экран, вход для микрофона. Цвет из коробки.",
     "avitoQuery": "Fujifilm X-S20",
-    "id": "fujifilm-x-s20"
+    "id": "fujifilm-x-s20",
+    "description": "Беззеркалка Fuji для блогеров: 6.2K, LOG, поворотный экран, вход для микрофона. Цвет из коробки."
   },
   {
     "brand": "Fujifilm",
@@ -2639,7 +2670,8 @@
     "eyeAutofocus": true,
     "note": "Культовая фиксфокальная камера с 35mm экв. Для тех, кто снимает одним объективом и думает кадром.",
     "avitoQuery": "Fujifilm X100V",
-    "id": "fujifilm-x100v"
+    "id": "fujifilm-x100v",
+    "description": "Культовая фиксфокальная камера с 35mm экв. Для тех, кто снимает одним объективом и думает кадром."
   },
   {
     "brand": "Fujifilm",
@@ -2691,7 +2723,8 @@
     "eyeAutofocus": true,
     "note": "X-T30 с обновлённым процессором и улучшенным видео. 26 Мп X-Trans в лёгком корпусе.",
     "avitoQuery": "Fujifilm X-T30 II",
-    "id": "fujifilm-x-t30-ii"
+    "id": "fujifilm-x-t30-ii",
+    "description": "X-T30 с обновлённым процессором и улучшенным видео. 26 Мп X-Trans в лёгком корпусе."
   },
   {
     "brand": "Fujifilm",
@@ -2743,7 +2776,8 @@
     "eyeAutofocus": true,
     "note": "Компактный X-T с плёночными симуляциями. Лучший выбор для стрита и путешествий без лишнего веса.",
     "avitoQuery": "Fujifilm X-T30",
-    "id": "fujifilm-x-t30"
+    "id": "fujifilm-x-t30",
+    "description": "Компактный X-T с плёночными симуляциями. Лучший выбор для стрита и путешествий без лишнего веса."
   },
   {
     "brand": "Fujifilm",
@@ -3409,7 +3443,8 @@
       "USB 3.0",
       "WiFi"
     ],
-    "id": "fujifilm-x-t2"
+    "id": "fujifilm-x-t2",
+    "description": "Флагман Fuji с 4K-видео, 91 точкой AF и отличной цветопередачей."
   },
   {
     "brand": "Fujifilm",
@@ -3440,7 +3475,8 @@
       "USB 2.0",
       "WiFi"
     ],
-    "id": "fujifilm-x-pro2"
+    "id": "fujifilm-x-pro2",
+    "description": "Ретро-беззеркалка с гибридным видоискателем и уникальным дизайном. Для ценителей классики."
   },
   {
     "brand": "Fujifilm",
@@ -3471,7 +3507,8 @@
       "USB 3.0",
       "WiFi"
     ],
-    "id": "fujifilm-x-h1"
+    "id": "fujifilm-x-h1",
+    "description": "Первая Fujifilm с IBIS. 24 Мп, 4K, прочный корпус, отличная эргономика."
   },
   {
     "brand": "Fujifilm",
@@ -3503,7 +3540,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "fujifilm-x-t3"
+    "id": "fujifilm-x-t3",
+    "description": "Флагман Fuji с 26 Мп, 4K 60p и быстрым AF. Лучший APS-C для фото и видео."
   },
   {
     "brand": "Fujifilm",
@@ -3534,7 +3572,8 @@
       "USB 2.0",
       "WiFi"
     ],
-    "id": "fujifilm-x100f"
+    "id": "fujifilm-x100f",
+    "description": "Культовый компакт с 23mm f/2 и APS-C сенсором. Идеальный выбор для стрит-фотографии."
   },
   {
     "brand": "Fujifilm",
@@ -3565,7 +3604,8 @@
       "USB 2.0",
       "WiFi"
     ],
-    "id": "fujifilm-x100t"
+    "id": "fujifilm-x100t",
+    "description": "Культовый компакт с 23mm f/2, улучшенный видоискатель, классическое управление."
   },
   {
     "brand": "Fujifilm",
@@ -3595,7 +3635,8 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "fujifilm-x100s"
+    "id": "fujifilm-x100s",
+    "description": "Культовый компакт с 23mm f/2, улучшенный AF и новый сенсор X-Trans II."
   },
   {
     "brand": "Fujifilm",
@@ -3627,7 +3668,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "fujifilm-x-t50"
+    "id": "fujifilm-x-t50",
+    "description": "X-T50 с IBIS и 26 Мп. Отличный выбор для любителей."
   },
   {
     "brand": "Fujifilm",
@@ -3657,7 +3699,8 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "fujifilm-x-pro1"
+    "id": "fujifilm-x-pro1",
+    "description": "Первая сменная беззеркалка Fuji с гибридным видоискателем. Уникальный цвет и дизайн."
   },
   {
     "brand": "Fujifilm",
@@ -3686,7 +3729,8 @@
     "connectivity": [
       "HDMI"
     ],
-    "id": "fujifilm-x100"
+    "id": "fujifilm-x100",
+    "description": "Культовый компакт с фикс-объективом 23mm f/2. APS-C сенсор, гибридный видоискатель."
   },
   {
     "brand": "Fujifilm",
@@ -3718,7 +3762,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "fujifilm-x-s10"
+    "id": "fujifilm-x-s10",
+    "description": "Беззеркалка с IBIS, 4K и простым управлением. Отличный выбор для начинающих."
   },
   {
     "brand": "Fujifilm",
@@ -3750,7 +3795,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "fujifilm-x-t30-iii"
+    "id": "fujifilm-x-t30-iii",
+    "description": "Обновлённый X-T30 с улучшенным AF и видео."
   },
   {
     "brand": "Fujifilm",
@@ -3781,7 +3827,8 @@
       "USB 2.0",
       "WiFi"
     ],
-    "id": "fujifilm-x-t1"
+    "id": "fujifilm-x-t1",
+    "description": "Первая топовая беззеркалка Fujifilm с пыле-влагозащитой. 8 к/с, отличный видоискатель."
   },
   {
     "brand": "Fujifilm",
@@ -3813,7 +3860,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "fujifilm-x-e5"
+    "id": "fujifilm-x-e5",
+    "description": "Обновлённый компактный X-E с новым процессором и плёночными симуляциями."
   },
   {
     "brand": "Fujifilm",
@@ -3844,7 +3892,8 @@
       "USB 2.0",
       "WiFi"
     ],
-    "id": "fujifilm-x70"
+    "id": "fujifilm-x70",
+    "description": "Компакт с 18.5mm f/2.8 и поворотным экраном. Отличный выбор для стрита."
   },
   {
     "brand": "Fujifilm",
@@ -3875,7 +3924,8 @@
       "USB 2.0",
       "WiFi"
     ],
-    "id": "fujifilm-x-t20"
+    "id": "fujifilm-x-t20",
+    "description": "Компактная версия X-T2 с 4K-видео и отличной цветопередачей. Лучший выбор для путешествий."
   },
   {
     "brand": "Fujifilm",
@@ -3907,7 +3957,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "fujifilm-x-e4"
+    "id": "fujifilm-x-e4",
+    "description": "Компактная беззеркалка Fuji с 26 Мп и плёночными симуляциями. Для стрита."
   },
   {
     "brand": "Fujifilm",
@@ -3939,7 +3990,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "fujifilm-x-e3"
+    "id": "fujifilm-x-e3",
+    "description": "Стильная беззеркалка с 4K-видео и отличным цветом. Идеальна для стрита и повседневной съёмки."
   },
   {
     "brand": "Fujifilm",
@@ -3969,7 +4021,8 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "fujifilm-x-e1"
+    "id": "fujifilm-x-e1",
+    "description": "Беззеркалка с уникальной цветопередачей X-Trans. Компактный корпус, стильный дизайн."
   },
   {
     "brand": "Fujifilm",
@@ -4000,7 +4053,8 @@
       "USB 2.0",
       "WiFi"
     ],
-    "id": "fujifilm-x-t10"
+    "id": "fujifilm-x-t10",
+    "description": "Уменьшенная версия X-T1. Отличная цветопередача, стильный ретро-дизайн."
   },
   {
     "brand": "Fujifilm",
@@ -4032,7 +4086,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "fujifilm-x-m5"
+    "id": "fujifilm-x-m5",
+    "description": "Бюджетная беззеркалка Fuji для начинающих и блогеров."
   },
   {
     "brand": "Fujifilm",
@@ -4063,7 +4118,8 @@
       "USB 2.0",
       "WiFi"
     ],
-    "id": "fujifilm-x-e2s"
+    "id": "fujifilm-x-e2s",
+    "description": "Улучшенная версия X-E2 с новым процессором. Отличный цвет и компактность."
   },
   {
     "brand": "Fujifilm",
@@ -4094,7 +4150,8 @@
       "USB 2.0",
       "WiFi"
     ],
-    "id": "fujifilm-x-e2"
+    "id": "fujifilm-x-e2",
+    "description": "Компактная беззеркалка с уникальной цветопередачей. Стильный дизайн, отличный JPG."
   },
   {
     "brand": "Fujifilm",
@@ -4126,7 +4183,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "fujifilm-xf10"
+    "id": "fujifilm-xf10",
+    "description": "Компактная камера Fujifilm с 18.5mm f/2.8. Отличный выбор для уличной фотографии."
   },
   {
     "brand": "Fujifilm",
@@ -4157,7 +4215,8 @@
       "USB 2.0",
       "WiFi"
     ],
-    "id": "fujifilm-x30"
+    "id": "fujifilm-x30",
+    "description": "Улучшенный компакт X20. Поворотный экран, отличная эргономика, стильный дизайн."
   },
   {
     "brand": "Fujifilm",
@@ -4187,7 +4246,8 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "fujifilm-x20"
+    "id": "fujifilm-x20",
+    "description": "Компакт с оптическим видоискателем и 28-112mm экв. Отличный выбор для путешествий."
   },
   {
     "brand": "Fujifilm",
@@ -4217,7 +4277,8 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "fujifilm-x10"
+    "id": "fujifilm-x10",
+    "description": "Компактная камера с зумом и ретро-дизайном. Отличное качество для путешествий."
   },
   {
     "brand": "Fujifilm",
@@ -4248,7 +4309,8 @@
       "USB 2.0",
       "WiFi"
     ],
-    "id": "fujifilm-x-m1"
+    "id": "fujifilm-x-m1",
+    "description": "Лёгкая беззеркалка Fujifilm для начинающих. Отличный цвет и простота использования."
   },
   {
     "brand": "Fujifilm",
@@ -4280,7 +4342,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "fujifilm-x-a7"
+    "id": "fujifilm-x-a7",
+    "description": "Лёгкая беззеркалка для начинающих с 4K-видео и большим поворотным экраном."
   },
   {
     "brand": "Fujifilm",
@@ -4312,7 +4375,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "fujifilm-x-a5"
+    "id": "fujifilm-x-a5",
+    "description": "Бюджетная беззеркалка с 4K-видео и поворотным экраном. Отличный старт в Fuji."
   },
   {
     "brand": "Fujifilm",
@@ -4342,7 +4406,8 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "fujifilm-xf1"
+    "id": "fujifilm-xf1",
+    "description": "Компактная камера с ретро-дизайном и отличным качеством снимков."
   },
   {
     "brand": "Fujifilm",
@@ -4372,7 +4437,8 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "fujifilm-x-s1"
+    "id": "fujifilm-x-s1",
+    "description": "Суперзум с 26x оптическим увеличением (24-624mm экв.). Хороший выбор для путешествий."
   },
   {
     "brand": "Fujifilm",
@@ -4403,7 +4469,8 @@
       "USB 2.0",
       "WiFi"
     ],
-    "id": "fujifilm-x-a3"
+    "id": "fujifilm-x-a3",
+    "description": "Бюджетная беззеркалка Fuji с поворотным экраном и отличным цветом. Для новичков и путешествий."
   },
   {
     "brand": "Fujifilm",
@@ -4433,7 +4500,8 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "fujifilm-x-a1"
+    "id": "fujifilm-x-a1",
+    "description": "Доступная беззеркалка Fujifilm с поворотным экраном. Отличный выбор для новичков."
   },
   {
     "brand": "Fujifilm",
@@ -4463,7 +4531,8 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "fujifilm-xq1"
+    "id": "fujifilm-xq1",
+    "description": "Карманный компакт с большим сенсором и стильным дизайном. Отличная цветопередача."
   },
   {
     "brand": "Hasselblad",
@@ -4515,7 +4584,8 @@
     "eyeAutofocus": false,
     "note": "100 Мп средний формат — абсолютная детализация. Для тех, кто не ищет компромиссов в качестве.",
     "avitoQuery": "Hasselblad X2D 100C",
-    "id": "hasselblad-x2d-100c"
+    "id": "hasselblad-x2d-100c",
+    "description": "100 Мп средний формат — абсолютная детализация. Для тех, кто не ищет компромиссов в качестве."
   },
   {
     "brand": "Hasselblad",
@@ -4567,7 +4637,8 @@
     "eyeAutofocus": false,
     "note": "Компактный средний формат 50 Мп. Лёгкий путь в Hasselblad без студийного штатива.",
     "avitoQuery": "Hasselblad X1D II 50C",
-    "id": "hasselblad-x1d-ii-50c"
+    "id": "hasselblad-x1d-ii-50c",
+    "description": "Компактный средний формат 50 Мп. Лёгкий путь в Hasselblad без студийного штатива."
   },
   {
     "brand": "Hasselblad",
@@ -4598,7 +4669,8 @@
       "USB 3.0",
       "WiFi"
     ],
-    "id": "hasselblad-h6d"
+    "id": "hasselblad-h6d",
+    "description": "Профессиональная среднеформатная камера с 50 или 100 Мп. Для самых требовательных."
   },
   {
     "brand": "Hasselblad",
@@ -4628,7 +4700,8 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "hasselblad-h5d"
+    "id": "hasselblad-h5d",
+    "description": "Среднеформатная система с 40 Мп сенсором. Абсолютное качество для коммерции и студии."
   },
   {
     "brand": "Hasselblad",
@@ -4659,7 +4732,8 @@
       "USB 3.0",
       "WiFi"
     ],
-    "id": "hasselblad-x1d"
+    "id": "hasselblad-x1d",
+    "description": "Первая среднеформатная беззеркалка Hasselblad. Компактный корпус, невероятное качество."
   },
   {
     "brand": "Hasselblad",
@@ -4690,7 +4764,8 @@
       "USB 3.1",
       "WiFi"
     ],
-    "id": "hasselblad-x2d"
+    "id": "hasselblad-x2d",
+    "description": "100 Мп средний формат с IBIS. Абсолютная детализация для профессионалов."
   },
   {
     "brand": "Hasselblad",
@@ -4721,7 +4796,8 @@
       "USB 3.1",
       "WiFi"
     ],
-    "id": "hasselblad-907x"
+    "id": "hasselblad-907x",
+    "description": "Среднеформатная беззеркалка с модульным дизайном и уникальным стилем."
   },
   {
     "brand": "Leica",
@@ -4773,7 +4849,8 @@
     "eyeAutofocus": false,
     "note": "Дальномерная Leica с Content Credentials. Для коллекционеров и тех, кто снимает как художник.",
     "avitoQuery": "Leica M11-P",
-    "id": "leica-m11-p"
+    "id": "leica-m11-p",
+    "description": "Дальномерная Leica с Content Credentials. Для коллекционеров и тех, кто снимает как художник."
   },
   {
     "brand": "Leica",
@@ -4825,7 +4902,8 @@
     "eyeAutofocus": false,
     "note": "Дальномерная легенда с 60 Мп. Для тех, кто превращает съёмку в медитацию.",
     "avitoQuery": "Leica M11",
-    "id": "leica-m11"
+    "id": "leica-m11",
+    "description": "Дальномерная легенда с 60 Мп. Для тех, кто превращает съёмку в медитацию."
   },
   {
     "brand": "Leica",
@@ -4877,7 +4955,8 @@
     "eyeAutofocus": true,
     "note": "60 Мп полный кадр Leica с AF. Немецкое качество сборки и уникальный опыт использования.",
     "avitoQuery": "Leica SL3",
-    "id": "leica-sl3"
+    "id": "leica-sl3",
+    "description": "60 Мп полный кадр Leica с AF. Немецкое качество сборки и уникальный опыт использования."
   },
   {
     "brand": "Leica",
@@ -4929,7 +5008,8 @@
     "eyeAutofocus": true,
     "note": "Новейшая Leica Q с 60 Мп и 8K видео. Флагман компактного полного кадра.",
     "avitoQuery": "Leica Q3",
-    "id": "leica-q3"
+    "id": "leica-q3",
+    "description": "Новейшая Leica Q с 60 Мп и 8K видео. Флагман компактного полного кадра."
   },
   {
     "brand": "Leica",
@@ -4981,7 +5061,8 @@
     "eyeAutofocus": true,
     "note": "24 Мп полный кадр с отличным видео. Leica для тех, кому важнее скорость, чем разрешение.",
     "avitoQuery": "Leica SL3-S",
-    "id": "leica-sl3-s"
+    "id": "leica-sl3-s",
+    "description": "24 Мп полный кадр с отличным видео. Leica для тех, кому важнее скорость, чем разрешение."
   },
   {
     "brand": "Leica",
@@ -5033,7 +5114,8 @@
     "eyeAutofocus": true,
     "note": "Икона компактного полного кадра. 47 Мп, 28mm f/1.7 — для тех, кому важен опыт съёмки.",
     "avitoQuery": "Leica Q2",
-    "id": "leica-q2"
+    "id": "leica-q2",
+    "description": "Икона компактного полного кадра. 47 Мп, 28mm f/1.7 — для тех, кому важен опыт съёмки."
   },
   {
     "brand": "Leica",
@@ -5064,7 +5146,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "leica-m11-d"
+    "id": "leica-m11-d",
+    "description": "Дальномерная Leica без дисплея для чистого опыта съёмки."
   },
   {
     "brand": "Leica",
@@ -5095,7 +5178,8 @@
       "USB 2.0",
       "WiFi"
     ],
-    "id": "leica-m10"
+    "id": "leica-m10",
+    "description": "Дальномерная легенда. 24 Мп полный кадр, ручной фокус, культовый статус."
   },
   {
     "brand": "Leica",
@@ -5125,7 +5209,8 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "leica-m-typ-240"
+    "id": "leica-m-typ-240",
+    "description": "Дальномерная Leica с полным кадром. Культовый статус, ручной фокус, отличное качество."
   },
   {
     "brand": "Leica",
@@ -5157,7 +5242,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "leica-sl2"
+    "id": "leica-sl2",
+    "description": "47 Мп полный кадр с IBIS и 4K. Беззеркалка Leica с премиальной эргономикой."
   },
   {
     "brand": "Leica",
@@ -5187,7 +5273,8 @@
       "HDMI",
       "USB 3.0"
     ],
-    "id": "leica-sl-typ-601"
+    "id": "leica-sl-typ-601",
+    "description": "Первая полнокадровая беззеркалка Leica с 4K-видео и отличной эргономикой."
   },
   {
     "brand": "Leica",
@@ -5218,7 +5305,8 @@
       "USB 2.0",
       "WiFi"
     ],
-    "id": "leica-q-typ-116"
+    "id": "leica-q-typ-116",
+    "description": "Культовый компакт с 28mm f/1.7 и полным кадром. Икона уличной фотографии."
   },
   {
     "brand": "Leica",
@@ -5245,7 +5333,8 @@
     "eyeAutofocus": false,
     "weatherSealing": false,
     "connectivity": [],
-    "id": "leica-m9-p"
+    "id": "leica-m9-p",
+    "description": "Дальномерная легенда. 18 Мп полный кадр, ручной фокус, культовый статус."
   },
   {
     "brand": "Leica",
@@ -5274,7 +5363,8 @@
     "connectivity": [
       "HDMI"
     ],
-    "id": "leica-x1"
+    "id": "leica-x1",
+    "description": "Компактная камера Leica с APS-C сенсором. Отличное качество и премиальный дизайн."
   },
   {
     "brand": "Nikon",
@@ -5326,7 +5416,8 @@
     "eyeAutofocus": true,
     "note": "Флагман Nikon без механического затвора: 45 Мп, 20 к/с RAW, 8K. Репортаж и спорт.",
     "avitoQuery": "Nikon Z9",
-    "id": "nikon-z9"
+    "id": "nikon-z9",
+    "description": "Флагман Nikon без механического затвора: 45 Мп, 20 к/с RAW, 8K. Репортаж и спорт."
   },
   {
     "brand": "Nikon",
@@ -5378,7 +5469,8 @@
     "eyeAutofocus": true,
     "note": "Z9 в компактном корпусе: 45 Мп, 8K, 20 к/с. Флагман Nikon для тех, кому важен вес.",
     "avitoQuery": "Nikon Z8",
-    "id": "nikon-z8"
+    "id": "nikon-z8",
+    "description": "Z9 в компактном корпусе: 45 Мп, 8K, 20 к/с. Флагман Nikon для тех, кому важен вес."
   },
   {
     "brand": "Nikon",
@@ -5430,7 +5522,8 @@
     "eyeAutofocus": false,
     "note": "45 Мп полный кадр — монолит. Лучший выбор для тех, кто не хочет уходить с зеркалок.",
     "avitoQuery": "Nikon D850",
-    "id": "nikon-d850"
+    "id": "nikon-d850",
+    "description": "45 Мп полный кадр — монолит. Лучший выбор для тех, кто не хочет уходить с зеркалок."
   },
   {
     "brand": "Nikon",
@@ -5644,7 +5737,8 @@
     "eyeAutofocus": false,
     "note": "Доступный полный кадр с шикарным динамическим диапазоном. Классика для портрета и репортажа.",
     "avitoQuery": "Nikon D750",
-    "id": "nikon-d750"
+    "id": "nikon-d750",
+    "description": "Доступный полный кадр с шикарным динамическим диапазоном. Классика для портрета и репортажа."
   },
   {
     "brand": "Nikon",
@@ -5776,7 +5870,8 @@
       "Ethernet",
       "USB 2.0"
     ],
-    "id": "nikon-d4s"
+    "id": "nikon-d4s",
+    "description": "Флагманский репортажный аппарат. 11 к/с, 51 точка AF, отличная работа при высоких ISO."
   },
   {
     "brand": "Nikon",
@@ -5807,7 +5902,8 @@
       "Ethernet",
       "USB 2.0"
     ],
-    "id": "nikon-d4"
+    "id": "nikon-d4",
+    "description": "Репортажный флагман. 11 к/с, отличное ISO, прочный корпус. Для спорта и событий."
   },
   {
     "brand": "Nikon",
@@ -5839,7 +5935,8 @@
       "Ethernet",
       "WiFi"
     ],
-    "id": "nikon-d6"
+    "id": "nikon-d6",
+    "description": "Профессиональный репортажный флагман Nikon с 14 к/с и 4K-видео."
   },
   {
     "brand": "Nikon",
@@ -5871,7 +5968,8 @@
       "Ethernet",
       "WiFi"
     ],
-    "id": "nikon-d5"
+    "id": "nikon-d5",
+    "description": "Профессиональный флагман Nikon с 153 точками AF, 12 к/с и 4K-видео."
   },
   {
     "brand": "Nikon",
@@ -5901,7 +5999,8 @@
       "HDMI",
       "Ethernet"
     ],
-    "id": "nikon-d3s"
+    "id": "nikon-d3s",
+    "description": "Профессиональный репортажный флагман. Отличная работа при высоких ISO, 9 к/с."
   },
   {
     "brand": "Nikon",
@@ -5931,7 +6030,8 @@
       "HDMI",
       "USB 3.0"
     ],
-    "id": "nikon-d800e"
+    "id": "nikon-d800e",
+    "description": "D800 без сглаживающего фильтра для максимальной детализации. Для требовательных к резкости."
   },
   {
     "brand": "Nikon",
@@ -5961,7 +6061,8 @@
       "HDMI",
       "USB 3.0"
     ],
-    "id": "nikon-d810"
+    "id": "nikon-d810",
+    "description": "Зеркалка с 36 Мп полного кадра. Максимальное разрешение для пейзажей и студии."
   },
   {
     "brand": "Nikon",
@@ -5991,7 +6092,8 @@
       "HDMI",
       "USB 3.0"
     ],
-    "id": "nikon-d800"
+    "id": "nikon-d800",
+    "description": "Революционная камера с 36 Мп полного кадра. Пейзажи, студия, коммерция."
   },
   {
     "brand": "Nikon",
@@ -6023,7 +6125,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "nikon-z6-iii"
+    "id": "nikon-z6-iii",
+    "description": "Универсальный полный кадр Nikon с IBIS и 6K-видео."
   },
   {
     "brand": "Nikon",
@@ -6055,7 +6158,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "nikon-z6-ii"
+    "id": "nikon-z6-ii",
+    "description": "Улучшенный Z6 с двумя слотами и более быстрым AF. Отличный гибрид."
   },
   {
     "brand": "Nikon",
@@ -6085,7 +6189,8 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "nikon-df"
+    "id": "nikon-df",
+    "description": "Ретро-дизайн, полный кадр, управление как у плёночных камер. Для ценителей классики."
   },
   {
     "brand": "Nikon",
@@ -6117,7 +6222,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "nikon-z6"
+    "id": "nikon-z6",
+    "description": "Полнокадровая беззеркалка Nikon с 24 Мп, IBIS и отличной эргономикой."
   },
   {
     "brand": "Nikon",
@@ -6149,7 +6255,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "nikon-d780"
+    "id": "nikon-d780",
+    "description": "Полнокадровая зеркалка с 4K-видео и фазовым AF в Live View."
   },
   {
     "brand": "Nikon",
@@ -6179,7 +6286,8 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "nikon-d600"
+    "id": "nikon-d600",
+    "description": "Доступный полный кадр от Nikon. Отличный динамический диапазон."
   },
   {
     "brand": "Nikon",
@@ -6211,7 +6319,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "nikon-d500"
+    "id": "nikon-d500",
+    "description": "Полупрофессиональная зеркалка с автофокусом от D5 и 4K-видео. Лучший APS-C для спорта."
   },
   {
     "brand": "Nikon",
@@ -6243,7 +6352,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "nikon-z5-ii"
+    "id": "nikon-z5-ii",
+    "description": "Обновлённый доступный полный кадр Nikon с улучшенным AF и видео."
   },
   {
     "brand": "Nikon",
@@ -6275,7 +6385,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "nikon-z5"
+    "id": "nikon-z5",
+    "description": "Доступный полный кадр Nikon с IBIS и отличным качеством."
   },
   {
     "brand": "Nikon",
@@ -6305,7 +6416,8 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "nikon-d610"
+    "id": "nikon-d610",
+    "description": "Полнокадровая зеркалка с высоким разрешением и хорошей эргономикой. Надёжный инструмент."
   },
   {
     "brand": "Nikon",
@@ -6337,7 +6449,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "nikon-z-fc"
+    "id": "nikon-z-fc",
+    "description": "Ретро-дизайн, 4K-видео, поворотный экран. Отличный выбор для творческих новичков."
   },
   {
     "brand": "Nikon",
@@ -6369,7 +6482,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "nikon-z50"
+    "id": "nikon-z50",
+    "description": "Первая APS-C беззеркалка Nikon Z. Компактная, 4K, поворотный экран."
   },
   {
     "brand": "Nikon",
@@ -6401,7 +6515,8 @@
       "WiFi",
       "NFC"
     ],
-    "id": "nikon-d7200"
+    "id": "nikon-d7200",
+    "description": "Полупрофессиональная зеркалка с 51 точкой AF, двойным слотом и Wi-Fi."
   },
   {
     "brand": "Nikon",
@@ -6433,7 +6548,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "nikon-z50-ii"
+    "id": "nikon-z50-ii",
+    "description": "Обновлённая беззеркалка Nikon для начинающих с 4K и поворотным экраном."
   },
   {
     "brand": "Nikon",
@@ -6463,7 +6579,8 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "nikon-d7100"
+    "id": "nikon-d7100",
+    "description": "Полупрофессиональная зеркалка с 51 точкой AF и прочным корпусом. Лучший выбор для энтузиастов."
   },
   {
     "brand": "Nikon",
@@ -6495,7 +6612,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "nikon-z30"
+    "id": "nikon-z30",
+    "description": "Беззеркалка Nikon для влогов: 4K, поворотный экран, компактный корпус."
   },
   {
     "brand": "Nikon",
@@ -6524,7 +6642,8 @@
     "connectivity": [
       "HDMI"
     ],
-    "id": "nikon-d7000"
+    "id": "nikon-d7000",
+    "description": "Полупрофессиональная зеркалка с прочным корпусом и 39 точками AF. Отличный выбор для любителей."
   },
   {
     "brand": "Nikon",
@@ -6556,7 +6675,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "nikon-d5600"
+    "id": "nikon-d5600",
+    "description": "Зеркалка с поворотным экраном, сенсорным управлением и отличным качеством фото."
   },
   {
     "brand": "Nikon",
@@ -6587,7 +6707,8 @@
       "USB 2.0",
       "WiFi"
     ],
-    "id": "nikon-d5500"
+    "id": "nikon-d5500",
+    "description": "Лёгкая зеркалка с поворотным экраном и сенсорным управлением. Отличный старт."
   },
   {
     "brand": "Nikon",
@@ -6616,7 +6737,8 @@
     "connectivity": [
       "HDMI"
     ],
-    "id": "nikon-d5100"
+    "id": "nikon-d5100",
+    "description": "Зеркалка для начинающих с поворотным экраном. Хорошее качество видео и фото."
   },
   {
     "brand": "Nikon",
@@ -6647,7 +6769,8 @@
       "USB 2.0",
       "Bluetooth"
     ],
-    "id": "nikon-d3500"
+    "id": "nikon-d3500",
+    "description": "Лёгкая зеркалка для начинающих с отличным качеством и долгим временем работы."
   },
   {
     "brand": "Nikon",
@@ -6678,7 +6801,8 @@
       "USB 2.0",
       "Bluetooth"
     ],
-    "id": "nikon-d3400"
+    "id": "nikon-d3400",
+    "description": "Лёгкая зеркалка для новичков с отличным качеством и долгим временем работы от батареи."
   },
   {
     "brand": "Nikon",
@@ -6708,7 +6832,8 @@
       "USB 2.0",
       "HDMI"
     ],
-    "id": "nikon-d3300"
+    "id": "nikon-d3300",
+    "description": "Бюджетная зеркалка с 24 Мп. Отличный старт в мир Nikon."
   },
   {
     "brand": "Olympus",
@@ -6739,7 +6864,8 @@
       "USB 3.0",
       "WiFi"
     ],
-    "id": "olympus-om-d-e-m1x"
+    "id": "olympus-om-d-e-m1x",
+    "description": "Спортивный флагман Olympus с 18 к/с, 4K и продвинутой стабилизацией."
   },
   {
     "brand": "Olympus",
@@ -6770,7 +6896,8 @@
       "USB 3.0",
       "WiFi"
     ],
-    "id": "olympus-om-d-e-m1-iii"
+    "id": "olympus-om-d-e-m1-iii",
+    "description": "Флагман Olympus с IBIS, 4K и быстрым AF."
   },
   {
     "brand": "Olympus",
@@ -6801,7 +6928,8 @@
       "USB 3.0",
       "WiFi"
     ],
-    "id": "olympus-om-d-e-m1-ii"
+    "id": "olympus-om-d-e-m1-ii",
+    "description": "Флагман Olympus с 4K-видео, быстрым AF и 5-осевым стабилизатором."
   },
   {
     "brand": "Olympus",
@@ -6832,7 +6960,8 @@
       "USB 2.0",
       "WiFi"
     ],
-    "id": "olympus-pen-f"
+    "id": "olympus-pen-f",
+    "description": "Ретро-дизайн, 20 Мп сенсор, встроенный стабилизатор. Для ценителей стиля."
   },
   {
     "brand": "Olympus",
@@ -6863,7 +6992,8 @@
       "USB 2.0",
       "WiFi"
     ],
-    "id": "olympus-om-d-e-m5-iii"
+    "id": "olympus-om-d-e-m5-iii",
+    "description": "Лёгкая и компактная беззеркалка с 20 Мп, IBIS и 4K-видео."
   },
   {
     "brand": "Olympus",
@@ -6894,7 +7024,8 @@
       "USB 2.0",
       "WiFi"
     ],
-    "id": "olympus-om-d-e-m1"
+    "id": "olympus-om-d-e-m1",
+    "description": "Топовая беззеркалка Olympus с 5-осевым стабилизатором и быстрым AF. Для спорта и дикой природы."
   },
   {
     "brand": "Olympus",
@@ -6924,7 +7055,8 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "olympus-om-d-e-m5"
+    "id": "olympus-om-d-e-m5",
+    "description": "Беззеркалка с пыле-влагозащитой и встроенным стабилизатором. Отличная эргономика."
   },
   {
     "brand": "Olympus",
@@ -6953,7 +7085,8 @@
     "connectivity": [
       "HDMI"
     ],
-    "id": "olympus-pen-e-pl2"
+    "id": "olympus-pen-e-pl2",
+    "description": "Компактная беззеркалка со встроенным стабилизатором. Хороший выбор для путешествий."
   },
   {
     "brand": "OM System",
@@ -6984,7 +7117,8 @@
       "USB 3.1",
       "WiFi"
     ],
-    "id": "om-system-om-1"
+    "id": "om-system-om-1",
+    "description": "Флагман OM System с новым сенсором и быстрым AF."
   },
   {
     "brand": "OM System",
@@ -7015,7 +7149,8 @@
       "USB 3.1",
       "WiFi"
     ],
-    "id": "om-system-om-5"
+    "id": "om-system-om-5",
+    "description": "Компактная беззеркалка OM System с IBIS и 4K."
   },
   {
     "brand": "Panasonic",
@@ -7067,7 +7202,8 @@
     "eyeAutofocus": false,
     "note": "Видеофлагман Micro 4/3: 5.7K, C4K 120p, 10-бит, V-Log. Лучший в классе для видеографов.",
     "avitoQuery": "Panasonic Lumix GH6",
-    "id": "panasonic-lumix-gh6"
+    "id": "panasonic-lumix-gh6",
+    "description": "Видеофлагман Micro 4/3: 5.7K, C4K 120p, 10-бит, V-Log. Лучший в классе для видеографов."
   },
   {
     "brand": "Panasonic",
@@ -7119,7 +7255,8 @@
     "eyeAutofocus": false,
     "note": "Классика гибридной видеосъёмки: 4K 60p, IBIS, V-Log L. Надёжный рабочий инструмент.",
     "avitoQuery": "Panasonic Lumix GH5",
-    "id": "panasonic-lumix-gh5"
+    "id": "panasonic-lumix-gh5",
+    "description": "Классика гибридной видеосъёмки: 4K 60p, IBIS, V-Log L. Надёжный рабочий инструмент."
   },
   {
     "brand": "Panasonic",
@@ -7254,7 +7391,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "panasonic-lumix-s1h"
+    "id": "panasonic-lumix-s1h",
+    "description": "Видео-флагман Panasonic. 6K, 10-бит, IBIS, встроенный вентилятор."
   },
   {
     "brand": "Panasonic",
@@ -7286,7 +7424,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "panasonic-lumix-s1r"
+    "id": "panasonic-lumix-s1r",
+    "description": "47 Мп полный кадр с IBIS и отличной цветопередачей. Для студии и пейзажа."
   },
   {
     "brand": "Panasonic",
@@ -7318,7 +7457,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "panasonic-lumix-s5-iix"
+    "id": "panasonic-lumix-s5-iix",
+    "description": "Видео-версия S5 II с дополнительными опциями для профессионалов."
   },
   {
     "brand": "Panasonic",
@@ -7350,7 +7490,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "panasonic-lumix-gh7"
+    "id": "panasonic-lumix-gh7",
+    "description": "Новый видео-флагман Panasonic с 5.7K и улучшенным AF."
   },
   {
     "brand": "Panasonic",
@@ -7382,7 +7523,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "panasonic-lumix-s5-ii"
+    "id": "panasonic-lumix-s5-ii",
+    "description": "Полный кадр Panasonic с фазовым AF, IBIS и 6K-видео."
   },
   {
     "brand": "Panasonic",
@@ -7414,7 +7556,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "panasonic-lumix-s1"
+    "id": "panasonic-lumix-s1",
+    "description": "Полнокадровая беззеркалка Panasonic с IBIS, 4K 60p и отличной эргономикой."
   },
   {
     "brand": "Panasonic",
@@ -7445,7 +7588,8 @@
       "USB 3.1",
       "WiFi"
     ],
-    "id": "panasonic-lumix-gh5s"
+    "id": "panasonic-lumix-gh5s",
+    "description": "Видео-флагман Panasonic. Отличная работа при высоких ISO, 4K 60p, 10-бит."
   },
   {
     "brand": "Panasonic",
@@ -7477,7 +7621,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "panasonic-lumix-g9-ii"
+    "id": "panasonic-lumix-g9-ii",
+    "description": "Новый флагман Panasonic MFT с 25 Мп, IBIS и 5.7K."
   },
   {
     "brand": "Panasonic",
@@ -7509,7 +7654,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "panasonic-lumix-s5"
+    "id": "panasonic-lumix-s5",
+    "description": "Компактный полный кадр Panasonic с IBIS и отличным видео."
   },
   {
     "brand": "Panasonic",
@@ -7541,7 +7687,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "panasonic-lumix-s9"
+    "id": "panasonic-lumix-s9",
+    "description": "Компактный полный кадр Panasonic с IBIS и 4K."
   },
   {
     "brand": "Panasonic",
@@ -7573,7 +7720,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "panasonic-lumix-g9"
+    "id": "panasonic-lumix-g9",
+    "description": "Фото-флагман Panasonic с 20 Мп, 60 к/с и отличной эргономикой. Конкурент Fuji X-T2."
   },
   {
     "brand": "Panasonic",
@@ -7605,7 +7753,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "panasonic-lumix-gh5-ii"
+    "id": "panasonic-lumix-gh5-ii",
+    "description": "Видео-флагман Panasonic с 4K 60p, IBIS и 10-бит. Для профессионалов."
   },
   {
     "brand": "Panasonic",
@@ -7636,7 +7785,8 @@
       "USB 2.0",
       "WiFi"
     ],
-    "id": "panasonic-lumix-gh4"
+    "id": "panasonic-lumix-gh4",
+    "description": "Первая беззеркалка с 4K видео. Профессиональный инструмент для видеографов. V-Log L опционально."
   },
   {
     "brand": "Panasonic",
@@ -7667,7 +7817,8 @@
       "USB 2.0",
       "WiFi"
     ],
-    "id": "panasonic-lumix-gx8"
+    "id": "panasonic-lumix-gx8",
+    "description": "Энтузиастская беззеркалка с 20 Мп, IBIS, 4K и поворотным экраном."
   },
   {
     "brand": "Panasonic",
@@ -7697,7 +7848,8 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "panasonic-lumix-gh3"
+    "id": "panasonic-lumix-gh3",
+    "description": "Видео-ориентированная беззеркалка. Отличное качество видео, прочный корпус."
   },
   {
     "brand": "Panasonic",
@@ -7728,7 +7880,8 @@
       "USB 2.0",
       "WiFi"
     ],
-    "id": "panasonic-lumix-gx9"
+    "id": "panasonic-lumix-gx9",
+    "description": "Компактная беззеркалка с 20 Мп, IBIS и 4K-видео. Отличный выбор для повседневной съёмки."
   },
   {
     "brand": "Panasonic",
@@ -7759,7 +7912,8 @@
       "USB 2.0",
       "WiFi"
     ],
-    "id": "panasonic-lumix-gx7"
+    "id": "panasonic-lumix-gx7",
+    "description": "Энтузиастская беззеркалка со встроенным стабилизатором и отличным электронным видоискателем."
   },
   {
     "brand": "Panasonic",
@@ -7790,7 +7944,8 @@
       "USB 2.0",
       "WiFi"
     ],
-    "id": "panasonic-lumix-gx80-85"
+    "id": "panasonic-lumix-gx80-85",
+    "description": "Энтузиастская беззеркалка с 4K, IBIS и отличной эргономикой."
   },
   {
     "brand": "Panasonic",
@@ -7819,7 +7974,8 @@
     "connectivity": [
       "HDMI"
     ],
-    "id": "panasonic-lumix-gh2"
+    "id": "panasonic-lumix-gh2",
+    "description": "Видео-ориентированная беззеркалка. Отличное качество видео для своего времени."
   },
   {
     "brand": "Panasonic",
@@ -7850,7 +8006,8 @@
       "USB 2.0",
       "WiFi"
     ],
-    "id": "panasonic-lumix-g7"
+    "id": "panasonic-lumix-g7",
+    "description": "Бюджетная беззеркалка с 4K-видео. Отличный выбор для начинающих видеографов."
   },
   {
     "brand": "Panasonic",
@@ -7880,7 +8037,8 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "panasonic-lumix-gx1"
+    "id": "panasonic-lumix-gx1",
+    "description": "Энтузиастская беззеркалка с управлением как у классической камеры. Отличная эргономика."
   },
   {
     "brand": "Panasonic",
@@ -7910,7 +8068,8 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "panasonic-lumix-g6"
+    "id": "panasonic-lumix-g6",
+    "description": "Беззеркалка с отличным видео и удобным управлением. Хороший выбор для видеографов-любителей."
   },
   {
     "brand": "Panasonic",
@@ -7940,7 +8099,8 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "panasonic-lumix-g5"
+    "id": "panasonic-lumix-g5",
+    "description": "Беззеркалка с поворотным экраном и электронным видоискателем. Универсальный выбор."
   },
   {
     "brand": "Panasonic",
@@ -7970,7 +8130,8 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "panasonic-lumix-g3"
+    "id": "panasonic-lumix-g3",
+    "description": "Беззеркалка с поворотным экраном и сенсорным управлением. Хороший выбор для повседневной съёмки."
   },
   {
     "brand": "Panasonic",
@@ -8000,7 +8161,8 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "panasonic-lumix-gm1"
+    "id": "panasonic-lumix-gm1",
+    "description": "Самая маленькая беззеркалка с MFT-сенсором. Помещается в карман, но даёт отличное качество."
   },
   {
     "brand": "Panasonic",
@@ -8029,7 +8191,8 @@
     "connectivity": [
       "HDMI"
     ],
-    "id": "panasonic-lumix-g2"
+    "id": "panasonic-lumix-g2",
+    "description": "Первая беззеркалка Panasonic с поворотным экраном и сенсорным управлением."
   },
   {
     "brand": "Panasonic",
@@ -8060,7 +8223,8 @@
       "USB 2.0",
       "WiFi"
     ],
-    "id": "panasonic-lumix-gf7"
+    "id": "panasonic-lumix-gf7",
+    "description": "Компактная беззеркалка для начинающих. Поворотный экран для селфи, стильный дизайн."
   },
   {
     "brand": "Panasonic",
@@ -8091,7 +8255,8 @@
       "USB 2.0",
       "WiFi"
     ],
-    "id": "panasonic-lumix-gf6"
+    "id": "panasonic-lumix-gf6",
+    "description": "Компактная беззеркалка для начинающих. Поворотный экран, Wi-Fi, стильный дизайн."
   },
   {
     "brand": "Panasonic",
@@ -8121,7 +8286,8 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "panasonic-lumix-gf5"
+    "id": "panasonic-lumix-gf5",
+    "description": "Миниатюрная беззеркалка для начинающих. Простота и компактность."
   },
   {
     "brand": "Pentax",
@@ -8151,7 +8317,8 @@
       "HDMI",
       "USB 3.0"
     ],
-    "id": "pentax-645z"
+    "id": "pentax-645z",
+    "description": "Среднеформатная зеркалка с 51 Мп. Высокое разрешение и отличная цветопередача. Для самых требовательных."
   },
   {
     "brand": "Pentax",
@@ -8182,7 +8349,8 @@
       "USB 2.0",
       "WiFi"
     ],
-    "id": "pentax-k-1"
+    "id": "pentax-k-1",
+    "description": "Первая полнокадровая зеркалка Pentax с встроенным стабилизатором и поворотным экраном."
   },
   {
     "brand": "Pentax",
@@ -8213,7 +8381,8 @@
       "USB 3.1",
       "WiFi"
     ],
-    "id": "pentax-k-3-iii"
+    "id": "pentax-k-3-iii",
+    "description": "Последняя зеркалка Pentax с IBIS, 4K и быстрым AF."
   },
   {
     "brand": "Pentax",
@@ -8244,7 +8413,8 @@
       "USB 2.0",
       "WiFi"
     ],
-    "id": "pentax-kp"
+    "id": "pentax-kp",
+    "description": "Стильная зеркалка с встроенным стабилизатором и сменными рукоятками. Отличная эргономика."
   },
   {
     "brand": "Pentax",
@@ -8274,7 +8444,8 @@
       "HDMI",
       "USB 3.0"
     ],
-    "id": "pentax-k-3"
+    "id": "pentax-k-3",
+    "description": "Прочная зеркалка с встроенным стабилизатором и 24 Мп. Отличная эргономика и защита от пыли/влаги."
   },
   {
     "brand": "Pentax",
@@ -8303,7 +8474,8 @@
     "connectivity": [
       "HDMI"
     ],
-    "id": "pentax-k-5"
+    "id": "pentax-k-5",
+    "description": "Зеркалка с встроенной стабилизацией и пыле-влагозащитой. Надёжный инструмент для энтузиастов."
   },
   {
     "brand": "Ricoh",
@@ -8559,7 +8731,8 @@
     "eyeAutofocus": true,
     "note": "Абсолютный флагман Sony: 50 Мп, 30 к/с, 8K, AI AF. Лучшая камера на рынке для профи.",
     "avitoQuery": "Sony a1 II",
-    "id": "sony-a1-ii"
+    "id": "sony-a1-ii",
+    "description": "Абсолютный флагман Sony: 50 Мп, 30 к/с, 8K, AI AF. Лучшая камера на рынке для профи."
   },
   {
     "brand": "Sony",
@@ -8611,7 +8784,8 @@
     "eyeAutofocus": true,
     "note": "Первый в мире глобальный затвор: 120 к/с без искажений. Идеал для спорта и дикой природы.",
     "avitoQuery": "Sony a9 III",
-    "id": "sony-a9-iii"
+    "id": "sony-a9-iii",
+    "description": "Первый в мире глобальный затвор: 120 к/с без искажений. Идеал для спорта и дикой природы."
   },
   {
     "brand": "Sony",
@@ -8663,7 +8837,8 @@
     "eyeAutofocus": true,
     "note": "Новый A7 V: улучшенный AF, 33 Мп, 8K. Гибрид следующего поколения от Sony.",
     "avitoQuery": "Sony a7 V",
-    "id": "sony-a7-v"
+    "id": "sony-a7-v",
+    "description": "Новый A7 V: улучшенный AF, 33 Мп, 8K. Гибрид следующего поколения от Sony."
   },
   {
     "brand": "Sony",
@@ -8715,7 +8890,8 @@
     "eyeAutofocus": true,
     "note": "61 Мп с новым AI процессором. Максимальная детализация Sony с улучшенным видео.",
     "avitoQuery": "Sony a7R VI",
-    "id": "sony-a7r-vi"
+    "id": "sony-a7r-vi",
+    "description": "61 Мп с новым AI процессором. Максимальная детализация Sony с улучшенным видео."
   },
   {
     "brand": "Sony",
@@ -8767,7 +8943,8 @@
     "eyeAutofocus": true,
     "note": "61 Мп с AI AF — монстр детализации. Коммерция, архитектура, пейзаж на высшем уровне.",
     "avitoQuery": "Sony A7R V",
-    "id": "sony-alpha-a7r-v"
+    "id": "sony-alpha-a7r-v",
+    "description": "61 Мп с AI AF — монстр детализации. Коммерция, архитектура, пейзаж на высшем уровне."
   },
   {
     "brand": "Sony",
@@ -8819,7 +8996,8 @@
     "eyeAutofocus": true,
     "note": "Компактный полный кадр с IBIS и AI AF. Лучший выбор если нужен FF в небольшом корпусе.",
     "avitoQuery": "Sony A7C II",
-    "id": "sony-a7c-ii"
+    "id": "sony-a7c-ii",
+    "description": "Компактный полный кадр с IBIS и AI AF. Лучший выбор если нужен FF в небольшом корпусе."
   },
   {
     "brand": "Sony",
@@ -8925,7 +9103,8 @@
     "eyeAutofocus": true,
     "note": "Легенда: полный кадр, IBIS, S-Log3, 693 точки AF. Гибрид фото+видео, не устаревает годами.",
     "avitoQuery": "Sony A7 III",
-    "id": "sony-a7-iii"
+    "id": "sony-a7-iii",
+    "description": "Легенда: полный кадр, IBIS, S-Log3, 693 точки AF. Гибрид фото+видео, не устаревает годами."
   },
   {
     "brand": "Sony",
@@ -8977,7 +9156,8 @@
     "eyeAutofocus": true,
     "note": "Беззеркалка для контентмейкеров: поворотный экран, вход для микрофона, отличный AF по лицу.",
     "avitoQuery": "Sony ZV-E10 II",
-    "id": "sony-zv-e10-ii"
+    "id": "sony-zv-e10-ii",
+    "description": "Беззеркалка для контентмейкеров: поворотный экран, вход для микрофона, отличный AF по лицу."
   },
   {
     "brand": "Sony",
@@ -9275,7 +9455,8 @@
       "Bluetooth",
       "Ethernet"
     ],
-    "id": "sony-alpha-a1-ii"
+    "id": "sony-alpha-a1-ii",
+    "description": "Флагман Sony с 50 Мп, 30 к/с, 8K и AI AF."
   },
   {
     "brand": "Sony",
@@ -9308,7 +9489,8 @@
       "Bluetooth",
       "Ethernet"
     ],
-    "id": "sony-alpha-a1"
+    "id": "sony-alpha-a1",
+    "description": "Абсолютный флагман Sony: 50 Мп, 30 к/с, 8K, AI AF. Лучшая камера на рынке."
   },
   {
     "brand": "Sony",
@@ -9341,7 +9523,8 @@
       "Bluetooth",
       "Ethernet"
     ],
-    "id": "sony-alpha-a9-iii"
+    "id": "sony-alpha-a9-iii",
+    "description": "Первый в мире глобальный затвор: 120 к/с без искажений. Для спорта и дикой природы."
   },
   {
     "brand": "Sony",
@@ -9374,7 +9557,8 @@
       "NFC",
       "Ethernet"
     ],
-    "id": "sony-alpha-a9"
+    "id": "sony-alpha-a9",
+    "description": "Беззеркалка для спорта и экшн-съёмки. 20 к/с с AF/AE, без затемнения видоискателя."
   },
   {
     "brand": "Sony",
@@ -9406,7 +9590,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "sony-alpha-a7s-iii"
+    "id": "sony-alpha-a7s-iii",
+    "description": "Видео-флагман Sony с 4K 120p, IBIS и 10-бит 4:2:2."
   },
   {
     "brand": "Sony",
@@ -9438,7 +9623,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "sony-alpha-a7r-iv"
+    "id": "sony-alpha-a7r-iv",
+    "description": "61 Мп полный кадр с IBIS и 10 к/с. Лучший выбор для коммерческой съёмки."
   },
   {
     "brand": "Sony",
@@ -9470,7 +9656,8 @@
       "WiFi",
       "NFC"
     ],
-    "id": "sony-alpha-a7r-ii"
+    "id": "sony-alpha-a7r-ii",
+    "description": "Первая полнокадровая беззеркалка с IBIS и 4K-видео. Революция в мире фото."
   },
   {
     "brand": "Sony",
@@ -9500,7 +9687,8 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "sony-alpha-a99"
+    "id": "sony-alpha-a99",
+    "description": "Полнокадровая зеркалка Sony с полупрозрачным зеркалом. Встроенный стабилизатор."
   },
   {
     "brand": "Sony",
@@ -9532,7 +9720,8 @@
       "WiFi",
       "NFC"
     ],
-    "id": "sony-alpha-a7s-ii"
+    "id": "sony-alpha-a7s-ii",
+    "description": "Видео-монстр с отличной работой при высоких ISO, IBIS и 4K. Для профессионального видео."
   },
   {
     "brand": "Sony",
@@ -9565,7 +9754,8 @@
       "NFC",
       "Bluetooth"
     ],
-    "id": "sony-alpha-a7r-iii"
+    "id": "sony-alpha-a7r-iii",
+    "description": "42 Мп с IBIS, 4K-видео и быстрым AF. Идеальный выбор для профессионалов."
   },
   {
     "brand": "Sony",
@@ -9597,7 +9787,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "sony-a7c-r"
+    "id": "sony-a7c-r",
+    "description": "61 Мп полный кадр в компактном корпусе. Для коммерции и пейзажа."
   },
   {
     "brand": "Sony",
@@ -9629,7 +9820,8 @@
       "WiFi",
       "NFC"
     ],
-    "id": "sony-alpha-a99-ii"
+    "id": "sony-alpha-a99-ii",
+    "description": "Флагманская зеркалка Sony A-mount с 42 Мп, IBIS и 4K-видео."
   },
   {
     "brand": "Sony",
@@ -9661,7 +9853,8 @@
       "WiFi",
       "NFC"
     ],
-    "id": "sony-alpha-a7s"
+    "id": "sony-alpha-a7s",
+    "description": "Специализированная камера для видео и съёмки в темноте. 12 Мп полный кадр, отличная работа при ISO 409600."
   },
   {
     "brand": "Sony",
@@ -9693,7 +9886,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "sony-alpha-a7-v"
+    "id": "sony-alpha-a7-v",
+    "description": "Новый универсальный полный кадр Sony с улучшенным AI AF."
   },
   {
     "brand": "Sony",
@@ -9725,7 +9919,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "sony-alpha-a7-iv"
+    "id": "sony-alpha-a7-iv",
+    "description": "Новый универсальный полный кадр Sony: 33 Мп, AI AF, отличное видео."
   },
   {
     "brand": "Sony",
@@ -9756,7 +9951,8 @@
       "USB 2.0",
       "WiFi"
     ],
-    "id": "sony-alpha-a7r"
+    "id": "sony-alpha-a7r",
+    "description": "Беззеркалка с 36 Мп полного кадра. Максимальная детализация для пейзажей и студии."
   },
   {
     "brand": "Sony",
@@ -9789,7 +9985,8 @@
       "NFC",
       "Bluetooth"
     ],
-    "id": "sony-alpha-a7-iii"
+    "id": "sony-alpha-a7-iii",
+    "description": "Легенда: полный кадр, IBIS, 4K, 693 точки AF. Гибрид фото+видео, не устаревает годами."
   },
   {
     "brand": "Sony",
@@ -9821,7 +10018,8 @@
       "WiFi",
       "Bluetooth"
     ],
-    "id": "sony-fx30"
+    "id": "sony-fx30",
+    "description": "Киношная беззеркалка Sony с 4K 120p, S-Log3 и IBIS."
   },
   {
     "brand": "Sony",
@@ -9853,7 +10051,8 @@
       "WiFi",
       "NFC"
     ],
-    "id": "sony-alpha-a7-ii"
+    "id": "sony-alpha-a7-ii",
+    "description": "Полнокадровая беззеркалка с улучшенным AF и встроенным стабилизатором."
   },
   {
     "brand": "Sony",
@@ -9884,7 +10083,8 @@
       "USB 2.0",
       "WiFi"
     ],
-    "id": "sony-alpha-a7"
+    "id": "sony-alpha-a7",
+    "description": "Первая полнокадровая беззеркалка. Компактный корпус, отличное качество, сменные объективы."
   },
   {
     "brand": "Sony",
@@ -9916,7 +10116,8 @@
       "WiFi",
       "NFC"
     ],
-    "id": "sony-alpha-a77-ii"
+    "id": "sony-alpha-a77-ii",
+    "description": "Одна из лучших зеркалок Sony с A-байонетом. 79 точек AF, 12 к/с, стабилизация в корпусе."
   },
   {
     "brand": "Sony",
@@ -9948,7 +10149,8 @@
       "WiFi",
       "NFC"
     ],
-    "id": "sony-alpha-a6600"
+    "id": "sony-alpha-a6600",
+    "description": "APS-C флагман Sony с IBIS и большим аккумулятором. Отличный гибрид."
   },
   {
     "brand": "Sony",
@@ -9980,7 +10182,8 @@
       "WiFi",
       "NFC"
     ],
-    "id": "sony-alpha-a6500"
+    "id": "sony-alpha-a6500",
+    "description": "Флагман Sony APS-C с IBIS, быстрым AF и 4K-видео. Лучший выбор для экшн-съёмки."
   },
   {
     "brand": "Sony",
@@ -10012,7 +10215,8 @@
       "WiFi",
       "NFC"
     ],
-    "id": "sony-alpha-a6400"
+    "id": "sony-alpha-a6400",
+    "description": "Лучший APS-C для видео и контента. 4K, быстрый AF, поворотный экран."
   },
   {
     "brand": "Sony",
@@ -10044,7 +10248,8 @@
       "WiFi",
       "NFC"
     ],
-    "id": "sony-alpha-a6300"
+    "id": "sony-alpha-a6300",
+    "description": "Беззеркалка с 4K-видео и быстрым AF. Отличный выбор для видео и фотографии."
   },
   {
     "brand": "Sony",
@@ -10076,7 +10281,8 @@
       "WiFi",
       "NFC"
     ],
-    "id": "sony-alpha-a6100"
+    "id": "sony-alpha-a6100",
+    "description": "4K, быстрый AF, поворотный экран. Отличный старт в мир Sony APS-C."
   },
   {
     "brand": "Sony",
@@ -10106,7 +10312,8 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "sony-nex-7"
+    "id": "sony-nex-7",
+    "description": "Топовая беззеркалка Sony своего времени. 24 Мп, отличный электронный видоискатель, компактность."
   },
   {
     "brand": "Sony",
@@ -10136,7 +10343,8 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "sony-nex-6"
+    "id": "sony-nex-6",
+    "description": "Беззеркалка с электронным видоискателем и гибридным AF. Отличный выбор для энтузиастов."
   },
   {
     "brand": "Sony",
@@ -10168,7 +10376,8 @@
       "WiFi",
       "NFC"
     ],
-    "id": "sony-alpha-a6000"
+    "id": "sony-alpha-a6000",
+    "description": "Легендарная беззеркалка APS-C. 179 точек AF, 11 к/с, компактный корпус. Очень популярна до сих пор."
   },
   {
     "brand": "Sony",
@@ -10198,7 +10407,8 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "sony-nex-5r"
+    "id": "sony-nex-5r",
+    "description": "Беззеркалка с гибридным AF и поворотным экраном. Компактный и удобный."
   },
   {
     "brand": "Sony",
@@ -10227,7 +10437,8 @@
     "connectivity": [
       "HDMI"
     ],
-    "id": "sony-nex-5"
+    "id": "sony-nex-5",
+    "description": "Беззеркалка с поворотным экраном. Хороший старт для перехода с компактов."
   },
   {
     "brand": "Sony",
@@ -10257,7 +10468,8 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "sony-nex-c3"
+    "id": "sony-nex-c3",
+    "description": "Лёгкая и компактная беззеркалка для начинающих. APS-C сенсор в маленьком корпусе."
   },
   {
     "brand": "Sony",
@@ -10287,6 +10499,7 @@
       "HDMI",
       "USB 2.0"
     ],
-    "id": "sony-a3000"
+    "id": "sony-a3000",
+    "description": "Беззеркалка с большим видоискателем. Дешёвый вход в мир Sony E-mount."
   }
 ]
