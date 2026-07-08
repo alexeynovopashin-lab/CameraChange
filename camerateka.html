@@ -479,12 +479,15 @@ function renderGrid() {
 // ============================================================
 function openCameraFromUrl() {
   const params = new URLSearchParams(window.location.search);
-  const idx = params.get('camera');
-  if (idx !== null) {
-    const index = parseInt(idx, 10);
-    if (!isNaN(index) && index >= 0 && index < CAMERAS.length) {
-      // Даём время на рендер сетки, затем открываем модалку
+  const cameraId = params.get('camera');
+  if (cameraId !== null) {
+    // Ищем камеру по полю id
+    const cam = CAMERAS.find(c => c.id === cameraId);
+    if (cam) {
+      const index = CAMERAS.indexOf(cam);
       setTimeout(() => openModal(index), 300);
+    } else {
+      console.warn('Камера с id ' + cameraId + ' не найдена');
     }
   }
 }
