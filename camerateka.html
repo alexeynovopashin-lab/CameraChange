@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Camera Navigator — камератека </title>
+<title>Camera Navigator — камератека</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,680&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -217,6 +217,13 @@
   }
   .avito-link:hover { background: #fff; }
   .modal-idx { font-family: var(--font-mono); font-size: 11px; color: var(--paper-faint); }
+  /* дополнительные стили для ссылок в модалке */
+  .modal-link-group { display: flex; flex-wrap: wrap; gap: 12px; }
+  .modal-link-group a {
+    color: var(--signal); text-decoration: underline; font-size: 14px;
+    transition: color .2s;
+  }
+  .modal-link-group a:hover { color: var(--paper); }
 
   @media (max-width: 720px) {
     .modal-top { grid-template-columns: 1fr; }
@@ -303,7 +310,7 @@ async function loadCameras() {
 // ============================================================
 const state = {
   search: '',
-  bool: new Set(),       // для фильтров-галочек
+  bool: new Set(),
   brand: null,
   type: null,
   sort: 'relevance'
@@ -442,39 +449,39 @@ function renderGrid() {
     return;
   }
 
-  grid.innerHTML = list.map((cam) => {
-  const realIdx = CAMERAS.indexOf(cam); // ← настоящий индекс в полной базе
-  const price = cam.price ? '₽' + Math.round(cam.price).toLocaleString('ru-RU') : null;
-  const tags = [];
-  if (cam.professional) tags.push('PRO');
-  else if (cam.semiProfessional) tags.push('SEMI-PRO');
-  else if (cam.forBeginners) tags.push('BEGINNER');
-  if (cam.forBloggers) tags.push('VLOG');
-  const sensorShort = cam.mediumFormat ? 'Medium format' : (cam.fullFrame ? 'Full frame' : (cam.crop ? 'APS-C' : '—'));
-  const imgContent = cam.image
-    ? `<img src="${cam.image}" alt="${cam.brand} ${cam.model}" loading="lazy" onerror="this.parentElement.innerHTML='${CAMERA_ICON.replace(/'/g,"\\'")}'" />`
-    : CAMERA_ICON;
+  grid.innerHTML = list.map((cam, idx) => {
+    const price = cam.price ? '₽' + Math.round(cam.price).toLocaleString('ru-RU') : null;
+    const tags = [];
+    if (cam.professional) tags.push('PRO');
+    else if (cam.semiProfessional) tags.push('SEMI-PRO');
+    else if (cam.forBeginners) tags.push('BEGINNER');
+    if (cam.forBloggers) tags.push('VLOG');
+    const sensorShort = cam.mediumFormat ? 'Medium format' : (cam.fullFrame ? 'Full frame' : (cam.crop ? 'APS-C' : '—'));
+    const imgContent = cam.image
+      ? `<img src="${cam.image}" alt="${cam.brand} ${cam.model}" loading="lazy" onerror="this.parentElement.innerHTML='${CAMERA_ICON.replace(/'/g,"\\'")}'" />`
+      : CAMERA_ICON;
 
-  return `
-    <div class="card" data-idx="${realIdx}">
-      <div class="card-thumb">${imgContent}</div>
-      <div class="card-body">
-        <div class="card-brand">${cam.brand || ''}</div>
-        <div class="card-name">${cam.model || ''}</div>
-        <div class="card-specline">${sensorShort} · ${cam.lensMount && cam.lensMount !== 'unknown' ? cam.lensMount : cam.type || ''}</div>
-        <div class="card-foot">
-          <div class="card-price ${price ? '' : 'na'}">${price || 'цена н/д'}</div>
-          <div class="card-tags">${tags.map(t => `<span class="card-tag">${t}</span>`).join('')}</div>
+    return `
+      <div class="card" data-idx="${idx}">
+        <div class="card-thumb">${imgContent}</div>
+        <div class="card-body">
+          <div class="card-brand">${cam.brand || ''}</div>
+          <div class="card-name">${cam.model || ''}</div>
+          <div class="card-specline">${sensorShort} · ${cam.lensMount && cam.lensMount !== 'unknown' ? cam.lensMount : cam.type || ''}</div>
+          <div class="card-foot">
+            <div class="card-price ${price ? '' : 'na'}">${price || 'цена н/д'}</div>
+            <div class="card-tags">${tags.map(t => `<span class="card-tag">${t}</span>`).join('')}</div>
+          </div>
         </div>
-      </div>
-    </div>`;
-}).join('');
+      </div>`;
+  }).join('');
 
   grid.querySelectorAll('.card').forEach(el => {
     const idx = parseInt(el.dataset.idx, 10);
     el.addEventListener('click', () => openModal(idx));
   });
 }
+
 // ============================================================
 // ОТКРЫТИЕ КАРТОЧКИ ПО ПАРАМЕТРУ ИЗ URL
 // ============================================================
@@ -482,7 +489,6 @@ function openCameraFromUrl() {
   const params = new URLSearchParams(window.location.search);
   const cameraId = params.get('camera');
   if (cameraId !== null) {
-    // Ищем камеру по полю id
     const cam = CAMERAS.find(c => c.id === cameraId);
     if (cam) {
       const index = CAMERAS.indexOf(cam);
@@ -492,8 +498,9 @@ function openCameraFromUrl() {
     }
   }
 }
+
 // ============================================================
-// 6. МОДАЛЬНОЕ ОКНО
+// 6. МОДАЛЬНОЕ ОКНО (расширенное)
 // ============================================================
 function openModal(idx) {
   const cam = CAMERAS[idx];
@@ -513,6 +520,49 @@ function openModal(idx) {
     ? `<img src="${cam.image}" alt="${cam.brand} ${cam.model}" onerror="this.parentElement.innerHTML='${CAMERA_ICON.replace(/'/g,"\\'")}'" />`
     : CAMERA_ICON;
 
+  // Блоки для ссылок, инструкции, прошивки (отображаются только если данные есть)
+  let extraBlocks = '';
+
+  if (cam.website) {
+    extraBlocks += `
+      <div class="spec-section">
+        <div class="spec-h">Официальный сайт</div>
+        <div class="modal-link-group">
+          <a href="${cam.website}" target="_blank" rel="noopener">${cam.website}</a>
+        </div>
+      </div>`;
+  }
+
+  if (cam.links && cam.links.length) {
+    extraBlocks += `
+      <div class="spec-section">
+        <div class="spec-h">Ссылки</div>
+        <div class="modal-link-group">
+          ${cam.links.map(link => `<a href="${link.url}" target="_blank" rel="noopener">${link.label || link.url}</a>`).join('')}
+        </div>
+      </div>`;
+  }
+
+  if (cam.manualUrl) {
+    extraBlocks += `
+      <div class="spec-section">
+        <div class="spec-h">Инструкция</div>
+        <div class="modal-link-group">
+          <a href="${cam.manualUrl}" target="_blank" rel="noopener">Скачать PDF</a>
+        </div>
+      </div>`;
+  }
+
+  if (cam.firmwareUrl) {
+    extraBlocks += `
+      <div class="spec-section">
+        <div class="spec-h">Прошивка</div>
+        <div class="modal-link-group">
+          <a href="${cam.firmwareUrl}" target="_blank" rel="noopener">Скачать прошивку</a>
+        </div>
+      </div>`;
+  }
+
   modal.innerHTML = `
     <div class="modal-top">
       <button class="modal-close" id="modalClose">✕</button>
@@ -525,6 +575,7 @@ function openModal(idx) {
       </div>
     </div>
     ${cam.note ? `<div class="modal-note">${cam.note}</div>` : ''}
+    ${extraBlocks}
     <div class="spec-section">
       <div class="spec-h">Технические данные</div>
       <div class="spec-grid">
@@ -601,11 +652,10 @@ function render() {
 }
 
 function initApp() {
-  // Обновим мету
   document.getElementById('topMeta').textContent = `${CAMERAS.length} камер · ${new Set(CAMERAS.map(c => c.brand)).size} брендов`;
   buildFilters();
   render();
-  openCameraFromUrl(); // <-- добавь эту строку
+  openCameraFromUrl();
 }
 
 // ============================================================
