@@ -52,7 +52,12 @@
     "builtinFlash": true,
     "id": "apple-iphone-17-pro",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/apple/iphone-17-pro"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -109,7 +114,12 @@
     "builtinFlash": true,
     "id": "apple-iphone-16-pro",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/apple/iphone-16-pro"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -166,7 +176,12 @@
     "id": "canon-eos-r1",
     "description": "Профессиональный флагман Canon: стек сенсора, 40 к/с RAW, AI AF нового поколения.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-r1"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -225,7 +240,12 @@
     "builtinFlash": false,
     "id": "canon-eos-r3",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-r3"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -278,7 +298,12 @@
     "builtinFlash": false,
     "id": "canon-eos-r5-mark-ii",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-r5-mark-ii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -335,7 +360,12 @@
     "id": "canon-eos-r5",
     "description": "45 Мп полный кадр с IBIS. Профессиональная студийная и пейзажная камера от Canon.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-r5"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -392,7 +422,12 @@
     "builtinFlash": false,
     "id": "canon-r6-mark-iii",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/r6-mark-iii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -450,7 +485,12 @@
     "builtinFlash": false,
     "id": "canon-eos-r6-mark-ii",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-r6-mark-ii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -503,7 +543,12 @@
     "hdmi": true,
     "builtinFlash": false,
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/5d-mark-iv"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -561,7 +606,12 @@
     "builtinFlash": false,
     "id": "canon-eos-r6",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-r6"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -619,7 +669,12 @@
     "builtinFlash": false,
     "id": "canon-eos-r8",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-r8"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -677,7 +732,12 @@
     "builtinFlash": false,
     "id": "canon-eos-90d",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-90d"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -735,7 +795,12 @@
     "builtinFlash": false,
     "id": "canon-eos-r7",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-r7"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -792,7 +857,12 @@
     "id": "canon-eos-r50-v",
     "description": "Компактная беззеркалка Canon для блогеров. Простое меню, AI AF, поворотный экран.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-r50-v"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -850,7 +920,12 @@
     "builtinFlash": false,
     "id": "canon-eos-rp",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-rp"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -908,7 +983,12 @@
     "builtinFlash": false,
     "id": "canon-eos-r50",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-r50"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -966,7 +1046,12 @@
     "builtinFlash": false,
     "id": "canon-eos-80d",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-80d"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -1024,7 +1109,12 @@
     "builtinFlash": false,
     "id": "canon-eos-850d",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-850d"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -1084,7 +1174,12 @@
     "id": "canon-eos-800d",
     "description": "Лучшая начальная зеркалка Canon: Dual Pixel AF делает видео почти профессиональным.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-800d"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -1142,7 +1237,12 @@
     "builtinFlash": false,
     "id": "canon-eos-r100",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-r100"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -1195,7 +1295,12 @@
     "builtinFlash": true,
     "id": "canon-eos-m50",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-m50"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -1250,7 +1355,12 @@
     "builtinFlash": false,
     "id": "canon-eos-60d",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-60d"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -1309,7 +1419,12 @@
     "id": "canon-eos-750d",
     "description": "Улучшенная 700D с NFC и Wi-Fi. Хороший вариант для первой камеры с небольшим запасом.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-750d"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -1366,7 +1481,12 @@
     "id": "canon-eos-700d",
     "description": "Классическая зеркалка для старта. Простое управление, огромная база б/у оптики Canon EF.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-700d"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -1422,7 +1542,12 @@
     "builtinFlash": false,
     "id": "canon-eos-m",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-m"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -1477,7 +1602,12 @@
     "builtinFlash": false,
     "id": "canon-eos-550d",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-550d"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -1533,7 +1663,12 @@
     "builtinFlash": true,
     "id": "canon-eos-100d",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-100d"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -1589,7 +1724,12 @@
     "builtinFlash": false,
     "id": "canon-eos-650d",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-650d"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -1647,7 +1787,12 @@
     "builtinFlash": false,
     "id": "canon-eos-1300d",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-1300d"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -1683,7 +1828,12 @@
     "id": "canon-1d-c",
     "description": "Кинематографический флагман. 4K видео, прочный корпус, профессиональный инструмент.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/1d-c"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -1739,7 +1889,12 @@
     "builtinFlash": true,
     "id": "canon-eos-1200d",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-1200d"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -1794,7 +1949,12 @@
     "builtinFlash": false,
     "id": "canon-eos-1100d",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-1100d"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -1830,7 +1990,12 @@
     "id": "canon-1d-x",
     "description": "Флагманский репортажный аппарат. 14 к/с, 61 точка AF, прочный корпус. Для самых требовательных.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/1d-x"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -1867,7 +2032,12 @@
     "id": "canon-1d-x-mark-iii",
     "description": "Профессиональный репортажный флагман с 16 к/с и RAW-видео.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/1d-x-mark-iii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -1904,7 +2074,12 @@
     "id": "canon-1d-x-mark-ii",
     "description": "Профессиональный репортажный флагман с 14 к/с и 4K-видео. Для спорта и дикой природы.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/1d-x-mark-ii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -1939,7 +2114,12 @@
     "id": "canon-1d-mark-iv",
     "description": "Профессиональный репортажный флагман. 10 к/с, 45 точек AF, прочный корпус. Для спорта и дикой природы.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/1d-mark-iv"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -1974,7 +2154,12 @@
     "id": "canon-5ds-r",
     "description": "Версия 5DS без низкочастотного фильтра для максимальной детализации.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/5ds-r"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -2009,7 +2194,12 @@
     "id": "canon-5ds",
     "description": "Full frame с рекордным для своего времени разрешением 50 Мп. Для студии и пейзажа.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/5ds"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -2044,7 +2234,12 @@
     "id": "canon-5d-mark-iii",
     "description": "Профессиональный полный кадр. 61 точка AF, отличная эргономика, надёжность.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/5d-mark-iii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -2081,7 +2276,12 @@
     "id": "canon-eos-r",
     "description": "Первая полнокадровая беззеркалка Canon. Отличный AF, 30 Мп, поворотный экран.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-r"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -2120,7 +2320,12 @@
     "id": "canon-6d-mark-ii",
     "description": "Полнокадровая зеркалка с поворотным экраном и Dual Pixel AF. Доступный FF для энтузиастов.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/6d-mark-ii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -2156,7 +2361,12 @@
     "id": "canon-6d",
     "description": "Самый доступный полный кадр Canon на тот момент. Отличное соотношение цена/качество.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/6d"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -2191,7 +2401,12 @@
     "id": "canon-eos-7d-mark-ii",
     "description": "Профессиональная зеркалка для спорта и дикой природы. 10 к/с, 65 точек AF, прочный корпус.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-7d-mark-ii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -2228,7 +2443,12 @@
     "id": "canon-eos-m6-mark-ii",
     "description": "32 Мп, 4K без кропа, 14 к/с. Лучшая беззеркалка Canon на EF-M.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-m6-mark-ii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -2265,7 +2485,12 @@
     "id": "canon-eos-r10",
     "description": "Доступная беззеркалка Canon APS-C с 4K, быстрым AF и поворотным экраном.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-r10"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -2301,7 +2526,12 @@
     "id": "canon-eos-70d",
     "description": "Первая зеркалка Canon с Dual Pixel AF для видео. Отличный гибрид фото+видео.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-70d"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -2339,7 +2569,12 @@
     "id": "canon-eos-77d",
     "description": "Зеркалка с верхним дисплеем и улучшенным управлением. Идеальна для продвинутых любителей.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-77d"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -2376,7 +2611,12 @@
     "id": "canon-eos-760d",
     "description": "Улучшенная версия 750D с верхним дисплеем и дополнительным колёсиком управления.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-760d"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -2411,7 +2651,12 @@
     "id": "canon-eos-600d",
     "description": "Популярная зеркалка для начинающих. Поворотный экран, Full HD видео, отличный старт в фотографию.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-600d"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -2449,7 +2694,12 @@
     "id": "canon-eos-200d",
     "description": "Лёгкая зеркалка для новичков с поворотным экраном и Dual Pixel AF. Отличный старт в фотографию.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/eos-200d"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -2506,7 +2756,12 @@
     "id": "dji-osmo-pocket-3",
     "description": "Карманная камера с трёхосевым стабилизатором. Идеал для влогов, путешествий и съёмки в движении.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/dji/osmo-pocket-3"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -2563,7 +2818,12 @@
     "id": "fujifilm-gfx100-ii",
     "description": "102 Мп средний формат с 8K видео. Абсолютный инструмент коммерческого фотографа.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/gfx100-ii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -2616,7 +2876,12 @@
     "builtinFlash": false,
     "id": "fujifilm-gfx100s-ii",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/gfx100s-ii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -2673,7 +2938,12 @@
     "id": "fujifilm-gfx-50s-ii",
     "description": "Доступный вход в средний формат Fuji: 51 Мп, IBIS. Для студии и пейзажа.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/gfx-50s-ii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -2730,7 +3000,12 @@
     "id": "fujifilm-x-t5",
     "description": "Флагман Fuji по разрешению: 40 Мп X-Trans, IBIS 7 стопов. Для пейзажа, студии и коммерции.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-t5"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -2787,7 +3062,12 @@
     "id": "fujifilm-x100vi",
     "description": "Лучший компакт 2024: 40 Мп, IBIS, AI AF. Ретро-дизайн и плёночные симуляции — мечта стритфотографа.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x100vi"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -2844,7 +3124,12 @@
     "id": "fujifilm-x-s20",
     "description": "Беззеркалка Fuji для блогеров: 6.2K, LOG, поворотный экран, вход для микрофона. Цвет из коробки.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-s20"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -2901,7 +3186,12 @@
     "id": "fujifilm-x100v",
     "description": "Культовая фиксфокальная камера с 35mm экв. Для тех, кто снимает одним объективом и думает кадром.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x100v"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -2958,7 +3248,12 @@
     "id": "fujifilm-x-t30-ii",
     "description": "X-T30 с обновлённым процессором и улучшенным видео. 26 Мп X-Trans в лёгком корпусе.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-t30-ii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -3015,7 +3310,12 @@
     "id": "fujifilm-x-t30",
     "description": "Компактный X-T с плёночными симуляциями. Лучший выбор для стрита и путешествий без лишнего веса.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-t30"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -3072,7 +3372,12 @@
     "builtinFlash": false,
     "id": "fujifilm-xq2",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/xq2"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -3129,7 +3434,12 @@
     "hdmi": true,
     "builtinFlash": false,
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/gfx-eterna"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -3186,7 +3496,12 @@
     "hdmi": false,
     "builtinFlash": false,
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/gfx100-ir"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -3243,7 +3558,12 @@
     "hdmi": false,
     "builtinFlash": false,
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/gfx100"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -3299,7 +3619,12 @@
     "hdmi": false,
     "builtinFlash": false,
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/gfx-50s"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -3356,7 +3681,12 @@
     "hdmi": false,
     "builtinFlash": false,
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/gfx100s"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -3413,7 +3743,12 @@
     "hdmi": false,
     "builtinFlash": false,
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/gfx100rf"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -3470,7 +3805,12 @@
     "hdmi": false,
     "builtinFlash": false,
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/gfx-50r"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -3527,7 +3867,12 @@
     "hdmi": true,
     "builtinFlash": false,
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-h2s"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -3584,7 +3929,12 @@
     "hdmi": true,
     "builtinFlash": false,
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-h2"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -3641,7 +3991,12 @@
     "hdmi": false,
     "builtinFlash": false,
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-pro3"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -3698,7 +4053,12 @@
     "hdmi": true,
     "builtinFlash": false,
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-t4"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -3734,7 +4094,12 @@
     "id": "fujifilm-x-t2",
     "description": "Флагман Fuji с 4K-видео, 91 точкой AF и отличной цветопередачей.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-t2"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -3770,7 +4135,12 @@
     "id": "fujifilm-x-pro2",
     "description": "Ретро-беззеркалка с гибридным видоискателем и уникальным дизайном. Для ценителей классики.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-pro2"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -3806,7 +4176,12 @@
     "id": "fujifilm-x-h1",
     "description": "Первая Fujifilm с IBIS. 24 Мп, 4K, прочный корпус, отличная эргономика.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-h1"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -3843,7 +4218,12 @@
     "id": "fujifilm-x-t3",
     "description": "Флагман Fuji с 26 Мп, 4K 60p и быстрым AF. Лучший APS-C для фото и видео.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-t3"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -3879,7 +4259,12 @@
     "id": "fujifilm-x100f",
     "description": "Культовый компакт с 23mm f/2 и APS-C сенсором. Идеальный выбор для стрит-фотографии.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x100f"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -3915,7 +4300,12 @@
     "id": "fujifilm-x100t",
     "description": "Культовый компакт с 23mm f/2, улучшенный видоискатель, классическое управление.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x100t"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -3950,7 +4340,12 @@
     "id": "fujifilm-x100s",
     "description": "Культовый компакт с 23mm f/2, улучшенный AF и новый сенсор X-Trans II.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x100s"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -3987,7 +4382,12 @@
     "id": "fujifilm-x-t50",
     "description": "X-T50 с IBIS и 26 Мп. Отличный выбор для любителей.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-t50"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -4022,7 +4422,12 @@
     "id": "fujifilm-x-pro1",
     "description": "Первая сменная беззеркалка Fuji с гибридным видоискателем. Уникальный цвет и дизайн.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-pro1"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -4056,7 +4461,12 @@
     "id": "fujifilm-x100",
     "description": "Культовый компакт с фикс-объективом 23mm f/2. APS-C сенсор, гибридный видоискатель.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x100"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -4093,7 +4503,12 @@
     "id": "fujifilm-x-s10",
     "description": "Беззеркалка с IBIS, 4K и простым управлением. Отличный выбор для начинающих.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-s10"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -4130,7 +4545,12 @@
     "id": "fujifilm-x-t30-iii",
     "description": "Обновлённый X-T30 с улучшенным AF и видео.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-t30-iii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -4166,7 +4586,12 @@
     "id": "fujifilm-x-t1",
     "description": "Первая топовая беззеркалка Fujifilm с пыле-влагозащитой. 8 к/с, отличный видоискатель.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-t1"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -4203,7 +4628,12 @@
     "id": "fujifilm-x-e5",
     "description": "Обновлённый компактный X-E с новым процессором и плёночными симуляциями.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-e5"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -4239,7 +4669,12 @@
     "id": "fujifilm-x70",
     "description": "Компакт с 18.5mm f/2.8 и поворотным экраном. Отличный выбор для стрита.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x70"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -4275,7 +4710,12 @@
     "id": "fujifilm-x-t20",
     "description": "Компактная версия X-T2 с 4K-видео и отличной цветопередачей. Лучший выбор для путешествий.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-t20"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -4312,7 +4752,12 @@
     "id": "fujifilm-x-e4",
     "description": "Компактная беззеркалка Fuji с 26 Мп и плёночными симуляциями. Для стрита.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-e4"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -4349,7 +4794,12 @@
     "id": "fujifilm-x-e3",
     "description": "Стильная беззеркалка с 4K-видео и отличным цветом. Идеальна для стрита и повседневной съёмки.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-e3"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -4384,7 +4834,12 @@
     "id": "fujifilm-x-e1",
     "description": "Беззеркалка с уникальной цветопередачей X-Trans. Компактный корпус, стильный дизайн.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-e1"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -4420,7 +4875,12 @@
     "id": "fujifilm-x-t10",
     "description": "Уменьшенная версия X-T1. Отличная цветопередача, стильный ретро-дизайн.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-t10"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -4457,7 +4917,12 @@
     "id": "fujifilm-x-m5",
     "description": "Бюджетная беззеркалка Fuji для начинающих и блогеров.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-m5"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -4493,7 +4958,12 @@
     "id": "fujifilm-x-e2s",
     "description": "Улучшенная версия X-E2 с новым процессором. Отличный цвет и компактность.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-e2s"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -4529,7 +4999,12 @@
     "id": "fujifilm-x-e2",
     "description": "Компактная беззеркалка с уникальной цветопередачей. Стильный дизайн, отличный JPG.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-e2"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -4566,7 +5041,12 @@
     "id": "fujifilm-xf10",
     "description": "Компактная камера Fujifilm с 18.5mm f/2.8. Отличный выбор для уличной фотографии.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/xf10"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -4602,7 +5082,12 @@
     "id": "fujifilm-x30",
     "description": "Улучшенный компакт X20. Поворотный экран, отличная эргономика, стильный дизайн.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x30"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -4637,7 +5122,12 @@
     "id": "fujifilm-x20",
     "description": "Компакт с оптическим видоискателем и 28-112mm экв. Отличный выбор для путешествий.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x20"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -4672,7 +5162,12 @@
     "id": "fujifilm-x10",
     "description": "Компактная камера с зумом и ретро-дизайном. Отличное качество для путешествий.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x10"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -4708,7 +5203,12 @@
     "id": "fujifilm-x-m1",
     "description": "Лёгкая беззеркалка Fujifilm для начинающих. Отличный цвет и простота использования.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-m1"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -4745,7 +5245,12 @@
     "id": "fujifilm-x-a7",
     "description": "Лёгкая беззеркалка для начинающих с 4K-видео и большим поворотным экраном.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-a7"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -4782,7 +5287,12 @@
     "id": "fujifilm-x-a5",
     "description": "Бюджетная беззеркалка с 4K-видео и поворотным экраном. Отличный старт в Fuji.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-a5"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -4817,7 +5327,12 @@
     "id": "fujifilm-xf1",
     "description": "Компактная камера с ретро-дизайном и отличным качеством снимков.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/xf1"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -4852,7 +5367,12 @@
     "id": "fujifilm-x-s1",
     "description": "Суперзум с 26x оптическим увеличением (24-624mm экв.). Хороший выбор для путешествий.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-s1"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -4888,7 +5408,12 @@
     "id": "fujifilm-x-a3",
     "description": "Бюджетная беззеркалка Fuji с поворотным экраном и отличным цветом. Для новичков и путешествий.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-a3"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -4923,7 +5448,12 @@
     "id": "fujifilm-x-a1",
     "description": "Доступная беззеркалка Fujifilm с поворотным экраном. Отличный выбор для новичков.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/x-a1"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -4958,7 +5488,12 @@
     "id": "fujifilm-xq1",
     "description": "Карманный компакт с большим сенсором и стильным дизайном. Отличная цветопередача.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/xq1"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -5015,7 +5550,12 @@
     "id": "hasselblad-x2d-100c",
     "description": "100 Мп средний формат — абсолютная детализация. Для тех, кто не ищет компромиссов в качестве.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/hasselblad/x2d-100c"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -5072,7 +5612,12 @@
     "id": "hasselblad-x1d-ii-50c",
     "description": "Компактный средний формат 50 Мп. Лёгкий путь в Hasselblad без студийного штатива.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/hasselblad/x1d-ii-50c"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -5108,7 +5653,12 @@
     "id": "hasselblad-h6d",
     "description": "Профессиональная среднеформатная камера с 50 или 100 Мп. Для самых требовательных.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/hasselblad/h6d"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -5143,7 +5693,12 @@
     "id": "hasselblad-h5d",
     "description": "Среднеформатная система с 40 Мп сенсором. Абсолютное качество для коммерции и студии.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/hasselblad/h5d"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -5179,7 +5734,12 @@
     "id": "hasselblad-x1d",
     "description": "Первая среднеформатная беззеркалка Hasselblad. Компактный корпус, невероятное качество.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/hasselblad/x1d"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -5215,7 +5775,12 @@
     "id": "hasselblad-x2d",
     "description": "100 Мп средний формат с IBIS. Абсолютная детализация для профессионалов.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/hasselblad/x2d"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -5251,7 +5816,12 @@
     "id": "hasselblad-907x",
     "description": "Среднеформатная беззеркалка с модульным дизайном и уникальным стилем.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/hasselblad/907x"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -5308,7 +5878,12 @@
     "id": "leica-m11-p",
     "description": "Дальномерная Leica с Content Credentials. Для коллекционеров и тех, кто снимает как художник.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/leica/m11-p"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -5365,7 +5940,12 @@
     "id": "leica-m11",
     "description": "Дальномерная легенда с 60 Мп. Для тех, кто превращает съёмку в медитацию.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/leica/m11"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -5422,7 +6002,12 @@
     "id": "leica-sl3",
     "description": "60 Мп полный кадр Leica с AF. Немецкое качество сборки и уникальный опыт использования.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/leica/sl3"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -5479,7 +6064,12 @@
     "id": "leica-q3",
     "description": "Новейшая Leica Q с 60 Мп и 8K видео. Флагман компактного полного кадра.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/leica/q3"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -5536,7 +6126,12 @@
     "id": "leica-sl3-s",
     "description": "24 Мп полный кадр с отличным видео. Leica для тех, кому важнее скорость, чем разрешение.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/leica/sl3-s"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -5593,7 +6188,12 @@
     "id": "leica-q2",
     "description": "Икона компактного полного кадра. 47 Мп, 28mm f/1.7 — для тех, кому важен опыт съёмки.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/leica/q2"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -5629,7 +6229,12 @@
     "id": "leica-m11-d",
     "description": "Дальномерная Leica без дисплея для чистого опыта съёмки.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/leica/m11-d"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -5665,7 +6270,12 @@
     "id": "leica-m10",
     "description": "Дальномерная легенда. 24 Мп полный кадр, ручной фокус, культовый статус.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/leica/m10"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -5700,7 +6310,12 @@
     "id": "leica-m-typ-240",
     "description": "Дальномерная Leica с полным кадром. Культовый статус, ручной фокус, отличное качество.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/leica/m--typ-240-"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -5737,7 +6352,12 @@
     "id": "leica-sl2",
     "description": "47 Мп полный кадр с IBIS и 4K. Беззеркалка Leica с премиальной эргономикой.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/leica/sl2"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -5772,7 +6392,12 @@
     "id": "leica-sl-typ-601",
     "description": "Первая полнокадровая беззеркалка Leica с 4K-видео и отличной эргономикой.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/leica/sl--typ-601-"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -5808,7 +6433,12 @@
     "id": "leica-q-typ-116",
     "description": "Культовый компакт с 28mm f/1.7 и полным кадром. Икона уличной фотографии.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/leica/q--typ-116-"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -5840,7 +6470,12 @@
     "id": "leica-m9-p",
     "description": "Дальномерная легенда. 18 Мп полный кадр, ручной фокус, культовый статус.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/leica/m9-p"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -5874,7 +6509,12 @@
     "id": "leica-x1",
     "description": "Компактная камера Leica с APS-C сенсором. Отличное качество и премиальный дизайн.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/leica/x1"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -5931,7 +6571,12 @@
     "id": "nikon-z9",
     "description": "Флагман Nikon без механического затвора: 45 Мп, 20 к/с RAW, 8K. Репортаж и спорт.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/z9"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -5988,7 +6633,12 @@
     "id": "nikon-z8",
     "description": "Z9 в компактном корпусе: 45 Мп, 8K, 20 к/с. Флагман Nikon для тех, кому важен вес.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/z8"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -6045,7 +6695,12 @@
     "id": "nikon-d850",
     "description": "45 Мп полный кадр — монолит. Лучший выбор для тех, кто не хочет уходить с зеркалок.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/d850"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -6103,7 +6758,12 @@
     "builtinFlash": false,
     "id": "nikon-z7-ii",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/z7-ii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -6161,7 +6821,12 @@
     "builtinFlash": false,
     "id": "nikon-zf",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/zf"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -6219,7 +6884,12 @@
     "builtinFlash": false,
     "id": "nikon-z7",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/z7"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -6276,7 +6946,12 @@
     "id": "nikon-d750",
     "description": "Доступный полный кадр с шикарным динамическим диапазоном. Классика для портрета и репортажа.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/d750"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -6329,7 +7004,12 @@
     "builtinFlash": false,
     "id": "nikon-d3100",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/d3100"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -6385,7 +7065,12 @@
     "builtinFlash": false,
     "id": "nikon-d3200",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/d3200"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -6421,7 +7106,12 @@
     "id": "nikon-d4s",
     "description": "Флагманский репортажный аппарат. 11 к/с, 51 точка AF, отличная работа при высоких ISO.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/d4s"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -6457,7 +7147,12 @@
     "id": "nikon-d4",
     "description": "Репортажный флагман. 11 к/с, отличное ISO, прочный корпус. Для спорта и событий.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/d4"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -6494,7 +7189,12 @@
     "id": "nikon-d6",
     "description": "Профессиональный репортажный флагман Nikon с 14 к/с и 4K-видео.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/d6"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -6531,7 +7231,12 @@
     "id": "nikon-d5",
     "description": "Профессиональный флагман Nikon с 153 точками AF, 12 к/с и 4K-видео.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/d5"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -6566,7 +7271,12 @@
     "id": "nikon-d3s",
     "description": "Профессиональный репортажный флагман. Отличная работа при высоких ISO, 9 к/с.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/d3s"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -6601,7 +7311,12 @@
     "id": "nikon-d800e",
     "description": "D800 без сглаживающего фильтра для максимальной детализации. Для требовательных к резкости.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/d800e"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -6636,7 +7351,12 @@
     "id": "nikon-d810",
     "description": "Зеркалка с 36 Мп полного кадра. Максимальное разрешение для пейзажей и студии.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/d810"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -6671,7 +7391,12 @@
     "id": "nikon-d800",
     "description": "Революционная камера с 36 Мп полного кадра. Пейзажи, студия, коммерция.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/d800"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -6708,7 +7433,12 @@
     "id": "nikon-z6-iii",
     "description": "Универсальный полный кадр Nikon с IBIS и 6K-видео.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/z6-iii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -6745,7 +7475,12 @@
     "id": "nikon-z6-ii",
     "description": "Улучшенный Z6 с двумя слотами и более быстрым AF. Отличный гибрид.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/z6-ii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -6780,7 +7515,12 @@
     "id": "nikon-df",
     "description": "Ретро-дизайн, полный кадр, управление как у плёночных камер. Для ценителей классики.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/df"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -6817,7 +7557,12 @@
     "id": "nikon-z6",
     "description": "Полнокадровая беззеркалка Nikon с 24 Мп, IBIS и отличной эргономикой.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/z6"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -6854,7 +7599,12 @@
     "id": "nikon-d780",
     "description": "Полнокадровая зеркалка с 4K-видео и фазовым AF в Live View.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/d780"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -6889,7 +7639,12 @@
     "id": "nikon-d600",
     "description": "Доступный полный кадр от Nikon. Отличный динамический диапазон.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/d600"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -6926,7 +7681,12 @@
     "id": "nikon-d500",
     "description": "Полупрофессиональная зеркалка с автофокусом от D5 и 4K-видео. Лучший APS-C для спорта.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/d500"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -6963,7 +7723,12 @@
     "id": "nikon-z5-ii",
     "description": "Обновлённый доступный полный кадр Nikon с улучшенным AF и видео.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/z5-ii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -7000,7 +7765,12 @@
     "id": "nikon-z5",
     "description": "Доступный полный кадр Nikon с IBIS и отличным качеством.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/z5"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -7035,7 +7805,12 @@
     "id": "nikon-d610",
     "description": "Полнокадровая зеркалка с высоким разрешением и хорошей эргономикой. Надёжный инструмент.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/d610"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -7072,7 +7847,12 @@
     "id": "nikon-z-fc",
     "description": "Ретро-дизайн, 4K-видео, поворотный экран. Отличный выбор для творческих новичков.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/z-fc"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -7109,7 +7889,12 @@
     "id": "nikon-z50",
     "description": "Первая APS-C беззеркалка Nikon Z. Компактная, 4K, поворотный экран.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/z50"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -7146,7 +7931,12 @@
     "id": "nikon-d7200",
     "description": "Полупрофессиональная зеркалка с 51 точкой AF, двойным слотом и Wi-Fi.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/d7200"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -7183,7 +7973,12 @@
     "id": "nikon-z50-ii",
     "description": "Обновлённая беззеркалка Nikon для начинающих с 4K и поворотным экраном.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/z50-ii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -7218,7 +8013,12 @@
     "id": "nikon-d7100",
     "description": "Полупрофессиональная зеркалка с 51 точкой AF и прочным корпусом. Лучший выбор для энтузиастов.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/d7100"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -7255,7 +8055,12 @@
     "id": "nikon-z30",
     "description": "Беззеркалка Nikon для влогов: 4K, поворотный экран, компактный корпус.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/z30"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -7289,7 +8094,12 @@
     "id": "nikon-d7000",
     "description": "Полупрофессиональная зеркалка с прочным корпусом и 39 точками AF. Отличный выбор для любителей.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/d7000"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -7326,7 +8136,12 @@
     "id": "nikon-d5600",
     "description": "Зеркалка с поворотным экраном, сенсорным управлением и отличным качеством фото.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/d5600"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -7362,7 +8177,12 @@
     "id": "nikon-d5500",
     "description": "Лёгкая зеркалка с поворотным экраном и сенсорным управлением. Отличный старт.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/d5500"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -7396,7 +8216,12 @@
     "id": "nikon-d5100",
     "description": "Зеркалка для начинающих с поворотным экраном. Хорошее качество видео и фото.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/d5100"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -7432,7 +8257,12 @@
     "id": "nikon-d3500",
     "description": "Лёгкая зеркалка для начинающих с отличным качеством и долгим временем работы.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/d3500"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -7468,7 +8298,12 @@
     "id": "nikon-d3400",
     "description": "Лёгкая зеркалка для новичков с отличным качеством и долгим временем работы от батареи.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/d3400"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -7503,7 +8338,12 @@
     "id": "nikon-d3300",
     "description": "Бюджетная зеркалка с 24 Мп. Отличный старт в мир Nikon.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/d3300"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -7539,7 +8379,12 @@
     "id": "olympus-om-d-e-m1x",
     "description": "Спортивный флагман Olympus с 18 к/с, 4K и продвинутой стабилизацией.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/olympus/om-d-e-m1x"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -7575,7 +8420,12 @@
     "id": "olympus-om-d-e-m1-iii",
     "description": "Флагман Olympus с IBIS, 4K и быстрым AF.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/olympus/om-d-e-m1-iii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -7611,7 +8461,12 @@
     "id": "olympus-om-d-e-m1-ii",
     "description": "Флагман Olympus с 4K-видео, быстрым AF и 5-осевым стабилизатором.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/olympus/om-d-e-m1-ii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -7647,7 +8502,12 @@
     "id": "olympus-pen-f",
     "description": "Ретро-дизайн, 20 Мп сенсор, встроенный стабилизатор. Для ценителей стиля.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/olympus/pen-f"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -7683,7 +8543,12 @@
     "id": "olympus-om-d-e-m5-iii",
     "description": "Лёгкая и компактная беззеркалка с 20 Мп, IBIS и 4K-видео.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/olympus/om-d-e-m5-iii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -7719,7 +8584,12 @@
     "id": "olympus-om-d-e-m1",
     "description": "Топовая беззеркалка Olympus с 5-осевым стабилизатором и быстрым AF. Для спорта и дикой природы.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/olympus/om-d-e-m1"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -7754,7 +8624,12 @@
     "id": "olympus-om-d-e-m5",
     "description": "Беззеркалка с пыле-влагозащитой и встроенным стабилизатором. Отличная эргономика.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/olympus/om-d-e-m5"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -7788,7 +8663,12 @@
     "id": "olympus-pen-e-pl2",
     "description": "Компактная беззеркалка со встроенным стабилизатором. Хороший выбор для путешествий.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/olympus/pen-e-pl2"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -7824,7 +8704,12 @@
     "id": "om-system-om-1",
     "description": "Флагман OM System с новым сенсором и быстрым AF.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/omsystem/om-1"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -7860,7 +8745,12 @@
     "id": "om-system-om-5",
     "description": "Компактная беззеркалка OM System с IBIS и 4K.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/omsystem/om-5"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -7917,7 +8807,12 @@
     "id": "panasonic-lumix-gh6",
     "description": "Видеофлагман Micro 4/3: 5.7K, C4K 120p, 10-бит, V-Log. Лучший в классе для видеографов.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-gh6"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -7974,7 +8869,12 @@
     "id": "panasonic-lumix-gh5",
     "description": "Классика гибридной видеосъёмки: 4K 60p, IBIS, V-Log L. Надёжный рабочий инструмент.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-gh5"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -8029,7 +8929,12 @@
     "builtinFlash": false,
     "id": "panasonic-lumix-g10",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-g10"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -8085,7 +8990,12 @@
     "builtinFlash": false,
     "id": "panasonic-lumix-gf3",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-gf3"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -8122,7 +9032,12 @@
     "id": "panasonic-lumix-s1h",
     "description": "Видео-флагман Panasonic. 6K, 10-бит, IBIS, встроенный вентилятор.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-s1h"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -8159,7 +9074,12 @@
     "id": "panasonic-lumix-s1r",
     "description": "47 Мп полный кадр с IBIS и отличной цветопередачей. Для студии и пейзажа.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-s1r"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -8196,7 +9116,12 @@
     "id": "panasonic-lumix-s5-iix",
     "description": "Видео-версия S5 II с дополнительными опциями для профессионалов.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-s5-iix"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -8233,7 +9158,12 @@
     "id": "panasonic-lumix-gh7",
     "description": "Новый видео-флагман Panasonic с 5.7K и улучшенным AF.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-gh7"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -8270,7 +9200,12 @@
     "id": "panasonic-lumix-s5-ii",
     "description": "Полный кадр Panasonic с фазовым AF, IBIS и 6K-видео.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-s5-ii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -8307,7 +9242,12 @@
     "id": "panasonic-lumix-s1",
     "description": "Полнокадровая беззеркалка Panasonic с IBIS, 4K 60p и отличной эргономикой.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-s1"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -8343,7 +9283,12 @@
     "id": "panasonic-lumix-gh5s",
     "description": "Видео-флагман Panasonic. Отличная работа при высоких ISO, 4K 60p, 10-бит.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-gh5s"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -8380,7 +9325,12 @@
     "id": "panasonic-lumix-g9-ii",
     "description": "Новый флагман Panasonic MFT с 25 Мп, IBIS и 5.7K.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-g9-ii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -8417,7 +9367,12 @@
     "id": "panasonic-lumix-s5",
     "description": "Компактный полный кадр Panasonic с IBIS и отличным видео.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-s5"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -8454,7 +9409,12 @@
     "id": "panasonic-lumix-s9",
     "description": "Компактный полный кадр Panasonic с IBIS и 4K.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-s9"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -8491,7 +9451,12 @@
     "id": "panasonic-lumix-g9",
     "description": "Фото-флагман Panasonic с 20 Мп, 60 к/с и отличной эргономикой. Конкурент Fuji X-T2.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-g9"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -8528,7 +9493,12 @@
     "id": "panasonic-lumix-gh5-ii",
     "description": "Видео-флагман Panasonic с 4K 60p, IBIS и 10-бит. Для профессионалов.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-gh5-ii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -8564,7 +9534,12 @@
     "id": "panasonic-lumix-gh4",
     "description": "Первая беззеркалка с 4K видео. Профессиональный инструмент для видеографов. V-Log L опционально.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-gh4"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -8600,7 +9575,12 @@
     "id": "panasonic-lumix-gx8",
     "description": "Энтузиастская беззеркалка с 20 Мп, IBIS, 4K и поворотным экраном.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-gx8"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -8635,7 +9615,12 @@
     "id": "panasonic-lumix-gh3",
     "description": "Видео-ориентированная беззеркалка. Отличное качество видео, прочный корпус.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-gh3"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -8671,7 +9656,12 @@
     "id": "panasonic-lumix-gx9",
     "description": "Компактная беззеркалка с 20 Мп, IBIS и 4K-видео. Отличный выбор для повседневной съёмки.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-gx9"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -8707,7 +9697,12 @@
     "id": "panasonic-lumix-gx7",
     "description": "Энтузиастская беззеркалка со встроенным стабилизатором и отличным электронным видоискателем.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-gx7"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -8743,7 +9738,12 @@
     "id": "panasonic-lumix-gx80-85",
     "description": "Энтузиастская беззеркалка с 4K, IBIS и отличной эргономикой.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-gx80-85"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -8777,7 +9777,12 @@
     "id": "panasonic-lumix-gh2",
     "description": "Видео-ориентированная беззеркалка. Отличное качество видео для своего времени.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-gh2"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -8813,7 +9818,12 @@
     "id": "panasonic-lumix-g7",
     "description": "Бюджетная беззеркалка с 4K-видео. Отличный выбор для начинающих видеографов.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-g7"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -8848,7 +9858,12 @@
     "id": "panasonic-lumix-gx1",
     "description": "Энтузиастская беззеркалка с управлением как у классической камеры. Отличная эргономика.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-gx1"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -8883,7 +9898,12 @@
     "id": "panasonic-lumix-g6",
     "description": "Беззеркалка с отличным видео и удобным управлением. Хороший выбор для видеографов-любителей.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-g6"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -8918,7 +9938,12 @@
     "id": "panasonic-lumix-g5",
     "description": "Беззеркалка с поворотным экраном и электронным видоискателем. Универсальный выбор.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-g5"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -8953,7 +9978,12 @@
     "id": "panasonic-lumix-g3",
     "description": "Беззеркалка с поворотным экраном и сенсорным управлением. Хороший выбор для повседневной съёмки.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-g3"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -8988,7 +10018,12 @@
     "id": "panasonic-lumix-gm1",
     "description": "Самая маленькая беззеркалка с MFT-сенсором. Помещается в карман, но даёт отличное качество.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-gm1"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -9022,7 +10057,12 @@
     "id": "panasonic-lumix-g2",
     "description": "Первая беззеркалка Panasonic с поворотным экраном и сенсорным управлением.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-g2"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -9058,7 +10098,12 @@
     "id": "panasonic-lumix-gf7",
     "description": "Компактная беззеркалка для начинающих. Поворотный экран для селфи, стильный дизайн.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-gf7"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -9094,7 +10139,12 @@
     "id": "panasonic-lumix-gf6",
     "description": "Компактная беззеркалка для начинающих. Поворотный экран, Wi-Fi, стильный дизайн.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-gf6"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -9129,7 +10179,12 @@
     "id": "panasonic-lumix-gf5",
     "description": "Миниатюрная беззеркалка для начинающих. Простота и компактность.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/panasonic/lumix-gf5"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -9164,7 +10219,12 @@
     "id": "pentax-645z",
     "description": "Среднеформатная зеркалка с 51 Мп. Высокое разрешение и отличная цветопередача. Для самых требовательных.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/pentax/645z"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -9200,7 +10260,12 @@
     "id": "pentax-k-1",
     "description": "Первая полнокадровая зеркалка Pentax с встроенным стабилизатором и поворотным экраном.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/pentax/k-1"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -9236,7 +10301,12 @@
     "id": "pentax-k-3-iii",
     "description": "Последняя зеркалка Pentax с IBIS, 4K и быстрым AF.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/pentax/k-3-iii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -9272,7 +10342,12 @@
     "id": "pentax-kp",
     "description": "Стильная зеркалка с встроенным стабилизатором и сменными рукоятками. Отличная эргономика.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/pentax/kp"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -9307,7 +10382,12 @@
     "id": "pentax-k-3",
     "description": "Прочная зеркалка с встроенным стабилизатором и 24 Мп. Отличная эргономика и защита от пыли/влаги.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/pentax/k-3"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -9341,7 +10421,12 @@
     "id": "pentax-k-5",
     "description": "Зеркалка с встроенной стабилизацией и пыле-влагозащитой. Надёжный инструмент для энтузиастов.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/pentax/k-5"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -9394,7 +10479,12 @@
     "builtinFlash": false,
     "id": "ricoh-gr-iv",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/ricoh/gr-iv"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -9451,7 +10541,12 @@
     "builtinFlash": false,
     "id": "ricoh-gr-iiix",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/ricoh/gr-iiix"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -9504,7 +10599,12 @@
     "builtinFlash": false,
     "id": "ricoh-gr-iii",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/ricoh/gr-iii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -9561,7 +10661,12 @@
     "builtinFlash": true,
     "id": "ricoh-gr-ii",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/ricoh/gr-ii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -9618,7 +10723,12 @@
     "id": "sony-a1-ii",
     "description": "Абсолютный флагман Sony: 50 Мп, 30 к/с, 8K, AI AF. Лучшая камера на рынке для профи.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/a1-ii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -9675,7 +10785,12 @@
     "id": "sony-a9-iii",
     "description": "Первый в мире глобальный затвор: 120 к/с без искажений. Идеал для спорта и дикой природы.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/a9-iii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -9732,7 +10847,12 @@
     "id": "sony-a7-v",
     "description": "Новый A7 V: улучшенный AF, 33 Мп, 8K. Гибрид следующего поколения от Sony.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/a7-v"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -9789,7 +10909,12 @@
     "id": "sony-a7r-vi",
     "description": "61 Мп с новым AI процессором. Максимальная детализация Sony с улучшенным видео.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/a7r-vi"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -9846,7 +10971,12 @@
     "id": "sony-alpha-a7r-v",
     "description": "61 Мп с AI AF — монстр детализации. Коммерция, архитектура, пейзаж на высшем уровне.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/alpha-a7r-v"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -9903,7 +11033,12 @@
     "id": "sony-a7c-ii",
     "description": "Компактный полный кадр с IBIS и AI AF. Лучший выбор если нужен FF в небольшом корпусе.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/a7c-ii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -9961,7 +11096,12 @@
     "builtinFlash": false,
     "id": "sony-zv-e1",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/zv-e1"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -10018,7 +11158,12 @@
     "id": "sony-a7-iii",
     "description": "Легенда: полный кадр, IBIS, S-Log3, 693 точки AF. Гибрид фото+видео, не устаревает годами.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/a7-iii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -10075,7 +11220,12 @@
     "id": "sony-zv-e10-ii",
     "description": "Беззеркалка для контентмейкеров: поворотный экран, вход для микрофона, отличный AF по лицу.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/zv-e10-ii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -10133,7 +11283,12 @@
     "builtinFlash": false,
     "id": "sony-zv-e10",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/zv-e10"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -10191,7 +11346,12 @@
     "builtinFlash": false,
     "id": "sony-zv-1",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/zv-1"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -10249,7 +11409,12 @@
     "builtinFlash": false,
     "id": "sony-zv-1f",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/zv-1f"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -10305,7 +11470,12 @@
     "builtinFlash": false,
     "id": "sony-nex-3n",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/nex-3n"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -10360,7 +11530,12 @@
     "builtinFlash": false,
     "id": "sony-nex-3",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/nex-3"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -10398,7 +11573,12 @@
     "id": "sony-alpha-a1-ii",
     "description": "Флагман Sony с 50 Мп, 30 к/с, 8K и AI AF.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/alpha-a1-ii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -10436,7 +11616,12 @@
     "id": "sony-alpha-a1",
     "description": "Абсолютный флагман Sony: 50 Мп, 30 к/с, 8K, AI AF. Лучшая камера на рынке.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/alpha-a1"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -10474,7 +11659,12 @@
     "id": "sony-alpha-a9-iii",
     "description": "Первый в мире глобальный затвор: 120 к/с без искажений. Для спорта и дикой природы.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/alpha-a9-iii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -10512,7 +11702,12 @@
     "id": "sony-alpha-a9",
     "description": "Беззеркалка для спорта и экшн-съёмки. 20 к/с с AF/AE, без затемнения видоискателя.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/alpha-a9"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -10549,7 +11744,12 @@
     "id": "sony-alpha-a7s-iii",
     "description": "Видео-флагман Sony с 4K 120p, IBIS и 10-бит 4:2:2.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/alpha-a7s-iii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -10586,7 +11786,12 @@
     "id": "sony-alpha-a7r-iv",
     "description": "61 Мп полный кадр с IBIS и 10 к/с. Лучший выбор для коммерческой съёмки.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/alpha-a7r-iv"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -10623,7 +11828,12 @@
     "id": "sony-alpha-a7r-ii",
     "description": "Первая полнокадровая беззеркалка с IBIS и 4K-видео. Революция в мире фото.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/alpha-a7r-ii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -10658,7 +11868,12 @@
     "id": "sony-alpha-a99",
     "description": "Полнокадровая зеркалка Sony с полупрозрачным зеркалом. Встроенный стабилизатор.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/alpha-a99"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -10695,7 +11910,12 @@
     "id": "sony-alpha-a7s-ii",
     "description": "Видео-монстр с отличной работой при высоких ISO, IBIS и 4K. Для профессионального видео.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/alpha-a7s-ii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -10733,7 +11953,12 @@
     "id": "sony-alpha-a7r-iii",
     "description": "42 Мп с IBIS, 4K-видео и быстрым AF. Идеальный выбор для профессионалов.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/alpha-a7r-iii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -10770,7 +11995,12 @@
     "id": "sony-a7c-r",
     "description": "61 Мп полный кадр в компактном корпусе. Для коммерции и пейзажа.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/a7c-r"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -10807,7 +12037,12 @@
     "id": "sony-alpha-a99-ii",
     "description": "Флагманская зеркалка Sony A-mount с 42 Мп, IBIS и 4K-видео.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/alpha-a99-ii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -10844,7 +12079,12 @@
     "id": "sony-alpha-a7s",
     "description": "Специализированная камера для видео и съёмки в темноте. 12 Мп полный кадр, отличная работа при ISO 409600.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/alpha-a7s"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -10881,7 +12121,12 @@
     "id": "sony-alpha-a7-v",
     "description": "Новый универсальный полный кадр Sony с улучшенным AI AF.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/alpha-a7-v"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -10918,7 +12163,12 @@
     "id": "sony-alpha-a7-iv",
     "description": "Новый универсальный полный кадр Sony: 33 Мп, AI AF, отличное видео.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/alpha-a7-iv"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -10954,7 +12204,12 @@
     "id": "sony-alpha-a7r",
     "description": "Беззеркалка с 36 Мп полного кадра. Максимальная детализация для пейзажей и студии.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/alpha-a7r"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -10992,7 +12247,12 @@
     "id": "sony-alpha-a7-iii",
     "description": "Легенда: полный кадр, IBIS, 4K, 693 точки AF. Гибрид фото+видео, не устаревает годами.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/alpha-a7-iii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -11029,7 +12289,12 @@
     "id": "sony-fx30",
     "description": "Киношная беззеркалка Sony с 4K 120p, S-Log3 и IBIS.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/fx30"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -11066,7 +12331,12 @@
     "id": "sony-alpha-a7-ii",
     "description": "Полнокадровая беззеркалка с улучшенным AF и встроенным стабилизатором.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/alpha-a7-ii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -11102,7 +12372,12 @@
     "id": "sony-alpha-a7",
     "description": "Первая полнокадровая беззеркалка. Компактный корпус, отличное качество, сменные объективы.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/alpha-a7"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -11139,7 +12414,12 @@
     "id": "sony-alpha-a77-ii",
     "description": "Одна из лучших зеркалок Sony с A-байонетом. 79 точек AF, 12 к/с, стабилизация в корпусе.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/alpha-a77-ii"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -11176,7 +12456,12 @@
     "id": "sony-alpha-a6600",
     "description": "APS-C флагман Sony с IBIS и большим аккумулятором. Отличный гибрид.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/alpha-a6600"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -11213,7 +12498,12 @@
     "id": "sony-alpha-a6500",
     "description": "Флагман Sony APS-C с IBIS, быстрым AF и 4K-видео. Лучший выбор для экшн-съёмки.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/alpha-a6500"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -11250,7 +12540,12 @@
     "id": "sony-alpha-a6400",
     "description": "Лучший APS-C для видео и контента. 4K, быстрый AF, поворотный экран.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/alpha-a6400"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -11287,7 +12582,12 @@
     "id": "sony-alpha-a6300",
     "description": "Беззеркалка с 4K-видео и быстрым AF. Отличный выбор для видео и фотографии.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/alpha-a6300"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -11324,7 +12624,12 @@
     "id": "sony-alpha-a6100",
     "description": "4K, быстрый AF, поворотный экран. Отличный старт в мир Sony APS-C.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/alpha-a6100"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -11359,7 +12664,12 @@
     "id": "sony-nex-7",
     "description": "Топовая беззеркалка Sony своего времени. 24 Мп, отличный электронный видоискатель, компактность.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/nex-7"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -11394,7 +12704,12 @@
     "id": "sony-nex-6",
     "description": "Беззеркалка с электронным видоискателем и гибридным AF. Отличный выбор для энтузиастов.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/nex-6"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -11431,7 +12746,12 @@
     "id": "sony-alpha-a6000",
     "description": "Легендарная беззеркалка APS-C. 179 точек AF, 11 к/с, компактный корпус. Очень популярна до сих пор.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/alpha-a6000"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -11466,7 +12786,12 @@
     "id": "sony-nex-5r",
     "description": "Беззеркалка с гибридным AF и поворотным экраном. Компактный и удобный.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/nex-5r"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -11500,7 +12825,12 @@
     "id": "sony-nex-5",
     "description": "Беззеркалка с поворотным экраном. Хороший старт для перехода с компактов.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/nex-5"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -11535,7 +12865,12 @@
     "id": "sony-nex-c3",
     "description": "Лёгкая и компактная беззеркалка для начинающих. APS-C сенсор в маленьком корпусе.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/nex-c3"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   },
@@ -11570,7 +12905,12 @@
     "id": "sony-a3000",
     "description": "Беззеркалка с большим видоискателем. Дешёвый вход в мир Sony E-mount.",
     "website": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/a3000"
+      }
+    ],
     "manualUrl": "",
     "firmwareUrl": ""
   }
