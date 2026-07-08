@@ -48,7 +48,8 @@
     "bonus": 0,
     "eyeAutofocus": false,
     "note": "Дальномерная Leica с Content Credentials. Для коллекционеров и тех, кто снимает как художник.",
-    "avitoQuery": "Leica M11-P"
+    "avitoQuery": "Leica M11-P",
+    "id": "leica-m11-p"
   },
   {
     "brand": "Fujifilm",
@@ -99,7 +100,8 @@
     "bonus": 0,
     "eyeAutofocus": true,
     "note": "102 Мп средний формат с 8K видео. Абсолютный инструмент коммерческого фотографа.",
-    "avitoQuery": "Fujifilm GFX100 II"
+    "avitoQuery": "Fujifilm GFX100 II",
+    "id": "fujifilm-gfx100-ii"
   },
   {
     "brand": "Hasselblad",
@@ -150,7 +152,8 @@
     "bonus": 0,
     "eyeAutofocus": false,
     "note": "100 Мп средний формат — абсолютная детализация. Для тех, кто не ищет компромиссов в качестве.",
-    "avitoQuery": "Hasselblad X2D 100C"
+    "avitoQuery": "Hasselblad X2D 100C",
+    "id": "hasselblad-x2d-100c"
   },
   {
     "brand": "Leica",
@@ -201,7 +204,8 @@
     "bonus": 0,
     "eyeAutofocus": false,
     "note": "Дальномерная легенда с 60 Мп. Для тех, кто превращает съёмку в медитацию.",
-    "avitoQuery": "Leica M11"
+    "avitoQuery": "Leica M11",
+    "id": "leica-m11"
   },
   {
     "brand": "Leica",
@@ -252,7 +256,8 @@
     "bonus": 0,
     "eyeAutofocus": true,
     "note": "60 Мп полный кадр Leica с AF. Немецкое качество сборки и уникальный опыт использования.",
-    "avitoQuery": "Leica SL3"
+    "avitoQuery": "Leica SL3",
+    "id": "leica-sl3"
   },
   {
     "brand": "Canon",
@@ -303,7 +308,8 @@
     "bonus": 0,
     "eyeAutofocus": true,
     "note": "Профессиональный флагман Canon: стек сенсора, 40 к/с RAW, AI AF нового поколения.",
-    "avitoQuery": "Canon EOS R1"
+    "avitoQuery": "Canon EOS R1",
+    "id": "canon-eos-r1"
   },
   {
     "brand": "Sony",
@@ -354,7 +360,8 @@
     "bonus": 0,
     "eyeAutofocus": true,
     "note": "Абсолютный флагман Sony: 50 Мп, 30 к/с, 8K, AI AF. Лучшая камера на рынке для профи.",
-    "avitoQuery": "Sony a1 II"
+    "avitoQuery": "Sony a1 II",
+    "id": "sony-a1-ii"
   },
   {
     "brand": "Leica",
@@ -405,7 +412,8 @@
     "bonus": 0,
     "eyeAutofocus": true,
     "note": "Новейшая Leica Q с 60 Мп и 8K видео. Флагман компактного полного кадра.",
-    "avitoQuery": "Leica Q3"
+    "avitoQuery": "Leica Q3",
+    "id": "leica-q3"
   },
   {
     "brand": "Sony",
@@ -456,7 +464,8 @@
     "bonus": 0,
     "eyeAutofocus": true,
     "note": "Первый в мире глобальный затвор: 120 к/с без искажений. Идеал для спорта и дикой природы.",
-    "avitoQuery": "Sony a9 III"
+    "avitoQuery": "Sony a9 III",
+    "id": "sony-a9-iii"
   },
   {
     "brand": "Nikon",
@@ -507,7 +516,8 @@
     "bonus": 0,
     "eyeAutofocus": true,
     "note": "Флагман Nikon без механического затвора: 45 Мп, 20 к/с RAW, 8K. Репортаж и спорт.",
-    "avitoQuery": "Nikon Z9"
+    "avitoQuery": "Nikon Z9",
+    "id": "nikon-z9"
   },
   {
     "brand": "Hasselblad",
@@ -558,7 +568,8 @@
     "bonus": 0,
     "eyeAutofocus": false,
     "note": "Компактный средний формат 50 Мп. Лёгкий путь в Hasselblad без студийного штатива.",
-    "avitoQuery": "Hasselblad X1D II 50C"
+    "avitoQuery": "Hasselblad X1D II 50C",
+    "id": "hasselblad-x1d-ii-50c"
   },
   {
     "brand": "Leica",
@@ -609,7 +620,8 @@
     "bonus": 0,
     "eyeAutofocus": true,
     "note": "24 Мп полный кадр с отличным видео. Leica для тех, кому важнее скорость, чем разрешение.",
-    "avitoQuery": "Leica SL3-S"
+    "avitoQuery": "Leica SL3-S",
+    "id": "leica-sl3-s"
   },
   {
     "brand": "Sony",
@@ -660,7 +672,8 @@
     "bonus": 0,
     "eyeAutofocus": true,
     "note": "Новый A7 V: улучшенный AF, 33 Мп, 8K. Гибрид следующего поколения от Sony.",
-    "avitoQuery": "Sony a7 V"
+    "avitoQuery": "Sony a7 V",
+    "id": "sony-a7-v"
   },
   {
     "brand": "Leica",
@@ -711,7 +724,8 @@
     "bonus": 0,
     "eyeAutofocus": true,
     "note": "Икона компактного полного кадра. 47 Мп, 28mm f/1.7 — для тех, кому важен опыт съёмки.",
-    "avitoQuery": "Leica Q2"
+    "avitoQuery": "Leica Q2",
+    "id": "leica-q2"
   },
   {
     "brand": "Sony",
@@ -762,7 +776,8 @@
     "bonus": 0,
     "eyeAutofocus": true,
     "note": "61 Мп с новым AI процессором. Максимальная детализация Sony с улучшенным видео.",
-    "avitoQuery": "Sony a7R VI"
+    "avitoQuery": "Sony a7R VI",
+    "id": "sony-a7r-vi"
   },
   {
     "brand": "Fujifilm",
@@ -810,7 +825,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "fujifilm-gfx100s-ii"
   },
   {
     "brand": "Canon",
@@ -864,7 +880,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "canon-eos-r3"
   },
   {
     "brand": "Nikon",
@@ -915,7 +932,8 @@
     "bonus": 0,
     "eyeAutofocus": true,
     "note": "Z9 в компактном корпусе: 45 Мп, 8K, 20 к/с. Флагман Nikon для тех, кому важен вес.",
-    "avitoQuery": "Nikon Z8"
+    "avitoQuery": "Nikon Z8",
+    "id": "nikon-z8"
   },
   {
     "brand": "Sony",
@@ -966,7 +984,8 @@
     "bonus": 0,
     "eyeAutofocus": true,
     "note": "61 Мп с AI AF — монстр детализации. Коммерция, архитектура, пейзаж на высшем уровне.",
-    "avitoQuery": "Sony A7R V"
+    "avitoQuery": "Sony A7R V",
+    "id": "sony-alpha-a7r-v"
   },
   {
     "brand": "Fujifilm",
@@ -1017,7 +1036,8 @@
     "bonus": 0,
     "eyeAutofocus": true,
     "note": "Доступный вход в средний формат Fuji: 51 Мп, IBIS. Для студии и пейзажа.",
-    "avitoQuery": "Fujifilm GFX 50S II"
+    "avitoQuery": "Fujifilm GFX 50S II",
+    "id": "fujifilm-gfx-50s-ii"
   },
   {
     "brand": "Canon",
@@ -1065,7 +1085,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "canon-eos-r5-mark-ii"
   },
   {
     "brand": "Canon",
@@ -1116,7 +1137,8 @@
     "bonus": 0,
     "eyeAutofocus": true,
     "note": "45 Мп полный кадр с IBIS. Профессиональная студийная и пейзажная камера от Canon.",
-    "avitoQuery": "Canon EOS R5"
+    "avitoQuery": "Canon EOS R5",
+    "id": "canon-eos-r5"
   },
   {
     "brand": "Canon",
@@ -1168,7 +1190,8 @@
     "monochrome": false,
     "headphoneJack": true,
     "hdmi": true,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "canon-r6-mark-iii"
   },
   {
     "brand": "Sony",
@@ -1219,7 +1242,8 @@
     "bonus": 0,
     "eyeAutofocus": true,
     "note": "Компактный полный кадр с IBIS и AI AF. Лучший выбор если нужен FF в небольшом корпусе.",
-    "avitoQuery": "Sony A7C II"
+    "avitoQuery": "Sony A7C II",
+    "id": "sony-a7c-ii"
   },
   {
     "brand": "Panasonic",
@@ -1270,7 +1294,8 @@
     "bonus": 0,
     "eyeAutofocus": false,
     "note": "Видеофлагман Micro 4/3: 5.7K, C4K 120p, 10-бит, V-Log. Лучший в классе для видеографов.",
-    "avitoQuery": "Panasonic Lumix GH6"
+    "avitoQuery": "Panasonic Lumix GH6",
+    "id": "panasonic-lumix-gh6"
   },
   {
     "brand": "Fujifilm",
@@ -1321,7 +1346,8 @@
     "bonus": 0,
     "eyeAutofocus": true,
     "note": "Флагман Fuji по разрешению: 40 Мп X-Trans, IBIS 7 стопов. Для пейзажа, студии и коммерции.",
-    "avitoQuery": "Fujifilm X-T5"
+    "avitoQuery": "Fujifilm X-T5",
+    "id": "fujifilm-x-t5"
   },
   {
     "brand": "Nikon",
@@ -1372,7 +1398,8 @@
     "bonus": 0,
     "eyeAutofocus": false,
     "note": "45 Мп полный кадр — монолит. Лучший выбор для тех, кто не хочет уходить с зеркалок.",
-    "avitoQuery": "Nikon D850"
+    "avitoQuery": "Nikon D850",
+    "id": "nikon-d850"
   },
   {
     "brand": "Nikon",
@@ -1425,7 +1452,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "nikon-z7-ii"
   },
   {
     "brand": "Fujifilm",
@@ -1476,7 +1504,8 @@
     "bonus": 0,
     "eyeAutofocus": true,
     "note": "Лучший компакт 2024: 40 Мп, IBIS, AI AF. Ретро-дизайн и плёночные симуляции — мечта стритфотографа.",
-    "avitoQuery": "Fujifilm X100VI"
+    "avitoQuery": "Fujifilm X100VI",
+    "id": "fujifilm-x100vi"
   },
   {
     "brand": "Sony",
@@ -1529,7 +1558,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "sony-zv-e1"
   },
   {
     "brand": "Ricoh",
@@ -1577,7 +1607,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "ricoh-gr-iv"
   },
   {
     "brand": "Canon",
@@ -1630,7 +1661,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "canon-eos-r6-mark-ii"
   },
   {
     "brand": "Canon",
@@ -1681,7 +1713,8 @@
     "bonus": 0,
     "eyeAutofocus": true,
     "note": "Легендарная профессиональная зеркалка. Надёжна как АК-47, огромный парк EF-оптики.",
-    "avitoQuery": "Canon 5D Mark IV"
+    "avitoQuery": "Canon 5D Mark IV",
+    "id": "canon-5d-mark-iv"
   },
   {
     "brand": "Fujifilm",
@@ -1732,7 +1765,8 @@
     "bonus": 0,
     "eyeAutofocus": true,
     "note": "Беззеркалка Fuji для блогеров: 6.2K, LOG, поворотный экран, вход для микрофона. Цвет из коробки.",
-    "avitoQuery": "Fujifilm X-S20"
+    "avitoQuery": "Fujifilm X-S20",
+    "id": "fujifilm-x-s20"
   },
   {
     "brand": "Nikon",
@@ -1785,7 +1819,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "nikon-zf"
   },
   {
     "brand": "Fujifilm",
@@ -1836,7 +1871,8 @@
     "bonus": 0,
     "eyeAutofocus": true,
     "note": "Культовая фиксфокальная камера с 35mm экв. Для тех, кто снимает одним объективом и думает кадром.",
-    "avitoQuery": "Fujifilm X100V"
+    "avitoQuery": "Fujifilm X100V",
+    "id": "fujifilm-x100v"
   },
   {
     "brand": "Apple",
@@ -1888,7 +1924,8 @@
     "monochrome": false,
     "headphoneJack": true,
     "hdmi": true,
-    "builtinFlash": true
+    "builtinFlash": true,
+    "id": "apple-iphone-17-pro"
   },
   {
     "brand": "Sony",
@@ -1939,7 +1976,8 @@
     "bonus": 0,
     "eyeAutofocus": true,
     "note": "Легенда: полный кадр, IBIS, S-Log3, 693 точки AF. Гибрид фото+видео, не устаревает годами.",
-    "avitoQuery": "Sony A7 III"
+    "avitoQuery": "Sony A7 III",
+    "id": "sony-a7-iii"
   },
   {
     "brand": "Canon",
@@ -1992,7 +2030,8 @@
     "monochrome": false,
     "headphoneJack": true,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "canon-eos-r6"
   },
   {
     "brand": "Apple",
@@ -2044,7 +2083,8 @@
     "monochrome": false,
     "headphoneJack": true,
     "hdmi": true,
-    "builtinFlash": true
+    "builtinFlash": true,
+    "id": "apple-iphone-16-pro"
   },
   {
     "brand": "Ricoh",
@@ -2096,7 +2136,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "ricoh-gr-iiix"
   },
   {
     "brand": "Nikon",
@@ -2149,7 +2190,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "nikon-z7"
   },
   {
     "brand": "Ricoh",
@@ -2197,7 +2239,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "ricoh-gr-iii"
   },
   {
     "brand": "Canon",
@@ -2250,7 +2293,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "canon-eos-r8"
   },
   {
     "brand": "Canon",
@@ -2303,7 +2347,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "canon-eos-90d"
   },
   {
     "brand": "Panasonic",
@@ -2354,7 +2399,8 @@
     "bonus": 0,
     "eyeAutofocus": false,
     "note": "Классика гибридной видеосъёмки: 4K 60p, IBIS, V-Log L. Надёжный рабочий инструмент.",
-    "avitoQuery": "Panasonic Lumix GH5"
+    "avitoQuery": "Panasonic Lumix GH5",
+    "id": "panasonic-lumix-gh5"
   },
   {
     "brand": "Canon",
@@ -2407,7 +2453,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "canon-eos-r7"
   },
   {
     "brand": "Canon",
@@ -2458,7 +2505,8 @@
     "bonus": 0,
     "eyeAutofocus": true,
     "note": "Компактная беззеркалка Canon для блогеров. Простое меню, AI AF, поворотный экран.",
-    "avitoQuery": "Canon EOS R50 V"
+    "avitoQuery": "Canon EOS R50 V",
+    "id": "canon-eos-r50-v"
   },
   {
     "brand": "Sony",
@@ -2509,7 +2557,8 @@
     "bonus": 0,
     "eyeAutofocus": true,
     "note": "Беззеркалка для контентмейкеров: поворотный экран, вход для микрофона, отличный AF по лицу.",
-    "avitoQuery": "Sony ZV-E10 II"
+    "avitoQuery": "Sony ZV-E10 II",
+    "id": "sony-zv-e10-ii"
   },
   {
     "brand": "Fujifilm",
@@ -2560,7 +2609,8 @@
     "bonus": 0,
     "eyeAutofocus": true,
     "note": "X-T30 с обновлённым процессором и улучшенным видео. 26 Мп X-Trans в лёгком корпусе.",
-    "avitoQuery": "Fujifilm X-T30 II"
+    "avitoQuery": "Fujifilm X-T30 II",
+    "id": "fujifilm-x-t30-ii"
   },
   {
     "brand": "Nikon",
@@ -2611,7 +2661,8 @@
     "bonus": 0,
     "eyeAutofocus": false,
     "note": "Доступный полный кадр с шикарным динамическим диапазоном. Классика для портрета и репортажа.",
-    "avitoQuery": "Nikon D750"
+    "avitoQuery": "Nikon D750",
+    "id": "nikon-d750"
   },
   {
     "brand": "Canon",
@@ -2664,7 +2715,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "canon-eos-rp"
   },
   {
     "brand": "Fujifilm",
@@ -2715,7 +2767,8 @@
     "bonus": 0,
     "eyeAutofocus": true,
     "note": "Компактный X-T с плёночными симуляциями. Лучший выбор для стрита и путешествий без лишнего веса.",
-    "avitoQuery": "Fujifilm X-T30"
+    "avitoQuery": "Fujifilm X-T30",
+    "id": "fujifilm-x-t30"
   },
   {
     "brand": "Canon",
@@ -2768,7 +2821,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "canon-eos-r50"
   },
   {
     "brand": "Sony",
@@ -2821,7 +2875,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "sony-zv-e10"
   },
   {
     "brand": "DJI",
@@ -2872,7 +2927,8 @@
     "bonus": 0,
     "eyeAutofocus": true,
     "note": "Карманная камера с трёхосевым стабилизатором. Идеал для влогов, путешествий и съёмки в движении.",
-    "avitoQuery": "DJI Osmo Pocket 3"
+    "avitoQuery": "DJI Osmo Pocket 3",
+    "id": "dji-osmo-pocket-3"
   },
   {
     "brand": "Sony",
@@ -2925,7 +2981,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "sony-zv-1"
   },
   {
     "brand": "Canon",
@@ -2978,7 +3035,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": true,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "canon-eos-80d"
   },
   {
     "brand": "Sony",
@@ -3031,7 +3089,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "sony-zv-1f"
   },
   {
     "brand": "Fujifilm",
@@ -3083,7 +3142,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "fujifilm-xq2"
   },
   {
     "brand": "Ricoh",
@@ -3135,7 +3195,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": true
+    "builtinFlash": true,
+    "id": "ricoh-gr-ii"
   },
   {
     "brand": "Canon",
@@ -3188,7 +3249,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "canon-eos-850d"
   },
   {
     "brand": "Canon",
@@ -3242,7 +3304,8 @@
     "bonus": 0,
     "eyeAutofocus": false,
     "note": "Лучшая начальная зеркалка Canon: Dual Pixel AF делает видео почти профессиональным.",
-    "avitoQuery": "Canon EOS 800D"
+    "avitoQuery": "Canon EOS 800D",
+    "id": "canon-eos-800d"
   },
   {
     "brand": "Canon",
@@ -3295,7 +3358,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "canon-eos-r100"
   },
   {
     "brand": "Canon",
@@ -3343,7 +3407,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": true
+    "builtinFlash": true,
+    "id": "canon-eos-m50"
   },
   {
     "brand": "Canon",
@@ -3393,7 +3458,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "canon-eos-60d"
   },
   {
     "brand": "Canon",
@@ -3446,7 +3512,8 @@
     "bonus": 0,
     "eyeAutofocus": false,
     "note": "Улучшенная 700D с NFC и Wi-Fi. Хороший вариант для первой камеры с небольшим запасом.",
-    "avitoQuery": "Canon EOS 750D"
+    "avitoQuery": "Canon EOS 750D",
+    "id": "canon-eos-750d"
   },
   {
     "brand": "Canon",
@@ -3497,7 +3564,8 @@
     "bonus": 0,
     "eyeAutofocus": false,
     "note": "Классическая зеркалка для старта. Простое управление, огромная база б/у оптики Canon EF.",
-    "avitoQuery": "Canon EOS 700D"
+    "avitoQuery": "Canon EOS 700D",
+    "id": "canon-eos-700d"
   },
   {
     "brand": "Hasselblad",
@@ -3527,7 +3595,8 @@
       "HDMI",
       "USB 3.0",
       "WiFi"
-    ]
+    ],
+    "id": "hasselblad-h6d"
   },
   {
     "brand": "Hasselblad",
@@ -3556,7 +3625,8 @@
     "connectivity": [
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "hasselblad-h5d"
   },
   {
     "brand": "Canon",
@@ -3607,7 +3677,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "canon-eos-m"
   },
   {
     "brand": "Canon",
@@ -3657,7 +3728,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "canon-eos-550d"
   },
   {
     "brand": "Canon",
@@ -3708,7 +3780,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": true
+    "builtinFlash": true,
+    "id": "canon-eos-100d"
   },
   {
     "brand": "Nikon",
@@ -3756,7 +3829,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "nikon-d3100"
   },
   {
     "brand": "Canon",
@@ -3807,7 +3881,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "canon-eos-650d"
   },
   {
     "brand": "Canon",
@@ -3860,7 +3935,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "canon-eos-1300d"
   },
   {
     "brand": "Fujifilm",
@@ -3891,7 +3967,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "fujifilm-gfx-eterna"
   },
   {
     "brand": "Canon",
@@ -3921,7 +3998,8 @@
       "HDMI",
       "Ethernet",
       "USB 2.0"
-    ]
+    ],
+    "id": "canon-1d-c"
   },
   {
     "brand": "Sony",
@@ -3972,7 +4050,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "sony-nex-3n"
   },
   {
     "brand": "Fujifilm",
@@ -4003,7 +4082,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "fujifilm-gfx100-ir"
   },
   {
     "brand": "Canon",
@@ -4054,7 +4134,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": true
+    "builtinFlash": true,
+    "id": "canon-eos-1200d"
   },
   {
     "brand": "Fujifilm",
@@ -4085,7 +4166,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "fujifilm-gfx100"
   },
   {
     "brand": "Nikon",
@@ -4136,7 +4218,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "nikon-d3200"
   },
   {
     "brand": "Hasselblad",
@@ -4166,7 +4249,8 @@
       "HDMI",
       "USB 3.0",
       "WiFi"
-    ]
+    ],
+    "id": "hasselblad-x1d"
   },
   {
     "brand": "Leica",
@@ -4196,7 +4280,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "leica-m11-d"
   },
   {
     "brand": "Hasselblad",
@@ -4226,7 +4311,8 @@
       "HDMI",
       "USB 3.1",
       "WiFi"
-    ]
+    ],
+    "id": "hasselblad-x2d"
   },
   {
     "brand": "Leica",
@@ -4256,7 +4342,8 @@
       "HDMI",
       "USB 2.0",
       "WiFi"
-    ]
+    ],
+    "id": "leica-m10"
   },
   {
     "brand": "Leica",
@@ -4285,7 +4372,8 @@
     "connectivity": [
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "leica-m-typ-240"
   },
   {
     "brand": "Panasonic",
@@ -4335,7 +4423,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "panasonic-lumix-g10"
   },
   {
     "brand": "Canon",
@@ -4385,7 +4474,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "canon-eos-1100d"
   },
   {
     "brand": "Canon",
@@ -4415,7 +4505,8 @@
       "HDMI",
       "Ethernet",
       "USB 2.0"
-    ]
+    ],
+    "id": "canon-1d-x"
   },
   {
     "brand": "Fujifilm",
@@ -4445,7 +4536,8 @@
       "HDMI",
       "USB 3.0",
       "WiFi"
-    ]
+    ],
+    "id": "fujifilm-gfx-50s"
   },
   {
     "brand": "Leica",
@@ -4476,7 +4568,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "leica-sl2"
   },
   {
     "brand": "Leica",
@@ -4505,7 +4598,8 @@
     "connectivity": [
       "HDMI",
       "USB 3.0"
-    ]
+    ],
+    "id": "leica-sl-typ-601"
   },
   {
     "brand": "Sony",
@@ -4555,7 +4649,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "sony-nex-3"
   },
   {
     "brand": "Nikon",
@@ -4585,7 +4680,8 @@
       "HDMI",
       "Ethernet",
       "USB 2.0"
-    ]
+    ],
+    "id": "nikon-d4s"
   },
   {
     "brand": "Nikon",
@@ -4615,7 +4711,8 @@
       "HDMI",
       "Ethernet",
       "USB 2.0"
-    ]
+    ],
+    "id": "nikon-d4"
   },
   {
     "brand": "Sony",
@@ -4647,7 +4744,8 @@
       "WiFi",
       "Bluetooth",
       "Ethernet"
-    ]
+    ],
+    "id": "sony-alpha-a1-ii"
   },
   {
     "brand": "Sony",
@@ -4679,7 +4777,8 @@
       "WiFi",
       "Bluetooth",
       "Ethernet"
-    ]
+    ],
+    "id": "sony-alpha-a1"
   },
   {
     "brand": "Hasselblad",
@@ -4709,7 +4808,8 @@
       "HDMI",
       "USB 3.1",
       "WiFi"
-    ]
+    ],
+    "id": "hasselblad-907x"
   },
   {
     "brand": "Pentax",
@@ -4738,7 +4838,8 @@
     "connectivity": [
       "HDMI",
       "USB 3.0"
-    ]
+    ],
+    "id": "pentax-645z"
   },
   {
     "brand": "Canon",
@@ -4769,7 +4870,8 @@
       "USB 3.1",
       "Ethernet",
       "WiFi"
-    ]
+    ],
+    "id": "canon-1d-x-mark-iii"
   },
   {
     "brand": "Fujifilm",
@@ -4800,7 +4902,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "fujifilm-gfx100s"
   },
   {
     "brand": "Nikon",
@@ -4831,7 +4934,8 @@
       "USB 3.1",
       "Ethernet",
       "WiFi"
-    ]
+    ],
+    "id": "nikon-d6"
   },
   {
     "brand": "Nikon",
@@ -4862,7 +4966,8 @@
       "USB 3.0",
       "Ethernet",
       "WiFi"
-    ]
+    ],
+    "id": "nikon-d5"
   },
   {
     "brand": "Sony",
@@ -4894,7 +4999,8 @@
       "WiFi",
       "Bluetooth",
       "Ethernet"
-    ]
+    ],
+    "id": "sony-alpha-a9-iii"
   },
   {
     "brand": "Canon",
@@ -4925,7 +5031,8 @@
       "USB 3.0",
       "Ethernet",
       "WiFi"
-    ]
+    ],
+    "id": "canon-1d-x-mark-ii"
   },
   {
     "brand": "Nikon",
@@ -4954,7 +5061,8 @@
     "connectivity": [
       "HDMI",
       "Ethernet"
-    ]
+    ],
+    "id": "nikon-d3s"
   },
   {
     "brand": "Panasonic",
@@ -5005,7 +5113,8 @@
     "monochrome": false,
     "headphoneJack": false,
     "hdmi": false,
-    "builtinFlash": false
+    "builtinFlash": false,
+    "id": "panasonic-lumix-gf3"
   },
   {
     "brand": "Fujifilm",
@@ -5036,7 +5145,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "fujifilm-gfx100rf"
   },
   {
     "brand": "Fujifilm",
@@ -5067,7 +5177,8 @@
       "USB 3.0",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "fujifilm-gfx-50r"
   },
   {
     "brand": "Sony",
@@ -5099,7 +5210,8 @@
       "WiFi",
       "NFC",
       "Ethernet"
-    ]
+    ],
+    "id": "sony-alpha-a9"
   },
   {
     "brand": "Canon",
@@ -5128,7 +5240,8 @@
     "connectivity": [
       "HDMI",
       "Ethernet"
-    ]
+    ],
+    "id": "canon-1d-mark-iv"
   },
   {
     "brand": "Leica",
@@ -5158,7 +5271,8 @@
       "HDMI",
       "USB 2.0",
       "WiFi"
-    ]
+    ],
+    "id": "leica-q-typ-116"
   },
   {
     "brand": "Leica",
@@ -5184,7 +5298,8 @@
     "bonus": 0,
     "eyeAutofocus": false,
     "weatherSealing": false,
-    "connectivity": []
+    "connectivity": [],
+    "id": "leica-m9-p"
   },
   {
     "brand": "Panasonic",
@@ -5215,7 +5330,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "panasonic-lumix-s1h"
   },
   {
     "brand": "Sony",
@@ -5246,7 +5362,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "sony-alpha-a7s-iii"
   },
   {
     "brand": "Panasonic",
@@ -5277,7 +5394,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "panasonic-lumix-s1r"
   },
   {
     "brand": "Nikon",
@@ -5306,7 +5424,8 @@
     "connectivity": [
       "HDMI",
       "USB 3.0"
-    ]
+    ],
+    "id": "nikon-d800e"
   },
   {
     "brand": "Sony",
@@ -5337,7 +5456,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "sony-alpha-a7r-iv"
   },
   {
     "brand": "Sony",
@@ -5368,7 +5488,8 @@
       "USB 2.0",
       "WiFi",
       "NFC"
-    ]
+    ],
+    "id": "sony-alpha-a7r-ii"
   },
   {
     "brand": "Nikon",
@@ -5397,7 +5518,8 @@
     "connectivity": [
       "HDMI",
       "USB 3.0"
-    ]
+    ],
+    "id": "nikon-d810"
   },
   {
     "brand": "Nikon",
@@ -5426,7 +5548,8 @@
     "connectivity": [
       "HDMI",
       "USB 3.0"
-    ]
+    ],
+    "id": "nikon-d800"
   },
   {
     "brand": "Sony",
@@ -5455,7 +5578,8 @@
     "connectivity": [
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "sony-alpha-a99"
   },
   {
     "brand": "Sony",
@@ -5486,7 +5610,8 @@
       "USB 2.0",
       "WiFi",
       "NFC"
-    ]
+    ],
+    "id": "sony-alpha-a7s-ii"
   },
   {
     "brand": "Sony",
@@ -5518,7 +5643,8 @@
       "WiFi",
       "NFC",
       "Bluetooth"
-    ]
+    ],
+    "id": "sony-alpha-a7r-iii"
   },
   {
     "brand": "Sony",
@@ -5549,7 +5675,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "sony-a7c-r"
   },
   {
     "brand": "Canon",
@@ -5578,7 +5705,8 @@
     "connectivity": [
       "HDMI",
       "USB 3.0"
-    ]
+    ],
+    "id": "canon-5ds-r"
   },
   {
     "brand": "Olympus",
@@ -5608,7 +5736,8 @@
       "HDMI",
       "USB 3.0",
       "WiFi"
-    ]
+    ],
+    "id": "olympus-om-d-e-m1x"
   },
   {
     "brand": "Sony",
@@ -5639,7 +5768,8 @@
       "USB 2.0",
       "WiFi",
       "NFC"
-    ]
+    ],
+    "id": "sony-alpha-a99-ii"
   },
   {
     "brand": "Sony",
@@ -5670,7 +5800,8 @@
       "USB 2.0",
       "WiFi",
       "NFC"
-    ]
+    ],
+    "id": "sony-alpha-a7s"
   },
   {
     "brand": "Canon",
@@ -5699,7 +5830,8 @@
     "connectivity": [
       "HDMI",
       "USB 3.0"
-    ]
+    ],
+    "id": "canon-5ds"
   },
   {
     "brand": "Sony",
@@ -5730,7 +5862,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "sony-alpha-a7-v"
   },
   {
     "brand": "Fujifilm",
@@ -5761,7 +5894,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "fujifilm-x-h2s"
   },
   {
     "brand": "Nikon",
@@ -5792,7 +5926,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "nikon-z6-iii"
   },
   {
     "brand": "Panasonic",
@@ -5823,7 +5958,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "panasonic-lumix-s5-iix"
   },
   {
     "brand": "Panasonic",
@@ -5854,7 +5990,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "panasonic-lumix-gh7"
   },
   {
     "brand": "Sony",
@@ -5885,7 +6022,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "sony-alpha-a7-iv"
   },
   {
     "brand": "Nikon",
@@ -5916,7 +6054,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "nikon-z6-ii"
   },
   {
     "brand": "Fujifilm",
@@ -5947,7 +6086,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "fujifilm-x-h2"
   },
   {
     "brand": "OM System",
@@ -5977,7 +6117,8 @@
       "HDMI",
       "USB 3.1",
       "WiFi"
-    ]
+    ],
+    "id": "om-system-om-1"
   },
   {
     "brand": "Panasonic",
@@ -6008,7 +6149,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "panasonic-lumix-s5-ii"
   },
   {
     "brand": "Panasonic",
@@ -6039,7 +6181,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "panasonic-lumix-s1"
   },
   {
     "brand": "Panasonic",
@@ -6069,7 +6212,8 @@
       "HDMI",
       "USB 3.1",
       "WiFi"
-    ]
+    ],
+    "id": "panasonic-lumix-gh5s"
   },
   {
     "brand": "Nikon",
@@ -6098,7 +6242,8 @@
     "connectivity": [
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "nikon-df"
   },
   {
     "brand": "Sony",
@@ -6128,7 +6273,8 @@
       "HDMI",
       "USB 2.0",
       "WiFi"
-    ]
+    ],
+    "id": "sony-alpha-a7r"
   },
   {
     "brand": "Canon",
@@ -6157,7 +6303,8 @@
     "connectivity": [
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "canon-5d-mark-iii"
   },
   {
     "brand": "Nikon",
@@ -6188,7 +6335,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "nikon-z6"
   },
   {
     "brand": "Canon",
@@ -6219,7 +6367,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "canon-eos-r"
   },
   {
     "brand": "Nikon",
@@ -6250,7 +6399,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "nikon-d780"
   },
   {
     "brand": "Sony",
@@ -6282,7 +6432,8 @@
       "WiFi",
       "NFC",
       "Bluetooth"
-    ]
+    ],
+    "id": "sony-alpha-a7-iii"
   },
   {
     "brand": "Fujifilm",
@@ -6313,7 +6464,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "fujifilm-x-pro3"
   },
   {
     "brand": "Panasonic",
@@ -6344,7 +6496,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "panasonic-lumix-g9-ii"
   },
   {
     "brand": "Panasonic",
@@ -6375,7 +6528,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "panasonic-lumix-s5"
   },
   {
     "brand": "Pentax",
@@ -6405,7 +6559,8 @@
       "HDMI",
       "USB 2.0",
       "WiFi"
-    ]
+    ],
+    "id": "pentax-k-1"
   },
   {
     "brand": "Sony",
@@ -6436,7 +6591,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "sony-fx30"
   },
   {
     "brand": "Fujifilm",
@@ -6467,7 +6623,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "fujifilm-x-t4"
   },
   {
     "brand": "Olympus",
@@ -6497,7 +6654,8 @@
       "HDMI",
       "USB 3.0",
       "WiFi"
-    ]
+    ],
+    "id": "olympus-om-d-e-m1-iii"
   },
   {
     "brand": "Olympus",
@@ -6527,7 +6685,8 @@
       "HDMI",
       "USB 3.0",
       "WiFi"
-    ]
+    ],
+    "id": "olympus-om-d-e-m1-ii"
   },
   {
     "brand": "Panasonic",
@@ -6558,7 +6717,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "panasonic-lumix-s9"
   },
   {
     "brand": "Pentax",
@@ -6588,7 +6748,8 @@
       "HDMI",
       "USB 3.1",
       "WiFi"
-    ]
+    ],
+    "id": "pentax-k-3-iii"
   },
   {
     "brand": "Nikon",
@@ -6617,7 +6778,8 @@
     "connectivity": [
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "nikon-d600"
   },
   {
     "brand": "Nikon",
@@ -6648,7 +6810,8 @@
       "USB 3.0",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "nikon-d500"
   },
   {
     "brand": "Sony",
@@ -6679,7 +6842,8 @@
       "USB 2.0",
       "WiFi",
       "NFC"
-    ]
+    ],
+    "id": "sony-alpha-a7-ii"
   },
   {
     "brand": "Nikon",
@@ -6710,7 +6874,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "nikon-z5-ii"
   },
   {
     "brand": "Fujifilm",
@@ -6740,7 +6905,8 @@
       "HDMI",
       "USB 3.0",
       "WiFi"
-    ]
+    ],
+    "id": "fujifilm-x-t2"
   },
   {
     "brand": "Fujifilm",
@@ -6770,7 +6936,8 @@
       "HDMI",
       "USB 2.0",
       "WiFi"
-    ]
+    ],
+    "id": "fujifilm-x-pro2"
   },
   {
     "brand": "Fujifilm",
@@ -6800,7 +6967,8 @@
       "HDMI",
       "USB 3.0",
       "WiFi"
-    ]
+    ],
+    "id": "fujifilm-x-h1"
   },
   {
     "brand": "Panasonic",
@@ -6831,7 +6999,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "panasonic-lumix-g9"
   },
   {
     "brand": "Sony",
@@ -6861,7 +7030,8 @@
       "HDMI",
       "USB 2.0",
       "WiFi"
-    ]
+    ],
+    "id": "sony-alpha-a7"
   },
   {
     "brand": "Canon",
@@ -6894,7 +7064,8 @@
       "NFC",
       "Bluetooth",
       "GPS"
-    ]
+    ],
+    "id": "canon-6d-mark-ii"
   },
   {
     "brand": "Canon",
@@ -6924,7 +7095,8 @@
       "WiFi",
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "canon-6d"
   },
   {
     "brand": "Nikon",
@@ -6955,7 +7127,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "nikon-z5"
   },
   {
     "brand": "Fujifilm",
@@ -6986,7 +7159,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "fujifilm-x-t3"
   },
   {
     "brand": "Panasonic",
@@ -7017,7 +7191,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "panasonic-lumix-gh5-ii"
   },
   {
     "brand": "Nikon",
@@ -7046,7 +7221,8 @@
     "connectivity": [
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "nikon-d610"
   },
   {
     "brand": "Fujifilm",
@@ -7076,7 +7252,8 @@
       "HDMI",
       "USB 2.0",
       "WiFi"
-    ]
+    ],
+    "id": "fujifilm-x100f"
   },
   {
     "brand": "OM System",
@@ -7106,7 +7283,8 @@
       "HDMI",
       "USB 3.1",
       "WiFi"
-    ]
+    ],
+    "id": "om-system-om-5"
   },
   {
     "brand": "Canon",
@@ -7135,7 +7313,8 @@
     "connectivity": [
       "HDMI",
       "USB 3.0"
-    ]
+    ],
+    "id": "canon-eos-7d-mark-ii"
   },
   {
     "brand": "Sony",
@@ -7166,7 +7345,8 @@
       "USB 2.0",
       "WiFi",
       "NFC"
-    ]
+    ],
+    "id": "sony-alpha-a77-ii"
   },
   {
     "brand": "Sony",
@@ -7197,7 +7377,8 @@
       "USB 2.0",
       "WiFi",
       "NFC"
-    ]
+    ],
+    "id": "sony-alpha-a6600"
   },
   {
     "brand": "Sony",
@@ -7228,7 +7409,8 @@
       "USB 2.0",
       "WiFi",
       "NFC"
-    ]
+    ],
+    "id": "sony-alpha-a6500"
   },
   {
     "brand": "Fujifilm",
@@ -7258,7 +7440,8 @@
       "HDMI",
       "USB 2.0",
       "WiFi"
-    ]
+    ],
+    "id": "fujifilm-x100t"
   },
   {
     "brand": "Fujifilm",
@@ -7287,7 +7470,8 @@
     "connectivity": [
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "fujifilm-x100s"
   },
   {
     "brand": "Leica",
@@ -7315,7 +7499,8 @@
     "weatherSealing": false,
     "connectivity": [
       "HDMI"
-    ]
+    ],
+    "id": "leica-x1"
   },
   {
     "brand": "Fujifilm",
@@ -7346,7 +7531,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "fujifilm-x-t50"
   },
   {
     "brand": "Fujifilm",
@@ -7375,7 +7561,8 @@
     "connectivity": [
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "fujifilm-x-pro1"
   },
   {
     "brand": "Olympus",
@@ -7405,7 +7592,8 @@
       "HDMI",
       "USB 2.0",
       "WiFi"
-    ]
+    ],
+    "id": "olympus-pen-f"
   },
   {
     "brand": "Olympus",
@@ -7435,7 +7623,8 @@
       "HDMI",
       "USB 2.0",
       "WiFi"
-    ]
+    ],
+    "id": "olympus-om-d-e-m5-iii"
   },
   {
     "brand": "Olympus",
@@ -7465,7 +7654,8 @@
       "HDMI",
       "USB 2.0",
       "WiFi"
-    ]
+    ],
+    "id": "olympus-om-d-e-m1"
   },
   {
     "brand": "Panasonic",
@@ -7495,7 +7685,8 @@
       "HDMI",
       "USB 2.0",
       "WiFi"
-    ]
+    ],
+    "id": "panasonic-lumix-gh4"
   },
   {
     "brand": "Nikon",
@@ -7526,7 +7717,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "nikon-z-fc"
   },
   {
     "brand": "Fujifilm",
@@ -7554,7 +7746,8 @@
     "weatherSealing": false,
     "connectivity": [
       "HDMI"
-    ]
+    ],
+    "id": "fujifilm-x100"
   },
   {
     "brand": "Fujifilm",
@@ -7585,7 +7778,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "fujifilm-x-s10"
   },
   {
     "brand": "Panasonic",
@@ -7615,7 +7809,8 @@
       "HDMI",
       "USB 2.0",
       "WiFi"
-    ]
+    ],
+    "id": "panasonic-lumix-gx8"
   },
   {
     "brand": "Pentax",
@@ -7645,7 +7840,8 @@
       "HDMI",
       "USB 2.0",
       "WiFi"
-    ]
+    ],
+    "id": "pentax-kp"
   },
   {
     "brand": "Pentax",
@@ -7674,7 +7870,8 @@
     "connectivity": [
       "HDMI",
       "USB 3.0"
-    ]
+    ],
+    "id": "pentax-k-3"
   },
   {
     "brand": "Sony",
@@ -7705,7 +7902,8 @@
       "USB 2.0",
       "WiFi",
       "NFC"
-    ]
+    ],
+    "id": "sony-alpha-a6400"
   },
   {
     "brand": "Sony",
@@ -7736,7 +7934,8 @@
       "USB 2.0",
       "WiFi",
       "NFC"
-    ]
+    ],
+    "id": "sony-alpha-a6300"
   },
   {
     "brand": "Nikon",
@@ -7767,7 +7966,8 @@
       "USB 2.0",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "nikon-z50"
   },
   {
     "brand": "Canon",
@@ -7798,7 +7998,8 @@
       "USB 2.0",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "canon-eos-m6-mark-ii"
   },
   {
     "brand": "Fujifilm",
@@ -7829,7 +8030,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "fujifilm-x-t30-iii"
   },
   {
     "brand": "Fujifilm",
@@ -7859,7 +8061,8 @@
       "HDMI",
       "USB 2.0",
       "WiFi"
-    ]
+    ],
+    "id": "fujifilm-x-t1"
   },
   {
     "brand": "Panasonic",
@@ -7888,7 +8091,8 @@
     "connectivity": [
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "panasonic-lumix-gh3"
   },
   {
     "brand": "Canon",
@@ -7919,7 +8123,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "canon-eos-r10"
   },
   {
     "brand": "Canon",
@@ -7949,7 +8154,8 @@
       "HDMI",
       "USB 2.0",
       "WiFi"
-    ]
+    ],
+    "id": "canon-eos-70d"
   },
   {
     "brand": "Fujifilm",
@@ -7980,7 +8186,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "fujifilm-x-e5"
   },
   {
     "brand": "Nikon",
@@ -8011,7 +8218,8 @@
       "USB 2.0",
       "WiFi",
       "NFC"
-    ]
+    ],
+    "id": "nikon-d7200"
   },
   {
     "brand": "Sony",
@@ -8042,7 +8250,8 @@
       "USB 2.0",
       "WiFi",
       "NFC"
-    ]
+    ],
+    "id": "sony-alpha-a6100"
   },
   {
     "brand": "Nikon",
@@ -8073,7 +8282,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "nikon-z50-ii"
   },
   {
     "brand": "Fujifilm",
@@ -8103,7 +8313,8 @@
       "HDMI",
       "USB 2.0",
       "WiFi"
-    ]
+    ],
+    "id": "fujifilm-x70"
   },
   {
     "brand": "Fujifilm",
@@ -8133,7 +8344,8 @@
       "HDMI",
       "USB 2.0",
       "WiFi"
-    ]
+    ],
+    "id": "fujifilm-x-t20"
   },
   {
     "brand": "Fujifilm",
@@ -8164,7 +8376,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "fujifilm-x-e4"
   },
   {
     "brand": "Fujifilm",
@@ -8195,7 +8408,8 @@
       "USB 2.0",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "fujifilm-x-e3"
   },
   {
     "brand": "Fujifilm",
@@ -8224,7 +8438,8 @@
     "connectivity": [
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "fujifilm-x-e1"
   },
   {
     "brand": "Olympus",
@@ -8253,7 +8468,8 @@
     "connectivity": [
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "olympus-om-d-e-m5"
   },
   {
     "brand": "Sony",
@@ -8282,7 +8498,8 @@
     "connectivity": [
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "sony-nex-7"
   },
   {
     "brand": "Panasonic",
@@ -8312,7 +8529,8 @@
       "HDMI",
       "USB 2.0",
       "WiFi"
-    ]
+    ],
+    "id": "panasonic-lumix-gx9"
   },
   {
     "brand": "Nikon",
@@ -8341,7 +8559,8 @@
     "connectivity": [
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "nikon-d7100"
   },
   {
     "brand": "Fujifilm",
@@ -8371,7 +8590,8 @@
       "HDMI",
       "USB 2.0",
       "WiFi"
-    ]
+    ],
+    "id": "fujifilm-x-t10"
   },
   {
     "brand": "Panasonic",
@@ -8401,7 +8621,8 @@
       "HDMI",
       "USB 2.0",
       "WiFi"
-    ]
+    ],
+    "id": "panasonic-lumix-gx7"
   },
   {
     "brand": "Canon",
@@ -8433,7 +8654,8 @@
       "WiFi",
       "NFC",
       "Bluetooth"
-    ]
+    ],
+    "id": "canon-eos-77d"
   },
   {
     "brand": "Nikon",
@@ -8464,7 +8686,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "nikon-z30"
   },
   {
     "brand": "Fujifilm",
@@ -8495,7 +8718,8 @@
       "USB 3.1",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "fujifilm-x-m5"
   },
   {
     "brand": "Fujifilm",
@@ -8525,7 +8749,8 @@
       "HDMI",
       "USB 2.0",
       "WiFi"
-    ]
+    ],
+    "id": "fujifilm-x-e2s"
   },
   {
     "brand": "Fujifilm",
@@ -8555,7 +8780,8 @@
       "HDMI",
       "USB 2.0",
       "WiFi"
-    ]
+    ],
+    "id": "fujifilm-x-e2"
   },
   {
     "brand": "Sony",
@@ -8584,7 +8810,8 @@
     "connectivity": [
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "sony-nex-6"
   },
   {
     "brand": "Panasonic",
@@ -8614,7 +8841,8 @@
       "HDMI",
       "USB 2.0",
       "WiFi"
-    ]
+    ],
+    "id": "panasonic-lumix-gx80-85"
   },
   {
     "brand": "Panasonic",
@@ -8642,7 +8870,8 @@
     "weatherSealing": false,
     "connectivity": [
       "HDMI"
-    ]
+    ],
+    "id": "panasonic-lumix-gh2"
   },
   {
     "brand": "Panasonic",
@@ -8672,7 +8901,8 @@
       "HDMI",
       "USB 2.0",
       "WiFi"
-    ]
+    ],
+    "id": "panasonic-lumix-g7"
   },
   {
     "brand": "Pentax",
@@ -8700,7 +8930,8 @@
     "weatherSealing": true,
     "connectivity": [
       "HDMI"
-    ]
+    ],
+    "id": "pentax-k-5"
   },
   {
     "brand": "Canon",
@@ -8731,7 +8962,8 @@
       "USB 2.0",
       "WiFi",
       "NFC"
-    ]
+    ],
+    "id": "canon-eos-760d"
   },
   {
     "brand": "Nikon",
@@ -8759,7 +8991,8 @@
     "weatherSealing": true,
     "connectivity": [
       "HDMI"
-    ]
+    ],
+    "id": "nikon-d7000"
   },
   {
     "brand": "Nikon",
@@ -8790,7 +9023,8 @@
       "USB 2.0",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "nikon-d5600"
   },
   {
     "brand": "Sony",
@@ -8821,7 +9055,8 @@
       "USB 2.0",
       "WiFi",
       "NFC"
-    ]
+    ],
+    "id": "sony-alpha-a6000"
   },
   {
     "brand": "Nikon",
@@ -8851,7 +9086,8 @@
       "HDMI",
       "USB 2.0",
       "WiFi"
-    ]
+    ],
+    "id": "nikon-d5500"
   },
   {
     "brand": "Fujifilm",
@@ -8882,7 +9118,8 @@
       "USB 2.0",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "fujifilm-xf10"
   },
   {
     "brand": "Fujifilm",
@@ -8912,7 +9149,8 @@
       "HDMI",
       "USB 2.0",
       "WiFi"
-    ]
+    ],
+    "id": "fujifilm-x30"
   },
   {
     "brand": "Fujifilm",
@@ -8941,7 +9179,8 @@
     "connectivity": [
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "fujifilm-x20"
   },
   {
     "brand": "Fujifilm",
@@ -8970,7 +9209,8 @@
     "connectivity": [
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "fujifilm-x10"
   },
   {
     "brand": "Fujifilm",
@@ -9000,7 +9240,8 @@
       "HDMI",
       "USB 2.0",
       "WiFi"
-    ]
+    ],
+    "id": "fujifilm-x-m1"
   },
   {
     "brand": "Fujifilm",
@@ -9031,7 +9272,8 @@
       "USB 2.0",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "fujifilm-x-a7"
   },
   {
     "brand": "Sony",
@@ -9060,7 +9302,8 @@
     "connectivity": [
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "sony-nex-5r"
   },
   {
     "brand": "Panasonic",
@@ -9089,7 +9332,8 @@
     "connectivity": [
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "panasonic-lumix-gx1"
   },
   {
     "brand": "Panasonic",
@@ -9118,7 +9362,8 @@
     "connectivity": [
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "panasonic-lumix-g6"
   },
   {
     "brand": "Panasonic",
@@ -9147,7 +9392,8 @@
     "connectivity": [
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "panasonic-lumix-g5"
   },
   {
     "brand": "Fujifilm",
@@ -9178,7 +9424,8 @@
       "USB 2.0",
       "WiFi",
       "Bluetooth"
-    ]
+    ],
+    "id": "fujifilm-x-a5"
   },
   {
     "brand": "Panasonic",
@@ -9207,7 +9454,8 @@
     "connectivity": [
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "panasonic-lumix-g3"
   },
   {
     "brand": "Canon",
@@ -9236,7 +9484,8 @@
     "connectivity": [
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "canon-eos-600d"
   },
   {
     "brand": "Canon",
@@ -9268,7 +9517,8 @@
       "WiFi",
       "NFC",
       "Bluetooth"
-    ]
+    ],
+    "id": "canon-eos-200d"
   },
   {
     "brand": "Fujifilm",
@@ -9297,7 +9547,8 @@
     "connectivity": [
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "fujifilm-xf1"
   },
   {
     "brand": "Fujifilm",
@@ -9326,7 +9577,8 @@
     "connectivity": [
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "fujifilm-x-s1"
   },
   {
     "brand": "Fujifilm",
@@ -9356,7 +9608,8 @@
       "HDMI",
       "USB 2.0",
       "WiFi"
-    ]
+    ],
+    "id": "fujifilm-x-a3"
   },
   {
     "brand": "Fujifilm",
@@ -9385,7 +9638,8 @@
     "connectivity": [
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "fujifilm-x-a1"
   },
   {
     "brand": "Sony",
@@ -9413,7 +9667,8 @@
     "weatherSealing": false,
     "connectivity": [
       "HDMI"
-    ]
+    ],
+    "id": "sony-nex-5"
   },
   {
     "brand": "Panasonic",
@@ -9442,7 +9697,8 @@
     "connectivity": [
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "panasonic-lumix-gm1"
   },
   {
     "brand": "Panasonic",
@@ -9470,7 +9726,8 @@
     "weatherSealing": false,
     "connectivity": [
       "HDMI"
-    ]
+    ],
+    "id": "panasonic-lumix-g2"
   },
   {
     "brand": "Nikon",
@@ -9498,7 +9755,8 @@
     "weatherSealing": false,
     "connectivity": [
       "HDMI"
-    ]
+    ],
+    "id": "nikon-d5100"
   },
   {
     "brand": "Nikon",
@@ -9528,7 +9786,8 @@
       "HDMI",
       "USB 2.0",
       "Bluetooth"
-    ]
+    ],
+    "id": "nikon-d3500"
   },
   {
     "brand": "Fujifilm",
@@ -9557,7 +9816,8 @@
     "connectivity": [
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "fujifilm-xq1"
   },
   {
     "brand": "Olympus",
@@ -9585,7 +9845,8 @@
     "weatherSealing": false,
     "connectivity": [
       "HDMI"
-    ]
+    ],
+    "id": "olympus-pen-e-pl2"
   },
   {
     "brand": "Sony",
@@ -9614,7 +9875,8 @@
     "connectivity": [
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "sony-nex-c3"
   },
   {
     "brand": "Panasonic",
@@ -9644,7 +9906,8 @@
       "HDMI",
       "USB 2.0",
       "WiFi"
-    ]
+    ],
+    "id": "panasonic-lumix-gf7"
   },
   {
     "brand": "Panasonic",
@@ -9674,7 +9937,8 @@
       "HDMI",
       "USB 2.0",
       "WiFi"
-    ]
+    ],
+    "id": "panasonic-lumix-gf6"
   },
   {
     "brand": "Panasonic",
@@ -9703,7 +9967,8 @@
     "connectivity": [
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "panasonic-lumix-gf5"
   },
   {
     "brand": "Nikon",
@@ -9733,7 +9998,8 @@
       "HDMI",
       "USB 2.0",
       "Bluetooth"
-    ]
+    ],
+    "id": "nikon-d3400"
   },
   {
     "brand": "Nikon",
@@ -9762,7 +10028,8 @@
     "connectivity": [
       "USB 2.0",
       "HDMI"
-    ]
+    ],
+    "id": "nikon-d3300"
   },
   {
     "brand": "Sony",
@@ -9791,6 +10058,7 @@
     "connectivity": [
       "HDMI",
       "USB 2.0"
-    ]
+    ],
+    "id": "sony-a3000"
   }
 ]
