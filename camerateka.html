@@ -449,7 +449,8 @@ function renderGrid() {
     return;
   }
 
-  grid.innerHTML = list.map((cam, idx) => {
+  grid.innerHTML = list.map((cam) => {
+    const realIdx = CAMERAS.indexOf(cam); // реальный индекс в исходном массиве
     const price = cam.price ? '₽' + Math.round(cam.price).toLocaleString('ru-RU') : null;
     const tags = [];
     if (cam.professional) tags.push('PRO');
@@ -462,7 +463,7 @@ function renderGrid() {
       : CAMERA_ICON;
 
     return `
-      <div class="card" data-idx="${idx}">
+      <div class="card" data-idx="${realIdx}">
         <div class="card-thumb">${imgContent}</div>
         <div class="card-body">
           <div class="card-brand">${cam.brand || ''}</div>
@@ -504,6 +505,10 @@ function openCameraFromUrl() {
 // ============================================================
 function openModal(idx) {
   const cam = CAMERAS[idx];
+  if (!cam) {
+    console.warn('Камера с индексом', idx, 'не найдена');
+    return;
+  }
   const modal = document.getElementById('modal');
 
   const tagDefs = [
