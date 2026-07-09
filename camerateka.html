@@ -450,7 +450,7 @@ function renderGrid() {
   }
 
   grid.innerHTML = list.map((cam) => {
-    const realIdx = CAMERAS.indexOf(cam); // реальный индекс в исходном массиве
+    const realIdx = CAMERAS.indexOf(cam);
     const price = cam.price ? '₽' + Math.round(cam.price).toLocaleString('ru-RU') : null;
     const tags = [];
     if (cam.professional) tags.push('PRO');
@@ -458,8 +458,9 @@ function renderGrid() {
     else if (cam.forBeginners) tags.push('BEGINNER');
     if (cam.forBloggers) tags.push('VLOG');
     const sensorShort = cam.mediumFormat ? 'Medium format' : (cam.fullFrame ? 'Full frame' : (cam.crop ? 'APS-C' : '—'));
+    // Без onerror — просто img
     const imgContent = cam.image
-      ? `<img src="${cam.image}" alt="${cam.brand} ${cam.model}" loading="lazy" onerror="this.parentElement.innerHTML='${CAMERA_ICON.replace(/'/g,"\\'")}'" />`
+      ? `<img src="${cam.image}" alt="${cam.brand} ${cam.model}" loading="lazy" />`
       : CAMERA_ICON;
 
     return `
@@ -522,10 +523,10 @@ function openModal(idx) {
   const avitoUrl = `https://www.avito.ru/all?q=${encodeURIComponent(cam.avitoQuery || cam.brand + ' ' + cam.model)}`;
 
   const imgContent = cam.image
-    ? `<img src="${cam.image}" alt="${cam.brand} ${cam.model}" onerror="this.parentElement.innerHTML='${CAMERA_ICON.replace(/'/g,"\\'")}'" />`
+    ? `<img src="${cam.image}" alt="${cam.brand} ${cam.model}" />`
     : CAMERA_ICON;
 
-  // Блоки для ссылок, инструкции, прошивки (отображаются только если данные есть)
+  // Блоки для ссылок, инструкции, прошивки
   let extraBlocks = '';
 
   if (cam.website) {
