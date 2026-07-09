@@ -57,7 +57,7 @@
 <body>
 <div class="container">
   <h1>📷 Управление камерами</h1>
-  <div class="sub">Редактирование базы камер с новыми полями (скоринг)</div>
+  <div class="sub">Редактирование базы камер с ID-идентификаторами</div>
 
   <div class="toolbar">
     <input type="text" id="searchInput" placeholder="Поиск по бренду или модели..." />
@@ -73,6 +73,7 @@
     <table>
       <thead id="tableHead">
         <tr>
+          <th data-sort="id">ID <span class="sort-arrow">↕</span></th>
           <th data-sort="image">Фото <span class="sort-arrow">↕</span></th>
           <th data-sort="brand">Бренд <span class="sort-arrow">↕</span></th>
           <th data-sort="model">Модель <span class="sort-arrow">↕</span></th>
@@ -105,6 +106,8 @@
   <div class="modal-content">
     <h2 id="modalTitle">Редактирование камеры</h2>
     <form id="editForm">
+      <!-- скрытое поле для ID -->
+      <input type="hidden" id="fId" />
       <div class="form-row">
         <div class="form-group"><label>Бренд</label><input type="text" id="fBrand" required /></div>
         <div class="form-group"><label>Модель</label><input type="text" id="fModel" required /></div>
@@ -115,10 +118,10 @@
       </div>
       <div class="form-row">
         <div class="form-group"><label>Разрешение (МП)</label><input type="number" id="fResolution" step="0.1" /></div>
-        <div class="form-group"><label>Цена (₽)</label><input type="number" id="fPrice" step="500" /></div>
+        <div class="form-group"><label>Цена (₽)</label><input type="number" id="fPrice" step="any" /></div>
       </div>
       <div class="form-row">
-        <div class="form-group"><label>Вес (г)</label><input type="number" id="fWeight" step="1" /></div>
+        <div class="form-group"><label>Вес (г)</label><input type="number" id="fWeight" step="any" /></div>
         <div class="form-group"><label>Видео (макс. разрешение)</label><input type="text" id="fVideo" placeholder="4K, 1080p..." /></div>
       </div>
       <div class="form-row">
@@ -155,7 +158,7 @@
         <div class="form-group"><label>Ссылка на изображение</label><input type="text" id="fImage" placeholder="https://example.com/camera.jpg" /></div>
         <div class="form-group"><label>Бонус (авторский приоритет)</label><input type="number" id="fBonus" value="0" step="1" /></div>
       </div>
-      <!-- Поле описания вынесено отдельно, на всю ширину -->
+      <!-- Поле описания -->
       <div class="form-group">
         <label>Описание камеры</label>
         <textarea id="fDescription" rows="4" placeholder="Введите описание камеры..."></textarea>
@@ -195,7 +198,6 @@
         <label><input type="checkbox" id="fProfessional" /> Профессиональная</label>
         <label><input type="checkbox" id="fForBloggers" /> Для блогеров</label>
         <label><input type="checkbox" id="fRawVideo" /> RAW видео</label>
-        <label><input type="checkbox" id="fOpenGate" /> Open Gate</label>
         <label><input type="checkbox" id="fTwoCardSlots" /> 2 слота</label>
         <label><input type="checkbox" id="fStackedSensor" /> Stacked сенсор</label>
         <label><input type="checkbox" id="fRangefinder" /> Дальномерная</label>
@@ -228,7 +230,7 @@
 
 <script>
   // ============================================================
-  //  АДМИНКА — ФИНАЛЬНАЯ ВЕРСИЯ С НОВЫМИ ПОЛЯМИ
+  //  АДМИНКА С ID — ПОЛНОСТЬЮ ПЕРЕРАБОТАННАЯ
   // ============================================================
 
   // ── ЗАЩИТА ПАРОЛЕМ ──────────────────────────────────────────────
@@ -258,11 +260,17 @@
 
   // ── СОСТОЯНИЕ ──────────────────────────────────────────────────
   let cameras = [];
-  let editingIndex = -1;
+  let editingId = null;  // ← вместо editingIndex
   let sortField = null;
   let sortOrder = 'asc';
 
-  // ── ЗАГРУЗКА ДАННЫХ ──────────────────────────────────────────
+  // ── ФУНКЦИЯ ГЕНЕРАЦИИ ID ──────────────────────────────────────
+  function generateCameraId(brand, model) {
+    const clean = (str) => String(str || '').toLowerCase().replace(/[^a-z0-9]/g, '-');
+    return `${clean(brand)}-${clean(model)}`;
+  }
+
+  // ── ЗАГРУЗКА ДАННЫХ ────────────────────────────────────────────
   async function loadData() {
     try {
       const url = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/${FILE_PATH}?t=${Date.now()}`;
@@ -270,6 +278,14 @@
       if (!res.ok) throw new Error('Не удалось загрузить файл');
       const data = await res.json();
       cameras = Array.isArray(data) ? data : [];
+      
+      // ✅ Гарантируем, что у каждой камеры есть ID
+      cameras.forEach(cam => {
+        if (!cam.id) {
+          cam.id = generateCameraId(cam.brand, cam.model);
+        }
+      });
+      
       renderTable();
     } catch (e) {
       console.error(e);
@@ -334,6 +350,7 @@
 
   // ── СОРТИРОВКА ────────────────────────────────────────────────
   function getSortValue(cam, field) {
+    if (field === 'id') return cam.id || '';
     if (field === 'image') return cam.image ? 1 : 0;
     if (field === 'bonus') return cam.bonus ?? 0;
     if (field === 'price') return cam.price || 0;
@@ -369,7 +386,7 @@
     renderTable();
   }
 
-  // ── РЕНДЕР ТАБЛИЦЫ ────────────────────────────────────────────
+  // ── РЕНДЕР ТАБЛИЦЫ (ПОЛНОСТЬЮ НА ID) ─────────────────────────
   function renderTable() {
     const tbody = document.getElementById('tableBody');
     const search = document.getElementById('searchInput').value.toLowerCase();
@@ -377,7 +394,8 @@
     if (search) {
       filtered = cameras.filter(c => 
         (c.brand || '').toLowerCase().includes(search) || 
-        (c.model || '').toLowerCase().includes(search)
+        (c.model || '').toLowerCase().includes(search) ||
+        (c.id || '').toLowerCase().includes(search)
       );
     }
     if (sortField && sortField !== 'actions') {
@@ -390,14 +408,14 @@
       });
     }
     if (!filtered.length) {
-      tbody.innerHTML = `<tr><td colspan="18" class="empty">Нет камер</td></tr>`;
+      tbody.innerHTML = `<tr><td colspan="19" class="empty">Нет камер</td></tr>`;
       return;
     }
     let html = '';
-    filtered.forEach((cam, idx) => {
-      const realIdx = cameras.findIndex(c => c === cam);
+    filtered.forEach(cam => {
       const imageHtml = cam.image ? `<img src="${cam.image}" class="thumb-img" onerror="this.style.display='none'" />` : '—';
       html += `<tr>
+        <td style="font-size:11px;color:#666;">${cam.id || '—'}</td>
         <td>${imageHtml}</td>
         <td>${cam.brand || ''}</td>
         <td>${cam.model || ''}</td>
@@ -416,8 +434,8 @@
         <td>${cam.lensMount || ''}</td>
         <td>${cam.bonus ?? 0}</td>
         <td class="actions">
-          <button onclick="editCamera(${realIdx})">✏️</button>
-          <button onclick="deleteCamera(${realIdx})">🗑️</button>
+          <button onclick="editCamera('${cam.id}')">✏️</button>
+          <button onclick="deleteCamera('${cam.id}')">🗑️</button>
         </td>
       </tr>`;
     });
@@ -430,17 +448,22 @@
     return '<span class="badge badge-unknown">—</span>';
   }
 
-  // ── РЕДАКТИРОВАНИЕ ────────────────────────────────────────────
-  function editCamera(index) {
-    editingIndex = index;
-    const cam = cameras[index];
-    if (!cam) return;
+  // ── РЕДАКТИРОВАНИЕ (ПО ID) ────────────────────────────────────
+  function editCamera(id) {
+    const cam = cameras.find(c => c.id === id);
+    if (!cam) {
+      alert('❌ Ошибка: камера с ID "' + id + '" не найдена.');
+      return;
+    }
+    
+    editingId = id;
     document.getElementById('modalTitle').textContent = 'Редактирование камеры';
     fillForm(cam);
     document.getElementById('editModal').classList.add('active');
   }
 
   function fillForm(cam) {
+    setVal('fId', cam.id || '');
     setVal('fBrand', cam.brand);
     setVal('fModel', cam.model);
     setVal('fType', cam.type);
@@ -582,15 +605,23 @@
     return null;
   }
 
-  function deleteCamera(index) {
-    if (confirm(`Удалить камеру ${cameras[index].brand} ${cameras[index].model}?`)) {
-      cameras.splice(index, 1);
-      renderTable();
-      saveData();
+  function deleteCamera(id) {
+    const cam = cameras.find(c => c.id === id);
+    if (!cam) {
+      alert('❌ Ошибка: камера не найдена.');
+      return;
+    }
+    if (confirm(`Удалить камеру ${cam.brand} ${cam.model} (${cam.id})?`)) {
+      const index = cameras.findIndex(c => c.id === id);
+      if (index !== -1) {
+        cameras.splice(index, 1);
+        renderTable();
+        saveData();
+      }
     }
   }
 
-  // ── ОБРАБОТЧИК ФОРМЫ ──────────────────────────────────────────
+  // ── ОБРАБОТЧИК ФОРМЫ (СОХРАНЕНИЕ ПО ID) ──────────────────────
   document.getElementById('editForm').addEventListener('submit', (e) => {
     e.preventDefault();
     const data = getFormData();
@@ -598,23 +629,46 @@
       alert('Бренд и модель обязательны');
       return;
     }
-    if (editingIndex === -1) {
+    
+    // Генерируем ID на основе бренда и модели
+    const newId = generateCameraId(data.brand, data.model);
+    
+    if (editingId === null) {
+      // ✅ НОВАЯ КАМЕРА
+      // Проверяем, нет ли уже такой
+      const exists = cameras.some(c => c.id === newId);
+      if (exists) {
+        alert(`⚠️ Камера с ID "${newId}" уже существует. Пожалуйста, проверьте дубли.`);
+        return;
+      }
+      data.id = newId;
       cameras.push(data);
     } else {
-      cameras[editingIndex] = data;
+      // ✅ ОБНОВЛЕНИЕ СУЩЕСТВУЮЩЕЙ
+      const index = cameras.findIndex(c => c.id === editingId);
+      if (index === -1) {
+        alert('❌ Ошибка: камера не найдена в базе.');
+        return;
+      }
+      // Сохраняем старый ID, если он не изменился
+      data.id = editingId;
+      cameras[index] = data;
     }
+    
     document.getElementById('editModal').classList.remove('active');
+    editingId = null;
     renderTable();
     saveData();
   });
 
   document.getElementById('cancelBtn').addEventListener('click', () => {
     document.getElementById('editModal').classList.remove('active');
+    editingId = null;
   });
 
-  // ── ДОБАВЛЕНИЕ НОВОЙ КАМЕРЫ ────────────────────────────────
+  // ── ДОБАВЛЕНИЕ НОВОЙ КАМЕРЫ ──────────────────────────────
   document.getElementById('addBtn').addEventListener('click', () => {
-    editingIndex = -1;
+    editingId = null;
     document.getElementById('modalTitle').textContent = 'Новая камера';
     fillForm({});
     document.querySelectorAll('#editForm input[type="checkbox"]').forEach(cb => cb.checked = false);
@@ -636,7 +690,7 @@
     URL.revokeObjectURL(url);
   });
 
-  // ── ИМПОРТ (ДОБАВЛЯЕТ) ──────────────────────────────────────
+  // ── ИМПОРТ С ДОБАВЛЕНИЕМ ID ──────────────────────────────────
   document.getElementById('importBtn').addEventListener('click', () => {
     const input = document.createElement('input');
     input.type = 'file';
@@ -652,10 +706,18 @@
             alert('Неверный формат: ожидается массив');
             return;
           }
+
           let added = 0;
           let skipped = 0;
+
           data.forEach(newCam => {
-            const exists = cameras.some(c => c.brand === newCam.brand && c.model === newCam.model);
+            // Генерируем ID, если его нет
+            if (!newCam.id) {
+              newCam.id = generateCameraId(newCam.brand, newCam.model);
+            }
+            
+            // Проверяем, есть ли уже такая камера
+            const exists = cameras.some(c => c.id === newCam.id);
             if (!exists) {
               cameras.push(newCam);
               added++;
@@ -663,6 +725,7 @@
               skipped++;
             }
           });
+
           renderTable();
           saveData();
           alert(`✅ Импорт завершён!\nДобавлено: ${added}\nПропущено (дубликаты): ${skipped}\nВсего камер: ${cameras.length}`);
@@ -707,7 +770,7 @@
         if (!pageId || pageId === '-1') continue;
         const imageUrl = pages[pageId].imageinfo?.[0]?.url;
         if (imageUrl) {
-          results.push({ cameraId: cam, cameraName, foundImageUrl: imageUrl, foundTitle: title, checked: true });
+          results.push({ cameraId: cam.id, cameraName, foundImageUrl: imageUrl, foundTitle: title, checked: true });
         }
       } catch (e) { console.warn('Ошибка для ' + cameraName, e); }
       await new Promise(r => setTimeout(r, WIKIMEDIA_REQUEST_DELAY_MS));
@@ -745,7 +808,10 @@
       const selected = [];
       checkboxes.forEach(cb => { if (cb.checked) { const idx = parseInt(cb.dataset.index); selected.push(results[idx]); } });
       if (selected.length === 0) { alert('⚠️ Не выбрано ни одного изображения.'); return; }
-      selected.forEach(res => { const cam = res.cameraId; if (cam) cam.image = res.foundImageUrl; });
+      selected.forEach(res => {
+        const cam = cameras.find(c => c.id === res.cameraId);
+        if (cam) cam.image = res.foundImageUrl;
+      });
       modal.classList.remove('active');
       renderTable();
       saveData();
