@@ -550,7 +550,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "id": "canon-5d-mark-iv"
   },
   {
     "brand": "Canon",
@@ -3441,7 +3442,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "id": "fujifilm-gfx-eterna"
   },
   {
     "brand": "Fujifilm",
@@ -3503,7 +3505,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "id": "fujifilm-gfx100-ir"
   },
   {
     "brand": "Fujifilm",
@@ -3565,7 +3568,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "id": "fujifilm-gfx100"
   },
   {
     "brand": "Fujifilm",
@@ -3626,7 +3630,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "id": "fujifilm-gfx-50s"
   },
   {
     "brand": "Fujifilm",
@@ -3688,7 +3693,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "id": "fujifilm-gfx100s"
   },
   {
     "brand": "Fujifilm",
@@ -3750,7 +3756,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "id": "fujifilm-gfx100rf"
   },
   {
     "brand": "Fujifilm",
@@ -3812,7 +3819,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "id": "fujifilm-gfx-50r"
   },
   {
     "brand": "Fujifilm",
@@ -3874,7 +3882,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "id": "fujifilm-x-h2s"
   },
   {
     "brand": "Fujifilm",
@@ -3936,7 +3945,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "id": "fujifilm-x-h2"
   },
   {
     "brand": "Fujifilm",
@@ -3998,7 +4008,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "id": "fujifilm-x-pro3"
   },
   {
     "brand": "Fujifilm",
@@ -4060,7 +4071,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "id": "fujifilm-x-t4"
   },
   {
     "brand": "Fujifilm",
