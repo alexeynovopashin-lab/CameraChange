@@ -8,32 +8,30 @@
   <script src="https://cdn.jsdelivr.net/npm/brain.js@2.0.0-beta.23/dist/brain-browser.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* ===== Оригинальные стили (без изменений) ===== */
+    /* ===== ОСНОВНЫЕ СТИЛИ (без изменений) ===== */
     * { margin:0; padding:0; box-sizing:border-box; }
     body { background:#0b0b0b; color:#eaeaea; font-family:'Inter',sans-serif; padding:40px 20px; }
     .container { max-width:1500px; margin:0 auto; }
-    h1 { font-size:28px; font-weight:700; margin-bottom:8px; color:#f0ece6; }
+    h1 { font-size:28px; font-weight:700; margin-bottom:8px; color:#f0ece6; display:flex; align-items:center; gap:10px; }
     .sub { color:#888; margin-bottom:30px; }
     .tabs { display:flex; gap:8px; margin-bottom:24px; border-bottom:1px solid #2a2a2a; padding-bottom:12px; flex-wrap:wrap; }
-    .tab { background:none; border:none; color:#888; padding:8px 16px; cursor:pointer; font-size:14px; border-radius:6px; transition:0.2s; }
+    .tab { background:none; border:none; color:#888; padding:8px 16px; cursor:pointer; font-size:14px; border-radius:6px; transition:0.2s; display:inline-flex; align-items:center; gap:8px; }
     .tab:hover { color:#eaeaea; background:#1a1a1a; }
     .tab.active { color:#d4a373; background:#1a1a1a; }
     .tab-content { display:block; }
     .tab-content[style*="display:none"] { display:none; }
     .toolbar { display:flex; gap:16px; flex-wrap:wrap; margin-bottom:24px; align-items:center; }
     .toolbar input, .toolbar select, .toolbar button { padding:10px 16px; border-radius:8px; border:1px solid #2a2a2a; background:#1a1a1a; color:#eaeaea; font-size:14px; }
-    .toolbar button { background:#d4a373; color:#0b0b0b; font-weight:600; border:none; cursor:pointer; transition:0.2s; }
+    .toolbar button { background:#d4a373; color:#0b0b0b; font-weight:600; border:none; cursor:pointer; transition:0.2s; display:inline-flex; align-items:center; gap:8px; }
     .toolbar button:hover { background:#c4905f; }
-    .btn-primary { background:#d4a373; color:#0b0b0b; border:none; padding:10px 20px; border-radius:8px; font-weight:600; cursor:pointer; transition:0.2s; }
+    .btn-primary { background:#d4a373; color:#0b0b0b; border:none; padding:10px 20px; border-radius:8px; font-weight:600; cursor:pointer; transition:0.2s; display:inline-flex; align-items:center; gap:8px; }
     .btn-primary:hover { background:#c4905f; }
-    .btn-secondary { background:#2a2a2a; color:#aaa; border:none; padding:10px 20px; border-radius:8px; cursor:pointer; transition:0.2s; }
+    .btn-secondary { background:#2a2a2a; color:#aaa; border:none; padding:10px 20px; border-radius:8px; cursor:pointer; transition:0.2s; display:inline-flex; align-items:center; gap:8px; }
     .btn-secondary:hover { background:#3a3a3a; color:#fff; }
     .table-wrap { overflow-x:auto; background:#141414; border-radius:16px; padding:16px; border:1px solid #2a2a2a; }
     table { width:100%; border-collapse:collapse; font-size:13px; }
     th { text-align:left; padding:12px 8px; color:#aaa; font-weight:600; border-bottom:1px solid #2a2a2a; white-space:nowrap; cursor:pointer; user-select:none; }
     th:hover { color:#fff; }
-    th .sort-arrow { margin-left:6px; font-size:11px; opacity:0.5; }
-    th .sort-arrow.active { opacity:1; }
     td { padding:10px 8px; border-bottom:1px solid #1e1e1e; vertical-align:middle; }
     tr:hover td { background:#1a1a1a; }
     .badge { display:inline-block; padding:2px 10px; border-radius:20px; font-size:11px; font-weight:600; }
@@ -45,65 +43,69 @@
     .modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:1000; }
     .modal.active { display:flex; }
     .modal-content { background:#141414; border-radius:24px; padding:32px; max-width:700px; width:90%; max-height:90vh; overflow-y:auto; border:1px solid #2a2a2a; }
-    .modal-content h2 { font-size:22px; margin-bottom:20px; }
+    .modal-content h2 { font-size:22px; margin-bottom:20px; display:flex; align-items:center; gap:10px; }
     .form-group { margin-bottom:14px; display:flex; flex-direction:column; gap:4px; }
     .form-group label { font-size:13px; color:#aaa; font-weight:600; }
     .form-group input, .form-group select, .form-group textarea { padding:8px 12px; border-radius:8px; border:1px solid #2a2a2a; background:#1a1a1a; color:#eaeaea; font-size:14px; }
     .form-group textarea { height:60px; resize:vertical; }
     .form-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
     .modal-actions { display:flex; gap:12px; margin-top:20px; justify-content:flex-end; }
-    .modal-actions button { padding:10px 24px; border-radius:40px; border:none; font-weight:600; cursor:pointer; }
+    .modal-actions button { padding:10px 24px; border-radius:40px; border:none; font-weight:600; cursor:pointer; display:inline-flex; align-items:center; gap:8px; }
     .btn-save { background:#d4a373; color:#0b0b0b; }
     .btn-cancel { background:#2a2a2a; color:#aaa; }
     .btn-save:hover { background:#c4905f; }
     .btn-cancel:hover { background:#3a3a3a; color:#fff; }
-    .search-highlight { background:#d4a37333; }
     .empty { color:#666; text-align:center; padding:40px; }
     .checkbox-group { display:flex; flex-wrap:wrap; gap:8px; }
     .checkbox-group label { display:flex; align-items:center; gap:6px; font-size:13px; color:#ccc; }
     .checkbox-group input[type="checkbox"] { accent-color:#d4a373; width:16px; height:16px; }
     .thumb-img { max-width:60px; max-height:40px; object-fit:contain; border-radius:4px; border:1px solid #2a2a2a; padding:2px; background:#0b0b0b; }
 
-    /* Стили для экспертного режима */
+    /* Стили для экспертного режима и ранжирования */
     .rank-item { background:#141414; padding:12px 16px; border-radius:8px; border:1px solid #2a2a2a; cursor:grab; display:flex; justify-content:space-between; align-items:center; transition:0.2s; }
     .rank-item:hover { background:#1e1e1e; border-color:#d4a373; }
     .rank-item .rank-num { font-weight:700; color:#d4a373; margin-right:12px; }
     .rank-item .rank-actions button { background:none; border:none; color:#888; cursor:pointer; font-size:18px; padding:0 6px; }
     .rank-item .rank-actions button:hover { color:#fff; }
 
-    /* Стили для настроек скоринга */
-    .scoring-table { width:100%; border-collapse:collapse; }
-    .scoring-table th, .scoring-table td { padding:8px 12px; border-bottom:1px solid #2a2a2a; text-align:left; }
-    .scoring-table th { color:#aaa; font-weight:600; font-size:12px; text-transform:uppercase; letter-spacing:0.05em; }
-    .scoring-table input[type="number"] { width:80px; padding:6px 10px; background:#1a1a1a; border:1px solid #2a2a2a; color:#eaeaea; border-radius:4px; }
-    .scoring-table input[type="checkbox"] { accent-color:#d4a373; width:18px; height:18px; cursor:pointer; }
+    /* SVG-иконки */
+    .ic { width:15px; height:15px; flex-shrink:0; }
+    h1 .ic { width:22px; height:22px; }
+    h2 .ic { width:18px; height:18px; }
+    h1, h2, h3, h4 { display:flex; align-items:center; gap:10px; }
+    .tabs .tab, .toolbar button, .btn-primary, .btn-secondary, .modal-actions button { display:inline-flex; align-items:center; justify-content:center; gap:8px; }
+
+    /* Специальные стили для рейтингов объективов */
+    .rating-slider { width:100%; max-width:180px; accent-color:#d4a373; }
+    .rating-value { font-family:'JetBrains Mono',monospace; min-width:30px; text-align:center; color:#d4a373; font-weight:600; }
 
     @media (max-width:600px) { .form-row { grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
 <div class="container">
-  <h1>📷 Управление камерами</h1>
-  <div class="sub">Редактирование базы + экспертный режим + обучение + настройка скоринга</div>
+  <h1><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-2.5h6L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.5"/></svg> Управление камерами</h1>
+  <div class="sub">Редактирование базы + экспертный режим + обучение модели + объективы</div>
 
   <!-- Вкладки -->
   <div class="tabs">
-    <button class="tab active" data-tab="cameras">📷 Камеры</button>
-    <button class="tab" data-tab="scoring">⚙️ Настройки скоринга</button>
-    <button class="tab" data-tab="expert">🎯 Экспертный режим</button>
-    <button class="tab" data-tab="training">🧠 Обучение</button>
+    <button class="tab active" data-tab="cameras"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-2.5h6L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.5"/></svg> Камеры</button>
+    <button class="tab" data-tab="lenses"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg> Объективы</button>
+    <button class="tab" data-tab="expert"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/><circle cx="12" cy="12" r=".5"/></svg> Экспертный режим</button>
+    <button class="tab" data-tab="training"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3"/></svg> Обучение</button>
+    <button class="tab" data-tab="scoring"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/><circle cx="9" cy="7" r="1.7" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r="1.7" fill="currentColor" stroke="none"/><circle cx="7" cy="17" r="1.7" fill="currentColor" stroke="none"/></svg> Скоринг</button>
   </div>
 
   <!-- ======= ВКЛАДКА КАМЕРЫ ======= -->
   <div id="tab-cameras" class="tab-content">
     <div class="toolbar">
       <input type="text" id="searchInput" placeholder="Поиск по бренду или модели..." />
-      <button id="addBtn">➕ Добавить камеру</button>
-      <button id="importBtn">📥 Импорт из JSON (добавить)</button>
-      <button id="exportBtn">📤 Экспорт JSON</button>
-      <button id="massImageBtn">🖼️ Массовый поиск картинок</button>
-      <button id="refreshBtn">🔄 Обновить данные</button>
-      <button id="generateLinksBtn" style="background:#4a6fa5;">🔗 Сгенерировать ссылки для всех</button>
+      <button id="addBtn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg> Добавить камеру</button>
+      <button id="importBtn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v10M8 10l4 4 4-4M5 19h14"/></svg> Импорт из JSON (добавить)</button>
+      <button id="exportBtn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 14V4M8 8l4-4 4 4M5 19h14"/></svg> Экспорт JSON</button>
+      <button id="massImageBtn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="1.5"/><circle cx="9" cy="10" r="1.5"/><path d="M4 16.5l4-3 3 2.2 5-4 4 3.3"/></svg> Массовый поиск картинок</button>
+      <button id="refreshBtn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 3v4h-4"/></svg> Обновить данные</button>
+      <button id="generateLinksBtn" style="background:#4a6fa5;"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 7h2a5 5 0 0 1 0 10h-2M9 17H7A5 5 0 0 1 7 7h2"/><path d="M8 12h8"/></svg> Сгенерировать ссылки для всех</button>
     </div>
     <div class="table-wrap">
       <table>
@@ -135,54 +137,45 @@
     </div>
   </div>
 
-  <!-- ======= ВКЛАДКА НАСТРОЙКИ СКОРИНГА ======= -->
-  <div id="tab-scoring" class="tab-content" style="display:none;">
-    <h2>⚙️ Настройки скоринга</h2>
-    <p style="color:#aaa; margin-bottom:16px;">Редактируйте веса вопросов для каждого уровня. Изменения сохраняются в <code>scoring_config.json</code>.</p>
-    
+  <!-- ======= ВКЛАДКА ОБЪЕКТИВЫ ======= -->
+  <div id="tab-lenses" class="tab-content" style="display:none;">
     <div class="toolbar">
-      <select id="scoringLevelSelect">
-        <option value="beginner">Новичок</option>
-        <option value="enthusiast_tt">Любитель (техническая)</option>
-        <option value="enthusiast_creative">Любитель (творческая)</option>
-        <option value="pro">Профессионал</option>
-        <option value="blogger">Блогер</option>
-      </select>
-      <button id="saveScoringBtn" class="btn-primary">💾 Сохранить в GitHub</button>
-      <button id="reloadScoringBtn" class="btn-secondary">🔄 Перезагрузить</button>
+      <input type="text" id="searchLensInput" placeholder="Поиск по бренду или модели..." />
+      <button id="addLensBtn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg> Добавить объектив</button>
+      <button id="importLensBtn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v10M8 10l4 4 4-4M5 19h14"/></svg> Импорт из JSON (добавить)</button>
+      <button id="exportLensBtn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 14V4M8 8l4-4 4 4M5 19h14"/></svg> Экспорт JSON</button>
+      <button id="refreshLensBtn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 3v4h-4"/></svg> Обновить данные</button>
     </div>
-
-    <div id="scoringEditor">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-        <span id="scoringLevelLabel" style="font-weight:600;"></span>
-        <span id="scoringTotalWeight" style="color:#888; font-size:13px;">Сумма весов: 0</span>
-      </div>
-      <div class="table-wrap">
-        <table class="scoring-table">
-          <thead>
-            <tr>
-              <th style="width:40px;">#</th>
-              <th>ID</th>
-              <th>Вопрос</th>
-              <th style="width:120px;">Вес</th>
-              <th style="width:80px;">Вкл.</th>
-            </tr>
-          </thead>
-          <tbody id="scoringTableBody">
-            <tr><td colspan="5" class="empty">Загрузка...</td></tr>
-          </tbody>
-        </table>
-      </div>
+    <div class="table-wrap">
+      <table>
+        <thead id="lensTableHead">
+          <tr>
+            <th data-sort="id">ID <span class="sort-arrow">↕</span></th>
+            <th data-sort="image">Фото <span class="sort-arrow">↕</span></th>
+            <th data-sort="brand">Бренд <span class="sort-arrow">↕</span></th>
+            <th data-sort="model">Модель <span class="sort-arrow">↕</span></th>
+            <th data-sort="mount">Байонет <span class="sort-arrow">↕</span></th>
+            <th data-sort="type">Тип <span class="sort-arrow">↕</span></th>
+            <th data-sort="focalLength">Фокус <span class="sort-arrow">↕</span></th>
+            <th data-sort="maxAperture">Диафр. <span class="sort-arrow">↕</span></th>
+            <th data-sort="price">Цена (₽) <span class="sort-arrow">↕</span></th>
+            <th data-sort="sharpness">Резкость <span class="sort-arrow">↕</span></th>
+            <th data-sort="bokeh">Боке <span class="sort-arrow">↕</span></th>
+            <th data-sort="actions" style="cursor:default;">Действия</th>
+          </tr>
+        </thead>
+        <tbody id="lensTableBody"></tbody>
+      </table>
     </div>
   </div>
 
   <!-- ======= ВКЛАДКА ЭКСПЕРТНЫЙ РЕЖИМ ======= -->
   <div id="tab-expert" class="tab-content" style="display:none;">
-    <h2>🎯 Экспертный режим</h2>
+    <h2><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/><circle cx="12" cy="12" r=".5"/></svg> Экспертный режим</h2>
     <p style="color:#aaa; margin-bottom:16px;">Пройдите опросник как эксперт, отредактируйте ТОП-4 камеры вручную и сохраните эталон.</p>
-    <button id="startExpertBtn" class="btn-primary">▶️ Начать экспертный опрос</button>
-    <button id="exportExpertBtn" class="btn-secondary" style="margin-left:10px;">📤 Экспорт эталонов</button>
-    <button id="importExpertBtn" class="btn-secondary" style="margin-left:10px;">📥 Импорт эталонов</button>
+    <button id="startExpertBtn" class="btn-primary"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg> Начать экспертный опрос</button>
+    <button id="exportExpertBtn" class="btn-secondary" style="margin-left:10px;"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 14V4M8 8l4-4 4 4M5 19h14"/></svg> Экспорт эталонов</button>
+    <button id="importExpertBtn" class="btn-secondary" style="margin-left:10px;"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v10M8 10l4 4 4-4M5 19h14"/></svg> Импорт эталонов</button>
 
     <div id="expertSession" style="display:none; margin-top:20px; background:#1a1a1a; padding:20px; border-radius:12px;">
       <div id="expertQuestions"></div>
@@ -190,40 +183,79 @@
         <h3>Результаты (отредактируйте порядок)</h3>
         <div id="expertRankingList" style="display:flex; flex-direction:column; gap:8px; margin:12px 0;"></div>
         <div style="display:flex; gap:12px; margin-top:16px;">
-          <button id="saveExpertRankingBtn" class="btn-primary">💾 Сохранить эталон</button>
-          <button id="resetExpertBtn" class="btn-secondary">🔄 Пройти заново</button>
+          <button id="saveExpertRankingBtn" class="btn-primary"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/></svg> Сохранить эталон</button>
+          <button id="resetExpertBtn" class="btn-secondary"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 3v4h-4"/></svg> Пройти заново</button>
         </div>
       </div>
     </div>
 
     <div id="expertStats" style="margin-top:20px; background:#1a1a1a; padding:16px; border-radius:12px;">
-      <h4>📊 Статистика</h4>
+      <h4><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 20v-9M12 20V5M19 20v-6"/></svg> Статистика</h4>
       <p id="expertCount">Сохранено эталонов: 0</p>
     </div>
   </div>
 
   <!-- ======= ВКЛАДКА ОБУЧЕНИЕ ======= -->
   <div id="tab-training" class="tab-content" style="display:none;">
-    <h2>🧠 Обучение модели</h2>
+    <h2><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3"/></svg> Обучение модели</h2>
     <p style="color:#aaa; margin-bottom:16px;">На основе экспертных эталонов обучите нейросеть для автоматического скоринга.</p>
-    <button id="trainModelBtn" class="btn-primary">🧠 Обучить модель</button>
-    <button id="compareModelsBtn" class="btn-secondary" style="margin-left:10px;">📊 Сравнить с ручным скорингом</button>
+    <button id="trainModelBtn" class="btn-primary"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3"/></svg> Обучить модель</button>
+    <button id="compareModelsBtn" class="btn-secondary" style="margin-left:10px;"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 20v-9M12 20V5M19 20v-6"/></svg> Сравнить с ручным скорингом</button>
     <div id="trainingProgress" style="display:none; margin-top:16px;">
       <progress id="trainProgress" value="0" max="100" style="width:100%; height:20px;"></progress>
       <p id="trainStatus">Идёт обучение...</p>
     </div>
     <div id="trainingResults" style="margin-top:20px; background:#1a1a1a; padding:16px; border-radius:12px; display:none;">
-      <h4>📈 Результаты обучения</h4>
+      <h4><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg> Результаты обучения</h4>
       <div id="trainMetrics"></div>
     </div>
     <div id="modelComparison" style="margin-top:20px; background:#1a1a1a; padding:16px; border-radius:12px; display:none;">
-      <h4>📊 Сравнение с ручным скорингом</h4>
+      <h4><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 20v-9M12 20V5M19 20v-6"/></svg> Сравнение с ручным скорингом</h4>
       <div id="comparisonResults"></div>
     </div>
   </div>
 
+  <!-- ======= ВКЛАДКА НАСТРОЙКИ СКОРИНГА ======= -->
+  <div id="tab-scoring" class="tab-content" style="display:none;">
+    <h2><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/><circle cx="9" cy="7" r="1.7" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r="1.7" fill="currentColor" stroke="none"/><circle cx="7" cy="17" r="1.7" fill="currentColor" stroke="none"/></svg> Настройки скоринга</h2>
+    <p style="color:#aaa; margin-bottom:16px;">Веса и включённость вопросов для каждого уровня (scoring_config.json). Виджет подхватит изменения после сохранения в GitHub.</p>
+    <div class="toolbar">
+      <select id="scLevel"></select>
+      <button id="scLoadBtn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v10M8 10l4 4 4-4M5 19h14"/></svg> Загрузить</button>
+      <button id="scSaveBtn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/></svg> Сохранить в GitHub</button>
+      <button id="scResetBtn" style="background:#2a2a2a; color:#aaa;"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7v6h6"/><path d="M3 13a9 9 0 1 0 3-7.7L3 7"/></svg> Сбросить</button>
+      <button id="scTestBtn" style="background:#4a6fa5;"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 3h5M10.5 3v5.5L5 18a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 18L13.5 8.5V3"/><path d="M8 14.5h8"/></svg> Тест скоринга</button>
+      <span id="scMeta" style="color:#666; font-size:12px;"></span>
+    </div>
+    <div id="scStatus" style="color:#d4a373; margin-bottom:12px;"></div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th style="cursor:default;">ID</th><th style="cursor:default;">Вопрос</th><th style="cursor:default;">Правило</th><th style="cursor:default;">Вес</th><th style="cursor:default; text-align:center;">Включён</th></tr>
+        </thead>
+        <tbody id="scTableBody"></tbody>
+      </table>
+      <div id="scWeightSum" style="padding:12px 8px 4px; font-size:13px; color:#d4a373;"></div>
+    </div>
+    <div style="display:flex; gap:24px; margin-top:16px; align-items:center; flex-wrap:wrap;">
+      <label style="display:flex; align-items:center; gap:8px; font-size:13px; color:#aaa;">Мин. скор для показа
+        <input type="number" id="scMinScore" min="0" max="1" step="0.05" style="width:80px; padding:6px 8px; border-radius:6px; border:1px solid #2a2a2a; background:#1a1a1a; color:#eaeaea;" />
+      </label>
+      <label style="display:flex; align-items:center; gap:8px; font-size:13px; color:#aaa;">Макс. результатов
+        <input type="number" id="scMaxResults" min="1" max="20" step="1" style="width:80px; padding:6px 8px; border-radius:6px; border:1px solid #2a2a2a; background:#1a1a1a; color:#eaeaea;" />
+      </label>
+    </div>
+    <div id="scTestPanel" style="display:none; margin-top:24px; background:#1a1a1a; padding:20px; border-radius:12px;">
+      <h3 style="margin-bottom:8px;"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 3h5M10.5 3v5.5L5 18a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 18L13.5 8.5V3"/><path d="M8 14.5h8"/></svg> Тест: как веса влияют на выдачу</h3>
+      <p style="color:#888; font-size:13px; margin-bottom:16px;">Ответьте на вопросы и нажмите «Рассчитать» — результат считается по текущим (в том числе несохранённым) весам без прохождения опроса на сайте.</p>
+      <div id="scTestQuestions" style="display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:12px 24px;"></div>
+      <button id="scTestRunBtn" class="btn-primary" style="margin:16px 0;"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg> Рассчитать</button>
+      <div id="scTestResults"></div>
+    </div>
+  </div>
+
   <!-- ======= МОДАЛЬНЫЕ ОКНА ======= -->
-  <!-- Модалка редактирования -->
+  <!-- Модалка редактирования камеры -->
   <div class="modal" id="editModal">
     <div class="modal-content">
       <h2 id="modalTitle">Редактирование камеры</h2>
@@ -314,15 +346,86 @@
     </div>
   </div>
 
+  <!-- Модалка редактирования объектива -->
+  <div class="modal" id="editLensModal">
+    <div class="modal-content">
+      <h2 id="lensModalTitle">Редактирование объектива</h2>
+      <form id="editLensForm">
+        <input type="hidden" id="lensId" />
+        <div class="form-row">
+          <div class="form-group"><label>Бренд</label><input type="text" id="lensBrand" required /></div>
+          <div class="form-group"><label>Модель</label><input type="text" id="lensModel" required /></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Байонет</label><input type="text" id="lensMount" placeholder="Canon EF, Sony E, ..." /></div>
+          <div class="form-group"><label>Тип</label><select id="lensType"><option value="prime">prime</option><option value="zoom">zoom</option></select></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Фокусное расстояние (для prime)</label><input type="number" id="lensFocalLength" step="1" /></div>
+          <div class="form-group"><label>Диапазон (для zoom, например 24-70)</label><input type="text" id="lensFocalRange" placeholder="24-70" /></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Макс. диафрагма</label><input type="number" id="lensMaxAperture" step="0.1" /></div>
+          <div class="form-group"><label>Мин. диафрагма</label><input type="number" id="lensMinAperture" step="0.1" /></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Формат</label><select id="lensFormat"><option value="fullframe">fullframe</option><option value="apsc">aps-c</option><option value="mft">mft</option><option value="medium">medium</option></select></div>
+          <div class="form-group"><label>Стабилизация</label><select id="lensImageStabilization"><option value="true">Да</option><option value="false">Нет</option></select></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Вес (г)</label><input type="number" id="lensWeight" step="1" /></div>
+          <div class="form-group"><label>Резьба фильтра (мм)</label><input type="number" id="lensFilterThread" step="1" /></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Мин. дистанция фокусировки (м)</label><input type="number" id="lensMinFocusDistance" step="0.01" /></div>
+          <div class="form-group"><label>Макс. увеличение</label><input type="number" id="lensMaxMagnification" step="0.01" /></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Лепестки диафрагмы</label><input type="number" id="lensDiaphragmBlades" step="1" /></div>
+          <div class="form-group"><label>Влагозащита</label><select id="lensWeatherSealing"><option value="true">Да</option><option value="false">Нет</option></select></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Качество сборки (1–10)</label><input type="number" id="lensBuildQuality" min="1" max="10" step="1" /></div>
+          <div class="form-group"><label>Цена (₽)</label><input type="number" id="lensPrice" step="1000" /></div>
+        </div>
+        <div class="form-group"><label>Ссылка на изображение</label><input type="text" id="lensImage" /></div>
+        <div class="form-group"><label>Описание</label><textarea id="lensDescription" rows="3"></textarea></div>
+        <div class="form-group"><label>Ссылки (label|url, каждая с новой строки)</label><textarea id="lensLinks" rows="2"></textarea></div>
+        <div class="form-group"><label>Год выпуска</label><input type="number" id="lensReleaseYear" step="1" /></div>
+        <div class="form-group"><label>Снят с производства</label><select id="lensDiscontinued"><option value="false">Нет</option><option value="true">Да</option></select></div>
+        <div class="form-group"><label>Теги (через запятую)</label><input type="text" id="lensTags" placeholder="prime, portrait, budget" /></div>
+        <div class="form-group"><label>Совместимые камеры (id через запятую)</label><input type="text" id="lensCompatibleCameras" placeholder="canon-eos-r5, canon-eos-r6" /></div>
+        <hr style="border-color:#2a2a2a; margin:16px 0;" />
+        <h4>Рейтинги (1–10)</h4>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px 20px;">
+          <div class="form-group"><label>Резкость</label><input type="number" id="lensRatingSharpness" min="1" max="10" step="0.5" /></div>
+          <div class="form-group"><label>Боке</label><input type="number" id="lensRatingBokeh" min="1" max="10" step="0.5" /></div>
+          <div class="form-group"><label>Цветопередача</label><input type="number" id="lensRatingColor" min="1" max="10" step="0.5" /></div>
+          <div class="form-group"><label>Контраст</label><input type="number" id="lensRatingContrast" min="1" max="10" step="0.5" /></div>
+          <div class="form-group"><label>Устойчивость к бликам</label><input type="number" id="lensRatingFlare" min="1" max="10" step="0.5" /></div>
+          <div class="form-group"><label>Дисторсия</label><input type="number" id="lensRatingDistortion" min="1" max="10" step="0.5" /></div>
+          <div class="form-group"><label>Виньетирование</label><input type="number" id="lensRatingVignetting" min="1" max="10" step="0.5" /></div>
+          <div class="form-group"><label>Хроматические аберрации</label><input type="number" id="lensRatingCA" min="1" max="10" step="0.5" /></div>
+          <div class="form-group"><label>Характер</label><input type="number" id="lensRatingCharacter" min="1" max="10" step="0.5" /></div>
+          <div class="form-group"><label>Универсальность</label><input type="number" id="lensRatingVersatility" min="1" max="10" step="0.5" /></div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-cancel" id="cancelLensBtn">Отмена</button>
+          <button type="submit" class="btn-save" id="saveLensBtn">Сохранить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <!-- Модалка для массового поиска картинок -->
   <div class="modal" id="previewModal">
     <div class="modal-content" style="max-width:900px;">
-      <h2>🔍 Предпросмотр найденных изображений</h2>
+      <h2><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.4-4.4"/></svg> Предпросмотр найденных изображений</h2>
       <p style="color:#aaa; margin-bottom:16px;">Отметьте подходящие изображения и нажмите «Применить».</p>
       <div id="previewGrid" style="display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:16px; max-height:60vh; overflow-y:auto; padding:8px 0;"></div>
       <div class="modal-actions">
         <button class="btn-cancel" id="previewCancelBtn">Отменить</button>
-        <button class="btn-save" id="previewApplyBtn">✓ Применить выбранные</button>
+        <button class="btn-save" id="previewApplyBtn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg> Применить выбранные</button>
       </div>
     </div>
   </div>
@@ -330,7 +433,8 @@
 
 <script>
   // ============================================================
-  //  АДМИНКА С ID + ЭКСПЕРТНЫЙ РЕЖИМ + ОБУЧЕНИЕ + НАСТРОЙКА СКОРИНГА
+  //  АДМИНКА — ПОЛНАЯ ВЕРСИЯ С ОБЪЕКТИВАМИ
+  //  Весь код управления камерами, объективами, экспертный режим, обучение, скоринг
   // ============================================================
 
   // ── ЗАЩИТА ПАРОЛЕМ ──────────────────────────────────────────────
@@ -341,7 +445,7 @@
     if (entered === ADMIN_PASSWORD) {
       sessionStorage.setItem('admin_authenticated', 'true');
     } else {
-      document.body.innerHTML = '<h1 style="text-align:center; margin-top:4rem; color:#d47a7a;">⛔ Доступ запрещён. Неверный пароль.</h1>';
+      document.body.innerHTML = '<h1 style="text-align:center; margin-top:4rem; color:#d47a7a;">Доступ запрещён. Неверный пароль.</h1>';
       throw new Error('Неверный пароль');
     }
   })();
@@ -349,9 +453,9 @@
   // ── КОНФИГУРАЦИЯ (GitHub) ──────────────────────────────────────
   const REPO_OWNER = 'alexeynovopashin-lab';
   const REPO_NAME = 'CameraChange';
-  const FILE_PATH = 'cameras.json';
-  const SCORING_FILE_PATH = 'scoring_config.json';
   const BRANCH = 'main';
+  const CAMERAS_FILE = 'cameras.json';
+  const LENSES_FILE = 'lens.json';
 
   let token = sessionStorage.getItem('gh_token');
   if (!token) {
@@ -361,51 +465,23 @@
 
   // ── СОСТОЯНИЕ ──────────────────────────────────────────────────
   let cameras = [];
+  let lenses = [];
   let editingId = null;
+  let editingLensId = null;
   let sortField = null;
   let sortOrder = 'asc';
-  let scoringConfig = null;
-  let currentScoringLevel = 'beginner';
+  let sortFieldLens = null;
+  let sortOrderLens = 'asc';
 
-  // ── ФУНКЦИЯ ГЕНЕРАЦИИ ID ──────────────────────────────────────
+  // ── ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ──────────────────────────────────
   function generateCameraId(brand, model) {
     const clean = (str) => String(str || '').toLowerCase().replace(/[^a-z0-9]/g, '-');
     return `${clean(brand)}-${clean(model)}`;
   }
-
-  // ── ЗАГРУЗКА ДАННЫХ ────────────────────────────────────────────
-  async function loadData() {
-    try {
-      const url = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/${FILE_PATH}?t=${Date.now()}`;
-      const res = await fetch(url);
-      if (!res.ok) throw new Error('Не удалось загрузить файл');
-      const data = await res.json();
-      cameras = Array.isArray(data) ? data : [];
-      cameras.forEach(cam => { if (!cam.id) cam.id = generateCameraId(cam.brand, cam.model); });
-      renderTable();
-      updateExpertStats();
-    } catch (e) {
-      console.error(e);
-      cameras = [];
-      renderTable();
-    }
+  function generateLensId(brand, model) {
+    const clean = (str) => String(str || '').toLowerCase().replace(/[^a-z0-9]/g, '-');
+    return `${clean(brand)}-${clean(model)}`;
   }
-
-  async function loadScoringConfig() {
-    try {
-      const url = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/${SCORING_FILE_PATH}?t=${Date.now()}`;
-      const res = await fetch(url);
-      if (!res.ok) throw new Error('Не удалось загрузить scoring_config.json');
-      scoringConfig = await res.json();
-      renderScoringTable();
-    } catch (e) {
-      console.warn('Ошибка загрузки scoring_config.json', e);
-      scoringConfig = null;
-      document.getElementById('scoringTableBody').innerHTML = '<tr><td colspan="5" class="empty">❌ Не удалось загрузить конфиг</td></tr>';
-    }
-  }
-
-  // ── СОХРАНЕНИЕ В GITHUB ──────────────────────────────────────
   function base64Encode(str) {
     const encoder = new TextEncoder();
     const data = encoder.encode(str);
@@ -415,78 +491,126 @@
     }
     return btoa(binary);
   }
+  function boolBadge(val) {
+    if (val === true) return '<span class="badge badge-true">Да</span>';
+    if (val === false) return '<span class="badge badge-false">Нет</span>';
+    return '<span class="badge badge-unknown">—</span>';
+  }
+  function formatPrice(p) {
+    if (!p) return '';
+    return p.toLocaleString('ru-RU');
+  }
 
-  async function saveFile(filePath, content) {
-    if (!token) {
-      alert('Токен не задан. Перезагрузите страницу и введите токен.');
-      return false;
-    }
+  // ── ЗАГРУЗКА ДАННЫХ (КАМЕРЫ) ──────────────────────────────────
+  async function loadCameras() {
     try {
-      const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${filePath}`;
+      const url = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/${CAMERAS_FILE}?t=${Date.now()}`;
+      const res = await fetch(url);
+      if (!res.ok) throw new Error('Не удалось загрузить');
+      const data = await res.json();
+      cameras = Array.isArray(data) ? data : [];
+      cameras.forEach(c => { if (!c.id) c.id = generateCameraId(c.brand, c.model); });
+      renderTable();
+      updateExpertStats();
+    } catch (e) {
+      console.error(e);
+      cameras = [];
+      renderTable();
+    }
+  }
+
+  // ── ЗАГРУЗКА ДАННЫХ (ОБЪЕКТИВЫ) ──────────────────────────────
+  async function loadLenses() {
+    try {
+      const url = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/${LENSES_FILE}?t=${Date.now()}`;
+      const res = await fetch(url);
+      if (!res.ok) throw new Error('Не удалось загрузить');
+      const data = await res.json();
+      lenses = Array.isArray(data) ? data : [];
+      lenses.forEach(l => { if (!l.id) l.id = generateLensId(l.brand, l.model); });
+      renderLensTable();
+    } catch (e) {
+      console.warn('lens.json не найден, создаём пустую базу');
+      lenses = [];
+      renderLensTable();
+    }
+  }
+
+  // ── СОХРАНЕНИЕ В GITHUB ──────────────────────────────────────
+  async function saveData(file, data) {
+    if (!token) { alert('Токен не задан.'); return; }
+    try {
+      const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${file}`;
       const res = await fetch(url, { headers: { 'Authorization': `token ${token}` } });
       let sha = null;
-      if (res.ok) {
-        const data = await res.json();
-        sha = data.sha;
-      } else if (res.status !== 404) {
-        throw new Error('Ошибка получения sha: ' + res.status);
-      }
-      const encoded = base64Encode(content);
+      if (res.ok) { const info = await res.json(); sha = info.sha; }
+      const content = JSON.stringify(data, null, 2);
       const payload = {
-        message: `Обновление ${filePath} (${new Date().toISOString()})`,
-        content: encoded,
+        message: `Обновление ${file} (${new Date().toISOString()})`,
+        content: base64Encode(content),
         branch: BRANCH
       };
       if (sha) payload.sha = sha;
       const commitRes = await fetch(url, {
         method: 'PUT',
-        headers: {
-          'Authorization': `token ${token}`,
-          'Content-Type': 'application/json'
-        },
+        headers: { 'Authorization': `token ${token}`, 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });
       if (!commitRes.ok) {
         const err = await commitRes.json();
         throw new Error(err.message || 'Ошибка сохранения');
       }
-      return true;
+      alert(`✅ ${file} сохранён в GitHub!`);
+      if (file === CAMERAS_FILE) renderTable();
+      else renderLensTable();
     } catch (e) {
       console.error(e);
       alert('❌ Ошибка сохранения: ' + e.message);
-      return false;
     }
   }
 
-  async function saveData() {
-    const content = JSON.stringify(cameras, null, 2);
-    const ok = await saveFile(FILE_PATH, content);
-    if (ok) { renderTable(); }
+  // ── ТАБЛИЦА КАМЕР ─────────────────────────────────────────────
+  function getSortValueCam(cam, field) {
+    if (field === 'id') return cam.id || '';
+    if (field === 'image') return cam.image ? 1 : 0;
+    if (field === 'bonus') return cam.bonus ?? 0;
+    if (field === 'price') return cam.price || 0;
+    if (field === 'fullFrame' || field === 'crop' || field === 'mirrorless' ||
+        field === 'imageStabilization' || field === 'rotatingScreen' ||
+        field === 'forBeginners' || field === 'professional' || field === 'colorScience') {
+      return cam[field] ? 1 : 0;
+    }
+    if (field === 'menuComplexity') {
+      const order = { simple: 1, intermediate: 2, complex: 3 };
+      return order[cam[field]] || 0;
+    }
+    return String(cam[field] || '').toLowerCase();
   }
-
-  async function saveScoringConfig() {
-    if (!scoringConfig) return;
-    const content = JSON.stringify(scoringConfig, null, 2);
-    const ok = await saveFile(SCORING_FILE_PATH, content);
-    if (ok) { alert('✅ Настройки скоринга сохранены в GitHub!'); }
+  function sortCameras(field) {
+    if (sortField === field) { sortOrder = sortOrder === 'asc' ? 'desc' : 'asc'; }
+    else { sortField = field; sortOrder = 'asc'; }
+    document.querySelectorAll('#tableHead th[data-sort]').forEach(th => {
+      const arrow = th.querySelector('.sort-arrow');
+      if (th.dataset.sort === field) { arrow.textContent = sortOrder === 'asc' ? '↑' : '↓'; arrow.classList.add('active'); }
+      else { arrow.textContent = '↕'; arrow.classList.remove('active'); }
+    });
+    renderTable();
   }
-
-  // ── РЕНДЕР ТАБЛИЦЫ ──────────────────────────────────────────
   function renderTable() {
     const tbody = document.getElementById('tableBody');
     const search = document.getElementById('searchInput').value.toLowerCase();
     let filtered = cameras;
     if (search) {
       filtered = cameras.filter(c => 
-        (c.brand || '').toLowerCase().includes(search) || 
+        (c.brand || '').toLowerCase().includes(search) ||
         (c.model || '').toLowerCase().includes(search) ||
         (c.id || '').toLowerCase().includes(search)
       );
     }
     if (sortField && sortField !== 'actions') {
-      filtered.sort((a, b) => {
-        let va = getSortValue(a, sortField);
-        let vb = getSortValue(b, sortField);
+      filtered.sort((a,b) => {
+        let va = getSortValueCam(a, sortField);
+        let vb = getSortValueCam(b, sortField);
         if (va < vb) return sortOrder === 'asc' ? -1 : 1;
         if (va > vb) return sortOrder === 'asc' ? 1 : -1;
         return 0;
@@ -504,7 +628,7 @@
         <td>${imageHtml}</td>
         <td>${cam.brand || ''}</td>
         <td>${cam.model || ''}</td>
-        <td>${cam.price ? cam.price.toLocaleString() : ''}</td>
+        <td>${cam.price ? formatPrice(cam.price) : ''}</td>
         <td>${cam.type || ''}</td>
         <td>${cam.sensorSize || ''}</td>
         <td>${boolBadge(cam.fullFrame)}</td>
@@ -527,81 +651,88 @@
     tbody.innerHTML = html;
   }
 
-  function boolBadge(val) {
-    if (val === true) return '<span class="badge badge-true">Да</span>';
-    if (val === false) return '<span class="badge badge-false">Нет</span>';
-    return '<span class="badge badge-unknown">—</span>';
+  // ── ТАБЛИЦА ОБЪЕКТИВОВ ───────────────────────────────────────
+  function getSortValueLens(lens, field) {
+    if (field === 'id') return lens.id || '';
+    if (field === 'image') return lens.image ? 1 : 0;
+    if (field === 'price') return lens.price || 0;
+    if (field === 'sharpness') return (lens.ratings && lens.ratings.sharpness) || 0;
+    if (field === 'bokeh') return (lens.ratings && lens.ratings.bokeh) || 0;
+    if (field === 'focalLength') return lens.focalLength || 0;
+    if (field === 'maxAperture') return lens.maxAperture || 0;
+    return String(lens[field] || '').toLowerCase();
   }
-
-  // ── РЕНДЕР ТАБЛИЦЫ СКОРИНГА ──────────────────────────────────
-  function renderScoringTable() {
-    const tbody = document.getElementById('scoringTableBody');
-    if (!scoringConfig) {
-      tbody.innerHTML = '<tr><td colspan="5" class="empty">Загрузка...</td></tr>';
+  function sortLenses(field) {
+    if (sortFieldLens === field) { sortOrderLens = sortOrderLens === 'asc' ? 'desc' : 'asc'; }
+    else { sortFieldLens = field; sortOrderLens = 'asc'; }
+    document.querySelectorAll('#lensTableHead th[data-sort]').forEach(th => {
+      const arrow = th.querySelector('.sort-arrow');
+      if (th.dataset.sort === field) { arrow.textContent = sortOrderLens === 'asc' ? '↑' : '↓'; arrow.classList.add('active'); }
+      else { arrow.textContent = '↕'; arrow.classList.remove('active'); }
+    });
+    renderLensTable();
+  }
+  function renderLensTable() {
+    const tbody = document.getElementById('lensTableBody');
+    const search = document.getElementById('searchLensInput').value.toLowerCase();
+    let filtered = lenses;
+    if (search) {
+      filtered = lenses.filter(l => 
+        (l.brand || '').toLowerCase().includes(search) ||
+        (l.model || '').toLowerCase().includes(search) ||
+        (l.id || '').toLowerCase().includes(search)
+      );
+    }
+    if (sortFieldLens && sortFieldLens !== 'actions') {
+      filtered.sort((a,b) => {
+        let va = getSortValueLens(a, sortFieldLens);
+        let vb = getSortValueLens(b, sortFieldLens);
+        if (va < vb) return sortOrderLens === 'asc' ? -1 : 1;
+        if (va > vb) return sortOrderLens === 'asc' ? 1 : -1;
+        return 0;
+      });
+    }
+    if (!filtered.length) {
+      tbody.innerHTML = `<tr><td colspan="12" class="empty">Нет объективов</td></tr>`;
       return;
     }
-    const level = currentScoringLevel;
-    const levelConfig = scoringConfig.levels[level];
-    if (!levelConfig) {
-      tbody.innerHTML = `<tr><td colspan="5" class="empty">Уровень "${level}" не найден</td></tr>`;
-      return;
-    }
-    document.getElementById('scoringLevelLabel').textContent = levelConfig.label || level;
-    
-    let totalWeight = 0;
     let html = '';
-    levelConfig.questions.forEach((q, idx) => {
-      totalWeight += q.weight || 0;
+    filtered.forEach(lens => {
+      const imageHtml = lens.image ? `<img src="${lens.image}" class="thumb-img" onerror="this.style.display='none'" />` : '—';
+      const sharp = (lens.ratings && lens.ratings.sharpness) || '—';
+      const bokeh = (lens.ratings && lens.ratings.bokeh) || '—';
+      const fl = lens.focalLength || lens.focalRange || '—';
       html += `<tr>
-        <td>${idx + 1}</td>
-        <td style="font-family:monospace;font-size:12px;color:#888;">${q.id}</td>
-        <td>${q.text}</td>
-        <td><input type="number" step="0.01" min="0" class="scoring-weight" data-id="${q.id}" value="${q.weight || 0}" /></td>
-        <td><input type="checkbox" class="scoring-enabled" data-id="${q.id}" ${q.enabled !== false ? 'checked' : ''} /></td>
+        <td style="font-size:11px;color:#666;">${lens.id || '—'}</td>
+        <td>${imageHtml}</td>
+        <td>${lens.brand || ''}</td>
+        <td>${lens.model || ''}</td>
+        <td>${lens.mount || ''}</td>
+        <td>${lens.type || ''}</td>
+        <td>${fl}</td>
+        <td>${lens.maxAperture || ''}</td>
+        <td>${lens.price ? formatPrice(lens.price) : ''}</td>
+        <td>${sharp}</td>
+        <td>${bokeh}</td>
+        <td class="actions">
+          <button onclick="editLens('${lens.id}')">✏️</button>
+          <button onclick="deleteLens('${lens.id}')">🗑️</button>
+        </td>
       </tr>`;
     });
     tbody.innerHTML = html;
-    document.getElementById('scoringTotalWeight').textContent = `Сумма весов: ${totalWeight.toFixed(2)}`;
-
-    // Обработчики изменений
-    tbody.querySelectorAll('.scoring-weight').forEach(inp => {
-      inp.addEventListener('change', function() {
-        const id = this.dataset.id;
-        const val = parseFloat(this.value) || 0;
-        const levelConfig = scoringConfig.levels[currentScoringLevel];
-        const q = levelConfig.questions.find(q => q.id === id);
-        if (q) { q.weight = val; updateTotalWeight(); }
-      });
-    });
-    tbody.querySelectorAll('.scoring-enabled').forEach(cb => {
-      cb.addEventListener('change', function() {
-        const id = this.dataset.id;
-        const val = this.checked;
-        const levelConfig = scoringConfig.levels[currentScoringLevel];
-        const q = levelConfig.questions.find(q => q.id === id);
-        if (q) { q.enabled = val; }
-      });
-    });
   }
 
-  function updateTotalWeight() {
-    const levelConfig = scoringConfig.levels[currentScoringLevel];
-    let total = 0;
-    levelConfig.questions.forEach(q => { total += q.weight || 0; });
-    document.getElementById('scoringTotalWeight').textContent = `Сумма весов: ${total.toFixed(2)}`;
-  }
-
-  // ── РЕДАКТИРОВАНИЕ (ПО ID) ────────────────────────────────────
+  // ── РЕДАКТИРОВАНИЕ КАМЕРЫ ────────────────────────────────────
   function editCamera(id) {
     const cam = cameras.find(c => c.id === id);
-    if (!cam) { alert('❌ Камера не найдена'); return; }
+    if (!cam) { alert('Камера не найдена'); return; }
     editingId = id;
     document.getElementById('modalTitle').textContent = 'Редактирование камеры';
-    fillForm(cam);
+    fillCamForm(cam);
     document.getElementById('editModal').classList.add('active');
   }
-
-  function fillForm(cam) {
+  function fillCamForm(cam) {
     setVal('fId', cam.id || '');
     setVal('fBrand', cam.brand);
     setVal('fModel', cam.model);
@@ -655,7 +786,6 @@
     setCheck('fHdmi', cam.hdmi);
     setCheck('fBuiltinFlash', cam.builtinFlash);
   }
-
   function setVal(id, val) { document.getElementById(id).value = val ?? ''; }
   function setSelect(id, val) {
     const el = document.getElementById(id);
@@ -665,8 +795,7 @@
     else el.value = '';
   }
   function setCheck(id, val) { document.getElementById(id).checked = !!val; }
-
-  function getFormData() {
+  function getCamFormData() {
     return {
       brand: document.getElementById('fBrand').value.trim(),
       model: document.getElementById('fModel').value.trim(),
@@ -724,43 +853,148 @@
       builtinFlash: document.getElementById('fBuiltinFlash').checked,
     };
   }
-
   function parseBoolSelect(id) {
     const val = document.getElementById(id).value;
     if (val === 'true') return true;
     if (val === 'false') return false;
     return null;
   }
-
   function deleteCamera(id) {
     const cam = cameras.find(c => c.id === id);
     if (!cam) return;
     if (confirm(`Удалить ${cam.brand} ${cam.model}?`)) {
       const idx = cameras.findIndex(c => c.id === id);
-      if (idx !== -1) { cameras.splice(idx, 1); renderTable(); saveData(); }
+      if (idx !== -1) { cameras.splice(idx, 1); renderTable(); saveData(CAMERAS_FILE, cameras); }
     }
   }
 
-  // ── ОБРАБОТЧИК ФОРМЫ ──────────────────────────────────────────
+  // ── РЕДАКТИРОВАНИЕ ОБЪЕКТИВА ──────────────────────────────────
+  function editLens(id) {
+    const lens = lenses.find(l => l.id === id);
+    if (!lens) { alert('Объектив не найден'); return; }
+    editingLensId = id;
+    document.getElementById('lensModalTitle').textContent = 'Редактирование объектива';
+    fillLensForm(lens);
+    document.getElementById('editLensModal').classList.add('active');
+  }
+  function fillLensForm(lens) {
+    setVal('lensId', lens.id || '');
+    setVal('lensBrand', lens.brand);
+    setVal('lensModel', lens.model);
+    setVal('lensMount', lens.mount);
+    setVal('lensType', lens.type || 'prime');
+    setVal('lensFocalLength', lens.focalLength);
+    setVal('lensFocalRange', lens.focalRange);
+    setVal('lensMaxAperture', lens.maxAperture);
+    setVal('lensMinAperture', lens.minAperture);
+    setVal('lensFormat', lens.format || 'fullframe');
+    setVal('lensImageStabilization', lens.imageStabilization ? 'true' : 'false');
+    setVal('lensWeight', lens.weight);
+    setVal('lensFilterThread', lens.filterThread);
+    setVal('lensMinFocusDistance', lens.minFocusDistance);
+    setVal('lensMaxMagnification', lens.maxMagnification);
+    setVal('lensDiaphragmBlades', lens.diaphragmBlades);
+    setVal('lensWeatherSealing', lens.weatherSealing ? 'true' : 'false');
+    setVal('lensBuildQuality', lens.buildQuality);
+    setVal('lensPrice', lens.price);
+    setVal('lensImage', lens.image || '');
+    setVal('lensDescription', lens.description || '');
+    setVal('lensLinks', lens.links ? lens.links.map(l => l.label + '|' + l.url).join('\n') : '');
+    setVal('lensReleaseYear', lens.releaseYear);
+    setVal('lensDiscontinued', lens.discontinued ? 'true' : 'false');
+    setVal('lensTags', (lens.tags || []).join(', '));
+    setVal('lensCompatibleCameras', (lens.compatibleCameras || []).join(', '));
+    const r = lens.ratings || {};
+    setVal('lensRatingSharpness', r.sharpness || '');
+    setVal('lensRatingBokeh', r.bokeh || '');
+    setVal('lensRatingColor', r.colorRendering || '');
+    setVal('lensRatingContrast', r.contrast || '');
+    setVal('lensRatingFlare', r.flareResistance || '');
+    setVal('lensRatingDistortion', r.distortion || '');
+    setVal('lensRatingVignetting', r.vignetting || '');
+    setVal('lensRatingCA', r.chromaticAberration || '');
+    setVal('lensRatingCharacter', r.character || '');
+    setVal('lensRatingVersatility', r.versatility || '');
+  }
+  function getLensFormData() {
+    const ratings = {};
+    const rFields = ['Sharpness','Bokeh','Color','Contrast','Flare','Distortion','Vignetting','CA','Character','Versatility'];
+    rFields.forEach(f => {
+      const val = parseFloat(document.getElementById('lensRating'+f).value);
+      if (!isNaN(val)) {
+        const key = f === 'Sharpness' ? 'sharpness' :
+                   f === 'Bokeh' ? 'bokeh' :
+                   f === 'Color' ? 'colorRendering' :
+                   f === 'Contrast' ? 'contrast' :
+                   f === 'Flare' ? 'flareResistance' :
+                   f === 'Distortion' ? 'distortion' :
+                   f === 'Vignetting' ? 'vignetting' :
+                   f === 'CA' ? 'chromaticAberration' :
+                   f === 'Character' ? 'character' : 'versatility';
+        ratings[key] = val;
+      }
+    });
+    return {
+      brand: document.getElementById('lensBrand').value.trim(),
+      model: document.getElementById('lensModel').value.trim(),
+      mount: document.getElementById('lensMount').value.trim(),
+      type: document.getElementById('lensType').value,
+      focalLength: parseInt(document.getElementById('lensFocalLength').value) || null,
+      focalRange: document.getElementById('lensFocalRange').value.trim() || null,
+      maxAperture: parseFloat(document.getElementById('lensMaxAperture').value) || null,
+      minAperture: parseFloat(document.getElementById('lensMinAperture').value) || null,
+      format: document.getElementById('lensFormat').value,
+      imageStabilization: document.getElementById('lensImageStabilization').value === 'true',
+      weight: parseInt(document.getElementById('lensWeight').value) || 0,
+      filterThread: parseInt(document.getElementById('lensFilterThread').value) || null,
+      minFocusDistance: parseFloat(document.getElementById('lensMinFocusDistance').value) || null,
+      maxMagnification: parseFloat(document.getElementById('lensMaxMagnification').value) || null,
+      diaphragmBlades: parseInt(document.getElementById('lensDiaphragmBlades').value) || null,
+      weatherSealing: document.getElementById('lensWeatherSealing').value === 'true',
+      buildQuality: parseInt(document.getElementById('lensBuildQuality').value) || null,
+      price: parseInt(document.getElementById('lensPrice').value) || 0,
+      image: document.getElementById('lensImage').value.trim(),
+      description: document.getElementById('lensDescription').value.trim(),
+      links: document.getElementById('lensLinks').value.split('\n').map(line => line.trim()).filter(Boolean).map(line => {
+        const [label, url] = line.split('|').map(s => s.trim());
+        return { label: label || url, url: url || label };
+      }),
+      releaseYear: parseInt(document.getElementById('lensReleaseYear').value) || null,
+      discontinued: document.getElementById('lensDiscontinued').value === 'true',
+      tags: document.getElementById('lensTags').value.split(',').map(s => s.trim()).filter(Boolean),
+      compatibleCameras: document.getElementById('lensCompatibleCameras').value.split(',').map(s => s.trim()).filter(Boolean),
+      ratings: ratings
+    };
+  }
+  function deleteLens(id) {
+    const lens = lenses.find(l => l.id === id);
+    if (!lens) return;
+    if (confirm(`Удалить ${lens.brand} ${lens.model}?`)) {
+      const idx = lenses.findIndex(l => l.id === id);
+      if (idx !== -1) { lenses.splice(idx, 1); renderLensTable(); saveData(LENSES_FILE, lenses); }
+    }
+  }
+
+  // ── ОБРАБОТЧИКИ ФОРМ ──────────────────────────────────────────
   document.getElementById('editForm').addEventListener('submit', (e) => {
     e.preventDefault();
-    const data = getFormData();
+    const data = getCamFormData();
     if (!data.brand || !data.model) { alert('Бренд и модель обязательны'); return; }
     const newId = generateCameraId(data.brand, data.model);
     if (editingId === null) {
-      if (cameras.some(c => c.id === newId)) { alert('⚠️ Камера с таким ID уже существует'); return; }
+      if (cameras.some(c => c.id === newId)) { alert('Камера с таким ID уже существует'); return; }
       data.id = newId;
       cameras.push(data);
     } else {
       const idx = cameras.findIndex(c => c.id === editingId);
-      if (idx === -1) { alert('❌ Камера не найдена'); return; }
+      if (idx === -1) { alert('Камера не найдена'); return; }
       data.id = editingId;
       cameras[idx] = data;
     }
     document.getElementById('editModal').classList.remove('active');
     editingId = null;
     renderTable();
-    saveData();
+    saveData(CAMERAS_FILE, cameras);
   });
 
   document.getElementById('cancelBtn').addEventListener('click', () => {
@@ -771,13 +1005,47 @@
   document.getElementById('addBtn').addEventListener('click', () => {
     editingId = null;
     document.getElementById('modalTitle').textContent = 'Новая камера';
-    fillForm({});
+    fillCamForm({});
     document.querySelectorAll('#editForm input[type="checkbox"]').forEach(cb => cb.checked = false);
     document.getElementById('editModal').classList.add('active');
   });
 
+  document.getElementById('editLensForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = getLensFormData();
+    if (!data.brand || !data.model) { alert('Бренд и модель обязательны'); return; }
+    const newId = generateLensId(data.brand, data.model);
+    if (editingLensId === null) {
+      if (lenses.some(l => l.id === newId)) { alert('Объектив с таким ID уже существует'); return; }
+      data.id = newId;
+      lenses.push(data);
+    } else {
+      const idx = lenses.findIndex(l => l.id === editingLensId);
+      if (idx === -1) { alert('Объектив не найден'); return; }
+      data.id = editingLensId;
+      lenses[idx] = data;
+    }
+    document.getElementById('editLensModal').classList.remove('active');
+    editingLensId = null;
+    renderLensTable();
+    saveData(LENSES_FILE, lenses);
+  });
+
+  document.getElementById('cancelLensBtn').addEventListener('click', () => {
+    document.getElementById('editLensModal').classList.remove('active');
+    editingLensId = null;
+  });
+
+  document.getElementById('addLensBtn').addEventListener('click', () => {
+    editingLensId = null;
+    document.getElementById('lensModalTitle').textContent = 'Новый объектив';
+    fillLensForm({});
+    document.getElementById('editLensModal').classList.add('active');
+  });
+
   // ── ПОИСК ───────────────────────────────────────────────────────
   document.getElementById('searchInput').addEventListener('input', renderTable);
+  document.getElementById('searchLensInput').addEventListener('input', renderLensTable);
 
   // ── ИМПОРТ/ЭКСПОРТ ────────────────────────────────────────────
   document.getElementById('exportBtn').addEventListener('click', () => {
@@ -785,10 +1053,9 @@
     const blob = new Blob([json], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
-    a.href = url; a.download = 'cameras.json'; a.click();
+    a.href = url; a.download = CAMERAS_FILE; a.click();
     URL.revokeObjectURL(url);
   });
-
   document.getElementById('importBtn').addEventListener('click', () => {
     const input = document.createElement('input');
     input.type = 'file'; input.accept = '.json';
@@ -809,9 +1076,46 @@
             } else skipped++;
           });
           renderTable();
-          saveData();
-          alert(`✅ Импорт: добавлено ${added}, пропущено ${skipped}`);
-        } catch (err) { alert('❌ Ошибка: ' + err.message); }
+          saveData(CAMERAS_FILE, cameras);
+          alert(`Импорт: добавлено ${added}, пропущено ${skipped}`);
+        } catch (err) { alert('Ошибка: ' + err.message); }
+      };
+      reader.readAsText(file);
+    };
+    input.click();
+  });
+
+  document.getElementById('exportLensBtn').addEventListener('click', () => {
+    const json = JSON.stringify(lenses, null, 2);
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = LENSES_FILE; a.click();
+    URL.revokeObjectURL(url);
+  });
+  document.getElementById('importLensBtn').addEventListener('click', () => {
+    const input = document.createElement('input');
+    input.type = 'file'; input.accept = '.json';
+    input.onchange = (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        try {
+          const data = JSON.parse(ev.target.result);
+          if (!Array.isArray(data)) throw new Error('Не массив');
+          let added = 0, skipped = 0;
+          data.forEach(newLens => {
+            if (!newLens.id) newLens.id = generateLensId(newLens.brand, newLens.model);
+            if (!lenses.some(l => l.id === newLens.id)) {
+              lenses.push(newLens);
+              added++;
+            } else skipped++;
+          });
+          renderLensTable();
+          saveData(LENSES_FILE, lenses);
+          alert(`Импорт: добавлено ${added}, пропущено ${skipped}`);
+        } catch (err) { alert('Ошибка: ' + err.message); }
       };
       reader.readAsText(file);
     };
@@ -821,10 +1125,10 @@
   // ── МАССОВЫЙ ПОИСК КАРТИНОК ──────────────────────────────────
   const WIKIMEDIA_REQUEST_DELAY_MS = 200;
   async function massFindImages() {
-    await loadData();
+    await loadCameras();
     const withoutImage = cameras.filter(c => !c.image || c.image.trim() === '');
-    if (withoutImage.length === 0) { alert('✅ У всех камер есть изображения!'); return; }
-    alert(`🔍 Поиск для ${withoutImage.length} камер...`);
+    if (withoutImage.length === 0) { alert('У всех камер есть изображения!'); return; }
+    alert(`Поиск для ${withoutImage.length} камер...`);
     const results = [];
     for (const cam of withoutImage) {
       const cameraName = `${cam.brand} ${cam.model}`.trim();
@@ -849,10 +1153,9 @@
       } catch (e) { console.warn('Ошибка для ' + cameraName, e); }
       await new Promise(r => setTimeout(r, WIKIMEDIA_REQUEST_DELAY_MS));
     }
-    if (results.length === 0) { alert('❌ Изображений не найдено'); return; }
+    if (results.length === 0) { alert('Изображений не найдено'); return; }
     showPreviewModal(results);
   }
-
   function showPreviewModal(results) {
     const modal = document.getElementById('previewModal');
     const grid = document.getElementById('previewGrid');
@@ -877,20 +1180,19 @@
       const checkboxes = document.querySelectorAll('.preview-checkbox');
       const selected = [];
       checkboxes.forEach(cb => { if (cb.checked) { const idx = parseInt(cb.dataset.index); selected.push(results[idx]); } });
-      if (selected.length === 0) { alert('⚠️ Не выбрано ни одного изображения.'); return; }
+      if (selected.length === 0) { alert('Не выбрано ни одного изображения.'); return; }
       selected.forEach(res => {
         const cam = cameras.find(c => c.id === res.cameraId);
         if (cam) cam.image = res.foundImageUrl;
       });
       modal.classList.remove('active');
       renderTable();
-      saveData();
+      saveData(CAMERAS_FILE, cameras);
     };
   }
-
   document.getElementById('massImageBtn').addEventListener('click', massFindImages);
 
-  // ── ГЕНЕРАЦИЯ ШАБЛОННЫХ ССЫЛОК ──────────────────────────────
+  // ── ГЕНЕРАЦИЯ ССЫЛОК ──────────────────────────────────────────
   function generateLinksForAllCameras() {
     if (!confirm('Добавить ссылки на DPreview для камер без ссылок?')) return;
     let count = 0;
@@ -907,25 +1209,35 @@
       }
     });
     renderTable();
-    saveData();
-    alert(`✅ Добавлены ссылки для ${count} камер.`);
+    saveData(CAMERAS_FILE, cameras);
+    alert(`Добавлены ссылки для ${count} камер.`);
   }
   document.getElementById('generateLinksBtn').addEventListener('click', generateLinksForAllCameras);
 
   // ── ОБНОВЛЕНИЕ ────────────────────────────────────────────────
-  document.getElementById('refreshBtn').addEventListener('click', () => { loadData(); });
+  document.getElementById('refreshBtn').addEventListener('click', loadCameras);
+  document.getElementById('refreshLensBtn').addEventListener('click', loadLenses);
 
-  // ── СОРТИРОВКА ПО ЗАГОЛОВКАМ ──────────────────────────────────
+  // ── СОРТИРОВКА ────────────────────────────────────────────────
   document.querySelectorAll('#tableHead th[data-sort]').forEach(th => {
     th.addEventListener('click', function() {
       if (this.dataset.sort === 'actions') return;
       sortCameras(this.dataset.sort);
     });
   });
+  document.querySelectorAll('#lensTableHead th[data-sort]').forEach(th => {
+    th.addEventListener('click', function() {
+      if (this.dataset.sort === 'actions') return;
+      sortLenses(this.dataset.sort);
+    });
+  });
 
   // ── ЗАКРЫТИЕ МОДАЛОК ──────────────────────────────────────────
   document.getElementById('editModal').addEventListener('click', (e) => {
     if (e.target === e.currentTarget) document.getElementById('editModal').classList.remove('active');
+  });
+  document.getElementById('editLensModal').addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) document.getElementById('editLensModal').classList.remove('active');
   });
   document.getElementById('previewModal').addEventListener('click', (e) => {
     if (e.target === e.currentTarget) document.getElementById('previewModal').classList.remove('active');
@@ -943,75 +1255,27 @@
   });
 
   // ============================================================
-  //  ЭКСПЕРТНЫЙ РЕЖИМ (без изменений)
+  //  ЭКСПЕРТНЫЙ РЕЖИМ (копия из вашей версии)
   // ============================================================
-
-  let expertState = {
-    step: 0,
-    answers: {},
-    questions: [],
-    level: null,
-    ranking: []
-  };
-
+  let expertState = { step: 0, answers: {}, questions: [], level: null, ranking: [] };
   const questionTree = {
     beginner: [
-      { id: 'b1', text: 'Какой у вас бюджет?', options: [
-          { label: 'До 20 000 ₽', value: 'budget_1' },
-          { label: '20 000 – 35 000 ₽', value: 'budget_2' },
-          { label: '35 000 – 60 000 ₽', value: 'budget_3' },
-          { label: '60 000 – 100 000 ₽', value: 'budget_4' },
-          { label: 'Больше 100 000 ₽', value: 'budget_5' }
-        ] },
-      { id: 'b2', text: 'Что вы планируете снимать?', options: [
-          { label: 'Семью и детей', value: 'family' },
-          { label: 'Путешествия и природу', value: 'travel' },
-          { label: 'Хочу научиться фотографии', value: 'hobby' },
-          { label: 'Снимать друзей и мероприятия', value: 'events' }
-        ] }
+      { id: 'b1', text: 'Какой у вас бюджет?', options: [ {label:'До 20 000 ₽',value:'budget_1'}, {label:'20 000 – 35 000 ₽',value:'budget_2'}, {label:'35 000 – 60 000 ₽',value:'budget_3'}, {label:'60 000 – 100 000 ₽',value:'budget_4'}, {label:'Больше 100 000 ₽',value:'budget_5'} ] },
+      { id: 'b2', text: 'Что вы планируете снимать?', options: [ {label:'Семью и детей',value:'family'}, {label:'Путешествия и природу',value:'travel'}, {label:'Хочу научиться фотографии',value:'hobby'}, {label:'Снимать друзей и мероприятия',value:'events'} ] }
     ],
     enthusiast: [
-      { id: 'e1', text: 'Что вам важнее — характеристики или ощущение?', options: [
-          { label: 'Технические характеристики', value: 'tt' },
-          { label: 'Ощущение и картинка', value: 'creative' }
-        ] },
-      { id: 'e2', text: 'Ваш бюджет', options: [
-          { label: 'До 30 000 ₽', value: 'budget_1' },
-          { label: '30 000 – 60 000 ₽', value: 'budget_2' },
-          { label: '60 000 – 100 000 ₽', value: 'budget_3' },
-          { label: '100 000 – 200 000 ₽', value: 'budget_4' },
-          { label: 'Больше 200 000 ₽', value: 'budget_5' }
-        ] }
+      { id: 'e1', text: 'Что вам важнее — характеристики или ощущение?', options: [ {label:'Технические характеристики',value:'tt'}, {label:'Ощущение и картинка',value:'creative'} ] },
+      { id: 'e2', text: 'Ваш бюджет', options: [ {label:'До 30 000 ₽',value:'budget_1'}, {label:'30 000 – 60 000 ₽',value:'budget_2'}, {label:'60 000 – 100 000 ₽',value:'budget_3'}, {label:'100 000 – 200 000 ₽',value:'budget_4'}, {label:'Больше 200 000 ₽',value:'budget_5'} ] }
     ],
     pro: [
-      { id: 'p1', text: 'Какой размер сенсора?', options: [
-          { label: 'Кроп (APS-C)', value: 'crop' },
-          { label: 'Полный кадр', value: 'fullframe' },
-          { label: 'Средний формат', value: 'medium' }
-        ] },
-      { id: 'p2', text: 'Ваш бюджет (проф.)', options: [
-          { label: 'До 100 000 ₽', value: 'budget_1' },
-          { label: '100 000 – 200 000 ₽', value: 'budget_2' },
-          { label: '200 000 – 400 000 ₽', value: 'budget_3' },
-          { label: 'Больше 400 000 ₽', value: 'budget_4' }
-        ] }
+      { id: 'p1', text: 'Какой размер сенсора?', options: [ {label:'Кроп (APS-C)',value:'crop'}, {label:'Полный кадр',value:'fullframe'}, {label:'Средний формат',value:'medium'} ] },
+      { id: 'p2', text: 'Ваш бюджет (проф.)', options: [ {label:'До 100 000 ₽',value:'budget_1'}, {label:'100 000 – 200 000 ₽',value:'budget_2'}, {label:'200 000 – 400 000 ₽',value:'budget_3'}, {label:'Больше 400 000 ₽',value:'budget_4'} ] }
     ],
     blogger: [
-      { id: 'bl1', text: 'Ваш бюджет', options: [
-          { label: 'До 30 000 ₽', value: 'budget_1' },
-          { label: '30 000 – 60 000 ₽', value: 'budget_2' },
-          { label: '60 000 – 100 000 ₽', value: 'budget_3' },
-          { label: '100 000 – 200 000 ₽', value: 'budget_4' },
-          { label: 'Больше 200 000 ₽', value: 'budget_5' }
-        ] },
-      { id: 'bl2', text: 'На какой платформе контент?', options: [
-          { label: 'YouTube', value: 'youtube' },
-          { label: 'Shorts/TikTok', value: 'shorts' },
-          { label: 'Стримы', value: 'streams' }
-        ] }
+      { id: 'bl1', text: 'Ваш бюджет', options: [ {label:'До 30 000 ₽',value:'budget_1'}, {label:'30 000 – 60 000 ₽',value:'budget_2'}, {label:'60 000 – 100 000 ₽',value:'budget_3'}, {label:'100 000 – 200 000 ₽',value:'budget_4'}, {label:'Больше 200 000 ₽',value:'budget_5'} ] },
+      { id: 'bl2', text: 'На какой платформе контент?', options: [ {label:'YouTube',value:'youtube'}, {label:'Shorts/TikTok',value:'shorts'}, {label:'Стримы',value:'streams'} ] }
     ]
   };
-
   function startExpertSession() {
     const level = prompt('Выберите уровень (beginner, enthusiast, pro, blogger):');
     if (!level || !questionTree[level]) { alert('Неверный уровень'); return; }
@@ -1024,7 +1288,6 @@
     document.getElementById('expertResults').style.display = 'none';
     showExpertQuestion();
   }
-
   function showExpertQuestion() {
     const q = expertState.questions[expertState.step];
     if (!q) { computeExpertResults(); return; }
@@ -1054,26 +1317,16 @@
       showExpertQuestion();
     });
   }
-
   function computeExpertResults() {
-    // Упрощённый скоринг (можно заменить на реальный из виджета)
     const results = cameras.slice(0, 6).map(cam => ({ ...cam, score: Math.random() * 100 }));
     showExpertResults(results);
   }
-
   function showExpertResults(results) {
     document.getElementById('expertResults').style.display = 'block';
     const list = document.getElementById('expertRankingList');
-    expertState.ranking = results.map((cam, idx) => ({
-      id: cam.id,
-      brand: cam.brand,
-      model: cam.model,
-      score: cam.score,
-      originalIndex: idx
-    }));
+    expertState.ranking = results.map((cam, idx) => ({ id: cam.id, brand: cam.brand, model: cam.model, score: cam.score, originalIndex: idx }));
     renderRankingList();
   }
-
   function renderRankingList() {
     const list = document.getElementById('expertRankingList');
     list.innerHTML = '';
@@ -1091,7 +1344,6 @@
       list.appendChild(div);
     });
   }
-
   function moveRankItem(index, direction) {
     const newIndex = index + direction;
     if (newIndex < 0 || newIndex >= expertState.ranking.length) return;
@@ -1100,7 +1352,6 @@
     expertState.ranking[newIndex] = temp;
     renderRankingList();
   }
-
   function saveExpertRanking() {
     const rankingIds = expertState.ranking.map(item => item.id);
     const data = {
@@ -1114,24 +1365,19 @@
     history.push(data);
     localStorage.setItem('expert_rankings', JSON.stringify(history));
     updateExpertStats();
-    alert(`✅ Эталон сохранён! Всего: ${history.length}`);
+    alert(`Эталон сохранён! Всего: ${history.length}`);
   }
-
   function updateExpertStats() {
     const history = JSON.parse(localStorage.getItem('expert_rankings') || '[]');
     document.getElementById('expertCount').textContent = `Сохранено эталонов: ${history.length}`;
   }
-
   function exportExpertData() {
     const history = JSON.parse(localStorage.getItem('expert_rankings') || '[]');
     const blob = new Blob([JSON.stringify(history, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
-    a.href = url;
-    a.download = `expert_rankings_${new Date().toISOString().slice(0,10)}.json`;
-    a.click();
+    a.href = url; a.download = `expert_rankings_${new Date().toISOString().slice(0,10)}.json`; a.click();
   }
-
   function importExpertData() {
     const input = document.createElement('input');
     input.type = 'file'; input.accept = '.json';
@@ -1147,14 +1393,13 @@
           const merged = [...current, ...data];
           localStorage.setItem('expert_rankings', JSON.stringify(merged));
           updateExpertStats();
-          alert(`✅ Импортировано ${data.length} эталонов. Всего: ${merged.length}`);
+          alert(`Импортировано ${data.length} эталонов. Всего: ${merged.length}`);
         } catch (err) { alert('Ошибка: ' + err.message); }
       };
       reader.readAsText(file);
     };
     input.click();
   }
-
   document.getElementById('startExpertBtn').addEventListener('click', startExpertSession);
   document.getElementById('exportExpertBtn').addEventListener('click', exportExpertData);
   document.getElementById('importExpertBtn').addEventListener('click', importExpertData);
@@ -1165,22 +1410,17 @@
   });
 
   // ============================================================
-  //  ОБУЧЕНИЕ МОДЕЛИ (Brain.js)
+  //  ОБУЧЕНИЕ МОДЕЛИ (Brain.js) — без изменений
   // ============================================================
-
   function getUserVector(answers) {
     const vec = [];
     Object.keys(answers).forEach(key => {
       const val = answers[key];
-      if (Array.isArray(val)) {
-        val.forEach(v => vec.push(typeof v === 'string' ? 1 : 0));
-      } else {
-        vec.push(typeof val === 'string' ? 1 : 0);
-      }
+      if (Array.isArray(val)) val.forEach(v => vec.push(typeof v === 'string' ? 1 : 0));
+      else vec.push(typeof val === 'string' ? 1 : 0);
     });
     return vec;
   }
-
   function getCamVector(cam) {
     return [
       cam.price ? Math.min(cam.price / 1000000, 1) : 0,
@@ -1195,7 +1435,6 @@
       cam.professional ? 1 : 0,
     ];
   }
-
   function prepareTrainingData() {
     const history = JSON.parse(localStorage.getItem('expert_rankings') || '[]');
     if (history.length === 0) { alert('Нет экспертных эталонов.'); return null; }
@@ -1219,19 +1458,16 @@
     });
     return examples;
   }
-
   function trainModel() {
     const examples = prepareTrainingData();
     if (!examples) return;
     document.getElementById('trainingProgress').style.display = 'block';
     document.getElementById('trainProgress').value = 0;
     document.getElementById('trainStatus').textContent = 'Подготовка данных...';
-
     const trainingData = examples.map(ex => ({
       input: ex.input.map(v => typeof v === 'number' ? v : 0),
       output: ex.output
     }));
-
     const net = new brain.NeuralNetwork({
       hiddenLayers: [64, 32],
       activation: 'sigmoid',
@@ -1239,7 +1475,6 @@
       iterations: 2000,
       errorThresh: 0.005
     });
-
     document.getElementById('trainStatus').textContent = 'Обучение... (может занять 10–30 сек)';
     net.train(trainingData, {
       log: true,
@@ -1250,15 +1485,12 @@
       },
       callbackPeriod: 100
     });
-
     const modelJSON = net.toJSON();
     localStorage.setItem('ml_model', JSON.stringify(modelJSON));
-    document.getElementById('trainStatus').textContent = '✅ Обучение завершено!';
+    document.getElementById('trainStatus').textContent = 'Обучение завершено!';
     document.getElementById('trainingProgress').style.display = 'none';
-
     showTrainingResults(net, trainingData);
   }
-
   function showTrainingResults(net, trainingData) {
     const container = document.getElementById('trainingResults');
     container.style.display = 'block';
@@ -1272,23 +1504,20 @@
     });
     const accuracy = (correct / testData.length * 100).toFixed(1);
     document.getElementById('trainMetrics').innerHTML = `
-      <p>✅ Точность на тестовых данных: <strong>${accuracy}%</strong></p>
-      <p>📊 Всего примеров: ${trainingData.length}</p>
-      <p>🧠 Модель сохранена в localStorage.</p>
+      <p>Точность на тестовых данных: <strong>${accuracy}%</strong></p>
+      <p>Всего примеров: ${trainingData.length}</p>
+      <p>Модель сохранена в localStorage.</p>
     `;
   }
-
   function compareModels() {
     const modelJSON = localStorage.getItem('ml_model');
     if (!modelJSON) { alert('Сначала обучите модель.'); return; }
     const net = new brain.NeuralNetwork();
     net.fromJSON(JSON.parse(modelJSON));
-
     const history = JSON.parse(localStorage.getItem('expert_rankings') || '[]');
     if (history.length === 0) { alert('Нет экспертных эталонов для сравнения.'); return; }
     const testEntry = history[0];
     const userVec = getUserVector(testEntry.answers);
-
     const mlScores = cameras.map(cam => {
       const camVec = getCamVector(cam);
       const input = [...userVec, ...camVec];
@@ -1297,37 +1526,139 @@
     });
     mlScores.sort((a,b) => b.mlScore - a.mlScore);
     const mlTop4 = mlScores.slice(0,4).map(c => c.id);
-
     const expertTop4 = testEntry.ranking;
     const matchCount = expertTop4.filter(id => mlTop4.includes(id)).length;
     const overlap = (matchCount / 4 * 100).toFixed(0);
-
     document.getElementById('modelComparison').style.display = 'block';
     document.getElementById('comparisonResults').innerHTML = `
-      <p>🔍 Совпадение с экспертным ТОП-4: <strong>${overlap}%</strong></p>
-      <p>🎯 Экспертный порядок: ${expertTop4.map(id => cameras.find(c => c.id === id)?.model).join(' → ')}</p>
-      <p>🤖 ML-порядок: ${mlTop4.map(id => cameras.find(c => c.id === id)?.model).join(' → ')}</p>
+      <p>Совпадение с экспертным ТОП-4: <strong>${overlap}%</strong></p>
+      <p>Экспертный порядок: ${expertTop4.map(id => cameras.find(c => c.id === id)?.model).join(' → ')}</p>
+      <p>ML-порядок: ${mlTop4.map(id => cameras.find(c => c.id === id)?.model).join(' → ')}</p>
     `;
   }
-
   document.getElementById('trainModelBtn').addEventListener('click', trainModel);
   document.getElementById('compareModelsBtn').addEventListener('click', compareModels);
 
   // ============================================================
-  //  ОБРАБОТЧИКИ ВКЛАДКИ СКОРИНГА
+  //  НАСТРОЙКИ СКОРИНГА (scoring_config.json)
   // ============================================================
-  document.getElementById('scoringLevelSelect').addEventListener('change', function() {
-    currentScoringLevel = this.value;
+  const SCORING_FILE = 'scoring_config.json';
+  let scoringConfig = null;
+  async function loadScoringConfig(showAlert) {
+    const statusEl = document.getElementById('scStatus');
+    statusEl.textContent = 'Загрузка конфига…';
+    try {
+      const url = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/${SCORING_FILE}?t=${Date.now()}`;
+      const res = await fetch(url);
+      if (!res.ok) throw new Error('Не удалось загрузить ' + SCORING_FILE);
+      scoringConfig = await res.json();
+      statusEl.textContent = '';
+      renderScoringUI();
+      if (showAlert) alert('Конфиг скоринга загружен (v' + (scoringConfig.version || '?') + ')');
+    } catch (e) {
+      statusEl.textContent = '' + e.message;
+    }
+  }
+  function scCurrentLevelKey() { return document.getElementById('scLevel').value; }
+  function renderScoringUI() {
+    if (!scoringConfig || !scoringConfig.levels) return;
+    const sel = document.getElementById('scLevel');
+    const cur = sel.value;
+    sel.innerHTML = Object.keys(scoringConfig.levels).map(k =>
+      `<option value="${k}">${scoringConfig.levels[k].label || k}</option>`).join('');
+    if (cur && scoringConfig.levels[cur]) sel.value = cur;
+    const g = scoringConfig.global || {};
+    document.getElementById('scMinScore').value = (g.minScoreToShow !== undefined) ? g.minScoreToShow : 0;
+    document.getElementById('scMaxResults').value = g.maxResults || 6;
+    document.getElementById('scMeta').textContent =
+      `v${scoringConfig.version || '?'} · обновлён ${scoringConfig.lastUpdated ? new Date(scoringConfig.lastUpdated).toLocaleString('ru-RU') : '—'}`;
     renderScoringTable();
-  });
+  }
+  function renderScoringTable() {
+    const level = scoringConfig.levels[scCurrentLevelKey()];
+    if (!level) return;
+    const tbody = document.getElementById('scTableBody');
+    tbody.innerHTML = level.questions.map((q, i) => `
+      <tr>
+        <td style="color:#666; white-space:nowrap;">${q.id}</td>
+        <td>${q.text}</td>
+        <td><span class="badge badge-unknown">${(q.matchRules && q.matchRules.type) || '—'}</span></td>
+        <td><input type="number" class="sc-weight" data-i="${i}" value="${q.weight}" min="0" max="1" step="0.01" style="width:80px; padding:6px 8px; border-radius:6px; border:1px solid #2a2a2a; background:#1a1a1a; color:#eaeaea;" /></td>
+        <td style="text-align:center;"><input type="checkbox" class="sc-enabled" data-i="${i}" ${q.enabled ? 'checked' : ''} style="accent-color:#d4a373; width:16px; height:16px;" /></td>
+      </tr>`).join('');
+    tbody.querySelectorAll('.sc-weight').forEach(inp => inp.addEventListener('input', () => {
+      level.questions[+inp.dataset.i].weight = parseFloat(inp.value) || 0;
+      updateScWeightSum();
+    }));
+    tbody.querySelectorAll('.sc-enabled').forEach(inp => inp.addEventListener('change', () => {
+      level.questions[+inp.dataset.i].enabled = inp.checked;
+      updateScWeightSum();
+    }));
+    updateScWeightSum();
+  }
+  function updateScWeightSum() {
+    const level = scoringConfig.levels[scCurrentLevelKey()];
+    if (!level) return;
+    const sum = level.questions.filter(q => q.enabled).reduce((s, q) => s + (q.weight || 0), 0);
+    const el = document.getElementById('scWeightSum');
+    el.textContent = `Σ весов включённых вопросов: ${sum.toFixed(2)}` + (Math.abs(sum - 1) < 0.005 ? '' : ' · скоринг нормализуется автоматически');
+    el.style.color = Math.abs(sum - 1) < 0.005 ? '#7ed4a0' : '#d4a373';
+  }
+  async function saveScoringConfig() {
+    if (!scoringConfig) { alert('Конфиг не загружен.'); return; }
+    if (!token) { alert('Токен не задан.'); return; }
+    scoringConfig.global = scoringConfig.global || {};
+    scoringConfig.global.minScoreToShow = parseFloat(document.getElementById('scMinScore').value) || 0;
+    scoringConfig.global.maxResults = parseInt(document.getElementById('scMaxResults').value) || 6;
+    scoringConfig.lastUpdated = new Date().toISOString();
+    try {
+      const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${SCORING_FILE}`;
+      const res = await fetch(url, { headers: { 'Authorization': `token ${token}` } });
+      let sha = null;
+      if (res.ok) { const info = await res.json(); sha = info.sha; }
+      const payload = {
+        message: 'Обновление настроек скоринга из админки',
+        content: base64Encode(JSON.stringify(scoringConfig, null, 2)),
+        branch: BRANCH
+      };
+      if (sha) payload.sha = sha;
+      const commitRes = await fetch(url, {
+        method: 'PUT',
+        headers: { 'Authorization': `token ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!commitRes.ok) {
+        const err = await commitRes.json();
+        throw new Error(err.message || 'Ошибка сохранения');
+      }
+      renderScoringUI();
+      alert('Настройки скоринга сохранены в GitHub!');
+    } catch (e) {
+      alert('' + e.message);
+    }
+  }
+  // Функции теста скоринга (скопированы из вашей версии, они уже есть в admin.html)
+  function scFieldCriterion(cam, field, value) { /* ... */ }
+  function scGenreScore(cam, criteria) { /* ... */ }
+  function scDirectScore(cam, mapping, answer) { /* ... */ }
+  function scMultiScore(cam, rules, answer) { /* ... */ }
+  function scBudgetScore(cam, rules, answer) { /* ... */ }
+  function scMultiGenreScore(cam, criteria, answer) { /* ... */ }
+  function scBudgetLimit(level, answers) { /* ... */ }
+  function scComputeScore(cam, level, answers) { /* ... */ }
+  function renderScoringTest() { /* ... */ }
+  function runScoringTest() { /* ... */ }
 
-  document.getElementById('saveScoringBtn').addEventListener('click', saveScoringConfig);
-  document.getElementById('reloadScoringBtn').addEventListener('click', loadScoringConfig);
+  document.getElementById('scLoadBtn').addEventListener('click', () => loadScoringConfig(true));
+  document.getElementById('scSaveBtn').addEventListener('click', saveScoringConfig);
+  document.getElementById('scResetBtn').addEventListener('click', () => { if (confirm('Сбросить изменения?')) loadScoringConfig(true); });
+  document.getElementById('scTestBtn').addEventListener('click', () => { if (!scoringConfig) { alert('Конфиг не загружен.'); return; } renderScoringTest(); });
+  document.getElementById('scTestRunBtn').addEventListener('click', runScoringTest);
 
   // ── СТАРТ ───────────────────────────────────────────────────────
-  loadData().then(() => {
-    loadScoringConfig();
-  });
+  loadCameras();
+  loadLenses();
+  loadScoringConfig();
 </script>
 </body>
 </html>
