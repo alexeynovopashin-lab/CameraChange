@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-07-13T12:00:00Z",
+  "lastUpdated": "2026-07-13T17:34:34.832Z",
   "levels": {
     "beginner": {
       "label": "Новичок",
@@ -11,11 +11,26 @@
           "id": "b1",
           "text": "Какой у вас бюджет?",
           "options": [
-            { "value": "budget_1", "label": "До 20 000 ₽" },
-            { "value": "budget_2", "label": "20 000 – 35 000 ₽" },
-            { "value": "budget_3", "label": "35 000 – 60 000 ₽" },
-            { "value": "budget_4", "label": "60 000 – 100 000 ₽" },
-            { "value": "budget_5", "label": "Больше 100 000 ₽" }
+            {
+              "value": "budget_1",
+              "label": "До 20 000 ₽"
+            },
+            {
+              "value": "budget_2",
+              "label": "20 000 – 35 000 ₽"
+            },
+            {
+              "value": "budget_3",
+              "label": "35 000 – 60 000 ₽"
+            },
+            {
+              "value": "budget_4",
+              "label": "60 000 – 100 000 ₽"
+            },
+            {
+              "value": "budget_5",
+              "label": "Больше 100 000 ₽"
+            }
           ],
           "weight": 0.35,
           "enabled": true,
@@ -34,20 +49,44 @@
           "id": "b2",
           "text": "Что вы планируете снимать?",
           "options": [
-            { "value": "family", "label": "Семью и детей" },
-            { "value": "travel", "label": "Путешествия и природу" },
-            { "value": "hobby", "label": "Хочу научиться фотографии как хобби" },
-            { "value": "events", "label": "Снимать друзей и мероприятия" }
+            {
+              "value": "family",
+              "label": "Семью и детей"
+            },
+            {
+              "value": "travel",
+              "label": "Путешествия и природу"
+            },
+            {
+              "value": "hobby",
+              "label": "Хочу научиться фотографии как хобби"
+            },
+            {
+              "value": "events",
+              "label": "Снимать друзей и мероприятия"
+            }
           ],
           "weight": 0.15,
           "enabled": true,
           "matchRules": {
             "type": "genre",
             "criteria": {
-              "family": { "forBeginners": 1, "portrait": 0.7 },
-              "travel": { "compact": 1, "mirrorless": 0.8 },
-              "hobby": { "forBeginners": 1, "menuComplexity": "simple" },
-              "events": { "lowLight": 1, "autofocus": 1 }
+              "family": {
+                "forBeginners": 1,
+                "portrait": 0.7
+              },
+              "travel": {
+                "compact": 1,
+                "mirrorless": 0.8
+              },
+              "hobby": {
+                "forBeginners": 1,
+                "menuComplexity": "simple"
+              },
+              "events": {
+                "lowLight": 1,
+                "autofocus": 1
+              }
             }
           }
         },
@@ -55,28 +94,54 @@
           "id": "b3",
           "text": "Готовы ли купить камеру б/у?",
           "options": [
-            { "value": "yes", "label": "Да" },
-            { "value": "no", "label": "Нет" },
-            { "value": "dont_know", "label": "Не знаю" }
+            {
+              "value": "yes",
+              "label": "Да"
+            },
+            {
+              "value": "no",
+              "label": "Нет"
+            },
+            {
+              "value": "dont_know",
+              "label": "Не знаю"
+            }
           ],
           "weight": 0.05,
           "enabled": true,
-          "matchRules": { "type": "ignore" }
+          "matchRules": {
+            "type": "ignore"
+          }
         },
         {
           "id": "b4",
           "text": "Насколько важна компактность камеры?",
           "options": [
-            { "value": "compact_important", "label": "Должна помещаться в небольшую сумку" },
-            { "value": "compact_not_important", "label": "Не принципиально" }
+            {
+              "value": "compact_important",
+              "label": "Должна помещаться в небольшую сумку"
+            },
+            {
+              "value": "compact_not_important",
+              "label": "Не принципиально"
+            }
           ],
           "weight": 0.15,
           "enabled": true,
           "matchRules": {
             "type": "direct",
             "mapping": {
-              "compact_important": { "field": "compact", "value": true, "match": 1, "mismatch": 0.2 },
-              "compact_not_important": { "field": "compact", "value": null, "match": 0.5 }
+              "compact_important": {
+                "field": "compact",
+                "value": true,
+                "match": 1,
+                "mismatch": 0.2
+              },
+              "compact_not_important": {
+                "field": "compact",
+                "value": null,
+                "match": 0.5
+              }
             }
           }
         },
@@ -84,20 +149,52 @@
           "id": "b5",
           "text": "Что вас не устраивает в съёмке на телефон?",
           "options": [
-            { "value": "no_zoom", "label": "Мало зума" },
-            { "value": "low_light", "label": "Плохо снимает в темноте" },
-            { "value": "bokeh", "label": "Хочу красивое размытие фона" },
-            { "value": "control", "label": "Хочу больше контроля над настройками" }
+            {
+              "value": "no_zoom",
+              "label": "Мало зума"
+            },
+            {
+              "value": "low_light",
+              "label": "Плохо снимает в темноте"
+            },
+            {
+              "value": "bokeh",
+              "label": "Хочу красивое размытие фона"
+            },
+            {
+              "value": "control",
+              "label": "Хочу больше контроля над настройками"
+            }
           ],
-          "weight": 0.10,
+          "weight": 0.1,
           "enabled": true,
           "matchRules": {
             "type": "direct",
             "mapping": {
-              "no_zoom": { "field": "lensMount", "value": "unknown", "match": 0, "mismatch": 0.8 },
-              "low_light": { "field": "lowLight", "value": true, "match": 1, "mismatch": 0.3 },
-              "bokeh": { "field": "fullFrame", "value": true, "match": 1, "mismatch": 0.4 },
-              "control": { "field": "menuComplexity", "value": "complex", "match": 1, "mismatch": 0.5 }
+              "no_zoom": {
+                "field": "lensMount",
+                "value": "unknown",
+                "match": 0,
+                "mismatch": 0.8
+              },
+              "low_light": {
+                "field": "lowLight",
+                "value": true,
+                "match": 1,
+                "mismatch": 0.3
+              },
+              "bokeh": {
+                "field": "fullFrame",
+                "value": true,
+                "match": 1,
+                "mismatch": 0.4
+              },
+              "control": {
+                "field": "menuComplexity",
+                "value": "complex",
+                "match": 1,
+                "mismatch": 0.5
+              }
             }
           }
         },
@@ -105,16 +202,29 @@
           "id": "b6",
           "text": "Готовы ли вы разбираться в настройках камеры?",
           "options": [
-            { "value": "auto", "label": "Хочу просто нажать и снять" },
-            { "value": "learn", "label": "Готов немного учиться" }
+            {
+              "value": "auto",
+              "label": "Хочу просто нажать и снять"
+            },
+            {
+              "value": "learn",
+              "label": "Готов немного учиться"
+            }
           ],
-          "weight": 0.10,
+          "weight": 0.1,
           "enabled": true,
           "matchRules": {
             "type": "direct",
             "mapping": {
-              "auto": { "field": "menuComplexity", "value": "simple", "match": 1, "mismatch": 0.3 },
-              "learn": { "match": 0.7 }
+              "auto": {
+                "field": "menuComplexity",
+                "value": "simple",
+                "match": 1,
+                "mismatch": 0.3
+              },
+              "learn": {
+                "match": 0.7
+              }
             }
           }
         },
@@ -122,16 +232,29 @@
           "id": "b7",
           "text": "Планируете ли снимать видео?",
           "options": [
-            { "value": "yes", "label": "Да" },
-            { "value": "no", "label": "Нет" }
+            {
+              "value": "yes",
+              "label": "Да"
+            },
+            {
+              "value": "no",
+              "label": "Нет"
+            }
           ],
           "weight": 0.05,
           "enabled": true,
           "matchRules": {
             "type": "direct",
             "mapping": {
-              "yes": { "field": "video", "value": null, "match": 0.7, "mismatch": 0.2 },
-              "no": { "match": 0.5 }
+              "yes": {
+                "field": "video",
+                "value": null,
+                "match": 0.7,
+                "mismatch": 0.2
+              },
+              "no": {
+                "match": 0.5
+              }
             }
           }
         },
@@ -139,12 +262,20 @@
           "id": "b8",
           "text": "Кто-нибудь поможет вам с выбором или настройкой?",
           "options": [
-            { "value": "help", "label": "Да, есть знакомый фотограф" },
-            { "value": "alone", "label": "Нет, буду разбираться сам" }
+            {
+              "value": "help",
+              "label": "Да, есть знакомый фотограф"
+            },
+            {
+              "value": "alone",
+              "label": "Нет, буду разбираться сам"
+            }
           ],
           "weight": 0.05,
           "enabled": true,
-          "matchRules": { "type": "ignore" }
+          "matchRules": {
+            "type": "ignore"
+          }
         }
       ]
     },
@@ -157,22 +288,45 @@
           "id": "e1",
           "text": "Что вас больше волнует — характеристики или ощущение?",
           "options": [
-            { "value": "tt", "label": "Технические характеристики" },
-            { "value": "creative", "label": "Ощущение и картинка" }
+            {
+              "value": "tt",
+              "label": "Технические характеристики"
+            },
+            {
+              "value": "creative",
+              "label": "Ощущение и картинка"
+            }
           ],
           "weight": 0,
           "enabled": false,
-          "matchRules": { "type": "ignore" }
+          "matchRules": {
+            "type": "ignore"
+          }
         },
         {
           "id": "e2",
           "text": "Ваш бюджет",
           "options": [
-            { "value": "budget_1", "label": "До 30 000 ₽" },
-            { "value": "budget_2", "label": "30 000 – 60 000 ₽" },
-            { "value": "budget_3", "label": "60 000 – 100 000 ₽" },
-            { "value": "budget_4", "label": "100 000 – 200 000 ₽" },
-            { "value": "budget_5", "label": "Больше 200 000 ₽" }
+            {
+              "value": "budget_1",
+              "label": "До 30 000 ₽"
+            },
+            {
+              "value": "budget_2",
+              "label": "30 000 – 60 000 ₽"
+            },
+            {
+              "value": "budget_3",
+              "label": "60 000 – 100 000 ₽"
+            },
+            {
+              "value": "budget_4",
+              "label": "100 000 – 200 000 ₽"
+            },
+            {
+              "value": "budget_5",
+              "label": "Больше 200 000 ₽"
+            }
           ],
           "weight": 0.25,
           "enabled": true,
@@ -191,22 +345,54 @@
           "id": "e3",
           "text": "Какие жанры вас интересуют?",
           "options": [
-            { "value": "portrait", "label": "Портрет" },
-            { "value": "landscape", "label": "Пейзаж" },
-            { "value": "street", "label": "Уличная фотография" },
-            { "value": "sports", "label": "Спорт/экшн" },
-            { "value": "events", "label": "Репортаж/события" }
+            {
+              "value": "portrait",
+              "label": "Портрет"
+            },
+            {
+              "value": "landscape",
+              "label": "Пейзаж"
+            },
+            {
+              "value": "street",
+              "label": "Уличная фотография"
+            },
+            {
+              "value": "sports",
+              "label": "Спорт/экшн"
+            },
+            {
+              "value": "events",
+              "label": "Репортаж/события"
+            }
           ],
-          "weight": 0.20,
+          "weight": 0.2,
           "enabled": true,
           "matchRules": {
             "type": "multi_genre",
             "criteria": {
-              "portrait": { "fullFrame": 1, "lensMount": "not_unknown" },
-              "landscape": { "highResolution": 1, "fullFrame": 0.8 },
-              "street": { "compact": 1, "rangefinder": 0.9 },
-              "sports": { "professional": 1, "imageStabilization": 1, "burstBuffer": 1 },
-              "events": { "lowLight": 1, "autofocus": 1, "cardSlots": 2 }
+              "portrait": {
+                "fullFrame": 1,
+                "lensMount": "not_unknown"
+              },
+              "landscape": {
+                "highResolution": 1,
+                "fullFrame": 0.8
+              },
+              "street": {
+                "compact": 1,
+                "rangefinder": 0.9
+              },
+              "sports": {
+                "professional": 1,
+                "imageStabilization": 1,
+                "burstBuffer": 1
+              },
+              "events": {
+                "lowLight": 1,
+                "autofocus": 1,
+                "cardSlots": 2
+              }
             }
           }
         },
@@ -214,31 +400,68 @@
           "id": "e4",
           "text": "Что у вас уже есть из фототехники?",
           "options": [
-            { "value": "none", "label": "Ничего" },
-            { "value": "old_dslr", "label": "Зеркалка старого образца" },
-            { "value": "mirrorless", "label": "Беззеркальная камера" },
-            { "value": "compact", "label": "Компактная камера" }
+            {
+              "value": "none",
+              "label": "Ничего"
+            },
+            {
+              "value": "old_dslr",
+              "label": "Зеркалка старого образца"
+            },
+            {
+              "value": "mirrorless",
+              "label": "Беззеркальная камера"
+            },
+            {
+              "value": "compact",
+              "label": "Компактная камера"
+            }
           ],
-          "weight": 0.10,
+          "weight": 0.1,
           "enabled": true,
-          "matchRules": { "type": "ignore" }
+          "matchRules": {
+            "type": "ignore"
+          }
         },
         {
           "id": "e5_tt",
           "text": "Насколько важны мегапиксели?",
           "options": [
-            { "value": "high_mp", "label": "Очень важны (больше 30 МП)" },
-            { "value": "mid_mp", "label": "Средне (20–30 МП)" },
-            { "value": "low_mp", "label": "Не критично" }
+            {
+              "value": "high_mp",
+              "label": "Очень важны (больше 30 МП)"
+            },
+            {
+              "value": "mid_mp",
+              "label": "Средне (20–30 МП)"
+            },
+            {
+              "value": "low_mp",
+              "label": "Не критично"
+            }
           ],
           "weight": 0.15,
           "enabled": true,
           "matchRules": {
             "type": "direct",
             "mapping": {
-              "high_mp": { "field": "resolution", "value": 30, "operator": "gte", "match": 1, "mismatch": 0.2 },
-              "mid_mp": { "field": "resolution", "value": 20, "operator": "gte", "match": 1, "mismatch": 0.4 },
-              "low_mp": { "match": 0.7 }
+              "high_mp": {
+                "field": "resolution",
+                "value": 30,
+                "operator": "gte",
+                "match": 1,
+                "mismatch": 0.2
+              },
+              "mid_mp": {
+                "field": "resolution",
+                "value": 20,
+                "operator": "gte",
+                "match": 1,
+                "mismatch": 0.4
+              },
+              "low_mp": {
+                "match": 0.7
+              }
             }
           }
         },
@@ -246,16 +469,30 @@
           "id": "e6_tt",
           "text": "Нужна ли быстрая серийная съёмка?",
           "options": [
-            { "value": "fast_burst", "label": "Да, часто снимаю движение" },
-            { "value": "slow_burst", "label": "Нет, снимаю статику" }
+            {
+              "value": "fast_burst",
+              "label": "Да, часто снимаю движение"
+            },
+            {
+              "value": "slow_burst",
+              "label": "Нет, снимаю статику"
+            }
           ],
           "weight": 0.15,
           "enabled": true,
           "matchRules": {
             "type": "direct",
             "mapping": {
-              "fast_burst": { "field": "cardSlots", "value": 2, "operator": "gte", "match": 1, "mismatch": 0.3 },
-              "slow_burst": { "match": 0.6 }
+              "fast_burst": {
+                "field": "cardSlots",
+                "value": 2,
+                "operator": "gte",
+                "match": 1,
+                "mismatch": 0.3
+              },
+              "slow_burst": {
+                "match": 0.6
+              }
             }
           }
         },
@@ -263,16 +500,29 @@
           "id": "e7_tt",
           "text": "Автофокус критичен для спорта/детей в движении?",
           "options": [
-            { "value": "af_critical", "label": "Да, очень важен" },
-            { "value": "af_not_critical", "label": "Нет, снимаю преимущественно неподвижные объекты" }
+            {
+              "value": "af_critical",
+              "label": "Да, очень важен"
+            },
+            {
+              "value": "af_not_critical",
+              "label": "Нет, снимаю преимущественно неподвижные объекты"
+            }
           ],
           "weight": 0.15,
           "enabled": true,
           "matchRules": {
             "type": "direct",
             "mapping": {
-              "af_critical": { "field": "eyeAutofocus", "value": true, "match": 1, "mismatch": 0.3 },
-              "af_not_critical": { "match": 0.6 }
+              "af_critical": {
+                "field": "eyeAutofocus",
+                "value": true,
+                "match": 1,
+                "mismatch": 0.3
+              },
+              "af_not_critical": {
+                "match": 0.6
+              }
             }
           }
         }
@@ -287,13 +537,28 @@
           "id": "e2",
           "text": "Ваш бюджет",
           "options": [
-            { "value": "budget_1", "label": "До 30 000 ₽" },
-            { "value": "budget_2", "label": "30 000 – 60 000 ₽" },
-            { "value": "budget_3", "label": "60 000 – 100 000 ₽" },
-            { "value": "budget_4", "label": "100 000 – 200 000 ₽" },
-            { "value": "budget_5", "label": "Больше 200 000 ₽" }
+            {
+              "value": "budget_1",
+              "label": "До 30 000 ₽"
+            },
+            {
+              "value": "budget_2",
+              "label": "30 000 – 60 000 ₽"
+            },
+            {
+              "value": "budget_3",
+              "label": "60 000 – 100 000 ₽"
+            },
+            {
+              "value": "budget_4",
+              "label": "100 000 – 200 000 ₽"
+            },
+            {
+              "value": "budget_5",
+              "label": "Больше 200 000 ₽"
+            }
           ],
-          "weight": 0.20,
+          "weight": 0.2,
           "enabled": true,
           "matchRules": {
             "type": "budget",
@@ -310,22 +575,54 @@
           "id": "e3",
           "text": "Какие жанры вас интересуют?",
           "options": [
-            { "value": "portrait", "label": "Портрет" },
-            { "value": "landscape", "label": "Пейзаж" },
-            { "value": "street", "label": "Уличная фотография" },
-            { "value": "sports", "label": "Спорт/экшн" },
-            { "value": "events", "label": "Репортаж/события" }
+            {
+              "value": "portrait",
+              "label": "Портрет"
+            },
+            {
+              "value": "landscape",
+              "label": "Пейзаж"
+            },
+            {
+              "value": "street",
+              "label": "Уличная фотография"
+            },
+            {
+              "value": "sports",
+              "label": "Спорт/экшн"
+            },
+            {
+              "value": "events",
+              "label": "Репортаж/события"
+            }
           ],
-          "weight": 0.20,
+          "weight": 0.2,
           "enabled": true,
           "matchRules": {
             "type": "multi_genre",
             "criteria": {
-              "portrait": { "fullFrame": 1, "lensMount": "not_unknown" },
-              "landscape": { "highResolution": 1, "fullFrame": 0.8 },
-              "street": { "compact": 1, "rangefinder": 0.9 },
-              "sports": { "professional": 1, "imageStabilization": 1, "burstBuffer": 1 },
-              "events": { "lowLight": 1, "autofocus": 1, "cardSlots": 2 }
+              "portrait": {
+                "fullFrame": 1,
+                "lensMount": "not_unknown"
+              },
+              "landscape": {
+                "highResolution": 1,
+                "fullFrame": 0.8
+              },
+              "street": {
+                "compact": 1,
+                "rangefinder": 0.9
+              },
+              "sports": {
+                "professional": 1,
+                "imageStabilization": 1,
+                "burstBuffer": 1
+              },
+              "events": {
+                "lowLight": 1,
+                "autofocus": 1,
+                "cardSlots": 2
+              }
             }
           }
         },
@@ -333,31 +630,66 @@
           "id": "e4",
           "text": "Что у вас уже есть из фототехники?",
           "options": [
-            { "value": "none", "label": "Ничего" },
-            { "value": "old_dslr", "label": "Зеркалка старого образца" },
-            { "value": "mirrorless", "label": "Беззеркальная камера" },
-            { "value": "compact", "label": "Компактная камера" }
+            {
+              "value": "none",
+              "label": "Ничего"
+            },
+            {
+              "value": "old_dslr",
+              "label": "Зеркалка старого образца"
+            },
+            {
+              "value": "mirrorless",
+              "label": "Беззеркальная камера"
+            },
+            {
+              "value": "compact",
+              "label": "Компактная камера"
+            }
           ],
-          "weight": 0.10,
+          "weight": 0.1,
           "enabled": true,
-          "matchRules": { "type": "ignore" }
+          "matchRules": {
+            "type": "ignore"
+          }
         },
         {
           "id": "e5_creative",
           "text": "Важна ли цветопередача «из коробки»?",
           "options": [
-            { "value": "color_important", "label": "Да, это главное" },
-            { "value": "color_mid", "label": "Средне, могу обработать" },
-            { "value": "color_not", "label": "Не важно" }
+            {
+              "value": "color_important",
+              "label": "Да, это главное"
+            },
+            {
+              "value": "color_mid",
+              "label": "Средне, могу обработать"
+            },
+            {
+              "value": "color_not",
+              "label": "Не важно"
+            }
           ],
           "weight": 0.25,
           "enabled": true,
           "matchRules": {
             "type": "direct",
             "mapping": {
-              "color_important": { "field": "colorScience", "value": true, "match": 1, "mismatch": 0.2 },
-              "color_mid": { "field": "colorScience", "value": true, "match": 0.7, "mismatch": 0.5 },
-              "color_not": { "match": 0.4 }
+              "color_important": {
+                "field": "colorScience",
+                "value": true,
+                "match": 1,
+                "mismatch": 0.2
+              },
+              "color_mid": {
+                "field": "colorScience",
+                "value": true,
+                "match": 0.7,
+                "mismatch": 0.5
+              },
+              "color_not": {
+                "match": 0.4
+              }
             }
           }
         },
@@ -365,16 +697,29 @@
           "id": "e6_creative",
           "text": "Насколько важен простой и понятный интерфейс меню?",
           "options": [
-            { "value": "menu_simple", "label": "Очень важен, хочу быстро настраивать" },
-            { "value": "menu_any", "label": "Мне не принципиально" }
+            {
+              "value": "menu_simple",
+              "label": "Очень важен, хочу быстро настраивать"
+            },
+            {
+              "value": "menu_any",
+              "label": "Мне не принципиально"
+            }
           ],
-          "weight": 0.10,
+          "weight": 0.1,
           "enabled": true,
           "matchRules": {
             "type": "direct",
             "mapping": {
-              "menu_simple": { "field": "menuComplexity", "value": "simple", "match": 1, "mismatch": 0.4 },
-              "menu_any": { "match": 0.6 }
+              "menu_simple": {
+                "field": "menuComplexity",
+                "value": "simple",
+                "match": 1,
+                "mismatch": 0.4
+              },
+              "menu_any": {
+                "match": 0.6
+              }
             }
           }
         },
@@ -382,16 +727,30 @@
           "id": "e7_creative",
           "text": "Эргономика и приятность в руке — важно?",
           "options": [
-            { "value": "ergo_important", "label": "Да, камера должна лежать как влитая" },
-            { "value": "ergo_not", "label": "Не особо" }
+            {
+              "value": "ergo_important",
+              "label": "Да, камера должна лежать как влитая"
+            },
+            {
+              "value": "ergo_not",
+              "label": "Не особо"
+            }
           ],
           "weight": 0.15,
           "enabled": true,
           "matchRules": {
             "type": "direct",
             "mapping": {
-              "ergo_important": { "field": "weight", "value": 600, "operator": "lt", "match": 1, "mismatch": 0.2 },
-              "ergo_not": { "match": 0.5 }
+              "ergo_important": {
+                "field": "weight",
+                "value": 600,
+                "operator": "lt",
+                "match": 1,
+                "mismatch": 0.2
+              },
+              "ergo_not": {
+                "match": 0.5
+              }
             }
           }
         }
@@ -406,20 +765,49 @@
           "id": "p1",
           "text": "Какой размер сенсора вам нужен?",
           "options": [
-            { "value": "crop", "label": "Кроп (APS-C или меньше)" },
-            { "value": "fullframe", "label": "Полный кадр (Full Frame)" },
-            { "value": "medium", "label": "Средний формат" },
-            { "value": "any", "label": "Не принципиально" }
+            {
+              "value": "crop",
+              "label": "Кроп (APS-C или меньше)"
+            },
+            {
+              "value": "fullframe",
+              "label": "Полный кадр (Full Frame)"
+            },
+            {
+              "value": "medium",
+              "label": "Средний формат"
+            },
+            {
+              "value": "any",
+              "label": "Не принципиально"
+            }
           ],
-          "weight": 0.20,
+          "weight": 0.2,
           "enabled": true,
           "matchRules": {
             "type": "direct",
             "mapping": {
-              "crop": { "field": "crop", "value": true, "match": 1, "mismatch": 0 },
-              "fullframe": { "field": "fullFrame", "value": true, "match": 1, "mismatch": 0 },
-              "medium": { "field": "mediumFormat", "value": true, "match": 1, "mismatch": 0 },
-              "any": { "match": 0.5 }
+              "crop": {
+                "field": "crop",
+                "value": true,
+                "match": 1,
+                "mismatch": 0
+              },
+              "fullframe": {
+                "field": "fullFrame",
+                "value": true,
+                "match": 1,
+                "mismatch": 0
+              },
+              "medium": {
+                "field": "mediumFormat",
+                "value": true,
+                "match": 1,
+                "mismatch": 0
+              },
+              "any": {
+                "match": 0.5
+              }
             }
           }
         },
@@ -427,12 +815,24 @@
           "id": "p2",
           "text": "Ваш бюджет (профессиональный уровень)",
           "options": [
-            { "value": "budget_1", "label": "До 100 000 ₽" },
-            { "value": "budget_2", "label": "100 000 – 200 000 ₽" },
-            { "value": "budget_3", "label": "200 000 – 400 000 ₽" },
-            { "value": "budget_4", "label": "Больше 400 000 ₽" }
+            {
+              "value": "budget_1",
+              "label": "До 100 000 ₽"
+            },
+            {
+              "value": "budget_2",
+              "label": "100 000 – 200 000 ₽"
+            },
+            {
+              "value": "budget_3",
+              "label": "200 000 – 400 000 ₽"
+            },
+            {
+              "value": "budget_4",
+              "label": "Больше 400 000 ₽"
+            }
           ],
-          "weight": 0.20,
+          "weight": 0.15,
           "enabled": true,
           "matchRules": {
             "type": "budget",
@@ -448,18 +848,41 @@
           "id": "p3",
           "text": "Насколько критичен вес камеры?",
           "options": [
-            { "value": "weight_critical", "label": "Критичен — часто снимаю с рук" },
-            { "value": "weight_moderate", "label": "Умеренно — ношу в рюкзаке" },
-            { "value": "weight_not_important", "label": "Не важен" }
+            {
+              "value": "weight_critical",
+              "label": "Критичен — часто снимаю с рук"
+            },
+            {
+              "value": "weight_moderate",
+              "label": "Умеренно — ношу в рюкзаке"
+            },
+            {
+              "value": "weight_not_important",
+              "label": "Не важен"
+            }
           ],
-          "weight": 0.10,
+          "weight": 0.14,
           "enabled": true,
           "matchRules": {
             "type": "direct",
             "mapping": {
-              "weight_critical": { "field": "weight", "value": 700, "operator": "lt", "match": 1, "mismatch": 0.2 },
-              "weight_moderate": { "field": "weight", "value": 1000, "operator": "lt", "match": 1, "mismatch": 0.5 },
-              "weight_not_important": { "match": 0.7 }
+              "weight_critical": {
+                "field": "weight",
+                "value": 700,
+                "operator": "lt",
+                "match": 1,
+                "mismatch": 0.2
+              },
+              "weight_moderate": {
+                "field": "weight",
+                "value": 1000,
+                "operator": "lt",
+                "match": 1,
+                "mismatch": 0.5
+              },
+              "weight_not_important": {
+                "match": 0.7
+              }
             }
           }
         },
@@ -467,18 +890,39 @@
           "id": "p4",
           "text": "Нужен ли автофокус по глазам/животным?",
           "options": [
-            { "value": "yes", "label": "Да" },
-            { "value": "no", "label": "Нет" },
-            { "value": "not_use", "label": "Не снимаю такое" }
+            {
+              "value": "yes",
+              "label": "Да"
+            },
+            {
+              "value": "no",
+              "label": "Нет"
+            },
+            {
+              "value": "not_use",
+              "label": "Не снимаю такое"
+            }
           ],
-          "weight": 0.10,
+          "weight": 0.1,
           "enabled": true,
           "matchRules": {
             "type": "direct",
             "mapping": {
-              "yes": { "field": "eyeAutofocus", "value": true, "match": 1, "mismatch": 0.1 },
-              "no": { "field": "eyeAutofocus", "value": true, "match": 0, "mismatch": 0.5 },
-              "not_use": { "match": 0.5 }
+              "yes": {
+                "field": "eyeAutofocus",
+                "value": true,
+                "match": 1,
+                "mismatch": 0.1
+              },
+              "no": {
+                "field": "eyeAutofocus",
+                "value": true,
+                "match": 0,
+                "mismatch": 0.5
+              },
+              "not_use": {
+                "match": 0.5
+              }
             }
           }
         },
@@ -486,18 +930,39 @@
           "id": "p5",
           "text": "Нужно ли видео в LOG-профиле?",
           "options": [
-            { "value": "yes", "label": "Да" },
-            { "value": "no", "label": "Нет" },
-            { "value": "no_video", "label": "Не снимаю видео" }
+            {
+              "value": "yes",
+              "label": "Да"
+            },
+            {
+              "value": "no",
+              "label": "Нет"
+            },
+            {
+              "value": "no_video",
+              "label": "Не снимаю видео"
+            }
           ],
-          "weight": 0.10,
+          "weight": 0.1,
           "enabled": true,
           "matchRules": {
             "type": "direct",
             "mapping": {
-              "yes": { "field": "logProfile", "value": true, "match": 1, "mismatch": 0.1 },
-              "no": { "field": "logProfile", "value": true, "match": 0, "mismatch": 0.5 },
-              "no_video": { "match": 0.5 }
+              "yes": {
+                "field": "logProfile",
+                "value": true,
+                "match": 1,
+                "mismatch": 0.1
+              },
+              "no": {
+                "field": "logProfile",
+                "value": true,
+                "match": 0,
+                "mismatch": 0.5
+              },
+              "no_video": {
+                "match": 0.5
+              }
             }
           }
         },
@@ -505,18 +970,41 @@
           "id": "p6",
           "text": "Какая битность RAW вам нужна?",
           "options": [
-            { "value": "12bit", "label": "12-bit" },
-            { "value": "14bit", "label": "14-bit" },
-            { "value": "any", "label": "Не принципиально" }
+            {
+              "value": "12bit",
+              "label": "12-bit"
+            },
+            {
+              "value": "14bit",
+              "label": "14-bit"
+            },
+            {
+              "value": "any",
+              "label": "Не принципиально"
+            }
           ],
           "weight": 0.05,
           "enabled": true,
           "matchRules": {
             "type": "direct",
             "mapping": {
-              "12bit": { "field": "bitDepth", "value": 12, "operator": "gte", "match": 1, "mismatch": 0.3 },
-              "14bit": { "field": "bitDepth", "value": 14, "operator": "gte", "match": 1, "mismatch": 0.2 },
-              "any": { "match": 0.7 }
+              "12bit": {
+                "field": "bitDepth",
+                "value": 12,
+                "operator": "gte",
+                "match": 1,
+                "mismatch": 0.3
+              },
+              "14bit": {
+                "field": "bitDepth",
+                "value": 14,
+                "operator": "gte",
+                "match": 1,
+                "mismatch": 0.2
+              },
+              "any": {
+                "match": 0.7
+              }
             }
           }
         },
@@ -524,45 +1012,94 @@
           "id": "p7",
           "text": "Вы заменяете систему или покупаете вторую камеру?",
           "options": [
-            { "value": "replace", "label": "Заменяю систему — хочу попробовать другой бренд" },
-            { "value": "second", "label": "Вторую камеру — можно той же системы, можно другой" }
+            {
+              "value": "replace",
+              "label": "Заменяю систему — хочу попробовать другой бренд"
+            },
+            {
+              "value": "second",
+              "label": "Вторую камеру — можно той же системы, можно другой"
+            }
           ],
-          "weight": 0.10,
+          "weight": 0.1,
           "enabled": true,
-          "matchRules": { "type": "ignore" }
+          "matchRules": {
+            "type": "ignore"
+          }
         },
         {
           "id": "p8",
           "text": "Какая у вас текущая система (бренд)?",
           "options": [
-            { "value": "Canon", "label": "Canon" },
-            { "value": "Nikon", "label": "Nikon" },
-            { "value": "Sony", "label": "Sony" },
-            { "value": "Fujifilm", "label": "Fujifilm" },
-            { "value": "Hasselblad", "label": "Hasselblad" },
-            { "value": "Leica", "label": "Leica" },
-            { "value": "other", "label": "Другая" }
+            {
+              "value": "Canon",
+              "label": "Canon"
+            },
+            {
+              "value": "Nikon",
+              "label": "Nikon"
+            },
+            {
+              "value": "Sony",
+              "label": "Sony"
+            },
+            {
+              "value": "Fujifilm",
+              "label": "Fujifilm"
+            },
+            {
+              "value": "Hasselblad",
+              "label": "Hasselblad"
+            },
+            {
+              "value": "Leica",
+              "label": "Leica"
+            },
+            {
+              "value": "other",
+              "label": "Другая"
+            }
           ],
           "weight": 0.05,
           "enabled": true,
-          "matchRules": { "type": "ignore" }
+          "matchRules": {
+            "type": "ignore"
+          }
         },
         {
           "id": "p9",
           "text": "Оцените размер вашего парка оптики и значимость стороннего стекла",
           "options": [
-            { "value": "native_large", "label": "Большой парк родной оптики" },
-            { "value": "mixed", "label": "Средний парк, использую и стороннюю" },
-            { "value": "third_party", "label": "Мало оптики, активно использую сторонние бренды" }
+            {
+              "value": "native_large",
+              "label": "Большой парк родной оптики"
+            },
+            {
+              "value": "mixed",
+              "label": "Средний парк, использую и стороннюю"
+            },
+            {
+              "value": "third_party",
+              "label": "Мало оптики, активно использую сторонние бренды"
+            }
           ],
-          "weight": 0.05,
+          "weight": 0.06,
           "enabled": true,
           "matchRules": {
             "type": "direct",
             "mapping": {
-              "native_large": { "match": 0.5 },
-              "mixed": { "match": 0.7 },
-              "third_party": { "field": "brand", "value": "Sony", "match": 1, "mismatch": 0.4 }
+              "native_large": {
+                "match": 0.5
+              },
+              "mixed": {
+                "match": 0.7
+              },
+              "third_party": {
+                "field": "brand",
+                "value": "Sony",
+                "match": 1,
+                "mismatch": 0.4
+              }
             }
           }
         },
@@ -570,22 +1107,53 @@
           "id": "p10",
           "text": "Отметьте дополнительные важные для вас функции (можно несколько)",
           "options": [
-            { "value": "two_slots", "label": "Два слота для карт памяти" },
-            { "value": "eye_af_video", "label": "Автофокус по глазам в видео" },
-            { "value": "log_video", "label": "Видео в LOG" },
-            { "value": "weather", "label": "Пыле-влагозащита" },
-            { "value": "ibis", "label": "Встроенный стабилизатор" }
+            {
+              "value": "two_slots",
+              "label": "Два слота для карт памяти"
+            },
+            {
+              "value": "eye_af_video",
+              "label": "Автофокус по глазам в видео"
+            },
+            {
+              "value": "log_video",
+              "label": "Видео в LOG"
+            },
+            {
+              "value": "weather",
+              "label": "Пыле-влагозащита"
+            },
+            {
+              "value": "ibis",
+              "label": "Встроенный стабилизатор"
+            }
           ],
           "weight": 0.05,
           "enabled": true,
           "matchRules": {
             "type": "multi",
             "criteria": {
-              "two_slots": { "field": "cardSlots", "value": 2, "operator": "gte" },
-              "eye_af_video": { "field": "eyeAutofocus", "value": true },
-              "log_video": { "field": "logProfile", "value": true },
-              "weather": { "field": "weatherSealing", "value": true },
-              "ibis": { "field": "imageStabilization", "value": true }
+              "two_slots": {
+                "field": "cardSlots",
+                "value": 2,
+                "operator": "gte"
+              },
+              "eye_af_video": {
+                "field": "eyeAutofocus",
+                "value": true
+              },
+              "log_video": {
+                "field": "logProfile",
+                "value": true
+              },
+              "weather": {
+                "field": "weatherSealing",
+                "value": true
+              },
+              "ibis": {
+                "field": "imageStabilization",
+                "value": true
+              }
             },
             "match": 1,
             "mismatch": 0
@@ -602,11 +1170,26 @@
           "id": "bl1",
           "text": "Ваш бюджет",
           "options": [
-            { "value": "budget_1", "label": "До 30 000 ₽" },
-            { "value": "budget_2", "label": "30 000 – 60 000 ₽" },
-            { "value": "budget_3", "label": "60 000 – 100 000 ₽" },
-            { "value": "budget_4", "label": "100 000 – 200 000 ₽" },
-            { "value": "budget_5", "label": "Больше 200 000 ₽" }
+            {
+              "value": "budget_1",
+              "label": "До 30 000 ₽"
+            },
+            {
+              "value": "budget_2",
+              "label": "30 000 – 60 000 ₽"
+            },
+            {
+              "value": "budget_3",
+              "label": "60 000 – 100 000 ₽"
+            },
+            {
+              "value": "budget_4",
+              "label": "100 000 – 200 000 ₽"
+            },
+            {
+              "value": "budget_5",
+              "label": "Больше 200 000 ₽"
+            }
           ],
           "weight": 0.25,
           "enabled": true,
@@ -625,18 +1208,43 @@
           "id": "bl2",
           "text": "На какой платформе вы публикуете основной контент?",
           "options": [
-            { "value": "youtube", "label": "YouTube (длинные ролики)" },
-            { "value": "shorts", "label": "Reels, Shorts, TikTok" },
-            { "value": "streams", "label": "Стримы" }
+            {
+              "value": "youtube",
+              "label": "YouTube (длинные ролики)"
+            },
+            {
+              "value": "shorts",
+              "label": "Reels, Shorts, TikTok"
+            },
+            {
+              "value": "streams",
+              "label": "Стримы"
+            }
           ],
           "weight": 0.15,
           "enabled": true,
           "matchRules": {
             "type": "direct",
             "mapping": {
-              "youtube": { "field": "video", "value": "4K", "operator": "contains", "match": 1, "mismatch": 0.3 },
-              "shorts": { "field": "compact", "value": true, "match": 1, "mismatch": 0.3 },
-              "streams": { "field": "microphoneInput", "value": true, "match": 1, "mismatch": 0.3 }
+              "youtube": {
+                "field": "video",
+                "value": "4K",
+                "operator": "contains",
+                "match": 1,
+                "mismatch": 0.3
+              },
+              "shorts": {
+                "field": "compact",
+                "value": true,
+                "match": 1,
+                "mismatch": 0.3
+              },
+              "streams": {
+                "field": "microphoneInput",
+                "value": true,
+                "match": 1,
+                "mismatch": 0.3
+              }
             }
           }
         },
@@ -644,18 +1252,36 @@
           "id": "bl3",
           "text": "Насколько важна встроенная стабилизация изображения?",
           "options": [
-            { "value": "ibis_critical", "label": "Очень важна, снимаю с рук" },
-            { "value": "gimbal", "label": "Использую гимбл/штатив" },
-            { "value": "not_important", "label": "Не важно" }
+            {
+              "value": "ibis_critical",
+              "label": "Очень важна, снимаю с рук"
+            },
+            {
+              "value": "gimbal",
+              "label": "Использую гимбл/штатив"
+            },
+            {
+              "value": "not_important",
+              "label": "Не важно"
+            }
           ],
           "weight": 0.15,
           "enabled": true,
           "matchRules": {
             "type": "direct",
             "mapping": {
-              "ibis_critical": { "field": "imageStabilization", "value": true, "match": 1, "mismatch": 0.1 },
-              "gimbal": { "match": 0.6 },
-              "not_important": { "match": 0.4 }
+              "ibis_critical": {
+                "field": "imageStabilization",
+                "value": true,
+                "match": 1,
+                "mismatch": 0.1
+              },
+              "gimbal": {
+                "match": 0.6
+              },
+              "not_important": {
+                "match": 0.4
+              }
             }
           }
         },
@@ -663,16 +1289,29 @@
           "id": "bl4",
           "text": "Нужен ли вход для внешнего микрофона?",
           "options": [
-            { "value": "yes", "label": "Да" },
-            { "value": "no", "label": "Нет" }
+            {
+              "value": "yes",
+              "label": "Да"
+            },
+            {
+              "value": "no",
+              "label": "Нет"
+            }
           ],
-          "weight": 0.20,
+          "weight": 0.2,
           "enabled": true,
           "matchRules": {
             "type": "direct",
             "mapping": {
-              "yes": { "field": "microphoneInput", "value": true, "match": 1, "mismatch": 0 },
-              "no": { "match": 0.5 }
+              "yes": {
+                "field": "microphoneInput",
+                "value": true,
+                "match": 1,
+                "mismatch": 0
+              },
+              "no": {
+                "match": 0.5
+              }
             }
           }
         },
@@ -680,18 +1319,39 @@
           "id": "bl5",
           "text": "Насколько критичен поворотный/откидной дисплей для съёмки себя?",
           "options": [
-            { "value": "critical", "label": "Критичен, снимаю себя в кадре" },
-            { "value": "desirable", "label": "Желателен, но можно и без" },
-            { "value": "not_important", "label": "Не важен" }
+            {
+              "value": "critical",
+              "label": "Критичен, снимаю себя в кадре"
+            },
+            {
+              "value": "desirable",
+              "label": "Желателен, но можно и без"
+            },
+            {
+              "value": "not_important",
+              "label": "Не важен"
+            }
           ],
           "weight": 0.15,
           "enabled": true,
           "matchRules": {
             "type": "direct",
             "mapping": {
-              "critical": { "field": "rotatingScreen", "value": true, "match": 1, "mismatch": 0.1 },
-              "desirable": { "field": "rotatingScreen", "value": true, "match": 0.7, "mismatch": 0.4 },
-              "not_important": { "match": 0.5 }
+              "critical": {
+                "field": "rotatingScreen",
+                "value": true,
+                "match": 1,
+                "mismatch": 0.1
+              },
+              "desirable": {
+                "field": "rotatingScreen",
+                "value": true,
+                "match": 0.7,
+                "mismatch": 0.4
+              },
+              "not_important": {
+                "match": 0.5
+              }
             }
           }
         },
@@ -699,16 +1359,29 @@
           "id": "bl6",
           "text": "Автофокус по лицу/глазам в видеорежиме — критичен?",
           "options": [
-            { "value": "critical", "label": "Да, критичен" },
-            { "value": "not_critical", "label": "Нет, не критичен" }
+            {
+              "value": "critical",
+              "label": "Да, критичен"
+            },
+            {
+              "value": "not_critical",
+              "label": "Нет, не критичен"
+            }
           ],
-          "weight": 0.10,
+          "weight": 0.1,
           "enabled": true,
           "matchRules": {
             "type": "direct",
             "mapping": {
-              "critical": { "field": "eyeAutofocus", "value": true, "match": 1, "mismatch": 0.3 },
-              "not_critical": { "match": 0.6 }
+              "critical": {
+                "field": "eyeAutofocus",
+                "value": true,
+                "match": 1,
+                "mismatch": 0.3
+              },
+              "not_critical": {
+                "match": 0.6
+              }
             }
           }
         },
@@ -716,16 +1389,29 @@
           "id": "bl7",
           "text": "Готовы ли вы разбираться в сложном меню или нужен принцип «включил-снял»?",
           "options": [
-            { "value": "simple", "label": "Хочу простое меню, минимум настроек" },
-            { "value": "complex_ok", "label": "Готов разбираться, если это даёт качество" }
+            {
+              "value": "simple",
+              "label": "Хочу простое меню, минимум настроек"
+            },
+            {
+              "value": "complex_ok",
+              "label": "Готов разбираться, если это даёт качество"
+            }
           ],
           "weight": 0.02,
           "enabled": true,
           "matchRules": {
             "type": "direct",
             "mapping": {
-              "simple": { "field": "menuComplexity", "value": "simple", "match": 1, "mismatch": 0.4 },
-              "complex_ok": { "match": 0.7 }
+              "simple": {
+                "field": "menuComplexity",
+                "value": "simple",
+                "match": 1,
+                "mismatch": 0.4
+              },
+              "complex_ok": {
+                "match": 0.7
+              }
             }
           }
         },
@@ -733,18 +1419,41 @@
           "id": "bl8",
           "text": "Насколько важны вес и компактность камеры?",
           "options": [
-            { "value": "critical", "label": "Очень важно — часто снимаю с рук в движении" },
-            { "value": "moderate", "label": "Средне — ношу в рюкзаке" },
-            { "value": "not_important", "label": "Не важно" }
+            {
+              "value": "critical",
+              "label": "Очень важно — часто снимаю с рук в движении"
+            },
+            {
+              "value": "moderate",
+              "label": "Средне — ношу в рюкзаке"
+            },
+            {
+              "value": "not_important",
+              "label": "Не важно"
+            }
           ],
           "weight": 0.08,
           "enabled": true,
           "matchRules": {
             "type": "direct",
             "mapping": {
-              "critical": { "field": "weight", "value": 600, "operator": "lt", "match": 1, "mismatch": 0.2 },
-              "moderate": { "field": "weight", "value": 800, "operator": "lt", "match": 1, "mismatch": 0.5 },
-              "not_important": { "match": 0.6 }
+              "critical": {
+                "field": "weight",
+                "value": 600,
+                "operator": "lt",
+                "match": 1,
+                "mismatch": 0.2
+              },
+              "moderate": {
+                "field": "weight",
+                "value": 800,
+                "operator": "lt",
+                "match": 1,
+                "mismatch": 0.5
+              },
+              "not_important": {
+                "match": 0.6
+              }
             }
           }
         }
