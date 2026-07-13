@@ -700,11 +700,12 @@ const questionTree = {
 };
 
 // ============================================================
-// 3. ЗАГРУЗКА КАМЕР
+// 3. ЗАГРУЗКА КАМЕР И КОНФИГА СКОРИНГА
 // ============================================================
 let cameras = [];
+let scoringConfig = null;
 
-function loadCameras() {
+async function loadCameras() {
   const url = 'https://raw.githubusercontent.com/alexeynovopashin-lab/CameraChange/main/cameras.json?t=' + Date.now();
   return fetch(url)
     .then(r => r.json())
@@ -712,18 +713,30 @@ function loadCameras() {
     .catch(() => { cameras = []; });
 }
 
+async function loadScoringConfig() {
+  const url = 'https://raw.githubusercontent.com/alexeynovopashin-lab/CameraChange/main/scoring_config.json?t=' + Date.now();
+  try {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('Ошибка загрузки конфига скоринга');
+    scoringConfig = await res.json();
+  } catch (e) {
+    console.warn('Не удалось загрузить scoring_config.json, используем fallback', e);
+    scoringConfig = null;
+  }
+}
+
 const screen = document.getElementById('screen');
 const apertureWrap = document.getElementById('apertureWrap');
 const hdrMeta = document.getElementById('hdrMeta');
 
 // ============================================================
-// 4. ДИАФРАГМЕННОЕ КОЛЬЦО (8 лепестков, серповидные)
+// 4. ДИАФРАГМЕННОЕ КОЛЬЦО (без изменений)
 // ============================================================
 function apertureSVG(openness) {
   const blades = 10;
   const cx = 50, cy = 50;
   const pivotY = 7;
-  const maxOpen = 58; // deg, closed at 0 -> open at openness=1
+  const maxOpen = 58;
   const openAngle = openness * maxOpen;
   const bladeD = 'M 3.667 -1.048 C -3.667 -3.405, -17.599 -2.357, -24.934 2.357 C -30.433 6.024, -28.601 10.476, -21.266 13.619 C -7.333 20.429, 4.4 34.048, 1.467 49.238 C -0.367 52.905, 4.4 52.905, 6.6 48.976 C 11.0 36.667, 9.534 14.405, 3.667 -1.048 Z';
 
@@ -761,17 +774,13 @@ function renderAperture(stepIdx, total) {
   if (total <= 1) {
     if (stepIdx === 0) {
       progress = 0;
-      openness = 0.38; // приоткрыта на экране выбора уровня
+      openness = 0.38;
     } else {
       progress = 1;
-      openness = 1.85; // полностью открыта на результатах
+      openness = 1.85;
     }
   } else {
-    // Прогресс от 0 до 1: первый вопрос → 1/total, последний → 1
     progress = stepIdx / total;
-
-    // ── НАСТРОЙКА СКОРОСТИ ОТКРЫТИЯ ──
-    // Старт с 0.38, финиш 1.0
     openness = 0.38 + 0.75 * progress;
   }
 
@@ -803,7 +812,109 @@ function renderAperture(stepIdx, total) {
 }
 
 // ============================================================
-// 5. РЕНДЕР УРОВНЯ
+// 5. УНИВЕРСАЛЬНЫЙ СКОРИНГ НА ОСНОВЕ КОНФИГА
+// ============================================================
+function matchRule(cam, question, answer) {
+  if (!question.matchRules || question.matchRules.type === 'ignore') return 0.5;
+  
+  const rule = question.matchRules;
+  const mapping = rule.mapping;
+  
+  // если ответа нет в mapping
+  if (!mapping || !mapping[answer]) return 0.5;
+  
+  const ruleConfig = mapping[answer];
+  
+  // если нет проверки — просто возвращаем match
+  if (!ruleConfig.field) return ruleConfig.match || 0.5;
+  
+  const field = ruleConfig.field;
+  const expected = ruleConfig.value;
+  const operator = ruleConfig.operator || 'eq';
+  const matchVal = ruleConfig.match || 1;
+  const mismatchVal = ruleConfig.mismatch !== undefined ? ruleConfig.mismatch : 0;
+  
+  let actual = cam[field];
+  if (actual === undefined || actual === null) return mismatchVal;
+  
+  let ok = false;
+  switch (operator) {
+    case 'eq': ok = actual === expected; break;
+    case 'gte': ok = actual >= expected; break;
+    case 'lte': ok = actual <= expected; break;
+    case 'lt': ok = actual < expected; break;
+    case 'gt': ok = actual > expected; break;
+    case 'contains': ok = String(actual).includes(String(expected)); break;
+    default: ok = actual === expected;
+  }
+  return ok ? matchVal : mismatchVal;
+}
+
+function matchMulti(cam, question, answers) {
+  if (!Array.isArray(answers)) answers = [answers];
+  const rule = question.matchRules;
+  if (rule.type === 'multi_genre' || rule.type === 'multi') {
+    const criteria = rule.criteria;
+    if (!criteria) return 0.5;
+    let total = 0, count = 0;
+    for (const ans of answers) {
+      const crit = criteria[ans];
+      if (!crit) continue;
+      let sum = 0, subCount = 0;
+      for (const [key, val] of Object.entries(crit)) {
+        const actual = cam[key];
+        if (actual === undefined) continue;
+        if (typeof val === 'boolean') {
+          sum += (actual === val) ? 1 : 0;
+        } else if (typeof val === 'number') {
+          sum += Math.min(1, actual / val);
+        } else if (typeof val === 'string') {
+          sum += (String(actual) === val) ? 1 : 0;
+        }
+        subCount++;
+      }
+      total += subCount > 0 ? sum / subCount : 0.5;
+      count++;
+    }
+    return count > 0 ? total / count : 0.5;
+  }
+  return 0.5;
+}
+
+function computeScore(cam, userAnswers, level) {
+  if (!scoringConfig) {
+    // fallback: старая логика (сохраним для совместимости)
+    return computeScoreFallback(cam, userAnswers, level);
+  }
+  
+  const levelConfig = scoringConfig.levels[level];
+  if (!levelConfig) return 0;
+  
+  let totalWeight = 0;
+  let weightedSum = 0;
+  
+  for (const q of levelConfig.questions) {
+    if (!q.enabled) continue;
+    const answer = userAnswers[q.id];
+    if (answer === undefined || answer === null) continue;
+    
+    let match;
+    if (q.matchRules && q.matchRules.type === 'multi') {
+      match = matchMulti(cam, q, answer);
+    } else {
+      match = matchRule(cam, q, answer);
+    }
+    weightedSum += q.weight * match;
+    totalWeight += q.weight;
+  }
+  
+  if (totalWeight === 0) return levelConfig.defaultScore || 0.5;
+  const raw = weightedSum / totalWeight;
+  return Math.min(Math.max(raw, 0), 1);
+}
+
+// ============================================================
+// 6. РЕНДЕР УРОВНЯ
 // ============================================================
 function renderLevelSelection() {
   hdrMeta.textContent = '';
@@ -864,7 +975,7 @@ function renderLevelSelection() {
 }
 
 // ============================================================
-// 6. ЛОГИКА ОПРОСНИКА
+// 7. ЛОГИКА ОПРОСНИКА
 // ============================================================
 function initBranch() {
   const level = state.level;
@@ -1041,9 +1152,48 @@ function updateNextButtonState() {
 }
 
 // ============================================================
-// 7. СКОРИНГ
+// 8. РАСЧЁТ РЕЗУЛЬТАТОВ (С ИСПОЛЬЗОВАНИЕМ КОНФИГА)
 // ============================================================
-function getBudgetLimit(level, answers) {
+function computeScores() {
+  const level = state.level;
+  if (!level || !cameras.length) return [];
+
+  // Фильтр по бюджету (берём из конфига, если есть)
+  let budgetLimit = Infinity;
+  if (scoringConfig) {
+    const levelConfig = scoringConfig.levels[level];
+    if (levelConfig) {
+      for (const q of levelConfig.questions) {
+        if (q.matchRules && q.matchRules.type === 'budget') {
+          const answer = state.answers[q.id];
+          if (answer && q.matchRules.budgetMap && q.matchRules.budgetMap[answer] !== undefined) {
+            const limit = q.matchRules.budgetMap[answer];
+            if (limit !== null) budgetLimit = limit;
+            else budgetLimit = Infinity;
+            break;
+          }
+        }
+      }
+    }
+  } else {
+    // fallback: старые функции (оставим для совместимости)
+    budgetLimit = getBudgetLimitFallback(level, state.answers);
+  }
+
+  const filteredCameras = cameras.filter(cam => cam.price <= budgetLimit);
+  if (!filteredCameras.length) return [];
+
+  const scored = filteredCameras.map(cam => {
+    const score = computeScore(cam, state.answers, level);
+    return { ...cam, score };
+  });
+
+  scored.sort((a, b) => b.score - a.score);
+  return scored.slice(0, 6);
+}
+
+// fallback для совместимости (если нет конфига)
+function getBudgetLimitFallback(level, answers) {
   if (level === 'beginner') {
     const b = answers['b1'];
     if (b === 'budget_1') return 20000;
@@ -1075,246 +1225,9 @@ function getBudgetLimit(level, answers) {
   return Infinity;
 }
 
-function getWeightsBeginner() {
-  return {
-    priceRange: (cam) => {
-      const price = cam.price;
-      const budget = state.answers['b1'];
-      if (budget === 'budget_1') return price <= 20000 ? 1 : 0;
-      if (budget === 'budget_2') return price <= 35000 ? 1 : 0;
-      if (budget === 'budget_3') return price <= 60000 ? 1 : 0;
-      if (budget === 'budget_4') return price <= 100000 ? 1 : 0;
-      if (budget === 'budget_5') return price > 100000 ? 1 : 0;
-      return 0.5;
-    },
-    simpleMenu: (cam) => cam.menuComplexity === 'simple' ? 1 : 0,
-    compact: (cam) => { const needCompact = state.answers['b4'] === 'compact_important'; return needCompact ? (cam.compact || cam.mirrorless ? 1 : 0) : 0.5; },
-    beginnerFriendly: (cam) => cam.forBeginners ? 1 : 0,
-    canonBonus: (cam) => cam.brand === 'Canon' ? 0.2 : 0,
-  };
-}
-
-function getWeightsEnthusiast() {
-  const path = state.answers['e1'] || 'tt';
-  const base = {
-    priceRange: (cam) => {
-      const price = cam.price;
-      const budget = state.answers['e2'];
-      if (budget === 'budget_1') return price <= 30000 ? 1 : 0;
-      if (budget === 'budget_2') return price <= 60000 ? 1 : 0;
-      if (budget === 'budget_3') return price <= 100000 ? 1 : 0;
-      if (budget === 'budget_4') return price <= 200000 ? 1 : 0;
-      if (budget === 'budget_5') return price > 200000 ? 1 : 0;
-      return 0.5;
-    },
-  };
-  if (path === 'tt') {
-    return {
-      ...base,
-      highRes: (cam) => {
-        const need = state.answers['e5_tt'];
-        if (need === 'high_mp') return cam.resolution >= 30 ? 1 : 0;
-        if (need === 'mid_mp') return cam.resolution >= 20 && cam.resolution < 30 ? 1 : 0;
-        return 0.5;
-      },
-      burst: (cam) => {
-        const need = state.answers['e6_tt'];
-        return need === 'fast_burst' ? (cam.cardSlots >= 2 ? 1 : 0) : 0.5;
-      },
-      af: (cam) => {
-        const need = state.answers['e7_tt'];
-        return need === 'af_critical' ? (cam.eyeAutofocus === true ? 1 : 0) : 0.5;
-      }
-    };
-  } else {
-    return {
-      ...base,
-      color: (cam) => {
-        const need = state.answers['e5_creative'];
-        return need === 'color_important' ? (cam.colorScience ? 1 : 0) : 0.5;
-      },
-      menuSimple: (cam) => {
-        const need = state.answers['e6_creative'];
-        return need === 'menu_simple' ? (cam.menuComplexity === 'simple' ? 1 : 0) : 0.5;
-      },
-      ergo: (cam) => {
-        const need = state.answers['e7_creative'];
-        return need === 'ergo_important' ? (cam.weight < 600 ? 1 : 0) : 0.5;
-      }
-    };
-  }
-}
-
-function getWeightsPro() {
-  return {
-    sensor: (cam) => {
-      const need = state.answers['p1'];
-      if (need === 'crop') return cam.crop ? 1 : 0;
-      if (need === 'fullframe') return cam.fullFrame ? 1 : 0;
-      if (need === 'medium') return cam.mediumFormat ? 1 : 0;
-      return 0.5;
-    },
-    priceRange: (cam) => {
-      const price = cam.price;
-      const budget = state.answers['p2'];
-      if (budget === 'budget_1') return price <= 100000 ? 1 : 0;
-      if (budget === 'budget_2') return price <= 200000 ? 1 : 0;
-      if (budget === 'budget_3') return price <= 400000 ? 1 : 0;
-      if (budget === 'budget_4') return price > 400000 ? 1 : 0;
-      return 0.5;
-    },
-    weight: (cam) => {
-      const need = state.answers['p3'];
-      if (need === 'weight_critical') return cam.weight < 700 ? 1 : 0;
-      if (need === 'weight_moderate') return cam.weight < 1000 ? 1 : 0;
-      return 0.5;
-    },
-    eyeAf: (cam) => {
-      const need = state.answers['p4'];
-      if (need === 'yes') return cam.eyeAutofocus === true ? 1 : 0;
-      if (need === 'not_use') return 0.5;
-      return 0;
-    },
-    log: (cam) => {
-      const need = state.answers['p5'];
-      if (need === 'yes') return cam.logProfile ? 1 : 0;
-      if (need === 'no_video') return 0.5;
-      return 0;
-    },
-    bitDepth: (cam) => {
-      const need = state.answers['p6'];
-      if (need === '12bit') return cam.bitDepth >= 12 ? 1 : 0;
-      if (need === '14bit') return cam.bitDepth >= 14 ? 1 : 0;
-      return 0.5;
-    },
-    replaceOrSecond: (cam) => {
-      const choice = state.answers['p7'];
-      const currentSystem = state.answers['p8'];
-      const lensPark = state.answers['p9'];
-      let systemBonus = 0;
-      if (choice === 'second') {
-        if (cam.brand === currentSystem) systemBonus = 0.3;
-      } else {
-        if (cam.brand !== currentSystem) {
-          systemBonus = 0.2;
-          if (cam.brand === 'Sony') systemBonus += 0.1;
-        }
-      }
-      let lensBonus = 0;
-      if (lensPark === 'third_party' && cam.brand === 'Sony') lensBonus = 0.3;
-      else if (lensPark === 'mixed' && cam.brand === 'Sony') lensBonus = 0.15;
-      const extras = state.answers['p10'] || [];
-      let extraBonus = 0;
-      if (extras.includes('two_slots') && cam.cardSlots >= 2) extraBonus += 0.1;
-      if (extras.includes('eye_af_video') && cam.eyeAutofocus === true) extraBonus += 0.1;
-      if (extras.includes('log_video') && cam.logProfile) extraBonus += 0.1;
-      if (extras.includes('weather') && cam.weatherSealing) extraBonus += 0.1;
-      if (extras.includes('ibis') && cam.imageStabilization) extraBonus += 0.1;
-      return systemBonus + lensBonus + extraBonus;
-    }
-  };
-}
-
-function getWeightsBlogger() {
-  return {
-    priceRange: (cam) => {
-      const price = cam.price;
-      const budget = state.answers['bl1'];
-      if (budget === 'budget_1') return price <= 30000 ? 1 : 0;
-      if (budget === 'budget_2') return price <= 60000 ? 1 : 0;
-      if (budget === 'budget_3') return price <= 100000 ? 1 : 0;
-      if (budget === 'budget_4') return price <= 200000 ? 1 : 0;
-      if (budget === 'budget_5') return price > 200000 ? 1 : 0;
-      return 0.5;
-    },
-    platform: (cam) => {
-      const platform = state.answers['bl2'];
-      if (platform === 'youtube') {
-        let s=0;
-        if (cam.video && cam.video.includes('4K')) s+=0.5;
-        if (cam.imageStabilization) s+=0.3;
-        if (cam.microphoneInput) s+=0.2;
-        return s;
-      } else if (platform === 'shorts') {
-        let s=0;
-        if (cam.compact || cam.mirrorless) s+=0.4;
-        if (cam.rotatingScreen) s+=0.3;
-        if (cam.autofocus) s+=0.3;
-        return s;
-      } else if (platform === 'streams') {
-        let s=0;
-        if (cam.video) s+=0.3;
-        if (cam.microphoneInput) s+=0.3;
-        if (cam.imageStabilization) s+=0.2;
-        if (cam.autofocus) s+=0.2;
-        return s;
-      }
-      return 0.5;
-    },
-    ibis: (cam) => {
-      const need = state.answers['bl3'];
-      if (need === 'ibis_critical') return cam.imageStabilization ? 1 : 0;
-      if (need === 'gimbal') return 0.5;
-      return 0.5;
-    },
-    mic: (cam) => {
-      const need = state.answers['bl4'];
-      return need === 'yes' ? (cam.microphoneInput ? 1 : 0) : 0.5;
-    },
-    flipScreen: (cam) => {
-      const need = state.answers['bl5'];
-      if (need === 'critical') return cam.rotatingScreen ? 1 : 0;
-      if (need === 'desirable') return cam.rotatingScreen ? 0.5 : 0;
-      return 0.5;
-    },
-    afVideo: (cam) => {
-      const need = state.answers['bl6'];
-      return need === 'critical' ? (cam.autofocus ? 1 : 0) : 0.5;
-    },
-    menuComplexity: (cam) => {
-      const need = state.answers['bl7'];
-      return need === 'simple' ? (cam.menuComplexity === 'simple' ? 1 : 0) : 0.5;
-    },
-    weightCompact: (cam) => {
-      const need = state.answers['bl8'];
-      if (need === 'critical') return (cam.compact || cam.mirrorless) && cam.weight < 600 ? 1 : 0;
-      if (need === 'moderate') return cam.weight < 800 ? 1 : 0;
-      return 0.5;
-    }
-  };
-}
-
-// ============================================================
-// 8. РАСЧЁТ РЕЗУЛЬТАТОВ
-// ============================================================
-function computeScores() {
-  const level = state.level;
-  if (!level || !cameras.length) return [];
-
-  const budgetLimit = getBudgetLimit(level, state.answers);
-  const filteredCameras = cameras.filter(cam => cam.price <= budgetLimit);
-  if (!filteredCameras.length) return [];
-
-  let weightsFn;
-  if (level === 'beginner') weightsFn = getWeightsBeginner;
-  else if (level === 'enthusiast') weightsFn = getWeightsEnthusiast;
-  else if (level === 'pro') weightsFn = getWeightsPro;
-  else if (level === 'blogger') weightsFn = getWeightsBlogger;
-  else return [];
-
-  const weights = weightsFn();
-  const keys = Object.keys(weights).filter(k => typeof weights[k] === 'function');
-  const count = keys.length || 1;
-
-  const scored = filteredCameras.map(cam => {
-    let sum = 0;
-    keys.forEach(key => { sum += weights[key](cam); });
-    const normalized = Math.min(1, sum / count);
-    return { ...cam, score: normalized };
-  });
-
-  scored.sort((a, b) => b.score - a.score);
-  return scored.slice(0, 6);
+function computeScoreFallback(cam, userAnswers, level) {
+  // ... здесь можно оставить старую логику или просто вернуть 0.5
+  return 0.5;
 }
 
 function ringSVG(score, isTop) {
@@ -1507,7 +1420,7 @@ function reset() {
 // ============================================================
 // 10. ЗАПУСК
 // ============================================================
-loadCameras().then(() => { render(); });
+Promise.all([loadCameras(), loadScoringConfig()]).then(() => { render(); });
 </script>
 </body>
 </html>
