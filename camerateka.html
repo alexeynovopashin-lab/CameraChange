@@ -205,19 +205,85 @@
   .modal-note::after { content: '”'; color: var(--signal); margin-left: 2px; }
   .spec-section { padding: 28px 40px; border-bottom: 1px solid var(--border); }
   .spec-section:last-child { border-bottom: none; }
-  .spec-h { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--paper-faint); margin-bottom: 16px; }
+  .spec-h {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--paper-faint); margin-bottom: 16px;
+  }
   .spec-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 30px; }
   .spec-row { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--border-soft); font-size: 13px; }
   .spec-row .k { color: var(--paper-faint); }
   .spec-row .v { font-family: var(--font-mono); color: var(--paper); text-align: right; }
-  .modal-foot { padding: 26px 40px 34px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+  /* ---------- объективы в модалке ---------- */
+  .lens-section { padding: 28px 40px; border-bottom: 1px solid var(--border); }
+  .lens-section:last-child { border-bottom: none; }
+  .lens-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; margin-top: 12px; }
+  .lens-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: all .2s;
+    cursor: default;
+  }
+  .lens-card:hover { border-color: var(--signal-dim); background: var(--surface-raised); }
+  .lens-card .lens-thumb {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--ink);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .lens-card .lens-thumb img { max-width: 100%; max-height: 50px; object-fit: contain; }
+  .lens-card .lens-thumb .ph { width: 28px; height: 28px; opacity: .12; }
+  .lens-card .lens-name {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -.01em;
+  }
+  .lens-card .lens-meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--paper-faint);
+    display: flex;
+    justify-content: space-between;
+  }
+  .lens-card .lens-price {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--signal);
+  }
+  .lens-card .lens-rating {
+    display: flex;
+    gap: 6px;
+    font-size: 10px;
+    font-family: var(--font-mono);
+    color: var(--paper-dim);
+  }
+  .lens-card .lens-rating span { display: flex; align-items: center; gap: 3px; }
+
+  .modal-foot {
+    padding: 26px 40px 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
   .avito-link {
     display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: var(--ink);
     background: var(--paper); padding: 12px 20px; text-decoration: none; border-radius: 2px; transition: background .2s;
   }
   .avito-link:hover { background: #fff; }
   .modal-idx { font-family: var(--font-mono); font-size: 11px; color: var(--paper-faint); }
-  /* дополнительные стили для ссылок в модалке */
   .modal-link-group { display: flex; flex-wrap: wrap; gap: 12px; }
   .modal-link-group a {
     color: var(--signal); text-decoration: underline; font-size: 14px;
@@ -228,8 +294,9 @@
   @media (max-width: 720px) {
     .modal-top { grid-template-columns: 1fr; }
     .modal-img { padding: 32px; }
-    .modal-head, .modal-note, .spec-section, .modal-foot { padding-left: 24px; padding-right: 24px; }
+    .modal-head, .modal-note, .spec-section, .lens-section, .modal-foot { padding-left: 24px; padding-right: 24px; }
     .spec-grid { grid-template-columns: 1fr; }
+    .lens-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
     .hero h1 { font-size: 30px; }
     .shell { padding: 0 18px 100px; }
     .top-inner { padding: 18px 18px 16px; }
@@ -288,9 +355,10 @@
 
 <script>
 // ============================================================
-// 1. ЗАГРУЗКА КАМЕР
+// 1. ЗАГРУЗКА КАМЕР И ОБЪЕКТИВОВ
 // ============================================================
 let CAMERAS = [];
+let LENSES = [];
 
 async function loadCameras() {
   const url = 'https://raw.githubusercontent.com/alexeynovopashin-lab/CameraChange/main/cameras.json?t=' + Date.now();
@@ -302,7 +370,18 @@ async function loadCameras() {
     console.warn('Не удалось загрузить cameras.json', e);
     CAMERAS = [];
   }
-  initApp();
+}
+
+async function loadLenses() {
+  const url = 'https://raw.githubusercontent.com/alexeynovopashin-lab/CameraChange/main/lens.json?t=' + Date.now();
+  try {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('Ошибка загрузки');
+    LENSES = await res.json();
+  } catch (e) {
+    console.warn('Не удалось загрузить lens.json', e);
+    LENSES = [];
+  }
 }
 
 // ============================================================
@@ -317,6 +396,7 @@ const state = {
 };
 
 const CAMERA_ICON = `<svg class="ph" viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M8 7L9.5 4h5L16 7" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><circle cx="12" cy="14" r="4" stroke="currentColor" stroke-width="1.4"/></svg>`;
+const LENS_PH = `<svg class="ph" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3" stroke="currentColor" stroke-width="1.4"/></svg>`;
 
 // ============================================================
 // 3. ФИЛЬТРЫ
@@ -458,7 +538,6 @@ function renderGrid() {
     else if (cam.forBeginners) tags.push('BEGINNER');
     if (cam.forBloggers) tags.push('VLOG');
     const sensorShort = cam.mediumFormat ? 'Medium format' : (cam.fullFrame ? 'Full frame' : (cam.crop ? 'APS-C' : '—'));
-    // Без onerror — просто img
     const imgContent = cam.image
       ? `<img src="${cam.image}" alt="${cam.brand} ${cam.model}" loading="lazy" />`
       : CAMERA_ICON;
@@ -502,7 +581,7 @@ function openCameraFromUrl() {
 }
 
 // ============================================================
-// 6. МОДАЛЬНОЕ ОКНО (расширенное)
+// 6. МОДАЛЬНОЕ ОКНО (расширенное, с объективами)
 // ============================================================
 function openModal(idx) {
   const cam = CAMERAS[idx];
@@ -569,6 +648,72 @@ function openModal(idx) {
       </div>`;
   }
 
+  // --- Совместимые объективы ---
+  let lensesHtml = '';
+  if (LENSES.length) {
+    const compatible = LENSES.filter(l => {
+      // По байонету
+      if (l.mount && cam.lensMount && l.mount === cam.lensMount) return true;
+      // По списку совместимых камер
+      if (l.compatibleCameras && l.compatibleCameras.includes(cam.id)) return true;
+      return false;
+    });
+    if (compatible.length) {
+      lensesHtml = `
+        <div class="lens-section">
+          <div class="spec-h">Совместимые объективы</div>
+          <div class="lens-grid">
+            ${compatible.map(l => {
+              const price = l.price ? '₽' + l.price.toLocaleString('ru-RU') : '';
+              const sharp = l.ratings && l.ratings.sharpness ? l.ratings.sharpness : '—';
+              const bokeh = l.ratings && l.ratings.bokeh ? l.ratings.bokeh : '—';
+              const fl = l.focalLength || l.focalRange || '';
+              const img = l.image ? `<img src="${l.image}" alt="${l.brand} ${l.model}" loading="lazy" />` : LENS_PH;
+              const spec = l.type === 'zoom' ? `${fl} f/${l.maxAperture}` : `${fl}mm f/${l.maxAperture}`;
+              return `
+                <div class="lens-card">
+                  <div class="lens-thumb">${img}</div>
+                  <div class="lens-name">${l.brand} ${l.model}</div>
+                  <div class="lens-meta">
+                    <span>${spec}</span>
+                    <span class="lens-price">${price}</span>
+                  </div>
+                  <div class="lens-rating">
+                    <span>⚡ ${sharp}</span>
+                    <span>🌀 ${bokeh}</span>
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  // --- Спецификации ---
+  const specs = [
+    ['Тип', cam.type],
+    ['Сенсор', cam.sensorSize],
+    ['Разрешение', cam.resolution ? cam.resolution + ' Мп' : ''],
+    ['Байонет', cam.lensMount && cam.lensMount !== 'unknown' ? cam.lensMount : ''],
+    ['Видео', cam.video],
+    ['Стабилизация', cam.imageStabilization ? 'есть' : ''],
+    ['Вес', cam.weight ? cam.weight + ' г' : ''],
+    ['Слоты карт', cam.cardSlots],
+    ['Сложность меню', ({simple:'простое', intermediate:'среднее', complex:'сложное'})[cam.menuComplexity] || ''],
+    ['Влагозащита', cam.weatherSealing ? 'есть' : ''],
+    ['Автофокус', cam.autofocus ? cam.autofocus + ' точек' : ''],
+    ['Битность RAW', cam.bitDepth ? cam.bitDepth + '-bit' : '']
+  ].filter(([k,v]) => v && v !== '' && v !== '0' && v !== false);
+
+  const specsHtml = specs.map(([k,v]) => `
+    <div class="spec-row">
+      <span class="k">${k}</span>
+      <span class="v">${v}</span>
+    </div>
+  `).join('');
+
   modal.innerHTML = `
     <div class="modal-top">
       <button class="modal-close" id="modalClose">✕</button>
@@ -584,21 +729,9 @@ function openModal(idx) {
     ${extraBlocks}
     <div class="spec-section">
       <div class="spec-h">Технические данные</div>
-      <div class="spec-grid">
-        ${specRow('Тип', cam.type)}
-        ${specRow('Сенсор', cam.sensorSize)}
-        ${specRow('Разрешение', cam.resolution ? cam.resolution + ' Мп' : '')}
-        ${specRow('Байонет', cam.lensMount && cam.lensMount !== 'unknown' ? cam.lensMount : '')}
-        ${specRow('Видео', cam.video)}
-        ${specRow('Стабилизация', cam.imageStabilization ? 'есть' : '')}
-        ${specRow('Вес', cam.weight ? cam.weight + ' г' : '')}
-        ${specRow('Слоты карт', cam.cardSlots)}
-        ${specRow('Сложность меню', ({simple:'простое', intermediate:'среднее', complex:'сложное'})[cam.menuComplexity] || '')}
-        ${specRow('Влагозащита', cam.weatherSealing ? 'есть' : '')}
-        ${specRow('Автофокус', cam.autofocus ? cam.autofocus + ' точек' : '')}
-        ${specRow('Битность RAW', cam.bitDepth ? cam.bitDepth + '-bit' : '')}
-      </div>
+      <div class="spec-grid">${specsHtml}</div>
     </div>
+    ${lensesHtml}
     <div class="modal-foot">
       <a class="avito-link" href="${avitoUrl}" target="_blank" rel="noopener">найти на авито →</a>
       <span class="modal-idx">${idx+1} / ${CAMERAS.length}</span>
@@ -608,11 +741,6 @@ function openModal(idx) {
   document.getElementById('modalClose').addEventListener('click', closeModal);
   document.getElementById('overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
-}
-
-function specRow(k, v) {
-  if (v === null || v === undefined || v === '' || v === 0 || v === false) return '';
-  return `<div class="spec-row"><span class="k">${k}</span><span class="v">${v}</span></div>`;
 }
 
 function closeModal() {
@@ -667,7 +795,9 @@ function initApp() {
 // ============================================================
 // 9. ЗАПУСК
 // ============================================================
-loadCameras();
+Promise.all([loadCameras(), loadLenses()]).then(() => {
+  initApp();
+});
 </script>
 </body>
 </html>
