@@ -71,17 +71,25 @@
     .rank-item .rank-actions button { background:none; border:none; color:#888; cursor:pointer; font-size:18px; padding:0 6px; }
     .rank-item .rank-actions button:hover { color:#fff; }
 
+    /* Стили для настроек скоринга */
+    .scoring-table { width:100%; border-collapse:collapse; }
+    .scoring-table th, .scoring-table td { padding:8px 12px; border-bottom:1px solid #2a2a2a; text-align:left; }
+    .scoring-table th { color:#aaa; font-weight:600; font-size:12px; text-transform:uppercase; letter-spacing:0.05em; }
+    .scoring-table input[type="number"] { width:80px; padding:6px 10px; background:#1a1a1a; border:1px solid #2a2a2a; color:#eaeaea; border-radius:4px; }
+    .scoring-table input[type="checkbox"] { accent-color:#d4a373; width:18px; height:18px; cursor:pointer; }
+
     @media (max-width:600px) { .form-row { grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
 <div class="container">
   <h1>📷 Управление камерами</h1>
-  <div class="sub">Редактирование базы + экспертный режим + обучение модели</div>
+  <div class="sub">Редактирование базы + экспертный режим + обучение + настройка скоринга</div>
 
   <!-- Вкладки -->
   <div class="tabs">
     <button class="tab active" data-tab="cameras">📷 Камеры</button>
+    <button class="tab" data-tab="scoring">⚙️ Настройки скоринга</button>
     <button class="tab" data-tab="expert">🎯 Экспертный режим</button>
     <button class="tab" data-tab="training">🧠 Обучение</button>
   </div>
@@ -124,6 +132,47 @@
         </thead>
         <tbody id="tableBody"></tbody>
       </table>
+    </div>
+  </div>
+
+  <!-- ======= ВКЛАДКА НАСТРОЙКИ СКОРИНГА ======= -->
+  <div id="tab-scoring" class="tab-content" style="display:none;">
+    <h2>⚙️ Настройки скоринга</h2>
+    <p style="color:#aaa; margin-bottom:16px;">Редактируйте веса вопросов для каждого уровня. Изменения сохраняются в <code>scoring_config.json</code>.</p>
+    
+    <div class="toolbar">
+      <select id="scoringLevelSelect">
+        <option value="beginner">Новичок</option>
+        <option value="enthusiast_tt">Любитель (техническая)</option>
+        <option value="enthusiast_creative">Любитель (творческая)</option>
+        <option value="pro">Профессионал</option>
+        <option value="blogger">Блогер</option>
+      </select>
+      <button id="saveScoringBtn" class="btn-primary">💾 Сохранить в GitHub</button>
+      <button id="reloadScoringBtn" class="btn-secondary">🔄 Перезагрузить</button>
+    </div>
+
+    <div id="scoringEditor">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+        <span id="scoringLevelLabel" style="font-weight:600;"></span>
+        <span id="scoringTotalWeight" style="color:#888; font-size:13px;">Сумма весов: 0</span>
+      </div>
+      <div class="table-wrap">
+        <table class="scoring-table">
+          <thead>
+            <tr>
+              <th style="width:40px;">#</th>
+              <th>ID</th>
+              <th>Вопрос</th>
+              <th style="width:120px;">Вес</th>
+              <th style="width:80px;">Вкл.</th>
+            </tr>
+          </thead>
+          <tbody id="scoringTableBody">
+            <tr><td colspan="5" class="empty">Загрузка...</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 
@@ -281,7 +330,7 @@
 
 <script>
   // ============================================================
-  //  АДМИНКА С ID + ЭКСПЕРТНЫЙ РЕЖИМ + ОБУЧЕНИЕ
+  //  АДМИНКА С ID + ЭКСПЕРТНЫЙ РЕЖИМ + ОБУЧЕНИЕ + НАСТРОЙКА СКОРИНГА
   // ============================================================
 
   // ── ЗАЩИТА ПАРОЛЕМ ──────────────────────────────────────────────
@@ -301,6 +350,7 @@
   const REPO_OWNER = 'alexeynovopashin-lab';
   const REPO_NAME = 'CameraChange';
   const FILE_PATH = 'cameras.json';
+  const SCORING_FILE_PATH = 'scoring_config.json';
   const BRANCH = 'main';
 
   let token = sessionStorage.getItem('gh_token');
@@ -314,6 +364,8 @@
   let editingId = null;
   let sortField = null;
   let sortOrder = 'asc';
+  let scoringConfig = null;
+  let currentScoringLevel = 'beginner';
 
   // ── ФУНКЦИЯ ГЕНЕРАЦИИ ID ──────────────────────────────────────
   function generateCameraId(brand, model) {
@@ -339,6 +391,20 @@
     }
   }
 
+  async function loadScoringConfig() {
+    try {
+      const url = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/${SCORING_FILE_PATH}?t=${Date.now()}`;
+      const res = await fetch(url);
+      if (!res.ok) throw new Error('Не удалось загрузить scoring_config.json');
+      scoringConfig = await res.json();
+      renderScoringTable();
+    } catch (e) {
+      console.warn('Ошибка загрузки scoring_config.json', e);
+      scoringConfig = null;
+      document.getElementById('scoringTableBody').innerHTML = '<tr><td colspan="5" class="empty">❌ Не удалось загрузить конфиг</td></tr>';
+    }
+  }
+
   // ── СОХРАНЕНИЕ В GITHUB ──────────────────────────────────────
   function base64Encode(str) {
     const encoder = new TextEncoder();
@@ -350,13 +416,13 @@
     return btoa(binary);
   }
 
-  async function saveData() {
+  async function saveFile(filePath, content) {
     if (!token) {
       alert('Токен не задан. Перезагрузите страницу и введите токен.');
-      return;
+      return false;
     }
     try {
-      const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`;
+      const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${filePath}`;
       const res = await fetch(url, { headers: { 'Authorization': `token ${token}` } });
       let sha = null;
       if (res.ok) {
@@ -365,10 +431,9 @@
       } else if (res.status !== 404) {
         throw new Error('Ошибка получения sha: ' + res.status);
       }
-      const content = JSON.stringify(cameras, null, 2);
       const encoded = base64Encode(content);
       const payload = {
-        message: `Обновление базы камер (${new Date().toISOString()})`,
+        message: `Обновление ${filePath} (${new Date().toISOString()})`,
         content: encoded,
         branch: BRANCH
       };
@@ -385,50 +450,25 @@
         const err = await commitRes.json();
         throw new Error(err.message || 'Ошибка сохранения');
       }
-      alert('✅ Изменения сохранены в GitHub!');
-      renderTable();
+      return true;
     } catch (e) {
       console.error(e);
       alert('❌ Ошибка сохранения: ' + e.message);
+      return false;
     }
   }
 
-  // ── СОРТИРОВКА ────────────────────────────────────────────────
-  function getSortValue(cam, field) {
-    if (field === 'id') return cam.id || '';
-    if (field === 'image') return cam.image ? 1 : 0;
-    if (field === 'bonus') return cam.bonus ?? 0;
-    if (field === 'price') return cam.price || 0;
-    if (field === 'fullFrame' || field === 'crop' || field === 'mirrorless' ||
-        field === 'imageStabilization' || field === 'rotatingScreen' ||
-        field === 'forBeginners' || field === 'professional' || field === 'colorScience') {
-      return cam[field] ? 1 : 0;
-    }
-    if (field === 'menuComplexity') {
-      const order = { simple: 1, intermediate: 2, complex: 3 };
-      return order[cam[field]] || 0;
-    }
-    return String(cam[field] || '').toLowerCase();
+  async function saveData() {
+    const content = JSON.stringify(cameras, null, 2);
+    const ok = await saveFile(FILE_PATH, content);
+    if (ok) { renderTable(); }
   }
 
-  function sortCameras(field) {
-    if (sortField === field) {
-      sortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
-    } else {
-      sortField = field;
-      sortOrder = 'asc';
-    }
-    document.querySelectorAll('#tableHead th[data-sort]').forEach(th => {
-      const arrow = th.querySelector('.sort-arrow');
-      if (th.dataset.sort === field) {
-        arrow.textContent = sortOrder === 'asc' ? '↑' : '↓';
-        arrow.classList.add('active');
-      } else {
-        arrow.textContent = '↕';
-        arrow.classList.remove('active');
-      }
-    });
-    renderTable();
+  async function saveScoringConfig() {
+    if (!scoringConfig) return;
+    const content = JSON.stringify(scoringConfig, null, 2);
+    const ok = await saveFile(SCORING_FILE_PATH, content);
+    if (ok) { alert('✅ Настройки скоринга сохранены в GitHub!'); }
   }
 
   // ── РЕНДЕР ТАБЛИЦЫ ──────────────────────────────────────────
@@ -491,6 +531,64 @@
     if (val === true) return '<span class="badge badge-true">Да</span>';
     if (val === false) return '<span class="badge badge-false">Нет</span>';
     return '<span class="badge badge-unknown">—</span>';
+  }
+
+  // ── РЕНДЕР ТАБЛИЦЫ СКОРИНГА ──────────────────────────────────
+  function renderScoringTable() {
+    const tbody = document.getElementById('scoringTableBody');
+    if (!scoringConfig) {
+      tbody.innerHTML = '<tr><td colspan="5" class="empty">Загрузка...</td></tr>';
+      return;
+    }
+    const level = currentScoringLevel;
+    const levelConfig = scoringConfig.levels[level];
+    if (!levelConfig) {
+      tbody.innerHTML = `<tr><td colspan="5" class="empty">Уровень "${level}" не найден</td></tr>`;
+      return;
+    }
+    document.getElementById('scoringLevelLabel').textContent = levelConfig.label || level;
+    
+    let totalWeight = 0;
+    let html = '';
+    levelConfig.questions.forEach((q, idx) => {
+      totalWeight += q.weight || 0;
+      html += `<tr>
+        <td>${idx + 1}</td>
+        <td style="font-family:monospace;font-size:12px;color:#888;">${q.id}</td>
+        <td>${q.text}</td>
+        <td><input type="number" step="0.01" min="0" class="scoring-weight" data-id="${q.id}" value="${q.weight || 0}" /></td>
+        <td><input type="checkbox" class="scoring-enabled" data-id="${q.id}" ${q.enabled !== false ? 'checked' : ''} /></td>
+      </tr>`;
+    });
+    tbody.innerHTML = html;
+    document.getElementById('scoringTotalWeight').textContent = `Сумма весов: ${totalWeight.toFixed(2)}`;
+
+    // Обработчики изменений
+    tbody.querySelectorAll('.scoring-weight').forEach(inp => {
+      inp.addEventListener('change', function() {
+        const id = this.dataset.id;
+        const val = parseFloat(this.value) || 0;
+        const levelConfig = scoringConfig.levels[currentScoringLevel];
+        const q = levelConfig.questions.find(q => q.id === id);
+        if (q) { q.weight = val; updateTotalWeight(); }
+      });
+    });
+    tbody.querySelectorAll('.scoring-enabled').forEach(cb => {
+      cb.addEventListener('change', function() {
+        const id = this.dataset.id;
+        const val = this.checked;
+        const levelConfig = scoringConfig.levels[currentScoringLevel];
+        const q = levelConfig.questions.find(q => q.id === id);
+        if (q) { q.enabled = val; }
+      });
+    });
+  }
+
+  function updateTotalWeight() {
+    const levelConfig = scoringConfig.levels[currentScoringLevel];
+    let total = 0;
+    levelConfig.questions.forEach(q => { total += q.weight || 0; });
+    document.getElementById('scoringTotalWeight').textContent = `Сумма весов: ${total.toFixed(2)}`;
   }
 
   // ── РЕДАКТИРОВАНИЕ (ПО ID) ────────────────────────────────────
@@ -742,6 +840,7 @@
         const infoUrl = `https://commons.wikimedia.org/w/api.php?action=query&titles=${encodeURIComponent(title)}&prop=imageinfo&iiprop=url&format=json&origin=*`;
         const infoRes = await fetch(infoUrl);
         if (!infoRes.ok) continue;
+        const infoData = await infoRes.json();
         const pages = infoData.query?.pages || {};
         const pageId = Object.keys(pages)[0];
         if (!pageId || pageId === '-1') continue;
@@ -814,7 +913,7 @@
   document.getElementById('generateLinksBtn').addEventListener('click', generateLinksForAllCameras);
 
   // ── ОБНОВЛЕНИЕ ────────────────────────────────────────────────
-  document.getElementById('refreshBtn').addEventListener('click', loadData);
+  document.getElementById('refreshBtn').addEventListener('click', () => { loadData(); });
 
   // ── СОРТИРОВКА ПО ЗАГОЛОВКАМ ──────────────────────────────────
   document.querySelectorAll('#tableHead th[data-sort]').forEach(th => {
@@ -844,10 +943,9 @@
   });
 
   // ============================================================
-  //  ЭКСПЕРТНЫЙ РЕЖИМ
+  //  ЭКСПЕРТНЫЙ РЕЖИМ (без изменений)
   // ============================================================
 
-  // --- СОСТОЯНИЕ ЭКСПЕРТНОЙ СЕССИИ ---
   let expertState = {
     step: 0,
     answers: {},
@@ -856,8 +954,6 @@
     ranking: []
   };
 
-  // --- ДЕРЕВО ВОПРОСОВ (копия из виджета) ---
-  // Для простоты используем упрощённую версию (можно расширить позже)
   const questionTree = {
     beginner: [
       { id: 'b1', text: 'Какой у вас бюджет?', options: [
@@ -916,7 +1012,6 @@
     ]
   };
 
-  // --- ФУНКЦИИ ЭКСПЕРТНОГО РЕЖИМА ---
   function startExpertSession() {
     const level = prompt('Выберите уровень (beginner, enthusiast, pro, blogger):');
     if (!level || !questionTree[level]) { alert('Неверный уровень'); return; }
@@ -1060,7 +1155,6 @@
     input.click();
   }
 
-  // Подключение обработчиков экспертного режима
   document.getElementById('startExpertBtn').addEventListener('click', startExpertSession);
   document.getElementById('exportExpertBtn').addEventListener('click', exportExpertData);
   document.getElementById('importExpertBtn').addEventListener('click', importExpertData);
@@ -1074,7 +1168,6 @@
   //  ОБУЧЕНИЕ МОДЕЛИ (Brain.js)
   // ============================================================
 
-  // Функция для генерации вектора пользователя (упрощённая)
   function getUserVector(answers) {
     const vec = [];
     Object.keys(answers).forEach(key => {
@@ -1088,7 +1181,6 @@
     return vec;
   }
 
-  // Функция для генерации вектора камеры
   function getCamVector(cam) {
     return [
       cam.price ? Math.min(cam.price / 1000000, 1) : 0,
@@ -1118,7 +1210,6 @@
         const score = (4 - idx) / 4;
         examples.push({ input: [...userVec, ...camVec], output: { score } });
       });
-      // Добавим негативные примеры (случайные камеры не из ТОП-4)
       const otherCameras = cameras.filter(c => !rankingIds.includes(c.id));
       const shuffled = otherCameras.sort(() => Math.random() - 0.5).slice(0, 5);
       shuffled.forEach(cam => {
@@ -1165,7 +1256,6 @@
     document.getElementById('trainStatus').textContent = '✅ Обучение завершено!';
     document.getElementById('trainingProgress').style.display = 'none';
 
-    // Показать результаты
     showTrainingResults(net, trainingData);
   }
 
@@ -1223,8 +1313,21 @@
   document.getElementById('trainModelBtn').addEventListener('click', trainModel);
   document.getElementById('compareModelsBtn').addEventListener('click', compareModels);
 
+  // ============================================================
+  //  ОБРАБОТЧИКИ ВКЛАДКИ СКОРИНГА
+  // ============================================================
+  document.getElementById('scoringLevelSelect').addEventListener('change', function() {
+    currentScoringLevel = this.value;
+    renderScoringTable();
+  });
+
+  document.getElementById('saveScoringBtn').addEventListener('click', saveScoringConfig);
+  document.getElementById('reloadScoringBtn').addEventListener('click', loadScoringConfig);
+
   // ── СТАРТ ───────────────────────────────────────────────────────
-  loadData();
+  loadData().then(() => {
+    loadScoringConfig();
+  });
 </script>
 </body>
 </html>
