@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Политика конфиденциальности — Camerateka</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,680&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #15171A; --ink-soft: #1C1F23; --surface: #202226; --surface-raised: #26282C;
+    --border: #33363B; --border-soft: #2A2C30;
+    --paper: #F5F3EE; --paper-dim: #A9A59E; --paper-faint: #6B6862;
+    --signal: #E8470C; --signal-dim: #B83A0C; --signal-soft: rgba(232,71,12,.14);
+    --font-display: 'Fraunces', Georgia, serif; --font-body: 'Inter', -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace; --ease: cubic-bezier(.25,.8,.25,1);
+  }
+  html { background: var(--ink); }
+  body { font-family: var(--font-body); background: var(--ink); color: var(--paper); min-height: 100vh; line-height: 1.5; -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; }
+  .shell { max-width: 1240px; margin: 0 auto; padding: 0 28px; width: 100%; }
+  main.shell { flex: 1; padding-bottom: 40px; }
+  .top { position: sticky; top: 0; z-index: 40; background: rgba(21,23,26,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+  .top-inner { max-width: 1240px; margin: 0 auto; padding: 20px 28px 16px; display: flex; align-items: baseline; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+  .brandmark { font-family: var(--font-display); font-size: 21px; font-weight: 500; letter-spacing: -.01em; }
+  .brandmark a { color: inherit; text-decoration: none; }
+  .brandmark span { color: var(--signal); }
+  .sitenav { display: flex; flex-wrap: wrap; gap: 4px 16px; }
+  .sitenav a { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--paper-faint); text-decoration: none; transition: color .15s; }
+  .sitenav a:hover { color: var(--paper); }
+  .sitenav a.active { color: var(--signal); }
+  .hero { padding: 56px 0 36px; max-width: 680px; }
+  .hero-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--signal); margin-bottom: 14px; }
+  .hero h1 { font-family: var(--font-display); font-weight: 500; font-size: 40px; line-height: 1.12; letter-spacing: -.015em; margin-bottom: 16px; }
+  .hero p { color: var(--paper-dim); font-size: 15px; max-width: 560px; }
+  .soon { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--paper-dim); border: 1px solid var(--border); padding: 6px 12px; margin-top: 18px; }
+  .soon::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--signal); }
+  .ph-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(216px, 1fr)); gap: 1px; background: var(--border-soft); border: 1px solid var(--border-soft); margin-top: 28px; }
+  .ph-tile { aspect-ratio: 4/3; background: var(--ink-soft); display: flex; align-items: center; justify-content: center; }
+  .ph-tile svg { width: 34px; height: 34px; opacity: .1; }
+  .ph-rows { margin-top: 28px; border-top: 1px solid var(--border); }
+  .ph-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border-soft); }
+  .ph-row .t { font-family: var(--font-display); font-size: 17px; color: var(--paper-dim); }
+  .ph-row .m { font-family: var(--font-mono); font-size: 10.5px; color: var(--paper-faint); letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
+  .legal { max-width: 720px; padding-bottom: 40px; }
+  .legal h2 { font-family: var(--font-display); font-size: 20px; font-weight: 500; margin: 34px 0 10px; }
+  .legal p, .legal li { font-size: 14px; color: var(--paper-dim); margin-bottom: 10px; }
+  .legal ul { padding-left: 18px; }
+  .sitefoot { border-top: 1px solid var(--border); margin-top: 60px; }
+  .shellrow { max-width: 1240px; margin: 0 auto; padding: 26px 28px 40px; display: flex; align-items: baseline; justify-content: space-between; gap: 14px 24px; flex-wrap: wrap; }
+  .sf-left { font-family: var(--font-mono); font-size: 10.5px; color: var(--paper-faint); letter-spacing: .03em; }
+  .sf-links { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+  .sf-links a { font-family: var(--font-mono); font-size: 10.5px; color: var(--paper-faint); text-decoration: none; letter-spacing: .03em; transition: color .15s; }
+  .sf-links a:hover { color: var(--paper); }
+  @media (max-width: 720px) { .hero h1 { font-size: 30px; } .shell, .top-inner, .shellrow { padding-left: 18px; padding-right: 18px; } }
+  
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="top-inner">
+    <div class="brandmark"><a href="index.html">Camera<span>teka</span></a></div>
+    <nav class="sitenav">
+      <a href="index.html">Подбор</a>
+      <a href="camerateka.html">Камератека</a>
+      <a href="galerei.html">Галереи</a>
+      <a href="fotografy.html">Фотографы</a>
+      <a href="modeli.html">Модели</a>
+      <a href="novosti.html">Новости</a>
+      <a href="forum.html">Форум</a>
+      <a href="kabinet.html">Кабинет</a>
+    </nav>
+  </div>
+</div>
+<main class="shell">
+  <div class="hero">
+    <div class="hero-eyebrow">Legal</div>
+    <h1>Политика конфиденциальности.</h1>
+    <p>Какие данные мы храним и что с ними происходит.</p>
+  </div>
+<div class="legal">
+  <p style="font-family:var(--font-mono);font-size:11px;color:var(--signal);">Черновик. Документ будет дополнен до публичного запуска.</p>
+  <h2>1. Что мы собираем</h2>
+  <p>Сейчас — ничего на сервере. Данные профиля и рюкзака хранятся локально в вашем браузере (localStorage) и не передаются никуда.</p>
+  <h2>2. Что появится позже</h2>
+  <p>С запуском аккаунтов появится хранение профиля на сервере. Политика будет обновлена до этого момента, а существующие локальные данные останутся под вашим контролем.</p>
+  <h2>3. Третьи стороны</h2>
+  <p>Шрифты загружаются с Google Fonts; изображения техники — с Wikimedia Commons и сайтов производителей. У этих сервисов свои политики обработки данных.</p>
+</div>
+</main>
+
+<footer class="sitefoot">
+  <div class="shellrow">
+    <div class="sf-left">© 2026 Camerateka — система знаний о фотографии</div>
+    <nav class="sf-links">
+      <a href="kontakty.html">Контакты</a>
+      <a href="terms.html">Условия использования</a>
+      <a href="privacy.html">Политика конфиденциальности</a>
+      <a href="cookies.html">Cookie Policy</a>
+      <a href="cookies.html#preferences">Настройки cookie</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

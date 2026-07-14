@@ -276,6 +276,36 @@
           "matchRules": {
             "type": "ignore"
           }
+        },
+        {
+          "id": "b9",
+          "text": "Важно ли, чтобы камера удобно лежала в руке?",
+          "options": [
+            {
+              "value": "ergo_yes",
+              "label": "Да, удобный хват важен"
+            },
+            {
+              "value": "ergo_any",
+              "label": "Не задумывался об этом"
+            }
+          ],
+          "weight": 0.1,
+          "enabled": true,
+          "matchRules": {
+            "type": "direct",
+            "mapping": {
+              "ergo_yes": {
+                "field": "ergonomics",
+                "value": "poor",
+                "match": 0.15,
+                "mismatch": 1
+              },
+              "ergo_any": {
+                "match": 0.6
+              }
+            }
+          }
         }
       ]
     },
@@ -742,11 +772,10 @@
             "type": "direct",
             "mapping": {
               "ergo_important": {
-                "field": "weight",
-                "value": 600,
-                "operator": "lt",
-                "match": 1,
-                "mismatch": 0.2
+                "field": "ergonomics",
+                "value": "poor",
+                "match": 0.15,
+                "mismatch": 1
               },
               "ergo_not": {
                 "match": 0.5

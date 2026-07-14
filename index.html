@@ -64,6 +64,26 @@
     letter-spacing: .02em;
   }
 
+  .sitenav { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: -18px 0 32px; }
+  .sitenav a {
+    font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--paper-faint); text-decoration: none; transition: color .15s;
+  }
+  .sitenav a:hover { color: var(--paper); }
+  .sitenav a.active { color: var(--signal); }
+
+  .sitefoot {
+    border-top: 1px solid var(--border); margin-top: 70px; padding-top: 22px;
+    display: flex; align-items: baseline; justify-content: space-between; gap: 12px 20px; flex-wrap: wrap;
+  }
+  .sf-left { font-family: var(--font-mono); font-size: 10px; color: var(--paper-faint); letter-spacing: .03em; }
+  .sf-links { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+  .sf-links a {
+    font-family: var(--font-mono); font-size: 10px; color: var(--paper-faint);
+    text-decoration: none; letter-spacing: .03em; transition: color .15s;
+  }
+  .sf-links a:hover { color: var(--paper); }
+
   .aperture-wrap {
     display: flex;
     align-items: center;
@@ -472,9 +492,31 @@
     <div class="hdr-meta" id="hdrMeta"></div>
   </div>
 
+  <nav class="sitenav">
+    <a href="index.html" class="active">Подбор</a>
+    <a href="camerateka.html">Камератека</a>
+    <a href="galerei.html">Галереи</a>
+    <a href="fotografy.html">Фотографы</a>
+    <a href="modeli.html">Модели</a>
+    <a href="novosti.html">Новости</a>
+    <a href="forum.html">Форум</a>
+    <a href="kabinet.html">Кабинет</a>
+  </nav>
+
   <div class="aperture-wrap" id="apertureWrap"></div>
 
   <div id="screen"></div>
+
+  <footer class="sitefoot">
+    <div class="sf-left">© 2026 Camerateka — система знаний о фотографии</div>
+    <nav class="sf-links">
+      <a href="kontakty.html">Контакты</a>
+      <a href="terms.html">Условия использования</a>
+      <a href="privacy.html">Политика конфиденциальности</a>
+      <a href="cookies.html">Cookie Policy</a>
+      <a href="cookies.html#preferences">Настройки cookie</a>
+    </nav>
+  </footer>
 </div>
 
 <script>
@@ -536,6 +578,10 @@ const questionTree = {
     { id: 'b8', text: 'Кто-нибудь поможет вам с выбором или настройкой?', sub: '', options: [
         { label: 'Да, есть знакомый фотограф', value: 'help' },
         { label: 'Нет, буду разбираться сам', value: 'alone' }
+      ] },
+    { id: 'b9', text: 'Важно ли, чтобы камера удобно лежала в руке?', sub: '', options: [
+        { label: 'Да, удобный хват важен', value: 'ergo_yes' },
+        { label: 'Не задумывался об этом', value: 'ergo_any' }
       ] }
   ],
   enthusiast: {

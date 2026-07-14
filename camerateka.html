@@ -60,6 +60,27 @@
     text-decoration: none; letter-spacing: .04em; transition: color .2s;
   }
   .nav-link:hover { color: var(--paper); }
+  .sitenav { display: flex; flex-wrap: wrap; gap: 4px 16px; align-items: baseline; }
+  .sitenav a {
+    font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--paper-faint); text-decoration: none; transition: color .15s;
+  }
+  .sitenav a:hover { color: var(--paper); }
+  .sitenav a.active { color: var(--signal); }
+
+  /* ---------- footer ---------- */
+  .sitefoot { border-top: 1px solid var(--border); margin-top: 60px; }
+  .shellrow {
+    max-width: 1240px; margin: 0 auto; padding: 26px 28px 40px;
+    display: flex; align-items: baseline; justify-content: space-between; gap: 14px 24px; flex-wrap: wrap;
+  }
+  .sf-left { font-family: var(--font-mono); font-size: 10.5px; color: var(--paper-faint); letter-spacing: .03em; }
+  .sf-links { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+  .sf-links a {
+    font-family: var(--font-mono); font-size: 10.5px; color: var(--paper-faint);
+    text-decoration: none; letter-spacing: .03em; transition: color .15s;
+  }
+  .sf-links a:hover { color: var(--paper); }
 
   /* ---------- hero ---------- */
   .hero { padding: 56px 0 40px; max-width: 640px; }
@@ -322,9 +343,18 @@
 
 <div class="top">
   <div class="top-inner">
-    <div class="brandmark">Camera<span>teka</span></div>
-    <div style="display:flex; align-items:center; gap:18px;">
-      <a href="/vybor-kamery" class="nav-link">← подбор камеры</a>
+    <div class="brandmark"><a href="index.html" style="color:inherit;text-decoration:none;">Camera<span>teka</span></a></div>
+    <div style="display:flex; align-items:baseline; gap:20px; flex-wrap:wrap;">
+      <nav class="sitenav">
+        <a href="index.html">Подбор</a>
+        <a href="camerateka.html" class="active">Камератека</a>
+        <a href="galerei.html">Галереи</a>
+        <a href="fotografy.html">Фотографы</a>
+        <a href="modeli.html">Модели</a>
+        <a href="novosti.html">Новости</a>
+        <a href="forum.html">Форум</a>
+        <a href="kabinet.html">Кабинет</a>
+      </nav>
       <div class="top-meta" id="topMeta">— каталог камер</div>
     </div>
   </div>
@@ -370,6 +400,19 @@
   <div class="grid" id="grid"></div>
 
 </div>
+
+<footer class="sitefoot">
+  <div class="shellrow">
+    <div class="sf-left">© 2026 Camerateka — система знаний о фотографии</div>
+    <nav class="sf-links">
+      <a href="kontakty.html">Контакты</a>
+      <a href="terms.html">Условия использования</a>
+      <a href="privacy.html">Политика конфиденциальности</a>
+      <a href="cookies.html">Cookie Policy</a>
+      <a href="cookies.html#preferences">Настройки cookie</a>
+    </nav>
+  </div>
+</footer>
 
 <!-- Модальное окно -->
 <div class="overlay" id="overlay">
