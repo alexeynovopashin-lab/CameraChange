@@ -17,32 +17,43 @@
     "maxMagnification": 0.21,
     "diaphragmBlades": 9,
     "ratings": {
-      "sharpness": 9.0,
-      "bokeh": 7.0,
-      "colorRendering": 8.0,
+      "sharpness": 9,
+      "bokeh": 7,
+      "colorRendering": 8,
       "contrast": 8.5,
-      "flareResistance": 8.0,
+      "flareResistance": 8,
       "distortion": 8.5,
       "vignetting": 7.5,
       "chromaticAberration": 8.5,
-      "character": 7.0,
+      "character": 7,
       "versatility": 9.5
     },
-    "specializations": ["travel", "events", "landscape"],
+    "specializations": [
+      "travel",
+      "events",
+      "landscape"
+    ],
     "weatherSealing": true,
     "buildQuality": 9,
     "price": 130000,
-    "image": "",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Canon_EF_24_70mm_f2.8L_II_USM.jpg",
     "description": "Профессиональный стандартный зум с отличной резкостью и быстрым автофокусом.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/canon/ef-24-70-2.8l-ii" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/ef-24-70-2.8l-ii"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2012,
     "discontinued": false,
-    "tags": ["professional", "zoom", "L-series"]
+    "tags": [
+      "professional",
+      "zoom",
+      "L-series"
+    ]
   },
   {
     "id": "canon-ef-50-1.8-stm",
@@ -63,31 +74,41 @@
     "diaphragmBlades": 7,
     "ratings": {
       "sharpness": 7.5,
-      "bokeh": 6.0,
-      "colorRendering": 8.0,
-      "contrast": 7.0,
+      "bokeh": 6,
+      "colorRendering": 8,
+      "contrast": 7,
       "flareResistance": 6.5,
-      "distortion": 7.0,
-      "vignetting": 6.0,
-      "chromaticAberration": 7.0,
+      "distortion": 7,
+      "vignetting": 6,
+      "chromaticAberration": 7,
       "character": 6.5,
-      "versatility": 8.0
+      "versatility": 8
     },
-    "specializations": ["portrait", "street", "travel"],
+    "specializations": [
+      "portrait",
+      "street",
+      "travel"
+    ],
     "weatherSealing": false,
     "buildQuality": 6,
     "price": 5000,
-    "image": "",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/11/Ef_50mm_stm.JPG",
     "description": "Недорогой фикс-объектив с хорошей резкостью и приятным боке.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/canon/ef-50-1.8-stm" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/ef-50-1.8-stm"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2015,
     "discontinued": false,
-    "tags": ["prime", "budget"]
+    "tags": [
+      "prime",
+      "budget"
+    ]
   },
   {
     "id": "canon-ef-85-1.4l-is",
@@ -107,32 +128,42 @@
     "maxMagnification": 0.12,
     "diaphragmBlades": 9,
     "ratings": {
-      "sharpness": 9.0,
+      "sharpness": 9,
       "bokeh": 9.5,
-      "colorRendering": 9.0,
-      "contrast": 9.0,
+      "colorRendering": 9,
+      "contrast": 9,
       "flareResistance": 8.5,
-      "distortion": 9.0,
-      "vignetting": 8.0,
-      "chromaticAberration": 9.0,
-      "character": 9.0,
+      "distortion": 9,
+      "vignetting": 8,
+      "chromaticAberration": 9,
+      "character": 9,
       "versatility": 7.5
     },
-    "specializations": ["portrait"],
+    "specializations": [
+      "portrait"
+    ],
     "weatherSealing": true,
     "buildQuality": 9,
     "price": 120000,
-    "image": "",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Canon_-_Objektiv_EF_85mm_f1.4L_IS_USM.JPG",
     "description": "Профессиональный портретный объектив с великолепным боке и стабилизацией.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/canon/ef-85-1.4l-is" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/ef-85-1.4l-is"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2017,
     "discontinued": false,
-    "tags": ["professional", "prime", "L-series", "portrait"]
+    "tags": [
+      "professional",
+      "prime",
+      "L-series",
+      "portrait"
+    ]
   },
   {
     "id": "canon-rf-24-70-2.8l-is",
@@ -153,31 +184,42 @@
     "diaphragmBlades": 9,
     "ratings": {
       "sharpness": 9.5,
-      "bokeh": 8.0,
+      "bokeh": 8,
       "colorRendering": 8.5,
-      "contrast": 9.0,
+      "contrast": 9,
       "flareResistance": 8.5,
-      "distortion": 9.0,
-      "vignetting": 8.0,
-      "chromaticAberration": 9.0,
-      "character": 8.0,
+      "distortion": 9,
+      "vignetting": 8,
+      "chromaticAberration": 9,
+      "character": 8,
       "versatility": 9.5
     },
-    "specializations": ["travel", "events", "landscape"],
+    "specializations": [
+      "travel",
+      "events",
+      "landscape"
+    ],
     "weatherSealing": true,
     "buildQuality": 9,
     "price": 160000,
-    "image": "",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/31/Canon_EOS_R5_with_Canon_RF_24-70mm_F2.8L_IS_USM_%2850170662581%29.jpg",
     "description": "Флагманский зум для беззеркальной системы Canon RF с отличной стабилизацией.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/canon/rf-24-70-2.8l-is" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/rf-24-70-2.8l-is"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2019,
     "discontinued": false,
-    "tags": ["professional", "zoom", "L-series"]
+    "tags": [
+      "professional",
+      "zoom",
+      "L-series"
+    ]
   },
   {
     "id": "canon-rf-50-1.8-stm",
@@ -197,32 +239,42 @@
     "maxMagnification": 0.25,
     "diaphragmBlades": 7,
     "ratings": {
-      "sharpness": 8.0,
+      "sharpness": 8,
       "bokeh": 6.5,
-      "colorRendering": 8.0,
+      "colorRendering": 8,
       "contrast": 7.5,
       "flareResistance": 6.5,
       "distortion": 7.5,
       "vignetting": 6.5,
       "chromaticAberration": 7.5,
-      "character": 7.0,
+      "character": 7,
       "versatility": 8.5
     },
-    "specializations": ["portrait", "street", "travel"],
+    "specializations": [
+      "portrait",
+      "street",
+      "travel"
+    ],
     "weatherSealing": false,
     "buildQuality": 6,
     "price": 7000,
-    "image": "",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/80/Canon_RF_50mm_F1.8_STM.jpg",
     "description": "Доступный фикс для системы RF с хорошим качеством и малым весом.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/canon/rf-50-1.8-stm" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/rf-50-1.8-stm"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2020,
     "discontinued": false,
-    "tags": ["prime", "budget"]
+    "tags": [
+      "prime",
+      "budget"
+    ]
   },
   {
     "id": "canon-rf-85-1.2l",
@@ -243,31 +295,41 @@
     "diaphragmBlades": 9,
     "ratings": {
       "sharpness": 9.5,
-      "bokeh": 10.0,
+      "bokeh": 10,
       "colorRendering": 9.5,
       "contrast": 9.5,
-      "flareResistance": 9.0,
+      "flareResistance": 9,
       "distortion": 9.5,
       "vignetting": 8.5,
       "chromaticAberration": 9.5,
       "character": 9.5,
-      "versatility": 7.0
+      "versatility": 7
     },
-    "specializations": ["portrait"],
+    "specializations": [
+      "portrait"
+    ],
     "weatherSealing": true,
     "buildQuality": 10,
     "price": 200000,
     "image": "",
     "description": "Абсолютный портретный объектив с невероятным боке и резкостью.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/canon/rf-85-1.2l" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/canon/rf-85-1.2l"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2019,
     "discontinued": false,
-    "tags": ["professional", "prime", "L-series", "portrait"]
+    "tags": [
+      "professional",
+      "prime",
+      "L-series",
+      "portrait"
+    ]
   },
   {
     "id": "nikon-f-24-70-2.8g",
@@ -289,30 +351,40 @@
     "ratings": {
       "sharpness": 8.5,
       "bokeh": 7.5,
-      "colorRendering": 8.0,
+      "colorRendering": 8,
       "contrast": 8.5,
       "flareResistance": 7.5,
-      "distortion": 8.0,
-      "vignetting": 7.0,
-      "chromaticAberration": 8.0,
-      "character": 7.0,
+      "distortion": 8,
+      "vignetting": 7,
+      "chromaticAberration": 8,
+      "character": 7,
       "versatility": 9.5
     },
-    "specializations": ["travel", "events", "landscape"],
+    "specializations": [
+      "travel",
+      "events",
+      "landscape"
+    ],
     "weatherSealing": true,
     "buildQuality": 8,
     "price": 120000,
     "image": "",
     "description": "Профессиональный стандартный зум Nikon для зеркальных камер.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/nikon/af-s-24-70-2.8g" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/af-s-24-70-2.8g"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2007,
     "discontinued": false,
-    "tags": ["professional", "zoom"]
+    "tags": [
+      "professional",
+      "zoom"
+    ]
   },
   {
     "id": "nikon-f-50-1.8g",
@@ -332,32 +404,42 @@
     "maxMagnification": 0.15,
     "diaphragmBlades": 7,
     "ratings": {
-      "sharpness": 8.0,
-      "bokeh": 7.0,
-      "colorRendering": 8.0,
+      "sharpness": 8,
+      "bokeh": 7,
+      "colorRendering": 8,
       "contrast": 7.5,
-      "flareResistance": 7.0,
+      "flareResistance": 7,
       "distortion": 7.5,
       "vignetting": 6.5,
       "chromaticAberration": 7.5,
-      "character": 7.0,
+      "character": 7,
       "versatility": 8.5
     },
-    "specializations": ["portrait", "street", "travel"],
+    "specializations": [
+      "portrait",
+      "street",
+      "travel"
+    ],
     "weatherSealing": false,
     "buildQuality": 7,
     "price": 6000,
-    "image": "",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Nikon_AF-S_Nikkor_50mm_f1.4G.jpg",
     "description": "Отличный недорогой 50mm для системы Nikon F.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/nikon/af-s-50-1.8g" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/af-s-50-1.8g"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2011,
     "discontinued": false,
-    "tags": ["prime", "budget"]
+    "tags": [
+      "prime",
+      "budget"
+    ]
   },
   {
     "id": "nikon-f-85-1.4g",
@@ -379,30 +461,39 @@
     "ratings": {
       "sharpness": 8.5,
       "bokeh": 9.5,
-      "colorRendering": 9.0,
-      "contrast": 9.0,
+      "colorRendering": 9,
+      "contrast": 9,
       "flareResistance": 8.5,
-      "distortion": 9.0,
-      "vignetting": 8.0,
+      "distortion": 9,
+      "vignetting": 8,
       "chromaticAberration": 8.5,
-      "character": 9.0,
+      "character": 9,
       "versatility": 7.5
     },
-    "specializations": ["portrait"],
+    "specializations": [
+      "portrait"
+    ],
     "weatherSealing": true,
     "buildQuality": 9,
     "price": 100000,
-    "image": "",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Nikon_AF-S_Nikkor_70-200mm_F2.8G_ED_VR_II_lens_with_Nikon_HB-48_Bayonet_Lens_Hood_and_Nikon_AF-S_Nikkor_85mm_F1.4G_lens_with_Nikon_HB-55_Bayonet_Lens_Hood.jpg",
     "description": "Классический портретный объектив Nikon с великолепным рисунком.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/nikon/af-s-85-1.4g" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/af-s-85-1.4g"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2010,
     "discontinued": false,
-    "tags": ["professional", "prime", "portrait"]
+    "tags": [
+      "professional",
+      "prime",
+      "portrait"
+    ]
   },
   {
     "id": "nikon-z-24-70-2.8s",
@@ -423,31 +514,42 @@
     "diaphragmBlades": 9,
     "ratings": {
       "sharpness": 9.5,
-      "bokeh": 8.0,
+      "bokeh": 8,
       "colorRendering": 8.5,
-      "contrast": 9.0,
-      "flareResistance": 9.0,
-      "distortion": 9.0,
-      "vignetting": 8.0,
-      "chromaticAberration": 9.0,
-      "character": 8.0,
+      "contrast": 9,
+      "flareResistance": 9,
+      "distortion": 9,
+      "vignetting": 8,
+      "chromaticAberration": 9,
+      "character": 8,
       "versatility": 9.5
     },
-    "specializations": ["travel", "events", "landscape"],
+    "specializations": [
+      "travel",
+      "events",
+      "landscape"
+    ],
     "weatherSealing": true,
     "buildQuality": 9,
     "price": 150000,
     "image": "",
     "description": "Профессиональный зум для беззеркальной системы Nikon Z с отличным качеством.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/nikon/z-24-70-2.8s" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/z-24-70-2.8s"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2019,
     "discontinued": false,
-    "tags": ["professional", "zoom", "S-series"]
+    "tags": [
+      "professional",
+      "zoom",
+      "S-series"
+    ]
   },
   {
     "id": "nikon-z-50-1.8s",
@@ -467,32 +569,42 @@
     "maxMagnification": 0.15,
     "diaphragmBlades": 9,
     "ratings": {
-      "sharpness": 9.0,
+      "sharpness": 9,
       "bokeh": 8.5,
       "colorRendering": 8.5,
       "contrast": 8.5,
-      "flareResistance": 8.0,
+      "flareResistance": 8,
       "distortion": 8.5,
       "vignetting": 7.5,
       "chromaticAberration": 8.5,
-      "character": 8.0,
+      "character": 8,
       "versatility": 8.5
     },
-    "specializations": ["portrait", "street", "travel"],
+    "specializations": [
+      "portrait",
+      "street",
+      "travel"
+    ],
     "weatherSealing": true,
     "buildQuality": 8,
     "price": 30000,
     "image": "",
     "description": "Отличный 50mm для системы Nikon Z с высоким качеством сборки.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/nikon/z-50-1.8s" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/z-50-1.8s"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2018,
     "discontinued": false,
-    "tags": ["prime", "S-series"]
+    "tags": [
+      "prime",
+      "S-series"
+    ]
   },
   {
     "id": "nikon-z-85-1.8s",
@@ -512,32 +624,41 @@
     "maxMagnification": 0.12,
     "diaphragmBlades": 9,
     "ratings": {
-      "sharpness": 9.0,
-      "bokeh": 9.0,
-      "colorRendering": 9.0,
-      "contrast": 9.0,
+      "sharpness": 9,
+      "bokeh": 9,
+      "colorRendering": 9,
+      "contrast": 9,
       "flareResistance": 8.5,
-      "distortion": 9.0,
-      "vignetting": 8.0,
-      "chromaticAberration": 9.0,
+      "distortion": 9,
+      "vignetting": 8,
+      "chromaticAberration": 9,
       "character": 8.5,
       "versatility": 7.5
     },
-    "specializations": ["portrait"],
+    "specializations": [
+      "portrait"
+    ],
     "weatherSealing": true,
     "buildQuality": 8,
     "price": 40000,
-    "image": "",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/14/Nikon_NIKKOR_Z_85mm_f_1.8_S_%2848706710723%29.jpg",
     "description": "Лёгкий и резкий портретный объектив для системы Nikon Z.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/nikon/z-85-1.8s" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/nikon/z-85-1.8s"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2019,
     "discontinued": false,
-    "tags": ["prime", "S-series", "portrait"]
+    "tags": [
+      "prime",
+      "S-series",
+      "portrait"
+    ]
   },
   {
     "id": "sony-e-24-70-2.8-gm-ii",
@@ -560,29 +681,40 @@
       "sharpness": 9.5,
       "bokeh": 8.5,
       "colorRendering": 8.5,
-      "contrast": 9.0,
-      "flareResistance": 9.0,
-      "distortion": 9.0,
+      "contrast": 9,
+      "flareResistance": 9,
+      "distortion": 9,
       "vignetting": 8.5,
       "chromaticAberration": 9.5,
-      "character": 8.0,
+      "character": 8,
       "versatility": 9.5
     },
-    "specializations": ["travel", "events", "landscape"],
+    "specializations": [
+      "travel",
+      "events",
+      "landscape"
+    ],
     "weatherSealing": true,
     "buildQuality": 9,
     "price": 160000,
     "image": "",
     "description": "Новейший профессиональный зум Sony G Master II с улучшенной оптикой.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/sony/fe-24-70-2.8-gm-ii" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/fe-24-70-2.8-gm-ii"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2022,
     "discontinued": false,
-    "tags": ["professional", "zoom", "G Master"]
+    "tags": [
+      "professional",
+      "zoom",
+      "G Master"
+    ]
   },
   {
     "id": "sony-e-50-1.8",
@@ -604,30 +736,40 @@
     "ratings": {
       "sharpness": 7.5,
       "bokeh": 6.5,
-      "colorRendering": 8.0,
-      "contrast": 7.0,
+      "colorRendering": 8,
+      "contrast": 7,
       "flareResistance": 6.5,
-      "distortion": 7.0,
-      "vignetting": 6.0,
+      "distortion": 7,
+      "vignetting": 6,
       "chromaticAberration": 6.5,
       "character": 6.5,
-      "versatility": 8.0
+      "versatility": 8
     },
-    "specializations": ["portrait", "street", "travel"],
+    "specializations": [
+      "portrait",
+      "street",
+      "travel"
+    ],
     "weatherSealing": false,
     "buildQuality": 5,
     "price": 5000,
-    "image": "",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Sony_FE_50mm_F1.4_ZA_lens_-_Assembled_to_be_put_in_to_storage_-_DSC01100.jpg",
     "description": "Бюджетный 50mm для Sony E с хорошим соотношением цена/качество.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/sony/fe-50-1.8" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/fe-50-1.8"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2016,
     "discontinued": false,
-    "tags": ["prime", "budget"]
+    "tags": [
+      "prime",
+      "budget"
+    ]
   },
   {
     "id": "sony-e-85-1.4-gm",
@@ -647,32 +789,42 @@
     "maxMagnification": 0.12,
     "diaphragmBlades": 11,
     "ratings": {
-      "sharpness": 9.0,
+      "sharpness": 9,
       "bokeh": 9.5,
-      "colorRendering": 9.0,
-      "contrast": 9.0,
+      "colorRendering": 9,
+      "contrast": 9,
       "flareResistance": 8.5,
-      "distortion": 9.0,
-      "vignetting": 8.0,
+      "distortion": 9,
+      "vignetting": 8,
       "chromaticAberration": 8.5,
       "character": 9.5,
       "versatility": 7.5
     },
-    "specializations": ["portrait"],
+    "specializations": [
+      "portrait"
+    ],
     "weatherSealing": true,
     "buildQuality": 9,
     "price": 140000,
     "image": "",
     "description": "Легендарный портретный объектив Sony G Master с потрясающим рисунком.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/sony/fe-85-1.4-gm" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/sony/fe-85-1.4-gm"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2016,
     "discontinued": false,
-    "tags": ["professional", "prime", "G Master", "portrait"]
+    "tags": [
+      "professional",
+      "prime",
+      "G Master",
+      "portrait"
+    ]
   },
   {
     "id": "fuji-x-16-55-2.8",
@@ -692,32 +844,43 @@
     "maxMagnification": 0.16,
     "diaphragmBlades": 9,
     "ratings": {
-      "sharpness": 9.0,
+      "sharpness": 9,
       "bokeh": 7.5,
       "colorRendering": 8.5,
       "contrast": 8.5,
-      "flareResistance": 8.0,
+      "flareResistance": 8,
       "distortion": 8.5,
       "vignetting": 7.5,
       "chromaticAberration": 8.5,
       "character": 7.5,
       "versatility": 9.5
     },
-    "specializations": ["travel", "events", "landscape"],
+    "specializations": [
+      "travel",
+      "events",
+      "landscape"
+    ],
     "weatherSealing": true,
     "buildQuality": 9,
     "price": 80000,
     "image": "",
     "description": "Профессиональный зум для системы Fujifilm X с отличной резкостью.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/fujifilm/xf-16-55-2.8" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/xf-16-55-2.8"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2015,
     "discontinued": false,
-    "tags": ["professional", "zoom", "WR"]
+    "tags": [
+      "professional",
+      "zoom",
+      "WR"
+    ]
   },
   {
     "id": "fuji-x-35-1.4",
@@ -739,30 +902,41 @@
     "ratings": {
       "sharpness": 8.5,
       "bokeh": 8.5,
-      "colorRendering": 9.0,
-      "contrast": 8.0,
-      "flareResistance": 7.0,
+      "colorRendering": 9,
+      "contrast": 8,
+      "flareResistance": 7,
       "distortion": 7.5,
-      "vignetting": 7.0,
+      "vignetting": 7,
       "chromaticAberration": 7.5,
       "character": 9.5,
       "versatility": 8.5
     },
-    "specializations": ["street", "portrait", "travel"],
+    "specializations": [
+      "street",
+      "portrait",
+      "travel"
+    ],
     "weatherSealing": false,
     "buildQuality": 8,
     "price": 40000,
-    "image": "",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Fujinon_XF_35mm_f1.4_R_unmounted.jpg",
     "description": "Культовый 35mm для Fuji X с неповторимым характером и рисунком.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/fujifilm/xf-35-1.4" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/xf-35-1.4"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2012,
     "discontinued": false,
-    "tags": ["prime", "classic", "character"]
+    "tags": [
+      "prime",
+      "classic",
+      "character"
+    ]
   },
   {
     "id": "fuji-x-56-1.2",
@@ -784,30 +958,39 @@
     "ratings": {
       "sharpness": 8.5,
       "bokeh": 9.5,
-      "colorRendering": 9.0,
+      "colorRendering": 9,
       "contrast": 8.5,
       "flareResistance": 7.5,
-      "distortion": 8.0,
+      "distortion": 8,
       "vignetting": 7.5,
       "chromaticAberration": 7.5,
       "character": 9.5,
-      "versatility": 7.0
+      "versatility": 7
     },
-    "specializations": ["portrait"],
+    "specializations": [
+      "portrait"
+    ],
     "weatherSealing": false,
     "buildQuality": 8,
     "price": 60000,
-    "image": "",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Fujifilm_Fujinon_XF_56mm_F1.2_R_APD_-_by_Henry_S%C3%B6derlund_%2816331743211%29.jpg",
     "description": "Портретный объектив с невероятным боке и «волшебным» рисунком.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/fujifilm/xf-56-1.2" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/xf-56-1.2"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2014,
     "discontinued": false,
-    "tags": ["prime", "portrait", "character"]
+    "tags": [
+      "prime",
+      "portrait",
+      "character"
+    ]
   },
   {
     "id": "leica-m-28-2-asph",
@@ -817,7 +1000,7 @@
     "type": "prime",
     "focalLength": 28,
     "focalRange": null,
-    "maxAperture": 2.0,
+    "maxAperture": 2,
     "minAperture": 16,
     "format": "fullframe",
     "imageStabilization": false,
@@ -827,32 +1010,42 @@
     "maxMagnification": 0.09,
     "diaphragmBlades": 9,
     "ratings": {
-      "sharpness": 9.0,
+      "sharpness": 9,
       "bokeh": 7.5,
-      "colorRendering": 9.0,
-      "contrast": 9.0,
+      "colorRendering": 9,
+      "contrast": 9,
       "flareResistance": 8.5,
-      "distortion": 9.0,
-      "vignetting": 8.0,
-      "chromaticAberration": 9.0,
-      "character": 9.0,
+      "distortion": 9,
+      "vignetting": 8,
+      "chromaticAberration": 9,
+      "character": 9,
       "versatility": 8.5
     },
-    "specializations": ["street", "travel"],
+    "specializations": [
+      "street",
+      "travel"
+    ],
     "weatherSealing": false,
     "buildQuality": 10,
     "price": 300000,
     "image": "",
     "description": "Классический широкоугольный объектив Leica для стрит-фотографии.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/leica/summicron-m-28-asph" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/leica/summicron-m-28-asph"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2016,
     "discontinued": false,
-    "tags": ["professional", "prime", "Leica"]
+    "tags": [
+      "professional",
+      "prime",
+      "Leica"
+    ]
   },
   {
     "id": "leica-m-50-2",
@@ -862,7 +1055,7 @@
     "type": "prime",
     "focalLength": 50,
     "focalRange": null,
-    "maxAperture": 2.0,
+    "maxAperture": 2,
     "minAperture": 16,
     "format": "fullframe",
     "imageStabilization": false,
@@ -876,28 +1069,39 @@
       "bokeh": 8.5,
       "colorRendering": 9.5,
       "contrast": 9.5,
-      "flareResistance": 9.0,
+      "flareResistance": 9,
       "distortion": 9.5,
       "vignetting": 8.5,
       "chromaticAberration": 9.5,
       "character": 9.5,
-      "versatility": 9.0
+      "versatility": 9
     },
-    "specializations": ["street", "portrait", "travel"],
+    "specializations": [
+      "street",
+      "portrait",
+      "travel"
+    ],
     "weatherSealing": false,
     "buildQuality": 10,
     "price": 250000,
-    "image": "",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Leica_APO_Summciron-M_50mm_f2.jpg",
     "description": "Эталонный 50mm для системы Leica M с непревзойдённым качеством.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/leica/summicron-m-50" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/leica/summicron-m-50"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2014,
     "discontinued": false,
-    "tags": ["professional", "prime", "Leica"]
+    "tags": [
+      "professional",
+      "prime",
+      "Leica"
+    ]
   },
   {
     "id": "leica-m-75-1.4",
@@ -917,32 +1121,42 @@
     "maxMagnification": 0.11,
     "diaphragmBlades": 9,
     "ratings": {
-      "sharpness": 9.0,
+      "sharpness": 9,
       "bokeh": 9.5,
       "colorRendering": 9.5,
-      "contrast": 9.0,
+      "contrast": 9,
       "flareResistance": 8.5,
-      "distortion": 9.0,
+      "distortion": 9,
       "vignetting": 8.5,
       "chromaticAberration": 8.5,
-      "character": 10.0,
-      "versatility": 7.0
+      "character": 10,
+      "versatility": 7
     },
-    "specializations": ["portrait"],
+    "specializations": [
+      "portrait"
+    ],
     "weatherSealing": false,
     "buildQuality": 10,
     "price": 350000,
     "image": "",
     "description": "Легендарный портретный объектив Leica с уникальной атмосферой.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/leica/summilux-m-75" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/leica/summilux-m-75"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2003,
     "discontinued": false,
-    "tags": ["professional", "prime", "Leica", "portrait"]
+    "tags": [
+      "professional",
+      "prime",
+      "Leica",
+      "portrait"
+    ]
   },
   {
     "id": "leica-l-24-90",
@@ -962,32 +1176,43 @@
     "maxMagnification": 0.22,
     "diaphragmBlades": 9,
     "ratings": {
-      "sharpness": 9.0,
-      "bokeh": 8.0,
-      "colorRendering": 9.0,
-      "contrast": 9.0,
+      "sharpness": 9,
+      "bokeh": 8,
+      "colorRendering": 9,
+      "contrast": 9,
       "flareResistance": 8.5,
       "distortion": 8.5,
-      "vignetting": 8.0,
+      "vignetting": 8,
       "chromaticAberration": 8.5,
       "character": 8.5,
       "versatility": 9.5
     },
-    "specializations": ["travel", "events", "landscape"],
+    "specializations": [
+      "travel",
+      "events",
+      "landscape"
+    ],
     "weatherSealing": true,
     "buildQuality": 10,
     "price": 280000,
     "image": "",
     "description": "Универсальный зум Leica SL с отличным качеством и стабилизацией.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/leica/vario-elmarit-sl-24-90" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/leica/vario-elmarit-sl-24-90"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2015,
     "discontinued": false,
-    "tags": ["professional", "zoom", "Leica"]
+    "tags": [
+      "professional",
+      "zoom",
+      "Leica"
+    ]
   },
   {
     "id": "leica-l-50-2",
@@ -997,7 +1222,7 @@
     "type": "prime",
     "focalLength": 50,
     "focalRange": null,
-    "maxAperture": 2.0,
+    "maxAperture": 2,
     "minAperture": 22,
     "format": "fullframe",
     "imageStabilization": false,
@@ -1011,28 +1236,39 @@
       "bokeh": 8.5,
       "colorRendering": 9.5,
       "contrast": 9.5,
-      "flareResistance": 9.0,
+      "flareResistance": 9,
       "distortion": 9.5,
       "vignetting": 8.5,
       "chromaticAberration": 9.5,
-      "character": 9.0,
+      "character": 9,
       "versatility": 8.5
     },
-    "specializations": ["portrait", "street", "travel"],
+    "specializations": [
+      "portrait",
+      "street",
+      "travel"
+    ],
     "weatherSealing": true,
     "buildQuality": 10,
     "price": 200000,
     "image": "",
     "description": "Современный 50mm для системы Leica SL с потрясающей резкостью.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/leica/summicron-sl-50" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/leica/summicron-sl-50"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2021,
     "discontinued": false,
-    "tags": ["professional", "prime", "Leica"]
+    "tags": [
+      "professional",
+      "prime",
+      "Leica"
+    ]
   },
   {
     "id": "leica-l-50-1.4",
@@ -1052,32 +1288,43 @@
     "maxMagnification": 0.11,
     "diaphragmBlades": 11,
     "ratings": {
-      "sharpness": 9.0,
+      "sharpness": 9,
       "bokeh": 9.5,
       "colorRendering": 9.5,
-      "contrast": 9.0,
+      "contrast": 9,
       "flareResistance": 8.5,
-      "distortion": 9.0,
-      "vignetting": 8.0,
+      "distortion": 9,
+      "vignetting": 8,
       "chromaticAberration": 8.5,
-      "character": 10.0,
-      "versatility": 8.0
+      "character": 10,
+      "versatility": 8
     },
-    "specializations": ["portrait", "street"],
+    "specializations": [
+      "portrait",
+      "street"
+    ],
     "weatherSealing": true,
     "buildQuality": 10,
     "price": 320000,
     "image": "",
     "description": "Светосильный 50mm Leica SL с невероятным характером.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/leica/summilux-sl-50" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/leica/summilux-sl-50"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2016,
     "discontinued": false,
-    "tags": ["professional", "prime", "Leica", "portrait"]
+    "tags": [
+      "professional",
+      "prime",
+      "Leica",
+      "portrait"
+    ]
   },
   {
     "id": "mft-12-40-2.8-pro",
@@ -1097,32 +1344,43 @@
     "maxMagnification": 0.3,
     "diaphragmBlades": 7,
     "ratings": {
-      "sharpness": 9.0,
-      "bokeh": 7.0,
+      "sharpness": 9,
+      "bokeh": 7,
       "colorRendering": 8.5,
       "contrast": 8.5,
-      "flareResistance": 8.0,
+      "flareResistance": 8,
       "distortion": 8.5,
       "vignetting": 7.5,
       "chromaticAberration": 8.5,
       "character": 7.5,
       "versatility": 9.5
     },
-    "specializations": ["travel", "events", "landscape"],
+    "specializations": [
+      "travel",
+      "events",
+      "landscape"
+    ],
     "weatherSealing": true,
     "buildQuality": 9,
     "price": 60000,
-    "image": "",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Olympus_M.Zuiko_Digital_ED_12-40mm_f-2.8_PRO_back_PSD.jpg",
     "description": "Профессиональный зум для системы Micro Four Thirds.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/olympus/m-zuiko-12-40-pro" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/olympus/m-zuiko-12-40-pro"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2013,
     "discontinued": false,
-    "tags": ["professional", "zoom", "PRO"]
+    "tags": [
+      "professional",
+      "zoom",
+      "PRO"
+    ]
   },
   {
     "id": "mft-25-1.8",
@@ -1143,31 +1401,41 @@
     "diaphragmBlades": 7,
     "ratings": {
       "sharpness": 8.5,
-      "bokeh": 7.0,
-      "colorRendering": 8.0,
+      "bokeh": 7,
+      "colorRendering": 8,
       "contrast": 7.5,
-      "flareResistance": 7.0,
+      "flareResistance": 7,
       "distortion": 7.5,
       "vignetting": 6.5,
       "chromaticAberration": 7.5,
-      "character": 7.0,
+      "character": 7,
       "versatility": 8.5
     },
-    "specializations": ["street", "portrait", "travel"],
+    "specializations": [
+      "street",
+      "portrait",
+      "travel"
+    ],
     "weatherSealing": false,
     "buildQuality": 7,
     "price": 15000,
-    "image": "",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/92/Olympus_M.Zuiko_Digital_ED_8-25mm_f-4_PRO-20220127-RM-164055.jpg",
     "description": "Лёгкий и доступный 25mm для MFT с хорошей резкостью.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/olympus/m-zuiko-25-1.8" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/olympus/m-zuiko-25-1.8"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2014,
     "discontinued": false,
-    "tags": ["prime", "budget"]
+    "tags": [
+      "prime",
+      "budget"
+    ]
   },
   {
     "id": "mft-45-1.2-pro",
@@ -1187,32 +1455,42 @@
     "maxMagnification": 0.1,
     "diaphragmBlades": 9,
     "ratings": {
-      "sharpness": 9.0,
-      "bokeh": 9.0,
+      "sharpness": 9,
+      "bokeh": 9,
       "colorRendering": 8.5,
       "contrast": 8.5,
-      "flareResistance": 8.0,
+      "flareResistance": 8,
       "distortion": 8.5,
       "vignetting": 7.5,
       "chromaticAberration": 8.5,
       "character": 8.5,
-      "versatility": 7.0
+      "versatility": 7
     },
-    "specializations": ["portrait"],
+    "specializations": [
+      "portrait"
+    ],
     "weatherSealing": true,
     "buildQuality": 9,
     "price": 70000,
     "image": "",
     "description": "Профессиональный портретный объектив для MFT с отличным боке.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/olympus/m-zuiko-45-1.2-pro" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/olympus/m-zuiko-45-1.2-pro"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2017,
     "discontinued": false,
-    "tags": ["professional", "prime", "PRO", "portrait"]
+    "tags": [
+      "professional",
+      "prime",
+      "PRO",
+      "portrait"
+    ]
   },
   {
     "id": "hasselblad-xcd-35-75",
@@ -1233,31 +1511,41 @@
     "diaphragmBlades": 9,
     "ratings": {
       "sharpness": 9.5,
-      "bokeh": 8.0,
+      "bokeh": 8,
       "colorRendering": 9.5,
-      "contrast": 9.0,
-      "flareResistance": 9.0,
-      "distortion": 9.0,
+      "contrast": 9,
+      "flareResistance": 9,
+      "distortion": 9,
       "vignetting": 8.5,
-      "chromaticAberration": 9.0,
+      "chromaticAberration": 9,
       "character": 8.5,
-      "versatility": 9.0
+      "versatility": 9
     },
-    "specializations": ["travel", "landscape"],
+    "specializations": [
+      "travel",
+      "landscape"
+    ],
     "weatherSealing": true,
     "buildQuality": 10,
     "price": 350000,
     "image": "",
     "description": "Стандартный зум для системы Hasselblad XCD с отличным качеством.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/hasselblad/xcd-35-75" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/hasselblad/xcd-35-75"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2017,
     "discontinued": false,
-    "tags": ["professional", "zoom", "Hasselblad"]
+    "tags": [
+      "professional",
+      "zoom",
+      "Hasselblad"
+    ]
   },
   {
     "id": "hasselblad-xcd-65-2.8",
@@ -1280,29 +1568,40 @@
       "sharpness": 9.5,
       "bokeh": 8.5,
       "colorRendering": 9.5,
-      "contrast": 9.0,
-      "flareResistance": 9.0,
+      "contrast": 9,
+      "flareResistance": 9,
       "distortion": 9.5,
       "vignetting": 8.5,
       "chromaticAberration": 9.5,
-      "character": 9.0,
+      "character": 9,
       "versatility": 8.5
     },
-    "specializations": ["portrait", "street", "travel"],
+    "specializations": [
+      "portrait",
+      "street",
+      "travel"
+    ],
     "weatherSealing": true,
     "buildQuality": 10,
     "price": 280000,
     "image": "",
     "description": "Универсальный 65mm для Hasselblad с высокой резкостью.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/hasselblad/xcd-65-2.8" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/hasselblad/xcd-65-2.8"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2017,
     "discontinued": false,
-    "tags": ["professional", "prime", "Hasselblad"]
+    "tags": [
+      "professional",
+      "prime",
+      "Hasselblad"
+    ]
   },
   {
     "id": "hasselblad-xcd-90-2.5",
@@ -1326,28 +1625,38 @@
       "bokeh": 9.5,
       "colorRendering": 9.5,
       "contrast": 9.5,
-      "flareResistance": 9.0,
+      "flareResistance": 9,
       "distortion": 9.5,
       "vignetting": 8.5,
       "chromaticAberration": 9.5,
       "character": 9.5,
-      "versatility": 7.0
+      "versatility": 7
     },
-    "specializations": ["portrait"],
+    "specializations": [
+      "portrait"
+    ],
     "weatherSealing": true,
     "buildQuality": 10,
     "price": 380000,
     "image": "",
     "description": "Портретный объектив Hasselblad с исключительным боке.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/hasselblad/xcd-90-2.5" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/hasselblad/xcd-90-2.5"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2021,
     "discontinued": false,
-    "tags": ["professional", "prime", "Hasselblad", "portrait"]
+    "tags": [
+      "professional",
+      "prime",
+      "Hasselblad",
+      "portrait"
+    ]
   },
   {
     "id": "fuji-g-32-64-4",
@@ -1357,7 +1666,7 @@
     "type": "zoom",
     "focalLength": null,
     "focalRange": "32-64",
-    "maxAperture": 4.0,
+    "maxAperture": 4,
     "minAperture": 22,
     "format": "medium",
     "imageStabilization": false,
@@ -1368,31 +1677,41 @@
     "diaphragmBlades": 9,
     "ratings": {
       "sharpness": 9.5,
-      "bokeh": 8.0,
-      "colorRendering": 9.0,
-      "contrast": 9.0,
+      "bokeh": 8,
+      "colorRendering": 9,
+      "contrast": 9,
       "flareResistance": 8.5,
-      "distortion": 9.0,
-      "vignetting": 8.0,
-      "chromaticAberration": 9.0,
-      "character": 8.0,
+      "distortion": 9,
+      "vignetting": 8,
+      "chromaticAberration": 9,
+      "character": 8,
       "versatility": 9.5
     },
-    "specializations": ["travel", "landscape"],
+    "specializations": [
+      "travel",
+      "landscape"
+    ],
     "weatherSealing": true,
     "buildQuality": 9,
     "price": 250000,
-    "image": "",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Fujifilm_GF_32-64.jpg",
     "description": "Стандартный зум для среднеформатной системы Fuji GFX.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/fujifilm/gf-32-64-4" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/gf-32-64-4"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2017,
     "discontinued": false,
-    "tags": ["professional", "zoom", "GF"]
+    "tags": [
+      "professional",
+      "zoom",
+      "GF"
+    ]
   },
   {
     "id": "fuji-g-50-3.5",
@@ -1413,31 +1732,42 @@
     "diaphragmBlades": 9,
     "ratings": {
       "sharpness": 9.5,
-      "bokeh": 8.0,
-      "colorRendering": 9.0,
+      "bokeh": 8,
+      "colorRendering": 9,
       "contrast": 8.5,
       "flareResistance": 8.5,
-      "distortion": 9.0,
-      "vignetting": 8.0,
-      "chromaticAberration": 9.0,
-      "character": 8.0,
+      "distortion": 9,
+      "vignetting": 8,
+      "chromaticAberration": 9,
+      "character": 8,
       "versatility": 8.5
     },
-    "specializations": ["street", "travel", "portrait"],
+    "specializations": [
+      "street",
+      "travel",
+      "portrait"
+    ],
     "weatherSealing": true,
     "buildQuality": 9,
     "price": 150000,
     "image": "",
     "description": "Лёгкий и компактный 50mm для системы GFX.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/fujifilm/gf-50-3.5" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/gf-50-3.5"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2019,
     "discontinued": false,
-    "tags": ["professional", "prime", "GF"]
+    "tags": [
+      "professional",
+      "prime",
+      "GF"
+    ]
   },
   {
     "id": "fuji-g-110-2",
@@ -1447,7 +1777,7 @@
     "type": "prime",
     "focalLength": 110,
     "focalRange": null,
-    "maxAperture": 2.0,
+    "maxAperture": 2,
     "minAperture": 22,
     "format": "medium",
     "imageStabilization": false,
@@ -1461,27 +1791,37 @@
       "bokeh": 9.5,
       "colorRendering": 9.5,
       "contrast": 9.5,
-      "flareResistance": 9.0,
+      "flareResistance": 9,
       "distortion": 9.5,
       "vignetting": 8.5,
       "chromaticAberration": 9.5,
       "character": 9.5,
-      "versatility": 7.0
+      "versatility": 7
     },
-    "specializations": ["portrait"],
+    "specializations": [
+      "portrait"
+    ],
     "weatherSealing": true,
     "buildQuality": 10,
     "price": 350000,
     "image": "",
     "description": "Флагманский портретный объектив для системы Fuji GFX с потрясающим боке.",
     "links": [
-      { "label": "Обзор на DPreview", "url": "https://www.dpreview.com/products/fujifilm/gf-110-2" }
+      {
+        "label": "Обзор на DPreview",
+        "url": "https://www.dpreview.com/products/fujifilm/gf-110-2"
+      }
     ],
     "manualUrl": null,
     "firmwareUrl": null,
     "compatibleCameras": [],
     "releaseYear": 2017,
     "discontinued": false,
-    "tags": ["professional", "prime", "GF", "portrait"]
+    "tags": [
+      "professional",
+      "prime",
+      "GF",
+      "portrait"
+    ]
   }
 ]
