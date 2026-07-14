@@ -398,6 +398,16 @@ const state = {
 const CAMERA_ICON = `<svg class="ph" viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M8 7L9.5 4h5L16 7" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><circle cx="12" cy="14" r="4" stroke="currentColor" stroke-width="1.4"/></svg>`;
 const LENS_PH = `<svg class="ph" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3" stroke="currentColor" stroke-width="1.4"/></svg>`;
 
+// Разные написания одного и того же байонета в cameras.json и lens.json
+const MOUNT_ALIASES = {
+  'Fujifilm G': 'Fuji G',
+  'Fujifilm X': 'Fuji X',
+  'Micro Four Thirds': 'MFT'
+};
+function normalizeMount(mount) {
+  return MOUNT_ALIASES[mount] || mount;
+}
+
 // ============================================================
 // 3. ФИЛЬТРЫ
 // ============================================================
@@ -652,8 +662,8 @@ function openModal(idx) {
   let lensesHtml = '';
   if (LENSES.length) {
     const compatible = LENSES.filter(l => {
-      // По байонету
-      if (l.mount && cam.lensMount && l.mount === cam.lensMount) return true;
+      // По байонету (с учётом разных написаний одного и того же байонета)
+      if (l.mount && cam.lensMount && normalizeMount(l.mount) === normalizeMount(cam.lensMount)) return true;
       // По списку совместимых камер
       if (l.compatibleCameras && l.compatibleCameras.includes(cam.id)) return true;
       return false;
