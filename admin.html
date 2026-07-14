@@ -145,6 +145,7 @@
       <button id="importLensBtn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v10M8 10l4 4 4-4M5 19h14"/></svg> Импорт из JSON (добавить)</button>
       <button id="exportLensBtn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 14V4M8 8l4-4 4 4M5 19h14"/></svg> Экспорт JSON</button>
       <button id="refreshLensBtn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 3v4h-4"/></svg> Обновить данные</button>
+      <button id="massLensImageBtn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="1.5"/><circle cx="9" cy="10" r="1.5"/><path d="M4 16.5l4-3 3 2.2 5-4 4 3.3"/></svg> Массовый поиск картинок</button>
     </div>
     <div class="table-wrap">
       <table>
@@ -1191,6 +1192,76 @@
     };
   }
   document.getElementById('massImageBtn').addEventListener('click', massFindImages);
+
+  // ── МАССОВЫЙ ПОИСК КАРТИНОК ДЛЯ ОБЪЕКТИВОВ ─────────────────────
+  async function massFindLensImages() {
+    await loadLenses();
+    const withoutImage = lenses.filter(l => !l.image || l.image.trim() === '');
+    if (withoutImage.length === 0) { alert('У всех объективов есть изображения!'); return; }
+    alert(`Поиск для ${withoutImage.length} объективов...`);
+    const results = [];
+    for (const lens of withoutImage) {
+      const lensName = `${lens.brand} ${lens.model}`.trim();
+      if (!lensName) continue;
+      try {
+        const searchQuery = `${lensName} filetype:bitmap|drawing`;
+        const searchUrl = `https://commons.wikimedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(searchQuery)}&srnamespace=6&srlimit=1&format=json&origin=*`;
+        const searchRes = await fetch(searchUrl);
+        if (!searchRes.ok) continue;
+        const searchData = await searchRes.json();
+        const found = searchData.query?.search || [];
+        if (found.length === 0) continue;
+        const title = found[0].title;
+        const infoUrl = `https://commons.wikimedia.org/w/api.php?action=query&titles=${encodeURIComponent(title)}&prop=imageinfo&iiprop=url&format=json&origin=*`;
+        const infoRes = await fetch(infoUrl);
+        if (!infoRes.ok) continue;
+        const infoData = await infoRes.json();
+        const pages = infoData.query?.pages || {};
+        const pageId = Object.keys(pages)[0];
+        if (!pageId || pageId === '-1') continue;
+        const imageUrl = pages[pageId].imageinfo?.[0]?.url;
+        if (imageUrl) results.push({ lensId: lens.id, lensName, foundImageUrl: imageUrl, foundTitle: title, checked: true });
+      } catch (e) { console.warn('Ошибка для ' + lensName, e); }
+      await new Promise(r => setTimeout(r, WIKIMEDIA_REQUEST_DELAY_MS));
+    }
+    if (results.length === 0) { alert('Изображений не найдено'); return; }
+    showLensPreviewModal(results);
+  }
+  function showLensPreviewModal(results) {
+    const modal = document.getElementById('previewModal');
+    const grid = document.getElementById('previewGrid');
+    grid.innerHTML = '';
+    results.forEach((res, index) => {
+      const div = document.createElement('div');
+      div.style.cssText = 'background:#1a1a1a; border-radius:12px; padding:12px; text-align:center; border:1px solid #2a2a2a;';
+      div.innerHTML = `
+        <label style="display:block; margin-bottom:8px; cursor:pointer;">
+          <input type="checkbox" class="preview-checkbox" data-index="${index}" checked />
+          <strong style="color:#f0ece6;">${res.lensName}</strong>
+        </label>
+        <img src="${res.foundImageUrl}" style="max-width:100%; max-height:100px; object-fit:contain; border-radius:4px;" />
+        <div style="font-size:11px; color:#888; margin-top:6px;">${res.foundTitle}</div>
+        <a href="https://commons.wikimedia.org/wiki/${encodeURIComponent(res.foundTitle)}" target="_blank" style="color:#d4a373; font-size:12px;">Открыть оригинал</a>
+      `;
+      grid.appendChild(div);
+    });
+    modal.classList.add('active');
+    document.getElementById('previewCancelBtn').onclick = () => modal.classList.remove('active');
+    document.getElementById('previewApplyBtn').onclick = () => {
+      const checkboxes = document.querySelectorAll('.preview-checkbox');
+      const selected = [];
+      checkboxes.forEach(cb => { if (cb.checked) { const idx = parseInt(cb.dataset.index); selected.push(results[idx]); } });
+      if (selected.length === 0) { alert('Не выбрано ни одного изображения.'); return; }
+      selected.forEach(res => {
+        const lens = lenses.find(l => l.id === res.lensId);
+        if (lens) lens.image = res.foundImageUrl;
+      });
+      modal.classList.remove('active');
+      renderLensTable();
+      saveData(LENSES_FILE, lenses);
+    };
+  }
+  document.getElementById('massLensImageBtn').addEventListener('click', massFindLensImages);
 
   // ── ГЕНЕРАЦИЯ ССЫЛОК ──────────────────────────────────────────
   function generateLinksForAllCameras() {
