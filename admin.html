@@ -292,7 +292,8 @@
         </div>
         <div class="form-row">
           <div class="form-group"><label>Слотов карт</label><input type="number" id="fCardSlots" step="1" /></div>
-          <div class="form-group"><label>Сложность меню</label><select id="fMenuComplexity"><option value="simple">simple</option><option value="intermediate">intermediate</option><option value="complex">complex</option></select></div>
+          <div class="form-group"><label>Сложность меню</label><select id="fMenuComplexity"><option value="simple">simple</option><option value="intermediate">intermediate</option><option value="complex">complex</option><option value="very_complex">very_complex</option></select></div>
+          <div class="form-group"><label>Эргономика</label><select id="fErgonomics"><option value="good">good (удобная)</option><option value="medium">medium (средняя)</option><option value="poor">poor (неудобная)</option></select></div>
         </div>
         <div class="form-row">
           <div class="form-group"><label>Цветопередача</label><select id="fColorScience"><option value="">—</option><option value="true">Да</option><option value="false">Нет</option></select></div>
@@ -751,6 +752,7 @@
     setVal('fBitDepth', cam.bitDepth);
     setVal('fCardSlots', cam.cardSlots);
     setSelect('fMenuComplexity', cam.menuComplexity || 'intermediate');
+    setSelect('fErgonomics', cam.ergonomics || 'medium');
     setSelect('fColorScience', cam.colorScience);
     setVal('fLensMount', cam.lensMount);
     setSelect('fWeatherSealing', cam.weatherSealing);
@@ -814,6 +816,7 @@
       bitDepth: parseInt(document.getElementById('fBitDepth').value) || 0,
       cardSlots: parseInt(document.getElementById('fCardSlots').value) || 0,
       menuComplexity: document.getElementById('fMenuComplexity').value,
+      ergonomics: document.getElementById('fErgonomics').value,
       colorScience: parseBoolSelect('fColorScience'),
       lensMount: document.getElementById('fLensMount').value.trim(),
       weatherSealing: parseBoolSelect('fWeatherSealing'),

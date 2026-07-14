@@ -59,7 +59,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "poor"
   },
   {
     "brand": "Apple",
@@ -121,7 +122,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "poor"
   },
   {
     "brand": "Canon",
@@ -160,7 +162,7 @@
     "headphoneJack": false,
     "hdmi": false,
     "builtinFlash": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon RF",
     "weatherSealing": false,
@@ -183,7 +185,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -201,7 +204,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 1,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon RF",
     "weatherSealing": true,
@@ -247,7 +250,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -265,7 +269,7 @@
     "logProfile": true,
     "bitDepth": 0,
     "cardSlots": 2,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon RF",
     "weatherSealing": false,
@@ -305,7 +309,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -344,7 +349,7 @@
     "headphoneJack": false,
     "hdmi": false,
     "builtinFlash": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon RF",
     "weatherSealing": false,
@@ -367,7 +372,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -385,7 +391,7 @@
     "logProfile": true,
     "bitDepth": 0,
     "cardSlots": 2,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon RF",
     "weatherSealing": true,
@@ -429,7 +435,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -447,7 +454,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 1,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon RF",
     "weatherSealing": true,
@@ -492,7 +499,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -510,7 +518,7 @@
     "logProfile": false,
     "bitDepth": 0,
     "cardSlots": 2,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon EF",
     "weatherSealing": false,
@@ -551,7 +559,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "id": "canon-5d-mark-iv"
+    "id": "canon-5d-mark-iv",
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -569,7 +578,7 @@
     "logProfile": true,
     "bitDepth": 0,
     "cardSlots": 2,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon RF",
     "weatherSealing": false,
@@ -614,7 +623,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -632,7 +642,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 1,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon RF",
     "weatherSealing": false,
@@ -677,7 +687,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -695,7 +706,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 1,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon EF",
     "weatherSealing": true,
@@ -740,7 +751,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -758,7 +770,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 1,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon RF",
     "weatherSealing": true,
@@ -803,7 +815,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -842,7 +855,7 @@
     "headphoneJack": false,
     "hdmi": false,
     "builtinFlash": false,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon RF",
     "weatherSealing": false,
@@ -865,7 +878,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -883,7 +897,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 1,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon RF",
     "weatherSealing": false,
@@ -928,7 +942,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -991,7 +1006,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -1009,7 +1025,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 1,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon EF",
     "weatherSealing": true,
@@ -1054,7 +1070,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -1072,7 +1089,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 1,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon EF",
     "weatherSealing": false,
@@ -1117,7 +1134,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -1182,7 +1200,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -1245,7 +1264,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -1303,7 +1323,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -1321,7 +1342,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 1,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon EF",
     "weatherSealing": true,
@@ -1363,7 +1384,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -1427,7 +1449,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -1489,7 +1512,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -1507,7 +1531,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 1,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon EF-M",
     "weatherSealing": false,
@@ -1550,7 +1574,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -1610,7 +1635,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -1671,7 +1697,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -1732,7 +1759,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -1795,7 +1823,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -1812,7 +1841,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon EF",
     "note": "Кинематографический флагман. 4K видео, прочный корпус, профессиональный инструмент.",
@@ -1837,7 +1866,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -1898,7 +1928,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -1958,7 +1989,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -1975,7 +2007,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon EF",
     "note": "Флагманский репортажный аппарат. 14 к/с, 61 точка AF, прочный корпус. Для самых требовательных.",
@@ -2000,7 +2032,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -2017,7 +2050,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon EF",
     "note": "Профессиональный репортажный флагман с 16 к/с и RAW-видео.",
@@ -2043,7 +2076,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -2060,7 +2094,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon EF",
     "note": "Профессиональный репортажный флагман с 14 к/с и 4K-видео. Для спорта и дикой природы.",
@@ -2086,7 +2120,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -2103,7 +2138,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon EF",
     "note": "Профессиональный репортажный флагман. 10 к/с, 45 точек AF, прочный корпус. Для спорта и дикой природы.",
@@ -2127,7 +2162,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -2144,7 +2180,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon EF",
     "note": "Версия 5DS без низкочастотного фильтра для максимальной детализации.",
@@ -2168,7 +2204,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -2185,7 +2222,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon EF",
     "note": "Full frame с рекордным для своего времени разрешением 50 Мп. Для студии и пейзажа.",
@@ -2209,7 +2246,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -2226,7 +2264,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon EF",
     "note": "Профессиональный полный кадр. 61 точка AF, отличная эргономика, надёжность.",
@@ -2250,7 +2288,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -2267,7 +2306,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon RF",
     "note": "Первая полнокадровая беззеркалка Canon. Отличный AF, 30 Мп, поворотный экран.",
@@ -2293,7 +2332,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -2310,7 +2350,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon EF",
     "note": "Полнокадровая зеркалка с поворотным экраном и Dual Pixel AF. Доступный FF для энтузиастов.",
@@ -2338,7 +2378,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -2355,7 +2396,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon EF",
     "note": "Самый доступный полный кадр Canon на тот момент. Отличное соотношение цена/качество.",
@@ -2380,7 +2421,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -2397,7 +2439,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon EF",
     "note": "Профессиональная зеркалка для спорта и дикой природы. 10 к/с, 65 точек AF, прочный корпус.",
@@ -2421,7 +2463,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -2438,7 +2481,7 @@
     "forBeginners": false,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon EF-M",
     "note": "32 Мп, 4K без кропа, 14 к/с. Лучшая беззеркалка Canon на EF-M.",
@@ -2464,7 +2507,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -2481,7 +2525,7 @@
     "forBeginners": true,
     "professional": false,
     "forBloggers": true,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon RF",
     "note": "Доступная беззеркалка Canon APS-C с 4K, быстрым AF и поворотным экраном.",
@@ -2507,7 +2551,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -2524,7 +2569,7 @@
     "forBeginners": false,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon EF",
     "note": "Первая зеркалка Canon с Dual Pixel AF для видео. Отличный гибрид фото+видео.",
@@ -2549,7 +2594,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -2566,7 +2612,7 @@
     "forBeginners": false,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon EF",
     "note": "Зеркалка с верхним дисплеем и улучшенным управлением. Идеальна для продвинутых любителей.",
@@ -2593,7 +2639,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -2610,7 +2657,7 @@
     "forBeginners": false,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon EF",
     "note": "Улучшенная версия 750D с верхним дисплеем и дополнительным колёсиком управления.",
@@ -2636,7 +2683,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -2677,7 +2725,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Canon",
@@ -2721,7 +2770,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "DJI",
@@ -2783,7 +2833,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Fujifilm",
@@ -2822,7 +2873,7 @@
     "headphoneJack": false,
     "hdmi": false,
     "builtinFlash": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": true,
     "lensMount": "Fujifilm G",
     "weatherSealing": false,
@@ -2845,7 +2896,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "medium"
   },
   {
     "brand": "Fujifilm",
@@ -2863,7 +2915,7 @@
     "logProfile": false,
     "bitDepth": 16,
     "cardSlots": 2,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": true,
     "lensMount": "Fujifilm G",
     "weatherSealing": false,
@@ -2903,7 +2955,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "medium"
   },
   {
     "brand": "Fujifilm",
@@ -2942,7 +2995,7 @@
     "headphoneJack": false,
     "hdmi": false,
     "builtinFlash": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": true,
     "lensMount": "Fujifilm G",
     "weatherSealing": false,
@@ -2965,7 +3018,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "medium"
   },
   {
     "brand": "Fujifilm",
@@ -3027,7 +3081,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -3089,7 +3144,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -3151,7 +3207,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "medium"
   },
   {
     "brand": "Fujifilm",
@@ -3213,7 +3270,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -3275,7 +3333,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -3337,7 +3396,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -3399,7 +3459,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -3417,7 +3478,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 1,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": true,
     "lensMount": "Fujifilm G",
     "weatherSealing": true,
@@ -3462,7 +3523,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "id": "fujifilm-gfx-eterna"
+    "id": "fujifilm-gfx-eterna",
+    "ergonomics": "medium"
   },
   {
     "brand": "Fujifilm",
@@ -3480,7 +3542,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 1,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": true,
     "lensMount": "Fujifilm G",
     "weatherSealing": true,
@@ -3525,7 +3587,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "id": "fujifilm-gfx100-ir"
+    "id": "fujifilm-gfx100-ir",
+    "ergonomics": "medium"
   },
   {
     "brand": "Fujifilm",
@@ -3543,7 +3606,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 1,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": true,
     "lensMount": "Fujifilm G",
     "weatherSealing": true,
@@ -3588,7 +3651,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "id": "fujifilm-gfx100"
+    "id": "fujifilm-gfx100",
+    "ergonomics": "medium"
   },
   {
     "brand": "Fujifilm",
@@ -3606,7 +3670,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 1,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": true,
     "lensMount": "Fujifilm G",
     "weatherSealing": true,
@@ -3650,7 +3714,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "id": "fujifilm-gfx-50s"
+    "id": "fujifilm-gfx-50s",
+    "ergonomics": "medium"
   },
   {
     "brand": "Fujifilm",
@@ -3668,7 +3733,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 2,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": true,
     "lensMount": "Fujifilm G",
     "weatherSealing": true,
@@ -3713,7 +3778,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "id": "fujifilm-gfx100s"
+    "id": "fujifilm-gfx100s",
+    "ergonomics": "medium"
   },
   {
     "brand": "Fujifilm",
@@ -3731,7 +3797,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 2,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": true,
     "lensMount": "Fujifilm G",
     "weatherSealing": true,
@@ -3776,7 +3842,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "id": "fujifilm-gfx100rf"
+    "id": "fujifilm-gfx100rf",
+    "ergonomics": "medium"
   },
   {
     "brand": "Fujifilm",
@@ -3794,7 +3861,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 2,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": true,
     "lensMount": "Fujifilm G",
     "weatherSealing": true,
@@ -3839,7 +3906,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "id": "fujifilm-gfx-50r"
+    "id": "fujifilm-gfx-50r",
+    "ergonomics": "medium"
   },
   {
     "brand": "Fujifilm",
@@ -3857,7 +3925,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 2,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": true,
     "lensMount": "Fujifilm X",
     "weatherSealing": true,
@@ -3902,7 +3970,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "id": "fujifilm-x-h2s"
+    "id": "fujifilm-x-h2s",
+    "ergonomics": "medium"
   },
   {
     "brand": "Fujifilm",
@@ -3920,7 +3989,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 2,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": true,
     "lensMount": "Fujifilm X",
     "weatherSealing": true,
@@ -3965,7 +4034,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "id": "fujifilm-x-h2"
+    "id": "fujifilm-x-h2",
+    "ergonomics": "medium"
   },
   {
     "brand": "Fujifilm",
@@ -3983,7 +4053,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 2,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": true,
     "lensMount": "Fujifilm X",
     "weatherSealing": true,
@@ -4028,7 +4098,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "id": "fujifilm-x-pro3"
+    "id": "fujifilm-x-pro3",
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -4091,7 +4162,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "id": "fujifilm-x-t4"
+    "id": "fujifilm-x-t4",
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -4133,7 +4205,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -4175,7 +4248,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -4192,7 +4266,7 @@
     "forBeginners": false,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": true,
     "lensMount": "Fujifilm X",
     "note": "Первая Fujifilm с IBIS. 24 Мп, 4K, прочный корпус, отличная эргономика.",
@@ -4217,7 +4291,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "medium"
   },
   {
     "brand": "Fujifilm",
@@ -4260,7 +4335,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -4302,7 +4378,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -4344,7 +4421,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -4385,7 +4463,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -4428,7 +4507,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -4469,7 +4549,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -4509,7 +4590,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -4552,7 +4634,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "medium"
   },
   {
     "brand": "Fujifilm",
@@ -4595,7 +4678,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -4637,7 +4721,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -4680,7 +4765,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -4722,7 +4808,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -4764,7 +4851,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -4807,7 +4895,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -4850,7 +4939,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -4891,7 +4981,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -4933,7 +5024,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -4976,7 +5068,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -5018,7 +5111,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -5060,7 +5154,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -5103,7 +5198,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -5145,7 +5241,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -5186,7 +5283,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -5227,7 +5325,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -5269,7 +5368,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -5312,7 +5412,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -5355,7 +5456,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -5396,7 +5498,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -5437,7 +5540,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "medium"
   },
   {
     "brand": "Fujifilm",
@@ -5479,7 +5583,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -5520,7 +5625,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Fujifilm",
@@ -5561,7 +5667,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Hasselblad",
@@ -5600,7 +5707,7 @@
     "headphoneJack": false,
     "hdmi": false,
     "builtinFlash": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Hasselblad XCD",
     "weatherSealing": true,
@@ -5627,7 +5734,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "poor"
   },
   {
     "brand": "Hasselblad",
@@ -5666,7 +5774,7 @@
     "headphoneJack": false,
     "hdmi": false,
     "builtinFlash": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Hasselblad XCD",
     "weatherSealing": false,
@@ -5689,7 +5797,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "poor"
   },
   {
     "brand": "Hasselblad",
@@ -5706,7 +5815,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Hasselblad H",
     "note": "Профессиональная среднеформатная камера с 50 или 100 Мп. Для самых требовательных.",
@@ -5731,7 +5840,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Hasselblad",
@@ -5748,7 +5858,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Hasselblad H",
     "note": "Среднеформатная система с 40 Мп сенсором. Абсолютное качество для коммерции и студии.",
@@ -5772,7 +5882,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Hasselblad",
@@ -5789,7 +5900,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Hasselblad XCD",
     "note": "Первая среднеформатная беззеркалка Hasselblad. Компактный корпус, невероятное качество.",
@@ -5814,7 +5925,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Hasselblad",
@@ -5831,7 +5943,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Hasselblad XCD",
     "note": "Среднеформатная беззеркалка с модульным дизайном и уникальным стилем.",
@@ -5856,7 +5968,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Leica",
@@ -5895,7 +6008,7 @@
     "headphoneJack": false,
     "hdmi": false,
     "builtinFlash": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": true,
     "lensMount": "Leica M",
     "weatherSealing": false,
@@ -5918,7 +6031,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "poor"
   },
   {
     "brand": "Leica",
@@ -5957,7 +6071,7 @@
     "headphoneJack": false,
     "hdmi": false,
     "builtinFlash": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": true,
     "lensMount": "Leica M",
     "weatherSealing": false,
@@ -5980,7 +6094,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "poor"
   },
   {
     "brand": "Leica",
@@ -6019,7 +6134,7 @@
     "headphoneJack": false,
     "hdmi": false,
     "builtinFlash": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": true,
     "lensMount": "Leica L",
     "weatherSealing": false,
@@ -6042,7 +6157,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "poor"
   },
   {
     "brand": "Leica",
@@ -6081,7 +6197,7 @@
     "headphoneJack": false,
     "hdmi": false,
     "builtinFlash": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": true,
     "lensMount": "unknown",
     "weatherSealing": true,
@@ -6104,7 +6220,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "poor"
   },
   {
     "brand": "Leica",
@@ -6143,7 +6260,7 @@
     "headphoneJack": false,
     "hdmi": false,
     "builtinFlash": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": true,
     "lensMount": "Leica L",
     "weatherSealing": false,
@@ -6166,7 +6283,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "poor"
   },
   {
     "brand": "Leica",
@@ -6205,7 +6323,7 @@
     "headphoneJack": false,
     "hdmi": false,
     "builtinFlash": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": true,
     "lensMount": "unknown",
     "weatherSealing": true,
@@ -6228,7 +6346,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "poor"
   },
   {
     "brand": "Leica",
@@ -6245,7 +6364,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": true,
     "lensMount": "Leica M",
     "note": "Дальномерная Leica без дисплея для чистого опыта съёмки.",
@@ -6270,7 +6389,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Leica",
@@ -6287,7 +6407,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": true,
     "lensMount": "Leica M",
     "note": "Дальномерная легенда. 24 Мп полный кадр, ручной фокус, культовый статус.",
@@ -6312,7 +6432,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Leica",
@@ -6329,7 +6450,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": true,
     "lensMount": "Leica M",
     "note": "Дальномерная Leica с полным кадром. Культовый статус, ручной фокус, отличное качество.",
@@ -6353,7 +6474,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Leica",
@@ -6370,7 +6492,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": true,
     "lensMount": "Leica L",
     "note": "47 Мп полный кадр с IBIS и 4K. Беззеркалка Leica с премиальной эргономикой.",
@@ -6396,7 +6518,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Leica",
@@ -6413,7 +6536,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": true,
     "lensMount": "Leica L",
     "note": "Первая полнокадровая беззеркалка Leica с 4K-видео и отличной эргономикой.",
@@ -6437,7 +6560,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Leica",
@@ -6454,7 +6578,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": true,
     "lensMount": "unknown",
     "note": "Культовый компакт с 28mm f/1.7 и полным кадром. Икона уличной фотографии.",
@@ -6479,7 +6603,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Leica",
@@ -6496,7 +6621,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": true,
     "lensMount": "Leica M",
     "note": "Дальномерная легенда. 18 Мп полный кадр, ручной фокус, культовый статус.",
@@ -6517,7 +6642,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Leica",
@@ -6534,7 +6660,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "simple",
     "colorScience": true,
     "lensMount": "unknown",
     "note": "Компактная камера Leica с APS-C сенсором. Отличное качество и премиальный дизайн.",
@@ -6557,7 +6683,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Nikon",
@@ -6596,7 +6723,7 @@
     "headphoneJack": false,
     "hdmi": false,
     "builtinFlash": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Nikon Z",
     "weatherSealing": false,
@@ -6619,7 +6746,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -6658,7 +6786,7 @@
     "headphoneJack": false,
     "hdmi": false,
     "builtinFlash": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Nikon Z",
     "weatherSealing": false,
@@ -6681,7 +6809,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -6720,7 +6849,7 @@
     "headphoneJack": false,
     "hdmi": false,
     "builtinFlash": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Nikon F",
     "weatherSealing": false,
@@ -6743,7 +6872,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -6761,7 +6891,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 1,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Nikon Z",
     "weatherSealing": true,
@@ -6806,7 +6936,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -6869,7 +7000,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -6887,7 +7019,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 1,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Nikon Z",
     "weatherSealing": true,
@@ -6932,7 +7064,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -6971,7 +7104,7 @@
     "headphoneJack": false,
     "hdmi": false,
     "builtinFlash": true,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Nikon F",
     "weatherSealing": false,
@@ -6994,7 +7127,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -7012,7 +7146,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 1,
-    "menuComplexity": "simple",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Nikon F",
     "weatherSealing": false,
@@ -7052,7 +7186,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -7070,7 +7205,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 1,
-    "menuComplexity": "simple",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Nikon F",
     "weatherSealing": false,
@@ -7113,7 +7248,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -7130,7 +7266,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Nikon F",
     "note": "Флагманский репортажный аппарат. 11 к/с, 51 точка AF, отличная работа при высоких ISO.",
@@ -7155,7 +7291,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -7172,7 +7309,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Nikon F",
     "note": "Репортажный флагман. 11 к/с, отличное ISO, прочный корпус. Для спорта и событий.",
@@ -7197,7 +7334,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -7214,7 +7352,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Nikon F",
     "note": "Профессиональный репортажный флагман Nikon с 14 к/с и 4K-видео.",
@@ -7240,7 +7378,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -7257,7 +7396,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Nikon F",
     "note": "Профессиональный флагман Nikon с 153 точками AF, 12 к/с и 4K-видео.",
@@ -7283,7 +7422,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -7300,7 +7440,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Nikon F",
     "note": "Профессиональный репортажный флагман. Отличная работа при высоких ISO, 9 к/с.",
@@ -7324,7 +7464,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -7341,7 +7482,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Nikon F",
     "note": "D800 без сглаживающего фильтра для максимальной детализации. Для требовательных к резкости.",
@@ -7365,7 +7506,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -7382,7 +7524,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Nikon F",
     "note": "Зеркалка с 36 Мп полного кадра. Максимальное разрешение для пейзажей и студии.",
@@ -7406,7 +7548,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -7423,7 +7566,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Nikon F",
     "note": "Революционная камера с 36 Мп полного кадра. Пейзажи, студия, коммерция.",
@@ -7447,7 +7590,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -7464,7 +7608,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Nikon Z",
     "note": "Универсальный полный кадр Nikon с IBIS и 6K-видео.",
@@ -7490,7 +7634,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -7507,7 +7652,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Nikon Z",
     "note": "Улучшенный Z6 с двумя слотами и более быстрым AF. Отличный гибрид.",
@@ -7533,7 +7678,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -7550,7 +7696,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Nikon F",
     "note": "Ретро-дизайн, полный кадр, управление как у плёночных камер. Для ценителей классики.",
@@ -7574,7 +7720,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -7591,7 +7738,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Nikon Z",
     "note": "Полнокадровая беззеркалка Nikon с 24 Мп, IBIS и отличной эргономикой.",
@@ -7617,7 +7764,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -7634,7 +7782,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Nikon F",
     "note": "Полнокадровая зеркалка с 4K-видео и фазовым AF в Live View.",
@@ -7660,7 +7808,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -7677,7 +7826,7 @@
     "forBeginners": false,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Nikon F",
     "note": "Доступный полный кадр от Nikon. Отличный динамический диапазон.",
@@ -7701,7 +7850,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -7718,7 +7868,7 @@
     "forBeginners": false,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Nikon F",
     "note": "Полупрофессиональная зеркалка с автофокусом от D5 и 4K-видео. Лучший APS-C для спорта.",
@@ -7744,7 +7894,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -7761,7 +7912,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Nikon Z",
     "note": "Обновлённый доступный полный кадр Nikon с улучшенным AF и видео.",
@@ -7787,7 +7938,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -7804,7 +7956,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Nikon Z",
     "note": "Доступный полный кадр Nikon с IBIS и отличным качеством.",
@@ -7830,7 +7982,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -7847,7 +8000,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Nikon F",
     "note": "Полнокадровая зеркалка с высоким разрешением и хорошей эргономикой. Надёжный инструмент.",
@@ -7871,7 +8024,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -7914,7 +8068,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -7957,7 +8112,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -8000,7 +8156,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -8043,7 +8200,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -8084,7 +8242,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -8127,7 +8286,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -8167,7 +8327,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -8210,7 +8371,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -8252,7 +8414,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -8269,7 +8432,7 @@
     "forBeginners": true,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "simple",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Nikon F",
     "note": "Зеркалка для начинающих с поворотным экраном. Хорошее качество видео и фото.",
@@ -8292,7 +8455,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -8309,7 +8473,7 @@
     "forBeginners": true,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "simple",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Nikon F",
     "note": "Лёгкая зеркалка для начинающих с отличным качеством и долгим временем работы.",
@@ -8334,7 +8498,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -8351,7 +8516,7 @@
     "forBeginners": true,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "simple",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Nikon F",
     "note": "Лёгкая зеркалка для новичков с отличным качеством и долгим временем работы от батареи.",
@@ -8376,7 +8541,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Nikon",
@@ -8393,7 +8559,7 @@
     "forBeginners": true,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "simple",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Nikon F",
     "note": "Бюджетная зеркалка с 24 Мп. Отличный старт в мир Nikon.",
@@ -8417,7 +8583,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Olympus",
@@ -8459,7 +8626,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Olympus",
@@ -8501,7 +8669,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Olympus",
@@ -8543,7 +8712,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Olympus",
@@ -8560,7 +8730,7 @@
     "forBeginners": false,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "complex",
     "colorScience": false,
     "lensMount": "Micro Four Thirds",
     "note": "Ретро-дизайн, 20 Мп сенсор, встроенный стабилизатор. Для ценителей стиля.",
@@ -8585,7 +8755,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Olympus",
@@ -8602,7 +8773,7 @@
     "forBeginners": false,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "complex",
     "colorScience": false,
     "lensMount": "Micro Four Thirds",
     "note": "Лёгкая и компактная беззеркалка с 20 Мп, IBIS и 4K-видео.",
@@ -8627,7 +8798,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Olympus",
@@ -8669,7 +8841,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Olympus",
@@ -8686,7 +8859,7 @@
     "forBeginners": false,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "complex",
     "colorScience": false,
     "lensMount": "Micro Four Thirds",
     "note": "Беззеркалка с пыле-влагозащитой и встроенным стабилизатором. Отличная эргономика.",
@@ -8710,7 +8883,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Olympus",
@@ -8727,7 +8901,7 @@
     "forBeginners": true,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "complex",
     "colorScience": false,
     "lensMount": "Micro Four Thirds",
     "note": "Компактная беззеркалка со встроенным стабилизатором. Хороший выбор для путешествий.",
@@ -8750,7 +8924,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "OM System",
@@ -8792,7 +8967,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "OM System",
@@ -8834,7 +9010,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Panasonic",
@@ -8896,7 +9073,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -8958,7 +9136,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -8976,7 +9155,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 1,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "complex",
     "colorScience": false,
     "lensMount": "Micro Four Thirds",
     "weatherSealing": false,
@@ -9018,7 +9197,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -9036,7 +9216,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 1,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "complex",
     "colorScience": false,
     "lensMount": "Micro Four Thirds",
     "weatherSealing": false,
@@ -9079,7 +9259,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -9122,7 +9303,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -9165,7 +9347,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -9208,7 +9391,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -9251,7 +9435,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -9294,7 +9479,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -9337,7 +9523,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -9379,7 +9566,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -9422,7 +9610,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -9465,7 +9654,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -9508,7 +9698,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -9551,7 +9742,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -9594,7 +9786,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -9636,7 +9829,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -9678,7 +9872,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -9719,7 +9914,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -9736,7 +9932,7 @@
     "forBeginners": false,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "complex",
     "colorScience": false,
     "lensMount": "Micro Four Thirds",
     "note": "Компактная беззеркалка с 20 Мп, IBIS и 4K-видео. Отличный выбор для повседневной съёмки.",
@@ -9761,7 +9957,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -9778,7 +9975,7 @@
     "forBeginners": false,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "complex",
     "colorScience": false,
     "lensMount": "Micro Four Thirds",
     "note": "Энтузиастская беззеркалка со встроенным стабилизатором и отличным электронным видоискателем.",
@@ -9803,7 +10000,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -9820,7 +10018,7 @@
     "forBeginners": false,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "complex",
     "colorScience": false,
     "lensMount": "Micro Four Thirds",
     "note": "Энтузиастская беззеркалка с 4K, IBIS и отличной эргономикой.",
@@ -9845,7 +10043,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -9885,7 +10084,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -9902,7 +10102,7 @@
     "forBeginners": false,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "complex",
     "colorScience": false,
     "lensMount": "Micro Four Thirds",
     "note": "Бюджетная беззеркалка с 4K-видео. Отличный выбор для начинающих видеографов.",
@@ -9927,7 +10127,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -9944,7 +10145,7 @@
     "forBeginners": false,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "complex",
     "colorScience": false,
     "lensMount": "Micro Four Thirds",
     "note": "Энтузиастская беззеркалка с управлением как у классической камеры. Отличная эргономика.",
@@ -9968,7 +10169,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -9985,7 +10187,7 @@
     "forBeginners": false,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "complex",
     "colorScience": false,
     "lensMount": "Micro Four Thirds",
     "note": "Беззеркалка с отличным видео и удобным управлением. Хороший выбор для видеографов-любителей.",
@@ -10009,7 +10211,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -10026,7 +10229,7 @@
     "forBeginners": false,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "complex",
     "colorScience": false,
     "lensMount": "Micro Four Thirds",
     "note": "Беззеркалка с поворотным экраном и электронным видоискателем. Универсальный выбор.",
@@ -10050,7 +10253,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -10067,7 +10271,7 @@
     "forBeginners": false,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "complex",
     "colorScience": false,
     "lensMount": "Micro Four Thirds",
     "note": "Беззеркалка с поворотным экраном и сенсорным управлением. Хороший выбор для повседневной съёмки.",
@@ -10091,7 +10295,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -10108,7 +10313,7 @@
     "forBeginners": true,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "complex",
     "colorScience": false,
     "lensMount": "Micro Four Thirds",
     "note": "Самая маленькая беззеркалка с MFT-сенсором. Помещается в карман, но даёт отличное качество.",
@@ -10132,7 +10337,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -10149,7 +10355,7 @@
     "forBeginners": true,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "complex",
     "colorScience": false,
     "lensMount": "Micro Four Thirds",
     "note": "Первая беззеркалка Panasonic с поворотным экраном и сенсорным управлением.",
@@ -10172,7 +10378,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -10189,7 +10396,7 @@
     "forBeginners": true,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "complex",
     "colorScience": false,
     "lensMount": "Micro Four Thirds",
     "note": "Компактная беззеркалка для начинающих. Поворотный экран для селфи, стильный дизайн.",
@@ -10214,7 +10421,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -10231,7 +10439,7 @@
     "forBeginners": true,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "complex",
     "colorScience": false,
     "lensMount": "Micro Four Thirds",
     "note": "Компактная беззеркалка для начинающих. Поворотный экран, Wi-Fi, стильный дизайн.",
@@ -10256,7 +10464,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Panasonic",
@@ -10273,7 +10482,7 @@
     "forBeginners": true,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "complex",
     "colorScience": false,
     "lensMount": "Micro Four Thirds",
     "note": "Миниатюрная беззеркалка для начинающих. Простота и компактность.",
@@ -10297,7 +10506,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Pentax",
@@ -10314,7 +10524,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Pentax 645",
     "note": "Среднеформатная зеркалка с 51 Мп. Высокое разрешение и отличная цветопередача. Для самых требовательных.",
@@ -10338,7 +10548,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Pentax",
@@ -10355,7 +10566,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Pentax K",
     "note": "Первая полнокадровая зеркалка Pentax с встроенным стабилизатором и поворотным экраном.",
@@ -10380,7 +10591,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Pentax",
@@ -10397,7 +10609,7 @@
     "forBeginners": false,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Pentax K",
     "note": "Последняя зеркалка Pentax с IBIS, 4K и быстрым AF.",
@@ -10422,7 +10634,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Pentax",
@@ -10464,7 +10677,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Pentax",
@@ -10481,7 +10695,7 @@
     "forBeginners": false,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Pentax K",
     "note": "Прочная зеркалка с встроенным стабилизатором и 24 Мп. Отличная эргономика и защита от пыли/влаги.",
@@ -10505,7 +10719,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Pentax",
@@ -10545,7 +10760,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Ricoh",
@@ -10603,7 +10819,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "medium"
   },
   {
     "brand": "Ricoh",
@@ -10665,7 +10882,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "medium"
   },
   {
     "brand": "Ricoh",
@@ -10723,7 +10941,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "medium"
   },
   {
     "brand": "Ricoh",
@@ -10741,7 +10960,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 1,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "unknown",
     "weatherSealing": false,
@@ -10785,7 +11004,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "medium"
   },
   {
     "brand": "Sony",
@@ -10853,7 +11073,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "medium"
   },
   {
     "brand": "Sony",
@@ -10921,7 +11142,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "medium"
   },
   {
     "brand": "Sony",
@@ -10988,7 +11210,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "medium"
   },
   {
     "brand": "Sony",
@@ -11050,7 +11273,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "medium"
   },
   {
     "brand": "Sony",
@@ -11112,7 +11336,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "medium"
   },
   {
     "brand": "Sony",
@@ -11174,7 +11399,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "medium"
   },
   {
     "brand": "Sony",
@@ -11237,7 +11463,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "medium"
   },
   {
     "brand": "Sony",
@@ -11276,7 +11503,7 @@
     "headphoneJack": false,
     "hdmi": false,
     "builtinFlash": false,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "complex",
     "colorScience": false,
     "lensMount": "Sony E",
     "weatherSealing": false,
@@ -11299,7 +11526,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "medium"
   },
   {
     "brand": "Sony",
@@ -11317,7 +11545,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 1,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "very_complex",
     "colorScience": false,
     "lensMount": "Sony E",
     "weatherSealing": false,
@@ -11362,7 +11590,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "medium"
   },
   {
     "brand": "Sony",
@@ -11380,7 +11609,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 1,
-    "menuComplexity": "simple",
+    "menuComplexity": "very_complex",
     "colorScience": false,
     "lensMount": "unknown",
     "weatherSealing": false,
@@ -11425,7 +11654,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "medium"
   },
   {
     "brand": "Sony",
@@ -11443,7 +11673,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 1,
-    "menuComplexity": "simple",
+    "menuComplexity": "very_complex",
     "colorScience": false,
     "lensMount": "unknown",
     "weatherSealing": false,
@@ -11488,7 +11718,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "medium"
   },
   {
     "brand": "Sony",
@@ -11506,7 +11737,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 1,
-    "menuComplexity": "complex",
+    "menuComplexity": "very_complex",
     "colorScience": false,
     "lensMount": "Sony E",
     "weatherSealing": false,
@@ -11549,7 +11780,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "poor"
   },
   {
     "brand": "Sony",
@@ -11567,7 +11799,7 @@
     "logProfile": null,
     "bitDepth": 0,
     "cardSlots": 1,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "very_complex",
     "colorScience": false,
     "lensMount": "Sony E",
     "weatherSealing": false,
@@ -11609,7 +11841,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "ergonomics": "poor"
   },
   {
     "brand": "Sony",
@@ -11653,7 +11886,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "medium"
   },
   {
     "brand": "Sony",
@@ -11670,7 +11904,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "very_complex",
     "colorScience": false,
     "lensMount": "Sony E",
     "note": "Беззеркалка для спорта и экшн-съёмки. 20 к/с с AF/AE, без затемнения видоискателя.",
@@ -11697,7 +11931,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Sony",
@@ -11740,7 +11975,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "medium"
   },
   {
     "brand": "Sony",
@@ -11757,7 +11993,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "very_complex",
     "colorScience": false,
     "lensMount": "Sony E",
     "note": "61 Мп полный кадр с IBIS и 10 к/с. Лучший выбор для коммерческой съёмки.",
@@ -11783,7 +12019,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Sony",
@@ -11800,7 +12037,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "very_complex",
     "colorScience": false,
     "lensMount": "Sony E",
     "note": "Первая полнокадровая беззеркалка с IBIS и 4K-видео. Революция в мире фото.",
@@ -11826,7 +12063,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Sony",
@@ -11843,7 +12081,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "very_complex",
     "colorScience": false,
     "lensMount": "Sony A",
     "note": "Полнокадровая зеркалка Sony с полупрозрачным зеркалом. Встроенный стабилизатор.",
@@ -11867,7 +12105,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Sony",
@@ -11884,7 +12123,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "very_complex",
     "colorScience": false,
     "lensMount": "Sony E",
     "note": "Видео-монстр с отличной работой при высоких ISO, IBIS и 4K. Для профессионального видео.",
@@ -11910,7 +12149,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Sony",
@@ -11927,7 +12167,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "very_complex",
     "colorScience": false,
     "lensMount": "Sony E",
     "note": "42 Мп с IBIS, 4K-видео и быстрым AF. Идеальный выбор для профессионалов.",
@@ -11954,7 +12194,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Sony",
@@ -11997,7 +12238,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "medium"
   },
   {
     "brand": "Sony",
@@ -12014,7 +12256,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "very_complex",
     "colorScience": false,
     "lensMount": "Sony A",
     "note": "Флагманская зеркалка Sony A-mount с 42 Мп, IBIS и 4K-видео.",
@@ -12040,7 +12282,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Sony",
@@ -12057,7 +12300,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "very_complex",
     "colorScience": false,
     "lensMount": "Sony E",
     "note": "Специализированная камера для видео и съёмки в темноте. 12 Мп полный кадр, отличная работа при ISO 409600.",
@@ -12083,7 +12326,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Sony",
@@ -12126,7 +12370,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "medium"
   },
   {
     "brand": "Sony",
@@ -12143,7 +12388,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "very_complex",
     "colorScience": false,
     "lensMount": "Sony E",
     "note": "Беззеркалка с 36 Мп полного кадра. Максимальная детализация для пейзажей и студии.",
@@ -12168,7 +12413,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Sony",
@@ -12185,7 +12431,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "very_complex",
     "colorScience": false,
     "lensMount": "Sony E",
     "note": "Легенда: полный кадр, IBIS, 4K, 693 точки AF. Гибрид фото+видео, не устаревает годами.",
@@ -12218,7 +12464,8 @@
     "fullFrame": true,
     "mirrorless": true,
     "viewfinder": true,
-    "twoCardSlots": true
+    "twoCardSlots": true,
+    "ergonomics": "poor"
   },
   {
     "brand": "Sony",
@@ -12261,7 +12508,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "medium"
   },
   {
     "brand": "Sony",
@@ -12278,7 +12526,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "very_complex",
     "colorScience": false,
     "lensMount": "Sony E",
     "note": "Полнокадровая беззеркалка с улучшенным AF и встроенным стабилизатором.",
@@ -12304,7 +12552,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Sony",
@@ -12321,7 +12570,7 @@
     "forBeginners": false,
     "professional": true,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "very_complex",
     "colorScience": false,
     "lensMount": "Sony E",
     "note": "Первая полнокадровая беззеркалка. Компактный корпус, отличное качество, сменные объективы.",
@@ -12346,7 +12595,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Sony",
@@ -12363,7 +12613,7 @@
     "forBeginners": false,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "very_complex",
     "colorScience": false,
     "lensMount": "Sony A",
     "note": "Одна из лучших зеркалок Sony с A-байонетом. 79 точек AF, 12 к/с, стабилизация в корпусе.",
@@ -12389,7 +12639,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "good"
   },
   {
     "brand": "Sony",
@@ -12406,7 +12657,7 @@
     "forBeginners": false,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "very_complex",
     "colorScience": false,
     "lensMount": "Sony E",
     "note": "APS-C флагман Sony с IBIS и большим аккумулятором. Отличный гибрид.",
@@ -12432,7 +12683,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Sony",
@@ -12449,7 +12701,7 @@
     "forBeginners": false,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "very_complex",
     "colorScience": false,
     "lensMount": "Sony E",
     "note": "Флагман Sony APS-C с IBIS, быстрым AF и 4K-видео. Лучший выбор для экшн-съёмки.",
@@ -12475,7 +12727,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Sony",
@@ -12492,7 +12745,7 @@
     "forBeginners": false,
     "professional": false,
     "forBloggers": true,
-    "menuComplexity": "complex",
+    "menuComplexity": "very_complex",
     "colorScience": false,
     "lensMount": "Sony E",
     "note": "Лучший APS-C для видео и контента. 4K, быстрый AF, поворотный экран.",
@@ -12518,7 +12771,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Sony",
@@ -12535,7 +12789,7 @@
     "forBeginners": false,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "complex",
+    "menuComplexity": "very_complex",
     "colorScience": false,
     "lensMount": "Sony E",
     "note": "Беззеркалка с 4K-видео и быстрым AF. Отличный выбор для видео и фотографии.",
@@ -12561,7 +12815,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Sony",
@@ -12578,7 +12833,7 @@
     "forBeginners": true,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "very_complex",
     "colorScience": false,
     "lensMount": "Sony E",
     "note": "4K, быстрый AF, поворотный экран. Отличный старт в мир Sony APS-C.",
@@ -12604,7 +12859,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Sony",
@@ -12621,7 +12877,7 @@
     "forBeginners": false,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "very_complex",
     "colorScience": false,
     "lensMount": "Sony E",
     "note": "Топовая беззеркалка Sony своего времени. 24 Мп, отличный электронный видоискатель, компактность.",
@@ -12645,7 +12901,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Sony",
@@ -12662,7 +12919,7 @@
     "forBeginners": false,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "very_complex",
     "colorScience": false,
     "lensMount": "Sony E",
     "note": "Беззеркалка с электронным видоискателем и гибридным AF. Отличный выбор для энтузиастов.",
@@ -12686,7 +12943,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Sony",
@@ -12703,7 +12961,7 @@
     "forBeginners": false,
     "professional": false,
     "forBloggers": true,
-    "menuComplexity": "complex",
+    "menuComplexity": "very_complex",
     "colorScience": false,
     "lensMount": "Sony E",
     "note": "Легендарная беззеркалка APS-C. 179 точек AF, 11 к/с, компактный корпус. Очень популярна до сих пор.",
@@ -12729,7 +12987,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Sony",
@@ -12746,7 +13005,7 @@
     "forBeginners": false,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "very_complex",
     "colorScience": false,
     "lensMount": "Sony E",
     "note": "Беззеркалка с гибридным AF и поворотным экраном. Компактный и удобный.",
@@ -12770,7 +13029,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Sony",
@@ -12787,7 +13047,7 @@
     "forBeginners": false,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "very_complex",
     "colorScience": false,
     "lensMount": "Sony E",
     "note": "Беззеркалка с поворотным экраном. Хороший старт для перехода с компактов.",
@@ -12810,7 +13070,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Sony",
@@ -12827,7 +13088,7 @@
     "forBeginners": true,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "very_complex",
     "colorScience": false,
     "lensMount": "Sony E",
     "note": "Лёгкая и компактная беззеркалка для начинающих. APS-C сенсор в маленьком корпусе.",
@@ -12851,7 +13112,8 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   },
   {
     "brand": "Sony",
@@ -12868,7 +13130,7 @@
     "forBeginners": true,
     "professional": false,
     "forBloggers": false,
-    "menuComplexity": "intermediate",
+    "menuComplexity": "very_complex",
     "colorScience": false,
     "lensMount": "Sony E",
     "note": "Беззеркалка с большим видоискателем. Дешёвый вход в мир Sony E-mount.",
@@ -12892,6 +13154,7 @@
     ],
     "manualUrl": "",
     "firmwareUrl": "",
-    "cardSlots": 1
+    "cardSlots": 1,
+    "ergonomics": "poor"
   }
 ]
