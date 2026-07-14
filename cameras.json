@@ -1800,7 +1800,7 @@
   {
     "brand": "Canon",
     "model": "1D C",
-    "price": 1080000,
+    "price": 150000,
     "weight": 1340,
     "type": "DSLR",
     "sensorSize": "Full frame 18 Мп",
@@ -1963,7 +1963,7 @@
   {
     "brand": "Canon",
     "model": "1D X",
-    "price": 610000,
+    "price": 60000,
     "weight": 1340,
     "type": "DSLR",
     "sensorSize": "Full frame 18 Мп",
@@ -2005,7 +2005,7 @@
   {
     "brand": "Canon",
     "model": "1D X Mark III",
-    "price": 540000,
+    "price": 250000,
     "weight": 1440,
     "type": "DSLR",
     "sensorSize": "Full frame 20 Мп",
@@ -2091,7 +2091,7 @@
   {
     "brand": "Canon",
     "model": "1D Mark IV",
-    "price": 405000,
+    "price": 40000,
     "weight": 1180,
     "type": "DSLR",
     "sensorSize": "APS-H 16 Мп",
@@ -2132,7 +2132,7 @@
   {
     "brand": "Canon",
     "model": "5DS R",
-    "price": 245000,
+    "price": 75000,
     "weight": 930,
     "type": "DSLR",
     "sensorSize": "Full frame 50 Мп",
@@ -2173,7 +2173,7 @@
   {
     "brand": "Canon",
     "model": "5DS",
-    "price": 225000,
+    "price": 65000,
     "weight": 930,
     "type": "DSLR",
     "sensorSize": "Full frame 50 Мп",
@@ -2214,7 +2214,7 @@
   {
     "brand": "Canon",
     "model": "5D Mark III",
-    "price": 180000,
+    "price": 50000,
     "weight": 950,
     "type": "DSLR",
     "sensorSize": "Full frame 22 Мп",
@@ -2255,7 +2255,7 @@
   {
     "brand": "Canon",
     "model": "EOS R",
-    "price": 160000,
+    "price": 85000,
     "weight": 660,
     "type": "Mirrorless",
     "sensorSize": "Full frame 30 Мп",
@@ -2298,7 +2298,7 @@
   {
     "brand": "Canon",
     "model": "6D Mark II",
-    "price": 125000,
+    "price": 70000,
     "weight": 765,
     "type": "DSLR",
     "sensorSize": "Full frame 26 Мп",
@@ -2343,7 +2343,7 @@
   {
     "brand": "Canon",
     "model": "6D",
-    "price": 125000,
+    "price": 40000,
     "weight": 770,
     "type": "DSLR",
     "sensorSize": "Full frame 20 Мп",
@@ -2385,7 +2385,7 @@
   {
     "brand": "Canon",
     "model": "EOS 7D Mark II",
-    "price": 110000,
+    "price": 45000,
     "weight": 910,
     "type": "DSLR",
     "sensorSize": "APS-C 20 Мп",
@@ -2426,7 +2426,7 @@
   {
     "brand": "Canon",
     "model": "EOS M6 Mark II",
-    "price": 76000,
+    "price": 60000,
     "weight": 408,
     "type": "Mirrorless",
     "sensorSize": "APS-C 32 Мп",
@@ -2469,7 +2469,7 @@
   {
     "brand": "Canon",
     "model": "EOS R10",
-    "price": 72000,
+    "price": 70000,
     "weight": 426,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп",
@@ -2512,7 +2512,7 @@
   {
     "brand": "Canon",
     "model": "EOS 70D",
-    "price": 72000,
+    "price": 33000,
     "weight": 755,
     "type": "DSLR",
     "sensorSize": "APS-C 20 Мп",
@@ -2554,7 +2554,7 @@
   {
     "brand": "Canon",
     "model": "EOS 77D",
-    "price": 58000,
+    "price": 38000,
     "weight": 540,
     "type": "DSLR",
     "sensorSize": "APS-C 24 Мп",
@@ -2598,7 +2598,7 @@
   {
     "brand": "Canon",
     "model": "EOS 760D",
-    "price": 54000,
+    "price": 28000,
     "weight": 565,
     "type": "DSLR",
     "sensorSize": "APS-C 24 Мп",
@@ -2641,7 +2641,7 @@
   {
     "brand": "Canon",
     "model": "EOS 600D",
-    "price": 40000,
+    "price": 17000,
     "weight": 570,
     "type": "DSLR",
     "sensorSize": "APS-C 18 Мп",
@@ -2682,7 +2682,7 @@
   {
     "brand": "Canon",
     "model": "EOS 200D",
-    "price": 40000,
+    "price": 30000,
     "weight": 453,
     "type": "DSLR",
     "sensorSize": "APS-C 24 Мп",
@@ -4096,7 +4096,7 @@
   {
     "brand": "Fujifilm",
     "model": "X-T2",
-    "price": 125000,
+    "price": 50000,
     "weight": 507,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп X-Trans",
@@ -4138,7 +4138,7 @@
   {
     "brand": "Fujifilm",
     "model": "X-Pro2",
-    "price": 125000,
+    "price": 60000,
     "weight": 495,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп X-Trans",
@@ -4180,7 +4180,7 @@
   {
     "brand": "Fujifilm",
     "model": "X-H1",
-    "price": 125000,
+    "price": 55000,
     "weight": 673,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп X-Trans",
@@ -4222,7 +4222,7 @@
   {
     "brand": "Fujifilm",
     "model": "X-T3",
-    "price": 115000,
+    "price": 65000,
     "weight": 539,
     "type": "Mirrorless",
     "sensorSize": "APS-C 26 Мп X-Trans",
@@ -4265,7 +4265,7 @@
   {
     "brand": "Fujifilm",
     "model": "X100F",
-    "price": 110000,
+    "price": 90000,
     "weight": 469,
     "type": "Compact",
     "sensorSize": "APS-C 24 Мп X-Trans",
@@ -4307,7 +4307,7 @@
   {
     "brand": "Fujifilm",
     "model": "X100T",
-    "price": 90000,
+    "price": 65000,
     "weight": 440,
     "type": "Compact",
     "sensorSize": "APS-C 16 Мп X-Trans",
@@ -4349,7 +4349,7 @@
   {
     "brand": "Fujifilm",
     "model": "X100S",
-    "price": 90000,
+    "price": 55000,
     "weight": 445,
     "type": "Compact",
     "sensorSize": "APS-C 16 Мп X-Trans",
@@ -4390,7 +4390,7 @@
   {
     "brand": "Fujifilm",
     "model": "X-T50",
-    "price": 90000,
+    "price": 130000,
     "weight": 383,
     "type": "Mirrorless",
     "sensorSize": "APS-C 26 Мп X-Trans",
@@ -4433,7 +4433,7 @@
   {
     "brand": "Fujifilm",
     "model": "X-Pro1",
-    "price": 90000,
+    "price": 30000,
     "weight": 450,
     "type": "Mirrorless",
     "sensorSize": "APS-C 16 Мп X-Trans",
@@ -4474,7 +4474,7 @@
   {
     "brand": "Fujifilm",
     "model": "X100",
-    "price": 81000,
+    "price": 45000,
     "weight": 445,
     "type": "Compact",
     "sensorSize": "APS-C 12 Мп",
@@ -4514,7 +4514,7 @@
   {
     "brand": "Fujifilm",
     "model": "X-S10",
-    "price": 81000,
+    "price": 75000,
     "weight": 465,
     "type": "Mirrorless",
     "sensorSize": "APS-C 26 Мп X-Trans",
@@ -4557,7 +4557,7 @@
   {
     "brand": "Fujifilm",
     "model": "X-T30 III",
-    "price": 72000,
+    "price": 90000,
     "weight": 380,
     "type": "Mirrorless",
     "sensorSize": "APS-C 26 Мп X-Trans",
@@ -4600,7 +4600,7 @@
   {
     "brand": "Fujifilm",
     "model": "X-T1",
-    "price": 72000,
+    "price": 30000,
     "weight": 440,
     "type": "Mirrorless",
     "sensorSize": "APS-C 16 Мп X-Trans",
@@ -4642,7 +4642,7 @@
   {
     "brand": "Fujifilm",
     "model": "X-E5",
-    "price": 68000,
+    "price": 140000,
     "weight": 360,
     "type": "Mirrorless",
     "sensorSize": "APS-C 26 Мп X-Trans",
@@ -4685,7 +4685,7 @@
   {
     "brand": "Fujifilm",
     "model": "X70",
-    "price": 63000,
+    "price": 55000,
     "weight": 340,
     "type": "Compact",
     "sensorSize": "APS-C 16 Мп X-Trans",
@@ -4727,7 +4727,7 @@
   {
     "brand": "Fujifilm",
     "model": "X-T20",
-    "price": 63000,
+    "price": 40000,
     "weight": 383,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп X-Trans",
@@ -4769,7 +4769,7 @@
   {
     "brand": "Fujifilm",
     "model": "X-E4",
-    "price": 63000,
+    "price": 75000,
     "weight": 364,
     "type": "Mirrorless",
     "sensorSize": "APS-C 26 Мп X-Trans",
@@ -4812,7 +4812,7 @@
   {
     "brand": "Fujifilm",
     "model": "X-E3",
-    "price": 63000,
+    "price": 45000,
     "weight": 337,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп X-Trans",
@@ -4855,7 +4855,7 @@
   {
     "brand": "Fujifilm",
     "model": "X-E1",
-    "price": 63000,
+    "price": 22000,
     "weight": 350,
     "type": "Mirrorless",
     "sensorSize": "APS-C 16 Мп X-Trans",
@@ -4896,7 +4896,7 @@
   {
     "brand": "Fujifilm",
     "model": "X-T10",
-    "price": 58000,
+    "price": 28000,
     "weight": 381,
     "type": "Mirrorless",
     "sensorSize": "APS-C 16 Мп X-Trans",
@@ -4938,7 +4938,7 @@
   {
     "brand": "Fujifilm",
     "model": "X-M5",
-    "price": 54000,
+    "price": 90000,
     "weight": 355,
     "type": "Mirrorless",
     "sensorSize": "APS-C 26 Мп",
@@ -4981,7 +4981,7 @@
   {
     "brand": "Fujifilm",
     "model": "X-E2S",
-    "price": 54000,
+    "price": 30000,
     "weight": 350,
     "type": "Mirrorless",
     "sensorSize": "APS-C 16 Мп X-Trans",
@@ -5023,7 +5023,7 @@
   {
     "brand": "Fujifilm",
     "model": "X-E2",
-    "price": 54000,
+    "price": 26000,
     "weight": 350,
     "type": "Mirrorless",
     "sensorSize": "APS-C 16 Мп X-Trans",
@@ -5065,7 +5065,7 @@
   {
     "brand": "Fujifilm",
     "model": "XF10",
-    "price": 45000,
+    "price": 35000,
     "weight": 280,
     "type": "Compact",
     "sensorSize": "APS-C 24 Мп",
@@ -5108,7 +5108,7 @@
   {
     "brand": "Fujifilm",
     "model": "X30",
-    "price": 45000,
+    "price": 22000,
     "weight": 423,
     "type": "Compact",
     "sensorSize": "2/3 12 Мп",
@@ -5150,7 +5150,7 @@
   {
     "brand": "Fujifilm",
     "model": "X20",
-    "price": 45000,
+    "price": 18000,
     "weight": 353,
     "type": "Compact",
     "sensorSize": "2/3 12 Мп",
@@ -5191,7 +5191,7 @@
   {
     "brand": "Fujifilm",
     "model": "X10",
-    "price": 45000,
+    "price": 15000,
     "weight": 350,
     "type": "Compact",
     "sensorSize": "2/3 12 Мп",
@@ -5232,7 +5232,7 @@
   {
     "brand": "Fujifilm",
     "model": "X-M1",
-    "price": 45000,
+    "price": 20000,
     "weight": 280,
     "type": "Mirrorless",
     "sensorSize": "APS-C 16 Мп X-Trans",
@@ -5274,7 +5274,7 @@
   {
     "brand": "Fujifilm",
     "model": "X-A7",
-    "price": 45000,
+    "price": 38000,
     "weight": 320,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп",
@@ -5317,7 +5317,7 @@
   {
     "brand": "Fujifilm",
     "model": "X-A5",
-    "price": 40000,
+    "price": 30000,
     "weight": 361,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп",
@@ -5360,7 +5360,7 @@
   {
     "brand": "Fujifilm",
     "model": "XF1",
-    "price": 36000,
+    "price": 10000,
     "weight": 225,
     "type": "Compact",
     "sensorSize": "2/3 12 Мп",
@@ -5401,7 +5401,7 @@
   {
     "brand": "Fujifilm",
     "model": "X-S1",
-    "price": 36000,
+    "price": 15000,
     "weight": 920,
     "type": "Compact",
     "sensorSize": "2/3 12 Мп",
@@ -5442,7 +5442,7 @@
   {
     "brand": "Fujifilm",
     "model": "X-A3",
-    "price": 36000,
+    "price": 25000,
     "weight": 339,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп",
@@ -5484,7 +5484,7 @@
   {
     "brand": "Fujifilm",
     "model": "X-A1",
-    "price": 36000,
+    "price": 18000,
     "weight": 330,
     "type": "Mirrorless",
     "sensorSize": "APS-C 16 Мп",
@@ -5525,7 +5525,7 @@
   {
     "brand": "Fujifilm",
     "model": "XQ1",
-    "price": 32000,
+    "price": 12000,
     "weight": 206,
     "type": "Compact",
     "sensorSize": "2/3 12 Мп",
@@ -5690,7 +5690,7 @@
   {
     "brand": "Hasselblad",
     "model": "H6D",
-    "price": 1350000,
+    "price": 600000,
     "weight": 800,
     "type": "DSLR",
     "sensorSize": "Средний формат 50 Мп / 100 Мп",
@@ -5732,7 +5732,7 @@
   {
     "brand": "Hasselblad",
     "model": "H5D",
-    "price": 1350000,
+    "price": 350000,
     "weight": 800,
     "type": "DSLR",
     "sensorSize": "Средний формат 40 Мп",
@@ -5773,7 +5773,7 @@
   {
     "brand": "Hasselblad",
     "model": "X1D",
-    "price": 720000,
+    "price": 250000,
     "weight": 725,
     "type": "Mirrorless",
     "sensorSize": "Средний формат 50 Мп",
@@ -5815,7 +5815,7 @@
   {
     "brand": "Hasselblad",
     "model": "X2D",
-    "price": 650000,
+    "price": 550000,
     "weight": 790,
     "type": "Mirrorless",
     "sensorSize": "Средний формат 100 Мп",
@@ -5857,7 +5857,7 @@
   {
     "brand": "Hasselblad",
     "model": "907X",
-    "price": 540000,
+    "price": 450000,
     "weight": 740,
     "type": "Mirrorless",
     "sensorSize": "Средний формат 50 Мп",
@@ -6271,7 +6271,7 @@
   {
     "brand": "Leica",
     "model": "M11-D",
-    "price": 675000,
+    "price": 850000,
     "weight": 640,
     "type": "Compact",
     "sensorSize": "Full frame 60 Мп",
@@ -6313,7 +6313,7 @@
   {
     "brand": "Leica",
     "model": "M10",
-    "price": 630000,
+    "price": 420000,
     "weight": 660,
     "type": "Compact",
     "sensorSize": "Full frame 24 Мп",
@@ -6355,7 +6355,7 @@
   {
     "brand": "Leica",
     "model": "M (Typ 240)",
-    "price": 630000,
+    "price": 280000,
     "weight": 680,
     "type": "Compact",
     "sensorSize": "Full frame 24 Мп",
@@ -6396,7 +6396,7 @@
   {
     "brand": "Leica",
     "model": "SL2",
-    "price": 540000,
+    "price": 320000,
     "weight": 835,
     "type": "Mirrorless",
     "sensorSize": "Full frame 47 Мп",
@@ -6439,7 +6439,7 @@
   {
     "brand": "Leica",
     "model": "SL (Typ 601)",
-    "price": 540000,
+    "price": 180000,
     "weight": 847,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
@@ -6480,7 +6480,7 @@
   {
     "brand": "Leica",
     "model": "Q (Typ 116)",
-    "price": 360000,
+    "price": 250000,
     "weight": 640,
     "type": "Compact",
     "sensorSize": "Full frame 24 Мп",
@@ -6522,7 +6522,7 @@
   {
     "brand": "Leica",
     "model": "M9-P",
-    "price": 360000,
+    "price": 320000,
     "weight": 585,
     "type": "Compact",
     "sensorSize": "Full frame 18 Мп",
@@ -6560,7 +6560,7 @@
   {
     "brand": "Leica",
     "model": "X1",
-    "price": 90000,
+    "price": 60000,
     "weight": 286,
     "type": "Compact",
     "sensorSize": "APS-C 12 Мп",
@@ -7156,7 +7156,7 @@
   {
     "brand": "Nikon",
     "model": "D4S",
-    "price": 540000,
+    "price": 90000,
     "weight": 1180,
     "type": "DSLR",
     "sensorSize": "Full frame 16 Мп",
@@ -7198,7 +7198,7 @@
   {
     "brand": "Nikon",
     "model": "D4",
-    "price": 540000,
+    "price": 70000,
     "weight": 1340,
     "type": "DSLR",
     "sensorSize": "Full frame 16 Мп",
@@ -7283,7 +7283,7 @@
   {
     "brand": "Nikon",
     "model": "D5",
-    "price": 495000,
+    "price": 150000,
     "weight": 1415,
     "type": "DSLR",
     "sensorSize": "Full frame 20 Мп",
@@ -7326,7 +7326,7 @@
   {
     "brand": "Nikon",
     "model": "D3S",
-    "price": 470000,
+    "price": 35000,
     "weight": 1240,
     "type": "DSLR",
     "sensorSize": "Full frame 12 Мп",
@@ -7367,7 +7367,7 @@
   {
     "brand": "Nikon",
     "model": "D800E",
-    "price": 270000,
+    "price": 50000,
     "weight": 900,
     "type": "DSLR",
     "sensorSize": "Full frame 36 Мп",
@@ -7408,7 +7408,7 @@
   {
     "brand": "Nikon",
     "model": "D810",
-    "price": 250000,
+    "price": 60000,
     "weight": 880,
     "type": "DSLR",
     "sensorSize": "Full frame 36 Мп",
@@ -7449,7 +7449,7 @@
   {
     "brand": "Nikon",
     "model": "D800",
-    "price": 250000,
+    "price": 45000,
     "weight": 900,
     "type": "DSLR",
     "sensorSize": "Full frame 36 Мп",
@@ -7533,7 +7533,7 @@
   {
     "brand": "Nikon",
     "model": "Z6 II",
-    "price": 180000,
+    "price": 105000,
     "weight": 705,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
@@ -7576,7 +7576,7 @@
   {
     "brand": "Nikon",
     "model": "Df",
-    "price": 180000,
+    "price": 110000,
     "weight": 765,
     "type": "DSLR",
     "sensorSize": "Full frame 16 Мп",
@@ -7617,7 +7617,7 @@
   {
     "brand": "Nikon",
     "model": "Z6",
-    "price": 160000,
+    "price": 75000,
     "weight": 675,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
@@ -7660,7 +7660,7 @@
   {
     "brand": "Nikon",
     "model": "D780",
-    "price": 160000,
+    "price": 130000,
     "weight": 840,
     "type": "DSLR",
     "sensorSize": "Full frame 24 Мп",
@@ -7703,7 +7703,7 @@
   {
     "brand": "Nikon",
     "model": "D600",
-    "price": 135000,
+    "price": 38000,
     "weight": 760,
     "type": "DSLR",
     "sensorSize": "Full frame 24 Мп",
@@ -7744,7 +7744,7 @@
   {
     "brand": "Nikon",
     "model": "D500",
-    "price": 135000,
+    "price": 85000,
     "weight": 860,
     "type": "DSLR",
     "sensorSize": "APS-C 20 Мп",
@@ -7830,7 +7830,7 @@
   {
     "brand": "Nikon",
     "model": "Z5",
-    "price": 115000,
+    "price": 75000,
     "weight": 675,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
@@ -7873,7 +7873,7 @@
   {
     "brand": "Nikon",
     "model": "D610",
-    "price": 115000,
+    "price": 45000,
     "weight": 850,
     "type": "DSLR",
     "sensorSize": "Full frame 24 Мп",
@@ -7914,7 +7914,7 @@
   {
     "brand": "Nikon",
     "model": "Z fc",
-    "price": 81000,
+    "price": 75000,
     "weight": 445,
     "type": "Mirrorless",
     "sensorSize": "APS-C 20 Мп",
@@ -7957,7 +7957,7 @@
   {
     "brand": "Nikon",
     "model": "Z50",
-    "price": 76000,
+    "price": 60000,
     "weight": 450,
     "type": "Mirrorless",
     "sensorSize": "APS-C 20 Мп",
@@ -8000,7 +8000,7 @@
   {
     "brand": "Nikon",
     "model": "D7200",
-    "price": 68000,
+    "price": 38000,
     "weight": 765,
     "type": "DSLR",
     "sensorSize": "APS-C 24 Мп",
@@ -8043,7 +8043,7 @@
   {
     "brand": "Nikon",
     "model": "Z50 II",
-    "price": 63000,
+    "price": 85000,
     "weight": 450,
     "type": "Mirrorless",
     "sensorSize": "APS-C 20 Мп",
@@ -8086,7 +8086,7 @@
   {
     "brand": "Nikon",
     "model": "D7100",
-    "price": 63000,
+    "price": 28000,
     "weight": 765,
     "type": "DSLR",
     "sensorSize": "APS-C 24 Мп",
@@ -8127,7 +8127,7 @@
   {
     "brand": "Nikon",
     "model": "Z30",
-    "price": 54000,
+    "price": 55000,
     "weight": 405,
     "type": "Mirrorless",
     "sensorSize": "APS-C 20 Мп",
@@ -8170,7 +8170,7 @@
   {
     "brand": "Nikon",
     "model": "D7000",
-    "price": 54000,
+    "price": 20000,
     "weight": 780,
     "type": "DSLR",
     "sensorSize": "APS-C 16 Мп",
@@ -8210,7 +8210,7 @@
   {
     "brand": "Nikon",
     "model": "D5600",
-    "price": 54000,
+    "price": 32000,
     "weight": 465,
     "type": "DSLR",
     "sensorSize": "APS-C 24 Мп",
@@ -8253,7 +8253,7 @@
   {
     "brand": "Nikon",
     "model": "D5500",
-    "price": 50000,
+    "price": 25000,
     "weight": 465,
     "type": "DSLR",
     "sensorSize": "APS-C 24 Мп",
@@ -8295,7 +8295,7 @@
   {
     "brand": "Nikon",
     "model": "D5100",
-    "price": 36000,
+    "price": 14000,
     "weight": 560,
     "type": "DSLR",
     "sensorSize": "APS-C 16 Мп",
@@ -8335,7 +8335,7 @@
   {
     "brand": "Nikon",
     "model": "D3500",
-    "price": 36000,
+    "price": 25000,
     "weight": 415,
     "type": "DSLR",
     "sensorSize": "APS-C 24 Мп",
@@ -8377,7 +8377,7 @@
   {
     "brand": "Nikon",
     "model": "D3400",
-    "price": 32000,
+    "price": 18000,
     "weight": 445,
     "type": "DSLR",
     "sensorSize": "APS-C 24 Мп",
@@ -8419,7 +8419,7 @@
   {
     "brand": "Nikon",
     "model": "D3300",
-    "price": 32000,
+    "price": 15000,
     "weight": 460,
     "type": "DSLR",
     "sensorSize": "APS-C 24 Мп",
@@ -8460,7 +8460,7 @@
   {
     "brand": "Olympus",
     "model": "OM-D E-M1X",
-    "price": 225000,
+    "price": 60000,
     "weight": 997,
     "type": "Mirrorless",
     "sensorSize": "MFT 20 Мп",
@@ -8502,7 +8502,7 @@
   {
     "brand": "Olympus",
     "model": "OM-D E-M1 III",
-    "price": 135000,
+    "price": 70000,
     "weight": 580,
     "type": "Mirrorless",
     "sensorSize": "MFT 20 Мп",
@@ -8544,7 +8544,7 @@
   {
     "brand": "Olympus",
     "model": "OM-D E-M1 II",
-    "price": 135000,
+    "price": 45000,
     "weight": 574,
     "type": "Mirrorless",
     "sensorSize": "MFT 20 Мп",
@@ -8586,7 +8586,7 @@
   {
     "brand": "Olympus",
     "model": "PEN-F",
-    "price": 90000,
+    "price": 60000,
     "weight": 427,
     "type": "Mirrorless",
     "sensorSize": "MFT 20 Мп",
@@ -8628,7 +8628,7 @@
   {
     "brand": "Olympus",
     "model": "OM-D E-M5 III",
-    "price": 90000,
+    "price": 55000,
     "weight": 414,
     "type": "Mirrorless",
     "sensorSize": "MFT 20 Мп",
@@ -8670,7 +8670,7 @@
   {
     "brand": "Olympus",
     "model": "OM-D E-M1",
-    "price": 90000,
+    "price": 25000,
     "weight": 497,
     "type": "Mirrorless",
     "sensorSize": "MFT 16 Мп",
@@ -8712,7 +8712,7 @@
   {
     "brand": "Olympus",
     "model": "OM-D E-M5",
-    "price": 63000,
+    "price": 18000,
     "weight": 425,
     "type": "Mirrorless",
     "sensorSize": "MFT 16 Мп",
@@ -8753,7 +8753,7 @@
   {
     "brand": "Olympus",
     "model": "PEN E-PL2",
-    "price": 32000,
+    "price": 10000,
     "weight": 362,
     "type": "Mirrorless",
     "sensorSize": "MFT 12 Мп",
@@ -8793,7 +8793,7 @@
   {
     "brand": "OM System",
     "model": "OM-1",
-    "price": 180000,
+    "price": 140000,
     "weight": 599,
     "type": "Mirrorless",
     "sensorSize": "MFT 20 Мп",
@@ -8835,7 +8835,7 @@
   {
     "brand": "OM System",
     "model": "OM-5",
-    "price": 110000,
+    "price": 90000,
     "weight": 414,
     "type": "Mirrorless",
     "sensorSize": "MFT 20 Мп",
@@ -9122,7 +9122,7 @@
   {
     "brand": "Panasonic",
     "model": "Lumix S1H",
-    "price": 315000,
+    "price": 170000,
     "weight": 1164,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
@@ -9165,7 +9165,7 @@
   {
     "brand": "Panasonic",
     "model": "Lumix S1R",
-    "price": 270000,
+    "price": 110000,
     "weight": 1021,
     "type": "Mirrorless",
     "sensorSize": "Full frame 47 Мп",
@@ -9208,7 +9208,7 @@
   {
     "brand": "Panasonic",
     "model": "Lumix S5 IIX",
-    "price": 200000,
+    "price": 160000,
     "weight": 740,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
@@ -9251,7 +9251,7 @@
   {
     "brand": "Panasonic",
     "model": "Lumix GH7",
-    "price": 200000,
+    "price": 190000,
     "weight": 823,
     "type": "Mirrorless",
     "sensorSize": "MFT 25 Мп",
@@ -9294,7 +9294,7 @@
   {
     "brand": "Panasonic",
     "model": "Lumix S5 II",
-    "price": 180000,
+    "price": 140000,
     "weight": 740,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
@@ -9337,7 +9337,7 @@
   {
     "brand": "Panasonic",
     "model": "Lumix S1",
-    "price": 180000,
+    "price": 90000,
     "weight": 1021,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
@@ -9380,7 +9380,7 @@
   {
     "brand": "Panasonic",
     "model": "Lumix GH5S",
-    "price": 180000,
+    "price": 90000,
     "weight": 660,
     "type": "Mirrorless",
     "sensorSize": "MFT 10 Мп",
@@ -9422,7 +9422,7 @@
   {
     "brand": "Panasonic",
     "model": "Lumix G9 II",
-    "price": 155000,
+    "price": 140000,
     "weight": 658,
     "type": "Mirrorless",
     "sensorSize": "MFT 25 Мп",
@@ -9465,7 +9465,7 @@
   {
     "brand": "Panasonic",
     "model": "Lumix S5",
-    "price": 145000,
+    "price": 90000,
     "weight": 714,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
@@ -9508,7 +9508,7 @@
   {
     "brand": "Panasonic",
     "model": "Lumix S9",
-    "price": 135000,
+    "price": 130000,
     "weight": 600,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
@@ -9551,7 +9551,7 @@
   {
     "brand": "Panasonic",
     "model": "Lumix G9",
-    "price": 125000,
+    "price": 55000,
     "weight": 658,
     "type": "Mirrorless",
     "sensorSize": "MFT 20 Мп",
@@ -9594,7 +9594,7 @@
   {
     "brand": "Panasonic",
     "model": "Lumix GH5 II",
-    "price": 115000,
+    "price": 75000,
     "weight": 727,
     "type": "Mirrorless",
     "sensorSize": "MFT 20 Мп",
@@ -9637,7 +9637,7 @@
   {
     "brand": "Panasonic",
     "model": "Lumix GH4",
-    "price": 90000,
+    "price": 30000,
     "weight": 560,
     "type": "Mirrorless",
     "sensorSize": "MFT 16 Мп",
@@ -9679,7 +9679,7 @@
   {
     "brand": "Panasonic",
     "model": "Lumix GX8",
-    "price": 81000,
+    "price": 30000,
     "weight": 487,
     "type": "Mirrorless",
     "sensorSize": "MFT 20 Мп",
@@ -9721,7 +9721,7 @@
   {
     "brand": "Panasonic",
     "model": "Lumix GH3",
-    "price": 72000,
+    "price": 18000,
     "weight": 550,
     "type": "Mirrorless",
     "sensorSize": "MFT 16 Мп",
@@ -9762,7 +9762,7 @@
   {
     "brand": "Panasonic",
     "model": "Lumix GX9",
-    "price": 63000,
+    "price": 45000,
     "weight": 450,
     "type": "Mirrorless",
     "sensorSize": "MFT 20 Мп",
@@ -9804,7 +9804,7 @@
   {
     "brand": "Panasonic",
     "model": "Lumix GX7",
-    "price": 58000,
+    "price": 20000,
     "weight": 402,
     "type": "Mirrorless",
     "sensorSize": "MFT 16 Мп",
@@ -9846,7 +9846,7 @@
   {
     "brand": "Panasonic",
     "model": "Lumix GX80/85",
-    "price": 54000,
+    "price": 28000,
     "weight": 426,
     "type": "Mirrorless",
     "sensorSize": "MFT 16 Мп",
@@ -9888,7 +9888,7 @@
   {
     "brand": "Panasonic",
     "model": "Lumix GH2",
-    "price": 54000,
+    "price": 15000,
     "weight": 442,
     "type": "Mirrorless",
     "sensorSize": "MFT 16 Мп",
@@ -9928,7 +9928,7 @@
   {
     "brand": "Panasonic",
     "model": "Lumix G7",
-    "price": 54000,
+    "price": 25000,
     "weight": 410,
     "type": "Mirrorless",
     "sensorSize": "MFT 16 Мп",
@@ -9970,7 +9970,7 @@
   {
     "brand": "Panasonic",
     "model": "Lumix GX1",
-    "price": 45000,
+    "price": 10000,
     "weight": 318,
     "type": "Mirrorless",
     "sensorSize": "MFT 16 Мп",
@@ -10011,7 +10011,7 @@
   {
     "brand": "Panasonic",
     "model": "Lumix G6",
-    "price": 45000,
+    "price": 13000,
     "weight": 396,
     "type": "Mirrorless",
     "sensorSize": "MFT 16 Мп",
@@ -10052,7 +10052,7 @@
   {
     "brand": "Panasonic",
     "model": "Lumix G5",
-    "price": 45000,
+    "price": 11000,
     "weight": 396,
     "type": "Mirrorless",
     "sensorSize": "MFT 16 Мп",
@@ -10093,7 +10093,7 @@
   {
     "brand": "Panasonic",
     "model": "Lumix G3",
-    "price": 40000,
+    "price": 9000,
     "weight": 336,
     "type": "Mirrorless",
     "sensorSize": "MFT 16 Мп",
@@ -10134,7 +10134,7 @@
   {
     "brand": "Panasonic",
     "model": "Lumix GM1",
-    "price": 36000,
+    "price": 25000,
     "weight": 204,
     "type": "Mirrorless",
     "sensorSize": "MFT 16 Мп",
@@ -10175,7 +10175,7 @@
   {
     "brand": "Panasonic",
     "model": "Lumix G2",
-    "price": 36000,
+    "price": 8000,
     "weight": 371,
     "type": "Mirrorless",
     "sensorSize": "MFT 12 Мп",
@@ -10215,7 +10215,7 @@
   {
     "brand": "Panasonic",
     "model": "Lumix GF7",
-    "price": 32000,
+    "price": 14000,
     "weight": 266,
     "type": "Mirrorless",
     "sensorSize": "MFT 16 Мп",
@@ -10257,7 +10257,7 @@
   {
     "brand": "Panasonic",
     "model": "Lumix GF6",
-    "price": 32000,
+    "price": 10000,
     "weight": 286,
     "type": "Mirrorless",
     "sensorSize": "MFT 16 Мп",
@@ -10299,7 +10299,7 @@
   {
     "brand": "Panasonic",
     "model": "Lumix GF5",
-    "price": 32000,
+    "price": 9000,
     "weight": 267,
     "type": "Mirrorless",
     "sensorSize": "MFT 12 Мп",
@@ -10340,7 +10340,7 @@
   {
     "brand": "Pentax",
     "model": "645Z",
-    "price": 540000,
+    "price": 280000,
     "weight": 1470,
     "type": "DSLR",
     "sensorSize": "Средний формат 51 Мп",
@@ -10381,7 +10381,7 @@
   {
     "brand": "Pentax",
     "model": "K-1",
-    "price": 145000,
+    "price": 90000,
     "weight": 1010,
     "type": "DSLR",
     "sensorSize": "Full frame 36 Мп",
@@ -10423,7 +10423,7 @@
   {
     "brand": "Pentax",
     "model": "K-3 III",
-    "price": 135000,
+    "price": 110000,
     "weight": 820,
     "type": "DSLR",
     "sensorSize": "APS-C 25 Мп",
@@ -10465,7 +10465,7 @@
   {
     "brand": "Pentax",
     "model": "KP",
-    "price": 81000,
+    "price": 55000,
     "weight": 703,
     "type": "DSLR",
     "sensorSize": "APS-C 24 Мп",
@@ -10507,7 +10507,7 @@
   {
     "brand": "Pentax",
     "model": "K-3",
-    "price": 81000,
+    "price": 25000,
     "weight": 800,
     "type": "DSLR",
     "sensorSize": "APS-C 24 Мп",
@@ -10548,7 +10548,7 @@
   {
     "brand": "Pentax",
     "model": "K-5",
-    "price": 54000,
+    "price": 15000,
     "weight": 750,
     "type": "DSLR",
     "sensorSize": "APS-C 16 Мп",
@@ -11697,7 +11697,7 @@
   {
     "brand": "Sony",
     "model": "Alpha A1 II",
-    "price": 540000,
+    "price": 500000,
     "weight": 737,
     "type": "Mirrorless",
     "sensorSize": "Full frame 50 Мп",
@@ -11741,7 +11741,7 @@
   {
     "brand": "Sony",
     "model": "Alpha A1",
-    "price": 540000,
+    "price": 350000,
     "weight": 737,
     "type": "Mirrorless",
     "sensorSize": "Full frame 50 Мп",
@@ -11873,7 +11873,7 @@
   {
     "brand": "Sony",
     "model": "Alpha A7S III",
-    "price": 290000,
+    "price": 220000,
     "weight": 699,
     "type": "Mirrorless",
     "sensorSize": "Full frame 12 Мп",
@@ -11916,7 +11916,7 @@
   {
     "brand": "Sony",
     "model": "Alpha A7R IV",
-    "price": 270000,
+    "price": 150000,
     "weight": 665,
     "type": "Mirrorless",
     "sensorSize": "Full frame 61 Мп",
@@ -11959,7 +11959,7 @@
   {
     "brand": "Sony",
     "model": "Alpha A7R II",
-    "price": 270000,
+    "price": 80000,
     "weight": 625,
     "type": "Mirrorless",
     "sensorSize": "Full frame 42 Мп",
@@ -12002,7 +12002,7 @@
   {
     "brand": "Sony",
     "model": "Alpha A99",
-    "price": 250000,
+    "price": 35000,
     "weight": 812,
     "type": "DSLR",
     "sensorSize": "Full frame 24 Мп",
@@ -12043,7 +12043,7 @@
   {
     "brand": "Sony",
     "model": "Alpha A7S II",
-    "price": 250000,
+    "price": 85000,
     "weight": 627,
     "type": "Mirrorless",
     "sensorSize": "Full frame 12 Мп",
@@ -12086,7 +12086,7 @@
   {
     "brand": "Sony",
     "model": "Alpha A7R III",
-    "price": 250000,
+    "price": 110000,
     "weight": 657,
     "type": "Mirrorless",
     "sensorSize": "Full frame 42 Мп",
@@ -12130,7 +12130,7 @@
   {
     "brand": "Sony",
     "model": "A7C R",
-    "price": 250000,
+    "price": 240000,
     "weight": 515,
     "type": "Mirrorless",
     "sensorSize": "Full frame 61 Мп",
@@ -12173,7 +12173,7 @@
   {
     "brand": "Sony",
     "model": "Alpha A99 II",
-    "price": 225000,
+    "price": 80000,
     "weight": 849,
     "type": "DSLR",
     "sensorSize": "Full frame 42 Мп",
@@ -12216,7 +12216,7 @@
   {
     "brand": "Sony",
     "model": "Alpha A7S",
-    "price": 225000,
+    "price": 60000,
     "weight": 446,
     "type": "Mirrorless",
     "sensorSize": "Full frame 12 Мп",
@@ -12259,7 +12259,7 @@
   {
     "brand": "Sony",
     "model": "Alpha A7 V",
-    "price": 215000,
+    "price": 400000,
     "weight": 660,
     "type": "Mirrorless",
     "sensorSize": "Full frame 33 Мп",
@@ -12302,7 +12302,7 @@
   {
     "brand": "Sony",
     "model": "Alpha A7 IV",
-    "price": 200000,
+    "price": 170000,
     "weight": 658,
     "type": "Mirrorless",
     "sensorSize": "Full frame 33 Мп",
@@ -12345,7 +12345,7 @@
   {
     "brand": "Sony",
     "model": "Alpha A7R",
-    "price": 180000,
+    "price": 45000,
     "weight": 465,
     "type": "Mirrorless",
     "sensorSize": "Full frame 36 Мп",
@@ -12387,7 +12387,7 @@
   {
     "brand": "Sony",
     "model": "Alpha A7 III",
-    "price": 160000,
+    "price": 95000,
     "weight": 565,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
@@ -12431,7 +12431,7 @@
   {
     "brand": "Sony",
     "model": "FX30",
-    "price": 145000,
+    "price": 140000,
     "weight": 562,
     "type": "Mirrorless",
     "sensorSize": "APS-C 20 Мп",
@@ -12474,7 +12474,7 @@
   {
     "brand": "Sony",
     "model": "Alpha A7 II",
-    "price": 135000,
+    "price": 55000,
     "weight": 599,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
@@ -12517,7 +12517,7 @@
   {
     "brand": "Sony",
     "model": "Alpha A7",
-    "price": 125000,
+    "price": 40000,
     "weight": 416,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
@@ -12559,7 +12559,7 @@
   {
     "brand": "Sony",
     "model": "Alpha A77 II",
-    "price": 110000,
+    "price": 35000,
     "weight": 647,
     "type": "DSLR",
     "sensorSize": "APS-C 24 Мп",
@@ -12602,7 +12602,7 @@
   {
     "brand": "Sony",
     "model": "Alpha A6600",
-    "price": 110000,
+    "price": 75000,
     "weight": 503,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп",
@@ -12645,7 +12645,7 @@
   {
     "brand": "Sony",
     "model": "Alpha A6500",
-    "price": 110000,
+    "price": 55000,
     "weight": 453,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп",
@@ -12688,7 +12688,7 @@
   {
     "brand": "Sony",
     "model": "Alpha A6400",
-    "price": 81000,
+    "price": 70000,
     "weight": 403,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп",
@@ -12731,7 +12731,7 @@
   {
     "brand": "Sony",
     "model": "Alpha A6300",
-    "price": 81000,
+    "price": 40000,
     "weight": 404,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп",
@@ -12774,7 +12774,7 @@
   {
     "brand": "Sony",
     "model": "Alpha A6100",
-    "price": 68000,
+    "price": 50000,
     "weight": 396,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп",
@@ -12817,7 +12817,7 @@
   {
     "brand": "Sony",
     "model": "NEX-7",
-    "price": 63000,
+    "price": 18000,
     "weight": 400,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп",
@@ -12858,7 +12858,7 @@
   {
     "brand": "Sony",
     "model": "NEX-6",
-    "price": 54000,
+    "price": 15000,
     "weight": 345,
     "type": "Mirrorless",
     "sensorSize": "APS-C 16 Мп",
@@ -12899,7 +12899,7 @@
   {
     "brand": "Sony",
     "model": "Alpha A6000",
-    "price": 54000,
+    "price": 30000,
     "weight": 344,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп",
@@ -12942,7 +12942,7 @@
   {
     "brand": "Sony",
     "model": "NEX-5R",
-    "price": 45000,
+    "price": 12000,
     "weight": 276,
     "type": "Mirrorless",
     "sensorSize": "APS-C 16 Мп",
@@ -12983,7 +12983,7 @@
   {
     "brand": "Sony",
     "model": "NEX-5",
-    "price": 36000,
+    "price": 8000,
     "weight": 297,
     "type": "Mirrorless",
     "sensorSize": "APS-C 14 Мп",
@@ -13023,7 +13023,7 @@
   {
     "brand": "Sony",
     "model": "NEX-C3",
-    "price": 32000,
+    "price": 8000,
     "weight": 225,
     "type": "Mirrorless",
     "sensorSize": "APS-C 16 Мп",
@@ -13064,7 +13064,7 @@
   {
     "brand": "Sony",
     "model": "A3000",
-    "price": 32000,
+    "price": 10000,
     "weight": 411,
     "type": "Mirrorless",
     "sensorSize": "APS-C 20 Мп",
