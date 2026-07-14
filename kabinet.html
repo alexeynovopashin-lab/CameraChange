@@ -65,6 +65,22 @@
   .cab-profile button:hover { background: #fff; }
   .cab-hint { font-family: var(--font-mono); font-size: 11px; color: var(--signal); margin-top: 10px; min-height: 16px; }
   .cab-empty { font-size: 14px; color: var(--paper-faint); }
+  .cab-empty a { color: var(--paper-dim); }
+  .cab-empty a:hover { color: var(--paper); }
+  .bp-row {
+    display: grid; grid-template-columns: 56px 1fr auto auto; gap: 16px; align-items: center;
+    padding: 12px 0; border-bottom: 1px solid var(--border-soft);
+  }
+  .bp-row:last-child { border-bottom: none; }
+  .bp-thumb { width: 56px; height: 42px; background: var(--surface); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .bp-thumb img { max-width: 100%; max-height: 40px; object-fit: contain; }
+  .bp-name a { color: var(--paper); text-decoration: none; font-weight: 500; font-size: 14px; transition: color .15s; }
+  .bp-name a:hover { color: var(--signal); }
+  .bp-meta { font-family: var(--font-mono); font-size: 11px; color: var(--paper-faint); margin-top: 2px; }
+  .bp-price { font-family: var(--font-mono); font-size: 13px; color: var(--paper); }
+  .bp-remove { background: none; border: none; color: var(--paper-faint); cursor: pointer; font-size: 14px; padding: 6px 8px; transition: color .15s; }
+  .bp-remove:hover { color: var(--signal); }
+  .bp-count { font-family: var(--font-mono); font-size: 10px; color: var(--paper-faint); letter-spacing: .08em; }
 </style>
 </head>
 <body>
@@ -99,8 +115,8 @@
       <div class="cab-hint" id="profileHint"></div>
     </section>
     <section class="cab-block">
-      <div class="cab-h">Рюкзак</div>
-      <div class="cab-empty">Пока пусто. Скоро сюда можно будет добавлять камеры и объективы из камератеки.</div>
+      <div class="cab-h">Рюкзак <span class="bp-count" id="bpCount"></span></div>
+      <div id="backpackList" class="cab-empty">Загрузка…</div>
     </section>
     <section class="cab-block">
       <div class="cab-h">Избранное</div>
@@ -135,6 +151,57 @@
     localStorage.setItem(KEY, JSON.stringify({ name, updated: new Date().toISOString() }));
     hint.textContent = 'Сохранено. Данные лежат только в этом браузере.';
   });
+
+  // ── Рюкзак: список камер, добавленных из камератеки ──
+  const BP_KEY = 'ck_backpack';
+  const CAMERAS_URL = 'https://raw.githubusercontent.com/alexeynovopashin-lab/CameraChange/main/cameras.json?t=' + Date.now();
+  function getBackpack() {
+    try { return JSON.parse(localStorage.getItem(BP_KEY) || '[]'); } catch (e) { return []; }
+  }
+  async function renderBackpack() {
+    const el = document.getElementById('backpackList');
+    const countEl = document.getElementById('bpCount');
+    const bp = getBackpack();
+    countEl.textContent = bp.length ? '· ' + bp.length : '';
+    if (!bp.length) {
+      el.className = 'cab-empty';
+      el.innerHTML = 'Пока пусто. Откройте камеру в <a href="camerateka.html">камератеке</a> и нажмите «В рюкзак».';
+      return;
+    }
+    let cams = [];
+    try { cams = await (await fetch(CAMERAS_URL)).json(); } catch (e) {
+      el.className = 'cab-empty';
+      el.textContent = 'Не удалось загрузить данные камер. Обновите страницу.';
+      return;
+    }
+    const byid = {};
+    cams.forEach(c => { byid[c.id] = c; });
+    el.className = '';
+    el.innerHTML = bp.map(item => {
+      const c = byid[item.id];
+      if (!c) return '';
+      const img = c.image ? `<img src="${c.image}" alt="" loading="lazy" />` : '';
+      const meta = [c.releaseYear, (c.lensMount && c.lensMount !== 'unknown') ? c.lensMount : null].filter(Boolean).join(' · ');
+      return `
+        <div class="bp-row" data-id="${c.id}">
+          <div class="bp-thumb">${img}</div>
+          <div>
+            <div class="bp-name"><a href="camerateka.html?camera=${encodeURIComponent(c.id)}">${c.brand} ${c.model}</a></div>
+            <div class="bp-meta">${meta}</div>
+          </div>
+          <div class="bp-price">${c.price ? '₽' + c.price.toLocaleString('ru-RU') : ''}</div>
+          <button class="bp-remove" title="Убрать из рюкзака">✕</button>
+        </div>`;
+    }).join('');
+    el.querySelectorAll('.bp-remove').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.closest('.bp-row').dataset.id;
+        localStorage.setItem(BP_KEY, JSON.stringify(getBackpack().filter(x => x.id !== id)));
+        renderBackpack();
+      });
+    });
+  }
+  renderBackpack();
 </script>
 </body>
 </html>

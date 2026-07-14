@@ -326,6 +326,14 @@
     font-family: var(--font-body); letter-spacing: .01em;
   }
   .avito-link:hover { background: var(--signal-dim); }
+  .bp-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase;
+    background: transparent; color: var(--paper-dim); border: 1px solid var(--border);
+    padding: 13px 20px; cursor: pointer; transition: all .15s;
+  }
+  .bp-btn:hover { color: var(--paper); border-color: var(--paper-faint); }
+  .bp-btn.in { color: var(--signal); border-color: var(--signal-dim); }
   .modal-idx { font-family: var(--font-mono); font-size: 11px; color: var(--paper-faint); }
   .modal-link-group { display: flex; flex-wrap: wrap; gap: 12px; }
   .modal-link-group a {
@@ -473,6 +481,20 @@ const state = {
 
 const CAMERA_ICON = `<svg class="ph" viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M8 7L9.5 4h5L16 7" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><circle cx="12" cy="14" r="4" stroke="currentColor" stroke-width="1.4"/></svg>`;
 const LENS_PH = `<svg class="ph" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3" stroke="currentColor" stroke-width="1.4"/></svg>`;
+
+// Рюкзак: локальное хранилище (общее с kabinet.html)
+const BACKPACK_KEY = 'ck_backpack';
+function getBackpack() {
+  try { return JSON.parse(localStorage.getItem(BACKPACK_KEY) || '[]'); } catch (e) { return []; }
+}
+function inBackpack(id) { return getBackpack().some(x => x.id === id); }
+function toggleBackpack(id) {
+  let bp = getBackpack();
+  if (bp.some(x => x.id === id)) bp = bp.filter(x => x.id !== id);
+  else bp.push({ id, addedAt: new Date().toISOString() });
+  localStorage.setItem(BACKPACK_KEY, JSON.stringify(bp));
+  return bp.some(x => x.id === id);
+}
 
 // Разные написания одного и того же байонета в cameras.json и lens.json
 const MOUNT_ALIASES = {
@@ -864,12 +886,21 @@ function openModal(idx) {
     ${evoHtml}
     ${lensesHtml}
     <div class="modal-foot">
-      <a class="avito-link" href="${avitoUrl}" target="_blank" rel="noopener">найти на авито →</a>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="avito-link" href="${avitoUrl}" target="_blank" rel="noopener">найти на авито →</a>
+        <button class="bp-btn${inBackpack(cam.id) ? ' in' : ''}" id="bpBtn">${inBackpack(cam.id) ? 'в рюкзаке ✓' : '+ в рюкзак'}</button>
+      </div>
       <span class="modal-idx">${idx+1} / ${CAMERAS.length}</span>
     </div>
   `;
 
   document.getElementById('modalClose').addEventListener('click', closeModal);
+  const bpBtn = document.getElementById('bpBtn');
+  bpBtn.addEventListener('click', () => {
+    const added = toggleBackpack(cam.id);
+    bpBtn.classList.toggle('in', added);
+    bpBtn.textContent = added ? 'в рюкзаке ✓' : '+ в рюкзак';
+  });
   modal.querySelectorAll('.evo-row').forEach(row => {
     row.addEventListener('click', () => {
       const target = CAMERAS.findIndex(c => c.id === row.dataset.evoId);
