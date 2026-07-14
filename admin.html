@@ -294,6 +294,9 @@
           <div class="form-group"><label>Слотов карт</label><input type="number" id="fCardSlots" step="1" /></div>
           <div class="form-group"><label>Сложность меню</label><select id="fMenuComplexity"><option value="simple">simple</option><option value="intermediate">intermediate</option><option value="complex">complex</option><option value="very_complex">very_complex</option></select></div>
           <div class="form-group"><label>Эргономика</label><select id="fErgonomics"><option value="good">good (удобная)</option><option value="medium">medium (средняя)</option><option value="poor">poor (неудобная)</option></select></div>
+          <div class="form-group"><label>Год выпуска</label><input type="number" id="fReleaseYear" step="1" min="1900" max="2100" /></div>
+          <div class="form-group"><label>Семейство</label><input type="text" id="fFamily" placeholder="Canon EOS 5D, Fujifilm X-T, ..." /></div>
+          <div class="form-group"><label>Предшественник (id)</label><input type="text" id="fPredecessorId" placeholder="canon-eos-r5" /></div>
         </div>
         <div class="form-row">
           <div class="form-group"><label>Цветопередача</label><select id="fColorScience"><option value="">—</option><option value="true">Да</option><option value="false">Нет</option></select></div>
@@ -753,6 +756,9 @@
     setVal('fCardSlots', cam.cardSlots);
     setSelect('fMenuComplexity', cam.menuComplexity || 'intermediate');
     setSelect('fErgonomics', cam.ergonomics || 'medium');
+    setVal('fReleaseYear', cam.releaseYear || '');
+    setVal('fFamily', cam.family || '');
+    setVal('fPredecessorId', cam.predecessorId || '');
     setSelect('fColorScience', cam.colorScience);
     setVal('fLensMount', cam.lensMount);
     setSelect('fWeatherSealing', cam.weatherSealing);
@@ -817,6 +823,9 @@
       cardSlots: parseInt(document.getElementById('fCardSlots').value) || 0,
       menuComplexity: document.getElementById('fMenuComplexity').value,
       ergonomics: document.getElementById('fErgonomics').value,
+      releaseYear: parseInt(document.getElementById('fReleaseYear').value) || null,
+      family: document.getElementById('fFamily').value.trim(),
+      predecessorId: document.getElementById('fPredecessorId').value.trim() || null,
       colorScience: parseBoolSelect('fColorScience'),
       lensMount: document.getElementById('fLensMount').value.trim(),
       weatherSealing: parseBoolSelect('fWeatherSealing'),

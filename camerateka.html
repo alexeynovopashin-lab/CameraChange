@@ -267,6 +267,16 @@
     color: var(--paper-faint); margin-bottom: 14px;
   }
   .spec-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 48px; }
+  .evo-list { }
+  .evo-row {
+    display: grid; grid-template-columns: 130px 1fr auto; gap: 16px; align-items: baseline;
+    padding: 12px 0; border-bottom: 1px solid var(--hair); cursor: pointer;
+  }
+  .evo-row:last-child { border-bottom: none; }
+  .evo-row .evo-label { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--paper-faint); }
+  .evo-row .evo-name { font-size: 13.5px; font-weight: 500; transition: color .15s; }
+  .evo-row:hover .evo-name { color: var(--signal); }
+  .evo-row .evo-year { font-family: var(--font-mono); font-size: 12px; color: var(--paper-faint); }
   .spec-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--hair); font-size: 13px; }
   .spec-row .k { color: var(--paper-dim); font-weight: 400; }
   .spec-row .v { font-family: var(--font-mono); font-size: 13.5px; color: #FFFFFF; text-align: right; }
@@ -791,8 +801,30 @@ function openModal(idx) {
       `).join('')}
     </div>` : '';
 
+  // --- Эволюция: предшественник и наследники ---
+  let evoHtml = '';
+  const pred = cam.predecessorId ? CAMERAS.find(c => c.id === cam.predecessorId) : null;
+  const successors = CAMERAS.filter(c => c.predecessorId === cam.id);
+  if (pred || successors.length) {
+    const evoRow = (c2, label) => `
+      <div class="evo-row" data-evo-id="${c2.id}">
+        <span class="evo-label">${label}</span>
+        <span class="evo-name">${c2.brand} ${c2.model}</span>
+        <span class="evo-year">${c2.releaseYear || ''}</span>
+      </div>`;
+    evoHtml = `
+      <div class="spec-section">
+        <div class="spec-h">Эволюция${cam.family ? ' · ' + cam.family : ''}</div>
+        <div class="evo-list">
+          ${pred ? evoRow(pred, 'Предшественник') : ''}
+          ${successors.map(s => evoRow(s, 'Наследник')).join('')}
+        </div>
+      </div>`;
+  }
+
   // --- Спецификации (без того, что уже крупно в HUD) ---
   const specs = [
+    ['Год выпуска', cam.releaseYear],
     ['Тип', cam.type],
     ['Сенсор', cam.sensorSize],
     ['Видео', cam.video],
@@ -829,6 +861,7 @@ function openModal(idx) {
       <div class="spec-h">Технические данные</div>
       <div class="spec-grid">${specsHtml}</div>
     </div>
+    ${evoHtml}
     ${lensesHtml}
     <div class="modal-foot">
       <a class="avito-link" href="${avitoUrl}" target="_blank" rel="noopener">найти на авито →</a>
@@ -837,6 +870,15 @@ function openModal(idx) {
   `;
 
   document.getElementById('modalClose').addEventListener('click', closeModal);
+  modal.querySelectorAll('.evo-row').forEach(row => {
+    row.addEventListener('click', () => {
+      const target = CAMERAS.findIndex(c => c.id === row.dataset.evoId);
+      if (target !== -1) {
+        openModal(target);
+        document.getElementById('overlay').scrollTop = 0;
+      }
+    });
+  });
   document.getElementById('overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
