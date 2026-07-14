@@ -94,6 +94,7 @@
     <button class="tab" data-tab="expert"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/><circle cx="12" cy="12" r=".5"/></svg> Экспертный режим</button>
     <button class="tab" data-tab="training"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3"/></svg> Обучение</button>
     <button class="tab" data-tab="scoring"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/><circle cx="9" cy="7" r="1.7" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r="1.7" fill="currentColor" stroke="none"/><circle cx="7" cy="17" r="1.7" fill="currentColor" stroke="none"/></svg> Скоринг</button>
+    <button class="tab" data-tab="feedback"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 11v10H4a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1h3zm0 0l5-9a2.5 2.5 0 0 1 5 1v4h5.5a2 2 0 0 1 1.94 2.49l-1.5 6A2 2 0 0 1 18.04 21H9a2 2 0 0 1-2-2v-8z"/></svg> Фидбэк</button>
   </div>
 
   <!-- ======= ВКЛАДКА КАМЕРЫ ======= -->
@@ -193,6 +194,34 @@
     <div id="expertStats" style="margin-top:20px; background:#1a1a1a; padding:16px; border-radius:12px;">
       <h4><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 20v-9M12 20V5M19 20v-6"/></svg> Статистика</h4>
       <p id="expertCount">Сохранено эталонов: 0</p>
+    </div>
+  </div>
+
+  <!-- ======= ВКЛАДКА ФИДБЭК ======= -->
+  <div id="tab-feedback" class="tab-content" style="display:none;">
+    <h2><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 11v10H4a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1h3zm0 0l5-9a2.5 2.5 0 0 1 5 1v4h5.5a2 2 0 0 1 1.94 2.49l-1.5 6A2 2 0 0 1 18.04 21H9a2 2 0 0 1-2-2v-8z"/></svg> Фидбэк из виджета</h2>
+    <p style="color:#aaa; margin-bottom:16px;">Голоса «подходит?» (👍/👎) из виджета подбора. Данные лежат в localStorage браузера, поэтому здесь видны только голоса, поставленные на этом устройстве. Чтобы объединить статистику с другого устройства — экспортируйте её там и импортируйте здесь. Общая статистика по всем пользователям потребует серверной части.</p>
+    <button id="refreshFeedbackBtn" class="btn-primary"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 3v4h-4"/></svg> Обновить</button>
+    <button id="exportFeedbackBtn" class="btn-secondary" style="margin-left:10px;"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 14V4M8 8l4-4 4 4M5 19h14"/></svg> Экспорт JSON</button>
+    <button id="importFeedbackBtn" class="btn-secondary" style="margin-left:10px;"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v10M8 10l4 4 4-4M5 19h14"/></svg> Импорт JSON (объединить)</button>
+    <button id="clearFeedbackBtn" class="btn-secondary" style="margin-left:10px; color:#d47a7a;"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M6 7l1 13a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1l1-13"/></svg> Очистить</button>
+
+    <div id="feedbackSummary" style="margin-top:20px; background:#1a1a1a; padding:16px; border-radius:12px; color:#ddd;"></div>
+
+    <div class="table-wrap" style="margin-top:16px;">
+      <table>
+        <thead>
+          <tr>
+            <th>Камера</th>
+            <th>👍</th>
+            <th>👎</th>
+            <th>Всего</th>
+            <th>Одобрение</th>
+            <th>Уровни опроса</th>
+          </tr>
+        </thead>
+        <tbody id="feedbackTableBody"></tbody>
+      </table>
     </div>
   </div>
 
@@ -462,10 +491,15 @@
   const CAMERAS_FILE = 'cameras.json';
   const LENSES_FILE = 'lens.json';
 
+  // Токен спрашиваем лениво — только при сохранении, а не при каждой загрузке
+  // (prompt() на старте блокировал всю страницу до закрытия диалога)
   let token = sessionStorage.getItem('gh_token');
-  if (!token) {
-    token = prompt('Введите ваш GitHub Personal Access Token (с доступом repo):');
-    if (token) sessionStorage.setItem('gh_token', token);
+  function ensureToken() {
+    if (!token) {
+      token = prompt('Введите ваш GitHub Personal Access Token (с доступом repo):');
+      if (token) sessionStorage.setItem('gh_token', token);
+    }
+    return token;
   }
 
   // ── СОСТОЯНИЕ ──────────────────────────────────────────────────
@@ -543,7 +577,7 @@
 
   // ── СОХРАНЕНИЕ В GITHUB ──────────────────────────────────────
   async function saveData(file, data) {
-    if (!token) { alert('Токен не задан.'); return; }
+    if (!ensureToken()) { alert('Токен не задан — сохранение отменено.'); return; }
     try {
       const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${file}`;
       const res = await fetch(url, { headers: { 'Authorization': `token ${token}` } });
@@ -1689,7 +1723,7 @@
   }
   async function saveScoringConfig() {
     if (!scoringConfig) { alert('Конфиг не загружен.'); return; }
-    if (!token) { alert('Токен не задан.'); return; }
+    if (!ensureToken()) { alert('Токен не задан — сохранение отменено.'); return; }
     scoringConfig.global = scoringConfig.global || {};
     scoringConfig.global.minScoreToShow = parseFloat(document.getElementById('scMinScore').value) || 0;
     scoringConfig.global.maxResults = parseInt(document.getElementById('scMaxResults').value) || 6;
@@ -1739,7 +1773,108 @@
   document.getElementById('scTestRunBtn').addEventListener('click', runScoringTest);
 
   // ── СТАРТ ───────────────────────────────────────────────────────
-  loadCameras();
+  // ── ФИДБЭК ИЗ ВИДЖЕТА (localStorage: cam_feedback) ──────────
+  const FEEDBACK_KEY = 'cam_feedback';
+  function getFeedback() {
+    try { return JSON.parse(localStorage.getItem(FEEDBACK_KEY) || '[]'); } catch (e) { return []; }
+  }
+  function renderFeedback() {
+    const data = getFeedback();
+    const summary = document.getElementById('feedbackSummary');
+    const tbody = document.getElementById('feedbackTableBody');
+    if (!data.length) {
+      summary.innerHTML = 'Голосов пока нет. Они появятся после того, как в виджете подбора кто-то нажмёт 👍 или 👎 в этом браузере.';
+      tbody.innerHTML = '';
+      return;
+    }
+    const per = {};
+    let up = 0, down = 0;
+    data.forEach(item => {
+      const id = item.cameraId;
+      if (!per[id]) per[id] = { up: 0, down: 0, levels: {} };
+      if (item.vote === 1) { per[id].up++; up++; }
+      else if (item.vote === -1) { per[id].down++; down++; }
+      const lvl = (item.answers && item.answers.level) || '—';
+      per[id].levels[lvl] = (per[id].levels[lvl] || 0) + 1;
+    });
+    const total = up + down;
+    const approval = total ? Math.round(up / total * 100) : 0;
+    const dates = data.map(d => d.date).filter(Boolean).sort();
+    summary.innerHTML = `Всего голосов: <b>${total}</b> · 👍 ${up} · 👎 ${down} · общее одобрение: <b>${approval}%</b> · камер с голосами: ${Object.keys(per).length}`
+      + (dates.length ? `<br><span style="color:#888; font-size:12px;">первый голос: ${dates[0].slice(0,10)} · последний: ${dates[dates.length-1].slice(0,10)}</span>` : '');
+    const rows = Object.keys(per).map(id => {
+      const cam = cameras.find(c => c.id === id);
+      const p = per[id];
+      const t = p.up + p.down;
+      return {
+        name: cam ? `${cam.brand} ${cam.model}` : id,
+        up: p.up, down: p.down, t,
+        appr: t ? Math.round(p.up / t * 100) : 0,
+        levels: Object.keys(p.levels).map(l => `${l}: ${p.levels[l]}`).join(', ')
+      };
+    }).sort((a, b) => b.t - a.t);
+    tbody.innerHTML = rows.map(r => `
+      <tr>
+        <td>${r.name}</td>
+        <td style="color:#7ab87a;">${r.up}</td>
+        <td style="color:#d47a7a;">${r.down}</td>
+        <td>${r.t}</td>
+        <td>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <div style="width:80px; height:6px; background:#2a2a2a; border-radius:3px; overflow:hidden;">
+              <div style="width:${r.appr}%; height:100%; background:${r.appr >= 50 ? '#7ab87a' : '#d47a7a'};"></div>
+            </div>
+            ${r.appr}%
+          </div>
+        </td>
+        <td style="color:#888; font-size:12px;">${r.levels}</td>
+      </tr>`).join('');
+  }
+  document.getElementById('refreshFeedbackBtn').addEventListener('click', renderFeedback);
+  document.querySelector('.tab[data-tab="feedback"]').addEventListener('click', renderFeedback);
+  document.getElementById('exportFeedbackBtn').addEventListener('click', () => {
+    const blob = new Blob([JSON.stringify(getFeedback(), null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = `cam_feedback_${new Date().toISOString().slice(0,10)}.json`; a.click();
+    URL.revokeObjectURL(url);
+  });
+  document.getElementById('importFeedbackBtn').addEventListener('click', () => {
+    const input = document.createElement('input');
+    input.type = 'file'; input.accept = '.json';
+    input.onchange = () => {
+      const file = input.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const incoming = JSON.parse(reader.result);
+          if (!Array.isArray(incoming)) throw new Error('ожидался массив');
+          const merged = getFeedback().concat(incoming);
+          // дедупликация одинаковых записей (один голос = камера+оценка+дата)
+          const seen = new Set();
+          const unique = merged.filter(x => {
+            const k = `${x.cameraId}|${x.vote}|${x.date}`;
+            if (seen.has(k)) return false;
+            seen.add(k);
+            return true;
+          });
+          localStorage.setItem(FEEDBACK_KEY, JSON.stringify(unique));
+          renderFeedback();
+          alert(`Импортировано. Всего голосов после объединения: ${unique.length}`);
+        } catch (e) { alert('Не удалось разобрать файл: ' + e.message); }
+      };
+      reader.readAsText(file);
+    };
+    input.click();
+  });
+  document.getElementById('clearFeedbackBtn').addEventListener('click', () => {
+    if (!confirm('Удалить все голоса из этого браузера? Действие необратимо. Сначала стоит сделать экспорт.')) return;
+    localStorage.removeItem(FEEDBACK_KEY);
+    renderFeedback();
+  });
+
+  loadCameras().then(renderFeedback);
   loadLenses();
   loadScoringConfig();
 </script>
