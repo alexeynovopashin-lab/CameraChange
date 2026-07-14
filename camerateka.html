@@ -85,7 +85,29 @@
   .searchbar svg { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); opacity: .5; pointer-events: none; }
 
   /* ---------- filters ---------- */
-  .filters { margin-bottom: 8px; }
+  .filterbar {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    padding: 4px 0 18px; border-bottom: 1px solid var(--border); margin-bottom: 28px;
+  }
+  .fb-left { display: flex; align-items: center; gap: 18px; }
+  .filter-toggle {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase;
+    padding: 9px 14px; border: 1px solid var(--border); color: var(--paper-dim);
+    background: transparent; cursor: pointer; border-radius: 2px; transition: all .15s var(--ease);
+  }
+  .filter-toggle:hover { border-color: var(--paper-faint); color: var(--paper); }
+  .filter-toggle.on { border-color: var(--paper-faint); color: var(--paper); }
+  .filter-toggle .chev { font-size: 9px; transition: transform .2s var(--ease); }
+  .filter-toggle.on .chev { transform: rotate(180deg); }
+  .fcount {
+    font-family: var(--font-mono); font-size: 10px; min-width: 17px; height: 17px; padding: 0 5px;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--signal); color: #fff; border-radius: 9px;
+  }
+  .fcount[hidden] { display: none; }
+  .filters { display: none; padding-bottom: 10px; border-bottom: 1px solid var(--border); margin-bottom: 28px; }
+  .filters.open { display: block; }
   .filter-group { margin-bottom: 18px; }
   .filter-label {
     font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
@@ -103,10 +125,6 @@
   .pill.active { border-color: var(--signal-dim); color: var(--signal); background: var(--signal-soft); }
   .pill .n { opacity: .55; margin-left: 5px; }
 
-  .filter-footer {
-    display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
-    padding: 16px 0 28px; border-bottom: 1px solid var(--border); margin-bottom: 28px;
-  }
   .result-count { font-family: var(--font-mono); font-size: 12px; color: var(--paper-faint); }
   .result-count b { color: var(--paper); font-weight: 500; }
   .rt { display: flex; align-items: center; gap: 12px; }
@@ -325,10 +343,16 @@
     <input type="text" id="searchInput" placeholder="Поиск по бренду или модели — например «Ricoh GR» или «Leica»" autocomplete="off" />
   </div>
 
-  <div class="filters" id="filters"></div>
-
-  <div class="filter-footer">
-    <div class="result-count" id="resultCount"></div>
+  <div class="filterbar">
+    <div class="fb-left">
+      <button class="filter-toggle" id="filterToggle">
+        <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 3.5h12M3.5 7h7M5.5 10.5h3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        Фильтры
+        <span class="fcount" id="fCount" hidden></span>
+        <span class="chev" aria-hidden="true">▾</span>
+      </button>
+      <div class="result-count" id="resultCount"></div>
+    </div>
     <div class="rt">
       <button class="clear-btn" id="clearBtn">сбросить фильтры</button>
       <select class="sortsel" id="sortSel">
@@ -340,6 +364,8 @@
       </select>
     </div>
   </div>
+
+  <div class="filters" id="filters"></div>
 
   <div class="grid" id="grid"></div>
 
@@ -530,6 +556,12 @@ function renderGrid() {
   document.getElementById('resultCount').innerHTML = `<b>${list.length}</b> из ${CAMERAS.length} камер`;
   const anyActive = state.search || state.brand || state.type || state.bool.size;
   document.getElementById('clearBtn').classList.toggle('show', !!anyActive);
+
+  // Счётчик активных фильтров на кнопке (поиск не считаем — он и так на виду)
+  const fCount = state.bool.size + (state.brand ? 1 : 0) + (state.type ? 1 : 0);
+  const fBadge = document.getElementById('fCount');
+  fBadge.hidden = fCount === 0;
+  fBadge.textContent = fCount;
 
   if (list.length === 0) {
     grid.innerHTML = `<div class="empty"><div class="em">—</div><p>Ничего не найдено. Попробуйте снять пару фильтров.</p></div>`;
@@ -778,6 +810,13 @@ document.getElementById('overlay').addEventListener('click', (e) => {
 });
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeModal();
+});
+
+document.getElementById('filterToggle').addEventListener('click', () => {
+  const panel = document.getElementById('filters');
+  const btn = document.getElementById('filterToggle');
+  const open = panel.classList.toggle('open');
+  btn.classList.toggle('on', open);
 });
 
 document.getElementById('searchInput').addEventListener('input', (e) => {
