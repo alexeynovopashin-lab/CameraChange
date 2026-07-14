@@ -3,7 +3,7 @@
     "brand": "Apple",
     "model": "iPhone 17 Pro",
     "type": "Compact",
-    "sensorSize": "",
+    "sensorSize": "1/1.28\" 48 Мп",
     "resolution": 48,
     "price": 110000,
     "weight": 500,
@@ -14,7 +14,7 @@
     "microphoneInput": true,
     "logProfile": true,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "simple",
     "colorScience": true,
     "lensMount": "unknown",
@@ -65,18 +65,18 @@
     "brand": "Apple",
     "model": "iPhone 16 Pro",
     "type": "Compact",
-    "sensorSize": "",
+    "sensorSize": "1/1.28\" 48 Мп",
     "resolution": 48,
     "price": 90000,
     "weight": 500,
     "video": "4K 120p ProRes",
-    "autofocus": 1,
+    "autofocus": 0,
     "imageStabilization": true,
     "screenType": "",
     "microphoneInput": true,
     "logProfile": true,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "simple",
     "colorScience": true,
     "lensMount": "unknown",
@@ -132,7 +132,7 @@
     "sensorSize": "Full frame 24.2 Мп",
     "resolution": 24.2,
     "video": "6K 60p",
-    "autofocus": 1,
+    "autofocus": 1053,
     "imageStabilization": true,
     "screenType": "",
     "microphoneInput": true,
@@ -194,13 +194,13 @@
     "price": 400000,
     "weight": 1015,
     "video": "6K",
-    "autofocus": 1,
+    "autofocus": 1053,
     "imageStabilization": true,
     "screenType": "",
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "complex",
     "colorScience": false,
     "lensMount": "Canon RF",
@@ -258,7 +258,7 @@
     "price": 300000,
     "weight": 800,
     "video": "8K 60p",
-    "autofocus": 1,
+    "autofocus": 1053,
     "imageStabilization": true,
     "screenType": "",
     "microphoneInput": true,
@@ -316,7 +316,7 @@
     "sensorSize": "Full frame 45 Мп",
     "resolution": 45,
     "video": "8K RAW",
-    "autofocus": 1,
+    "autofocus": 1053,
     "imageStabilization": true,
     "screenType": "",
     "microphoneInput": true,
@@ -378,7 +378,7 @@
     "price": 197000,
     "weight": 800,
     "video": "6K",
-    "autofocus": 1,
+    "autofocus": 1053,
     "imageStabilization": true,
     "screenType": "",
     "microphoneInput": true,
@@ -446,7 +446,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "complex",
     "colorScience": false,
     "lensMount": "Canon RF",
@@ -562,7 +562,7 @@
     "price": 100000,
     "weight": 800,
     "video": "4K 60p",
-    "autofocus": 1,
+    "autofocus": 1053,
     "imageStabilization": true,
     "screenType": "",
     "microphoneInput": true,
@@ -631,7 +631,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "complex",
     "colorScience": false,
     "lensMount": "Canon RF",
@@ -694,7 +694,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Canon EF",
@@ -757,7 +757,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Canon RF",
@@ -814,7 +814,7 @@
     "sensorSize": "APS-C 24 Мп",
     "resolution": 24,
     "video": "4K 60p",
-    "autofocus": 1,
+    "autofocus": 651,
     "imageStabilization": false,
     "screenType": "",
     "microphoneInput": true,
@@ -882,7 +882,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Canon RF",
@@ -945,7 +945,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon RF",
@@ -1008,7 +1008,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Canon EF",
@@ -1071,7 +1071,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Canon EF",
@@ -1128,7 +1128,7 @@
     "sensorSize": "APS-C 24 Мп",
     "resolution": 24,
     "video": "Full HD",
-    "autofocus": 1,
+    "autofocus": 45,
     "imageStabilization": false,
     "screenType": "",
     "microphoneInput": true,
@@ -1199,7 +1199,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon RF",
@@ -1256,7 +1256,7 @@
     "price": 25000,
     "weight": 500,
     "video": "4K",
-    "autofocus": 1,
+    "autofocus": 143,
     "imageStabilization": false,
     "screenType": "",
     "microphoneInput": true,
@@ -1506,7 +1506,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Canon EF-M",
@@ -1567,7 +1567,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon EF",
@@ -1627,7 +1627,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon EF",
@@ -1688,7 +1688,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon EF",
@@ -1749,7 +1749,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon EF",
@@ -1800,7 +1800,7 @@
   {
     "brand": "Canon",
     "model": "1D C",
-    "price": 12000,
+    "price": 1080000,
     "weight": 1340,
     "type": "DSLR",
     "sensorSize": "Full frame 18 Мп",
@@ -1836,7 +1836,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Canon",
@@ -1853,7 +1854,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon EF",
@@ -1914,7 +1915,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Canon EF",
@@ -1962,7 +1963,7 @@
   {
     "brand": "Canon",
     "model": "1D X",
-    "price": 6800,
+    "price": 610000,
     "weight": 1340,
     "type": "DSLR",
     "sensorSize": "Full frame 18 Мп",
@@ -1998,12 +1999,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Canon",
     "model": "1D X Mark III",
-    "price": 6000,
+    "price": 540000,
     "weight": 1440,
     "type": "DSLR",
     "sensorSize": "Full frame 20 Мп",
@@ -2040,7 +2042,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Canon",
@@ -2082,12 +2085,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Canon",
     "model": "1D Mark IV",
-    "price": 4500,
+    "price": 405000,
     "weight": 1180,
     "type": "DSLR",
     "sensorSize": "APS-H 16 Мп",
@@ -2122,12 +2126,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Canon",
     "model": "5DS R",
-    "price": 2700,
+    "price": 245000,
     "weight": 930,
     "type": "DSLR",
     "sensorSize": "Full frame 50 Мп",
@@ -2162,12 +2167,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Canon",
     "model": "5DS",
-    "price": 2500,
+    "price": 225000,
     "weight": 930,
     "type": "DSLR",
     "sensorSize": "Full frame 50 Мп",
@@ -2202,12 +2208,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Canon",
     "model": "5D Mark III",
-    "price": 2000,
+    "price": 180000,
     "weight": 950,
     "type": "DSLR",
     "sensorSize": "Full frame 22 Мп",
@@ -2242,12 +2249,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Canon",
     "model": "EOS R",
-    "price": 1800,
+    "price": 160000,
     "weight": 660,
     "type": "Mirrorless",
     "sensorSize": "Full frame 30 Мп",
@@ -2284,12 +2292,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Canon",
     "model": "6D Mark II",
-    "price": 1400,
+    "price": 125000,
     "weight": 765,
     "type": "DSLR",
     "sensorSize": "Full frame 26 Мп",
@@ -2328,12 +2337,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Canon",
     "model": "6D",
-    "price": 1400,
+    "price": 125000,
     "weight": 770,
     "type": "DSLR",
     "sensorSize": "Full frame 20 Мп",
@@ -2369,12 +2379,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Canon",
     "model": "EOS 7D Mark II",
-    "price": 1200,
+    "price": 110000,
     "weight": 910,
     "type": "DSLR",
     "sensorSize": "APS-C 20 Мп",
@@ -2409,12 +2420,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Canon",
     "model": "EOS M6 Mark II",
-    "price": 850,
+    "price": 76000,
     "weight": 408,
     "type": "Mirrorless",
     "sensorSize": "APS-C 32 Мп",
@@ -2451,12 +2463,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Canon",
     "model": "EOS R10",
-    "price": 800,
+    "price": 72000,
     "weight": 426,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп",
@@ -2493,12 +2506,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Canon",
     "model": "EOS 70D",
-    "price": 800,
+    "price": 72000,
     "weight": 755,
     "type": "DSLR",
     "sensorSize": "APS-C 20 Мп",
@@ -2534,12 +2548,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Canon",
     "model": "EOS 77D",
-    "price": 650,
+    "price": 58000,
     "weight": 540,
     "type": "DSLR",
     "sensorSize": "APS-C 24 Мп",
@@ -2577,12 +2592,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Canon",
     "model": "EOS 760D",
-    "price": 600,
+    "price": 54000,
     "weight": 565,
     "type": "DSLR",
     "sensorSize": "APS-C 24 Мп",
@@ -2619,12 +2635,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Canon",
     "model": "EOS 600D",
-    "price": 450,
+    "price": 40000,
     "weight": 570,
     "type": "DSLR",
     "sensorSize": "APS-C 18 Мп",
@@ -2659,12 +2676,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Canon",
     "model": "EOS 200D",
-    "price": 450,
+    "price": 40000,
     "weight": 453,
     "type": "DSLR",
     "sensorSize": "APS-C 24 Мп",
@@ -2702,7 +2720,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "DJI",
@@ -2713,7 +2732,7 @@
     "sensorSize": "1\" 10 Мп",
     "resolution": 10,
     "video": "4K 120p",
-    "autofocus": 1,
+    "autofocus": 0,
     "imageStabilization": true,
     "screenType": "",
     "microphoneInput": true,
@@ -2775,7 +2794,7 @@
     "sensorSize": "Средний формат 102 Мп",
     "resolution": 102,
     "video": "4K",
-    "autofocus": 1,
+    "autofocus": 425,
     "imageStabilization": true,
     "screenType": "",
     "microphoneInput": false,
@@ -2837,7 +2856,7 @@
     "price": 400000,
     "weight": 883,
     "video": "4K",
-    "autofocus": 1,
+    "autofocus": 425,
     "imageStabilization": true,
     "screenType": "",
     "microphoneInput": false,
@@ -2895,7 +2914,7 @@
     "sensorSize": "Средний формат 51.4 Мп",
     "resolution": 51.4,
     "video": "Full HD",
-    "autofocus": 1,
+    "autofocus": 425,
     "imageStabilization": true,
     "screenType": "",
     "microphoneInput": false,
@@ -2957,7 +2976,7 @@
     "sensorSize": "APS-C 40 Мп X-Trans",
     "resolution": 40,
     "video": "6.2K",
-    "autofocus": 1,
+    "autofocus": 425,
     "imageStabilization": true,
     "screenType": "",
     "microphoneInput": true,
@@ -3019,7 +3038,7 @@
     "sensorSize": "APS-C 40 Мп X-Trans",
     "resolution": 40,
     "video": "4K",
-    "autofocus": 1,
+    "autofocus": 425,
     "imageStabilization": true,
     "screenType": "",
     "microphoneInput": false,
@@ -3081,7 +3100,7 @@
     "sensorSize": "APS-C 26 Мп X-Trans",
     "resolution": 26,
     "video": "6.2K",
-    "autofocus": 1,
+    "autofocus": 425,
     "imageStabilization": true,
     "screenType": "",
     "microphoneInput": true,
@@ -3143,7 +3162,7 @@
     "sensorSize": "APS-C 26 Мп X-Trans",
     "resolution": 26,
     "video": "4K",
-    "autofocus": 1,
+    "autofocus": 425,
     "imageStabilization": false,
     "screenType": "",
     "microphoneInput": false,
@@ -3205,7 +3224,7 @@
     "sensorSize": "APS-C 26 Мп X-Trans",
     "resolution": 26,
     "video": "4K 30p",
-    "autofocus": 1,
+    "autofocus": 425,
     "imageStabilization": false,
     "screenType": "",
     "microphoneInput": true,
@@ -3267,7 +3286,7 @@
     "sensorSize": "APS-C 26 Мп X-Trans",
     "resolution": 26,
     "video": "4K 30p",
-    "autofocus": 1,
+    "autofocus": 425,
     "imageStabilization": false,
     "screenType": "",
     "microphoneInput": true,
@@ -3335,7 +3354,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "intermediate",
     "colorScience": true,
     "lensMount": "Fujifilm X",
@@ -3397,7 +3416,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "complex",
     "colorScience": true,
     "lensMount": "Fujifilm G",
@@ -3460,7 +3479,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "complex",
     "colorScience": true,
     "lensMount": "Fujifilm G",
@@ -3523,7 +3542,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "complex",
     "colorScience": true,
     "lensMount": "Fujifilm G",
@@ -3586,7 +3605,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "complex",
     "colorScience": true,
     "lensMount": "Fujifilm G",
@@ -3648,7 +3667,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 2,
     "menuComplexity": "complex",
     "colorScience": true,
     "lensMount": "Fujifilm G",
@@ -3711,7 +3730,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 2,
     "menuComplexity": "complex",
     "colorScience": true,
     "lensMount": "Fujifilm G",
@@ -3774,7 +3793,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 2,
     "menuComplexity": "complex",
     "colorScience": true,
     "lensMount": "Fujifilm G",
@@ -3837,7 +3856,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 2,
     "menuComplexity": "complex",
     "colorScience": true,
     "lensMount": "Fujifilm X",
@@ -3900,7 +3919,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 2,
     "menuComplexity": "complex",
     "colorScience": true,
     "lensMount": "Fujifilm X",
@@ -3963,7 +3982,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 2,
     "menuComplexity": "complex",
     "colorScience": true,
     "lensMount": "Fujifilm X",
@@ -4026,7 +4045,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 2,
     "menuComplexity": "intermediate",
     "colorScience": true,
     "lensMount": "Fujifilm X",
@@ -4077,7 +4096,7 @@
   {
     "brand": "Fujifilm",
     "model": "X-T2",
-    "price": 1400,
+    "price": 125000,
     "weight": 507,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп X-Trans",
@@ -4113,12 +4132,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "X-Pro2",
-    "price": 1400,
+    "price": 125000,
     "weight": 495,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп X-Trans",
@@ -4154,12 +4174,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "X-H1",
-    "price": 1400,
+    "price": 125000,
     "weight": 673,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп X-Trans",
@@ -4195,12 +4216,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "X-T3",
-    "price": 1300,
+    "price": 115000,
     "weight": 539,
     "type": "Mirrorless",
     "sensorSize": "APS-C 26 Мп X-Trans",
@@ -4237,12 +4259,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "X100F",
-    "price": 1200,
+    "price": 110000,
     "weight": 469,
     "type": "Compact",
     "sensorSize": "APS-C 24 Мп X-Trans",
@@ -4278,12 +4301,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "X100T",
-    "price": 1000,
+    "price": 90000,
     "weight": 440,
     "type": "Compact",
     "sensorSize": "APS-C 16 Мп X-Trans",
@@ -4319,12 +4343,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "X100S",
-    "price": 1000,
+    "price": 90000,
     "weight": 445,
     "type": "Compact",
     "sensorSize": "APS-C 16 Мп X-Trans",
@@ -4359,12 +4384,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "X-T50",
-    "price": 1000,
+    "price": 90000,
     "weight": 383,
     "type": "Mirrorless",
     "sensorSize": "APS-C 26 Мп X-Trans",
@@ -4401,12 +4427,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "X-Pro1",
-    "price": 1000,
+    "price": 90000,
     "weight": 450,
     "type": "Mirrorless",
     "sensorSize": "APS-C 16 Мп X-Trans",
@@ -4441,12 +4468,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "X100",
-    "price": 900,
+    "price": 81000,
     "weight": 445,
     "type": "Compact",
     "sensorSize": "APS-C 12 Мп",
@@ -4480,12 +4508,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "X-S10",
-    "price": 900,
+    "price": 81000,
     "weight": 465,
     "type": "Mirrorless",
     "sensorSize": "APS-C 26 Мп X-Trans",
@@ -4522,12 +4551,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "X-T30 III",
-    "price": 800,
+    "price": 72000,
     "weight": 380,
     "type": "Mirrorless",
     "sensorSize": "APS-C 26 Мп X-Trans",
@@ -4564,12 +4594,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "X-T1",
-    "price": 800,
+    "price": 72000,
     "weight": 440,
     "type": "Mirrorless",
     "sensorSize": "APS-C 16 Мп X-Trans",
@@ -4605,12 +4636,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "X-E5",
-    "price": 750,
+    "price": 68000,
     "weight": 360,
     "type": "Mirrorless",
     "sensorSize": "APS-C 26 Мп X-Trans",
@@ -4647,12 +4679,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "X70",
-    "price": 700,
+    "price": 63000,
     "weight": 340,
     "type": "Compact",
     "sensorSize": "APS-C 16 Мп X-Trans",
@@ -4688,12 +4721,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "X-T20",
-    "price": 700,
+    "price": 63000,
     "weight": 383,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп X-Trans",
@@ -4729,12 +4763,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "X-E4",
-    "price": 700,
+    "price": 63000,
     "weight": 364,
     "type": "Mirrorless",
     "sensorSize": "APS-C 26 Мп X-Trans",
@@ -4771,12 +4806,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "X-E3",
-    "price": 700,
+    "price": 63000,
     "weight": 337,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп X-Trans",
@@ -4813,12 +4849,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "X-E1",
-    "price": 700,
+    "price": 63000,
     "weight": 350,
     "type": "Mirrorless",
     "sensorSize": "APS-C 16 Мп X-Trans",
@@ -4853,12 +4890,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "X-T10",
-    "price": 650,
+    "price": 58000,
     "weight": 381,
     "type": "Mirrorless",
     "sensorSize": "APS-C 16 Мп X-Trans",
@@ -4894,12 +4932,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "X-M5",
-    "price": 600,
+    "price": 54000,
     "weight": 355,
     "type": "Mirrorless",
     "sensorSize": "APS-C 26 Мп",
@@ -4936,12 +4975,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "X-E2S",
-    "price": 600,
+    "price": 54000,
     "weight": 350,
     "type": "Mirrorless",
     "sensorSize": "APS-C 16 Мп X-Trans",
@@ -4977,12 +5017,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "X-E2",
-    "price": 600,
+    "price": 54000,
     "weight": 350,
     "type": "Mirrorless",
     "sensorSize": "APS-C 16 Мп X-Trans",
@@ -5018,12 +5059,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "XF10",
-    "price": 500,
+    "price": 45000,
     "weight": 280,
     "type": "Compact",
     "sensorSize": "APS-C 24 Мп",
@@ -5060,12 +5102,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "X30",
-    "price": 500,
+    "price": 45000,
     "weight": 423,
     "type": "Compact",
     "sensorSize": "2/3 12 Мп",
@@ -5101,12 +5144,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "X20",
-    "price": 500,
+    "price": 45000,
     "weight": 353,
     "type": "Compact",
     "sensorSize": "2/3 12 Мп",
@@ -5141,12 +5185,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "X10",
-    "price": 500,
+    "price": 45000,
     "weight": 350,
     "type": "Compact",
     "sensorSize": "2/3 12 Мп",
@@ -5181,12 +5226,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "X-M1",
-    "price": 500,
+    "price": 45000,
     "weight": 280,
     "type": "Mirrorless",
     "sensorSize": "APS-C 16 Мп X-Trans",
@@ -5222,12 +5268,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "X-A7",
-    "price": 500,
+    "price": 45000,
     "weight": 320,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп",
@@ -5264,12 +5311,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "X-A5",
-    "price": 450,
+    "price": 40000,
     "weight": 361,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп",
@@ -5306,12 +5354,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "XF1",
-    "price": 400,
+    "price": 36000,
     "weight": 225,
     "type": "Compact",
     "sensorSize": "2/3 12 Мп",
@@ -5346,12 +5395,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "X-S1",
-    "price": 400,
+    "price": 36000,
     "weight": 920,
     "type": "Compact",
     "sensorSize": "2/3 12 Мп",
@@ -5386,12 +5436,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "X-A3",
-    "price": 400,
+    "price": 36000,
     "weight": 339,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп",
@@ -5427,12 +5478,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "X-A1",
-    "price": 400,
+    "price": 36000,
     "weight": 330,
     "type": "Mirrorless",
     "sensorSize": "APS-C 16 Мп",
@@ -5467,12 +5519,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Fujifilm",
     "model": "XQ1",
-    "price": 350,
+    "price": 32000,
     "weight": 206,
     "type": "Compact",
     "sensorSize": "2/3 12 Мп",
@@ -5507,7 +5560,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Hasselblad",
@@ -5518,7 +5572,7 @@
     "sensorSize": "Средний формат 100 Мп",
     "resolution": 100,
     "video": "",
-    "autofocus": 1,
+    "autofocus": 294,
     "imageStabilization": true,
     "screenType": "",
     "microphoneInput": false,
@@ -5580,7 +5634,7 @@
     "sensorSize": "Средний формат 50 Мп",
     "resolution": 50,
     "video": "",
-    "autofocus": 1,
+    "autofocus": 117,
     "imageStabilization": false,
     "screenType": "",
     "microphoneInput": false,
@@ -5636,13 +5690,13 @@
   {
     "brand": "Hasselblad",
     "model": "H6D",
-    "price": 15000,
+    "price": 1350000,
     "weight": 800,
     "type": "DSLR",
     "sensorSize": "Средний формат 50 Мп / 100 Мп",
     "resolution": 50,
     "video": "Full HD",
-    "autofocus": 0,
+    "autofocus": 1,
     "imageStabilization": false,
     "rotatingScreen": false,
     "forBeginners": false,
@@ -5672,18 +5726,19 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Hasselblad",
     "model": "H5D",
-    "price": 15000,
+    "price": 1350000,
     "weight": 800,
     "type": "DSLR",
     "sensorSize": "Средний формат 40 Мп",
     "resolution": 40,
     "video": "Full HD",
-    "autofocus": 0,
+    "autofocus": 1,
     "imageStabilization": false,
     "rotatingScreen": false,
     "forBeginners": false,
@@ -5712,18 +5767,19 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Hasselblad",
     "model": "X1D",
-    "price": 8000,
+    "price": 720000,
     "weight": 725,
     "type": "Mirrorless",
     "sensorSize": "Средний формат 50 Мп",
     "resolution": 50,
     "video": "Full HD",
-    "autofocus": 0,
+    "autofocus": 117,
     "imageStabilization": false,
     "rotatingScreen": false,
     "forBeginners": false,
@@ -5753,12 +5809,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Hasselblad",
     "model": "X2D",
-    "price": 7200,
+    "price": 650000,
     "weight": 790,
     "type": "Mirrorless",
     "sensorSize": "Средний формат 100 Мп",
@@ -5794,18 +5851,19 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Hasselblad",
     "model": "907X",
-    "price": 6000,
+    "price": 540000,
     "weight": 740,
     "type": "Mirrorless",
     "sensorSize": "Средний формат 50 Мп",
     "resolution": 50,
     "video": "Full HD",
-    "autofocus": 0,
+    "autofocus": 117,
     "imageStabilization": false,
     "rotatingScreen": true,
     "forBeginners": false,
@@ -5835,7 +5893,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Leica",
@@ -5970,7 +6029,7 @@
     "sensorSize": "Full frame 60 Мп",
     "resolution": 60,
     "video": "8K",
-    "autofocus": 1,
+    "autofocus": 315,
     "imageStabilization": true,
     "screenType": "",
     "microphoneInput": true,
@@ -6032,7 +6091,7 @@
     "sensorSize": "Full frame 60 Мп",
     "resolution": 60,
     "video": "8K",
-    "autofocus": 1,
+    "autofocus": 315,
     "imageStabilization": false,
     "screenType": "",
     "microphoneInput": false,
@@ -6094,7 +6153,7 @@
     "sensorSize": "Full frame 24 Мп",
     "resolution": 24,
     "video": "ProRes",
-    "autofocus": 1,
+    "autofocus": 315,
     "imageStabilization": true,
     "screenType": "",
     "microphoneInput": true,
@@ -6156,7 +6215,7 @@
     "sensorSize": "Full frame 47 Мп",
     "resolution": 47,
     "video": "4K",
-    "autofocus": 1,
+    "autofocus": 49,
     "imageStabilization": false,
     "screenType": "",
     "microphoneInput": false,
@@ -6212,7 +6271,7 @@
   {
     "brand": "Leica",
     "model": "M11-D",
-    "price": 7500,
+    "price": 675000,
     "weight": 640,
     "type": "Compact",
     "sensorSize": "Full frame 60 Мп",
@@ -6248,12 +6307,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Leica",
     "model": "M10",
-    "price": 7000,
+    "price": 630000,
     "weight": 660,
     "type": "Compact",
     "sensorSize": "Full frame 24 Мп",
@@ -6289,12 +6349,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Leica",
     "model": "M (Typ 240)",
-    "price": 7000,
+    "price": 630000,
     "weight": 680,
     "type": "Compact",
     "sensorSize": "Full frame 24 Мп",
@@ -6329,12 +6390,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Leica",
     "model": "SL2",
-    "price": 6000,
+    "price": 540000,
     "weight": 835,
     "type": "Mirrorless",
     "sensorSize": "Full frame 47 Мп",
@@ -6371,12 +6433,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Leica",
     "model": "SL (Typ 601)",
-    "price": 6000,
+    "price": 540000,
     "weight": 847,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
@@ -6411,18 +6474,19 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Leica",
     "model": "Q (Typ 116)",
-    "price": 4000,
+    "price": 360000,
     "weight": 640,
     "type": "Compact",
     "sensorSize": "Full frame 24 Мп",
     "resolution": 24,
     "video": "Full HD",
-    "autofocus": 0,
+    "autofocus": 49,
     "imageStabilization": false,
     "rotatingScreen": false,
     "forBeginners": false,
@@ -6452,12 +6516,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Leica",
     "model": "M9-P",
-    "price": 4000,
+    "price": 360000,
     "weight": 585,
     "type": "Compact",
     "sensorSize": "Full frame 18 Мп",
@@ -6489,12 +6554,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Leica",
     "model": "X1",
-    "price": 1000,
+    "price": 90000,
     "weight": 286,
     "type": "Compact",
     "sensorSize": "APS-C 12 Мп",
@@ -6528,7 +6594,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Nikon",
@@ -6539,7 +6606,7 @@
     "sensorSize": "Full frame 45.7 Мп",
     "resolution": 45.7,
     "video": "8K",
-    "autofocus": 1,
+    "autofocus": 493,
     "imageStabilization": true,
     "screenType": "",
     "microphoneInput": true,
@@ -6601,7 +6668,7 @@
     "sensorSize": "Full frame 45.7 Мп",
     "resolution": 45.7,
     "video": "8K 60p RAW",
-    "autofocus": 1,
+    "autofocus": 493,
     "imageStabilization": true,
     "screenType": "",
     "microphoneInput": true,
@@ -6731,7 +6798,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "complex",
     "colorScience": false,
     "lensMount": "Nikon Z",
@@ -6794,7 +6861,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Nikon Z",
@@ -6857,7 +6924,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "complex",
     "colorScience": false,
     "lensMount": "Nikon Z",
@@ -6982,7 +7049,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Nikon F",
@@ -7040,7 +7107,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "Nikon F",
@@ -7089,7 +7156,7 @@
   {
     "brand": "Nikon",
     "model": "D4S",
-    "price": 6000,
+    "price": 540000,
     "weight": 1180,
     "type": "DSLR",
     "sensorSize": "Full frame 16 Мп",
@@ -7125,12 +7192,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Nikon",
     "model": "D4",
-    "price": 6000,
+    "price": 540000,
     "weight": 1340,
     "type": "DSLR",
     "sensorSize": "Full frame 16 Мп",
@@ -7166,7 +7234,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Nikon",
@@ -7208,12 +7277,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Nikon",
     "model": "D5",
-    "price": 5500,
+    "price": 495000,
     "weight": 1415,
     "type": "DSLR",
     "sensorSize": "Full frame 20 Мп",
@@ -7250,12 +7320,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Nikon",
     "model": "D3S",
-    "price": 5200,
+    "price": 470000,
     "weight": 1240,
     "type": "DSLR",
     "sensorSize": "Full frame 12 Мп",
@@ -7290,12 +7361,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Nikon",
     "model": "D800E",
-    "price": 3000,
+    "price": 270000,
     "weight": 900,
     "type": "DSLR",
     "sensorSize": "Full frame 36 Мп",
@@ -7330,12 +7402,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Nikon",
     "model": "D810",
-    "price": 2800,
+    "price": 250000,
     "weight": 880,
     "type": "DSLR",
     "sensorSize": "Full frame 36 Мп",
@@ -7370,12 +7443,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Nikon",
     "model": "D800",
-    "price": 2800,
+    "price": 250000,
     "weight": 900,
     "type": "DSLR",
     "sensorSize": "Full frame 36 Мп",
@@ -7410,12 +7484,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Nikon",
     "model": "Z6 III",
-    "price": 2200,
+    "price": 200000,
     "weight": 705,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
@@ -7452,12 +7527,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Nikon",
     "model": "Z6 II",
-    "price": 2000,
+    "price": 180000,
     "weight": 705,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
@@ -7494,12 +7570,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Nikon",
     "model": "Df",
-    "price": 2000,
+    "price": 180000,
     "weight": 765,
     "type": "DSLR",
     "sensorSize": "Full frame 16 Мп",
@@ -7534,12 +7611,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Nikon",
     "model": "Z6",
-    "price": 1800,
+    "price": 160000,
     "weight": 675,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
@@ -7576,12 +7654,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Nikon",
     "model": "D780",
-    "price": 1800,
+    "price": 160000,
     "weight": 840,
     "type": "DSLR",
     "sensorSize": "Full frame 24 Мп",
@@ -7618,12 +7697,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Nikon",
     "model": "D600",
-    "price": 1500,
+    "price": 135000,
     "weight": 760,
     "type": "DSLR",
     "sensorSize": "Full frame 24 Мп",
@@ -7658,12 +7738,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Nikon",
     "model": "D500",
-    "price": 1500,
+    "price": 135000,
     "weight": 860,
     "type": "DSLR",
     "sensorSize": "APS-C 20 Мп",
@@ -7700,12 +7781,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Nikon",
     "model": "Z5 II",
-    "price": 1400,
+    "price": 125000,
     "weight": 675,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
@@ -7742,12 +7824,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Nikon",
     "model": "Z5",
-    "price": 1300,
+    "price": 115000,
     "weight": 675,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
@@ -7784,12 +7867,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Nikon",
     "model": "D610",
-    "price": 1300,
+    "price": 115000,
     "weight": 850,
     "type": "DSLR",
     "sensorSize": "Full frame 24 Мп",
@@ -7824,12 +7908,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Nikon",
     "model": "Z fc",
-    "price": 900,
+    "price": 81000,
     "weight": 445,
     "type": "Mirrorless",
     "sensorSize": "APS-C 20 Мп",
@@ -7866,12 +7951,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Nikon",
     "model": "Z50",
-    "price": 850,
+    "price": 76000,
     "weight": 450,
     "type": "Mirrorless",
     "sensorSize": "APS-C 20 Мп",
@@ -7908,12 +7994,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Nikon",
     "model": "D7200",
-    "price": 750,
+    "price": 68000,
     "weight": 765,
     "type": "DSLR",
     "sensorSize": "APS-C 24 Мп",
@@ -7950,12 +8037,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Nikon",
     "model": "Z50 II",
-    "price": 700,
+    "price": 63000,
     "weight": 450,
     "type": "Mirrorless",
     "sensorSize": "APS-C 20 Мп",
@@ -7992,12 +8080,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Nikon",
     "model": "D7100",
-    "price": 700,
+    "price": 63000,
     "weight": 765,
     "type": "DSLR",
     "sensorSize": "APS-C 24 Мп",
@@ -8032,12 +8121,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Nikon",
     "model": "Z30",
-    "price": 600,
+    "price": 54000,
     "weight": 405,
     "type": "Mirrorless",
     "sensorSize": "APS-C 20 Мп",
@@ -8074,12 +8164,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Nikon",
     "model": "D7000",
-    "price": 600,
+    "price": 54000,
     "weight": 780,
     "type": "DSLR",
     "sensorSize": "APS-C 16 Мп",
@@ -8113,12 +8204,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Nikon",
     "model": "D5600",
-    "price": 600,
+    "price": 54000,
     "weight": 465,
     "type": "DSLR",
     "sensorSize": "APS-C 24 Мп",
@@ -8155,12 +8247,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Nikon",
     "model": "D5500",
-    "price": 550,
+    "price": 50000,
     "weight": 465,
     "type": "DSLR",
     "sensorSize": "APS-C 24 Мп",
@@ -8196,12 +8289,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Nikon",
     "model": "D5100",
-    "price": 400,
+    "price": 36000,
     "weight": 560,
     "type": "DSLR",
     "sensorSize": "APS-C 16 Мп",
@@ -8235,12 +8329,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Nikon",
     "model": "D3500",
-    "price": 400,
+    "price": 36000,
     "weight": 415,
     "type": "DSLR",
     "sensorSize": "APS-C 24 Мп",
@@ -8276,12 +8371,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Nikon",
     "model": "D3400",
-    "price": 350,
+    "price": 32000,
     "weight": 445,
     "type": "DSLR",
     "sensorSize": "APS-C 24 Мп",
@@ -8317,12 +8413,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Nikon",
     "model": "D3300",
-    "price": 350,
+    "price": 32000,
     "weight": 460,
     "type": "DSLR",
     "sensorSize": "APS-C 24 Мп",
@@ -8357,12 +8454,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Olympus",
     "model": "OM-D E-M1X",
-    "price": 2500,
+    "price": 225000,
     "weight": 997,
     "type": "Mirrorless",
     "sensorSize": "MFT 20 Мп",
@@ -8398,12 +8496,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Olympus",
     "model": "OM-D E-M1 III",
-    "price": 1500,
+    "price": 135000,
     "weight": 580,
     "type": "Mirrorless",
     "sensorSize": "MFT 20 Мп",
@@ -8439,12 +8538,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Olympus",
     "model": "OM-D E-M1 II",
-    "price": 1500,
+    "price": 135000,
     "weight": 574,
     "type": "Mirrorless",
     "sensorSize": "MFT 20 Мп",
@@ -8480,12 +8580,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Olympus",
     "model": "PEN-F",
-    "price": 1000,
+    "price": 90000,
     "weight": 427,
     "type": "Mirrorless",
     "sensorSize": "MFT 20 Мп",
@@ -8521,12 +8622,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Olympus",
     "model": "OM-D E-M5 III",
-    "price": 1000,
+    "price": 90000,
     "weight": 414,
     "type": "Mirrorless",
     "sensorSize": "MFT 20 Мп",
@@ -8562,12 +8664,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Olympus",
     "model": "OM-D E-M1",
-    "price": 1000,
+    "price": 90000,
     "weight": 497,
     "type": "Mirrorless",
     "sensorSize": "MFT 16 Мп",
@@ -8603,12 +8706,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Olympus",
     "model": "OM-D E-M5",
-    "price": 700,
+    "price": 63000,
     "weight": 425,
     "type": "Mirrorless",
     "sensorSize": "MFT 16 Мп",
@@ -8643,12 +8747,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Olympus",
     "model": "PEN E-PL2",
-    "price": 350,
+    "price": 32000,
     "weight": 362,
     "type": "Mirrorless",
     "sensorSize": "MFT 12 Мп",
@@ -8682,12 +8787,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "OM System",
     "model": "OM-1",
-    "price": 2000,
+    "price": 180000,
     "weight": 599,
     "type": "Mirrorless",
     "sensorSize": "MFT 20 Мп",
@@ -8723,12 +8829,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "OM System",
     "model": "OM-5",
-    "price": 1200,
+    "price": 110000,
     "weight": 414,
     "type": "Mirrorless",
     "sensorSize": "MFT 20 Мп",
@@ -8764,7 +8871,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Panasonic",
@@ -8775,7 +8883,7 @@
     "sensorSize": "MFT 25 Мп",
     "resolution": 25,
     "video": "5.7K 60p, ProRes",
-    "autofocus": 1,
+    "autofocus": 315,
     "imageStabilization": true,
     "screenType": "",
     "microphoneInput": true,
@@ -8837,7 +8945,7 @@
     "sensorSize": "MFT 20 Мп",
     "resolution": 20,
     "video": "4K 60p, V-Log",
-    "autofocus": 1,
+    "autofocus": 225,
     "imageStabilization": true,
     "screenType": "",
     "microphoneInput": true,
@@ -8905,7 +9013,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Micro Four Thirds",
@@ -8965,7 +9073,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Micro Four Thirds",
@@ -9014,7 +9122,7 @@
   {
     "brand": "Panasonic",
     "model": "Lumix S1H",
-    "price": 3500,
+    "price": 315000,
     "weight": 1164,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
@@ -9051,12 +9159,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Panasonic",
     "model": "Lumix S1R",
-    "price": 3000,
+    "price": 270000,
     "weight": 1021,
     "type": "Mirrorless",
     "sensorSize": "Full frame 47 Мп",
@@ -9093,12 +9202,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Panasonic",
     "model": "Lumix S5 IIX",
-    "price": 2200,
+    "price": 200000,
     "weight": 740,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
@@ -9135,12 +9245,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Panasonic",
     "model": "Lumix GH7",
-    "price": 2200,
+    "price": 200000,
     "weight": 823,
     "type": "Mirrorless",
     "sensorSize": "MFT 25 Мп",
@@ -9177,12 +9288,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Panasonic",
     "model": "Lumix S5 II",
-    "price": 2000,
+    "price": 180000,
     "weight": 740,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
@@ -9219,12 +9331,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Panasonic",
     "model": "Lumix S1",
-    "price": 2000,
+    "price": 180000,
     "weight": 1021,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
@@ -9261,12 +9374,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Panasonic",
     "model": "Lumix GH5S",
-    "price": 2000,
+    "price": 180000,
     "weight": 660,
     "type": "Mirrorless",
     "sensorSize": "MFT 10 Мп",
@@ -9302,12 +9416,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Panasonic",
     "model": "Lumix G9 II",
-    "price": 1700,
+    "price": 155000,
     "weight": 658,
     "type": "Mirrorless",
     "sensorSize": "MFT 25 Мп",
@@ -9344,12 +9459,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Panasonic",
     "model": "Lumix S5",
-    "price": 1600,
+    "price": 145000,
     "weight": 714,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
@@ -9386,12 +9502,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Panasonic",
     "model": "Lumix S9",
-    "price": 1500,
+    "price": 135000,
     "weight": 600,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
@@ -9428,12 +9545,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Panasonic",
     "model": "Lumix G9",
-    "price": 1400,
+    "price": 125000,
     "weight": 658,
     "type": "Mirrorless",
     "sensorSize": "MFT 20 Мп",
@@ -9470,12 +9588,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Panasonic",
     "model": "Lumix GH5 II",
-    "price": 1300,
+    "price": 115000,
     "weight": 727,
     "type": "Mirrorless",
     "sensorSize": "MFT 20 Мп",
@@ -9512,12 +9631,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Panasonic",
     "model": "Lumix GH4",
-    "price": 1000,
+    "price": 90000,
     "weight": 560,
     "type": "Mirrorless",
     "sensorSize": "MFT 16 Мп",
@@ -9553,12 +9673,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Panasonic",
     "model": "Lumix GX8",
-    "price": 900,
+    "price": 81000,
     "weight": 487,
     "type": "Mirrorless",
     "sensorSize": "MFT 20 Мп",
@@ -9594,12 +9715,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Panasonic",
     "model": "Lumix GH3",
-    "price": 800,
+    "price": 72000,
     "weight": 550,
     "type": "Mirrorless",
     "sensorSize": "MFT 16 Мп",
@@ -9634,12 +9756,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Panasonic",
     "model": "Lumix GX9",
-    "price": 700,
+    "price": 63000,
     "weight": 450,
     "type": "Mirrorless",
     "sensorSize": "MFT 20 Мп",
@@ -9675,12 +9798,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Panasonic",
     "model": "Lumix GX7",
-    "price": 650,
+    "price": 58000,
     "weight": 402,
     "type": "Mirrorless",
     "sensorSize": "MFT 16 Мп",
@@ -9716,12 +9840,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Panasonic",
     "model": "Lumix GX80/85",
-    "price": 600,
+    "price": 54000,
     "weight": 426,
     "type": "Mirrorless",
     "sensorSize": "MFT 16 Мп",
@@ -9757,12 +9882,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Panasonic",
     "model": "Lumix GH2",
-    "price": 600,
+    "price": 54000,
     "weight": 442,
     "type": "Mirrorless",
     "sensorSize": "MFT 16 Мп",
@@ -9796,12 +9922,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Panasonic",
     "model": "Lumix G7",
-    "price": 600,
+    "price": 54000,
     "weight": 410,
     "type": "Mirrorless",
     "sensorSize": "MFT 16 Мп",
@@ -9837,12 +9964,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Panasonic",
     "model": "Lumix GX1",
-    "price": 500,
+    "price": 45000,
     "weight": 318,
     "type": "Mirrorless",
     "sensorSize": "MFT 16 Мп",
@@ -9877,12 +10005,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Panasonic",
     "model": "Lumix G6",
-    "price": 500,
+    "price": 45000,
     "weight": 396,
     "type": "Mirrorless",
     "sensorSize": "MFT 16 Мп",
@@ -9917,12 +10046,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Panasonic",
     "model": "Lumix G5",
-    "price": 500,
+    "price": 45000,
     "weight": 396,
     "type": "Mirrorless",
     "sensorSize": "MFT 16 Мп",
@@ -9957,12 +10087,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Panasonic",
     "model": "Lumix G3",
-    "price": 450,
+    "price": 40000,
     "weight": 336,
     "type": "Mirrorless",
     "sensorSize": "MFT 16 Мп",
@@ -9997,12 +10128,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Panasonic",
     "model": "Lumix GM1",
-    "price": 400,
+    "price": 36000,
     "weight": 204,
     "type": "Mirrorless",
     "sensorSize": "MFT 16 Мп",
@@ -10037,12 +10169,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Panasonic",
     "model": "Lumix G2",
-    "price": 400,
+    "price": 36000,
     "weight": 371,
     "type": "Mirrorless",
     "sensorSize": "MFT 12 Мп",
@@ -10076,12 +10209,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Panasonic",
     "model": "Lumix GF7",
-    "price": 350,
+    "price": 32000,
     "weight": 266,
     "type": "Mirrorless",
     "sensorSize": "MFT 16 Мп",
@@ -10117,12 +10251,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Panasonic",
     "model": "Lumix GF6",
-    "price": 350,
+    "price": 32000,
     "weight": 286,
     "type": "Mirrorless",
     "sensorSize": "MFT 16 Мп",
@@ -10158,12 +10293,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Panasonic",
     "model": "Lumix GF5",
-    "price": 350,
+    "price": 32000,
     "weight": 267,
     "type": "Mirrorless",
     "sensorSize": "MFT 12 Мп",
@@ -10198,12 +10334,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Pentax",
     "model": "645Z",
-    "price": 6000,
+    "price": 540000,
     "weight": 1470,
     "type": "DSLR",
     "sensorSize": "Средний формат 51 Мп",
@@ -10238,12 +10375,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Pentax",
     "model": "K-1",
-    "price": 1600,
+    "price": 145000,
     "weight": 1010,
     "type": "DSLR",
     "sensorSize": "Full frame 36 Мп",
@@ -10279,12 +10417,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Pentax",
     "model": "K-3 III",
-    "price": 1500,
+    "price": 135000,
     "weight": 820,
     "type": "DSLR",
     "sensorSize": "APS-C 25 Мп",
@@ -10320,12 +10459,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Pentax",
     "model": "KP",
-    "price": 900,
+    "price": 81000,
     "weight": 703,
     "type": "DSLR",
     "sensorSize": "APS-C 24 Мп",
@@ -10361,12 +10501,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Pentax",
     "model": "K-3",
-    "price": 900,
+    "price": 81000,
     "weight": 800,
     "type": "DSLR",
     "sensorSize": "APS-C 24 Мп",
@@ -10401,12 +10542,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Pentax",
     "model": "K-5",
-    "price": 600,
+    "price": 54000,
     "weight": 750,
     "type": "DSLR",
     "sensorSize": "APS-C 16 Мп",
@@ -10440,7 +10582,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Ricoh",
@@ -10451,7 +10594,7 @@
     "price": 130000,
     "weight": 500,
     "video": "4K",
-    "autofocus": 1,
+    "autofocus": 0,
     "imageStabilization": true,
     "screenType": "",
     "microphoneInput": false,
@@ -10515,7 +10658,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "unknown",
@@ -10571,7 +10714,7 @@
     "price": 85000,
     "weight": 500,
     "video": "Full HD",
-    "autofocus": 1,
+    "autofocus": 0,
     "imageStabilization": true,
     "screenType": "",
     "microphoneInput": false,
@@ -10635,7 +10778,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "unknown",
@@ -10691,7 +10834,7 @@
     "sensorSize": "Full frame 50 Мп",
     "resolution": 50,
     "video": "8K 30p, 4K 120p",
-    "autofocus": 1,
+    "autofocus": 759,
     "imageStabilization": true,
     "screenType": "",
     "microphoneInput": true,
@@ -10753,7 +10896,7 @@
     "sensorSize": "Full frame 24.6 Мп",
     "resolution": 24.6,
     "video": "4K 120p",
-    "autofocus": 1,
+    "autofocus": 759,
     "imageStabilization": true,
     "screenType": "",
     "microphoneInput": true,
@@ -10815,7 +10958,7 @@
     "sensorSize": "Full frame 33 Мп",
     "resolution": 33,
     "video": "4K",
-    "autofocus": 1,
+    "autofocus": 759,
     "imageStabilization": true,
     "screenType": "",
     "microphoneInput": true,
@@ -10877,7 +11020,7 @@
     "sensorSize": "Full frame 66.8 Мп",
     "resolution": 66.8,
     "video": "8K",
-    "autofocus": 1,
+    "autofocus": 693,
     "imageStabilization": true,
     "screenType": "",
     "microphoneInput": true,
@@ -10939,7 +11082,7 @@
     "sensorSize": "Full frame 61 Мп",
     "resolution": 61,
     "video": "8K",
-    "autofocus": 1,
+    "autofocus": 693,
     "imageStabilization": true,
     "screenType": "",
     "microphoneInput": true,
@@ -11001,7 +11144,7 @@
     "sensorSize": "Full frame 33 Мп",
     "resolution": 33,
     "video": "4K 60p",
-    "autofocus": 1,
+    "autofocus": 759,
     "imageStabilization": true,
     "screenType": "",
     "microphoneInput": true,
@@ -11069,7 +11212,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "complex",
     "colorScience": false,
     "lensMount": "Sony E",
@@ -11188,7 +11331,7 @@
     "sensorSize": "APS-C 24 Мп",
     "resolution": 24,
     "video": "4K",
-    "autofocus": 1,
+    "autofocus": 759,
     "imageStabilization": false,
     "screenType": "",
     "microphoneInput": true,
@@ -11256,7 +11399,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Sony E",
@@ -11319,7 +11462,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "unknown",
@@ -11382,7 +11525,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "simple",
     "colorScience": false,
     "lensMount": "unknown",
@@ -11445,7 +11588,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "complex",
     "colorScience": false,
     "lensMount": "Sony E",
@@ -11506,7 +11649,7 @@
     "microphoneInput": null,
     "logProfile": null,
     "bitDepth": 0,
-    "cardSlots": 0,
+    "cardSlots": 1,
     "menuComplexity": "intermediate",
     "colorScience": false,
     "lensMount": "Sony E",
@@ -11554,7 +11697,7 @@
   {
     "brand": "Sony",
     "model": "Alpha A1 II",
-    "price": 6000,
+    "price": 540000,
     "weight": 737,
     "type": "Mirrorless",
     "sensorSize": "Full frame 50 Мп",
@@ -11592,12 +11735,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
     "model": "Alpha A1",
-    "price": 6000,
+    "price": 540000,
     "weight": 737,
     "type": "Mirrorless",
     "sensorSize": "Full frame 50 Мп",
@@ -11635,7 +11779,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
@@ -11678,7 +11823,8 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
@@ -11721,12 +11867,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
     "model": "Alpha A7S III",
-    "price": 3200,
+    "price": 290000,
     "weight": 699,
     "type": "Mirrorless",
     "sensorSize": "Full frame 12 Мп",
@@ -11763,12 +11910,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
     "model": "Alpha A7R IV",
-    "price": 3000,
+    "price": 270000,
     "weight": 665,
     "type": "Mirrorless",
     "sensorSize": "Full frame 61 Мп",
@@ -11805,12 +11953,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
     "model": "Alpha A7R II",
-    "price": 3000,
+    "price": 270000,
     "weight": 625,
     "type": "Mirrorless",
     "sensorSize": "Full frame 42 Мп",
@@ -11847,12 +11996,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
     "model": "Alpha A99",
-    "price": 2800,
+    "price": 250000,
     "weight": 812,
     "type": "DSLR",
     "sensorSize": "Full frame 24 Мп",
@@ -11887,12 +12037,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
     "model": "Alpha A7S II",
-    "price": 2800,
+    "price": 250000,
     "weight": 627,
     "type": "Mirrorless",
     "sensorSize": "Full frame 12 Мп",
@@ -11929,12 +12080,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
     "model": "Alpha A7R III",
-    "price": 2800,
+    "price": 250000,
     "weight": 657,
     "type": "Mirrorless",
     "sensorSize": "Full frame 42 Мп",
@@ -11972,12 +12124,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
     "model": "A7C R",
-    "price": 2800,
+    "price": 250000,
     "weight": 515,
     "type": "Mirrorless",
     "sensorSize": "Full frame 61 Мп",
@@ -12014,12 +12167,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
     "model": "Alpha A99 II",
-    "price": 2500,
+    "price": 225000,
     "weight": 849,
     "type": "DSLR",
     "sensorSize": "Full frame 42 Мп",
@@ -12056,12 +12210,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
     "model": "Alpha A7S",
-    "price": 2500,
+    "price": 225000,
     "weight": 446,
     "type": "Mirrorless",
     "sensorSize": "Full frame 12 Мп",
@@ -12098,12 +12253,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
     "model": "Alpha A7 V",
-    "price": 2400,
+    "price": 215000,
     "weight": 660,
     "type": "Mirrorless",
     "sensorSize": "Full frame 33 Мп",
@@ -12140,12 +12296,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
     "model": "Alpha A7 IV",
-    "price": 2200,
+    "price": 200000,
     "weight": 658,
     "type": "Mirrorless",
     "sensorSize": "Full frame 33 Мп",
@@ -12182,12 +12339,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
     "model": "Alpha A7R",
-    "price": 2000,
+    "price": 180000,
     "weight": 465,
     "type": "Mirrorless",
     "sensorSize": "Full frame 36 Мп",
@@ -12223,12 +12381,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
     "model": "Alpha A7 III",
-    "price": 1800,
+    "price": 160000,
     "weight": 565,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
@@ -12266,12 +12425,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
     "model": "FX30",
-    "price": 1600,
+    "price": 145000,
     "weight": 562,
     "type": "Mirrorless",
     "sensorSize": "APS-C 20 Мп",
@@ -12308,12 +12468,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
     "model": "Alpha A7 II",
-    "price": 1500,
+    "price": 135000,
     "weight": 599,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
@@ -12350,12 +12511,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
     "model": "Alpha A7",
-    "price": 1400,
+    "price": 125000,
     "weight": 416,
     "type": "Mirrorless",
     "sensorSize": "Full frame 24 Мп",
@@ -12391,12 +12553,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
     "model": "Alpha A77 II",
-    "price": 1200,
+    "price": 110000,
     "weight": 647,
     "type": "DSLR",
     "sensorSize": "APS-C 24 Мп",
@@ -12433,12 +12596,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
     "model": "Alpha A6600",
-    "price": 1200,
+    "price": 110000,
     "weight": 503,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп",
@@ -12475,12 +12639,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
     "model": "Alpha A6500",
-    "price": 1200,
+    "price": 110000,
     "weight": 453,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп",
@@ -12517,12 +12682,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
     "model": "Alpha A6400",
-    "price": 900,
+    "price": 81000,
     "weight": 403,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп",
@@ -12559,12 +12725,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
     "model": "Alpha A6300",
-    "price": 900,
+    "price": 81000,
     "weight": 404,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп",
@@ -12601,12 +12768,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
     "model": "Alpha A6100",
-    "price": 750,
+    "price": 68000,
     "weight": 396,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп",
@@ -12643,12 +12811,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
     "model": "NEX-7",
-    "price": 700,
+    "price": 63000,
     "weight": 400,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп",
@@ -12683,12 +12852,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
     "model": "NEX-6",
-    "price": 600,
+    "price": 54000,
     "weight": 345,
     "type": "Mirrorless",
     "sensorSize": "APS-C 16 Мп",
@@ -12723,12 +12893,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
     "model": "Alpha A6000",
-    "price": 600,
+    "price": 54000,
     "weight": 344,
     "type": "Mirrorless",
     "sensorSize": "APS-C 24 Мп",
@@ -12765,12 +12936,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
     "model": "NEX-5R",
-    "price": 500,
+    "price": 45000,
     "weight": 276,
     "type": "Mirrorless",
     "sensorSize": "APS-C 16 Мп",
@@ -12805,12 +12977,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
     "model": "NEX-5",
-    "price": 400,
+    "price": 36000,
     "weight": 297,
     "type": "Mirrorless",
     "sensorSize": "APS-C 14 Мп",
@@ -12844,12 +13017,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
     "model": "NEX-C3",
-    "price": 350,
+    "price": 32000,
     "weight": 225,
     "type": "Mirrorless",
     "sensorSize": "APS-C 16 Мп",
@@ -12884,12 +13058,13 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   },
   {
     "brand": "Sony",
     "model": "A3000",
-    "price": 350,
+    "price": 32000,
     "weight": 411,
     "type": "Mirrorless",
     "sensorSize": "APS-C 20 Мп",
@@ -12924,6 +13099,7 @@
       }
     ],
     "manualUrl": "",
-    "firmwareUrl": ""
+    "firmwareUrl": "",
+    "cardSlots": 1
   }
 ]
