@@ -1746,6 +1746,9 @@ function showResults() {
   });
 }
 
+// URL воркера общей статистики (server/README.md). Пусто — голоса только в localStorage.
+const FEEDBACK_ENDPOINT = '';
+
 function saveFeedback(cameraId, vote, answers) {
   try {
     const key = 'cam_feedback';
@@ -1753,6 +1756,14 @@ function saveFeedback(cameraId, vote, answers) {
     existing.push({ cameraId, vote, answers: { level: answers.level, budget: answers.budget, goals: answers.goals }, date: new Date().toISOString() });
     localStorage.setItem(key, JSON.stringify(existing));
   } catch(e) {}
+  // Отправка на сервер — в фоне, ошибки не мешают пользователю
+  if (FEEDBACK_ENDPOINT) {
+    fetch(FEEDBACK_ENDPOINT.replace(/\/$/, '') + '/vote', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ cameraId, vote, level: state.level || 'unknown' })
+    }).catch(() => {});
+  }
 }
 
 function reset() {

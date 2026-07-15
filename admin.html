@@ -232,6 +232,7 @@
     <button id="exportFeedbackBtn" class="btn-secondary" style="margin-left:10px;"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 14V4M8 8l4-4 4 4M5 19h14"/></svg> Экспорт JSON</button>
     <button id="importFeedbackBtn" class="btn-secondary" style="margin-left:10px;"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v10M8 10l4 4 4-4M5 19h14"/></svg> Импорт JSON (объединить)</button>
     <button id="clearFeedbackBtn" class="btn-secondary" style="margin-left:10px; color:var(--bad);"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M6 7l1 13a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1l1-13"/></svg> Очистить</button>
+    <button id="serverStatsBtn" class="btn-secondary" style="margin-left:10px; display:none;"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7" ry="2.5"/><path d="M5 5.5v13c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-13M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/></svg> Статистика с сервера</button>
 
     <div id="feedbackSummary" style="margin-top:20px; background:var(--ink-soft); padding:16px; color:var(--paper-dim);"></div>
 
@@ -1901,6 +1902,57 @@
     if (!confirm('Удалить все голоса из этого браузера? Действие необратимо. Сначала стоит сделать экспорт.')) return;
     localStorage.removeItem(FEEDBACK_KEY);
     renderFeedback();
+  });
+
+  // ── Общая статистика с сервера (вариант Б, server/README.md) ──
+  // URL воркера Cloudflare. Пусто — кнопка скрыта, работаем только с localStorage.
+  const FEEDBACK_ENDPOINT = '';
+  if (FEEDBACK_ENDPOINT) document.getElementById('serverStatsBtn').style.display = '';
+  document.getElementById('serverStatsBtn').addEventListener('click', async () => {
+    const summary = document.getElementById('feedbackSummary');
+    const tbody = document.getElementById('feedbackTableBody');
+    summary.innerHTML = 'Загружаю статистику с сервера…';
+    try {
+      const res = await fetch(FEEDBACK_ENDPOINT.replace(/\/$/, '') + '/stats');
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data = await res.json();
+      const ids = Object.keys(data.cameras || {});
+      if (!ids.length) { summary.innerHTML = 'На сервере пока нет голосов.'; tbody.innerHTML = ''; return; }
+      let up = 0, down = 0;
+      ids.forEach(id => { up += data.cameras[id].up; down += data.cameras[id].down; });
+      const approval = up + down ? Math.round(up / (up + down) * 100) : 0;
+      summary.innerHTML = `<span style="color:var(--signal); font-family:var(--font-mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase;">Сервер · все пользователи</span><br>`
+        + `Всего голосов: <b>${up + down}</b> · ${UP_SVG} ${up} · ${DOWN_SVG} ${down} · общее одобрение: <b>${approval}%</b> · камер с голосами: ${ids.length}`;
+      const rows = ids.map(id => {
+        const cam = cameras.find(c => c.id === id);
+        const p = data.cameras[id];
+        const t = p.up + p.down;
+        return {
+          name: cam ? `${cam.brand} ${cam.model}` : id,
+          up: p.up, down: p.down, t,
+          appr: t ? Math.round(p.up / t * 100) : 0,
+          levels: Object.keys(p.levels || {}).map(l => `${l}: ${p.levels[l]}`).join(', ')
+        };
+      }).sort((a, b) => b.t - a.t);
+      tbody.innerHTML = rows.map(r => `
+        <tr>
+          <td>${r.name}</td>
+          <td style="color:var(--ok);">${r.up}</td>
+          <td style="color:var(--bad);">${r.down}</td>
+          <td>${r.t}</td>
+          <td>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <div style="width:80px; height:6px; background:var(--border); overflow:hidden;">
+                <div style="width:${r.appr}%; height:100%; background:${r.appr >= 50 ? 'var(--ok)' : 'var(--bad)'};"></div>
+              </div>
+              ${r.appr}%
+            </div>
+          </td>
+          <td style="color:var(--paper-faint); font-size:12px;">${r.levels}</td>
+        </tr>`).join('');
+    } catch (e) {
+      summary.innerHTML = 'Не удалось получить статистику с сервера: ' + e.message;
+    }
   });
 
   loadCameras().then(renderFeedback);
