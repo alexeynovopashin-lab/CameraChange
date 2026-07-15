@@ -1906,7 +1906,7 @@
 
   // ── Общая статистика с сервера (вариант Б, server/README.md) ──
   // URL воркера Cloudflare. Пусто — кнопка скрыта, работаем только с localStorage.
-  const FEEDBACK_ENDPOINT = '';
+  const FEEDBACK_ENDPOINT = 'https://camerateka-feedback.alexeynovopashin.workers.dev';
   if (FEEDBACK_ENDPOINT) document.getElementById('serverStatsBtn').style.display = '';
   document.getElementById('serverStatsBtn').addEventListener('click', async () => {
     const summary = document.getElementById('feedbackSummary');
