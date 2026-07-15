@@ -47,10 +47,10 @@ export default {
       }
 
       const key = 'votes:' + cameraId;
-      const current = JSON.parse((await env.FEEDBACK.get(key)) || '{"up":0,"down":0,"levels":{}}');
+      const current = JSON.parse((await env.KV.get(key)) || '{"up":0,"down":0,"levels":{}}');
       if (vote === 1) current.up++; else current.down++;
       current.levels[level] = (current.levels[level] || 0) + 1;
-      await env.FEEDBACK.put(key, JSON.stringify(current));
+      await env.KV.put(key, JSON.stringify(current));
       return json({ ok: true });
     }
 
@@ -58,9 +58,9 @@ export default {
       const cameras = {};
       let cursor;
       do {
-        const page = await env.FEEDBACK.list({ prefix: 'votes:', cursor });
+        const page = await env.KV.list({ prefix: 'votes:', cursor });
         for (const k of page.keys) {
-          const v = await env.FEEDBACK.get(k.name);
+          const v = await env.KV.get(k.name);
           if (v) cameras[k.name.slice(6)] = JSON.parse(v);
         }
         cursor = page.list_complete ? null : page.cursor;
