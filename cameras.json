@@ -30,7 +30,7 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Silver_iPhone_17_Pro_Max.jpg",
     "bonus": 0,
     "fullFrame": false,
-    "crop": false,
+    "crop": true,
     "mediumFormat": false,
     "mirrorless": false,
     "dslr": false,
@@ -96,7 +96,7 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/f/fc/IPhone_16_Pro_Max_Vector.svg",
     "bonus": 0,
     "fullFrame": false,
-    "crop": false,
+    "crop": true,
     "mediumFormat": false,
     "mirrorless": false,
     "dslr": false,
@@ -427,7 +427,7 @@
     "crop": false,
     "mediumFormat": false,
     "mirrorless": true,
-    "dslr": true,
+    "dslr": false,
     "compact": false,
     "rotatingScreen": true,
     "viewfinder": true,
@@ -490,10 +490,10 @@
     "burstBuffer": 0,
     "image": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Canon_EOS_R6_Mark_II_-_by_Henry_S%C3%B6derlund_%2852546794891%29.jpg",
     "bonus": 0,
-    "fullFrame": false,
+    "fullFrame": true,
     "crop": false,
     "mediumFormat": false,
-    "mirrorless": false,
+    "mirrorless": true,
     "dslr": false,
     "compact": false,
     "rotatingScreen": true,
@@ -687,10 +687,10 @@
     "burstBuffer": 0,
     "image": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Canon_EOS_R8_27_may_2023a.jpg",
     "bonus": 0,
-    "fullFrame": false,
+    "fullFrame": true,
     "crop": false,
     "mediumFormat": false,
-    "mirrorless": false,
+    "mirrorless": true,
     "dslr": false,
     "compact": false,
     "rotatingScreen": true,
@@ -822,9 +822,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Canon_EOS_R7%2BRF-S_18-150mm_f3.5-6.3_IS_STM.jpg",
     "bonus": 0,
     "fullFrame": false,
-    "crop": false,
+    "crop": true,
     "mediumFormat": false,
-    "mirrorless": false,
+    "mirrorless": true,
     "dslr": false,
     "compact": false,
     "rotatingScreen": true,
@@ -954,10 +954,10 @@
     "burstBuffer": 0,
     "image": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Canon_EOS_RP_27_Mar_2019a.jpg",
     "bonus": 0,
-    "fullFrame": false,
+    "fullFrame": true,
     "crop": false,
     "mediumFormat": false,
-    "mirrorless": false,
+    "mirrorless": true,
     "dslr": false,
     "compact": false,
     "rotatingScreen": true,
@@ -1022,9 +1022,9 @@
     "image": "",
     "bonus": 0,
     "fullFrame": false,
-    "crop": false,
+    "crop": true,
     "mediumFormat": false,
-    "mirrorless": false,
+    "mirrorless": true,
     "dslr": false,
     "compact": false,
     "rotatingScreen": true,
@@ -1156,7 +1156,7 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/3/39/Canon_EOS_Kiss_X10i_8_Jul_2020a.jpg",
     "bonus": 0,
     "fullFrame": false,
-    "crop": false,
+    "crop": true,
     "mediumFormat": false,
     "mirrorless": false,
     "dslr": true,
@@ -1418,10 +1418,10 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/9/9f/11-09-10-canon-60d-DSC_5385.jpg",
     "bonus": 0,
     "fullFrame": false,
-    "crop": false,
+    "crop": true,
     "mediumFormat": false,
     "mirrorless": false,
-    "dslr": false,
+    "dslr": true,
     "compact": false,
     "rotatingScreen": true,
     "viewfinder": false,
@@ -1621,7 +1621,7 @@
     "mediumFormat": false,
     "mirrorless": true,
     "dslr": false,
-    "compact": true,
+    "compact": false,
     "rotatingScreen": false,
     "viewfinder": false,
     "highResolution": false,
@@ -1681,10 +1681,10 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Canon_EOS_550D_%26_Canon_EOS_M6_Mark_II.jpg",
     "bonus": 0,
     "fullFrame": false,
-    "crop": false,
+    "crop": true,
     "mediumFormat": false,
     "mirrorless": false,
-    "dslr": false,
+    "dslr": true,
     "compact": false,
     "rotatingScreen": true,
     "viewfinder": false,
@@ -1750,7 +1750,7 @@
     "mediumFormat": false,
     "mirrorless": false,
     "dslr": true,
-    "compact": true,
+    "compact": false,
     "rotatingScreen": true,
     "viewfinder": false,
     "highResolution": false,
@@ -1811,7 +1811,7 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/8/8e/EOS_650D.jpg",
     "bonus": 6,
     "fullFrame": false,
-    "crop": false,
+    "crop": true,
     "mediumFormat": false,
     "mirrorless": false,
     "dslr": true,
@@ -1957,7 +1957,13 @@
     "ergonomics": "good",
     "releaseYear": 2012,
     "family": "Canon EOS-1D",
-    "predecessorId": "canon-1d-x"
+    "predecessorId": "canon-1d-x",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Canon",
@@ -1989,10 +1995,10 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Canon_EOS_1200D_03.jpg",
     "bonus": -2,
     "fullFrame": false,
-    "crop": false,
+    "crop": true,
     "mediumFormat": false,
     "mirrorless": false,
-    "dslr": false,
+    "dslr": true,
     "compact": false,
     "rotatingScreen": false,
     "viewfinder": true,
@@ -2053,10 +2059,10 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/6/61/Canon_EOS_1100D_with_Canon_EF-S_18-55mm_F3.5-5.6_IS_II.jpg",
     "bonus": -3,
     "fullFrame": false,
-    "crop": false,
+    "crop": true,
     "mediumFormat": false,
     "mirrorless": false,
-    "dslr": false,
+    "dslr": true,
     "compact": false,
     "rotatingScreen": false,
     "viewfinder": false,
@@ -2132,7 +2138,13 @@
     "ergonomics": "good",
     "releaseYear": 2012,
     "family": "Canon EOS-1D",
-    "predecessorId": "canon-1d-mark-iv"
+    "predecessorId": "canon-1d-mark-iv",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Canon",
@@ -2179,7 +2191,13 @@
     "ergonomics": "good",
     "releaseYear": 2020,
     "family": "Canon EOS-1D",
-    "predecessorId": "canon-1d-x-mark-ii"
+    "predecessorId": "canon-1d-x-mark-ii",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Canon",
@@ -2226,7 +2244,13 @@
     "ergonomics": "good",
     "releaseYear": 2016,
     "family": "Canon EOS-1D",
-    "predecessorId": "canon-1d-x"
+    "predecessorId": "canon-1d-x",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Canon",
@@ -2271,7 +2295,13 @@
     "ergonomics": "good",
     "releaseYear": 2009,
     "family": "Canon EOS-1D",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Canon",
@@ -2316,7 +2346,13 @@
     "ergonomics": "good",
     "releaseYear": 2015,
     "family": "Canon EOS 5DS",
-    "predecessorId": "canon-5ds"
+    "predecessorId": "canon-5ds",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Canon",
@@ -2361,7 +2397,13 @@
     "ergonomics": "good",
     "releaseYear": 2015,
     "family": "Canon EOS 5DS",
-    "predecessorId": "canon-5d-mark-iii"
+    "predecessorId": "canon-5d-mark-iii",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Canon",
@@ -2406,7 +2448,13 @@
     "ergonomics": "good",
     "releaseYear": 2012,
     "family": "Canon EOS 5D",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Canon",
@@ -2453,7 +2501,13 @@
     "ergonomics": "good",
     "releaseYear": 2018,
     "family": "Canon EOS R",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Canon",
@@ -2502,7 +2556,13 @@
     "ergonomics": "good",
     "releaseYear": 2017,
     "family": "Canon EOS 6D",
-    "predecessorId": "canon-6d"
+    "predecessorId": "canon-6d",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Canon",
@@ -2548,7 +2608,13 @@
     "ergonomics": "good",
     "releaseYear": 2012,
     "family": "Canon EOS 6D",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Canon",
@@ -2593,7 +2659,13 @@
     "ergonomics": "good",
     "releaseYear": 2014,
     "family": "Canon EOS 7D",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Canon",
@@ -2640,7 +2712,13 @@
     "ergonomics": "good",
     "releaseYear": 2019,
     "family": "Canon EOS M",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Canon",
@@ -2687,7 +2765,13 @@
     "ergonomics": "good",
     "releaseYear": 2022,
     "family": "Canon EOS R APS-C",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Canon",
@@ -2733,7 +2817,13 @@
     "ergonomics": "good",
     "releaseYear": 2013,
     "family": "Canon EOS xxD",
-    "predecessorId": "canon-eos-60d"
+    "predecessorId": "canon-eos-60d",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Canon",
@@ -2781,7 +2871,13 @@
     "ergonomics": "good",
     "releaseYear": 2017,
     "family": "Canon EOS xxxD",
-    "predecessorId": "canon-eos-760d"
+    "predecessorId": "canon-eos-760d",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Canon",
@@ -2828,7 +2924,13 @@
     "ergonomics": "good",
     "releaseYear": 2015,
     "family": "Canon EOS xxxD",
-    "predecessorId": "canon-eos-700d"
+    "predecessorId": "canon-eos-700d",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Canon",
@@ -2873,7 +2975,13 @@
     "ergonomics": "good",
     "releaseYear": 2011,
     "family": "Canon EOS xxxD",
-    "predecessorId": "canon-eos-550d"
+    "predecessorId": "canon-eos-550d",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Canon",
@@ -2921,7 +3029,13 @@
     "ergonomics": "good",
     "releaseYear": 2017,
     "family": "Canon EOS x00D",
-    "predecessorId": "canon-eos-100d"
+    "predecessorId": "canon-eos-100d",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "DJI",
@@ -3610,11 +3724,11 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/9/99/Finstr%C3%B6mi_kirikuaia_piirdem%C3%BC%C3%BCr.jpg",
     "bonus": 0,
     "fullFrame": false,
-    "crop": false,
+    "crop": true,
     "mediumFormat": false,
     "mirrorless": false,
     "dslr": false,
-    "compact": false,
+    "compact": true,
     "rotatingScreen": false,
     "viewfinder": false,
     "highResolution": false,
@@ -3679,7 +3793,7 @@
     "fullFrame": false,
     "crop": false,
     "mediumFormat": true,
-    "mirrorless": false,
+    "mirrorless": true,
     "dslr": false,
     "compact": false,
     "rotatingScreen": true,
@@ -3745,8 +3859,8 @@
     "bonus": 0,
     "fullFrame": false,
     "crop": false,
-    "mediumFormat": false,
-    "mirrorless": false,
+    "mediumFormat": true,
+    "mirrorless": true,
     "dslr": false,
     "compact": false,
     "rotatingScreen": true,
@@ -3946,7 +4060,7 @@
     "fullFrame": false,
     "crop": false,
     "mediumFormat": true,
-    "mirrorless": false,
+    "mirrorless": true,
     "dslr": false,
     "compact": false,
     "rotatingScreen": true,
@@ -4013,7 +4127,7 @@
     "fullFrame": false,
     "crop": false,
     "mediumFormat": true,
-    "mirrorless": false,
+    "mirrorless": true,
     "dslr": false,
     "compact": false,
     "rotatingScreen": true,
@@ -4425,7 +4539,13 @@
     "ergonomics": "poor",
     "releaseYear": 2016,
     "family": "Fujifilm X-T",
-    "predecessorId": "fujifilm-x-t1"
+    "predecessorId": "fujifilm-x-t1",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -4471,7 +4591,13 @@
     "ergonomics": "poor",
     "releaseYear": 2016,
     "family": "Fujifilm X-Pro",
-    "predecessorId": "fujifilm-x-pro1"
+    "predecessorId": "fujifilm-x-pro1",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -4517,7 +4643,13 @@
     "ergonomics": "medium",
     "releaseYear": 2018,
     "family": "Fujifilm X-H",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -4564,7 +4696,13 @@
     "ergonomics": "poor",
     "releaseYear": 2018,
     "family": "Fujifilm X-T",
-    "predecessorId": "fujifilm-x-t2"
+    "predecessorId": "fujifilm-x-t2",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -4610,7 +4748,13 @@
     "ergonomics": "poor",
     "releaseYear": 2017,
     "family": "Fujifilm X100",
-    "predecessorId": "fujifilm-x100t"
+    "predecessorId": "fujifilm-x100t",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": true,
+    "mirrorless": false,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -4656,7 +4800,13 @@
     "ergonomics": "poor",
     "releaseYear": 2014,
     "family": "Fujifilm X100",
-    "predecessorId": "fujifilm-x100s"
+    "predecessorId": "fujifilm-x100s",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": true,
+    "mirrorless": false,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -4701,7 +4851,13 @@
     "ergonomics": "poor",
     "releaseYear": 2013,
     "family": "Fujifilm X100",
-    "predecessorId": "fujifilm-x100"
+    "predecessorId": "fujifilm-x100",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": true,
+    "mirrorless": false,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -4748,7 +4904,13 @@
     "ergonomics": "poor",
     "releaseYear": 2024,
     "family": "Fujifilm X-Txx",
-    "predecessorId": "fujifilm-x-t30-ii"
+    "predecessorId": "fujifilm-x-t30-ii",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -4793,7 +4955,13 @@
     "ergonomics": "poor",
     "releaseYear": 2012,
     "family": "Fujifilm X-Pro",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -4837,7 +5005,13 @@
     "ergonomics": "poor",
     "releaseYear": 2011,
     "family": "Fujifilm X100",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": true,
+    "mirrorless": false,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -4884,7 +5058,13 @@
     "ergonomics": "medium",
     "releaseYear": 2020,
     "family": "Fujifilm X-S",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -4931,7 +5111,13 @@
     "ergonomics": "poor",
     "releaseYear": 2025,
     "family": "Fujifilm X-Txx",
-    "predecessorId": "fujifilm-x-t30-ii"
+    "predecessorId": "fujifilm-x-t30-ii",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -4977,7 +5163,13 @@
     "ergonomics": "poor",
     "releaseYear": 2014,
     "family": "Fujifilm X-T",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -5024,7 +5216,13 @@
     "ergonomics": "poor",
     "releaseYear": 2025,
     "family": "Fujifilm X-E",
-    "predecessorId": "fujifilm-x-e4"
+    "predecessorId": "fujifilm-x-e4",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -5070,7 +5268,13 @@
     "ergonomics": "poor",
     "releaseYear": 2016,
     "family": "Fujifilm X70/XF",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": true,
+    "mirrorless": false,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -5116,7 +5320,13 @@
     "ergonomics": "poor",
     "releaseYear": 2017,
     "family": "Fujifilm X-Txx",
-    "predecessorId": "fujifilm-x-t10"
+    "predecessorId": "fujifilm-x-t10",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -5163,7 +5373,13 @@
     "ergonomics": "poor",
     "releaseYear": 2021,
     "family": "Fujifilm X-E",
-    "predecessorId": "fujifilm-x-e3"
+    "predecessorId": "fujifilm-x-e3",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -5210,7 +5426,13 @@
     "ergonomics": "poor",
     "releaseYear": 2017,
     "family": "Fujifilm X-E",
-    "predecessorId": "fujifilm-x-e2s"
+    "predecessorId": "fujifilm-x-e2s",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -5255,7 +5477,13 @@
     "ergonomics": "poor",
     "releaseYear": 2012,
     "family": "Fujifilm X-E",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -5301,7 +5529,13 @@
     "ergonomics": "poor",
     "releaseYear": 2015,
     "family": "Fujifilm X-Txx",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -5348,7 +5582,13 @@
     "ergonomics": "poor",
     "releaseYear": 2024,
     "family": "Fujifilm X-M",
-    "predecessorId": "fujifilm-x-m1"
+    "predecessorId": "fujifilm-x-m1",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -5394,7 +5634,13 @@
     "ergonomics": "poor",
     "releaseYear": 2016,
     "family": "Fujifilm X-E",
-    "predecessorId": "fujifilm-x-e2"
+    "predecessorId": "fujifilm-x-e2",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -5440,7 +5686,13 @@
     "ergonomics": "poor",
     "releaseYear": 2013,
     "family": "Fujifilm X-E",
-    "predecessorId": "fujifilm-x-e1"
+    "predecessorId": "fujifilm-x-e1",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -5487,7 +5739,13 @@
     "ergonomics": "poor",
     "releaseYear": 2018,
     "family": "Fujifilm X70/XF",
-    "predecessorId": "fujifilm-x70"
+    "predecessorId": "fujifilm-x70",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": true,
+    "mirrorless": false,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -5533,7 +5791,13 @@
     "ergonomics": "poor",
     "releaseYear": 2014,
     "family": "Fujifilm Xx0",
-    "predecessorId": "fujifilm-x20"
+    "predecessorId": "fujifilm-x20",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": true,
+    "mirrorless": false,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -5578,7 +5842,13 @@
     "ergonomics": "poor",
     "releaseYear": 2013,
     "family": "Fujifilm Xx0",
-    "predecessorId": "fujifilm-x10"
+    "predecessorId": "fujifilm-x10",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": true,
+    "mirrorless": false,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -5623,7 +5893,13 @@
     "ergonomics": "poor",
     "releaseYear": 2011,
     "family": "Fujifilm Xx0",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": true,
+    "mirrorless": false,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -5669,7 +5945,13 @@
     "ergonomics": "poor",
     "releaseYear": 2013,
     "family": "Fujifilm X-M",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -5716,7 +5998,13 @@
     "ergonomics": "poor",
     "releaseYear": 2019,
     "family": "Fujifilm X-A",
-    "predecessorId": "fujifilm-x-a5"
+    "predecessorId": "fujifilm-x-a5",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -5763,7 +6051,13 @@
     "ergonomics": "poor",
     "releaseYear": 2018,
     "family": "Fujifilm X-A",
-    "predecessorId": "fujifilm-x-a3"
+    "predecessorId": "fujifilm-x-a3",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -5808,7 +6102,13 @@
     "ergonomics": "poor",
     "releaseYear": 2012,
     "family": "Fujifilm XF1",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": true,
+    "mirrorless": false,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -5853,7 +6153,13 @@
     "ergonomics": "medium",
     "releaseYear": 2011,
     "family": "Fujifilm X-S bridge",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": true,
+    "mirrorless": false,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -5899,7 +6205,13 @@
     "ergonomics": "poor",
     "releaseYear": 2016,
     "family": "Fujifilm X-A",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -5944,7 +6256,13 @@
     "ergonomics": "poor",
     "releaseYear": 2013,
     "family": "Fujifilm X-A",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Fujifilm",
@@ -5989,7 +6307,13 @@
     "ergonomics": "poor",
     "releaseYear": 2013,
     "family": "Fujifilm XQ",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": true,
+    "mirrorless": false,
+    "dslr": false
   },
   {
     "brand": "Hasselblad",
@@ -6171,7 +6495,13 @@
     "ergonomics": "poor",
     "releaseYear": 2016,
     "family": "Hasselblad H",
-    "predecessorId": "hasselblad-h5d"
+    "predecessorId": "hasselblad-h5d",
+    "fullFrame": false,
+    "crop": false,
+    "mediumFormat": true,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Hasselblad",
@@ -6216,7 +6546,13 @@
     "ergonomics": "poor",
     "releaseYear": 2012,
     "family": "Hasselblad H",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": false,
+    "mediumFormat": true,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Hasselblad",
@@ -6262,7 +6598,13 @@
     "ergonomics": "poor",
     "releaseYear": 2016,
     "family": "Hasselblad X",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": false,
+    "mediumFormat": true,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Hasselblad",
@@ -6308,7 +6650,13 @@
     "ergonomics": "poor",
     "releaseYear": 2020,
     "family": "Hasselblad 907X",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": false,
+    "mediumFormat": true,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Leica",
@@ -6331,7 +6679,7 @@
     "mediumFormat": false,
     "mirrorless": false,
     "dslr": false,
-    "compact": false,
+    "compact": true,
     "rotatingScreen": false,
     "viewfinder": true,
     "highResolution": true,
@@ -6397,7 +6745,7 @@
     "mediumFormat": false,
     "mirrorless": false,
     "dslr": false,
-    "compact": false,
+    "compact": true,
     "rotatingScreen": false,
     "viewfinder": true,
     "highResolution": true,
@@ -6750,7 +7098,13 @@
     "ergonomics": "poor",
     "releaseYear": 2024,
     "family": "Leica M",
-    "predecessorId": "leica-m11"
+    "predecessorId": "leica-m11",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": true,
+    "mirrorless": false,
+    "dslr": false
   },
   {
     "brand": "Leica",
@@ -6796,7 +7150,13 @@
     "ergonomics": "poor",
     "releaseYear": 2017,
     "family": "Leica M",
-    "predecessorId": "leica-m-typ-240"
+    "predecessorId": "leica-m-typ-240",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": true,
+    "mirrorless": false,
+    "dslr": false
   },
   {
     "brand": "Leica",
@@ -6841,7 +7201,13 @@
     "ergonomics": "poor",
     "releaseYear": 2012,
     "family": "Leica M",
-    "predecessorId": "leica-m9-p"
+    "predecessorId": "leica-m9-p",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": true,
+    "mirrorless": false,
+    "dslr": false
   },
   {
     "brand": "Leica",
@@ -6888,7 +7254,13 @@
     "ergonomics": "poor",
     "releaseYear": 2019,
     "family": "Leica SL",
-    "predecessorId": "leica-sl-typ-601"
+    "predecessorId": "leica-sl-typ-601",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Leica",
@@ -6933,7 +7305,13 @@
     "ergonomics": "poor",
     "releaseYear": 2015,
     "family": "Leica SL",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Leica",
@@ -6979,7 +7357,13 @@
     "ergonomics": "poor",
     "releaseYear": 2015,
     "family": "Leica Q",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": true,
+    "mirrorless": false,
+    "dslr": false
   },
   {
     "brand": "Leica",
@@ -7021,7 +7405,13 @@
     "ergonomics": "poor",
     "releaseYear": 2011,
     "family": "Leica M",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": true,
+    "mirrorless": false,
+    "dslr": false
   },
   {
     "brand": "Leica",
@@ -7065,7 +7455,13 @@
     "ergonomics": "poor",
     "releaseYear": 2009,
     "family": "Leica X",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": true,
+    "mirrorless": false,
+    "dslr": false
   },
   {
     "brand": "Nikon",
@@ -7296,10 +7692,10 @@
     "burstBuffer": 0,
     "image": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Nikon_Z_7II_with_Nikkor_Z_24-70mm_F4_S_-_by_Henry_S%C3%B6derlund_%2850723434183%29.jpg",
     "bonus": 0,
-    "fullFrame": false,
+    "fullFrame": true,
     "crop": false,
     "mediumFormat": false,
-    "mirrorless": false,
+    "mirrorless": true,
     "dslr": false,
     "compact": false,
     "rotatingScreen": true,
@@ -7559,10 +7955,10 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/2/23/Nikon_D3100.jpg",
     "bonus": -5,
     "fullFrame": false,
-    "crop": false,
+    "crop": true,
     "mediumFormat": false,
     "mirrorless": false,
-    "dslr": false,
+    "dslr": true,
     "compact": false,
     "rotatingScreen": false,
     "viewfinder": false,
@@ -7624,10 +8020,10 @@
     "image": "",
     "bonus": -3,
     "fullFrame": false,
-    "crop": false,
+    "crop": true,
     "mediumFormat": false,
     "mirrorless": false,
-    "dslr": false,
+    "dslr": true,
     "compact": false,
     "rotatingScreen": false,
     "viewfinder": false,
@@ -7703,7 +8099,13 @@
     "ergonomics": "good",
     "releaseYear": 2014,
     "family": "Nikon D флагман",
-    "predecessorId": "nikon-d4"
+    "predecessorId": "nikon-d4",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Nikon",
@@ -7749,7 +8151,13 @@
     "ergonomics": "good",
     "releaseYear": 2012,
     "family": "Nikon D флагман",
-    "predecessorId": "nikon-d3s"
+    "predecessorId": "nikon-d3s",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Nikon",
@@ -7796,7 +8204,13 @@
     "ergonomics": "good",
     "releaseYear": 2020,
     "family": "Nikon D флагман",
-    "predecessorId": "nikon-d5"
+    "predecessorId": "nikon-d5",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Nikon",
@@ -7843,7 +8257,13 @@
     "ergonomics": "good",
     "releaseYear": 2016,
     "family": "Nikon D флагман",
-    "predecessorId": "nikon-d4s"
+    "predecessorId": "nikon-d4s",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Nikon",
@@ -7888,7 +8308,13 @@
     "ergonomics": "good",
     "releaseYear": 2009,
     "family": "Nikon D флагман",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Nikon",
@@ -7933,7 +8359,13 @@
     "ergonomics": "good",
     "releaseYear": 2012,
     "family": "Nikon D8xx",
-    "predecessorId": "nikon-d800"
+    "predecessorId": "nikon-d800",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Nikon",
@@ -7978,7 +8410,13 @@
     "ergonomics": "good",
     "releaseYear": 2014,
     "family": "Nikon D8xx",
-    "predecessorId": "nikon-d800"
+    "predecessorId": "nikon-d800",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Nikon",
@@ -8023,7 +8461,13 @@
     "ergonomics": "good",
     "releaseYear": 2012,
     "family": "Nikon D8xx",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Nikon",
@@ -8070,7 +8514,13 @@
     "ergonomics": "good",
     "releaseYear": 2024,
     "family": "Nikon Z6",
-    "predecessorId": "nikon-z6-ii"
+    "predecessorId": "nikon-z6-ii",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Nikon",
@@ -8117,7 +8567,13 @@
     "ergonomics": "good",
     "releaseYear": 2020,
     "family": "Nikon Z6",
-    "predecessorId": "nikon-z6"
+    "predecessorId": "nikon-z6",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Nikon",
@@ -8162,7 +8618,13 @@
     "ergonomics": "good",
     "releaseYear": 2013,
     "family": "Nikon Df",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Nikon",
@@ -8209,7 +8671,13 @@
     "ergonomics": "good",
     "releaseYear": 2018,
     "family": "Nikon Z6",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Nikon",
@@ -8256,7 +8724,13 @@
     "ergonomics": "good",
     "releaseYear": 2020,
     "family": "Nikon D7xx",
-    "predecessorId": "nikon-d750"
+    "predecessorId": "nikon-d750",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Nikon",
@@ -8301,7 +8775,13 @@
     "ergonomics": "good",
     "releaseYear": 2012,
     "family": "Nikon D6xx",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Nikon",
@@ -8348,7 +8828,13 @@
     "ergonomics": "good",
     "releaseYear": 2016,
     "family": "Nikon DX pro",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Nikon",
@@ -8395,7 +8881,13 @@
     "ergonomics": "good",
     "releaseYear": 2025,
     "family": "Nikon Z5",
-    "predecessorId": "nikon-z5"
+    "predecessorId": "nikon-z5",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Nikon",
@@ -8442,7 +8934,13 @@
     "ergonomics": "good",
     "releaseYear": 2020,
     "family": "Nikon Z5",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Nikon",
@@ -8487,7 +8985,13 @@
     "ergonomics": "good",
     "releaseYear": 2013,
     "family": "Nikon D6xx",
-    "predecessorId": "nikon-d600"
+    "predecessorId": "nikon-d600",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Nikon",
@@ -8534,7 +9038,13 @@
     "ergonomics": "good",
     "releaseYear": 2021,
     "family": "Nikon Z ретро",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Nikon",
@@ -8581,7 +9091,13 @@
     "ergonomics": "good",
     "releaseYear": 2019,
     "family": "Nikon Z DX",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Nikon",
@@ -8628,7 +9144,13 @@
     "ergonomics": "good",
     "releaseYear": 2015,
     "family": "Nikon D7xxx",
-    "predecessorId": "nikon-d7100"
+    "predecessorId": "nikon-d7100",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Nikon",
@@ -8675,7 +9197,13 @@
     "ergonomics": "good",
     "releaseYear": 2024,
     "family": "Nikon Z DX",
-    "predecessorId": "nikon-z50"
+    "predecessorId": "nikon-z50",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Nikon",
@@ -8720,7 +9248,13 @@
     "ergonomics": "good",
     "releaseYear": 2013,
     "family": "Nikon D7xxx",
-    "predecessorId": "nikon-d7000"
+    "predecessorId": "nikon-d7000",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Nikon",
@@ -8767,7 +9301,13 @@
     "ergonomics": "good",
     "releaseYear": 2022,
     "family": "Nikon Z DX",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Nikon",
@@ -8811,7 +9351,13 @@
     "ergonomics": "good",
     "releaseYear": 2010,
     "family": "Nikon D7xxx",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Nikon",
@@ -8858,7 +9404,13 @@
     "ergonomics": "good",
     "releaseYear": 2016,
     "family": "Nikon D5xxx",
-    "predecessorId": "nikon-d5500"
+    "predecessorId": "nikon-d5500",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Nikon",
@@ -8904,7 +9456,13 @@
     "ergonomics": "good",
     "releaseYear": 2015,
     "family": "Nikon D5xxx",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Nikon",
@@ -8948,7 +9506,13 @@
     "ergonomics": "good",
     "releaseYear": 2011,
     "family": "Nikon D5xxx",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Nikon",
@@ -8994,7 +9558,13 @@
     "ergonomics": "good",
     "releaseYear": 2018,
     "family": "Nikon D3xxx",
-    "predecessorId": "nikon-d3400"
+    "predecessorId": "nikon-d3400",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Nikon",
@@ -9040,7 +9610,13 @@
     "ergonomics": "good",
     "releaseYear": 2016,
     "family": "Nikon D3xxx",
-    "predecessorId": "nikon-d3300"
+    "predecessorId": "nikon-d3300",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Nikon",
@@ -9085,7 +9661,13 @@
     "ergonomics": "good",
     "releaseYear": 2014,
     "family": "Nikon D3xxx",
-    "predecessorId": "nikon-d3200"
+    "predecessorId": "nikon-d3200",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Olympus",
@@ -9131,7 +9713,13 @@
     "ergonomics": "poor",
     "releaseYear": 2019,
     "family": "Olympus E-M1",
-    "predecessorId": "olympus-om-d-e-m1-ii"
+    "predecessorId": "olympus-om-d-e-m1-ii",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Olympus",
@@ -9177,7 +9765,13 @@
     "ergonomics": "poor",
     "releaseYear": 2020,
     "family": "Olympus E-M1",
-    "predecessorId": "olympus-om-d-e-m1-ii"
+    "predecessorId": "olympus-om-d-e-m1-ii",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Olympus",
@@ -9223,7 +9817,13 @@
     "ergonomics": "poor",
     "releaseYear": 2016,
     "family": "Olympus E-M1",
-    "predecessorId": "olympus-om-d-e-m1"
+    "predecessorId": "olympus-om-d-e-m1",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Olympus",
@@ -9269,7 +9869,13 @@
     "ergonomics": "poor",
     "releaseYear": 2016,
     "family": "Olympus PEN-F",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Olympus",
@@ -9315,7 +9921,13 @@
     "ergonomics": "poor",
     "releaseYear": 2019,
     "family": "Olympus E-M5",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Olympus",
@@ -9361,7 +9973,13 @@
     "ergonomics": "poor",
     "releaseYear": 2013,
     "family": "Olympus E-M1",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Olympus",
@@ -9406,7 +10024,13 @@
     "ergonomics": "poor",
     "releaseYear": 2012,
     "family": "Olympus E-M5",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Olympus",
@@ -9450,7 +10074,13 @@
     "ergonomics": "poor",
     "releaseYear": 2011,
     "family": "Olympus PEN",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "OM System",
@@ -9496,7 +10126,13 @@
     "ergonomics": "poor",
     "releaseYear": 2022,
     "family": "Olympus E-M1",
-    "predecessorId": "olympus-om-d-e-m1-iii"
+    "predecessorId": "olympus-om-d-e-m1-iii",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "OM System",
@@ -9542,7 +10178,13 @@
     "ergonomics": "poor",
     "releaseYear": 2022,
     "family": "Olympus E-M5",
-    "predecessorId": "olympus-om-d-e-m5-iii"
+    "predecessorId": "olympus-om-d-e-m5-iii",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Panasonic",
@@ -9705,9 +10347,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/3/38/Panasonic-lumix-dmc-lx3.jpg",
     "bonus": 0,
     "fullFrame": false,
-    "crop": false,
+    "crop": true,
     "mediumFormat": false,
-    "mirrorless": false,
+    "mirrorless": true,
     "dslr": false,
     "compact": false,
     "rotatingScreen": false,
@@ -9770,9 +10412,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/7/78/Panasonic_Lumix_DMC-GF3.JPG",
     "bonus": 0,
     "fullFrame": false,
-    "crop": false,
+    "crop": true,
     "mediumFormat": false,
-    "mirrorless": false,
+    "mirrorless": true,
     "dslr": false,
     "compact": false,
     "rotatingScreen": false,
@@ -9850,7 +10492,13 @@
     "ergonomics": "good",
     "releaseYear": 2019,
     "family": "Panasonic S1",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Panasonic",
@@ -9897,7 +10545,13 @@
     "ergonomics": "good",
     "releaseYear": 2019,
     "family": "Panasonic S1",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Panasonic",
@@ -9944,7 +10598,13 @@
     "ergonomics": "good",
     "releaseYear": 2023,
     "family": "Panasonic S5",
-    "predecessorId": "panasonic-lumix-s5-ii"
+    "predecessorId": "panasonic-lumix-s5-ii",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Panasonic",
@@ -9991,7 +10651,13 @@
     "ergonomics": "good",
     "releaseYear": 2024,
     "family": "Panasonic GH",
-    "predecessorId": "panasonic-lumix-gh6"
+    "predecessorId": "panasonic-lumix-gh6",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Panasonic",
@@ -10038,7 +10704,13 @@
     "ergonomics": "good",
     "releaseYear": 2023,
     "family": "Panasonic S5",
-    "predecessorId": "panasonic-lumix-s5"
+    "predecessorId": "panasonic-lumix-s5",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Panasonic",
@@ -10085,7 +10757,13 @@
     "ergonomics": "good",
     "releaseYear": 2019,
     "family": "Panasonic S1",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Panasonic",
@@ -10131,7 +10809,13 @@
     "ergonomics": "good",
     "releaseYear": 2018,
     "family": "Panasonic GH",
-    "predecessorId": "panasonic-lumix-gh5"
+    "predecessorId": "panasonic-lumix-gh5",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Panasonic",
@@ -10178,7 +10862,13 @@
     "ergonomics": "good",
     "releaseYear": 2023,
     "family": "Panasonic G9",
-    "predecessorId": "panasonic-lumix-g9"
+    "predecessorId": "panasonic-lumix-g9",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Panasonic",
@@ -10225,7 +10915,13 @@
     "ergonomics": "good",
     "releaseYear": 2020,
     "family": "Panasonic S5",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Panasonic",
@@ -10272,7 +10968,13 @@
     "ergonomics": "good",
     "releaseYear": 2024,
     "family": "Panasonic S9",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Panasonic",
@@ -10319,7 +11021,13 @@
     "ergonomics": "good",
     "releaseYear": 2017,
     "family": "Panasonic G9",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Panasonic",
@@ -10366,7 +11074,13 @@
     "ergonomics": "good",
     "releaseYear": 2021,
     "family": "Panasonic GH",
-    "predecessorId": "panasonic-lumix-gh5"
+    "predecessorId": "panasonic-lumix-gh5",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Panasonic",
@@ -10412,7 +11126,13 @@
     "ergonomics": "good",
     "releaseYear": 2014,
     "family": "Panasonic GH",
-    "predecessorId": "panasonic-lumix-gh3"
+    "predecessorId": "panasonic-lumix-gh3",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Panasonic",
@@ -10458,7 +11178,13 @@
     "ergonomics": "good",
     "releaseYear": 2015,
     "family": "Panasonic GX",
-    "predecessorId": "panasonic-lumix-gx7"
+    "predecessorId": "panasonic-lumix-gx7",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Panasonic",
@@ -10503,7 +11229,13 @@
     "ergonomics": "good",
     "releaseYear": 2012,
     "family": "Panasonic GH",
-    "predecessorId": "panasonic-lumix-gh2"
+    "predecessorId": "panasonic-lumix-gh2",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Panasonic",
@@ -10549,7 +11281,13 @@
     "ergonomics": "good",
     "releaseYear": 2018,
     "family": "Panasonic GX",
-    "predecessorId": "panasonic-lumix-gx8"
+    "predecessorId": "panasonic-lumix-gx8",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Panasonic",
@@ -10595,7 +11333,13 @@
     "ergonomics": "good",
     "releaseYear": 2013,
     "family": "Panasonic GX",
-    "predecessorId": "panasonic-lumix-gx1"
+    "predecessorId": "panasonic-lumix-gx1",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Panasonic",
@@ -10641,7 +11385,13 @@
     "ergonomics": "good",
     "releaseYear": 2016,
     "family": "Panasonic GX",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Panasonic",
@@ -10685,7 +11435,13 @@
     "ergonomics": "good",
     "releaseYear": 2010,
     "family": "Panasonic GH",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Panasonic",
@@ -10731,7 +11487,13 @@
     "ergonomics": "good",
     "releaseYear": 2015,
     "family": "Panasonic G",
-    "predecessorId": "panasonic-lumix-g6"
+    "predecessorId": "panasonic-lumix-g6",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Panasonic",
@@ -10776,7 +11538,13 @@
     "ergonomics": "good",
     "releaseYear": 2011,
     "family": "Panasonic GX",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Panasonic",
@@ -10821,7 +11589,13 @@
     "ergonomics": "good",
     "releaseYear": 2013,
     "family": "Panasonic G",
-    "predecessorId": "panasonic-lumix-g5"
+    "predecessorId": "panasonic-lumix-g5",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Panasonic",
@@ -10866,7 +11640,13 @@
     "ergonomics": "good",
     "releaseYear": 2012,
     "family": "Panasonic G",
-    "predecessorId": "panasonic-lumix-g3"
+    "predecessorId": "panasonic-lumix-g3",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Panasonic",
@@ -10911,7 +11691,13 @@
     "ergonomics": "good",
     "releaseYear": 2011,
     "family": "Panasonic G",
-    "predecessorId": "panasonic-lumix-g2"
+    "predecessorId": "panasonic-lumix-g2",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Panasonic",
@@ -10956,7 +11742,13 @@
     "ergonomics": "good",
     "releaseYear": 2013,
     "family": "Panasonic GM",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Panasonic",
@@ -11000,7 +11792,13 @@
     "ergonomics": "good",
     "releaseYear": 2010,
     "family": "Panasonic G",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Panasonic",
@@ -11046,7 +11844,13 @@
     "ergonomics": "good",
     "releaseYear": 2015,
     "family": "Panasonic GF",
-    "predecessorId": "panasonic-lumix-gf6"
+    "predecessorId": "panasonic-lumix-gf6",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Panasonic",
@@ -11092,7 +11896,13 @@
     "ergonomics": "good",
     "releaseYear": 2013,
     "family": "Panasonic GF",
-    "predecessorId": "panasonic-lumix-gf5"
+    "predecessorId": "panasonic-lumix-gf5",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Panasonic",
@@ -11137,7 +11947,13 @@
     "ergonomics": "good",
     "releaseYear": 2012,
     "family": "Panasonic GF",
-    "predecessorId": "panasonic-lumix-gf3"
+    "predecessorId": "panasonic-lumix-gf3",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Pentax",
@@ -11182,7 +11998,13 @@
     "ergonomics": "good",
     "releaseYear": 2014,
     "family": "Pentax 645",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": false,
+    "mediumFormat": true,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Pentax",
@@ -11228,7 +12050,13 @@
     "ergonomics": "good",
     "releaseYear": 2016,
     "family": "Pentax K-1",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Pentax",
@@ -11274,7 +12102,13 @@
     "ergonomics": "good",
     "releaseYear": 2021,
     "family": "Pentax K-3",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Pentax",
@@ -11320,7 +12154,13 @@
     "ergonomics": "good",
     "releaseYear": 2017,
     "family": "Pentax KP",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Pentax",
@@ -11365,7 +12205,13 @@
     "ergonomics": "good",
     "releaseYear": 2013,
     "family": "Pentax K-3",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Pentax",
@@ -11409,7 +12255,13 @@
     "ergonomics": "good",
     "releaseYear": 2010,
     "family": "Pentax K-5",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Ricoh",
@@ -11440,7 +12292,7 @@
     "fullFrame": false,
     "crop": true,
     "mediumFormat": false,
-    "mirrorless": true,
+    "mirrorless": false,
     "dslr": false,
     "compact": true,
     "rotatingScreen": false,
@@ -11506,7 +12358,7 @@
     "fullFrame": false,
     "crop": true,
     "mediumFormat": false,
-    "mirrorless": true,
+    "mirrorless": false,
     "dslr": false,
     "compact": true,
     "rotatingScreen": false,
@@ -11568,7 +12420,7 @@
     "fullFrame": false,
     "crop": true,
     "mediumFormat": false,
-    "mirrorless": true,
+    "mirrorless": false,
     "dslr": false,
     "compact": true,
     "rotatingScreen": false,
@@ -11632,9 +12484,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/3/33/Ricoh_GR_%2816159018330%29.jpg",
     "bonus": 0,
     "fullFrame": false,
-    "crop": false,
+    "crop": true,
     "mediumFormat": false,
-    "mirrorless": true,
+    "mirrorless": false,
     "dslr": false,
     "compact": true,
     "rotatingScreen": false,
@@ -12111,10 +12963,10 @@
     "burstBuffer": 0,
     "image": "https://upload.wikimedia.org/wikipedia/commons/6/60/Sony_ZV-E1_with_Sony_FE_28-60mm_F4-5.6_-_by_Henry_S%C3%B6derlund_%2852854053098%29.jpg",
     "bonus": 0,
-    "fullFrame": false,
+    "fullFrame": true,
     "crop": false,
     "mediumFormat": false,
-    "mirrorless": false,
+    "mirrorless": true,
     "dslr": false,
     "compact": false,
     "rotatingScreen": true,
@@ -12245,9 +13097,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Sony_ZV-E10_Mark_II.tiff",
     "bonus": 0,
     "fullFrame": false,
-    "crop": false,
+    "crop": true,
     "mediumFormat": false,
-    "mirrorless": false,
+    "mirrorless": true,
     "dslr": false,
     "compact": false,
     "rotatingScreen": true,
@@ -12312,11 +13164,11 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Sony_ZV-1_%2850009804078%29.jpg",
     "bonus": 0,
     "fullFrame": false,
-    "crop": false,
+    "crop": true,
     "mediumFormat": false,
     "mirrorless": false,
     "dslr": false,
-    "compact": false,
+    "compact": true,
     "rotatingScreen": true,
     "viewfinder": false,
     "highResolution": false,
@@ -12379,11 +13231,11 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/7/70/Sony_ZV-1F_-_front_view_-_by_Henry_S%C3%B6derlund_%2852475295349%29.jpg",
     "bonus": 0,
     "fullFrame": false,
-    "crop": false,
+    "crop": true,
     "mediumFormat": false,
     "mirrorless": false,
     "dslr": false,
-    "compact": false,
+    "compact": true,
     "rotatingScreen": true,
     "viewfinder": false,
     "highResolution": false,
@@ -12444,9 +13296,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/5/5b/NEX-3N_-_pink.jpg",
     "bonus": -2,
     "fullFrame": false,
-    "crop": false,
+    "crop": true,
     "mediumFormat": false,
-    "mirrorless": false,
+    "mirrorless": true,
     "dslr": false,
     "compact": false,
     "rotatingScreen": true,
@@ -12508,9 +13360,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Sony_NEX-5.jpg",
     "bonus": 0,
     "fullFrame": false,
-    "crop": false,
+    "crop": true,
     "mediumFormat": false,
-    "mirrorless": false,
+    "mirrorless": true,
     "dslr": false,
     "compact": false,
     "rotatingScreen": false,
@@ -12589,7 +13441,13 @@
     "ergonomics": "medium",
     "releaseYear": 2021,
     "family": "Sony A1",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Sony",
@@ -12637,7 +13495,13 @@
     "ergonomics": "poor",
     "releaseYear": 2017,
     "family": "Sony A9",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Sony",
@@ -12684,7 +13548,13 @@
     "ergonomics": "medium",
     "releaseYear": 2020,
     "family": "Sony A7S",
-    "predecessorId": "sony-alpha-a7s-ii"
+    "predecessorId": "sony-alpha-a7s-ii",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Sony",
@@ -12731,7 +13601,13 @@
     "ergonomics": "poor",
     "releaseYear": 2019,
     "family": "Sony A7R",
-    "predecessorId": "sony-alpha-a7r-iii"
+    "predecessorId": "sony-alpha-a7r-iii",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Sony",
@@ -12778,7 +13654,13 @@
     "ergonomics": "poor",
     "releaseYear": 2015,
     "family": "Sony A7R",
-    "predecessorId": "sony-alpha-a7r"
+    "predecessorId": "sony-alpha-a7r",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Sony",
@@ -12823,7 +13705,13 @@
     "ergonomics": "good",
     "releaseYear": 2012,
     "family": "Sony SLT",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Sony",
@@ -12870,7 +13758,13 @@
     "ergonomics": "poor",
     "releaseYear": 2015,
     "family": "Sony A7S",
-    "predecessorId": "sony-alpha-a7s"
+    "predecessorId": "sony-alpha-a7s",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Sony",
@@ -12918,7 +13812,13 @@
     "ergonomics": "poor",
     "releaseYear": 2017,
     "family": "Sony A7R",
-    "predecessorId": "sony-alpha-a7r-ii"
+    "predecessorId": "sony-alpha-a7r-ii",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Sony",
@@ -12965,7 +13865,13 @@
     "ergonomics": "medium",
     "releaseYear": 2023,
     "family": "Sony A7C",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Sony",
@@ -13012,7 +13918,13 @@
     "ergonomics": "good",
     "releaseYear": 2016,
     "family": "Sony SLT",
-    "predecessorId": "sony-alpha-a99"
+    "predecessorId": "sony-alpha-a99",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Sony",
@@ -13059,7 +13971,13 @@
     "ergonomics": "poor",
     "releaseYear": 2014,
     "family": "Sony A7S",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Sony",
@@ -13106,7 +14024,13 @@
     "ergonomics": "medium",
     "releaseYear": 2021,
     "family": "Sony A7",
-    "predecessorId": "sony-alpha-a7-iii"
+    "predecessorId": "sony-alpha-a7-iii",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Sony",
@@ -13152,7 +14076,13 @@
     "ergonomics": "poor",
     "releaseYear": 2013,
     "family": "Sony A7R",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Sony",
@@ -13206,7 +14136,11 @@
     "ergonomics": "poor",
     "releaseYear": 2018,
     "family": "Sony A7",
-    "predecessorId": "sony-alpha-a7-ii"
+    "predecessorId": "sony-alpha-a7-ii",
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "dslr": false
   },
   {
     "brand": "Sony",
@@ -13253,7 +14187,13 @@
     "ergonomics": "medium",
     "releaseYear": 2022,
     "family": "Sony FX",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Sony",
@@ -13300,7 +14240,13 @@
     "ergonomics": "poor",
     "releaseYear": 2014,
     "family": "Sony A7",
-    "predecessorId": "sony-alpha-a7"
+    "predecessorId": "sony-alpha-a7",
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Sony",
@@ -13346,7 +14292,13 @@
     "ergonomics": "poor",
     "releaseYear": 2013,
     "family": "Sony A7",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": true,
+    "crop": false,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Sony",
@@ -13393,7 +14345,13 @@
     "ergonomics": "good",
     "releaseYear": 2014,
     "family": "Sony SLT",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": false,
+    "dslr": true
   },
   {
     "brand": "Sony",
@@ -13440,7 +14398,13 @@
     "ergonomics": "poor",
     "releaseYear": 2019,
     "family": "Sony a6xxx",
-    "predecessorId": "sony-alpha-a6500"
+    "predecessorId": "sony-alpha-a6500",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Sony",
@@ -13487,7 +14451,13 @@
     "ergonomics": "poor",
     "releaseYear": 2016,
     "family": "Sony a6xxx",
-    "predecessorId": "sony-alpha-a6300"
+    "predecessorId": "sony-alpha-a6300",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Sony",
@@ -13534,7 +14504,13 @@
     "ergonomics": "poor",
     "releaseYear": 2019,
     "family": "Sony a6xxx",
-    "predecessorId": "sony-alpha-a6300"
+    "predecessorId": "sony-alpha-a6300",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Sony",
@@ -13581,7 +14557,13 @@
     "ergonomics": "poor",
     "releaseYear": 2016,
     "family": "Sony a6xxx",
-    "predecessorId": "sony-alpha-a6000"
+    "predecessorId": "sony-alpha-a6000",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Sony",
@@ -13628,7 +14610,13 @@
     "ergonomics": "poor",
     "releaseYear": 2019,
     "family": "Sony a6xxx",
-    "predecessorId": "sony-alpha-a6000"
+    "predecessorId": "sony-alpha-a6000",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Sony",
@@ -13673,7 +14661,13 @@
     "ergonomics": "poor",
     "releaseYear": 2011,
     "family": "Sony NEX",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Sony",
@@ -13718,7 +14712,13 @@
     "ergonomics": "poor",
     "releaseYear": 2012,
     "family": "Sony NEX",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Sony",
@@ -13765,7 +14765,13 @@
     "ergonomics": "poor",
     "releaseYear": 2014,
     "family": "Sony a6xxx",
-    "predecessorId": "sony-nex-6"
+    "predecessorId": "sony-nex-6",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Sony",
@@ -13810,7 +14816,13 @@
     "ergonomics": "poor",
     "releaseYear": 2012,
     "family": "Sony NEX",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Sony",
@@ -13854,7 +14866,13 @@
     "ergonomics": "poor",
     "releaseYear": 2010,
     "family": "Sony NEX",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Sony",
@@ -13899,7 +14917,13 @@
     "ergonomics": "poor",
     "releaseYear": 2011,
     "family": "Sony NEX",
-    "predecessorId": "sony-nex-3"
+    "predecessorId": "sony-nex-3",
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   },
   {
     "brand": "Sony",
@@ -13944,6 +14968,12 @@
     "ergonomics": "poor",
     "releaseYear": 2013,
     "family": "Sony A3000",
-    "predecessorId": null
+    "predecessorId": null,
+    "fullFrame": false,
+    "crop": true,
+    "mediumFormat": false,
+    "compact": false,
+    "mirrorless": true,
+    "dslr": false
   }
 ]

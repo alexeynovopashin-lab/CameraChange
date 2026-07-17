@@ -73,7 +73,7 @@
             "criteria": {
               "family": {
                 "forBeginners": 1,
-                "portrait": 0.7
+                "eyeAutofocus": 0.7
               },
               "travel": {
                 "compact": 1,
@@ -84,8 +84,8 @@
                 "menuComplexity": "simple"
               },
               "events": {
-                "lowLight": 1,
-                "autofocus": 1
+                "autofocus": 1,
+                "imageStabilization": 0.7
               }
             }
           }
@@ -416,12 +416,11 @@
               "sports": {
                 "professional": 1,
                 "imageStabilization": 1,
-                "burstBuffer": 1
+                "eyeAutofocus": 1
               },
               "events": {
-                "lowLight": 1,
                 "autofocus": 1,
-                "cardSlots": 2
+                "imageStabilization": 0.7
               }
             }
           }
@@ -514,11 +513,10 @@
             "type": "direct",
             "mapping": {
               "fast_burst": {
-                "field": "cardSlots",
-                "value": 2,
-                "operator": "gte",
+                "field": "professional",
+                "value": null,
                 "match": 1,
-                "mismatch": 0.3
+                "mismatch": 0.4
               },
               "slow_burst": {
                 "match": 0.6
@@ -646,12 +644,11 @@
               "sports": {
                 "professional": 1,
                 "imageStabilization": 1,
-                "burstBuffer": 1
+                "eyeAutofocus": 1
               },
               "events": {
-                "lowLight": 1,
                 "autofocus": 1,
-                "cardSlots": 2
+                "imageStabilization": 0.7
               }
             }
           }
@@ -1012,29 +1009,10 @@
               "label": "Не принципиально"
             }
           ],
-          "weight": 0.05,
-          "enabled": true,
+          "weight": 0,
+          "enabled": false,
           "matchRules": {
-            "type": "direct",
-            "mapping": {
-              "12bit": {
-                "field": "bitDepth",
-                "value": 12,
-                "operator": "gte",
-                "match": 1,
-                "mismatch": 0.3
-              },
-              "14bit": {
-                "field": "bitDepth",
-                "value": 14,
-                "operator": "gte",
-                "match": 1,
-                "mismatch": 0.2
-              },
-              "any": {
-                "match": 0.7
-              }
-            }
+            "type": "ignore"
           }
         },
         {
@@ -1121,13 +1099,10 @@
                 "match": 0.5
               },
               "mixed": {
-                "match": 0.7
+                "match": 0.6
               },
               "third_party": {
-                "field": "brand",
-                "value": "Sony",
-                "match": 1,
-                "mismatch": 0.4
+                "match": 0.5
               }
             }
           }

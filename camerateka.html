@@ -855,8 +855,7 @@ function openModal(idx) {
     ['Сложность меню', ({simple:'простое', intermediate:'среднее', complex:'сложное', very_complex:'очень сложное'})[cam.menuComplexity] || ''],
     ['Эргономика', ({good:'удобная', medium:'средняя', poor:'неудобная'})[cam.ergonomics] || ''],
     ['Влагозащита', cam.weatherSealing ? 'есть' : ''],
-    ['Автофокус', cam.autofocus ? cam.autofocus + ' точек' : ''],
-    ['Битность RAW', cam.bitDepth ? cam.bitDepth + '-bit' : '']
+    ['Автофокус', cam.autofocus ? cam.autofocus + ' точек' : '']
   ].filter(([k,v]) => v && v !== '' && v !== '0' && v !== false);
 
   const specsHtml = specs.map(([k,v]) => `

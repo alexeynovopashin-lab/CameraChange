@@ -692,11 +692,6 @@ const questionTree = {
         { label: 'Нет', value: 'no' },
         { label: 'Не снимаю видео', value: 'no_video' }
       ] },
-    { id: 'p6', text: 'Какая битность RAW вам нужна?', sub: '', options: [
-        { label: '12-bit', value: '12bit' },
-        { label: '14-bit', value: '14bit' },
-        { label: 'Не принципиально', value: 'any' }
-      ] },
     { id: 'p7', text: 'Вы заменяете систему или покупаете вторую камеру?', sub: '', options: [
         { label: 'Заменяю систему — хочу попробовать другой бренд', value: 'replace' },
         { label: 'Вторую камеру — можно той же системы, можно другой', value: 'second' }
@@ -1264,12 +1259,6 @@ function getWeightsPro() {
       if (need === 'yes') return cam.logProfile ? 1 : 0;
       if (need === 'no_video') return 0.5;
       return 0;
-    },
-    bitDepth: (cam) => {
-      const need = state.answers['p6'];
-      if (need === '12bit') return cam.bitDepth >= 12 ? 1 : 0;
-      if (need === '14bit') return cam.bitDepth >= 14 ? 1 : 0;
-      return 0.5;
     },
     replaceOrSecond: (cam) => {
       const choice = state.answers['p7'];
