@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Паспорт камеры — Camerateka</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,680&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #15171A; --ink-soft: #1C1F23; --surface: #202226; --surface-raised: #26282C;
+    --border: #33363B; --border-soft: #2A2C30; --hair: #1E1E20; --hud-bg: #0A0A0B; --hud-panel: #111113;
+    --paper: #F5F3EE; --paper-dim: #A9A59E; --paper-faint: #6B6862;
+    --signal: #E8470C; --signal-dim: #B83A0C; --signal-soft: rgba(232,71,12,.14);
+    --font-display: 'Fraunces', Georgia, serif; --font-body: 'Inter', -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace; --ease: cubic-bezier(.25,.8,.25,1);
+  }
+  html { background: var(--ink); }
+  body { font-family: var(--font-body); background: var(--ink); color: var(--paper); min-height: 100vh; line-height: 1.5; -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; }
+  a { color: inherit; }
+
+  /* header */
+  .top { position: sticky; top: 0; z-index: 40; background: rgba(21,23,26,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+  .top-inner { max-width: 1080px; margin: 0 auto; padding: 20px 28px 16px; display: flex; align-items: baseline; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+  .brandmark { font-family: var(--font-display); font-size: 21px; font-weight: 500; letter-spacing: -.01em; }
+  .brandmark a { text-decoration: none; } .brandmark span { color: var(--signal); }
+  .sitenav { display: flex; flex-wrap: wrap; gap: 4px 16px; }
+  .sitenav a { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--paper-faint); text-decoration: none; transition: color .15s; }
+  .sitenav a:hover { color: var(--paper); } .sitenav a.active { color: var(--signal); }
+
+  main { flex: 1; max-width: 1080px; margin: 0 auto; padding: 0 28px 60px; width: 100%; }
+
+  /* breadcrumbs */
+  .crumbs { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; padding: 24px 0 0; font-family: var(--font-mono); font-size: 11px; color: var(--paper-faint); letter-spacing: .03em; }
+  .crumbs a { color: var(--paper-faint); text-decoration: none; transition: color .15s; }
+  .crumbs a:hover { color: var(--paper); } .crumbs .sep { opacity: .5; }
+  .crumbs .cur { color: var(--paper-dim); }
+
+  /* hero */
+  .hero { display: grid; grid-template-columns: 420px 1fr; gap: 0; border: 1px solid var(--hair); margin-top: 22px; background: var(--hud-bg); }
+  .hero-img { background: var(--hud-panel); display: flex; align-items: center; justify-content: center; padding: 48px; min-height: 340px; }
+  .hero-img img { max-width: 100%; max-height: 300px; object-fit: contain; }
+  .hero-img .ph { width: 96px; height: 96px; opacity: .12; }
+  .hero-head { padding: 44px 44px 40px; display: flex; flex-direction: column; }
+  .hero-eyebrow { font-family: var(--font-mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--paper-faint); margin-bottom: 12px; }
+  .hero-title { font-family: var(--font-display); font-size: 42px; font-weight: 500; letter-spacing: -.02em; line-height: 1.05; }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+  .tag { font-family: var(--font-mono); font-size: 9.5px; text-transform: uppercase; letter-spacing: .06em; padding: 4px 9px; border: 1px solid var(--hair); color: var(--paper-dim); background: var(--hud-panel); }
+  .hero-cta { margin-top: auto; padding-top: 26px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: #fff; background: var(--signal); padding: 13px 22px; text-decoration: none; transition: background .2s; }
+  .btn-primary:hover { background: var(--signal-dim); }
+  .btn-ghost { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; background: transparent; color: var(--paper-dim); border: 1px solid var(--border); padding: 13px 20px; cursor: pointer; transition: all .15s; text-decoration: none; }
+  .btn-ghost:hover { color: var(--paper); border-color: var(--paper-faint); }
+  .btn-ghost.in { color: var(--signal); border-color: var(--signal-dim); }
+
+  /* HUD strip */
+  .hud { display: grid; border: 1px solid var(--hair); border-top: none; background: var(--hud-bg); }
+  .hud-cell { padding: 26px 28px 22px; border-right: 1px solid var(--hair); min-width: 0; }
+  .hud-cell:last-child { border-right: none; }
+  .hud-val { font-family: var(--font-mono); font-size: 26px; font-weight: 500; color: #fff; line-height: 1.1; letter-spacing: -.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .hud-val .u { font-size: 12px; font-weight: 400; color: var(--paper-faint); margin-left: 4px; }
+  .hud-val.txt { font-size: 15px; padding-top: 7px; white-space: normal; line-height: 1.25; }
+  .hud-label { font-family: var(--font-mono); font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: var(--paper-faint); margin-top: 8px; }
+
+  /* sections */
+  section.blk { border: 1px solid var(--hair); border-top: none; padding: 34px 44px; }
+  .blk-h { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--paper-faint); margin-bottom: 18px; }
+  .character { font-family: var(--font-display); font-size: 22px; font-weight: 400; line-height: 1.5; color: var(--paper); font-style: italic; max-width: 760px; }
+  .character::before { content: '“'; color: var(--paper-faint); }
+  .character::after { content: '”'; color: var(--paper-faint); }
+  .lede { font-size: 15px; color: var(--paper-dim); max-width: 720px; }
+
+  .spec-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 48px; }
+  .spec-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--hair); font-size: 13.5px; }
+  .spec-row:last-child { border-bottom: none; }
+  .spec-row .k { color: var(--paper-dim); } .spec-row .v { font-family: var(--font-mono); color: #fff; text-align: right; }
+
+  .evo-row { display: grid; grid-template-columns: 140px 1fr auto; gap: 16px; align-items: baseline; padding: 13px 0; border-bottom: 1px solid var(--hair); text-decoration: none; }
+  .evo-row:last-child { border-bottom: none; }
+  .evo-label { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--paper-faint); }
+  .evo-name { font-size: 14px; font-weight: 500; transition: color .15s; }
+  .evo-row:hover .evo-name { color: var(--signal); }
+  .evo-year { font-family: var(--font-mono); font-size: 12px; color: var(--paper-faint); }
+
+  .lens-row { display: grid; grid-template-columns: 68px 1fr auto; gap: 18px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--hair); }
+  .lens-row:last-child { border-bottom: none; }
+  .lens-thumb { width: 68px; height: 50px; display: flex; align-items: center; justify-content: center; background: var(--hud-panel); overflow: hidden; }
+  .lens-thumb img { max-width: 100%; max-height: 46px; object-fit: contain; } .lens-thumb .ph { width: 24px; height: 24px; opacity: .12; }
+  .lens-name { font-size: 14px; font-weight: 500; }
+  .lens-meta { font-family: var(--font-mono); font-size: 11px; color: var(--paper-faint); margin-top: 3px; display: flex; gap: 6px 14px; flex-wrap: wrap; }
+  .lens-price { font-family: var(--font-mono); font-size: 14px; color: #fff; text-align: right; }
+
+  .links a { display: inline-block; color: var(--paper-dim); text-decoration: underline; text-underline-offset: 3px; font-size: 14px; margin-right: 20px; transition: color .15s; }
+  .links a:hover { color: var(--paper); }
+
+  .future { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--paper-faint); }
+  .future .soon { font-family: var(--font-mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: var(--paper-dim); border: 1px solid var(--border); padding: 4px 9px; }
+
+  .loading, .notfound { text-align: center; padding: 100px 20px; color: var(--paper-faint); }
+  .notfound .big { font-family: var(--font-display); font-size: 34px; color: var(--border); margin-bottom: 14px; }
+
+  /* footer */
+  .sitefoot { border-top: 1px solid var(--border); margin-top: 40px; }
+  .shellrow { max-width: 1080px; margin: 0 auto; padding: 26px 28px 40px; display: flex; align-items: baseline; justify-content: space-between; gap: 14px 24px; flex-wrap: wrap; }
+  .sf-left { font-family: var(--font-mono); font-size: 10.5px; color: var(--paper-faint); }
+  .sf-links { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+  .sf-links a { font-family: var(--font-mono); font-size: 10.5px; color: var(--paper-faint); text-decoration: none; transition: color .15s; }
+  .sf-links a:hover { color: var(--paper); }
+
+  @media (max-width: 760px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-img { padding: 36px; min-height: 260px; }
+    .hero-head { padding: 32px 24px; }
+    .hero-title { font-size: 32px; }
+    .hud { grid-template-columns: repeat(2, 1fr) !important; }
+    .hud-cell:nth-child(even) { border-right: none; }
+    section.blk { padding: 28px 24px; }
+    .spec-grid { grid-template-columns: 1fr; }
+    .top-inner, main, .shellrow { padding-left: 18px; padding-right: 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="top-inner">
+    <div class="brandmark"><a href="index.html">Camera<span>teka</span></a></div>
+    <nav class="sitenav">
+      <a href="index.html">Подбор</a>
+      <a href="camerateka.html" class="active">Камератека</a>
+      <a href="galerei.html">Галереи</a>
+      <a href="fotografy.html">Фотографы</a>
+      <a href="modeli.html">Модели</a>
+      <a href="novosti.html">Новости</a>
+      <a href="forum.html">Форум</a>
+      <a href="kabinet.html">Кабинет</a>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+  <div class="loading">Загрузка паспорта…</div>
+</main>
+
+<footer class="sitefoot">
+  <div class="shellrow">
+    <div class="sf-left">© 2026 Camerateka — система знаний о фотографии</div>
+    <nav class="sf-links">
+      <a href="kontakty.html">Контакты</a>
+      <a href="terms.html">Условия использования</a>
+      <a href="privacy.html">Политика конфиденциальности</a>
+      <a href="cookies.html">Cookie Policy</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+const RAW = 'https://raw.githubusercontent.com/alexeynovopashin-lab/CameraChange/main/';
+let CAMERAS = [], LENSES = [];
+
+const CAMERA_ICON = `<svg class="ph" viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M8 7L9.5 4h5L16 7" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><circle cx="12" cy="14" r="4" stroke="currentColor" stroke-width="1.4"/></svg>`;
+const LENS_PH = `<svg class="ph" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3" stroke="currentColor" stroke-width="1.4"/></svg>`;
+const MOUNT_ALIASES = { 'Fujifilm G': 'Fuji G', 'Fujifilm X': 'Fuji X', 'Micro Four Thirds': 'MFT' };
+const normalizeMount = m => MOUNT_ALIASES[m] || m;
+
+const BACKPACK_KEY = 'ck_backpack';
+const getBackpack = () => { try { return JSON.parse(localStorage.getItem(BACKPACK_KEY) || '[]'); } catch(e) { return []; } };
+const inBackpack = id => getBackpack().some(x => x.id === id);
+function toggleBackpack(id) {
+  let bp = getBackpack();
+  if (bp.some(x => x.id === id)) bp = bp.filter(x => x.id !== id);
+  else bp.push({ id, addedAt: new Date().toISOString() });
+  localStorage.setItem(BACKPACK_KEY, JSON.stringify(bp));
+  return bp.some(x => x.id === id);
+}
+const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+async function load() {
+  try {
+    const [c, l] = await Promise.all([
+      fetch(RAW + 'cameras.json?t=' + Date.now()).then(r => r.json()),
+      fetch(RAW + 'lens.json?t=' + Date.now()).then(r => r.json())
+    ]);
+    CAMERAS = c; LENSES = l;
+  } catch (e) { CAMERAS = []; LENSES = []; }
+  render();
+}
+
+function render() {
+  const id = new URLSearchParams(location.search).get('id');
+  const cam = CAMERAS.find(c => c.id === id);
+  const main = document.getElementById('main');
+  document.title = cam ? `${cam.brand} ${cam.model} — Camerateka` : 'Камера не найдена — Camerateka';
+  if (!cam) {
+    main.innerHTML = `<div class="notfound"><div class="big">—</div><p>Камера не найдена. <a href="camerateka.html" style="color:var(--signal);">Вернуться в камератеку →</a></p></div>`;
+    return;
+  }
+
+  const tagDefs = [
+    ['fullFrame','Full frame'], ['crop','APS-C'], ['mediumFormat','Medium format'],
+    ['rangefinder','Дальномер'], ['monochrome','Монохром'], ['viewfinder','Видоискатель'],
+    ['imageStabilization','IBIS'], ['weatherSealing','Влагозащита'], ['eyeAutofocus','Eye AF'],
+    ['rawVideo','RAW видео'], ['logProfile','Log'], ['colorScience','Фирменный цвет'],
+    ['professional','Профессионал'], ['semiProfessional','Полупрофи'], ['forBeginners','Новичкам'], ['forBloggers','Блогерам']
+  ];
+  const tags = tagDefs.filter(([f]) => cam[f]).map(([,l]) => l);
+  const avito = `https://www.avito.ru/all?q=${encodeURIComponent(cam.avitoQuery || cam.brand + ' ' + cam.model)}`;
+  const img = cam.image ? `<img src="${esc(cam.image)}" alt="${esc(cam.brand)} ${esc(cam.model)}" />` : CAMERA_ICON;
+
+  // HUD
+  const hud = [];
+  if (cam.price) hud.push({ v: cam.price.toLocaleString('ru-RU'), u: '₽', l: 'Цена' });
+  if (cam.resolution) hud.push({ v: cam.resolution, u: 'МП', l: 'Матрица' });
+  if (cam.weight) hud.push({ v: cam.weight, u: 'г', l: 'Вес' });
+  if (cam.releaseYear) hud.push({ v: cam.releaseYear, u: '', l: 'Год' });
+  if (cam.lensMount && cam.lensMount !== 'unknown') hud.push({ v: cam.lensMount, u: '', l: 'Байонет', txt: true });
+  const hudCols = Math.min(hud.length, 5);
+  const hudHtml = hud.length ? `<div class="hud" style="grid-template-columns:repeat(${hudCols},1fr);">${hud.map(c => `
+    <div class="hud-cell"><div class="hud-val${c.txt ? ' txt' : ''}">${esc(c.v)}${c.u ? `<span class="u">${c.u}</span>` : ''}</div><div class="hud-label">${c.l}</div></div>`).join('')}</div>` : '';
+
+  // specs
+  const specs = [
+    ['Тип', cam.type], ['Сенсор', cam.sensorSize], ['Видео', cam.video],
+    ['Стабилизация', cam.imageStabilization ? 'есть' : ''], ['Слоты карт', cam.cardSlots],
+    ['Сложность меню', ({simple:'простое',intermediate:'среднее',complex:'сложное',very_complex:'очень сложное'})[cam.menuComplexity] || ''],
+    ['Эргономика', ({good:'удобная',medium:'средняя',poor:'неудобная'})[cam.ergonomics] || ''],
+    ['Влагозащита', cam.weatherSealing ? 'есть' : ''], ['Автофокус', cam.autofocus ? cam.autofocus + ' точек' : ''],
+    ['Вход микрофона', cam.microphoneInput ? 'есть' : ''], ['Log-профиль', cam.logProfile ? 'есть' : '']
+  ].filter(([k,v]) => v && v !== '0' && v !== false);
+  const specsHtml = specs.map(([k,v]) => `<div class="spec-row"><span class="k">${k}</span><span class="v">${esc(v)}</span></div>`).join('');
+
+  // evolution
+  const pred = cam.predecessorId ? CAMERAS.find(c => c.id === cam.predecessorId) : null;
+  const succ = CAMERAS.filter(c => c.predecessorId === cam.id);
+  const evoRow = (c2, lbl) => `<a class="evo-row" href="camera.html?id=${encodeURIComponent(c2.id)}"><span class="evo-label">${lbl}</span><span class="evo-name">${esc(c2.brand)} ${esc(c2.model)}</span><span class="evo-year">${c2.releaseYear || ''}</span></a>`;
+  const evoHtml = (pred || succ.length) ? `<section class="blk"><div class="blk-h">Эволюция${cam.family ? ' · ' + esc(cam.family) : ''}</div>
+    ${pred ? evoRow(pred, 'Предшественник') : ''}${succ.map(s => evoRow(s, 'Наследник')).join('')}</section>` : '';
+
+  // lenses
+  const compat = LENSES.filter(l => (l.mount && cam.lensMount && normalizeMount(l.mount) === normalizeMount(cam.lensMount)) || (l.compatibleCameras && l.compatibleCameras.includes(cam.id)));
+  const lensHtml = compat.length ? `<section class="blk"><div class="blk-h">Совместимые объективы · ${compat.length}</div>
+    ${compat.map(l => {
+      const price = l.price ? '₽' + l.price.toLocaleString('ru-RU') : '—';
+      const fl = l.focalLength || l.focalRange || '';
+      const spec = l.type === 'zoom' ? `${fl} f/${l.maxAperture}` : `${fl}mm f/${l.maxAperture}`;
+      const li = l.image ? `<img src="${esc(l.image)}" alt="" loading="lazy" />` : LENS_PH;
+      const sh = l.ratings && l.ratings.sharpness ? l.ratings.sharpness : '—';
+      const bo = l.ratings && l.ratings.bokeh ? l.ratings.bokeh : '—';
+      return `<div class="lens-row"><div class="lens-thumb">${li}</div>
+        <div><div class="lens-name">${esc(l.brand)} ${esc(l.model)}</div><div class="lens-meta"><span>${esc(spec)}</span><span>SHARP ${sh}</span><span>BOKEH ${bo}</span></div></div>
+        <div class="lens-price">${price}</div></div>`;
+    }).join('')}</section>` : '';
+
+  // links
+  const links = [];
+  if (cam.website) links.push(`<a href="${esc(cam.website)}" target="_blank" rel="noopener">Официальный сайт</a>`);
+  (cam.links || []).forEach(l => links.push(`<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label || l.url)}</a>`));
+  if (cam.manualUrl) links.push(`<a href="${esc(cam.manualUrl)}" target="_blank" rel="noopener">Инструкция (PDF)</a>`);
+  if (cam.firmwareUrl) links.push(`<a href="${esc(cam.firmwareUrl)}" target="_blank" rel="noopener">Прошивка</a>`);
+  const linksHtml = links.length ? `<section class="blk"><div class="blk-h">Узнать больше</div><div class="links">${links.join('')}</div></section>` : '';
+
+  main.innerHTML = `
+    <div class="crumbs">
+      <a href="camerateka.html">Камератека</a><span class="sep">/</span>
+      <a href="camerateka.html?brand=${encodeURIComponent(cam.brand)}">${esc(cam.brand)}</a><span class="sep">/</span>
+      <span class="cur">${esc(cam.model)}</span>
+    </div>
+
+    <div class="hero">
+      <div class="hero-img">${img}</div>
+      <div class="hero-head">
+        <div class="hero-eyebrow">${esc(cam.brand)}</div>
+        <div class="hero-title">${esc(cam.model)}</div>
+        <div class="hero-tags">${tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+        <div class="hero-cta">
+          <a class="btn-primary" href="${avito}" target="_blank" rel="noopener">найти на авито →</a>
+          <button class="btn-ghost${inBackpack(cam.id) ? ' in' : ''}" id="bpBtn">${inBackpack(cam.id) ? 'в рюкзаке ✓' : '+ в рюкзак'}</button>
+        </div>
+      </div>
+    </div>
+    ${hudHtml}
+    ${cam.note ? `<section class="blk"><div class="blk-h">Характер</div><div class="character">${esc(cam.note)}</div></section>` : ''}
+    ${(cam.description && cam.description.trim() && cam.description.trim() !== (cam.note || '').trim()) ? `<section class="blk"><div class="blk-h">Что это и для кого</div><div class="lede">${esc(cam.description)}</div></section>` : ''}
+    <section class="blk"><div class="blk-h">Технические данные</div><div class="spec-grid">${specsHtml}</div></section>
+    ${evoHtml}
+    ${lensHtml}
+    ${linksHtml}
+    <section class="blk"><div class="blk-h">Снято на ${esc(cam.brand)} ${esc(cam.model)}</div><div class="future"><span class="soon">Скоро</span> Галерея кадров сообщества и владельцы этой камеры.</div></section>
+  `;
+
+  const bp = document.getElementById('bpBtn');
+  bp.addEventListener('click', () => {
+    const added = toggleBackpack(cam.id);
+    bp.classList.toggle('in', added);
+    bp.textContent = added ? 'в рюкзаке ✓' : '+ в рюкзак';
+  });
+}
+
+load();
+</script>
+</body>
+</html>
