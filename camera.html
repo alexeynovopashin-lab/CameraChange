@@ -164,6 +164,22 @@ const LENS_PH = `<svg class="ph" viewBox="0 0 24 24" fill="none"><circle cx="12"
 const MOUNT_ALIASES = { 'Fujifilm G': 'Fuji G', 'Fujifilm X': 'Fuji X', 'Micro Four Thirds': 'MFT' };
 const normalizeMount = m => MOUNT_ALIASES[m] || m;
 
+// Фирменный софт — универсальные ссылки на актуальные приложения производителя.
+// Официальные страницы проверены (июль 2026).
+const SOFTWARE = {
+  'Canon':      { apps: 'EOS Utility · Digital Photo Professional (DPP)', url: 'https://www.canon-europe.com/support/camera_software/' },
+  'Nikon':      { apps: 'NX Studio', url: 'https://imaging.nikon.com/imaging/lineup/software/nx_studio/' },
+  'Sony':       { apps: 'Imaging Edge Desktop', url: 'https://imagingedge.sony.net/en/ie-desktop.html' },
+  'Fujifilm':   { apps: 'X RAW Studio · тетеринг-плагин', url: 'https://www.fujifilm-x.com/global/support/download/software/' },
+  'Panasonic':  { apps: 'LUMIX Tether · SILKYPIX', url: 'https://av.jpn.support.panasonic.com/support/global/cs/soft/download/lumixtether.html' },
+  'Olympus':    { apps: 'OM Workspace', url: 'https://software.omsystem.com/omworkspace/en/' },
+  'OM System':  { apps: 'OM Workspace', url: 'https://software.omsystem.com/omworkspace/en/' },
+  'Hasselblad': { apps: 'Phocus', url: 'https://www.hasselblad.com/phocus/' },
+  'Leica':      { apps: 'Leica FOTOS', url: 'https://leica-camera.com/en-int/photography/leica-apps/leica-fotos' },
+  'Pentax':     { apps: 'Digital Camera Utility 5', url: 'https://www.ricoh-imaging.co.jp/english/support/download_digital.html' },
+  'Ricoh':      { apps: 'Digital Camera Utility 5 · Image Sync', url: 'https://www.ricoh-imaging.co.jp/english/support/download_digital.html' },
+};
+
 const BACKPACK_KEY = 'ck_backpack';
 const getBackpack = () => { try { return JSON.parse(localStorage.getItem(BACKPACK_KEY) || '[]'); } catch(e) { return []; } };
 const inBackpack = id => getBackpack().some(x => x.id === id);
@@ -226,6 +242,7 @@ function render() {
     ['Сложность меню', ({simple:'простое',intermediate:'среднее',complex:'сложное',very_complex:'очень сложное'})[cam.menuComplexity] || ''],
     ['Эргономика', ({good:'удобная',medium:'средняя',poor:'неудобная'})[cam.ergonomics] || ''],
     ['Влагозащита', cam.weatherSealing ? 'есть' : ''], ['Автофокус', cam.autofocus ? cam.autofocus + ' точек' : ''],
+    ['Затвор', cam.mechanicalShutter === false ? 'только электронный' : (cam.mechanicalShutter ? 'механический + электронный' : '')],
     ['Вход микрофона', cam.microphoneInput ? 'есть' : ''], ['Log-профиль', cam.logProfile ? 'есть' : '']
   ].filter(([k,v]) => v && v !== '0' && v !== false);
   const specsHtml = specs.map(([k,v]) => `<div class="spec-row"><span class="k">${k}</span><span class="v">${esc(v)}</span></div>`).join('');
@@ -260,6 +277,12 @@ function render() {
   if (cam.firmwareUrl) links.push(`<a href="${esc(cam.firmwareUrl)}" target="_blank" rel="noopener">Прошивка</a>`);
   const linksHtml = links.length ? `<section class="blk"><div class="blk-h">Узнать больше</div><div class="links">${links.join('')}</div></section>` : '';
 
+  // фирменный софт (по бренду)
+  const sw = SOFTWARE[cam.brand];
+  const swHtml = sw ? `<section class="blk"><div class="blk-h">Фирменный софт</div>
+    <div class="links"><a href="${esc(sw.url)}" target="_blank" rel="noopener">${esc(sw.apps)} →</a></div>
+    <div style="font-size:12px;color:var(--paper-faint);margin-top:8px;">Официальные приложения ${esc(cam.brand)} для обработки RAW и съёмки с компьютера.</div></section>` : '';
+
   main.innerHTML = `
     <div class="crumbs">
       <a href="camerateka.html">Камератека</a><span class="sep">/</span>
@@ -286,6 +309,7 @@ function render() {
     ${evoHtml}
     ${lensHtml}
     ${linksHtml}
+    ${swHtml}
     <section class="blk"><div class="blk-h">Снято на ${esc(cam.brand)} ${esc(cam.model)}</div><div class="future"><span class="soon">Скоро</span> Галерея кадров сообщества и владельцы этой камеры.</div></section>
   `;
 

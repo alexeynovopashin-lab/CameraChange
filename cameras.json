@@ -63,7 +63,8 @@
     "ergonomics": "poor",
     "releaseYear": 2025,
     "family": "iPhone Pro",
-    "predecessorId": "apple-iphone-16-pro"
+    "predecessorId": "apple-iphone-16-pro",
+    "mechanicalShutter": false
   },
   {
     "brand": "Apple",
@@ -129,7 +130,8 @@
     "ergonomics": "poor",
     "releaseYear": 2024,
     "family": "iPhone Pro",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": false
   },
   {
     "brand": "Canon",
@@ -195,7 +197,8 @@
     "ergonomics": "good",
     "releaseYear": 2024,
     "family": "Canon EOS R",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -263,7 +266,8 @@
     "ergonomics": "good",
     "releaseYear": 2021,
     "family": "Canon EOS R",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -325,7 +329,8 @@
     "ergonomics": "good",
     "releaseYear": 2024,
     "family": "Canon EOS R",
-    "predecessorId": "canon-eos-r5"
+    "predecessorId": "canon-eos-r5",
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -391,7 +396,8 @@
     "ergonomics": "good",
     "releaseYear": 2020,
     "family": "Canon EOS R",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -457,7 +463,8 @@
     "ergonomics": "good",
     "releaseYear": 2025,
     "family": "Canon EOS R",
-    "predecessorId": "canon-eos-r6-mark-ii"
+    "predecessorId": "canon-eos-r6-mark-ii",
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -524,7 +531,8 @@
     "ergonomics": "good",
     "releaseYear": 2022,
     "family": "Canon EOS R",
-    "predecessorId": "canon-eos-r6"
+    "predecessorId": "canon-eos-r6",
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -587,7 +595,8 @@
     "ergonomics": "good",
     "releaseYear": 2016,
     "family": "Canon EOS 5D",
-    "predecessorId": "canon-5d-mark-iii"
+    "predecessorId": "canon-5d-mark-iii",
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -654,7 +663,8 @@
     "ergonomics": "good",
     "releaseYear": 2020,
     "family": "Canon EOS R",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -721,7 +731,8 @@
     "ergonomics": "good",
     "releaseYear": 2023,
     "family": "Canon EOS R",
-    "predecessorId": "canon-eos-rp"
+    "predecessorId": "canon-eos-rp",
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -788,7 +799,8 @@
     "ergonomics": "good",
     "releaseYear": 2019,
     "family": "Canon EOS xxD",
-    "predecessorId": "canon-eos-80d"
+    "predecessorId": "canon-eos-80d",
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -855,7 +867,8 @@
     "ergonomics": "good",
     "releaseYear": 2022,
     "family": "Canon EOS R APS-C",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -921,7 +934,8 @@
     "ergonomics": "good",
     "releaseYear": 2025,
     "family": "Canon EOS R APS-C",
-    "predecessorId": "canon-eos-r50"
+    "predecessorId": "canon-eos-r50",
+    "mechanicalShutter": false
   },
   {
     "brand": "Canon",
@@ -988,7 +1002,8 @@
     "ergonomics": "good",
     "releaseYear": 2019,
     "family": "Canon EOS R",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -1055,7 +1070,8 @@
     "ergonomics": "good",
     "releaseYear": 2023,
     "family": "Canon EOS R APS-C",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -1122,7 +1138,8 @@
     "ergonomics": "good",
     "releaseYear": 2016,
     "family": "Canon EOS xxD",
-    "predecessorId": "canon-eos-70d"
+    "predecessorId": "canon-eos-70d",
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -1189,7 +1206,8 @@
     "ergonomics": "good",
     "releaseYear": 2020,
     "family": "Canon EOS xxxD",
-    "predecessorId": "canon-eos-800d"
+    "predecessorId": "canon-eos-800d",
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -1258,7 +1276,8 @@
     "ergonomics": "good",
     "releaseYear": 2017,
     "family": "Canon EOS xxxD",
-    "predecessorId": "canon-eos-750d"
+    "predecessorId": "canon-eos-750d",
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -1325,7 +1344,8 @@
     "ergonomics": "good",
     "releaseYear": 2023,
     "family": "Canon EOS R APS-C",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -1387,7 +1407,8 @@
     "ergonomics": "good",
     "releaseYear": 2018,
     "family": "Canon EOS M",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -1451,7 +1472,8 @@
     "ergonomics": "good",
     "releaseYear": 2010,
     "family": "Canon EOS xxD",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -1519,7 +1541,8 @@
     "ergonomics": "good",
     "releaseYear": 2015,
     "family": "Canon EOS xxxD",
-    "predecessorId": "canon-eos-700d"
+    "predecessorId": "canon-eos-700d",
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -1585,7 +1608,8 @@
     "ergonomics": "good",
     "releaseYear": 2013,
     "family": "Canon EOS xxxD",
-    "predecessorId": "canon-eos-650d"
+    "predecessorId": "canon-eos-650d",
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -1650,7 +1674,8 @@
     "ergonomics": "good",
     "releaseYear": 2012,
     "family": "Canon EOS M",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -1714,7 +1739,8 @@
     "ergonomics": "good",
     "releaseYear": 2010,
     "family": "Canon EOS xxxD",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -1779,7 +1805,8 @@
     "ergonomics": "good",
     "releaseYear": 2013,
     "family": "Canon EOS x00D",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -1844,7 +1871,8 @@
     "ergonomics": "good",
     "releaseYear": 2012,
     "family": "Canon EOS xxxD",
-    "predecessorId": "canon-eos-600d"
+    "predecessorId": "canon-eos-600d",
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -1911,7 +1939,8 @@
     "ergonomics": "good",
     "releaseYear": 2016,
     "family": "Canon EOS xxxxD",
-    "predecessorId": "canon-eos-1200d"
+    "predecessorId": "canon-eos-1200d",
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -1963,7 +1992,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -2028,7 +2058,8 @@
     "ergonomics": "good",
     "releaseYear": 2014,
     "family": "Canon EOS xxxxD",
-    "predecessorId": "canon-eos-1100d"
+    "predecessorId": "canon-eos-1100d",
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -2092,7 +2123,8 @@
     "ergonomics": "good",
     "releaseYear": 2011,
     "family": "Canon EOS xxxxD",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -2144,7 +2176,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -2197,7 +2230,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -2250,7 +2284,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -2301,7 +2336,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -2352,7 +2388,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -2403,7 +2440,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -2454,7 +2492,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -2507,7 +2546,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -2562,7 +2602,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -2614,7 +2655,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -2665,7 +2707,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -2718,7 +2761,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -2771,7 +2815,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -2823,7 +2868,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -2877,7 +2923,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -2930,7 +2977,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -2981,7 +3029,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Canon",
@@ -3035,7 +3084,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "DJI",
@@ -3101,7 +3151,8 @@
     "ergonomics": "good",
     "releaseYear": 2023,
     "family": "DJI Osmo Pocket",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": false
   },
   {
     "brand": "Fujifilm",
@@ -3167,7 +3218,8 @@
     "ergonomics": "medium",
     "releaseYear": 2023,
     "family": "Fujifilm GFX 100",
-    "predecessorId": "fujifilm-gfx100"
+    "predecessorId": "fujifilm-gfx100",
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -3229,7 +3281,8 @@
     "ergonomics": "medium",
     "releaseYear": 2024,
     "family": "Fujifilm GFX 100",
-    "predecessorId": "fujifilm-gfx100s"
+    "predecessorId": "fujifilm-gfx100s",
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -3295,7 +3348,8 @@
     "ergonomics": "medium",
     "releaseYear": 2021,
     "family": "Fujifilm GFX 50",
-    "predecessorId": "fujifilm-gfx-50s"
+    "predecessorId": "fujifilm-gfx-50s",
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -3361,7 +3415,8 @@
     "ergonomics": "poor",
     "releaseYear": 2022,
     "family": "Fujifilm X-T",
-    "predecessorId": "fujifilm-x-t4"
+    "predecessorId": "fujifilm-x-t4",
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -3427,7 +3482,8 @@
     "ergonomics": "poor",
     "releaseYear": 2024,
     "family": "Fujifilm X100",
-    "predecessorId": "fujifilm-x100v"
+    "predecessorId": "fujifilm-x100v",
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -3493,7 +3549,8 @@
     "ergonomics": "medium",
     "releaseYear": 2023,
     "family": "Fujifilm X-S",
-    "predecessorId": "fujifilm-x-s10"
+    "predecessorId": "fujifilm-x-s10",
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -3559,7 +3616,8 @@
     "ergonomics": "poor",
     "releaseYear": 2020,
     "family": "Fujifilm X100",
-    "predecessorId": "fujifilm-x100f"
+    "predecessorId": "fujifilm-x100f",
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -3625,7 +3683,8 @@
     "ergonomics": "poor",
     "releaseYear": 2021,
     "family": "Fujifilm X-Txx",
-    "predecessorId": "fujifilm-x-t30"
+    "predecessorId": "fujifilm-x-t30",
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -3691,7 +3750,8 @@
     "ergonomics": "poor",
     "releaseYear": 2019,
     "family": "Fujifilm X-Txx",
-    "predecessorId": "fujifilm-x-t20"
+    "predecessorId": "fujifilm-x-t20",
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -3757,7 +3817,8 @@
     "ergonomics": "poor",
     "releaseYear": 2015,
     "family": "Fujifilm XQ",
-    "predecessorId": "fujifilm-xq1"
+    "predecessorId": "fujifilm-xq1",
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -3824,7 +3885,8 @@
     "ergonomics": "medium",
     "releaseYear": 2025,
     "family": "Fujifilm GFX кино",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -3891,7 +3953,8 @@
     "ergonomics": "medium",
     "releaseYear": 2020,
     "family": "Fujifilm GFX 100",
-    "predecessorId": "fujifilm-gfx100"
+    "predecessorId": "fujifilm-gfx100",
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -3958,7 +4021,8 @@
     "ergonomics": "medium",
     "releaseYear": 2019,
     "family": "Fujifilm GFX 100",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -4024,7 +4088,8 @@
     "ergonomics": "medium",
     "releaseYear": 2017,
     "family": "Fujifilm GFX 50",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -4091,7 +4156,8 @@
     "ergonomics": "medium",
     "releaseYear": 2021,
     "family": "Fujifilm GFX 100",
-    "predecessorId": "fujifilm-gfx100"
+    "predecessorId": "fujifilm-gfx100",
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -4158,7 +4224,8 @@
     "ergonomics": "medium",
     "releaseYear": 2025,
     "family": "Fujifilm GFX 100",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -4225,7 +4292,8 @@
     "ergonomics": "medium",
     "releaseYear": 2018,
     "family": "Fujifilm GFX 50",
-    "predecessorId": "fujifilm-gfx-50s"
+    "predecessorId": "fujifilm-gfx-50s",
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -4292,7 +4360,8 @@
     "ergonomics": "medium",
     "releaseYear": 2022,
     "family": "Fujifilm X-H",
-    "predecessorId": "fujifilm-x-h1"
+    "predecessorId": "fujifilm-x-h1",
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -4359,7 +4428,8 @@
     "ergonomics": "medium",
     "releaseYear": 2022,
     "family": "Fujifilm X-H",
-    "predecessorId": "fujifilm-x-h1"
+    "predecessorId": "fujifilm-x-h1",
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -4426,7 +4496,8 @@
     "ergonomics": "poor",
     "releaseYear": 2019,
     "family": "Fujifilm X-Pro",
-    "predecessorId": "fujifilm-x-pro2"
+    "predecessorId": "fujifilm-x-pro2",
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -4493,7 +4564,8 @@
     "ergonomics": "poor",
     "releaseYear": 2020,
     "family": "Fujifilm X-T",
-    "predecessorId": "fujifilm-x-t3"
+    "predecessorId": "fujifilm-x-t3",
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -4545,7 +4617,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -4597,7 +4670,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -4649,7 +4723,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -4702,7 +4777,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -4754,7 +4830,8 @@
     "mediumFormat": false,
     "compact": true,
     "mirrorless": false,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -4806,7 +4883,8 @@
     "mediumFormat": false,
     "compact": true,
     "mirrorless": false,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -4857,7 +4935,8 @@
     "mediumFormat": false,
     "compact": true,
     "mirrorless": false,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -4910,7 +4989,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -4961,7 +5041,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -5011,7 +5092,8 @@
     "mediumFormat": false,
     "compact": true,
     "mirrorless": false,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -5064,7 +5146,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -5117,7 +5200,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -5169,7 +5253,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -5222,7 +5307,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -5274,7 +5360,8 @@
     "mediumFormat": false,
     "compact": true,
     "mirrorless": false,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -5326,7 +5413,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -5379,7 +5467,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -5432,7 +5521,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -5483,7 +5573,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -5535,7 +5626,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -5588,7 +5680,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -5640,7 +5733,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -5692,7 +5786,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -5745,7 +5840,8 @@
     "mediumFormat": false,
     "compact": true,
     "mirrorless": false,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -5797,7 +5893,8 @@
     "mediumFormat": false,
     "compact": true,
     "mirrorless": false,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -5848,7 +5945,8 @@
     "mediumFormat": false,
     "compact": true,
     "mirrorless": false,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -5899,7 +5997,8 @@
     "mediumFormat": false,
     "compact": true,
     "mirrorless": false,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -5951,7 +6050,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -6004,7 +6104,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -6057,7 +6158,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -6108,7 +6210,8 @@
     "mediumFormat": false,
     "compact": true,
     "mirrorless": false,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -6159,7 +6262,8 @@
     "mediumFormat": false,
     "compact": true,
     "mirrorless": false,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -6211,7 +6315,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -6262,7 +6367,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Fujifilm",
@@ -6313,7 +6419,8 @@
     "mediumFormat": false,
     "compact": true,
     "mirrorless": false,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Hasselblad",
@@ -6383,7 +6490,8 @@
     "ergonomics": "poor",
     "releaseYear": 2022,
     "family": "Hasselblad X",
-    "predecessorId": "hasselblad-x1d-ii-50c"
+    "predecessorId": "hasselblad-x1d-ii-50c",
+    "mechanicalShutter": true
   },
   {
     "brand": "Hasselblad",
@@ -6449,7 +6557,8 @@
     "ergonomics": "poor",
     "releaseYear": 2019,
     "family": "Hasselblad X",
-    "predecessorId": "hasselblad-x1d"
+    "predecessorId": "hasselblad-x1d",
+    "mechanicalShutter": true
   },
   {
     "brand": "Hasselblad",
@@ -6501,7 +6610,8 @@
     "mediumFormat": true,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Hasselblad",
@@ -6552,7 +6662,8 @@
     "mediumFormat": true,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Hasselblad",
@@ -6604,7 +6715,8 @@
     "mediumFormat": true,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Hasselblad",
@@ -6656,7 +6768,8 @@
     "mediumFormat": true,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Leica",
@@ -6722,7 +6835,8 @@
     "ergonomics": "poor",
     "releaseYear": 2023,
     "family": "Leica M",
-    "predecessorId": "leica-m11"
+    "predecessorId": "leica-m11",
+    "mechanicalShutter": true
   },
   {
     "brand": "Leica",
@@ -6788,7 +6902,8 @@
     "ergonomics": "poor",
     "releaseYear": 2022,
     "family": "Leica M",
-    "predecessorId": "leica-m10"
+    "predecessorId": "leica-m10",
+    "mechanicalShutter": true
   },
   {
     "brand": "Leica",
@@ -6854,7 +6969,8 @@
     "ergonomics": "poor",
     "releaseYear": 2024,
     "family": "Leica SL",
-    "predecessorId": "leica-sl2"
+    "predecessorId": "leica-sl2",
+    "mechanicalShutter": true
   },
   {
     "brand": "Leica",
@@ -6920,7 +7036,8 @@
     "ergonomics": "poor",
     "releaseYear": 2023,
     "family": "Leica Q",
-    "predecessorId": "leica-q2"
+    "predecessorId": "leica-q2",
+    "mechanicalShutter": true
   },
   {
     "brand": "Leica",
@@ -6986,7 +7103,8 @@
     "ergonomics": "poor",
     "releaseYear": 2025,
     "family": "Leica SL",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Leica",
@@ -7052,7 +7170,8 @@
     "ergonomics": "poor",
     "releaseYear": 2019,
     "family": "Leica Q",
-    "predecessorId": "leica-q-typ-116"
+    "predecessorId": "leica-q-typ-116",
+    "mechanicalShutter": true
   },
   {
     "brand": "Leica",
@@ -7105,7 +7224,8 @@
     "compact": false,
     "mirrorless": true,
     "dslr": false,
-    "rangefinder": true
+    "rangefinder": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Leica",
@@ -7158,7 +7278,8 @@
     "compact": false,
     "mirrorless": true,
     "dslr": false,
-    "rangefinder": true
+    "rangefinder": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Leica",
@@ -7210,7 +7331,8 @@
     "compact": false,
     "mirrorless": true,
     "dslr": false,
-    "rangefinder": true
+    "rangefinder": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Leica",
@@ -7263,7 +7385,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Leica",
@@ -7314,7 +7437,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Leica",
@@ -7366,7 +7490,8 @@
     "mediumFormat": false,
     "compact": true,
     "mirrorless": false,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Leica",
@@ -7415,7 +7540,8 @@
     "compact": false,
     "mirrorless": true,
     "dslr": false,
-    "rangefinder": true
+    "rangefinder": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Leica",
@@ -7465,7 +7591,8 @@
     "mediumFormat": false,
     "compact": true,
     "mirrorless": false,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -7531,7 +7658,8 @@
     "ergonomics": "good",
     "releaseYear": 2021,
     "family": "Nikon Z pro",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": false
   },
   {
     "brand": "Nikon",
@@ -7597,7 +7725,8 @@
     "ergonomics": "good",
     "releaseYear": 2023,
     "family": "Nikon Z pro",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": false
   },
   {
     "brand": "Nikon",
@@ -7663,7 +7792,8 @@
     "ergonomics": "good",
     "releaseYear": 2017,
     "family": "Nikon D8xx",
-    "predecessorId": "nikon-d810"
+    "predecessorId": "nikon-d810",
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -7730,7 +7860,8 @@
     "ergonomics": "good",
     "releaseYear": 2020,
     "family": "Nikon Z7",
-    "predecessorId": "nikon-z7"
+    "predecessorId": "nikon-z7",
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -7797,7 +7928,8 @@
     "ergonomics": "good",
     "releaseYear": 2023,
     "family": "Nikon Z ретро",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -7864,7 +7996,8 @@
     "ergonomics": "good",
     "releaseYear": 2018,
     "family": "Nikon Z7",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -7930,7 +8063,8 @@
     "ergonomics": "good",
     "releaseYear": 2014,
     "family": "Nikon D7xx",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -7992,7 +8126,8 @@
     "ergonomics": "good",
     "releaseYear": 2010,
     "family": "Nikon D3xxx",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -8057,7 +8192,8 @@
     "ergonomics": "good",
     "releaseYear": 2012,
     "family": "Nikon D3xxx",
-    "predecessorId": "nikon-d3100"
+    "predecessorId": "nikon-d3100",
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -8109,7 +8245,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -8161,7 +8298,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -8214,7 +8352,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -8267,7 +8406,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -8318,7 +8458,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -8369,7 +8510,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -8420,7 +8562,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -8471,7 +8614,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -8524,7 +8668,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -8577,7 +8722,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -8628,7 +8774,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -8681,7 +8828,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -8734,7 +8882,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -8785,7 +8934,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -8838,7 +8988,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -8891,7 +9042,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -8944,7 +9096,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -8995,7 +9148,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -9048,7 +9202,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -9101,7 +9256,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -9154,7 +9310,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -9207,7 +9364,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -9258,7 +9416,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -9311,7 +9470,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -9361,7 +9521,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -9414,7 +9575,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -9466,7 +9628,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -9516,7 +9679,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -9568,7 +9732,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -9620,7 +9785,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Nikon",
@@ -9671,7 +9837,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Olympus",
@@ -9723,7 +9890,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Olympus",
@@ -9775,7 +9943,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Olympus",
@@ -9827,7 +9996,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Olympus",
@@ -9879,7 +10049,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Olympus",
@@ -9931,7 +10102,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Olympus",
@@ -9983,7 +10155,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Olympus",
@@ -10034,7 +10207,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Olympus",
@@ -10084,7 +10258,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "OM System",
@@ -10136,7 +10311,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "OM System",
@@ -10188,7 +10364,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -10254,7 +10431,8 @@
     "ergonomics": "good",
     "releaseYear": 2022,
     "family": "Panasonic GH",
-    "predecessorId": "panasonic-lumix-gh5-ii"
+    "predecessorId": "panasonic-lumix-gh5-ii",
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -10320,7 +10498,8 @@
     "ergonomics": "good",
     "releaseYear": 2017,
     "family": "Panasonic GH",
-    "predecessorId": "panasonic-lumix-gh4"
+    "predecessorId": "panasonic-lumix-gh4",
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -10384,7 +10563,8 @@
     "ergonomics": "good",
     "releaseYear": 2010,
     "family": "Panasonic G",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -10449,7 +10629,8 @@
     "ergonomics": "good",
     "releaseYear": 2011,
     "family": "Panasonic GF",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -10502,7 +10683,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -10555,7 +10737,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -10608,7 +10791,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -10661,7 +10845,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -10714,7 +10899,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -10767,7 +10953,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -10819,7 +11006,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -10872,7 +11060,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -10925,7 +11114,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -10978,7 +11168,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -11031,7 +11222,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -11084,7 +11276,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -11136,7 +11329,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -11188,7 +11382,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -11239,7 +11434,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -11291,7 +11487,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -11343,7 +11540,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -11395,7 +11593,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -11445,7 +11644,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -11497,7 +11697,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -11548,7 +11749,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -11599,7 +11801,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -11650,7 +11853,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -11701,7 +11905,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -11752,7 +11957,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -11802,7 +12008,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -11854,7 +12061,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -11906,7 +12114,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Panasonic",
@@ -11957,7 +12166,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Pentax",
@@ -12008,7 +12218,8 @@
     "mediumFormat": true,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Pentax",
@@ -12060,7 +12271,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Pentax",
@@ -12112,7 +12324,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Pentax",
@@ -12164,7 +12377,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Pentax",
@@ -12215,7 +12429,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Pentax",
@@ -12265,7 +12480,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Ricoh",
@@ -12327,7 +12543,8 @@
     "ergonomics": "medium",
     "releaseYear": 2025,
     "family": "Ricoh GR",
-    "predecessorId": "ricoh-gr-iii"
+    "predecessorId": "ricoh-gr-iii",
+    "mechanicalShutter": true
   },
   {
     "brand": "Ricoh",
@@ -12393,7 +12610,8 @@
     "ergonomics": "medium",
     "releaseYear": 2021,
     "family": "Ricoh GR",
-    "predecessorId": "ricoh-gr-iii"
+    "predecessorId": "ricoh-gr-iii",
+    "mechanicalShutter": true
   },
   {
     "brand": "Ricoh",
@@ -12455,7 +12673,8 @@
     "ergonomics": "medium",
     "releaseYear": 2019,
     "family": "Ricoh GR",
-    "predecessorId": "ricoh-gr-ii"
+    "predecessorId": "ricoh-gr-ii",
+    "mechanicalShutter": true
   },
   {
     "brand": "Ricoh",
@@ -12521,7 +12740,8 @@
     "ergonomics": "medium",
     "releaseYear": 2015,
     "family": "Ricoh GR",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -12593,7 +12813,8 @@
     "ergonomics": "medium",
     "releaseYear": 2024,
     "family": "Sony A1",
-    "predecessorId": "sony-alpha-a1"
+    "predecessorId": "sony-alpha-a1",
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -12665,7 +12886,8 @@
     "ergonomics": "medium",
     "releaseYear": 2023,
     "family": "Sony A9",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": false
   },
   {
     "brand": "Sony",
@@ -12736,7 +12958,8 @@
     "ergonomics": "medium",
     "releaseYear": 2025,
     "family": "Sony A7",
-    "predecessorId": "sony-alpha-a7-iv"
+    "predecessorId": "sony-alpha-a7-iv",
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -12802,7 +13025,8 @@
     "ergonomics": "medium",
     "releaseYear": 2025,
     "family": "Sony A7R",
-    "predecessorId": "sony-alpha-a7r-v"
+    "predecessorId": "sony-alpha-a7r-v",
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -12868,7 +13092,8 @@
     "ergonomics": "medium",
     "releaseYear": 2022,
     "family": "Sony A7R",
-    "predecessorId": "sony-alpha-a7r-iv"
+    "predecessorId": "sony-alpha-a7r-iv",
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -12934,7 +13159,8 @@
     "ergonomics": "medium",
     "releaseYear": 2023,
     "family": "Sony A7C",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -13001,7 +13227,8 @@
     "ergonomics": "medium",
     "releaseYear": 2023,
     "family": "Sony ZV E-mount",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -13067,7 +13294,8 @@
     "ergonomics": "medium",
     "releaseYear": 2024,
     "family": "Sony ZV E-mount",
-    "predecessorId": "sony-zv-e10"
+    "predecessorId": "sony-zv-e10",
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -13134,7 +13362,8 @@
     "ergonomics": "medium",
     "releaseYear": 2021,
     "family": "Sony ZV E-mount",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -13201,7 +13430,8 @@
     "ergonomics": "medium",
     "releaseYear": 2020,
     "family": "Sony ZV компакт",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -13268,7 +13498,8 @@
     "ergonomics": "medium",
     "releaseYear": 2022,
     "family": "Sony ZV компакт",
-    "predecessorId": "sony-zv-1"
+    "predecessorId": "sony-zv-1",
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -13333,7 +13564,8 @@
     "ergonomics": "poor",
     "releaseYear": 2013,
     "family": "Sony NEX",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -13397,7 +13629,8 @@
     "ergonomics": "poor",
     "releaseYear": 2010,
     "family": "Sony NEX",
-    "predecessorId": null
+    "predecessorId": null,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -13451,7 +13684,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -13505,7 +13739,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -13558,7 +13793,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -13611,7 +13847,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -13664,7 +13901,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -13715,7 +13953,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -13768,7 +14007,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -13822,7 +14062,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -13875,7 +14116,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -13928,7 +14170,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -13981,7 +14224,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -14034,7 +14278,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -14086,7 +14331,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -14144,7 +14390,8 @@
     "crop": false,
     "mediumFormat": false,
     "compact": false,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -14197,7 +14444,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -14250,7 +14498,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -14302,7 +14551,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -14355,7 +14605,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": false,
-    "dslr": true
+    "dslr": true,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -14408,7 +14659,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -14461,7 +14713,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -14514,7 +14767,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -14567,7 +14821,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -14620,7 +14875,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -14671,7 +14927,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -14722,7 +14979,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -14775,7 +15033,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -14826,7 +15085,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -14876,7 +15136,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -14927,7 +15188,8 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   },
   {
     "brand": "Sony",
@@ -14978,6 +15240,7 @@
     "mediumFormat": false,
     "compact": false,
     "mirrorless": true,
-    "dslr": false
+    "dslr": false,
+    "mechanicalShutter": true
   }
 ]
