@@ -30,31 +30,57 @@
   .sitenav a { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--paper-faint); text-decoration: none; transition: color .15s; }
   .sitenav a:hover { color: var(--paper); }
   .sitenav a.active { color: var(--signal); }
-  .hero { padding: 56px 0 36px; max-width: 680px; }
+  .hero { padding: 56px 0 30px; max-width: 680px; }
   .hero-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--signal); margin-bottom: 14px; }
   .hero h1 { font-family: var(--font-display); font-weight: 500; font-size: 40px; line-height: 1.12; letter-spacing: -.015em; margin-bottom: 16px; }
-  .hero p { color: var(--paper-dim); font-size: 15px; max-width: 560px; }
-  .soon { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--paper-dim); border: 1px solid var(--border); padding: 6px 12px; margin-top: 18px; }
-  .soon::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--signal); }
-  .ph-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(216px, 1fr)); gap: 1px; background: var(--border-soft); border: 1px solid var(--border-soft); margin-top: 28px; }
-  .ph-tile { aspect-ratio: 4/3; background: var(--ink-soft); display: flex; align-items: center; justify-content: center; }
-  .ph-tile svg { width: 34px; height: 34px; opacity: .1; }
-  .ph-rows { margin-top: 28px; border-top: 1px solid var(--border); }
-  .ph-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border-soft); }
-  .ph-row .t { font-family: var(--font-display); font-size: 17px; color: var(--paper-dim); }
-  .ph-row .m { font-family: var(--font-mono); font-size: 10.5px; color: var(--paper-faint); letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
-  .legal { max-width: 720px; padding-bottom: 40px; }
-  .legal h2 { font-family: var(--font-display); font-size: 20px; font-weight: 500; margin: 34px 0 10px; }
-  .legal p, .legal li { font-size: 14px; color: var(--paper-dim); margin-bottom: 10px; }
-  .legal ul { padding-left: 18px; }
+  .hero p { color: var(--paper-dim); font-size: 15px; max-width: 620px; }
+
+  /* панель источников */
+  .srcbar { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding: 4px 0 18px; border-bottom: 1px solid var(--border); margin-bottom: 6px; }
+  .src-pill { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .04em; padding: 7px 13px; border: 1px solid var(--border); color: var(--paper-dim); background: transparent; cursor: pointer; transition: all .15s var(--ease); white-space: nowrap; }
+  .src-pill:hover { border-color: var(--paper-faint); color: var(--paper); }
+  .src-pill.active { border-color: var(--signal-dim); color: var(--signal); background: var(--signal-soft); }
+  .src-pill .n { opacity: .55; margin-left: 5px; }
+  .upd { margin-left: auto; font-family: var(--font-mono); font-size: 10.5px; color: var(--paper-faint); }
+
+  /* лента */
+  .feed { border-top: 1px solid var(--border-soft); }
+  a.news-row { display: grid; grid-template-columns: 150px 1fr; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--border-soft); text-decoration: none; color: inherit; transition: background .15s; }
+  a.news-row:hover { background: var(--ink-soft); }
+  .news-meta { font-family: var(--font-mono); font-size: 10.5px; color: var(--paper-faint); letter-spacing: .03em; padding-top: 3px; }
+  .news-src { color: var(--paper-dim); display: block; }
+  .news-date { display: block; margin-top: 4px; opacity: .75; }
+  .news-title { font-family: var(--font-display); font-size: 19px; font-weight: 500; line-height: 1.28; letter-spacing: -.01em; transition: color .15s; }
+  a.news-row:hover .news-title { color: var(--signal); }
+  .news-sum { font-size: 13.5px; color: var(--paper-faint); margin-top: 6px; max-width: 780px; }
+  .news-ext { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--paper-faint); margin-top: 8px; display: inline-block; }
+  a.news-row:hover .news-ext { color: var(--paper-dim); }
+
+  .state { padding: 50px 0 30px; max-width: 720px; }
+  .state h3 { font-family: var(--font-display); font-size: 22px; font-weight: 500; margin-bottom: 12px; }
+  .state p { color: var(--paper-dim); font-size: 14px; margin-bottom: 14px; }
+  .state code { font-family: var(--font-mono); font-size: 12px; background: var(--surface); border: 1px solid var(--border); padding: 2px 6px; }
+  .srclist { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  .srclist a { font-family: var(--font-mono); font-size: 11px; color: var(--paper-dim); border: 1px solid var(--border); padding: 9px 14px; text-decoration: none; transition: all .15s; }
+  .srclist a:hover { color: var(--paper); border-color: var(--paper-faint); }
+
+  .note { font-size: 12.5px; color: var(--paper-faint); margin-top: 26px; max-width: 760px; padding-top: 18px; border-top: 1px solid var(--border-soft); }
+  .note a { color: var(--paper-dim); }
+
   .sitefoot { border-top: 1px solid var(--border); margin-top: 60px; }
   .shellrow { max-width: 1240px; margin: 0 auto; padding: 26px 28px 40px; display: flex; align-items: baseline; justify-content: space-between; gap: 14px 24px; flex-wrap: wrap; }
   .sf-left { font-family: var(--font-mono); font-size: 10.5px; color: var(--paper-faint); letter-spacing: .03em; }
   .sf-links { display: flex; flex-wrap: wrap; gap: 6px 18px; }
   .sf-links a { font-family: var(--font-mono); font-size: 10.5px; color: var(--paper-faint); text-decoration: none; letter-spacing: .03em; transition: color .15s; }
   .sf-links a:hover { color: var(--paper); }
-  @media (max-width: 720px) { .hero h1 { font-size: 30px; } .shell, .top-inner, .shellrow { padding-left: 18px; padding-right: 18px; } }
-  
+
+  @media (max-width: 720px) {
+    .hero h1 { font-size: 30px; }
+    .shell, .top-inner, .shellrow { padding-left: 18px; padding-right: 18px; }
+    a.news-row { grid-template-columns: 1fr; gap: 6px; }
+    .news-meta { display: flex; gap: 12px; }
+    .news-date { margin-top: 0; }
+  }
 </style>
 </head>
 <body>
@@ -73,17 +99,21 @@
     </nav>
   </div>
 </div>
+
 <main class="shell">
   <div class="hero">
     <div class="hero-eyebrow">Editorial</div>
     <h1>Новости.</h1>
-    <p>Анонсы камер и объективов, обновления прошивок, события сообщества. Каждая новость связана с конкретной техникой в базе.</p>
+    <p>Лента профильных изданий в одном месте: анонсы камер и объективов, прошивки, слухи.
+       Мы показываем заголовок и краткую выжимку — читать материал вы идёте к автору.</p>
   </div>
-<div class="soon">Раздел в разработке</div>
-  <div class="ph-rows">
-    <div class="ph-row"><span class="t">Здесь появятся анонсы новых камер</span><span class="m">Анонс</span></div>
-    <div class="ph-row"><span class="t">Обновления прошивок для техники из вашего рюкзака</span><span class="m">Прошивка</span></div>
-    <div class="ph-row"><span class="t">События и встречи клубов</span><span class="m">Сообщество</span></div>
+
+  <div id="content"><div class="state"><p>Загружаю ленту…</p></div></div>
+
+  <div class="note">
+    Camerateka не перепечатывает чужие статьи: мы даём заголовок, пару строк и ссылку на оригинал.
+    Права на материалы принадлежат их изданиям. Если вы правообладатель и хотите изменить условия
+    показа — напишите на <a href="kontakty.html">странице контактов</a>.
   </div>
 </main>
 
@@ -100,5 +130,89 @@
   </div>
 </footer>
 
+<script>
+// Воркер-агрегатор RSS (server/feedback-worker.js, эндпоинт /news).
+// Браузер не может читать чужие фиды напрямую из-за CORS — читаем через него.
+const NEWS_ENDPOINT = 'https://camerateka-feedback.alexeynovopashin.workers.dev';
+
+const SOURCES = [
+  { name: 'Photar',            site: 'https://photar.ru' },
+  { name: 'Canon Rumors',      site: 'https://www.canonrumors.com' },
+  { name: 'Nikon Rumors',      site: 'https://nikonrumors.com' },
+  { name: 'Sony Alpha Rumors', site: 'https://www.sonyalpharumors.com' },
+  { name: 'Fuji Rumors',       site: 'https://www.fujirumors.com' },
+];
+
+let ITEMS = [], ACTIVE = null, UPDATED = null;
+const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function relDate(iso) {
+  if (!iso) return '';
+  const d = new Date(iso);
+  if (isNaN(d)) return '';
+  const mins = Math.round((Date.now() - d.getTime()) / 60000);
+  if (mins < 60) return mins <= 1 ? 'только что' : mins + ' мин назад';
+  const hours = Math.round(mins / 60);
+  if (hours < 24) return hours + ' ч назад';
+  const days = Math.round(hours / 24);
+  if (days < 7) return days + ' дн назад';
+  return d.toLocaleDateString('ru-RU', { day: 'numeric', month: 'short', year: 'numeric' });
+}
+
+function renderFeed() {
+  const list = ACTIVE ? ITEMS.filter(i => i.source === ACTIVE) : ITEMS;
+  const counts = {};
+  ITEMS.forEach(i => { counts[i.source] = (counts[i.source] || 0) + 1; });
+
+  const pills = [`<button class="src-pill${ACTIVE ? '' : ' active'}" data-src="">Все<span class="n">${ITEMS.length}</span></button>`]
+    .concat(SOURCES.filter(s => counts[s.name]).map(s =>
+      `<button class="src-pill${ACTIVE === s.name ? ' active' : ''}" data-src="${esc(s.name)}">${esc(s.name)}<span class="n">${counts[s.name]}</span></button>`));
+
+  document.getElementById('content').innerHTML = `
+    <div class="srcbar">${pills.join('')}<span class="upd">${UPDATED ? 'обновлено ' + relDate(UPDATED) : ''}</span></div>
+    <div class="feed">${list.map(i => `
+      <a class="news-row" href="${esc(i.link)}" target="_blank" rel="noopener nofollow">
+        <div class="news-meta"><span class="news-src">${esc(i.source)}</span><span class="news-date">${relDate(i.date)}</span></div>
+        <div>
+          <div class="news-title">${esc(i.title)}</div>
+          ${i.summary ? `<div class="news-sum">${esc(i.summary)}…</div>` : ''}
+          <span class="news-ext">читать в источнике →</span>
+        </div>
+      </a>`).join('')}</div>`;
+
+  document.querySelectorAll('.src-pill').forEach(b => b.addEventListener('click', () => {
+    ACTIVE = b.dataset.src || null;
+    renderFeed();
+  }));
+}
+
+function renderUnavailable(reason) {
+  document.getElementById('content').innerHTML = `
+    <div class="state">
+      <h3>Лента пока не подключена</h3>
+      <p>${esc(reason)}</p>
+      <p>Агрегатор живёт в воркере проекта — эндпоинт <code>/news</code> в
+         <code>server/feedback-worker.js</code>. Пока он не задеплоен, читайте источники напрямую:</p>
+      <div class="srclist">${SOURCES.map(s => `<a href="${s.site}" target="_blank" rel="noopener">${esc(s.name)} →</a>`).join('')}</div>
+    </div>`;
+}
+
+async function load() {
+  if (!NEWS_ENDPOINT) { renderUnavailable('Не задан адрес воркера.'); return; }
+  try {
+    const res = await fetch(NEWS_ENDPOINT.replace(/\/$/, '') + '/news');
+    if (!res.ok) throw new Error('воркер ответил ' + res.status);
+    const data = await res.json();
+    if (!data.items || !data.items.length) throw new Error('лента вернулась пустой');
+    ITEMS = data.items;
+    UPDATED = data.updated;
+    renderFeed();
+  } catch (e) {
+    renderUnavailable('Не удалось получить ленту: ' + e.message + '.');
+  }
+}
+
+load();
+</script>
 </body>
 </html>
