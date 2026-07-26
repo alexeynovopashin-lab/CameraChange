@@ -53,9 +53,14 @@ function tag(block, name) {
   return m ? decodeEntities(m[1]).trim() : '';
 }
 
+// Некоторые фиды отдают сотни килобайт (Nikon Rumors ~400 КБ). Свежие материалы
+// всегда в начале, а разбор всего объёма регулярками упирается в лимит CPU
+// бесплатного тарифа Workers — поэтому режем хвост.
+const MAX_XML = 200000;
+
 function parseFeed(xml, feed) {
   const items = [];
-  const blocks = xml.match(/<item[\s\S]*?<\/item>/gi) || [];
+  const blocks = xml.slice(0, MAX_XML).match(/<item[\s\S]*?<\/item>/gi) || [];
   for (const b of blocks.slice(0, PER_FEED)) {
     const title = tag(b, 'title');
     const link = tag(b, 'link') || (b.match(/<link[^>]*href="([^"]+)"/i) || [])[1] || '';
@@ -102,71 +107,112 @@ function json(data, status = 200) {
   });
 }
 
+// Имя KV-биндинга задаётся при настройке воркера и у всех разное (KV, FEEDBACK, …).
+// Вместо жёсткой привязки находим первый биндинг с методами KV — тогда код
+// не падает из-за того, что переменную назвали иначе.
+function getKV(env) {
+  if (!env) return null;
+  for (const key of Object.keys(env)) {
+    const v = env[key];
+    if (v && typeof v.get === 'function' && typeof v.put === 'function' && typeof v.list === 'function') {
+      return v;
+    }
+  }
+  return null;
+}
+
 export default {
   async fetch(request, env) {
-    const url = new URL(request.url);
-
-    if (request.method === 'OPTIONS') {
-      return new Response(null, { status: 204, headers: CORS });
+    // Любая необработанная ошибка внутри воркера превращается в «error code: 1101»
+    // без подробностей. Ловим всё и отвечаем понятным JSON — иначе отладка вслепую.
+    try {
+      return await handle(request, env);
+    } catch (e) {
+      return json({ error: 'worker exception', detail: String(e && e.message || e) }, 500);
     }
-
-    if (request.method === 'POST' && url.pathname === '/vote') {
-      let body;
-      try { body = await request.json(); } catch (e) { return json({ error: 'bad json' }, 400); }
-
-      const cameraId = String(body.cameraId || '').slice(0, 80);
-      const vote = body.vote === 1 ? 1 : body.vote === -1 ? -1 : 0;
-      const level = String(body.level || 'unknown').slice(0, 40);
-      // id камер — только slug-символы; всё остальное отбрасываем
-      if (!cameraId || !/^[a-z0-9-]+$/.test(cameraId) || vote === 0) {
-        return json({ error: 'bad vote' }, 400);
-      }
-
-      const key = 'votes:' + cameraId;
-      const current = JSON.parse((await env.KV.get(key)) || '{"up":0,"down":0,"levels":{}}');
-      if (vote === 1) current.up++; else current.down++;
-      current.levels[level] = (current.levels[level] || 0) + 1;
-      await env.KV.put(key, JSON.stringify(current));
-      return json({ ok: true });
-    }
-
-    if (request.method === 'GET' && url.pathname === '/stats') {
-      const cameras = {};
-      let cursor;
-      do {
-        const page = await env.KV.list({ prefix: 'votes:', cursor });
-        for (const k of page.keys) {
-          const v = await env.KV.get(k.name);
-          if (v) cameras[k.name.slice(6)] = JSON.parse(v);
-        }
-        cursor = page.list_complete ? null : page.cursor;
-      } while (cursor);
-      const total = Object.values(cameras).reduce((s, c) => s + c.up + c.down, 0);
-      return json({ total, cameras });
-    }
-
-    if (request.method === 'GET' && url.pathname === '/news') {
-      // Кэш в KV: источники опрашиваем не чаще раза в NEWS_TTL секунд.
-      const cached = await env.KV.get(NEWS_KEY, { type: 'json' });
-      if (cached && Date.now() - new Date(cached.updated).getTime() < NEWS_TTL * 1000
-          && url.searchParams.get('refresh') !== '1') {
-        return json({ ...cached, cached: true });
-      }
-      try {
-        const fresh = await buildNews();
-        if (fresh.items.length) {
-          await env.KV.put(NEWS_KEY, JSON.stringify(fresh));
-          return json({ ...fresh, cached: false });
-        }
-        // все источники молчат — лучше отдать прошлый кэш, чем пустоту
-        if (cached) return json({ ...cached, cached: true, stale: true });
-        return json({ updated: new Date().toISOString(), items: [], failed: fresh.failed }, 502);
-      } catch (e) {
-        if (cached) return json({ ...cached, cached: true, stale: true });
-        return json({ error: 'news unavailable' }, 502);
-      }
-    }
-
-    return json({ error: 'not found' }, 404);
   },
 };
+
+async function handle(request, env) {
+  const url = new URL(request.url);
+  const KV = getKV(env);
+
+  if (request.method === 'OPTIONS') {
+    return new Response(null, { status: 204, headers: CORS });
+  }
+
+  // Диагностика: показывает, видит ли воркер KV и как называется биндинг.
+  if (request.method === 'GET' && url.pathname === '/health') {
+    return json({
+      ok: true,
+      kv: !!KV,
+      bindings: Object.keys(env || {}),
+      endpoints: ['/vote', '/stats', '/news', '/health'],
+    });
+  }
+
+  if (request.method === 'POST' && url.pathname === '/vote') {
+    if (!KV) return json({ error: 'KV binding not found' }, 500);
+    let body;
+    try { body = await request.json(); } catch (e) { return json({ error: 'bad json' }, 400); }
+
+    const cameraId = String(body.cameraId || '').slice(0, 80);
+    const vote = body.vote === 1 ? 1 : body.vote === -1 ? -1 : 0;
+    const level = String(body.level || 'unknown').slice(0, 40);
+    // id камер — только slug-символы; всё остальное отбрасываем
+    if (!cameraId || !/^[a-z0-9-]+$/.test(cameraId) || vote === 0) {
+      return json({ error: 'bad vote' }, 400);
+    }
+
+    const key = 'votes:' + cameraId;
+    const current = JSON.parse((await KV.get(key)) || '{"up":0,"down":0,"levels":{}}');
+    if (vote === 1) current.up++; else current.down++;
+    current.levels[level] = (current.levels[level] || 0) + 1;
+    await KV.put(key, JSON.stringify(current));
+    return json({ ok: true });
+  }
+
+  if (request.method === 'GET' && url.pathname === '/stats') {
+    if (!KV) return json({ error: 'KV binding not found' }, 500);
+    const cameras = {};
+    let cursor;
+    do {
+      const page = await KV.list({ prefix: 'votes:', cursor });
+      for (const k of page.keys) {
+        const v = await KV.get(k.name);
+        if (v) cameras[k.name.slice(6)] = JSON.parse(v);
+      }
+      cursor = page.list_complete ? null : page.cursor;
+    } while (cursor);
+    const total = Object.values(cameras).reduce((s, c) => s + c.up + c.down, 0);
+    return json({ total, cameras });
+  }
+
+  if (request.method === 'GET' && url.pathname === '/news') {
+    // Кэш в KV: источники опрашиваем не чаще раза в NEWS_TTL секунд.
+    // Без KV лента всё равно работает — просто без кэша.
+    let cached = null;
+    if (KV) {
+      try { cached = await KV.get(NEWS_KEY, { type: 'json' }); } catch (e) { cached = null; }
+    }
+    if (cached && cached.updated && Date.now() - new Date(cached.updated).getTime() < NEWS_TTL * 1000
+        && url.searchParams.get('refresh') !== '1') {
+      return json({ ...cached, cached: true });
+    }
+    try {
+      const fresh = await buildNews();
+      if (fresh.items.length) {
+        if (KV) { try { await KV.put(NEWS_KEY, JSON.stringify(fresh)); } catch (e) {} }
+        return json({ ...fresh, cached: false });
+      }
+      // все источники молчат — лучше отдать прошлый кэш, чем пустоту
+      if (cached) return json({ ...cached, cached: true, stale: true });
+      return json({ error: 'all feeds failed', failed: fresh.failed, items: [] }, 502);
+    } catch (e) {
+      if (cached) return json({ ...cached, cached: true, stale: true });
+      return json({ error: 'news unavailable', detail: String(e && e.message || e), items: [] }, 502);
+    }
+  }
+
+  return json({ error: 'not found' }, 404);
+}
