@@ -95,6 +95,15 @@
   .links a { display: inline-block; color: var(--paper-dim); text-decoration: underline; text-underline-offset: 3px; font-size: 14px; margin-right: 20px; transition: color .15s; }
   .links a:hover { color: var(--paper); }
 
+  .soft-row { display: grid; grid-template-columns: minmax(160px, 260px) 1fr auto; gap: 18px; align-items: baseline; padding: 13px 0; border-bottom: 1px solid var(--hair); text-decoration: none; }
+  .soft-row:last-child { border-bottom: none; }
+  .soft-name { font-size: 14px; font-weight: 500; transition: color .15s; }
+  .soft-row:hover .soft-name { color: var(--signal); }
+  .soft-desc { font-size: 13px; color: var(--paper-faint); }
+  .soft-go { font-family: var(--font-mono); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; color: var(--paper-faint); white-space: nowrap; }
+  .soft-row:hover .soft-go { color: var(--paper-dim); }
+  @media (max-width: 620px) { .soft-row { grid-template-columns: 1fr; gap: 4px; } .soft-go { display: none; } }
+
   .future { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--paper-faint); }
   .future .soon { font-family: var(--font-mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: var(--paper-dim); border: 1px solid var(--border); padding: 4px 9px; }
 
@@ -164,20 +173,53 @@ const LENS_PH = `<svg class="ph" viewBox="0 0 24 24" fill="none"><circle cx="12"
 const MOUNT_ALIASES = { 'Fujifilm G': 'Fuji G', 'Fujifilm X': 'Fuji X', 'Micro Four Thirds': 'MFT' };
 const normalizeMount = m => MOUNT_ALIASES[m] || m;
 
-// Фирменный софт — универсальные ссылки на актуальные приложения производителя.
-// Официальные страницы проверены (июль 2026).
-const SOFTWARE = {
-  'Canon':      { apps: 'EOS Utility · Digital Photo Professional (DPP)', url: 'https://www.canon-europe.com/support/camera_software/' },
-  'Nikon':      { apps: 'NX Studio', url: 'https://imaging.nikon.com/imaging/lineup/software/nx_studio/' },
-  'Sony':       { apps: 'Imaging Edge Desktop', url: 'https://imagingedge.sony.net/en/ie-desktop.html' },
-  'Fujifilm':   { apps: 'X RAW Studio · тетеринг-плагин', url: 'https://www.fujifilm-x.com/global/support/download/software/' },
-  'Panasonic':  { apps: 'LUMIX Tether · SILKYPIX', url: 'https://av.jpn.support.panasonic.com/support/global/cs/soft/download/lumixtether.html' },
-  'Olympus':    { apps: 'OM Workspace', url: 'https://software.omsystem.com/omworkspace/en/' },
-  'OM System':  { apps: 'OM Workspace', url: 'https://software.omsystem.com/omworkspace/en/' },
-  'Hasselblad': { apps: 'Phocus', url: 'https://www.hasselblad.com/phocus/' },
-  'Leica':      { apps: 'Leica FOTOS', url: 'https://leica-camera.com/en-int/photography/leica-apps/leica-fotos' },
-  'Pentax':     { apps: 'Digital Camera Utility 5', url: 'https://www.ricoh-imaging.co.jp/english/support/download_digital.html' },
-  'Ricoh':      { apps: 'Digital Camera Utility 5 · Image Sync', url: 'https://www.ricoh-imaging.co.jp/english/support/download_digital.html' },
+
+// Фирменное ПО производителей — универсальные ссылки на актуальные приложения.
+// Избавляет от блуждания по сайтам производителей с выбором своей модели.
+const BRAND_SOFTWARE = {
+  'Canon': [
+    { n: 'Digital Photo Professional', d: 'RAW-конвертер', u: 'https://www.canon-europe.com/support/consumer_products/software/digital-photo-professional.html' },
+    { n: 'EOS Utility', d: 'съёмка с компьютера, передача снимков', u: 'https://www.canon-europe.com/support/consumer/software/eos-utility.html' },
+    { n: 'Все программы Canon', d: 'каталог ПО и приложений', u: 'https://www.canon-europe.com/support/camera_software/' }
+  ],
+  'Nikon': [
+    { n: 'NX Studio', d: 'просмотр и обработка RAW', u: 'https://imaging.nikon.com/imaging/lineup/software/nx_studio/' },
+    { n: 'Nikon Download Center', d: 'прошивки и всё ПО', u: 'https://downloadcenter.nikonimglib.com/' }
+  ],
+  'Sony': [
+    { n: 'Imaging Edge Desktop', d: 'Remote / Viewer / Edit — тетеринг и RAW', u: 'https://support.d-imaging.sony.co.jp/app/imagingedge/en/' }
+  ],
+  'Fujifilm': [
+    { n: 'X RAW Studio', d: 'обработка RAW процессором камеры', u: 'https://fujifilm-x.com/support/download/software/' },
+    { n: 'X Acquire / Tether App', d: 'съёмка с компьютера', u: 'https://fujifilm-x.com/support/download/software/' }
+  ],
+  'Panasonic': [
+    { n: 'LUMIX Tether', d: 'съёмка с компьютера', u: 'https://av.jpn.support.panasonic.com/support/global/cs/soft/download/d_lumixtether.html' },
+    { n: 'Все программы LUMIX', d: 'каталог ПО', u: 'https://av.jpn.support.panasonic.com/support/global/cs/soft/download/' }
+  ],
+  'Olympus': [
+    { n: 'OM Workspace', d: 'RAW-конвертер и обработка', u: 'https://software.omsystem.com/omworkspace/en/' }
+  ],
+  'OM System': [
+    { n: 'OM Workspace', d: 'RAW-конвертер и обработка', u: 'https://software.omsystem.com/omworkspace/en/' },
+    { n: 'OM Capture', d: 'съёмка с компьютера', u: 'https://explore.omsystem.com/us/en/software' }
+  ],
+  'Hasselblad': [
+    { n: 'Phocus', d: 'RAW-обработка и тетеринг', u: 'https://www.hasselblad.com/phocus/' }
+  ],
+  'Leica': [
+    { n: 'Leica FOTOS', d: 'управление камерой со смартфона', u: 'https://leica-camera.com/en-int/photography/leica-apps/leica-fotos' },
+    { n: 'Загрузки Leica', d: 'ПО и прошивки', u: 'https://www.leica-camera.com/en-int/service-support/support/downloads' }
+  ],
+  'Pentax': [
+    { n: 'Digital Camera Utility 5', d: 'RAW-конвертер', u: 'https://www.ricoh-imaging.co.jp/english/support/download_digital.html' }
+  ],
+  'Ricoh': [
+    { n: 'Digital Camera Utility 5 · Image Sync', d: 'RAW-конвертер и приложение', u: 'https://www.ricoh-imaging.co.jp/english/support/download_digital.html' }
+  ],
+  'DJI': [
+    { n: 'DJI Mimo', d: 'управление и монтаж', u: 'https://www.dji.com/downloads' }
+  ]
 };
 
 const BACKPACK_KEY = 'ck_backpack';
@@ -277,11 +319,27 @@ function render() {
   if (cam.firmwareUrl) links.push(`<a href="${esc(cam.firmwareUrl)}" target="_blank" rel="noopener">Прошивка</a>`);
   const linksHtml = links.length ? `<section class="blk"><div class="blk-h">Узнать больше</div><div class="links">${links.join('')}</div></section>` : '';
 
-  // фирменный софт (по бренду)
-  const sw = SOFTWARE[cam.brand];
-  const swHtml = sw ? `<section class="blk"><div class="blk-h">Фирменный софт</div>
-    <div class="links"><a href="${esc(sw.url)}" target="_blank" rel="noopener">${esc(sw.apps)} →</a></div>
-    <div style="font-size:12px;color:var(--paper-faint);margin-top:8px;">Официальные приложения ${esc(cam.brand)} для обработки RAW и съёмки с компьютера.</div></section>` : '';
+  // Фирменное ПО бренда — прямые ссылки вместо поиска по сайту производителя
+  const soft = BRAND_SOFTWARE[cam.brand] || [];
+  const softHtml = soft.length ? `<section class="blk"><div class="blk-h">Фирменное ПО ${esc(cam.brand)}</div>
+    <div class="soft-list">${soft.map(s => `
+      <a class="soft-row" href="${esc(s.u)}" target="_blank" rel="noopener">
+        <span class="soft-name">${esc(s.n)}</span>
+        <span class="soft-desc">${esc(s.d)}</span>
+        <span class="soft-go">открыть →</span>
+      </a>`).join('')}</div></section>` : '';
+
+  // Покадровая съёмка: инженерный сценарий (стоп-моушен, предметка, научная съёмка)
+  const smNotes = [];
+  if (cam.stopMotionFirmware) smNotes.push('Поддерживает фирменную прошивку Canon Stop Motion Animation — покадровая съёмка прямо в камере.');
+  if (cam.mechanicalShutter === false) smNotes.push('Затвор только электронный: нет износа и вибрации при тысячах кадров — плюс для длинных покадровых серий.');
+  else if (cam.mechanicalShutter) smNotes.push('Есть механический затвор: ресурс срабатываний ограничен, при длинных покадровых сериях разумно снимать электронным затвором.');
+  const smHtml = (cam.stopMotionFirmware || cam.mechanicalShutter === false) ? `<section class="blk">
+      <div class="blk-h">Покадровая съёмка и предметка</div>
+      <div class="lede">${smNotes.map(esc).join('<br>')}</div>
+    </section>` : '';
+
+
 
   main.innerHTML = `
     <div class="crumbs">
@@ -308,8 +366,9 @@ function render() {
     <section class="blk"><div class="blk-h">Технические данные</div><div class="spec-grid">${specsHtml}</div></section>
     ${evoHtml}
     ${lensHtml}
+    ${smHtml}
+    ${softHtml}
     ${linksHtml}
-    ${swHtml}
     <section class="blk"><div class="blk-h">Снято на ${esc(cam.brand)} ${esc(cam.model)}</div><div class="future"><span class="soon">Скоро</span> Галерея кадров сообщества и владельцы этой камеры.</div></section>
   `;
 
