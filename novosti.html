@@ -50,6 +50,11 @@
   .news-meta { font-family: var(--font-mono); font-size: 10.5px; color: var(--paper-faint); letter-spacing: .03em; padding-top: 3px; }
   .news-src { color: var(--paper-dim); display: block; }
   .news-date { display: block; margin-top: 4px; opacity: .75; }
+  .news-body { display: flex; gap: 18px; align-items: flex-start; }
+  .news-thumb { width: 132px; height: 84px; flex: 0 0 132px; background: var(--surface); overflow: hidden; }
+  .news-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .3s var(--ease); }
+  a.news-row:hover .news-thumb img { transform: scale(1.04); }
+  .news-text { min-width: 0; }
   .news-title { font-family: var(--font-display); font-size: 19px; font-weight: 500; line-height: 1.28; letter-spacing: -.01em; transition: color .15s; }
   a.news-row:hover .news-title { color: var(--signal); }
   .news-sum { font-size: 13.5px; color: var(--paper-faint); margin-top: 6px; max-width: 780px; }
@@ -80,6 +85,7 @@
     a.news-row { grid-template-columns: 1fr; gap: 6px; }
     .news-meta { display: flex; gap: 12px; }
     .news-date { margin-top: 0; }
+    .news-thumb { width: 96px; height: 62px; flex: 0 0 96px; }
   }
 </style>
 </head>
@@ -173,10 +179,15 @@ function renderFeed() {
     <div class="feed">${list.map(i => `
       <a class="news-row" href="${esc(i.link)}" target="_blank" rel="noopener nofollow">
         <div class="news-meta"><span class="news-src">${esc(i.source)}</span><span class="news-date">${relDate(i.date)}</span></div>
-        <div>
-          <div class="news-title">${esc(i.title)}</div>
-          ${i.summary ? `<div class="news-sum">${esc(i.summary)}…</div>` : ''}
-          <span class="news-ext">читать в источнике →</span>
+        <div class="news-body">
+          ${i.image ? `<div class="news-thumb"><img src="${esc(i.image)}" alt="" loading="lazy"
+              referrerpolicy="no-referrer"
+              onerror="this.closest('.news-thumb').remove()" /></div>` : ''}
+          <div class="news-text">
+            <div class="news-title">${esc(i.title)}</div>
+            ${i.summary ? `<div class="news-sum">${esc(i.summary)}…</div>` : ''}
+            <span class="news-ext">читать в источнике →</span>
+          </div>
         </div>
       </a>`).join('')}</div>`;
 

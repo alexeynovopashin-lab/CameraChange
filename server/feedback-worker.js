@@ -58,6 +58,31 @@ function tag(block, name) {
 // бесплатного тарифа Workers — поэтому режем хвост.
 const MAX_XML = 200000;
 
+// Картинку в RSS кладут по-разному, а часть изданий её не кладёт вовсе
+// (из наших пятерых — только Canon Rumors и Nikon Rumors). Пробуем по очереди.
+function extractImage(block) {
+  const enclosure = block.match(/<enclosure[^>]+url=["']([^"']+)["'][^>]*>/i);
+  if (enclosure && /\.(jpe?g|png|webp|gif)(\?|$)/i.test(enclosure[1])) return enclosure[1];
+
+  const media = block.match(/<media:(?:content|thumbnail)[^>]+url=["']([^"']+)["']/i);
+  if (media) return media[1];
+
+  // первый <img> внутри content:encoded / description
+  const img = block.match(/<img[^>]+src=["']([^"']+)["']/i);
+  if (img) return img[1];
+
+  return null;
+}
+
+// Иконки сайта и трекинг-пиксели в фидах встречаются вперемешку с реальными
+// иллюстрациями — отсекаем по характерным размерам в имени файла.
+function isUsableImage(u) {
+  if (!u || !/^https?:\/\//i.test(u)) return false;
+  if (/-(\d{1,2}|1\d\d)x(\d{1,2}|1\d\d)\.(jpe?g|png|webp)/i.test(u)) return false; // мелкие кропы вроде -32x32
+  if (/(favicon|logo-only|cropped-.*-32x32|pixel|spacer|feedburner|gravatar)/i.test(u)) return false;
+  return true;
+}
+
 function parseFeed(xml, feed) {
   const items = [];
   const blocks = xml.slice(0, MAX_XML).match(/<item[\s\S]*?<\/item>/gi) || [];
@@ -66,8 +91,17 @@ function parseFeed(xml, feed) {
     const link = tag(b, 'link') || (b.match(/<link[^>]*href="([^"]+)"/i) || [])[1] || '';
     if (!title || !link) continue;
     const raw = tag(b, 'description') || tag(b, 'content:encoded');
-    const summary = decodeEntities(raw).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 260);
+    const summary = decodeEntities(raw)
+      .replace(/<[^>]+>/g, ' ')
+      // WordPress дописывает в конец «The post … first appeared on …» — это не текст статьи
+      .replace(/The post[\s\S]*?(?:first )?appeared first on[\s\S]*$/i, '')
+      .replace(/The post[\s\S]*?first appeared on[\s\S]*$/i, '')
+      .replace(/\[…\]|\[\.\.\.\]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .slice(0, 240);
     const date = tag(b, 'pubDate') || tag(b, 'dc:date');
+    const rawImg = extractImage(b);
     items.push({
       title: title.slice(0, 300),
       link: link.trim(),
@@ -75,6 +109,7 @@ function parseFeed(xml, feed) {
       lang: feed.lang,
       date: date ? new Date(date).toISOString() : null,
       summary,
+      image: isUsableImage(rawImg) ? rawImg : null,
     });
   }
   return items;
